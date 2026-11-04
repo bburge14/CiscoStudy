@@ -1,0 +1,3 @@
+# Tooling needed only to build the standalone CiscoStudy.exe (not to run the app).
+-r ../requirements.txt
+pyinstaller>=6.6,<7.0

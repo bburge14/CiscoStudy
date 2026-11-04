@@ -5,7 +5,9 @@ testable without Streamlit.
 """
 from __future__ import annotations
 
+import os
 import random
+import sys
 from pathlib import Path
 
 import streamlit as st
@@ -24,7 +26,12 @@ from studyengine.models import Question
 from studyengine.progress import BOX_WEIGHT, Profile
 
 ROOT = Path(__file__).resolve().parent
-USERDATA = ROOT / ".userdata"
+if getattr(sys, "frozen", False):
+    # Packaged .exe: the bundle is extracted to a temp dir that is wiped on
+    # exit, so keep learner progress in a stable, writable per-user folder.
+    USERDATA = Path(os.environ.get("CISCOSTUDY_DATA") or (Path.home() / ".ciscostudy"))
+else:
+    USERDATA = ROOT / ".userdata"
 EXAMS = {"ccna": "CCNA 200-301", "encor": "CCNP ENCOR 350-401"}
 PASS_THRESHOLD = 0.8
 
