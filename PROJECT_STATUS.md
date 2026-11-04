@@ -19,8 +19,9 @@ A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
 | Lessons (Markdown) | ✅ 22 lessons (14 CCNA, 8 ENCOR) |
 | CLI simulator (IOS subset + realistic `show` + IOS errors) | ✅ |
 | PBQ engine with real-state validation | ✅ 11 scenarios (8 CCNA, 3 ENCOR) |
-| Progress dashboard + persistence | ✅ |
-| Launchers | ✅ `run.sh` (macOS/Linux) and `run.bat` (Windows) |
+| Progress dashboard + persistence | ✅ per-profile, auto-saved |
+| Multiple learner profiles | ✅ sidebar picker; per-session, per-profile storage |
+| Launchers | ✅ `run.sh`, `run.bat`, `run-shared.bat` (LAN), exe |
 | Test suite | ✅ 155 tests passing |
 
 Run: `run.bat` (Windows) / `./run.sh` (macOS/Linux) / `streamlit run app.py`.
@@ -71,4 +72,9 @@ L3 routed-port uplink (ENCOR).
 - More PBQ scenarios (HSRP failover, ACL placement, BGP next-hop) — note these
   need new state/commands in the simulator (HSRP, `ip route`, BGP are not modelled yet).
 - Timed exam mode and a weak-area "exam readiness" score.
-- Export/import of progress; multiple named learner profiles.
+- Export/import of a profile's progress.
+- **Internet-hosted multi-user**: the current per-profile JSON files work for a
+  local or LAN-shared instance (each browser session picks a profile). For a
+  public deployment (e.g. Streamlit Community Cloud, which has an ephemeral disk)
+  this needs a real datastore (SQLite on an always-on server, or Postgres) and
+  optional per-user authentication — a deliberate, larger change.

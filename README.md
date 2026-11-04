@@ -77,8 +77,28 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Then open <http://localhost:8501>. Pick your exam track (CCNA / ENCOR) in the
-sidebar. Progress auto-saves to `./.userdata/` (git-ignored, per-machine).
+Then open <http://localhost:8501>. In the sidebar, pick your **learner profile**
+and **exam track** (CCNA / ENCOR). Progress auto-saves per profile (git-ignored,
+on the machine running the app).
+
+## Multiple learners & sharing
+
+The sidebar has a **learner profile** picker: each person creates and selects
+their own profile, and their progress is stored separately (under
+`.userdata/<profile>/` locally, or `~/.ciscostudy/<profile>/` for the exe). The
+profile is per browser session, so several people can use one running instance at
+once without clobbering each other.
+
+Ways to let other people use it:
+
+- **Same network (no servers):** run **`run-shared.bat`** (Windows) — or
+  `streamlit run app.py --server.address 0.0.0.0` on macOS/Linux — then others on
+  the same Wi-Fi/LAN open `http://<your-PC-IP>:8501` and pick their own profile.
+- **Separate machines:** hand each person the `.exe` or the repo; each keeps its
+  own local profiles.
+- **Public web app with accounts:** for an internet-hosted, multi-user deployment
+  you'd swap the per-profile JSON files for a shared database (the free-tier hosts
+  have ephemeral disks). That's a larger change — see PROJECT_STATUS.md.
 
 ---
 

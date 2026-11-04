@@ -79,10 +79,11 @@ st.dataframe(
 )
 
 st.divider()
-with st.expander("⚠️ Reset progress for this track"):
-    st.warning("This permanently clears your answered-item history, mastery boxes, "
-               "completed lessons, milestones and baseline for this exam track.")
-    if st.button(f"Reset all {exam.upper()} progress"):
+with st.expander("⚠️ Reset progress for this profile + track"):
+    st.warning("This permanently clears the CURRENT profile's answered-item history, "
+               "mastery boxes, completed lessons, milestones and baseline for this exam "
+               "track. Other profiles and the other exam track are untouched.")
+    if st.button(f"Reset {exam.upper()} progress for this profile"):
         reset_profile(exam)
         for k in list(st.session_state):
             if k.startswith(("drill_", "dx_", "ms", "lq", "pbq_passed_", "lab_", "sched_")):
