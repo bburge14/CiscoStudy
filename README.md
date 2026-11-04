@@ -59,15 +59,22 @@ how to spot the pattern on the real exam*. There are **no placeholder questions*
 
 ## Quick start
 
-```bash
-pip install -r requirements.txt
-streamlit run app.py
-```
+**Windows** — double-click **`run.bat`** (or run it from `cmd`). It picks up
+Python, installs dependencies on first run, regenerates the question bank and
+opens the app. To make a desktop shortcut, right-click `run.bat` →
+*Send to* → *Desktop (create shortcut)*.
 
-or simply:
+**macOS / Linux**:
 
 ```bash
 ./run.sh
+```
+
+**Any platform**, manually:
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
 ```
 
 Then open <http://localhost:8501>. Pick your exam track (CCNA / ENCOR) in the

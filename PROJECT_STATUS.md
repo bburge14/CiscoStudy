@@ -18,11 +18,18 @@ A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
 | Structured Milestones (Read → Lesson Quiz → Milestone exam + PBQ, unit unlock) | ✅ |
 | Lessons (Markdown) | ✅ 22 lessons (14 CCNA, 8 ENCOR) |
 | CLI simulator (IOS subset + realistic `show` + IOS errors) | ✅ |
-| PBQ engine with real-state validation | ✅ 6 scenarios (5 CCNA, 1 ENCOR) |
+| PBQ engine with real-state validation | ✅ 11 scenarios (8 CCNA, 3 ENCOR) |
 | Progress dashboard + persistence | ✅ |
-| Test suite | ✅ 145 tests passing |
+| Launchers | ✅ `run.sh` (macOS/Linux) and `run.bat` (Windows) |
+| Test suite | ✅ 155 tests passing |
 
-Run: `streamlit run app.py` (or `./run.sh`). Test: `python -m pytest -q`.
+Run: `run.bat` (Windows) / `./run.sh` (macOS/Linux) / `streamlit run app.py`.
+Test: `python -m pytest -q`.
+
+PBQ scenarios: native-VLAN mismatch, EtherChannel on/active, OSPF area mismatch,
+STP root election, access-VLAN, trunk allowed-VLAN pruning, OSPF passive-interface,
+OSPF wildcard/network mismatch (CCNA); OSPF MTU/EXSTART, EtherChannel LACP-vs-PAgP,
+L3 routed-port uplink (ENCOR).
 
 ## How the content pipeline works
 - Questions are **authored** in `tools/content_ccna.py` / `tools/content_encor.py`
@@ -61,6 +68,7 @@ Run: `streamlit run app.py` (or `./run.sh`). Test: `python -m pytest -q`.
 - Grow the item banks further (the architecture scales — just add to the `tools/`
   content modules and rebuild). Some sub-topics have blueprint entries but no
   items yet (e.g. CCNA `dns`, ENCOR `machine_learning_ai`).
-- More PBQ scenarios (HSRP failover, ACL placement, trunk pruning, BGP next-hop).
+- More PBQ scenarios (HSRP failover, ACL placement, BGP next-hop) — note these
+  need new state/commands in the simulator (HSRP, `ip route`, BGP are not modelled yet).
 - Timed exam mode and a weak-area "exam readiness" score.
 - Export/import of progress; multiple named learner profiles.

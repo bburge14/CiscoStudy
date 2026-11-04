@@ -30,6 +30,30 @@ FIXES = {
         "interface gi0/5", "switchport mode access",
         "switchport access vlan 20", "end",
     ],
+    "pbq-ccna-trunk-allowed": [
+        "enable", "conf t", "interface gi0/1",
+        "switchport trunk allowed vlan add 30", "end",
+    ],
+    "pbq-ccna-ospf-passive": [
+        "enable", "conf t", "router ospf 1",
+        "no passive-interface gi0/0", "end",
+    ],
+    "pbq-ccna-ospf-wildcard": [
+        "enable", "conf t", "router ospf 1",
+        "no network 10.6.6.0 0.0.0.0 area 0",
+        "network 10.6.6.0 0.0.0.255 area 0", "end",
+    ],
+    "pbq-encor-ec-protocol": [
+        "enable", "conf t", "interface range gi0/1 - 2",
+        "channel-group 1 mode active", "end",
+    ],
+    "pbq-encor-l3-routed-port": [
+        "enable", "conf t", "ip routing",
+        "interface gi0/1", "no switchport",
+        "ip address 10.0.1.1 255.255.255.252", "no shutdown", "exit",
+        "router ospf 1", "router-id 11.11.11.11",
+        "network 10.0.1.0 0.0.0.3 area 0", "end",
+    ],
 }
 
 
