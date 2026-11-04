@@ -7,13 +7,13 @@ them in turn.
 
 ## OSPF: everybody shares the map
 
-OSPF (Open Shortest Path First) is a *link-state* protocol. That means every
-router builds a complete map of its area and then runs shortest-path math to pick
-routes. To build that shared map, routers mail each other little map notes called
-LSAs (Link-State Advertisements). The reason there are several LSA *types* is
-simply that different notes describe different things, are written by different
-routers, and are allowed to travel different distances. If you keep asking "who
-wrote this note, and how far does it travel?" the types fall into place.
+OSPF (Open Shortest Path First) is a *link-state* protocol: every router builds a
+complete map of its area, then runs shortest-path math to pick routes. To build
+that shared map, routers mail each other little map notes called LSAs (Link-State
+Advertisements). There are several LSA *types* simply because different notes
+describe different things, come from different routers, and travel different
+distances. Keep asking "who wrote this note, and how far does it travel?" and the
+types fall into place.
 
 Every router writes a **Type 1 (Router) LSA** describing its own links; it stays
 inside the area (intra-area). On a shared multiaccess segment like an Ethernet,
@@ -38,14 +38,14 @@ the rest of the domain.
 > **Type 3**, an **ASBR** injects outside routes with **Type 5**, and inside an
 > **NSSA** those become **Type 7** (translated 7→5 at the ABR).
 
-Why would an area want to block some of those notes? To keep small routers' tables
-small. A **stub** area blocks Type 5 externals and the ABR just injects a default
-route instead; no ASBR is allowed inside. A **totally stubby** area goes further
-and blocks Type 3 *and* Type 5 — nothing but a default route gets in. An **NSSA**
-(Not-So-Stubby Area) is the compromise: it blocks ordinary Type 5 externals like a
-stub, but it *does* let a local ASBR inject externals through Type 7 (which the ABR
-translates to Type 5 for everyone else). That's the whole reason NSSA exists — you
-want a stubby area that still has one connection to the outside.
+Why would an area block some of those notes? To keep small routers' tables small. A
+**stub** area blocks Type 5 externals and the ABR injects a default route instead;
+no ASBR is allowed inside. A **totally stubby** area goes further and blocks Type 3
+*and* Type 5 — nothing but a default route gets in. An **NSSA** (Not-So-Stubby
+Area) is the compromise: it blocks ordinary Type 5 externals like a stub but *does*
+let a local ASBR inject externals through Type 7 (which the ABR translates to Type
+5 for everyone else) — the whole reason it exists, a stubby area with one door to
+the outside.
 
 One last OSPF detail: how it scores a path. The formula is `cost =
 reference-bandwidth / interface-bandwidth`, with a minimum of 1. The default
@@ -59,9 +59,9 @@ line up.
 
 EIGRP (Enhanced Interior Gateway Routing Protocol) is an advanced distance-vector
 protocol built around an algorithm called DUAL (Diffusing Update Algorithm). Its
-whole claim to fame is keeping a pre-verified backup path on hand so it can switch
-over the instant the main one breaks. Its metric, by default, comes from bandwidth
-and delay.
+claim to fame is keeping a pre-verified backup path ready, so it fails over the
+instant the main one breaks. Its metric, by default, comes from bandwidth and
+delay.
 
 Four terms carry the idea. Your **Feasible Distance (FD)** is your own best
 (lowest) metric to a destination. A neighbor's **Reported Distance (RD)** is how
@@ -86,8 +86,8 @@ DUAL compute a fresh path.
 
 BGP (Border Gateway Protocol) is how whole networks exchange routes — it's the
 routing protocol that holds the internet together. A "whole network" here means an
-autonomous system (AS): one organization's routing domain under one
-administration. BGP is an exterior gateway protocol (EGP), meaning it routes
+autonomous system (AS): one organization's routing domain. BGP is an exterior
+gateway protocol (EGP), meaning it routes
 *between* those autonomous systems rather than inside one, and it's a *path-vector*
 protocol because it tracks the list of autonomous systems a route has crossed (the
 AS-Path). Routes learned from a different AS are eBGP (external) with an
@@ -95,24 +95,24 @@ administrative distance (AD) of 20; routes learned from a router in your own AS 
 iBGP (internal) with an AD of 200 — lower distance means more trusted, so eBGP is
 believed over iBGP.
 
-BGP usually doesn't care about hop count. Instead, when it has two ways to reach
-the same destination, it walks down a fixed list of tie-breakers (attributes) until
-one wins. In order, highest-priority first:
+BGP usually ignores hop count. When it has two ways to the same destination, it
+walks down a fixed list of tie-breakers (attributes) until one wins — highest
+priority first:
 
-1. **Weight** — Cisco-only, lives on this one router, highest wins. Your personal
+1. **Weight** — Cisco-only, local to this one router, highest wins — your personal
    thumb on the scale.
-2. **Local Preference** — highest wins, and it's shared across your whole AS — how
-   your AS agrees on a preferred exit.
+2. **Local Preference** — highest wins, shared across your whole AS — your AS's
+   agreed exit.
 3. Locally **originated** — a route this router injected itself (via `network`,
-   aggregate, or redistribution) is preferred.
+   aggregate, or redistribution).
 4. Shortest **AS-Path** — fewest autonomous systems to cross.
 5. Lowest **Origin** code — IGP (`i`) beats EGP (`e`) beats Incomplete (`?`).
-6. Lowest **MED** (Multi-Exit Discriminator) — a hint you give a neighbor AS about
-   which of your entrances to use.
+6. Lowest **MED** (Multi-Exit Discriminator) — your hint to a neighbor AS about
+   which entrance to use.
 7. **eBGP over iBGP** — prefer a route learned from outside.
 8. Lowest **IGP metric** to the next hop — the closest exit door.
-9. Finally the tie-breakers: oldest eBGP route, then lowest **router-ID**, then
-   lowest neighbor IP.
+9. The tie-breakers: oldest eBGP route, then lowest **router-ID**, then lowest
+   neighbor IP.
 
 A classic mnemonic for the order is **W**e **L**ove **O**ranges **A**S **O**ranges
 **M**ean **P**ure **R**efreshment.
