@@ -1,0 +1,76 @@
+{
+  "exam": "encor",
+  "units": [
+    {
+      "id": "encor-u1", "order": 1, "title": "Architecture",
+      "summary": "Enterprise campus design, high availability/FHRP, wireless deployment models and SD-Access fabric.",
+      "domains": ["architecture"], "milestone_size": 30, "pbq_id": null,
+      "lessons": [
+        {"id": "encor-l-arch", "title": "Enterprise Design, HA & Fabric",
+         "markdown_path": "encor/ar-design.md",
+         "subtopics": ["enterprise_design", "high_availability", "wireless_deployment", "fabric_overview", "machine_learning_ai"],
+         "quiz_size": 10}
+      ]
+    },
+    {
+      "id": "encor-u2", "order": 2, "title": "Virtualization",
+      "summary": "Hypervisors, VRF, GRE/IPsec data-path virtualization, and VXLAN/EVPN overlays.",
+      "domains": ["virtualization"], "milestone_size": 30, "pbq_id": null,
+      "lessons": [
+        {"id": "encor-l-virt", "title": "Device, Path & Network Virtualization",
+         "markdown_path": "encor/vi-virtualization.md",
+         "subtopics": ["device_virtualization", "data_path_virtualization", "network_virtualization_vrf", "overlay_vxlan"],
+         "quiz_size": 8}
+      ]
+    },
+    {
+      "id": "encor-u3", "order": 3, "title": "Infrastructure",
+      "summary": "Advanced L2 (STP protection, EtherChannel), OSPF/EIGRP/BGP, multicast and QoS.",
+      "domains": ["infrastructure"], "milestone_size": 30, "pbq_id": "pbq-encor-ospf-mtu",
+      "lessons": [
+        {"id": "encor-l-l2", "title": "Advanced Layer 2 & EtherChannel",
+         "markdown_path": "encor/in-l2.md",
+         "subtopics": ["layer2_stp_advanced", "etherchannel_advanced"], "quiz_size": 6},
+        {"id": "encor-l-route", "title": "OSPF, EIGRP & BGP",
+         "markdown_path": "encor/in-routing.md",
+         "subtopics": ["ospf_advanced", "eigrp", "bgp"], "quiz_size": 10},
+        {"id": "encor-l-svc", "title": "Multicast & QoS",
+         "markdown_path": "encor/in-services.md",
+         "subtopics": ["multicast", "qos", "ip_services_encor"], "quiz_size": 6}
+      ]
+    },
+    {
+      "id": "encor-u4", "order": 4, "title": "Network Assurance",
+      "summary": "SPAN/RSPAN/ERSPAN, IP SLA, Flexible NetFlow, SNMP/syslog and streaming telemetry.",
+      "domains": ["network_assurance"], "milestone_size": 30, "pbq_id": null,
+      "lessons": [
+        {"id": "encor-l-assure", "title": "Diagnostics, NetFlow, IP SLA & Telemetry",
+         "markdown_path": "encor/as-assurance.md",
+         "subtopics": ["diagnostics_tools", "flexible_netflow", "spans", "snmp_syslog", "ipsla", "debugs"],
+         "quiz_size": 5}
+      ]
+    },
+    {
+      "id": "encor-u5", "order": 5, "title": "Security",
+      "summary": "Device access control (AAA, CoPP), infrastructure ACLs, TrustSec, 802.1X and wireless security.",
+      "domains": ["security"], "milestone_size": 30, "pbq_id": null,
+      "lessons": [
+        {"id": "encor-l-sec", "title": "AAA, CoPP, TrustSec & Wireless Security",
+         "markdown_path": "encor/se-security.md",
+         "subtopics": ["device_access_control", "infrastructure_security_acls", "network_access_control_8021x", "wireless_security", "cope_security"],
+         "quiz_size": 8}
+      ]
+    },
+    {
+      "id": "encor-u6", "order": 6, "title": "Automation",
+      "summary": "Python data handling, JSON/YAML/XML, EEM, NETCONF/RESTCONF, model-driven telemetry and controller APIs.",
+      "domains": ["automation"], "milestone_size": 30, "pbq_id": null,
+      "lessons": [
+        {"id": "encor-l-auto", "title": "Data Formats, NETCONF, EEM & Telemetry",
+         "markdown_path": "encor/au-automation.md",
+         "subtopics": ["python_data", "json_yaml_xml", "eem_scripting", "netconf_restconf_encor", "model_driven_telemetry", "controllers_apis"],
+         "quiz_size": 8}
+      ]
+    }
+  ]
+}
