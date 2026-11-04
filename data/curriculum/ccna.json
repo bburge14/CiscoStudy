@@ -1,0 +1,86 @@
+{
+  "exam": "ccna",
+  "units": [
+    {
+      "id": "ccna-u1", "order": 1, "title": "Network Fundamentals",
+      "summary": "Addressing math, IPv6, the OSI/TCP-IP model, transport, and switching basics.",
+      "domains": ["network_fundamentals"], "milestone_size": 30, "pbq_id": null,
+      "lessons": [
+        {"id": "ccna-l-subnet", "title": "IPv4 Addressing, Subnetting & Wildcards",
+         "markdown_path": "ccna/nf-subnetting.md",
+         "subtopics": ["ipv4_addressing_subnetting", "wildcard_masks"], "quiz_size": 10},
+        {"id": "ccna-l-ipv6", "title": "IPv6, OSI Model, Transport & Switching",
+         "markdown_path": "ccna/nf-ipv6.md",
+         "subtopics": ["ipv6_addressing", "osi_tcpip", "tcp_udp", "switching_concepts", "cabling_media"],
+         "quiz_size": 12}
+      ]
+    },
+    {
+      "id": "ccna-u2", "order": 2, "title": "Network Access & Switching",
+      "summary": "VLANs and trunking, Spanning Tree root election, EtherChannel, wireless and discovery.",
+      "domains": ["network_access"], "milestone_size": 30, "pbq_id": "pbq-ccna-stp-root",
+      "lessons": [
+        {"id": "ccna-l-vlans", "title": "VLANs & 802.1Q Trunking",
+         "markdown_path": "ccna/na-vlans.md", "subtopics": ["vlans_trunking"], "quiz_size": 8},
+        {"id": "ccna-l-stp-ec", "title": "Spanning Tree & EtherChannel",
+         "markdown_path": "ccna/na-stp-etherchannel.md",
+         "subtopics": ["stp_root_election", "etherchannel"], "quiz_size": 10},
+        {"id": "ccna-l-wifi", "title": "Wireless Architecture & Discovery Protocols",
+         "markdown_path": "ccna/na-wireless.md",
+         "subtopics": ["wlan_architecture", "wlc_config", "cdp_lldp"], "quiz_size": 6}
+      ]
+    },
+    {
+      "id": "ccna-u3", "order": 3, "title": "IP Connectivity & Routing",
+      "summary": "Route selection, static routes, OSPF, wildcard masks and first-hop redundancy.",
+      "domains": ["ip_connectivity"], "milestone_size": 30, "pbq_id": "pbq-ccna-ospf-area",
+      "lessons": [
+        {"id": "ccna-l-route", "title": "The Routing Table & Static Routing",
+         "markdown_path": "ccna/ic-routing.md",
+         "subtopics": ["routing_table", "static_routing", "default_gateway"], "quiz_size": 8},
+        {"id": "ccna-l-ospf", "title": "OSPFv2 Operation",
+         "markdown_path": "ccna/ic-ospf.md", "subtopics": ["ospf", "wildcard_masks"], "quiz_size": 10},
+        {"id": "ccna-l-fhrp", "title": "First-Hop Redundancy (HSRP)",
+         "markdown_path": "ccna/ic-fhrp.md", "subtopics": ["fhrp"], "quiz_size": 5}
+      ]
+    },
+    {
+      "id": "ccna-u4", "order": 4, "title": "IP Services",
+      "summary": "NAT/PAT, DHCP, and the management services NTP, SNMP, Syslog and QoS.",
+      "domains": ["ip_services"], "milestone_size": 30, "pbq_id": null,
+      "lessons": [
+        {"id": "ccna-l-natdhcp", "title": "NAT & DHCP",
+         "markdown_path": "ccna/is-nat-dhcp.md", "subtopics": ["nat", "dhcp", "dns"], "quiz_size": 6},
+        {"id": "ccna-l-mgmt", "title": "NTP, SNMP, Syslog & QoS",
+         "markdown_path": "ccna/is-mgmt.md",
+         "subtopics": ["ntp", "snmp", "syslog", "qos_concepts"], "quiz_size": 8}
+      ]
+    },
+    {
+      "id": "ccna-u5", "order": 5, "title": "Security Fundamentals",
+      "summary": "ACLs, Layer 2 protections, AAA/802.1X and VPN concepts.",
+      "domains": ["security_fundamentals"], "milestone_size": 30, "pbq_id": "pbq-ccna-access-vlan",
+      "lessons": [
+        {"id": "ccna-l-acl", "title": "Access Control Lists",
+         "markdown_path": "ccna/se-acls.md", "subtopics": ["acls"], "quiz_size": 6},
+        {"id": "ccna-l-l2sec", "title": "Layer 2 Security, AAA & VPNs",
+         "markdown_path": "ccna/se-l2-aaa.md",
+         "subtopics": ["port_security", "dhcp_snooping", "dai", "aaa_8021x", "layer2_security", "vpn_concepts"],
+         "quiz_size": 8}
+      ]
+    },
+    {
+      "id": "ccna-u6", "order": 6, "title": "Automation & Programmability",
+      "summary": "SDN controllers, REST APIs, config-management tools, NETCONF/RESTCONF and data formats.",
+      "domains": ["automation"], "milestone_size": 30, "pbq_id": null,
+      "lessons": [
+        {"id": "ccna-l-sdn", "title": "SDN, Controllers, APIs & Tools",
+         "markdown_path": "ccna/au-sdn-apis.md",
+         "subtopics": ["sdn_controllers", "rest_api", "config_mgmt_tools"], "quiz_size": 6},
+        {"id": "ccna-l-netconf", "title": "NETCONF, RESTCONF & Data Formats",
+         "markdown_path": "ccna/au-netconf.md",
+         "subtopics": ["netconf_restconf", "json_data"], "quiz_size": 6}
+      ]
+    }
+  ]
+}
