@@ -5,9 +5,12 @@ testable without Streamlit.
 """
 from __future__ import annotations
 
+import json
 import os
 import random
+import re
 import sys
+import time
 from pathlib import Path
 
 import streamlit as st
@@ -47,29 +50,108 @@ def get_curriculum():
     return load_curriculum()
 
 
-# --- profile persistence ----------------------------------------------------
+# --- learner profiles -------------------------------------------------------
+# Each person gets their own profile folder under USERDATA, so one running
+# instance (local or shared on a network) tracks every learner separately.
+def _slugify(name: str) -> str:
+    s = re.sub(r"[^a-z0-9]+", "-", str(name).strip().lower()).strip("-")
+    return s or "learner"
+
+
+def _registry_path() -> Path:
+    return USERDATA / "users.json"
+
+
+def _save_registry(reg: dict) -> None:
+    try:
+        _registry_path().write_text(json.dumps(reg, indent=2), encoding="utf-8")
+    except Exception:
+        pass
+
+
+def _load_registry() -> dict:
+    USERDATA.mkdir(parents=True, exist_ok=True)
+    reg: dict = {}
+    p = _registry_path()
+    if p.exists():
+        try:
+            reg = json.loads(p.read_text(encoding="utf-8"))
+        except Exception:
+            reg = {}
+    # Back-compat: migrate legacy single-user profile_*.json into a "default" profile.
+    legacy = list(USERDATA.glob("profile_*.json"))
+    if legacy:
+        d = USERDATA / "default"
+        d.mkdir(exist_ok=True)
+        for f in legacy:
+            target = d / f.name
+            try:
+                f.rename(target) if not target.exists() else f.unlink()
+            except Exception:
+                pass
+        reg.setdefault("default", {"name": "Default", "created": time.time()})
+    # Register any profile folders that exist on disk but not yet in the registry.
+    for sub in USERDATA.iterdir():
+        if sub.is_dir():
+            reg.setdefault(sub.name, {"name": sub.name, "created": time.time()})
+    _save_registry(reg)
+    return reg
+
+
+def list_users() -> dict:
+    return _load_registry()
+
+
+def create_user(name: str) -> str:
+    slug = _slugify(name)
+    reg = _load_registry()
+    reg.setdefault(slug, {"name": str(name).strip() or slug, "created": time.time()})
+    _save_registry(reg)
+    (USERDATA / slug).mkdir(parents=True, exist_ok=True)
+    return slug
+
+
+def current_user() -> str:
+    return st.session_state.get("user", "default")
+
+
+# --- profile persistence (per learner) --------------------------------------
 def _profile_path(exam: str) -> Path:
-    return USERDATA / f"profile_{exam}.json"
+    return USERDATA / current_user() / f"profile_{exam}.json"
+
+
+def _profile_key(exam: str) -> str:
+    return f"profile_{current_user()}_{exam}"
 
 
 def get_profile(exam: str) -> Profile:
-    key = f"profile_{exam}"
+    key = _profile_key(exam)
     if key not in st.session_state:
         st.session_state[key] = Profile.load(_profile_path(exam), exam)
     return st.session_state[key]
 
 
 def save_profile(exam: str) -> None:
-    prof = st.session_state.get(f"profile_{exam}")
+    prof = st.session_state.get(_profile_key(exam))
     if prof is not None:
         prof.save(_profile_path(exam))
 
 
 def reset_profile(exam: str) -> None:
-    st.session_state[f"profile_{exam}"] = Profile(exam=exam)
+    st.session_state[_profile_key(exam)] = Profile(exam=exam)
     p = _profile_path(exam)
     if p.exists():
         p.unlink()
+
+
+_STUDY_STATE_PREFIXES = ("drill_", "dx_", "ms", "lq", "lqids_", "msids_",
+                         "mspbq_", "pbq_passed_", "lab_", "sched_")
+
+
+def _clear_session_study_state() -> None:
+    for k in list(st.session_state):
+        if k.startswith(_STUDY_STATE_PREFIXES):
+            st.session_state.pop(k, None)
 
 
 # --- shared page chrome -----------------------------------------------------
@@ -77,8 +159,40 @@ def page_setup(title: str, icon: str = "🛜") -> str:
     st.set_page_config(page_title=f"CiscoStudy · {title}", page_icon=icon, layout="wide")
     if "exam" not in st.session_state:
         st.session_state["exam"] = "ccna"
+
+    reg = list_users()
+    if not reg:
+        create_user("Default")
+        reg = list_users()
+    if st.session_state.get("user") not in reg:
+        st.session_state["user"] = "default" if "default" in reg else sorted(reg)[0]
+
     with st.sidebar:
         st.markdown("### CiscoStudy")
+
+        # --- learner profile picker (per browser session) ---
+        slugs = sorted(reg, key=lambda s: reg[s].get("name", s).lower())
+        names = {s: reg[s].get("name", s) for s in slugs}
+        sel = st.selectbox(
+            "Learner profile", slugs,
+            index=slugs.index(st.session_state["user"]),
+            format_func=lambda s: names.get(s, s),
+        )
+        if sel != st.session_state["user"]:
+            st.session_state["user"] = sel
+            _clear_session_study_state()
+            st.rerun()
+        with st.expander("➕ New profile"):
+            with st.form("new_profile", clear_on_submit=True):
+                new_name = st.text_input("Name", placeholder="e.g. Alex")
+                if st.form_submit_button("Create & switch") and new_name.strip():
+                    st.session_state["user"] = create_user(new_name)
+                    _clear_session_study_state()
+                    st.rerun()
+            st.caption("Shared instance? Each person should create and select their "
+                       "own profile so progress stays separate.")
+        st.divider()
+
         exam = st.radio(
             "Exam track",
             list(EXAMS),
@@ -89,12 +203,14 @@ def page_setup(title: str, icon: str = "🛜") -> str:
         if exam != st.session_state["exam"]:
             st.session_state["exam"] = exam
             st.rerun()
+
         prof = get_profile(exam)
         seen, correct = prof.overall()
         acc = f"{round(correct / seen * 100)}%" if seen else "—"
+        st.caption(f"Profile: **{names.get(st.session_state['user'], st.session_state['user'])}**")
         st.metric("Questions answered", seen)
         st.metric("Lifetime accuracy", acc)
-        st.caption("Progress auto-saves to .userdata/ after every answer.")
+        st.caption("Progress auto-saves per profile after every answer.")
     return st.session_state["exam"]
 
 
