@@ -30,6 +30,13 @@ REM (Re)generate the question bank from the authored source (quietly).
 REM Install runtime dependencies on first run (harmless if already present).
 %PY% -m pip install -q -r requirements.txt
 
+REM Skip Streamlit's first-run "Email:" onboarding prompt (seed empty credentials).
+if not exist "%USERPROFILE%\.streamlit" mkdir "%USERPROFILE%\.streamlit"
+if not exist "%USERPROFILE%\.streamlit\credentials.toml" (
+  >"%USERPROFILE%\.streamlit\credentials.toml" echo [general]
+  >>"%USERPROFILE%\.streamlit\credentials.toml" echo email = ""
+)
+
 echo.
 echo Starting CiscoStudy at http://localhost:8501
 echo (A browser tab should open automatically. Press Ctrl+C here to stop.)

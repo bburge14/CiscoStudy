@@ -20,6 +20,20 @@ def _base_dir() -> str:
     return os.path.dirname(os.path.abspath(__file__))
 
 
+def _suppress_email_prompt() -> None:
+    # Pre-seed an empty Streamlit credentials file so the first-run "Email:"
+    # onboarding prompt never blocks the bundled app.
+    try:
+        cred_dir = os.path.join(os.path.expanduser("~"), ".streamlit")
+        cred = os.path.join(cred_dir, "credentials.toml")
+        if not os.path.exists(cred):
+            os.makedirs(cred_dir, exist_ok=True)
+            with open(cred, "w", encoding="utf-8") as fh:
+                fh.write('[general]\nemail = ""\n')
+    except Exception:
+        pass
+
+
 def _open_browser(url: str, delay: float = 2.5) -> None:
     def _go() -> None:
         time.sleep(delay)
@@ -34,6 +48,7 @@ def main() -> None:
     base = _base_dir()
     # chdir so Streamlit finds .streamlit/config.toml (theme) in the bundle.
     os.chdir(base)
+    _suppress_email_prompt()
     app_path = os.path.join(base, "app.py")
     port = os.environ.get("CISCOSTUDY_PORT", "8501")
 

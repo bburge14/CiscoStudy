@@ -11,4 +11,11 @@ fi
 # Install runtime deps on first run (harmless if already satisfied).
 python3 -m pip install -q -r requirements.txt || true
 
+# Skip Streamlit's first-run "Email:" onboarding prompt (seed empty credentials).
+CRED="$HOME/.streamlit/credentials.toml"
+if [ ! -f "$CRED" ]; then
+  mkdir -p "$HOME/.streamlit"
+  printf '[general]\nemail = ""\n' > "$CRED"
+fi
+
 exec python3 -m streamlit run app.py "$@"
