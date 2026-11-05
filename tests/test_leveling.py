@@ -136,6 +136,20 @@ def test_xp_and_streak_persist_through_serialization():
     assert p2.xp == p.xp and p2.answer_streak == p.answer_streak
 
 
+def test_open_book_scale_reduces_a_correct_reward():
+    pf, pp = Profile("ccna"), Profile("ccna")
+    q = _q(_ccna_ids(1)[0])
+    full = pf.record_study(q, True, xp_scale=1.0)["delta"]
+    pin = pp.record_study(q, True, xp_scale=0.4)["delta"]
+    assert 0 < pin < full                 # less help-scaled reward, still positive
+
+
+def test_open_book_miss_costs_nothing_when_not_penalized():
+    p = Profile("ccna")
+    info = p.record_study(_q(_ccna_ids(1)[0]), False, penalize=False)
+    assert info["delta"] == 0 and p.xp == 0.0 and not info["regressed"]
+
+
 def test_legacy_profile_without_xp_is_backfilled():
     # A pre-event-XP profile (no "xp" key) gets a fair starting XP from study.
     p = Profile("ccna")

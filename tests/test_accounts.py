@@ -2,6 +2,27 @@
 import json
 
 import ui_common as U
+from studyengine import load_bank
+from studyengine.progress import Profile
+
+_BANK = load_bank()
+
+
+def _seed_learner(tmp_path, slug="learner1", exam="ccna"):
+    """A learner with real study progress AND a diagnostic benchmark on disk."""
+    ccna = [q for q in _BANK.all() if q.exam == exam]
+    prof = Profile(exam=exam)
+    # 3 benchmark questions (recorded + noted as baseline -> excluded from study)
+    for q in ccna[:3]:
+        prof.record(q, True)
+        prof.note_baseline_answer(q, True)
+    prof.baseline = {"overall": 50, "total": 3}
+    # 5 study answers -> earns XP and counts toward study metrics
+    for q in ccna[3:8]:
+        prof.record_study(q, True)
+    (tmp_path / slug).mkdir(parents=True, exist_ok=True)
+    prof.save(tmp_path / slug / f"profile_{exam}.json")
+    return prof
 
 
 def test_create_and_authenticate(tmp_path, monkeypatch):
@@ -87,6 +108,46 @@ def test_admin_create_reset_role_delete(tmp_path, monkeypatch):
     U.delete_account(slug)
     assert slug not in U.list_users()
     assert not (tmp_path / slug).exists()
+
+
+def test_admin_reset_progress_wipes_everything(tmp_path, monkeypatch):
+    monkeypatch.setattr(U, "USERDATA", tmp_path)
+    U.create_account("learner1", "pw123456", "Learner One")
+    seeded = _seed_learner(tmp_path)
+    assert seeded.xp > 0 and seeded.study_overall()[0] > 0 and seeded.baseline
+
+    assert U.admin_reset_progress("learner1", "ccna") is True
+    fresh = U.load_user_profile("learner1", "ccna")
+    assert fresh.xp == 0.0
+    assert fresh.study_overall() == (0, 0)
+    assert fresh.overall() == (0, 0)
+    assert fresh.baseline is None
+    assert fresh.q == {}
+
+    # unknown account -> no-op, reported as failure
+    assert U.admin_reset_progress("nobody", "ccna") is False
+
+
+def test_admin_reset_benchmark_keeps_study_and_exclusion(tmp_path, monkeypatch):
+    monkeypatch.setattr(U, "USERDATA", tmp_path)
+    U.create_account("learner1", "pw123456", "Learner One")
+    seeded = _seed_learner(tmp_path)
+    xp_before = seeded.xp
+    study_before = seeded.study_overall()
+    assert xp_before > 0 and study_before[0] == 5    # 5 study answers
+
+    assert U.admin_reset_benchmark("learner1", "ccna") is True
+    after = U.load_user_profile("learner1", "ccna")
+    # benchmark result is gone -> diagnostic is re-takeable
+    assert after.baseline is None
+    # study progress untouched: XP and answered count preserved...
+    assert after.xp == xp_before
+    assert after.study_overall() == study_before
+    # ...and the old benchmark answers are STILL excluded (not inflating study)
+    assert after.baseline_stats is not None
+    assert after.study_overall()[0] < after.overall()[0]
+
+    assert U.admin_reset_benchmark("nobody", "ccna") is False
 
 
 def test_claim_legacy_profile_keeps_data(tmp_path, monkeypatch):

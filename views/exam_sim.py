@@ -112,7 +112,7 @@ if state["phase"] == "running":
     st.caption(f"{bp.domain(q.domain).name}")
     sel = answer_widget(q, key=f"{SKEY}_ans_{idx}")
 
-    c = st.columns([1, 1, 4])
+    c = st.columns([1.4, 1, 1.4, 3])
     last = idx == total - 1
     if c[0].button("Finish" if last else "Submit & next ▶", type="primary"):
         state["answers"][q.id] = sel
@@ -121,7 +121,14 @@ if state["phase"] == "running":
         else:
             state["idx"] += 1
         st.rerun()
-    if c[1].button("End exam now"):
+    if c[1].button("Skip ▶", help="Leave this one unanswered and move on (counts as incorrect)."):
+        # store nothing -> graded as unanswered/incorrect, like skipping on the real exam
+        if last or int(state["deadline"] - time.time()) <= 0:
+            _finalize(state)
+        else:
+            state["idx"] += 1
+        st.rerun()
+    if c[2].button("End exam now"):
         state["answers"][q.id] = sel
         _finalize(state)
         st.rerun()

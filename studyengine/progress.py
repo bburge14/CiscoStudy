@@ -83,12 +83,17 @@ class Profile:
             st.box = 1
         return st
 
-    def record_study(self, question: Question, correct: bool) -> dict:
+    def record_study(self, question: Question, correct: bool, *,
+                     xp_scale: float = 1.0, penalize: bool = True) -> dict:
         """Record a STUDY answer (drill, plan, quiz, open-book, exam) and award
         event-based XP. Rewards getting better (improving weak items, mastering
         them) and streaks; penalizes misses — harder when you drop one you had
         down. The diagnostic benchmark uses record()+note_baseline_answer()
         instead and earns no XP.
+
+        xp_scale multiplies a correct answer's reward (open-book uses < 1 when the
+        book was used, scaled by how much help the mode gave). penalize=False
+        makes a miss cost nothing (open-book never hurts your score).
 
         Returns {delta, streak, learned, mastered, regressed} for UI feedback."""
         pre_box = self.box_of(question.id)
@@ -108,12 +113,16 @@ class Profile:
                 if pre_box == 4:                    # box 4 -> 5: just mastered it
                     delta += XP_MASTER_BONUS
                     flags["mastered"] = True
+            delta = round(delta * max(xp_scale, 0.0))
         else:
             self.answer_streak = 0
-            delta = XP_MISS_PENALTY
-            if pre_box >= 3:                         # you had this down and missed it
-                delta += XP_REGRESS_PENALTY
-                flags["regressed"] = True
+            if penalize:
+                delta = XP_MISS_PENALTY
+                if pre_box >= 3:                     # you had this down and missed it
+                    delta += XP_REGRESS_PENALTY
+                    flags["regressed"] = True
+            else:
+                delta = 0                            # open-book: a miss never hurts
         self.xp = max(0.0, self.xp + delta)
         return {"delta": int(delta), "streak": self.answer_streak, **flags}
 

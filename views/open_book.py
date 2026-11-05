@@ -1,27 +1,32 @@
-"""Open-Book Review: the lessons are here if you need them — but on your honor.
+"""Open-Book Review: a true open-book test with adjustable help.
 
-Looking something up is allowed and sometimes smart, but it's a signal that you
-haven't mastered the topic yet. So a peek costs you: a correct-but-looked-up
-answer scores as a peek AND is recorded as still-to-study (it resurfaces), while
-a correct unaided answer counts toward mastery. Your "honest score" only counts
-answers you got without the book.
+The book is open while you answer, and it never hurts your score (answers count
+toward your progress and XP like Endless Drill). You choose how much the book
+helps you find the answer:
+
+* Full book    — every lesson is browsable; nothing tells you where the answer
+                 is. You search it like real documentation.
+* General area — the book is narrowed to this question's domain; find the right
+                 lesson within it.
+* Pinpoint     — the book opens straight to the lesson for this sub-topic.
 """
 from __future__ import annotations
 
 import streamlit as st
 
-from studyengine import get_blueprint, grade, lesson_markdown
+from studyengine import get_blueprint, lesson_markdown
 from ui_common import (
     answer_widget,
     get_bank,
     get_curriculum,
     get_profile,
     get_scheduler,
+    grade_and_record,
+    last_xp_event,
     page_header,
     page_setup,
     render_feedback,
     render_xp_event,
-    save_profile,
 )
 
 exam = page_setup("Open-Book Review", icon="📖")
@@ -32,36 +37,32 @@ sched = get_scheduler(exam)
 SKEY = f"openbook_{exam}"
 
 ob = st.session_state.setdefault(
-    SKEY, {"qid": None, "phase": "answering", "fb": None, "book_used": False,
-           "recent": [], "answered": 0, "unaided": 0, "peeked": 0},
+    SKEY, {"qid": None, "phase": "answering", "fb": None,
+           "recent": [], "answered": 0, "correct": 0},
 )
 
 page_header("book_search", "Open-Book Review")
 
-
-# Map each sub-topic to the lesson(s) that teach it (built once per exam/run).
-def _subtopic_lessons(exam: str) -> dict[str, list]:
-    out: dict[str, list] = {}
-    for u in get_curriculum().units_for(exam):
-        for lesson in u.lessons:
-            for stp in lesson.subtopics:
-                out.setdefault(stp, []).append(lesson)
-    return out
-
-
 st.markdown(
-    "The book is open — but it's on your honor. **Looking a question up is allowed**, yet it "
-    "means you don't know it *yet*, so a peek costs points and marks that topic for more "
-    "study. Answer without the book whenever you can."
+    "An open-book test: the book is open while you answer, and it **never hurts your "
+    "score**. Choose how much help it gives you finding the answer."
 )
+mode = st.radio(
+    "Book access", ["Full book", "General area", "Pinpoint"], horizontal=True,
+    key=f"{SKEY}_mode",
+    help="Full book = search everything (hardest). General area = narrowed to this "
+         "question's domain. Pinpoint = the exact lesson (easiest).",
+)
+XP_SCALE = {"Full book": 1.0, "General area": 0.7, "Pinpoint": 0.4}
+st.caption("Answer **without opening the book** for full XP. If you open it, a correct "
+           "answer earns less the more help the mode gives — **Full book 100% · General "
+           "area 70% · Pinpoint 40%** — and a miss never costs you anything.")
 
 # --- scoreboard -------------------------------------------------------------
-honest = f"{round(ob['unaided'] / ob['answered'] * 100)}%" if ob["answered"] else "—"
-m1, m2, m3, m4 = st.columns(4)
+acc = f"{round(ob['correct'] / ob['answered'] * 100)}%" if ob["answered"] else "—"
+m1, m2 = st.columns(2)
 m1.metric("Answered", ob["answered"])
-m2.metric("Unaided correct", ob["unaided"])
-m3.metric("Peeks", ob["peeked"])
-m4.metric("Honest score", honest, help="Share of questions you got right WITHOUT the book.")
+m2.metric("Accuracy", acc)
 st.divider()
 
 # --- pick a question --------------------------------------------------------
@@ -70,7 +71,6 @@ if ob["qid"] is None:
     ob["qid"] = nxt.id if nxt else None
     ob["phase"] = "answering"
     ob["fb"] = None
-    ob["book_used"] = False
 
 if ob["qid"] is None:
     st.warning("No questions available for this exam track.")
@@ -80,59 +80,89 @@ q = bank.get(ob["qid"])
 st.caption(f"Domain: {bp.domain(q.domain).name}  ·  Sub-topic: {q.subtopic.replace('_', ' ')}  "
            f"·  Difficulty: {'●' * q.difficulty}{'○' * (3 - q.difficulty)}")
 
+
+def _pinpoint_lessons():
+    out = []
+    for u in get_curriculum().units_for(exam):
+        for lesson in u.lessons:
+            if q.subtopic in lesson.subtopics:
+                out.append((u, lesson))
+    return out
+
+
+def _render_book() -> None:
+    """Render the open book for the current question, scoped by the chosen mode."""
+    if mode == "Pinpoint":
+        pairs = _pinpoint_lessons()
+        if pairs:
+            st.caption("Pinpoint: the lesson(s) that cover this question's sub-topic.")
+            i = st.selectbox("Lesson", range(len(pairs)), key=f"{SKEY}_pp",
+                             format_func=lambda i: f"{pairs[i][1].title} (Unit {pairs[i][0].order})")
+            with st.container(border=True):
+                st.markdown(lesson_markdown(pairs[i][1]))
+            return
+        st.info("No single lesson maps to this sub-topic — browse the unit below.")
+
+    units = get_curriculum().units_for(exam)
+    if mode == "General area":
+        scoped = [u for u in units if q.domain in getattr(u, "domains", [])]
+        if scoped:
+            units = scoped
+            st.caption(f"General area: narrowed to **{bp.domain(q.domain).name}** — "
+                       "find the right lesson within it.")
+    elif mode == "Full book":
+        st.caption("Full book: the whole library. Nothing tells you which lesson holds the answer.")
+
+    if not units:
+        st.info("No lessons are available for this track yet.")
+        return
+    bu = st.selectbox("Unit", units, key=f"{SKEY}_bu",
+                      format_func=lambda u: f"Unit {u.order}: {u.title}")
+    bl = st.selectbox("Lesson", bu.lessons, key=f"{SKEY}_bl", format_func=lambda l: l.title)
+    with st.container(border=True):
+        st.markdown(lesson_markdown(bl))
+
+
 # --- answering phase --------------------------------------------------------
 if ob["phase"] == "answering":
     sel = answer_widget(q, key=f"{SKEY}_ans_{q.id}")
 
-    # The book: a deliberate, recorded peek (Streamlit can't detect an expander
-    # opening, so looking it up is an explicit click).
-    if not ob["book_used"]:
-        if st.button("📖 Look it up in the lessons  (counts as a peek)", key=f"{SKEY}_peek"):
-            ob["book_used"] = True
+    csub, cskip = st.columns(2)
+    with csub:
+        submit = st.button("Submit", type="primary", key=f"{SKEY}_submit")
+    with cskip:
+        if st.button("Skip ▶", key=f"{SKEY}_skip",
+                     help="Move on without answering — no effect on your score."):
+            ob["recent"] = ([q.id] + ob["recent"])[:8]
+            ob["qid"] = None
             st.rerun()
-    else:
-        st.warning("📖 Book open — this answer will count as a **peek** and the topic will be "
-                   "marked for more study, even if you get it right.")
-        lessons = _subtopic_lessons(exam).get(q.subtopic, [])
-        if lessons:
-            lesson = lessons[0]
-            with st.container(border=True):
-                st.markdown(f"#### 📘 {lesson.title}")
-                st.markdown(lesson_markdown(lesson))
-        else:
-            st.info(f"No dedicated lesson page for **{q.subtopic.replace('_', ' ')}** yet. "
-                    "Use the References below after you answer, and mark this topic to review.")
-
-    if st.button("Submit", type="primary", key=f"{SKEY}_submit"):
-        fb = grade(q, sel)
-        mastered = fb.correct and not ob["book_used"]
-        # A peeked-correct answer is recorded as NOT mastered, so it resurfaces,
-        # counts toward "needs study", and earns no XP — the honor-system cost.
-        ob["xp_event"] = prof.record_study(q, mastered)
-        save_profile(exam)
+    if submit:
+        # If the book was open for this answer, scale the reward by how much
+        # help the mode gave; answering cold earns full XP. A miss never hurts.
+        used_book = bool(st.session_state.get(f"{SKEY}_book", False))
+        scale = XP_SCALE.get(mode, 1.0) if used_book else 1.0
+        fb = grade_and_record(exam, q, sel, xp_scale=scale, penalize=False)
         ob["fb"] = fb
         ob["answered"] += 1
-        if mastered:
-            ob["unaided"] += 1
-        if ob["book_used"]:
-            ob["peeked"] += 1
+        if fb.correct:
+            ob["correct"] += 1
         ob["recent"] = ([q.id] + ob["recent"])[:8]
         ob["phase"] = "feedback"
         st.rerun()
 
+    st.divider()
+    if st.toggle("📖 Open the book", key=f"{SKEY}_book",
+                 help="Browse the lessons (scoped by the mode above) to find the answer."):
+        _render_book()
+
 # --- feedback phase ---------------------------------------------------------
 else:
     fb = ob["fb"]
-    if fb.correct and not ob["book_used"]:
-        st.success("✅ **Correct, unaided** — that counts toward mastery.")
-    elif fb.correct and ob["book_used"]:
-        st.warning("📖 **Correct, but with the book.** Scored as a peek and marked for more "
-                   "study — you'll see this topic again. Next time, try it closed-book first.")
+    if fb.correct:
+        st.success("✅ **Correct.**")
     else:
-        st.error("❌ **Incorrect** — marked for study."
-                 + ("  (You had the book open — focus here.)" if ob["book_used"] else ""))
-
-    render_xp_event(ob.get("xp_event", {}))
+        st.error("❌ **Incorrect** — this one will resurface so you can nail it next time.")
+    render_xp_event(last_xp_event())
     render_feedback(q, fb)
     if st.button("Next question ▶", type="primary", key=f"{SKEY}_next"):
         ob["qid"] = None
