@@ -29,31 +29,53 @@ drill = st.session_state.setdefault(
 st.title("♾️ Endless Drill")
 
 # --- controls ---------------------------------------------------------------
-c1, c2, c3, c4 = st.columns(4)
-remediation = c1.toggle("Remediation mode", value=False,
-                        help="Draw only from sub-topics you score below 80% on.")
-c2.metric("Answered (session)", drill["seen"])
+dom_keys = sched.domains_available()
+cf, cr = st.columns([3, 1])
+with cf:
+    picked = st.multiselect(
+        "Focus domains", options=dom_keys, format_func=lambda k: bp.domain(k).name,
+        default=[], key=f"{SKEY}_domains",
+        help="Leave empty to drill all domains (weighted like the real exam). "
+             "Pick one or more to focus the stream on just those domains.",
+    )
+with cr:
+    remediation = st.toggle("Remediation mode", value=False,
+                            help="Draw only from sub-topics you score below 80% on.")
+
+c1, c2, c3 = st.columns(3)
+c1.metric("Answered (session)", drill["seen"])
 acc = f"{round(drill['correct']/drill['seen']*100)}%" if drill["seen"] else "—"
-c3.metric("Session accuracy", acc)
-c4.metric("Streak", drill["streak"])
+c2.metric("Session accuracy", acc)
+c3.metric("Streak", drill["streak"])
 
 if remediation and not sched.remediation_available(prof):
     st.info("No weak sub-topics yet (need at least 3 attempts in a sub-topic scoring "
             "<80%). Showing the full adaptive stream instead.")
     remediation = False
 
-st.caption("Missed questions automatically resurface more often until you master them.")
+# Changing the domain focus re-picks within the new scope immediately.
+if drill.get("domains") != picked:
+    drill["domains"] = picked
+    drill["qid"] = None
+
+if picked:
+    names = ", ".join(bp.domain(k).name for k in picked)
+    st.caption(f"Focused on **{names}**. Missed questions resurface more often until you master them.")
+else:
+    st.caption("All domains, weighted like the real exam. "
+               "Missed questions automatically resurface more often until you master them.")
 st.divider()
 
 # --- pick a question if needed ---------------------------------------------
 if drill["qid"] is None:
-    nxt = sched.next(prof, recent_ids=drill["recent"], remediation=remediation)
+    nxt = sched.next(prof, recent_ids=drill["recent"], remediation=remediation,
+                     domains=picked or None)
     drill["qid"] = nxt.id if nxt else None
     drill["phase"] = "answering"
     drill["fb"] = None
 
 if drill["qid"] is None:
-    st.warning("No questions available for this exam track.")
+    st.warning("No questions available for this selection.")
     st.stop()
 
 q = bank.get(drill["qid"])
