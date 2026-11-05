@@ -320,7 +320,7 @@ def _clear_session_study_state() -> None:
 
 # --- shared page chrome -----------------------------------------------------
 def _render_login() -> None:
-    _, mid, _ = st.columns([1, 2, 1])   # centered, half-width card
+    _, mid, _ = st.columns([3, 2, 3])   # centered, ~25%-width card
     with mid:
         st.title("🔐 CiscoStudy")
         st.caption("CCNA 200-301 & CCNP ENCOR 350-401 study and diagnostic tool. "

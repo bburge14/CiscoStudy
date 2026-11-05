@@ -57,6 +57,7 @@ with colA:
 with colB:
     st.page_link("pages/4_Structured_Milestones.py", label="Lessons & Milestones — read then test", icon=":material/menu_book:")
     st.page_link("pages/5_PBQ_Lab.py", label="PBQ Lab — hands-on Cisco CLI", icon=":material/terminal:")
+    st.page_link("pages/8_Exam_Simulation.py", label="Exam Simulation — timed mock test", icon=":material/timer:")
     st.page_link("pages/1_Diagnostic_Baseline.py", label="Diagnostic Baseline", icon=":material/fact_check:")
 
 if is_instructor(current_user()):
