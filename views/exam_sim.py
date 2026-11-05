@@ -45,7 +45,7 @@ def _finalize(state: dict) -> None:
         q = bank.get(qid)
         ok = q.check(state["answers"].get(qid))
         attempts.append((qid, ok))
-        prof.record(q, ok)
+        prof.record_study(q, ok)
     save_profile(exam)
     score = score_session(attempts, bank)
     state["summary"] = {

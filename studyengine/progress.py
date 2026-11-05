@@ -19,6 +19,17 @@ from .models import Question
 BOX_WEIGHT: dict[int, float] = {1: 8.0, 2: 5.0, 3: 3.0, 4: 2.0, 5: 1.0}
 MASTERY_THRESHOLD = 0.8
 
+# --- study XP event weights (see Profile.record_study) ----------------------
+# XP rewards getting BETTER (improving/mastering) and streaks, and penalizes
+# misses. Just attempting earns nothing — a wrong answer costs XP.
+XP_CORRECT_BASE = 4        # + the question's difficulty (1-3)
+XP_STREAK_CAP = 12         # max streak bonus added to a correct answer
+XP_LEARN_BONUS = 6         # correct on a weak/new item (box <= 2): knowledge gained
+XP_MASTER_BONUS = 20       # correct that pushes an item to box 5 (mastered)
+XP_MASTERED_MAINTAIN = 1   # re-answering an already-mastered item: negligible
+XP_MISS_PENALTY = -6       # a wrong answer costs XP
+XP_REGRESS_PENALTY = -6    # extra cost for missing an item you had down (box >= 3)
+
 
 @dataclass
 class QStat:
@@ -47,6 +58,11 @@ class Profile:
     completed_lessons: set[str] = field(default_factory=set)
     passed_milestones: set[str] = field(default_factory=set)
     created: float = field(default_factory=time.time)
+    # Accumulated study XP (event-based: streak bonuses, mastery/learning
+    # bonuses, miss penalties). See record_study(). The diagnostic earns none.
+    xp: float = 0.0
+    answer_streak: int = 0     # current consecutive correct (study only)
+    best_streak: int = 0       # longest streak reached
 
     # -- recording ---------------------------------------------------------
     def record(self, question: Question, correct: bool) -> QStat:
@@ -66,6 +82,40 @@ class Profile:
             st.streak = st.streak - 1 if st.streak <= 0 else -1
             st.box = 1
         return st
+
+    def record_study(self, question: Question, correct: bool) -> dict:
+        """Record a STUDY answer (drill, plan, quiz, open-book, exam) and award
+        event-based XP. Rewards getting better (improving weak items, mastering
+        them) and streaks; penalizes misses — harder when you drop one you had
+        down. The diagnostic benchmark uses record()+note_baseline_answer()
+        instead and earns no XP.
+
+        Returns {delta, streak, learned, mastered, regressed} for UI feedback."""
+        pre_box = self.box_of(question.id)
+        self.record(question, correct)
+        flags = {"learned": False, "mastered": False, "regressed": False}
+        if correct:
+            self.answer_streak += 1
+            self.best_streak = max(self.best_streak, self.answer_streak)
+            if pre_box >= 5:
+                delta = XP_MASTERED_MAINTAIN        # already mastered — negligible
+            else:
+                delta = XP_CORRECT_BASE + int(question.difficulty)
+                delta += min(self.answer_streak, XP_STREAK_CAP)   # streak bonus
+                if pre_box <= 2:                    # improving a weak / new item
+                    delta += XP_LEARN_BONUS
+                    flags["learned"] = True
+                if pre_box == 4:                    # box 4 -> 5: just mastered it
+                    delta += XP_MASTER_BONUS
+                    flags["mastered"] = True
+        else:
+            self.answer_streak = 0
+            delta = XP_MISS_PENALTY
+            if pre_box >= 3:                         # you had this down and missed it
+                delta += XP_REGRESS_PENALTY
+                flags["regressed"] = True
+        self.xp = max(0.0, self.xp + delta)
+        return {"delta": int(delta), "streak": self.answer_streak, **flags}
 
     # -- scheduler hooks ---------------------------------------------------
     def box_of(self, qid: str) -> int:
@@ -167,6 +217,9 @@ class Profile:
             "baseline_stats": self.baseline_stats,
             "completed_lessons": sorted(self.completed_lessons),
             "passed_milestones": sorted(self.passed_milestones),
+            "xp": self.xp,
+            "answer_streak": self.answer_streak,
+            "best_streak": self.best_streak,
             "q": {qid: asdict(st) for qid, st in self.q.items()},
         }
 
@@ -178,6 +231,8 @@ class Profile:
         prof.baseline_stats = d.get("baseline_stats")
         prof.completed_lessons = set(d.get("completed_lessons", []))
         prof.passed_milestones = set(d.get("passed_milestones", []))
+        prof.answer_streak = int(d.get("answer_streak", 0))
+        prof.best_streak = int(d.get("best_streak", 0))
         for qid, st in d.get("q", {}).items():
             prof.q[qid] = QStat(**st)
         # Legacy backfill: a profile that took the diagnostic before study/
@@ -189,6 +244,16 @@ class Profile:
             pct = prof.baseline.get("overall", 0) or 0
             prof.baseline_stats = {"seen": total, "correct": round(pct / 100 * total),
                                    "subtopic": {}}
+        # XP: stored going forward. For a profile from before event-XP existed,
+        # estimate a fair starting XP from study progress (no streak/penalty
+        # history to replay) so the learner keeps a sensible rank.
+        if "xp" in d:
+            prof.xp = float(d.get("xp") or 0.0)
+        else:
+            _, s_correct = prof.study_overall()
+            mastered = sum(1 for (s, _c, a) in prof.study_subtopic_stats().values()
+                           if s >= 4 and a >= MASTERY_THRESHOLD)
+            prof.xp = float(s_correct * 6 + mastered * 40)
         return prof
 
     def save(self, path: str | Path) -> None:

@@ -12,27 +12,27 @@ from dataclasses import dataclass
 from .progress import MASTERY_THRESHOLD, Profile
 
 # --- XP weights -------------------------------------------------------------
-XP_PER_CORRECT = 10            # the main driver: getting answers right
-XP_PER_ANSWER = 2              # small participation credit (even on a miss)
-XP_PER_MASTERED_SUBTOPIC = 60  # sustained accuracy in a sub-topic
+# Most XP is earned per-answer (streaks, mastery, penalties) and accumulated on
+# the profile by Profile.record_study(). Passing structured content adds a
+# derived, idempotent bonus on top.
 XP_PER_MILESTONE = 120         # passing a structured milestone
 XP_PER_LESSON = 25             # passing a lesson quiz
-MASTERY_MIN_ATTEMPTS = 4       # attempts before a sub-topic can count as mastered
-# Note: the diagnostic benchmark earns NO XP. It measures where you start; it
-# isn't study. Its answers are excluded via Profile.study_overall()/study_*.
+MASTERY_MIN_ATTEMPTS = 4       # study attempts before a sub-topic counts as mastered
+# Note: the diagnostic benchmark earns NO XP, and a wrong answer COSTS XP.
+# Leveling reflects getting better over time, not raw volume of attempts.
 
 # (minimum cumulative XP, rank title). Original, networking-themed ranks — not
 # any vendor's trademarked certification names.
 LEVELS: list[tuple[int, str]] = [
-    (0,     "Cable Apprentice"),
-    (150,   "Patch Panel Rookie"),
-    (400,   "LAN Technician"),
-    (800,   "Network Associate"),
-    (1400,  "Routing Specialist"),
-    (2200,  "Senior Network Engineer"),
-    (3200,  "Network Architect"),
-    (4600,  "Principal Architect"),
-    (6400,  "Network Sage"),
+    (0,      "Cable Apprentice"),
+    (400,    "Patch Panel Rookie"),
+    (1000,   "LAN Technician"),
+    (2000,   "Network Associate"),
+    (3500,   "Routing Specialist"),
+    (5500,   "Senior Network Engineer"),
+    (8000,   "Network Architect"),
+    (11500,  "Principal Architect"),
+    (16000,  "Network Sage"),
 ]
 
 
@@ -69,11 +69,10 @@ def mastered_subtopics(profile: Profile, min_attempts: int = MASTERY_MIN_ATTEMPT
 
 
 def compute_xp(profile: Profile) -> int:
-    """Total XP, derived from STUDY progress only. The diagnostic benchmark is
-    excluded (it assesses where you start; it is not studying)."""
-    seen, correct = profile.study_overall()
-    xp = correct * XP_PER_CORRECT + seen * XP_PER_ANSWER
-    xp += len(mastered_subtopics(profile)) * XP_PER_MASTERED_SUBTOPIC
+    """Total XP = accumulated per-answer study XP (streaks, mastery, penalties;
+    see Profile.record_study) plus a derived bonus for passing lessons and
+    milestones. The diagnostic benchmark earns nothing."""
+    xp = float(getattr(profile, "xp", 0.0))
     xp += len(profile.passed_milestones) * XP_PER_MILESTONE
     xp += len(profile.completed_lessons) * XP_PER_LESSON
     return int(xp)
