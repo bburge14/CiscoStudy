@@ -27,7 +27,7 @@ from studyengine import (
     load_curriculum,
     score_session,
 )
-from studyengine.cli_sim import Console
+from studyengine.cli_sim import Console, topology_dot
 from studyengine.models import Question
 from studyengine.progress import BOX_WEIGHT, Profile
 
@@ -542,6 +542,15 @@ def render_pbq(scenario, skey_prefix: str) -> bool:
     consoles = st.session_state[cons_key]
 
     st.markdown(scenario.ticket)
+
+    st.markdown("**Topology**")
+    try:
+        st.graphviz_chart(topology_dot(topo, scenario.device))
+        st.caption("Live from the scenario — the console device is highlighted; a down link "
+                   "shows red/dashed. The diagram updates as you configure.")
+    except Exception:
+        st.caption("(Topology diagram unavailable.)")
+
     with st.expander("Hints"):
         for h in scenario.hints:
             st.markdown(f"- {h}")
