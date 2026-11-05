@@ -21,7 +21,9 @@ from ui_common import (
     load_user_profile,
     page_header,
     page_setup,
+    rename_account,
     roster_summary,
+    set_display_name,
     set_password_admin,
     set_role,
 )
@@ -82,8 +84,32 @@ if accounts:
         key="edit_acct",
     )
     meta = accounts[sel]
-    st.caption(f"Role: **{meta.get('role', 'learner')}**  ·  the instance always keeps "
-               "at least one instructor.")
+    st.caption(f"Role: **{meta.get('role', 'learner')}**  ·  login `{meta.get('username', sel)}`  "
+               "·  the instance always keeps at least one instructor.")
+
+    cn, cl = st.columns(2)
+    with cn:
+        with st.form("edit_name", clear_on_submit=False):
+            nn = st.text_input("Display name", value=meta.get("name", sel))
+            if st.form_submit_button("Save name"):
+                if set_display_name(sel, nn):
+                    st.success("Display name updated.")
+                    st.rerun()
+                else:
+                    st.error("Enter a name.")
+    with cl:
+        with st.form("edit_login", clear_on_submit=False):
+            nu = st.text_input("Login (username)", value=meta.get("username", sel))
+            if st.form_submit_button("Change login"):
+                new_slug, err = rename_account(sel, nu)
+                if err:
+                    st.error(err)
+                else:
+                    # If the instructor renamed their own account, follow it.
+                    if sel == current_user():
+                        st.session_state["auth_user"] = new_slug
+                    st.success(f"Login changed to `{nu}`.")
+                    st.rerun()
 
     ca, cb = st.columns(2)
     with ca:
