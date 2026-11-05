@@ -1,4 +1,4 @@
-from studyengine.cli_sim import SCENARIOS, topology_dot
+from studyengine.cli_sim import SCENARIOS, topology_dot, topology_svg
 
 
 def test_dot_valid_for_every_scenario():
@@ -24,3 +24,20 @@ def test_dot_marks_down_links():
     topo.devices["R2"].get_if("Gi0/0", create=False).shutdown = True
     dot = topology_dot(topo)
     assert "dashed" in dot or "#e06c6c" in dot
+
+
+def test_svg_valid_for_every_scenario():
+    for sid, scen in SCENARIOS.items():
+        topo = scen.build()
+        svg = topology_svg(topo, scen.device)
+        assert svg.startswith("<svg") and svg.rstrip().endswith("</svg>")
+        for name in topo.devices:
+            assert name in svg, f"{sid}: {name} missing from SVG"
+        assert "#1BA0D7" in svg  # console device highlight ring
+
+
+def test_svg_marks_down_links():
+    topo = SCENARIOS["pbq-ccna-ospf-area"].build()
+    topo.devices["R2"].get_if("Gi0/0", create=False).shutdown = True
+    svg = topology_svg(topo)
+    assert "stroke-dasharray" in svg or "#e06c6c" in svg

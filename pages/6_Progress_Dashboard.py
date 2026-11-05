@@ -11,6 +11,7 @@ from ui_common import (
     get_curriculum,
     get_profile,
     page_setup,
+    pct_bar,
     reset_profile,
 )
 
@@ -57,7 +58,7 @@ chart = {}
 for d in bp.domains:
     ds = prof.domain_stats().get(d.key)
     chart[d.name] = round(ds[2] * 100) if ds and ds[0] else 0
-st.bar_chart(pd.DataFrame({"Accuracy %": chart}), horizontal=True)
+pct_bar(chart)
 st.dataframe(rows, width="stretch", hide_index=True)
 
 st.divider()

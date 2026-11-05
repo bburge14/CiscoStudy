@@ -6,13 +6,13 @@ import ui_common as U
 
 def test_create_and_authenticate(tmp_path, monkeypatch):
     monkeypatch.setattr(U, "USERDATA", tmp_path)
-    slug, err = U.create_account("A1C Smith", "pass1234", "Airman Smith")
+    slug, err = U.create_account("Jordan Lee", "pass1234", "Jordan Lee")
     assert err is None
-    assert slug == "a1c-smith"
+    assert slug == "jordan-lee"
     # username match is slug-insensitive to spacing/case
-    assert U.authenticate("A1C Smith", "pass1234") == slug
-    assert U.authenticate("a1c-smith", "pass1234") == slug
-    assert U.authenticate("A1C Smith", "wrong") is None
+    assert U.authenticate("Jordan Lee", "pass1234") == slug
+    assert U.authenticate("jordan-lee", "pass1234") == slug
+    assert U.authenticate("Jordan Lee", "wrong") is None
     assert U.authenticate("nobody", "pass1234") is None
 
 
@@ -43,7 +43,7 @@ def test_password_not_stored_in_clear(tmp_path, monkeypatch):
 def test_first_account_is_instructor(tmp_path, monkeypatch):
     monkeypatch.setattr(U, "USERDATA", tmp_path)
     s1, _ = U.create_account("sarge", "pw123456", "Sarge")
-    s2, _ = U.create_account("airman1", "pw123456", "Airman One")
+    s2, _ = U.create_account("user1", "pw123456", "User One")
     assert U.is_instructor(s1) is True
     assert U.is_instructor(s2) is False
 
@@ -78,12 +78,12 @@ def test_default_is_always_instructor(tmp_path, monkeypatch):
 def test_admin_create_reset_role_delete(tmp_path, monkeypatch):
     monkeypatch.setattr(U, "USERDATA", tmp_path)
     U.create_account("default", "pw123456", "Default")    # instructor/admin
-    slug, err = U.admin_create_account("airman2", "temp1234", "learner")
+    slug, err = U.admin_create_account("user2", "temp1234", "learner")
     assert err is None and U.is_instructor(slug) is False
     U.set_role(slug, "instructor")
     assert U.is_instructor(slug) is True
     ok, err = U.set_password_admin(slug, "newpw123")
-    assert ok and U.authenticate("airman2", "newpw123") == slug
+    assert ok and U.authenticate("user2", "newpw123") == slug
     U.delete_account(slug)
     assert slug not in U.list_users()
     assert not (tmp_path / slug).exists()
