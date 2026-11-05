@@ -19,13 +19,14 @@ A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
 | Lessons (Markdown) | ✅ 22 lessons (14 CCNA, 8 ENCOR) |
 | CLI simulator (IOS subset + realistic `show` + IOS errors) | ✅ |
 | PBQ engine with real-state validation | ✅ 11 scenarios (8 CCNA, 3 ENCOR) |
+| PBQ topology diagrams | ✅ generated from the live topology (Graphviz), no copyrighted art |
 | Progress dashboard + persistence | ✅ per-account, auto-saved |
 | Accounts & login | ✅ username/password, PBKDF2-salted-hashed, per-account storage |
 | Onboarding hub | ✅ login gate + "where to start?" Home (Home.py) with page links |
 | Personalized study plan | ✅ weakest-first, enforced order, read→drill→unlock (studyplan.py) |
 | Instructor view | ✅ first account = instructor; roster + per-learner drill-down (gated) |
 | Launchers | ✅ `run.sh`, `run.bat`, `run-shared.bat` (LAN), exe |
-| Test suite | ✅ 168 tests passing |
+| Test suite | ✅ 171 tests passing |
 
 Run: `run.bat` (Windows) / `./run.sh` (macOS/Linux) / `streamlit run Home.py`.
 Test: `python -m pytest -q`.

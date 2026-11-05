@@ -7,11 +7,12 @@ from .device import (
     etherchannel_bundles,
     normalize_ifname,
 )
+from .diagram import topology_dot
 from .parser import Console
 from .pbq import PBQCheck, PBQScenario, SCENARIOS, get_scenario, scenarios_for
 
 __all__ = [
     "Device", "Interface", "OspfProcess", "Topology", "Console",
-    "etherchannel_bundles", "normalize_ifname",
+    "etherchannel_bundles", "normalize_ifname", "topology_dot",
     "PBQCheck", "PBQScenario", "SCENARIOS", "get_scenario", "scenarios_for",
 ]
