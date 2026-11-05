@@ -399,62 +399,69 @@ def _clear_session_study_state() -> None:
 
 # --- shared page chrome -----------------------------------------------------
 def _render_login() -> None:
-    _, mid, _ = st.columns([3, 2, 3])   # centered, ~25%-width card
-    with mid:
-        st.title("🔐 CiscoStudy")
-        st.caption("CCNA 200-301 & CCNP ENCOR 350-401 study and diagnostic tool. "
-                   "Sign in so your progress saves to your own account.")
-        tab_in, tab_new = st.tabs(["Sign in", "Create account"])
-        with tab_in:
-            with st.form("login_form"):
-                u = st.text_input("Username")
-                p = st.text_input("Password", type="password")
-                if st.form_submit_button("Sign in", type="primary"):
-                    slug = authenticate(u, p)
-                    if slug:
+    # Responsive centering: cap + center the login on desktop, let it fill the
+    # width on a phone / portrait screen (no wasted empty side columns).
+    st.markdown(
+        "<style>"
+        "[data-testid='stMainBlockContainer'], section.main .block-container"
+        "{max-width:460px;margin-left:auto;margin-right:auto;}"
+        "</style>",
+        unsafe_allow_html=True,
+    )
+    st.title("🔐 CiscoStudy")
+    st.caption("CCNA 200-301 & CCNP ENCOR 350-401 study and diagnostic tool. "
+               "Sign in so your progress saves to your own account.")
+    tab_in, tab_new = st.tabs(["Sign in", "Create account"])
+    with tab_in:
+        with st.form("login_form"):
+            u = st.text_input("Username")
+            p = st.text_input("Password", type="password")
+            if st.form_submit_button("Sign in", type="primary"):
+                slug = authenticate(u, p)
+                if slug:
+                    _clear_session_study_state()
+                    st.session_state["auth_user"] = slug
+                    st.rerun()
+                else:
+                    st.error("Wrong username or password.")
+    with tab_new:
+        with st.form("signup_form"):
+            name = st.text_input("Display name", placeholder="e.g. Jordan Lee")
+            u = st.text_input("Username", key="su_user")
+            p = st.text_input("Password", type="password", key="su_pw")
+            p2 = st.text_input("Confirm password", type="password", key="su_pw2")
+            if st.form_submit_button("Create account", type="primary"):
+                if p != p2:
+                    st.error("Passwords don't match.")
+                else:
+                    slug, err = create_account(u, p, name)
+                    if err:
+                        st.error(err)
+                    else:
                         _clear_session_study_state()
                         st.session_state["auth_user"] = slug
                         st.rerun()
-                    else:
-                        st.error("Wrong username or password.")
-        with tab_new:
-            with st.form("signup_form"):
-                name = st.text_input("Display name", placeholder="e.g. Jordan Lee")
-                u = st.text_input("Username", key="su_user")
-                p = st.text_input("Password", type="password", key="su_pw")
-                p2 = st.text_input("Confirm password", type="password", key="su_pw2")
-                if st.form_submit_button("Create account", type="primary"):
-                    if p != p2:
-                        st.error("Passwords don't match.")
-                    else:
-                        slug, err = create_account(u, p, name)
-                        if err:
-                            st.error(err)
-                        else:
-                            _clear_session_study_state()
-                            st.session_state["auth_user"] = slug
-                            st.rerun()
 
-        legacy = passwordless_profiles()
-        if legacy:
-            with st.expander("Keep progress from an existing local profile"):
-                st.caption("These profiles already have data on this machine but no password. "
-                           "Set one to turn a profile into your account and keep its progress.")
-                with st.form("claim_form"):
-                    slug = st.selectbox("Profile", sorted(legacy),
-                                        format_func=lambda s: legacy[s].get("name", s))
-                    p = st.text_input("New password", type="password", key="claim_pw")
-                    if st.form_submit_button("Secure & sign in"):
-                        got, err = claim_profile(slug, p)
-                        if err:
-                            st.error(err)
-                        else:
-                            _clear_session_study_state()
-                            st.session_state["auth_user"] = got
-                            st.rerun()
+    legacy = passwordless_profiles()
+    if legacy:
+        with st.expander("Keep progress from an existing local profile"):
+            st.caption("These profiles already have data on this machine but no password. "
+                       "Set one to turn a profile into your account and keep its progress.")
+            with st.form("claim_form"):
+                slug = st.selectbox("Profile", sorted(legacy),
+                                    format_func=lambda s: legacy[s].get("name", s))
+                p = st.text_input("New password", type="password", key="claim_pw")
+                if st.form_submit_button("Secure & sign in"):
+                    got, err = claim_profile(slug, p)
+                    if err:
+                        st.error(err)
+                    else:
+                        _clear_session_study_state()
+                        st.session_state["auth_user"] = got
+                        st.rerun()
 
-        st.caption("Passwords are salted + hashed and stored locally. Lightweight auth for a "
-                   "study tool — use a throwaway password, not a real one.")
+    st.caption("Passwords are salted + hashed and stored locally. Lightweight auth for a "
+               "study tool — use a throwaway password, not a real one.")
 
 
 def ensure_login() -> bool:
