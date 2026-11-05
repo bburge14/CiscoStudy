@@ -59,6 +59,15 @@ _GLYPHS: dict[str, str] = {
         'c-3.5 0-6 .7-8 2Z" stroke="CC" stroke-width="2" fill="none" stroke-linejoin="round"/>'
         '<path d="M12 6.2v13" stroke="CC" stroke-width="2"/>'
     ),
+    "book_search": (  # open-book review = a book + magnifier
+        '<path d="M11 6.4C9.3 5.2 7.1 4.6 4 4.6v11.8c3.1 0 5.3.6 7 1.8" stroke="CC" '
+        'stroke-width="2" fill="none" stroke-linejoin="round"/>'
+        '<path d="M11 6.4v11.8" stroke="CC" stroke-width="2"/>'
+        '<path d="M11 6.4C11.9 5.8 12.9 5.4 14 5.1" stroke="CC" stroke-width="2" '
+        'fill="none" stroke-linecap="round"/>'
+        '<circle cx="17" cy="14.2" r="3.3" stroke="CC" stroke-width="2" fill="none"/>'
+        '<path d="M19.5 16.7 21.6 18.8" stroke="CC" stroke-width="2" stroke-linecap="round"/>'
+    ),
     "terminal": (  # PBQ lab = IOS CLI
         '<rect x="3" y="5" width="18" height="14" rx="2.2" stroke="CC" stroke-width="2" fill="none"/>'
         '<path d="M7 10l3.2 2.6L7 15.2M12.6 15.4H16.5" stroke="CC" stroke-width="2" '
@@ -113,6 +122,7 @@ NAV_GLYPHS: dict[str, str] = {
     "drill": "cycle",
     "exam_sim": "stopwatch",
     "milestones": "book",
+    "open_book": "book_search",
     "pbq_lab": "terminal",
     "progress": "bars",
     "account": "user_gear",
