@@ -130,8 +130,19 @@ def _verify_pw(password: str, salt_hex: str, hash_hex: str) -> bool:
     return hmac.compare_digest(calc, hash_hex)
 
 
+def _any_instructor(reg: dict) -> bool:
+    return any(e.get("role") == "instructor" for e in reg.values())
+
+
+def is_instructor(slug: str) -> bool:
+    return _load_registry().get(slug, {}).get("role") == "instructor"
+
+
 def create_account(username: str, password: str, display_name: str | None = None):
-    """Return (slug, None) on success, or (None, error_message)."""
+    """Return (slug, None) on success, or (None, error_message).
+
+    The first account created on an instance becomes its instructor; the rest
+    are learners."""
     username = (username or "").strip()
     if not username:
         return None, "Enter a username."
@@ -143,9 +154,10 @@ def create_account(username: str, password: str, display_name: str | None = None
         return None, "That username is already taken."
     salt, h = _hash_pw(password)
     entry = reg.setdefault(slug, {})
+    role = entry.get("role") or ("instructor" if not _any_instructor(reg) else "learner")
     entry.update({
         "name": (display_name or username).strip() or slug,
-        "username": username, "salt": salt, "hash": h,
+        "username": username, "salt": salt, "hash": h, "role": role,
         "created": entry.get("created", time.time()),
     })
     _save_registry(reg)
@@ -177,6 +189,8 @@ def claim_profile(slug: str, password: str, display_name: str | None = None):
         return None, "That profile already has a password."
     salt, h = _hash_pw(password)
     reg[slug].update({"salt": salt, "hash": h})
+    if "role" not in reg[slug]:
+        reg[slug]["role"] = "instructor" if not _any_instructor(reg) else "learner"
     if display_name:
         reg[slug]["name"] = display_name.strip() or reg[slug].get("name", slug)
     _save_registry(reg)
@@ -185,6 +199,34 @@ def claim_profile(slug: str, password: str, display_name: str | None = None):
 
 def current_user() -> str:
     return st.session_state.get("auth_user") or "default"
+
+
+def load_user_profile(slug: str, exam: str) -> Profile:
+    return Profile.load(USERDATA / slug / f"profile_{exam}.json", exam)
+
+
+def roster_summary(exam: str) -> list[dict]:
+    """Per-account progress snapshot for the instructor view."""
+    reg = _load_registry()
+    rows: list[dict] = []
+    for slug, meta in reg.items():
+        prof = load_user_profile(slug, exam)
+        seen, correct = prof.overall()
+        weak = prof.weak_subtopics()
+        last = max((s.last_seen for s in prof.q.values()), default=0.0)
+        rows.append({
+            "slug": slug,
+            "name": meta.get("name", slug),
+            "role": meta.get("role", "learner"),
+            "baseline": prof.baseline["overall"] if prof.baseline else None,
+            "answered": seen,
+            "accuracy": round(correct / seen * 100) if seen else None,
+            "milestones": len(prof.passed_milestones),
+            "weak": [s for s, _, _ in weak[:3]],
+            "last_seen": last,
+        })
+    rows.sort(key=lambda r: (r["role"] != "learner", -r["answered"]))
+    return rows
 
 
 # --- profile persistence (per learner) --------------------------------------
@@ -302,7 +344,7 @@ def page_setup(title: str, icon: str = "🛜") -> str:
     name = _load_registry().get(user, {}).get("name", user)
     with st.sidebar:
         st.markdown("### CiscoStudy")
-        st.caption(f"Signed in as **{name}**")
+        st.caption(f"Signed in as **{name}**" + ("  ·  🧑‍🏫 Instructor" if is_instructor(user) else ""))
         if st.button("Log out"):
             _clear_session_study_state()
             st.session_state.pop("auth_user", None)

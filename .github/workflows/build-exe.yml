@@ -17,7 +17,7 @@ on:
       - "launcher.py"
       - "packaging/**"
       - ".github/workflows/build-exe.yml"
-      - "app.py"
+      - "Home.py"
       - "ui_common.py"
       - "pages/**"
       - "studyengine/**"

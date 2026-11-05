@@ -18,4 +18,4 @@ if [ ! -f "$CRED" ]; then
   printf '[general]\nemail = ""\n' > "$CRED"
 fi
 
-exec python3 -m streamlit run app.py "$@"
+exec python3 -m streamlit run Home.py "$@"

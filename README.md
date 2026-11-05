@@ -74,7 +74,7 @@ opens the app. To make a desktop shortcut, right-click `run.bat` →
 
 ```bash
 pip install -r requirements.txt
-streamlit run app.py
+streamlit run Home.py
 ```
 
 Then open <http://localhost:8501>, **create a login** (or sign in), and the
@@ -99,7 +99,7 @@ the app).
 ### Letting other people use it
 
 - **Same network (no servers):** run **`run-shared.bat`** (Windows) — or
-  `streamlit run app.py --server.address 0.0.0.0` on macOS/Linux — then others on
+  `streamlit run Home.py --server.address 0.0.0.0` on macOS/Linux — then others on
   the same Wi-Fi/LAN open `http://<your-PC-IP>:8501` and sign in with their own
   account.
 - **Separate machines:** hand each person the `.exe` or the repo.
@@ -137,7 +137,7 @@ diagnostic baseline, the curriculum, the CLI simulator, and **every PBQ
 ## Project layout
 
 ```
-app.py                     # Streamlit entry (home/dashboard)
+Home.py                    # Streamlit entry (login gate + onboarding hub)
 pages/                     # Streamlit multipage UI
   1_Diagnostic_Baseline.py
   2_Endless_Drill.py

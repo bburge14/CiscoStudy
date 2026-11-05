@@ -21,12 +21,13 @@ A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
 | PBQ engine with real-state validation | ✅ 11 scenarios (8 CCNA, 3 ENCOR) |
 | Progress dashboard + persistence | ✅ per-account, auto-saved |
 | Accounts & login | ✅ username/password, PBKDF2-salted-hashed, per-account storage |
-| Onboarding hub | ✅ login gate + "where to start?" Home with page links |
+| Onboarding hub | ✅ login gate + "where to start?" Home (Home.py) with page links |
 | Personalized study plan | ✅ weakest-first, enforced order, read→drill→unlock (studyplan.py) |
+| Instructor view | ✅ first account = instructor; roster + per-learner drill-down (gated) |
 | Launchers | ✅ `run.sh`, `run.bat`, `run-shared.bat` (LAN), exe |
-| Test suite | ✅ 165 tests passing |
+| Test suite | ✅ 168 tests passing |
 
-Run: `run.bat` (Windows) / `./run.sh` (macOS/Linux) / `streamlit run app.py`.
+Run: `run.bat` (Windows) / `./run.sh` (macOS/Linux) / `streamlit run Home.py`.
 Test: `python -m pytest -q`.
 
 PBQ scenarios: native-VLAN mismatch, EtherChannel on/active, OSPF area mismatch,

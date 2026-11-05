@@ -38,7 +38,7 @@ echo  Tell each person to pick/create their own profile in the sidebar.
 echo  Press Ctrl+C to stop sharing.
 echo ============================================================
 echo.
-%PY% -m streamlit run app.py --server.address 0.0.0.0 --server.port 8501 --server.headless true
+%PY% -m streamlit run Home.py --server.address 0.0.0.0 --server.port 8501 --server.headless true
 
 pause
 endlocal
