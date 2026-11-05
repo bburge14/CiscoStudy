@@ -49,7 +49,7 @@ def main() -> None:
     # chdir so Streamlit finds .streamlit/config.toml (theme) in the bundle.
     os.chdir(base)
     _suppress_email_prompt()
-    app_path = os.path.join(base, "app.py")
+    app_path = os.path.join(base, "Home.py")
     port = os.environ.get("CISCOSTUDY_PORT", "8501")
 
     print("=" * 60)

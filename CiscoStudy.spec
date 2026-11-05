@@ -38,7 +38,7 @@ for pkg in [
 
 # The application itself (served by Streamlit from the bundle root).
 datas += [
-    ("app.py", "."),
+    ("Home.py", "."),
     ("ui_common.py", "."),
     ("pages", "pages"),
     ("studyengine", "studyengine"),

@@ -40,6 +40,34 @@ def test_password_not_stored_in_clear(tmp_path, monkeypatch):
     assert hash2 != reg["dave"]["hash"]
 
 
+def test_first_account_is_instructor(tmp_path, monkeypatch):
+    monkeypatch.setattr(U, "USERDATA", tmp_path)
+    s1, _ = U.create_account("sarge", "pw123456", "Sarge")
+    s2, _ = U.create_account("airman1", "pw123456", "Airman One")
+    assert U.is_instructor(s1) is True
+    assert U.is_instructor(s2) is False
+
+
+def test_claimed_first_profile_becomes_instructor(tmp_path, monkeypatch):
+    monkeypatch.setattr(U, "USERDATA", tmp_path)
+    (tmp_path / "default").mkdir(parents=True)
+    (tmp_path / "default" / "profile_ccna.json").write_text("{}")
+    got, err = U.claim_profile("default", "pw123456")
+    assert err is None and U.is_instructor("default") is True
+
+
+def test_roster_summary_lists_accounts_with_roles(tmp_path, monkeypatch):
+    monkeypatch.setattr(U, "USERDATA", tmp_path)
+    U.create_account("inst", "pw123456", "Inst")
+    U.create_account("learner1", "pw123456", "Learner One")
+    rows = U.roster_summary("ccna")
+    roles = {r["name"]: r["role"] for r in rows}
+    assert roles.get("Inst") == "instructor"
+    assert roles.get("Learner One") == "learner"
+    # every row has the summary fields the instructor table needs
+    assert all({"answered", "accuracy", "baseline", "weak", "last_seen"} <= set(r) for r in rows)
+
+
 def test_claim_legacy_profile_keeps_data(tmp_path, monkeypatch):
     monkeypatch.setattr(U, "USERDATA", tmp_path)
     # a pre-existing, password-less profile folder with saved progress

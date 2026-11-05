@@ -41,7 +41,7 @@ echo.
 echo Starting CiscoStudy at http://localhost:8501
 echo (A browser tab should open automatically. Press Ctrl+C here to stop.)
 echo.
-%PY% -m streamlit run app.py %*
+%PY% -m streamlit run Home.py %*
 
 echo.
 echo CiscoStudy has stopped.

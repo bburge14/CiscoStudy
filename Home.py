@@ -1,6 +1,6 @@
 """CiscoStudy — a custom CCNA 200-301 & CCNP ENCOR 350-401 study platform.
 
-Run locally with:  streamlit run app.py
+Run locally with:  streamlit run Home.py
 """
 from __future__ import annotations
 
@@ -12,6 +12,7 @@ from ui_common import (
     current_user,
     get_bank,
     get_profile,
+    is_instructor,
     list_users,
     page_setup,
 )
@@ -57,6 +58,10 @@ with colB:
     st.page_link("pages/4_Structured_Milestones.py", label="Lessons & Milestones — read then test", icon="📚")
     st.page_link("pages/5_PBQ_Lab.py", label="PBQ Lab — hands-on Cisco CLI", icon="🖥️")
     st.page_link("pages/1_Diagnostic_Baseline.py", label="Diagnostic Baseline", icon="🎯")
+
+if is_instructor(current_user()):
+    st.info("🧑‍🏫 You're the **instructor** on this instance.")
+    st.page_link("pages/7_Instructor.py", label="Instructor view — see your learners' progress", icon="🧑‍🏫")
 
 st.divider()
 st.subheader("How it works")
