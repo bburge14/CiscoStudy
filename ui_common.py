@@ -27,6 +27,7 @@ from studyengine import (
     grade,
     load_bank,
     load_curriculum,
+    profile_level,
     score_session,
 )
 from studyengine.cli_sim import Console, topology_svg
@@ -515,9 +516,37 @@ def render_sidebar_chrome() -> None:
         prof = get_profile(exam)
         seen, correct = prof.overall()
         acc = f"{round(correct / seen * 100)}%" if seen else "—"
+        render_level_card(prof, compact=True)
         st.metric("Questions answered", seen)
         st.metric("Lifetime accuracy", acc)
         st.caption("Progress auto-saves to your account after every answer.")
+
+
+def render_level_card(prof, *, compact: bool = False) -> None:
+    """Show the learner's rank + XP progress. compact=True for the sidebar."""
+    li = profile_level(prof)
+    if li.is_max:
+        bar_text = f"Max rank · {li.xp} XP"
+    else:
+        bar_text = f"{li.into}/{li.span} XP → {li.next_title}"
+    if compact:
+        st.markdown(f"**⬢ Lvl {li.level} · {li.title}**")
+        st.progress(li.pct, text=bar_text)
+        return
+    with st.container(border=True):
+        left, right = st.columns([1, 3])
+        with left:
+            st.markdown(
+                f"<div style='font-size:2.6rem;font-weight:800;line-height:1;color:{ui_icons.BRAND}'>"
+                f"{li.level}</div><div style='font-size:.7rem;letter-spacing:.08em;"
+                f"opacity:.6'>LEVEL</div>",
+                unsafe_allow_html=True,
+            )
+        with right:
+            st.markdown(f"#### {li.title}")
+            st.progress(li.pct, text=bar_text)
+    st.caption("XP comes mostly from **correct** answers and **mastering** sub-topics — so your "
+               "rank reflects what you actually know. Diagnostics, lessons and milestones add XP too.")
 
 
 def page_setup(title: str | None = None, icon: str | None = None) -> str:

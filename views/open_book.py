@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import streamlit as st
 
-from studyengine import get_blueprint, grade, lesson_markdown
+from studyengine import get_blueprint, grade, lesson_markdown, profile_level
 from ui_common import (
     answer_widget,
     get_bank,
@@ -107,8 +107,10 @@ if ob["phase"] == "answering":
         mastered = fb.correct and not ob["book_used"]
         # A peeked-correct answer is recorded as NOT mastered, so it resurfaces
         # and counts toward "needs study" — the whole point of the honor system.
+        xp_before = profile_level(prof).xp
         prof.record(q, mastered)
         save_profile(exam)
+        ob["xp_gain"] = max(profile_level(prof).xp - xp_before, 0)
         ob["fb"] = fb
         ob["answered"] += 1
         if mastered:
@@ -131,6 +133,9 @@ else:
         st.error("❌ **Incorrect** — marked for study."
                  + ("  (You had the book open — focus here.)" if ob["book_used"] else ""))
 
+    gain = ob.get("xp_gain", 0)
+    if gain:
+        st.markdown(f"**+{gain} XP**")
     render_feedback(q, fb)
     if st.button("Next question ▶", type="primary", key=f"{SKEY}_next"):
         ob["qid"] = None

@@ -16,6 +16,7 @@ from .curriculum import (
 from .diagnostic import build_baseline, recommend_focus
 from .exam import PASS_SCORE, build_exam, exam_readiness, exam_time_limit
 from .grading import Feedback, SessionScore, grade, score_session
+from .leveling import LevelInfo, compute_xp, level_info, mastered_subtopics, profile_level
 from .models import Lesson, Option, Question, Unit
 from .progress import Profile, QStat
 from .scheduler import DrillScheduler
@@ -35,6 +36,7 @@ __all__ = [
     "build_baseline", "recommend_focus",
     "PASS_SCORE", "build_exam", "exam_readiness", "exam_time_limit",
     "Feedback", "SessionScore", "grade", "score_session",
+    "LevelInfo", "compute_xp", "level_info", "mastered_subtopics", "profile_level",
     "Lesson", "Option", "Question", "Unit",
     "Profile", "QStat",
     "DrillScheduler",

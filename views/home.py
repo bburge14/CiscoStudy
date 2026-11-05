@@ -16,6 +16,7 @@ from ui_common import (
     list_users,
     page_header,
     page_setup,
+    render_level_card,
 )
 
 exam = page_setup("Home", icon="🛜")   # gates on login
@@ -27,6 +28,8 @@ name = list_users().get(current_user(), {}).get("name", "there")
 page_header("home", f"Welcome, {name}")
 st.markdown(f"Your study tool for **{EXAMS[exam]}**. Pick where to start — everything you do "
             "saves to your account automatically.")
+
+render_level_card(prof)
 
 seen, correct = prof.overall()
 c1, c2, c3 = st.columns(3)
