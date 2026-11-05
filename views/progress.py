@@ -23,7 +23,7 @@ cur = get_curriculum()
 
 page_header("bars", "Progress Dashboard")
 
-seen, correct = prof.overall()
+seen, correct = prof.study_overall()   # benchmark excluded from study metrics
 c1, c2, c3, c4 = st.columns(4)
 c1.metric("Questions answered", seen)
 c2.metric("Lifetime accuracy", f"{round(correct/seen*100)}%" if seen else "—")

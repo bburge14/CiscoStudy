@@ -340,7 +340,7 @@ def roster_summary(exam: str) -> list[dict]:
     rows: list[dict] = []
     for slug, meta in reg.items():
         prof = load_user_profile(slug, exam)
-        seen, correct = prof.overall()
+        seen, correct = prof.study_overall()   # benchmark excluded
         weak = prof.weak_subtopics()
         last = max((s.last_seen for s in prof.q.values()), default=0.0)
         rows.append({
@@ -514,7 +514,7 @@ def render_sidebar_chrome() -> None:
             st.session_state["exam"] = exam
             st.rerun()
         prof = get_profile(exam)
-        seen, correct = prof.overall()
+        seen, correct = prof.study_overall()   # benchmark excluded
         acc = f"{round(correct / seen * 100)}%" if seen else "—"
         render_level_card(prof, compact=True)
         st.metric("Questions answered", seen)
@@ -545,8 +545,9 @@ def render_level_card(prof, *, compact: bool = False) -> None:
         with right:
             st.markdown(f"#### {li.title}")
             st.progress(li.pct, text=bar_text)
-    st.caption("XP comes mostly from **correct** answers and **mastering** sub-topics — so your "
-               "rank reflects what you actually know. Diagnostics, lessons and milestones add XP too.")
+    st.caption("XP comes from **correct** answers and **mastering** sub-topics (lessons and "
+               "milestones help too) — the diagnostic benchmark doesn't count, so your rank "
+               "reflects what you've actually learned.")
 
 
 def page_setup(title: str | None = None, icon: str | None = None) -> str:

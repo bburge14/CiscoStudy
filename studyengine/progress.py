@@ -40,6 +40,10 @@ class Profile:
     exam: str
     q: dict[str, QStat] = field(default_factory=dict)
     baseline: dict | None = None
+    # Attempts that came from the diagnostic benchmark, tracked separately so
+    # they can be EXCLUDED from study metrics (questions answered, accuracy, XP).
+    # The diagnostic still records into `q` to seed the adaptive scheduler/plan.
+    baseline_stats: dict | None = None
     completed_lessons: set[str] = field(default_factory=set)
     passed_milestones: set[str] = field(default_factory=set)
     created: float = field(default_factory=time.time)
@@ -117,12 +121,50 @@ class Profile:
         correct = sum(st.correct for st in self.q.values())
         return seen, correct
 
+    # -- diagnostic separation --------------------------------------------
+    def note_baseline_answer(self, question: Question, correct: bool) -> None:
+        """Mark an answer as part of the diagnostic benchmark so it is excluded
+        from study metrics. Called alongside record() by the diagnostic only."""
+        bs = self.baseline_stats
+        if bs is None:
+            bs = self.baseline_stats = {"seen": 0, "correct": 0, "subtopic": {}}
+        bs["seen"] += 1
+        if correct:
+            bs["correct"] += 1
+        sub = bs.setdefault("subtopic", {}).setdefault(question.subtopic, [0, 0])
+        sub[0] += 1
+        if correct:
+            sub[1] += 1
+
+    def _baseline_seen_correct(self) -> tuple[int, int]:
+        bs = self.baseline_stats or {}
+        return int(bs.get("seen", 0)), int(bs.get("correct", 0))
+
+    def study_overall(self) -> tuple[int, int]:
+        """Answered/correct counting ONLY study activity — the diagnostic
+        benchmark is excluded (it measures you, it isn't study progress)."""
+        seen, correct = self.overall()
+        bseen, bcorrect = self._baseline_seen_correct()
+        return max(seen - bseen, 0), max(correct - bcorrect, 0)
+
+    def study_subtopic_stats(self) -> dict[str, tuple[int, int, float]]:
+        """Per-subtopic (seen, correct, accuracy) excluding the diagnostic."""
+        bsub = (self.baseline_stats or {}).get("subtopic", {})
+        out: dict[str, tuple[int, int, float]] = {}
+        for key, (seen, correct) in self._agg("subtopic").items():
+            b = bsub.get(key, [0, 0])
+            s = max(seen - b[0], 0)
+            c = max(correct - b[1], 0)
+            out[key] = (s, c, (c / s if s else 0.0))
+        return out
+
     # -- (de)serialisation -------------------------------------------------
     def to_dict(self) -> dict:
         return {
             "exam": self.exam,
             "created": self.created,
             "baseline": self.baseline,
+            "baseline_stats": self.baseline_stats,
             "completed_lessons": sorted(self.completed_lessons),
             "passed_milestones": sorted(self.passed_milestones),
             "q": {qid: asdict(st) for qid, st in self.q.items()},
@@ -133,10 +175,20 @@ class Profile:
         prof = cls(exam=d["exam"])
         prof.created = d.get("created", time.time())
         prof.baseline = d.get("baseline")
+        prof.baseline_stats = d.get("baseline_stats")
         prof.completed_lessons = set(d.get("completed_lessons", []))
         prof.passed_milestones = set(d.get("passed_milestones", []))
         for qid, st in d.get("q", {}).items():
             prof.q[qid] = QStat(**st)
+        # Legacy backfill: a profile that took the diagnostic before study/
+        # benchmark stats were split has no baseline_stats. Approximate the
+        # benchmark's contribution (standard 30-question baseline) so it is
+        # excluded from study metrics going forward.
+        if prof.baseline_stats is None and prof.baseline:
+            total = int(prof.baseline.get("total", 30))
+            pct = prof.baseline.get("overall", 0) or 0
+            prof.baseline_stats = {"seen": total, "correct": round(pct / 100 * total),
+                                   "subtopic": {}}
         return prof
 
     def save(self, path: str | Path) -> None:

@@ -57,10 +57,74 @@ def test_progress_fraction_is_bounded_and_max_level_caps():
     assert top.is_max and top.level == len(LEVELS) and top.pct == 1.0 and top.to_next == 0
 
 
-def test_milestones_and_diagnostic_add_xp():
+def test_milestones_and_lessons_add_xp_but_diagnostic_does_not():
     p = Profile("ccna")
     base = compute_xp(p)
-    p.baseline = {"overall": 60}
+    p.baseline = {"overall": 60}          # taking the benchmark earns NO XP
+    assert compute_xp(p) == base
     p.passed_milestones.add("unit-1")
     p.completed_lessons.add("lesson-1")
-    assert compute_xp(p) == base + 50 + 120 + 25
+    assert compute_xp(p) == base + 120 + 25
+
+
+def _ccna_ids(n):
+    return [q.id for q in BANK.all() if q.exam == "ccna"][:n]
+
+
+def test_diagnostic_answers_excluded_from_study_and_xp():
+    p = Profile("ccna")
+    ids = _ccna_ids(12)
+    bench, study_q = ids[:10], ids[10]
+    # simulate the diagnostic: record AND mark as a benchmark answer
+    for qid in bench:
+        q = _q(qid)
+        p.record(q, True)
+        p.note_baseline_answer(q, True)
+    # benchmark alone: no study progress, no XP, still level 1
+    assert p.study_overall() == (0, 0)
+    assert compute_xp(p) == 0
+    assert profile_level(p).level == 1
+    # a real study answer (not a benchmark) now counts
+    p.record(_q(study_q), True)
+    assert p.study_overall() == (1, 1)
+    assert compute_xp(p) == 12          # 1*10 + 1*2
+
+
+def test_mastery_counts_study_attempts_only():
+    p = Profile("ccna")
+    ospf = [q.id for q in BANK.all() if q.exam == "ccna" and q.subtopic == "ospf"][:5]
+    # 4 correct in ospf, but the FIRST was a benchmark answer -> only 3 study attempts
+    for i, qid in enumerate(ospf[:4]):
+        q = _q(qid)
+        p.record(q, True)
+        if i == 0:
+            p.note_baseline_answer(q, True)
+    assert "ospf" not in mastered_subtopics(p)   # 3 study attempts < 4
+    # a 4th STUDY answer reaches the mastery threshold
+    p.record(_q(ospf[4]), True)
+    assert "ospf" in mastered_subtopics(p)
+
+
+def test_legacy_baseline_backfilled_on_load():
+    # An old profile that took the diagnostic before the split has no
+    # baseline_stats; from_dict should backfill so the benchmark is excluded.
+    p = Profile("ccna")
+    # Realistic diagnostic spread: one question from each of 30 distinct
+    # sub-topics (the real baseline samples per-domain, not clustered).
+    seen_subs: set[str] = set()
+    ids: list[str] = []
+    for q in BANK.all():
+        if q.exam == "ccna" and q.subtopic not in seen_subs:
+            seen_subs.add(q.subtopic)
+            ids.append(q.id)
+        if len(ids) == 30:
+            break
+    for qid in ids:
+        p.record(_q(qid), True)           # the old diagnostic recorded these
+    p.baseline = {"overall": 100, "total": 30, "ts": 0}
+    raw = p.to_dict()
+    raw["baseline_stats"] = None           # simulate the pre-split format
+    p2 = Profile.from_dict(raw)
+    assert p2.baseline_stats is not None
+    assert p2.study_overall() == (0, 0)    # all 30 were the benchmark
+    assert compute_xp(p2) == 0
