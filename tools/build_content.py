@@ -19,7 +19,20 @@ from studyengine.models import Question  # noqa: E402
 import content_ccna  # noqa: E402
 import content_encor  # noqa: E402
 
-SOURCES = {"ccna": content_ccna.QUESTIONS, "encor": content_encor.QUESTIONS}
+
+def _extra(module_name: str) -> list[dict]:
+    """Optional expansion pool (content_<exam>_2.py); empty if absent."""
+    try:
+        mod = __import__(module_name)
+    except ModuleNotFoundError:
+        return []
+    return list(getattr(mod, "QUESTIONS", []))
+
+
+SOURCES = {
+    "ccna": content_ccna.QUESTIONS + _extra("content_ccna_2"),
+    "encor": content_encor.QUESTIONS + _extra("content_encor_2"),
+}
 
 
 def validate(exam: str, raw_items: list[dict]) -> list[dict]:
