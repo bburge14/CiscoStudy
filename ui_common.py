@@ -5,6 +5,7 @@ testable without Streamlit.
 """
 from __future__ import annotations
 
+import base64
 import binascii
 import hashlib
 import hmac
@@ -445,6 +446,24 @@ def get_scheduler(exam: str) -> DrillScheduler:
 
 
 # --- question rendering -----------------------------------------------------
+def _svg_img_tag(svg: str, max_width: int = 720) -> str:
+    """Wrap an SVG string as a base64 data-URI <img> tag.
+
+    st.html() and st.markdown() both run their input through an HTML sanitizer
+    that strips raw <svg> markup, so a diagram passed directly would silently
+    vanish (no error — just a blank gap). A data-URI <img> sidesteps the
+    sanitizer entirely: the browser's image engine renders the SVG, which stays
+    responsive and inline (no fixed-height iframe)."""
+    b64 = base64.b64encode(svg.encode("utf-8")).decode("ascii")
+    return (f'<img src="data:image/svg+xml;base64,{b64}" alt="Network topology diagram" '
+            f'style="width:100%;max-width:{max_width}px;height:auto;display:block;margin:0.25rem 0"/>')
+
+
+def render_svg(svg: str, *, max_width: int = 720) -> None:
+    """Render an inline SVG string reliably (see _svg_img_tag for why)."""
+    st.html(_svg_img_tag(svg, max_width))
+
+
 def render_exhibit(q: Question) -> None:
     if q.exhibit:
         st.code(q.exhibit, language="text")
@@ -628,7 +647,7 @@ def render_pbq(scenario, skey_prefix: str) -> bool:
 
     st.markdown("**Topology**")
     try:
-        st.html(topology_svg(topo, scenario.device))
+        render_svg(topology_svg(topo, scenario.device))
         st.caption("Live from the scenario — the console device is ringed; a down link shows "
                    "red/dashed. The diagram updates as you configure.")
     except Exception:
