@@ -1,7 +1,7 @@
-"""Instructor view: see every account's progress on this instance.
+"""Instructor view: create/manage accounts and see every account's progress.
 
-Only the instructor account (the first account created on the instance) can see
-the roster. Learner accounts get a polite notice instead.
+Only an instructor account can see this page. Account management is always
+available (even before any learners exist); the roster fills in as people join.
 """
 from __future__ import annotations
 
@@ -37,7 +37,7 @@ if not is_instructor(current_user()):
             "up, sign in with that first account; otherwise this is your personal study view.")
     st.stop()
 
-st.caption(f"Progress for every account on this instance · **{EXAMS[exam]}** track. "
+st.caption(f"Create accounts, manage access, and track progress · **{EXAMS[exam]}** track. "
            "Switch tracks in the sidebar.")
 
 rows = roster_summary(exam)
@@ -53,119 +53,124 @@ c2.metric("Took the diagnostic", took_baseline)
 c3.metric("Active (answered ≥1)", len(active))
 c4.metric("Avg accuracy (active)", f"{avg_acc}%" if avg_acc is not None else "—")
 
-st.divider()
-st.subheader("Roster")
-
-if not learners:
-    st.info("No learner accounts yet. Accounts created on this instance will appear here.")
-    st.stop()
-
-
-def _last(ts: float) -> str:
-    return "—" if not ts else time.strftime("%Y-%m-%d", time.localtime(ts))
-
-
-table = [{
-    "Learner": r["name"],
-    "Baseline": f"{r['baseline']}%" if r["baseline"] is not None else "—",
-    "Answered": r["answered"],
-    "Accuracy": f"{r['accuracy']}%" if r["accuracy"] is not None else "—",
-    "Milestones": r["milestones"],
-    "Weak areas": ", ".join(s.replace("_", " ") for s in r["weak"]) or "—",
-    "Last active": _last(r["last_seen"]),
-} for r in learners]
-st.dataframe(pd.DataFrame(table), width="stretch", hide_index=True)
-
-# --- per-learner drill-down -------------------------------------------------
-st.divider()
-st.subheader("Inspect a learner")
-by_slug = {r["slug"]: r for r in learners}
-pick = st.selectbox("Learner", list(by_slug), format_func=lambda s: by_slug[s]["name"])
-prof = load_user_profile(pick, exam)
-
-seen, correct = prof.overall()
-d1, d2, d3 = st.columns(3)
-d1.metric("Answered", seen)
-d2.metric("Accuracy", f"{round(correct/seen*100)}%" if seen else "—")
-d3.metric("Baseline", f"{prof.baseline['overall']}%" if prof.baseline else "not taken")
-
-dstats = prof.domain_stats()
-dom_rows = []
-for d in bp.domains:
-    s, c, acc = dstats.get(d.key, (0, 0, 0.0))
-    dom_rows.append({
-        "Domain": d.name,
-        "Answered": s,
-        "Accuracy": f"{round(acc*100)}%" if s else "—",
-        "Exam weight": f"{round(d.weight*100)}%",
-    })
-st.markdown("**By domain**")
-st.dataframe(pd.DataFrame(dom_rows), width="stretch", hide_index=True)
-
-weak = prof.weak_subtopics()
-if weak:
-    st.markdown("**Weak sub-topics (below 80%)**")
-    st.dataframe(
-        pd.DataFrame([{"Sub-topic": s.replace("_", " "), "Accuracy": f"{round(a*100)}%", "Attempts": n}
-                      for s, a, n in weak]),
-        width="stretch", hide_index=True,
-    )
-else:
-    st.success("No sub-topics below 80% for this learner.")
-
-# --- account management -----------------------------------------------------
+# --- account management (ALWAYS available, even with zero learners) ---------
 st.divider()
 st.subheader("Manage accounts")
 
-with st.expander("➕ Create an account (pre-provision a learner)"):
+with st.expander("➕ Create a new account", expanded=not learners):
+    st.caption("Add a learner (or another instructor). Share the temporary password — "
+               "they can change it later from their own **My Account** page.")
     with st.form("admin_create", clear_on_submit=True):
-        nu = st.text_input("Username")
-        npw = st.text_input("Temporary password", type="password")
+        nu = st.text_input("Username (what they sign in with)")
+        npw = st.text_input("Temporary password", type="password",
+                            help="At least 4 characters.")
         nrole = st.selectbox("Role", ["learner", "instructor"])
-        if st.form_submit_button("Create"):
+        if st.form_submit_button("Create account", type="primary"):
             slug, err = admin_create_account(nu, npw, nrole)
             if err:
                 st.error(err)
             else:
-                st.success(f"Created **{nu}**. Share the temporary password; they can keep it "
-                           "or you can reset it here.")
+                st.success(f"Created **{nu}** as a {nrole}. They can sign in now with that "
+                           "username and the temporary password.")
                 st.rerun()
 
 accounts = {s: e for s, e in list_users().items() if e.get("hash")}
-sel = st.selectbox("Edit an account", list(accounts),
-                   format_func=lambda s: accounts[s].get("name", s), key="edit_acct")
-meta = accounts[sel]
-st.caption(f"Role: **{meta.get('role', 'learner')}**  ·  the instance always keeps "
-           "at least one instructor.")
+if accounts:
+    sel = st.selectbox(
+        "Edit an existing account", list(accounts),
+        format_func=lambda s: f"{accounts[s].get('name', s)}  ·  {accounts[s].get('role', 'learner')}",
+        key="edit_acct",
+    )
+    meta = accounts[sel]
+    st.caption(f"Role: **{meta.get('role', 'learner')}**  ·  the instance always keeps "
+               "at least one instructor.")
 
-ca, cb = st.columns(2)
-with ca:
-    with st.form("reset_pw", clear_on_submit=True):
-        rpw = st.text_input("Set a new password", type="password")
-        if st.form_submit_button("Reset password"):
-            ok, err = set_password_admin(sel, rpw)
-            (st.error(err) if err else st.success("Password reset."))
-with cb:
-    target = "learner" if meta.get("role") == "instructor" else "instructor"
-    if st.button(f"Make {target}", key="toggle_role"):
-        if set_role(sel, target):
-            st.rerun()
-        else:
-            st.error("The instance needs at least one instructor.")
-
-if sel != current_user():
-    with st.expander("🗑️ Delete this account"):
-        st.warning(f"Permanently delete **{meta.get('name', sel)}** and all of their progress. "
-                   "This cannot be undone.")
-        sure = st.checkbox("I understand — delete it", key="del_sure")
-        if st.button("Delete account", key="del_btn", disabled=not sure):
-            if delete_account(sel):
-                st.success("Account deleted.")
+    ca, cb = st.columns(2)
+    with ca:
+        with st.form("reset_pw", clear_on_submit=True):
+            rpw = st.text_input("Set a new password", type="password")
+            if st.form_submit_button("Reset password"):
+                ok, err = set_password_admin(sel, rpw)
+                (st.error(err) if err else st.success("Password reset."))
+    with cb:
+        target = "learner" if meta.get("role") == "instructor" else "instructor"
+        if st.button(f"Make {target}", key="toggle_role"):
+            if set_role(sel, target):
                 st.rerun()
             else:
-                st.error("Can't delete the instance's last instructor.")
-else:
-    st.caption("You can't delete the account you're signed in with.")
+                st.error("The instance needs at least one instructor.")
 
-st.caption("Read-only roster above; learners can't see each other's progress. Accounts "
-           "created or edited here take effect immediately.")
+    if sel != current_user():
+        with st.expander("🗑️ Delete this account"):
+            st.warning(f"Permanently delete **{meta.get('name', sel)}** and all of their "
+                       "progress. This cannot be undone.")
+            sure = st.checkbox("I understand — delete it", key="del_sure")
+            if st.button("Delete account", key="del_btn", disabled=not sure):
+                if delete_account(sel):
+                    st.success("Account deleted.")
+                    st.rerun()
+                else:
+                    st.error("Can't delete the instance's last instructor.")
+    else:
+        st.caption("You can't delete the account you're signed in with.")
+
+# --- roster + per-learner drill-down ----------------------------------------
+st.divider()
+st.subheader("Roster")
+
+if not learners:
+    st.info("No learner accounts yet — create one above and their progress will appear here. "
+            "Learners can also self-register from the sign-in screen.")
+else:
+    def _last(ts: float) -> str:
+        return "—" if not ts else time.strftime("%Y-%m-%d", time.localtime(ts))
+
+    table = [{
+        "Learner": r["name"],
+        "Baseline": f"{r['baseline']}%" if r["baseline"] is not None else "—",
+        "Answered": r["answered"],
+        "Accuracy": f"{r['accuracy']}%" if r["accuracy"] is not None else "—",
+        "Milestones": r["milestones"],
+        "Weak areas": ", ".join(s.replace("_", " ") for s in r["weak"]) or "—",
+        "Last active": _last(r["last_seen"]),
+    } for r in learners]
+    st.dataframe(pd.DataFrame(table), width="stretch", hide_index=True)
+
+    st.divider()
+    st.subheader("Inspect a learner")
+    by_slug = {r["slug"]: r for r in learners}
+    pick = st.selectbox("Learner", list(by_slug), format_func=lambda s: by_slug[s]["name"])
+    prof = load_user_profile(pick, exam)
+
+    seen, correct = prof.overall()
+    d1, d2, d3 = st.columns(3)
+    d1.metric("Answered", seen)
+    d2.metric("Accuracy", f"{round(correct/seen*100)}%" if seen else "—")
+    d3.metric("Baseline", f"{prof.baseline['overall']}%" if prof.baseline else "not taken")
+
+    dstats = prof.domain_stats()
+    dom_rows = []
+    for d in bp.domains:
+        s, c, acc = dstats.get(d.key, (0, 0, 0.0))
+        dom_rows.append({
+            "Domain": d.name,
+            "Answered": s,
+            "Accuracy": f"{round(acc*100)}%" if s else "—",
+            "Exam weight": f"{round(d.weight*100)}%",
+        })
+    st.markdown("**By domain**")
+    st.dataframe(pd.DataFrame(dom_rows), width="stretch", hide_index=True)
+
+    weak = prof.weak_subtopics()
+    if weak:
+        st.markdown("**Weak sub-topics (below 80%)**")
+        st.dataframe(
+            pd.DataFrame([{"Sub-topic": s.replace("_", " "), "Accuracy": f"{round(a*100)}%",
+                           "Attempts": n} for s, a, n in weak]),
+            width="stretch", hide_index=True,
+        )
+    else:
+        st.success("No sub-topics below 80% for this learner.")
+
+st.caption("Learners can't see each other's progress. Accounts created or edited here take "
+           "effect immediately.")
