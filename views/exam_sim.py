@@ -15,7 +15,7 @@ from studyengine import (
     get_blueprint,
     score_session,
 )
-from ui_common import answer_widget, get_bank, get_profile, page_setup, save_profile
+from ui_common import answer_widget, get_bank, get_profile, page_header, page_setup, save_profile
 
 exam = page_setup("Exam Simulation", icon="📝")
 bank = get_bank()
@@ -24,7 +24,7 @@ prof = get_profile(exam)
 SKEY = f"exam_{exam}"
 PASS_PCT = int(PASS_SCORE * 100)
 
-st.title("📝 Exam Simulation")
+page_header("stopwatch", "Exam Simulation")
 
 state = st.session_state.get(SKEY)
 

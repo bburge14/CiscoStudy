@@ -19,6 +19,7 @@ on:
       - ".github/workflows/build-exe.yml"
       - "Home.py"
       - "ui_common.py"
+      - "ui_icons.py"
       - "views/**"
       - "studyengine/**"
       - "data/**"

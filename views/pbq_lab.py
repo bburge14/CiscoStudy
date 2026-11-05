@@ -4,12 +4,12 @@ from __future__ import annotations
 import streamlit as st
 
 from studyengine.cli_sim import scenarios_for
-from ui_common import page_setup, render_pbq
+from ui_common import page_header, page_setup, render_pbq
 
 exam = page_setup("PBQ Lab", icon="🖥️")
 scenarios = scenarios_for(exam)
 
-st.title("🖥️ PBQ Lab — CLI Simulator")
+page_header("terminal", "PBQ Lab — CLI Simulator")
 st.caption("Each ticket is a broken topology. Configure the device(s) with real IOS "
            "commands, then **Validate** — the checks inspect the actual resulting "
            "protocol state (does the channel bundle? is the neighbor FULL? is this the root?).")

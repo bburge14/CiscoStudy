@@ -19,6 +19,7 @@ from ui_common import (
     is_instructor,
     list_users,
     load_user_profile,
+    page_header,
     page_setup,
     roster_summary,
     set_password_admin,
@@ -28,7 +29,7 @@ from ui_common import (
 exam = page_setup("Instructor", icon="🧑‍🏫")
 bp = get_blueprint(exam)
 
-st.title("🧑‍🏫 Instructor View")
+page_header("people", "Instructor View")
 
 if not is_instructor(current_user()):
     st.warning("This page is for the **instructor** account on this instance.")

@@ -10,6 +10,7 @@ from ui_common import (
     domain_mastery_table,
     get_curriculum,
     get_profile,
+    page_header,
     page_setup,
     pct_bar,
     reset_profile,
@@ -20,7 +21,7 @@ bp = get_blueprint(exam)
 prof = get_profile(exam)
 cur = get_curriculum()
 
-st.title("📊 Progress Dashboard")
+page_header("bars", "Progress Dashboard")
 
 seen, correct = prof.overall()
 c1, c2, c3, c4 = st.columns(4)

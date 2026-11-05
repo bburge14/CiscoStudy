@@ -15,7 +15,7 @@ A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
 | Exam blueprints (domains + weights + sub-topics) | ✅ CCNA & ENCOR |
 | Question bank | ✅ 82 original items (CCNA 47, ENCOR 35), all domains ≥5 |
 | Diagnostic baseline (30 Q, 5/domain) + focus recs | ✅ |
-| Endless Drill (adaptive, Leitner miss-boost, remediation mode) | ✅ |
+| Endless Drill (adaptive, Leitner miss-boost, remediation mode) | ✅ + per-domain focus filter |
 | Structured Milestones (Read → Lesson Quiz → Milestone exam + PBQ, unit unlock) | ✅ |
 | Lessons (Markdown) | ✅ 22 lessons (14 CCNA, 8 ENCOR) |
 | CLI simulator (IOS subset + realistic `show` + IOS errors) | ✅ |
@@ -23,13 +23,15 @@ A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
 | PBQ topology diagrams | ✅ hand-drawn inline SVG from the live topology (router/switch/L3 device icons, down-link + console highlighting), no copyrighted art |
 | Progress dashboard + persistence | ✅ per-account, auto-saved; mastery-by-domain chart on a fixed 0–100 axis |
 | Accounts & login | ✅ username/password, PBKDF2-salted-hashed, per-account storage |
-| Onboarding hub | ✅ login gate + "where to start?" Home with icon'd role-aware sidebar nav (`st.navigation` router) |
+| Onboarding hub | ✅ login gate + "where to start?" Home with role-aware sidebar nav (`st.navigation` router) |
+| Custom icon set | ✅ original network-glyph SVGs (`ui_icons.py`) re-skin the nav (CSS mask) + page headers — not Material/emoji defaults |
+| Self-service account page | ✅ change your display name, login/username (keeps progress), and password; last-instructor guard |
 | Personalized study plan | ✅ weakest-first, enforced order, read→drill→unlock (studyplan.py) |
 | Exam simulation | ✅ timed (native per-second countdown), domain-weighted, one-at-a-time (no back), pass/fail report (exam.py) |
 | Exam readiness estimate | ✅ weighted practice accuracy + coverage + verdict (on dashboard) |
 | Instructor view | ✅ first account = instructor; roster, per-learner drill-down, account management (create/reset/role/delete); nav entry hidden from learners |
 | Launchers | ✅ `run.sh`, `run.bat`, `run-shared.bat` (LAN), exe |
-| Test suite | ✅ 184 tests passing (+ router AppTest smoke) |
+| Test suite | ✅ 198 tests passing (+ router AppTest smoke) |
 
 Run: `run.bat` (Windows) / `./run.sh` (macOS/Linux) / `streamlit run Home.py`.
 Test: `python -m pytest -q`.

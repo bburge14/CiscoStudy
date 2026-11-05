@@ -10,6 +10,7 @@ from ui_common import (
     get_bank,
     get_curriculum,
     get_profile,
+    page_header,
     page_setup,
     render_pbq,
     reset_quiz,
@@ -23,7 +24,7 @@ cur = get_curriculum()
 prof = get_profile(exam)
 units = cur.units_for(exam)
 
-st.title("📚 Structured Milestones")
+page_header("book", "Structured Milestones")
 st.caption("Work each unit in order: read the lesson, pass the lesson quiz, then "
            "clear the cumulative milestone exam and PBQ to unlock the next unit.")
 
