@@ -29,7 +29,7 @@ A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
 | Exam readiness estimate | ✅ weighted practice accuracy + coverage + verdict (on dashboard) |
 | Instructor view | ✅ first account = instructor; roster, per-learner drill-down, account management (create/reset/role/delete); nav entry hidden from learners |
 | Launchers | ✅ `run.sh`, `run.bat`, `run-shared.bat` (LAN), exe |
-| Test suite | ✅ 181 tests passing (+ router AppTest smoke) |
+| Test suite | ✅ 184 tests passing (+ router AppTest smoke) |
 
 Run: `run.bat` (Windows) / `./run.sh` (macOS/Linux) / `streamlit run Home.py`.
 Test: `python -m pytest -q`.
