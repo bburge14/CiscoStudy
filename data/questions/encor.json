@@ -1,6 +1,6 @@
 {
   "exam": "encor",
-  "count": 142,
+  "count": 172,
   "questions": [
     {
       "id": "encor-ar-001",
@@ -7153,6 +7153,1493 @@
         "git",
         "version-control",
         "iac"
+      ]
+    },
+    {
+      "id": "encor-ar-301",
+      "exam": "encor",
+      "domain": "architecture",
+      "subtopic": "machine_learning_ai",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A network-analytics platform groups endpoints by similar behavior and flags outliers it was never explicitly told about. Which ML approach is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Unsupervised learning (clustering / anomaly detection)"
+        },
+        {
+          "id": "B",
+          "text": "Supervised learning"
+        },
+        {
+          "id": "C",
+          "text": "A static ACL"
+        },
+        {
+          "id": "D",
+          "text": "A routing protocol"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Discovering structure and outliers in UNlabeled data is unsupervised learning (clustering / anomaly detection) — the basis for behavioral baselining and spotting abnormal activity without predefined labels.",
+        "distractors": {
+          "A": "",
+          "B": "Supervised learning needs labeled examples to predict/classify.",
+          "C": "An ACL is a static rule, not learning.",
+          "D": "A routing protocol computes paths; it isn't ML."
+        },
+        "exam_pattern": "Unsupervised = cluster/anomaly on unlabeled data (baselining). Supervised = labeled → classify/predict. Network AI uses both."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 1.x ML types"
+      ],
+      "tags": [
+        "ai-ml",
+        "unsupervised"
+      ]
+    },
+    {
+      "id": "encor-ar-302",
+      "exam": "encor",
+      "domain": "architecture",
+      "subtopic": "machine_learning_ai",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the goal of Cisco Encrypted Traffic Analytics (ETA)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Detect malware in encrypted flows using metadata/telemetry, without decrypting the traffic"
+        },
+        {
+          "id": "B",
+          "text": "Decrypt all TLS sessions on the switch"
+        },
+        {
+          "id": "C",
+          "text": "Replace the firewall"
+        },
+        {
+          "id": "D",
+          "text": "Assign QoS markings to voice"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "ETA analyzes flow metadata and telemetry features (e.g., packet-length and timing patterns, initial-data-packet info) with machine learning to identify likely malware in encrypted traffic — preserving privacy by not decrypting.",
+        "distractors": {
+          "A": "",
+          "B": "ETA specifically AVOIDS decryption; that's its point.",
+          "C": "It augments security visibility, not replaces the firewall.",
+          "D": "QoS marking is unrelated."
+        },
+        "exam_pattern": "ETA = ML on encrypted-flow metadata to spot malware without decryption. A concrete 'AI/ML in the network' example."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 1.x Encrypted Traffic Analytics"
+      ],
+      "tags": [
+        "ai-ml",
+        "eta",
+        "security"
+      ]
+    },
+    {
+      "id": "encor-ar-303",
+      "exam": "encor",
+      "domain": "architecture",
+      "subtopic": "machine_learning_ai",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Why does AI-driven assurance (e.g., Catalyst Center) depend on streaming telemetry rather than periodic SNMP polls?",
+      "options": [
+        {
+          "id": "A",
+          "text": "High-frequency, pushed data gives the fine-grained, timely signal ML needs to baseline behavior and detect anomalies"
+        },
+        {
+          "id": "B",
+          "text": "SNMP is encrypted and telemetry is not"
+        },
+        {
+          "id": "C",
+          "text": "Telemetry removes the need for any models"
+        },
+        {
+          "id": "D",
+          "text": "SNMP cannot read interface counters"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "ML/assurance needs frequent, granular data. Model-driven streaming telemetry pushes data continuously (periodic/on-change) at scale, giving a far richer signal than slow per-OID SNMP polling for baselining and anomaly detection.",
+        "distractors": {
+          "A": "",
+          "B": "Encryption isn't the distinction (both can be secured); cadence/scale is.",
+          "C": "Telemetry feeds the models; it doesn't remove them.",
+          "D": "SNMP can read counters — just slowly, by polling."
+        },
+        "exam_pattern": "Assurance ML ← streaming telemetry (push, high-frequency) >> SNMP polling. Timely, granular data enables baselining/anomaly detection."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 1.x assurance + telemetry"
+      ],
+      "tags": [
+        "ai-ml",
+        "telemetry",
+        "assurance"
+      ]
+    },
+    {
+      "id": "encor-ar-304",
+      "exam": "encor",
+      "domain": "architecture",
+      "subtopic": "wireless_deployment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which wireless deployment model has APs managed through a cloud dashboard with no on-premises controller to maintain?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cloud-managed (e.g., Meraki)"
+        },
+        {
+          "id": "B",
+          "text": "Centralized (physical WLC in the data center)"
+        },
+        {
+          "id": "C",
+          "text": "Autonomous standalone APs"
+        },
+        {
+          "id": "D",
+          "text": "FlexConnect with a central WLC"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "In a cloud-managed model the APs are configured and monitored from a cloud dashboard; management lives in the cloud, so there's no on-prem controller to deploy and maintain (data still flows locally).",
+        "distractors": {
+          "A": "",
+          "B": "Centralized uses an on-prem physical WLC.",
+          "C": "Autonomous APs are standalone, each configured individually (not cloud-managed as a fleet).",
+          "D": "FlexConnect still uses a central WLC for management."
+        },
+        "exam_pattern": "Deployment models: centralized (on-prem WLC), cloud-managed (dashboard), embedded (WLC on a switch/AP), FlexConnect (branch local switching)."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 1.x wireless deployment models"
+      ],
+      "tags": [
+        "wireless",
+        "cloud-managed"
+      ]
+    },
+    {
+      "id": "encor-ar-305",
+      "exam": "encor",
+      "domain": "architecture",
+      "subtopic": "wireless_deployment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is an 'embedded wireless controller' (EWC) deployment?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WLC functionality running on a Catalyst switch or a capable AP, for small/mid sites without a dedicated appliance"
+        },
+        {
+          "id": "B",
+          "text": "A controller that only runs in the public cloud"
+        },
+        {
+          "id": "C",
+          "text": "An autonomous AP with no controller features"
+        },
+        {
+          "id": "D",
+          "text": "A firewall module"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "An embedded wireless controller runs the WLC function directly on a switch (or a designated AP), giving smaller sites controller capabilities without buying a separate hardware/virtual WLC.",
+        "distractors": {
+          "A": "",
+          "B": "Cloud-only is the cloud-managed model, not embedded.",
+          "C": "Autonomous APs lack controller features entirely.",
+          "D": "An EWC is wireless control, not a firewall."
+        },
+        "exam_pattern": "EWC = WLC on a switch/AP for smaller deployments. Options scale: embedded → appliance/virtual WLC → cloud-managed."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 1.x embedded wireless controller"
+      ],
+      "tags": [
+        "wireless",
+        "ewc"
+      ]
+    },
+    {
+      "id": "encor-ar-306",
+      "exam": "encor",
+      "domain": "architecture",
+      "subtopic": "fabric_overview",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In SD-Access, what is the difference between the underlay and the overlay?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The underlay is the physical IP transport; the overlay is the virtual (VXLAN) network carrying endpoint traffic and policy"
+        },
+        {
+          "id": "B",
+          "text": "The underlay is virtual; the overlay is physical cabling"
+        },
+        {
+          "id": "C",
+          "text": "They are the same thing"
+        },
+        {
+          "id": "D",
+          "text": "The overlay is the console network"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The underlay is the routed physical network (often IS-IS) that provides reachability between fabric nodes. The overlay is the virtual network (VXLAN data plane, LISP control plane) that actually carries endpoint traffic and group-based policy on top of the underlay.",
+        "distractors": {
+          "A": "",
+          "B": "Reversed — underlay is physical transport, overlay is virtual.",
+          "C": "They are distinct layers with different roles.",
+          "D": "The overlay carries production endpoint traffic, not a console network."
+        },
+        "exam_pattern": "Underlay = physical routed transport (reachability). Overlay = VXLAN/LISP virtual network (endpoints + policy). Fabric = underlay + overlay."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 1.3 underlay/overlay"
+      ],
+      "tags": [
+        "sd-access",
+        "underlay",
+        "overlay"
+      ]
+    },
+    {
+      "id": "encor-ar-307",
+      "exam": "encor",
+      "domain": "architecture",
+      "subtopic": "fabric_overview",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "How does SD-Access enforce group-based segmentation independent of IP subnets?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Endpoints are assigned Scalable Group Tags (SGTs); SGACLs permit/deny by group, carried in the VXLAN header"
+        },
+        {
+          "id": "B",
+          "text": "By putting every user in their own VLAN"
+        },
+        {
+          "id": "C",
+          "text": "By static per-subnet ACLs on every switch"
+        },
+        {
+          "id": "D",
+          "text": "By disabling routing between buildings"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "SD-Access uses Cisco TrustSec: endpoints get an SGT at the fabric edge, the tag travels in the VXLAN encapsulation, and SGACLs enforce policy by source/destination GROUP — decoupling security from IP addressing and enabling micro-segmentation.",
+        "distractors": {
+          "A": "",
+          "B": "Per-user VLANs don't scale and still tie policy to subnets.",
+          "C": "Static per-subnet ACLs are exactly the brittle, IP-coupled model SGTs replace.",
+          "D": "Disabling routing isn't segmentation policy."
+        },
+        "exam_pattern": "SD-Access micro-segmentation = SGT (classify) + SGACL (enforce by group), tag carried in VXLAN. Policy follows identity, not IP."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 1.3 TrustSec in fabric"
+      ],
+      "tags": [
+        "sd-access",
+        "sgt",
+        "segmentation"
+      ]
+    },
+    {
+      "id": "encor-in-301",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "etherchannel_advanced",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An LACP bundle has more members than 'lacp max-bundle' allows. What determines which links are active versus hot-standby?",
+      "options": [
+        {
+          "id": "A",
+          "text": "LACP port priority (lower is preferred); the lowest-priority ports stay hot-standby"
+        },
+        {
+          "id": "B",
+          "text": "The highest MAC address wins"
+        },
+        {
+          "id": "C",
+          "text": "The order the cables were connected"
+        },
+        {
+          "id": "D",
+          "text": "Spanning tree blocks the extras"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "With more members than the max bundle, LACP uses port priority (set per interface, lower = higher precedence; the system with the lower LACP system-priority decides) to choose active links; the rest wait as hot-standby and take over on a failure.",
+        "distractors": {
+          "A": "",
+          "B": "MAC address isn't the LACP active-link selector.",
+          "C": "Cabling order doesn't determine LACP selection.",
+          "D": "The bundle is one logical link; STP isn't blocking individual members here."
+        },
+        "exam_pattern": "LACP: system-priority picks the deciding side; port-priority picks active vs standby members (lower wins). max-bundle caps active links; min-links sets a floor."
+      },
+      "verify_cli": [
+        "show lacp neighbor",
+        "show etherchannel summary"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.2 LACP tuning"
+      ],
+      "tags": [
+        "etherchannel",
+        "lacp",
+        "port-priority"
+      ]
+    },
+    {
+      "id": "encor-in-302",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "etherchannel_advanced",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What does 'lacp min-links 2' do on a port-channel?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Keeps the port-channel DOWN unless at least 2 member links are bundled"
+        },
+        {
+          "id": "B",
+          "text": "Limits the channel to 2 total members"
+        },
+        {
+          "id": "C",
+          "text": "Sets the load-balancing hash to 2 buckets"
+        },
+        {
+          "id": "D",
+          "text": "Forces LACP to use 2 system IDs"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "'min-links' sets a minimum number of active member links for the port-channel to be operational. If fewer than the minimum are up, the whole channel goes down — useful so a bundle with too little bandwidth doesn't carry traffic.",
+        "distractors": {
+          "A": "",
+          "B": "A maximum is 'max-bundle'; min-links is a floor, not a cap.",
+          "C": "It doesn't change the hash algorithm.",
+          "D": "LACP uses one system ID per device; min-links is unrelated."
+        },
+        "exam_pattern": "min-links = channel needs at least N active members or it goes down. max-bundle = cap on simultaneously active links."
+      },
+      "verify_cli": [
+        "show etherchannel summary"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.2 LACP min-links"
+      ],
+      "tags": [
+        "etherchannel",
+        "min-links"
+      ]
+    },
+    {
+      "id": "encor-in-303",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "etherchannel_advanced",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A port-channel sends most traffic down one link because many flows share the same source/destination IP. Which change best improves the spread?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Change the load-balancing method to include Layer 4 ports (e.g., src-dst-port)"
+        },
+        {
+          "id": "B",
+          "text": "Lower the MTU on the links"
+        },
+        {
+          "id": "C",
+          "text": "Disable LACP"
+        },
+        {
+          "id": "D",
+          "text": "Add a default route"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "EtherChannel hashes each flow to a member link. If the current hash (e.g., src-dst-ip) maps many flows the same way, adding more entropy — such as including Layer 4 ports (src-dst-port) — spreads flows more evenly across members.",
+        "distractors": {
+          "A": "",
+          "B": "MTU doesn't affect flow hashing/distribution.",
+          "C": "Disabling LACP doesn't improve load distribution.",
+          "D": "A default route is unrelated to intra-channel balancing."
+        },
+        "exam_pattern": "Uneven EtherChannel load → change 'port-channel load-balance' to a method with more flow entropy (add L4 ports). Still per-flow, not per-packet."
+      },
+      "verify_cli": [
+        "show etherchannel load-balance"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.2 EtherChannel load-balance"
+      ],
+      "tags": [
+        "etherchannel",
+        "load-balance",
+        "hash"
+      ]
+    },
+    {
+      "id": "encor-in-304",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "ip_services_encor",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "How does HSRP interface tracking improve gateway failover when a router's UPLINK fails (even though its LAN interface is still up)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tracking decrements the HSRP priority when the tracked uplink goes down, letting the standby preempt and become active"
+        },
+        {
+          "id": "B",
+          "text": "It shuts down the LAN interface"
+        },
+        {
+          "id": "C",
+          "text": "It reroutes using OSPF only"
+        },
+        {
+          "id": "D",
+          "text": "It changes the virtual IP address"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Without tracking, the active router keeps the gateway role even if its path to the rest of the network is down. HSRP tracking lowers its priority when the tracked uplink fails; with preempt, the standby (whose uplink is healthy) takes over as active.",
+        "distractors": {
+          "A": "",
+          "B": "It doesn't shut the LAN interface; it adjusts HSRP priority.",
+          "C": "Tracking works with HSRP directly, not 'OSPF only'.",
+          "D": "The virtual IP stays the same; the active role moves."
+        },
+        "exam_pattern": "HSRP/object tracking: tracked object down → priority decrement → (with preempt) standby takes active. Prevents black-holing on uplink loss."
+      },
+      "verify_cli": [
+        "show standby brief",
+        "show track"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.x HSRP tracking"
+      ],
+      "tags": [
+        "hsrp",
+        "tracking",
+        "failover"
+      ]
+    },
+    {
+      "id": "encor-in-305",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "ip_services_encor",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Why configure NTP authentication between a router and its time source?",
+      "options": [
+        {
+          "id": "A",
+          "text": "So the client only synchronizes to a trusted server, preventing a spoofed/malicious time source"
+        },
+        {
+          "id": "B",
+          "text": "To encrypt all routed traffic"
+        },
+        {
+          "id": "C",
+          "text": "To increase clock stratum"
+        },
+        {
+          "id": "D",
+          "text": "To speed up convergence"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "NTP authentication (shared key) lets the client verify the server's identity so it won't accept time from an attacker. Bad time can break certificates, logs correlation, and Kerberos, so trusting the source matters.",
+        "distractors": {
+          "A": "",
+          "B": "It authenticates NTP; it doesn't encrypt data traffic.",
+          "C": "It doesn't change stratum values.",
+          "D": "It's unrelated to routing convergence."
+        },
+        "exam_pattern": "NTP authentication = trust the time source (shared key). Protects against spoofed time that would break certs/logs/Kerberos."
+      },
+      "verify_cli": [
+        "show ntp associations detail"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.x NTP authentication"
+      ],
+      "tags": [
+        "ntp",
+        "authentication"
+      ]
+    },
+    {
+      "id": "encor-as-301",
+      "exam": "encor",
+      "domain": "network_assurance",
+      "subtopic": "debugs",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which approach limits 'debug ip packet' output to only traffic matching a specific ACL, reducing load on a busy router?",
+      "options": [
+        {
+          "id": "A",
+          "text": "debug ip packet <acl-number>  (reference an access list)"
+        },
+        {
+          "id": "B",
+          "text": "debug all"
+        },
+        {
+          "id": "C",
+          "text": "logging buffered 4096"
+        },
+        {
+          "id": "D",
+          "text": "terminal length 0"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "'debug ip packet <acl>' filters the debug to packets that match the access list, so you see only the flows you care about instead of every packet — much safer on a production device.",
+        "distractors": {
+          "A": "",
+          "B": "'debug all' is dangerous and unfiltered.",
+          "C": "'logging buffered' sets a log destination; it doesn't filter the debug.",
+          "D": "'terminal length 0' disables paging; it doesn't scope debug output."
+        },
+        "exam_pattern": "Scope debugs: 'debug ip packet <acl>' or 'debug condition ...'. Never blanket 'debug all' in production (CPU risk)."
+      },
+      "verify_cli": [
+        "show debugging",
+        "show processes cpu"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 4.x filtered debug"
+      ],
+      "tags": [
+        "debug",
+        "acl"
+      ]
+    },
+    {
+      "id": "encor-as-302",
+      "exam": "encor",
+      "domain": "network_assurance",
+      "subtopic": "debugs",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which command stops ALL active debugging on an IOS device?",
+      "options": [
+        {
+          "id": "A",
+          "text": "undebug all  (or 'no debug all')"
+        },
+        {
+          "id": "B",
+          "text": "clear logging"
+        },
+        {
+          "id": "C",
+          "text": "no logging console"
+        },
+        {
+          "id": "D",
+          "text": "reload"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "'undebug all' (equivalently 'no debug all' or the shortcut 'u all') disables every active debug immediately — the first thing to do if debug output is overwhelming the device.",
+        "distractors": {
+          "A": "",
+          "B": "'clear logging' empties the log buffer; it doesn't stop debugs.",
+          "C": "'no logging console' stops console log output but leaves debugs running.",
+          "D": "A reload is drastic and unnecessary."
+        },
+        "exam_pattern": "Stop debugs fast: 'undebug all' / 'no debug all' / 'u all'. Know this before enabling heavy debugs."
+      },
+      "verify_cli": [
+        "show debugging"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 4.x undebug all"
+      ],
+      "tags": [
+        "debug",
+        "undebug"
+      ]
+    },
+    {
+      "id": "encor-as-303",
+      "exam": "encor",
+      "domain": "network_assurance",
+      "subtopic": "debugs",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Before enabling a debug on a production router, what is the safest first step to gather information with the least risk?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use targeted 'show' commands first; reserve debugs for when show output is insufficient"
+        },
+        {
+          "id": "B",
+          "text": "Run 'debug all' to capture everything at once"
+        },
+        {
+          "id": "C",
+          "text": "Reload the router to clear state"
+        },
+        {
+          "id": "D",
+          "text": "Disable logging entirely"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "'show' commands are passive and low-risk; start there. Debugs are CPU-intensive and can destabilize a busy router, so use them only when needed, scoped (ACL/condition), and briefly.",
+        "distractors": {
+          "A": "",
+          "B": "'debug all' can spike CPU and crash a busy device.",
+          "C": "Reloading is disruptive and loses the state you're troubleshooting.",
+          "D": "Disabling logging hides the information you need."
+        },
+        "exam_pattern": "Troubleshoot order: show (safe) → targeted/conditional debug (risky, brief). Watch CPU; undebug all when done."
+      },
+      "verify_cli": [
+        "show processes cpu sorted"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 4.x debug safety"
+      ],
+      "tags": [
+        "debug",
+        "troubleshooting"
+      ]
+    },
+    {
+      "id": "encor-as-304",
+      "exam": "encor",
+      "domain": "network_assurance",
+      "subtopic": "spans",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A SPAN source can be specified as which of the following?",
+      "options": [
+        {
+          "id": "A",
+          "text": "One or more interfaces, OR an entire VLAN (VSPAN)"
+        },
+        {
+          "id": "B",
+          "text": "Only a single interface, never a VLAN"
+        },
+        {
+          "id": "C",
+          "text": "Only a routed Layer 3 port"
+        },
+        {
+          "id": "D",
+          "text": "Only the management interface"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A SPAN session source can be one or more physical interfaces or a whole VLAN (VLAN-based SPAN, VSPAN), in a chosen direction (rx/tx/both), mirrored to the destination port.",
+        "distractors": {
+          "A": "",
+          "B": "VLAN sources (VSPAN) are supported, not just single ports.",
+          "C": "Sources are typically switchports or VLANs, not restricted to L3 ports.",
+          "D": "Any monitored port/VLAN can be a source, not only management."
+        },
+        "exam_pattern": "SPAN sources = ports or VLANs (VSPAN), direction rx/tx/both. Destination = a dedicated monitor port."
+      },
+      "verify_cli": [
+        "show monitor session 1"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 4.x SPAN sources"
+      ],
+      "tags": [
+        "span",
+        "vspan"
+      ]
+    },
+    {
+      "id": "encor-as-305",
+      "exam": "encor",
+      "domain": "network_assurance",
+      "subtopic": "spans",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What special requirement does RSPAN have that local SPAN does not?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A dedicated RSPAN VLAN that is carried across trunks between the source and destination switches"
+        },
+        {
+          "id": "B",
+          "text": "A GRE tunnel between switches"
+        },
+        {
+          "id": "C",
+          "text": "A Layer 3 routed path"
+        },
+        {
+          "id": "D",
+          "text": "A separate controller"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "RSPAN carries mirrored traffic between switches over a special, purpose-built RSPAN VLAN that must be allowed on the trunks end to end. (ERSPAN, by contrast, uses GRE to cross a routed Layer 3 network.)",
+        "distractors": {
+          "A": "",
+          "B": "GRE encapsulation is ERSPAN, not RSPAN.",
+          "C": "RSPAN rides a Layer 2 VLAN across trunks, not a routed path.",
+          "D": "No controller is required."
+        },
+        "exam_pattern": "Local SPAN = same switch. RSPAN = dedicated RSPAN VLAN across L2 trunks. ERSPAN = GRE across L3."
+      },
+      "verify_cli": [
+        "show monitor session all"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 4.x RSPAN VLAN"
+      ],
+      "tags": [
+        "rspan",
+        "span"
+      ]
+    },
+    {
+      "id": "encor-as-306",
+      "exam": "encor",
+      "domain": "network_assurance",
+      "subtopic": "snmp_syslog",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Why is SNMPv3 preferred over SNMPv2c for monitoring production infrastructure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "v3 adds per-user authentication and optional encryption (authPriv); v2c relies on clear-text community strings"
+        },
+        {
+          "id": "B",
+          "text": "v3 is faster at polling"
+        },
+        {
+          "id": "C",
+          "text": "v2c cannot read interface counters"
+        },
+        {
+          "id": "D",
+          "text": "v3 removes the need for a MIB"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "SNMPv3 provides a security model with authentication (HMAC) and privacy (encryption) per user (authPriv), whereas v2c sends community strings in clear text — a real risk on production networks.",
+        "distractors": {
+          "A": "",
+          "B": "Security, not speed, is the differentiator.",
+          "C": "v2c can read counters; it's just insecure.",
+          "D": "Both versions still use MIBs/OIDs."
+        },
+        "exam_pattern": "SNMPv3 = auth + privacy (authPriv), per-user. v2c = clear-text community. Use v3 on production."
+      },
+      "verify_cli": [
+        "show snmp user"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 4.x SNMPv3"
+      ],
+      "tags": [
+        "snmpv3",
+        "security"
+      ]
+    },
+    {
+      "id": "encor-as-307",
+      "exam": "encor",
+      "domain": "network_assurance",
+      "subtopic": "snmp_syslog",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You want a syslog server to receive only Warning (4) and more severe messages from a router. Which command sets that threshold for remote logging?",
+      "options": [
+        {
+          "id": "A",
+          "text": "logging trap warnings"
+        },
+        {
+          "id": "B",
+          "text": "logging trap debugging"
+        },
+        {
+          "id": "C",
+          "text": "logging console informational"
+        },
+        {
+          "id": "D",
+          "text": "logging buffered 7"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "'logging trap warnings' (severity 4) limits messages sent to syslog hosts to level 4 and more severe (0–4). Lower numeric severity = more urgent, and the threshold includes everything at or above it in severity.",
+        "distractors": {
+          "A": "",
+          "B": "'debugging' (7) sends everything, including the noisiest messages.",
+          "C": "'logging console' controls console output, not the remote host threshold.",
+          "D": "'logging buffered 7' sets the RAM buffer to debug level, not the trap threshold."
+        },
+        "exam_pattern": "Remote threshold = 'logging trap <severity>'. It includes that level and all MORE severe (lower-numbered) ones."
+      },
+      "verify_cli": [
+        "show logging"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 4.x logging trap"
+      ],
+      "tags": [
+        "syslog",
+        "logging-trap"
+      ]
+    },
+    {
+      "id": "encor-se-301",
+      "exam": "encor",
+      "domain": "security",
+      "subtopic": "cope_security",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "What does Management Plane Protection (MPP) allow you to do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Restrict which interfaces accept management protocols (SSH, SNMP, etc.), shrinking the attack surface"
+        },
+        {
+          "id": "B",
+          "text": "Encrypt the data plane"
+        },
+        {
+          "id": "C",
+          "text": "Police routing-protocol traffic to the CPU"
+        },
+        {
+          "id": "D",
+          "text": "Assign SGTs to endpoints"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "MPP lets you designate specific interfaces as the only ones that accept in-band management protocols (SSH, SNMP, HTTPS, etc.), so management can't be reached from arbitrary interfaces — reducing exposure.",
+        "distractors": {
+          "A": "",
+          "B": "MPP governs management access, not data-plane encryption.",
+          "C": "Policing CPU-bound traffic is CoPP's job, not MPP.",
+          "D": "SGT assignment is TrustSec, unrelated to MPP."
+        },
+        "exam_pattern": "MPP = limit management protocols to chosen interfaces (management plane). CoPP = police control-plane/CPU traffic. Different planes."
+      },
+      "verify_cli": [
+        "show management-interface"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 5.x Management Plane Protection"
+      ],
+      "tags": [
+        "mpp",
+        "management-plane"
+      ]
+    },
+    {
+      "id": "encor-se-302",
+      "exam": "encor",
+      "domain": "security",
+      "subtopic": "cope_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In a CoPP policy, why is it risky to apply an aggressive 'drop' action to a broad default class?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It could drop legitimate control-plane traffic (routing, ARP, management), harming the device/network"
+        },
+        {
+          "id": "B",
+          "text": "It encrypts the control plane by mistake"
+        },
+        {
+          "id": "C",
+          "text": "It speeds up the data plane too much"
+        },
+        {
+          "id": "D",
+          "text": "It disables all interfaces"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "CoPP classes should be built carefully. A broad default-class drop can catch legitimate control traffic (routing adjacencies, ARP, management), breaking connectivity — so classify important protocols explicitly and police/permit them before any catch-all.",
+        "distractors": {
+          "A": "",
+          "B": "CoPP polices/drops; it doesn't encrypt.",
+          "C": "CoPP targets control-plane traffic, not data-plane speed.",
+          "D": "It polices traffic to the CPU, not shutting interfaces."
+        },
+        "exam_pattern": "CoPP: classify critical control traffic first (permit/police), then handle the rest. A careless default drop can black-hole routing/mgmt."
+      },
+      "verify_cli": [
+        "show policy-map control-plane"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 5.x CoPP classes"
+      ],
+      "tags": [
+        "copp",
+        "control-plane"
+      ]
+    },
+    {
+      "id": "encor-se-303",
+      "exam": "encor",
+      "domain": "security",
+      "subtopic": "wireless_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which protection, added in the 802.11w amendment and used by WPA3, defends against deauthentication/disassociation spoofing attacks?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Protected Management Frames (PMF / Management Frame Protection)"
+        },
+        {
+          "id": "B",
+          "text": "WEP key rotation"
+        },
+        {
+          "id": "C",
+          "text": "MAC filtering"
+        },
+        {
+          "id": "D",
+          "text": "Hidden SSID"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "802.11w Protected Management Frames (PMF) cryptographically protect certain management frames (like deauth/disassoc), preventing an attacker from forging them to knock clients offline. WPA3 mandates PMF.",
+        "distractors": {
+          "A": "",
+          "B": "WEP is obsolete and insecure; key rotation doesn't protect management frames.",
+          "C": "MAC filtering is weak and doesn't stop deauth spoofing.",
+          "D": "A hidden SSID is obscurity, not frame protection."
+        },
+        "exam_pattern": "802.11w PMF = protect management frames (anti-deauth). WPA3 requires it; WPA2 can optionally enable it."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 5.x 802.11w PMF"
+      ],
+      "tags": [
+        "wireless-security",
+        "pmf",
+        "wpa3"
+      ]
+    },
+    {
+      "id": "encor-se-304",
+      "exam": "encor",
+      "domain": "security",
+      "subtopic": "wireless_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which authentication/encryption combination is the most secure option for a corporate WLAN?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WPA3-Enterprise with 802.1X/EAP (AES-GCMP)"
+        },
+        {
+          "id": "B",
+          "text": "WPA2-Personal with a shared PSK"
+        },
+        {
+          "id": "C",
+          "text": "Open authentication"
+        },
+        {
+          "id": "D",
+          "text": "WEP with a 128-bit key"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "WPA3-Enterprise authenticates each user via 802.1X/EAP against RADIUS and uses stronger ciphers (AES-GCMP, with a 192-bit suite option), plus mandatory PMF — the strongest mainstream corporate choice.",
+        "distractors": {
+          "A": "",
+          "B": "WPA2-Personal uses one shared PSK for everyone (no per-user identity).",
+          "C": "Open auth provides no protection.",
+          "D": "WEP is broken and must not be used."
+        },
+        "exam_pattern": "Corporate best: WPA3-Enterprise (802.1X/EAP + GCMP + PMF). Personal/PSK < Enterprise. Open/WEP = never."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 5.x WPA3-Enterprise"
+      ],
+      "tags": [
+        "wireless-security",
+        "wpa3-enterprise"
+      ]
+    },
+    {
+      "id": "encor-au-301",
+      "exam": "encor",
+      "domain": "automation",
+      "subtopic": "model_driven_telemetry",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "What is the difference between a 'dial-out' and a 'dial-in' model-driven telemetry subscription?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dial-out: the device initiates the connection to the collector. Dial-in: the collector connects to the device and requests the subscription"
+        },
+        {
+          "id": "B",
+          "text": "Dial-out uses SNMP; dial-in uses NetFlow"
+        },
+        {
+          "id": "C",
+          "text": "Dial-out is unencrypted; dial-in is encrypted"
+        },
+        {
+          "id": "D",
+          "text": "They are the same"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "In dial-out, the router/switch initiates the session to the telemetry collector and pushes data per a configured subscription. In dial-in, the collector opens the session (e.g., via gNMI) and dynamically requests the subscription.",
+        "distractors": {
+          "A": "",
+          "B": "Both are model-driven telemetry (gRPC/gNMI/NETCONF), not SNMP/NetFlow.",
+          "C": "Encryption depends on transport (TLS), not the dial direction.",
+          "D": "The initiation direction genuinely differs."
+        },
+        "exam_pattern": "Dial-out = device → collector (configured sub). Dial-in = collector → device (dynamic sub, e.g., gNMI). Both push YANG-modeled data."
+      },
+      "verify_cli": [
+        "show telemetry ietf subscription all"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 6.x telemetry dial-in/out"
+      ],
+      "tags": [
+        "telemetry",
+        "dial-in",
+        "dial-out"
+      ]
+    },
+    {
+      "id": "encor-au-302",
+      "exam": "encor",
+      "domain": "automation",
+      "subtopic": "model_driven_telemetry",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A telemetry subscription is configured as 'on-change' instead of 'periodic'. What does that mean?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The device sends an update only when the subscribed data actually changes, not on a fixed timer"
+        },
+        {
+          "id": "B",
+          "text": "It streams continuously at the fastest possible rate"
+        },
+        {
+          "id": "C",
+          "text": "It only sends data once at boot"
+        },
+        {
+          "id": "D",
+          "text": "It disables the subscription"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "An on-change subscription pushes an update only when the monitored object's value changes (e.g., an interface goes down), which is efficient for state you only need to hear about when it moves. Periodic sends on a set interval.",
+        "distractors": {
+          "A": "",
+          "B": "On-change is event-driven, not maximum-rate streaming.",
+          "C": "It reacts to every change, not just at boot.",
+          "D": "It's an active subscription mode, not a disable."
+        },
+        "exam_pattern": "Telemetry cadence: periodic (every N) vs on-change (only when it changes). Pick by whether you need samples or state transitions."
+      },
+      "verify_cli": [
+        "show telemetry ietf subscription all"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 6.x subscription types"
+      ],
+      "tags": [
+        "telemetry",
+        "on-change"
+      ]
+    },
+    {
+      "id": "encor-au-303",
+      "exam": "encor",
+      "domain": "automation",
+      "subtopic": "model_driven_telemetry",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which compact, efficient encoding is commonly paired with gRPC for streaming telemetry at scale?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Protocol Buffers (protobuf / GPB)"
+        },
+        {
+          "id": "B",
+          "text": "Plain-text CLI"
+        },
+        {
+          "id": "C",
+          "text": "CSV"
+        },
+        {
+          "id": "D",
+          "text": "HTML"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "gRPC telemetry commonly uses Google Protocol Buffers (protobuf/GPB), a compact binary serialization that is efficient to encode/decode at high volume — though JSON/self-describing GPB is also possible.",
+        "distractors": {
+          "A": "",
+          "B": "CLI text is exactly what model-driven telemetry replaces.",
+          "C": "CSV isn't the standard telemetry encoding.",
+          "D": "HTML is for web pages, not telemetry payloads."
+        },
+        "exam_pattern": "gRPC telemetry ↔ protobuf (binary, compact). RESTCONF ↔ JSON/XML. NETCONF ↔ XML. Transport + encoding pairings."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 6.x telemetry encoding"
+      ],
+      "tags": [
+        "telemetry",
+        "protobuf",
+        "grpc"
+      ]
+    },
+    {
+      "id": "encor-au-304",
+      "exam": "encor",
+      "domain": "automation",
+      "subtopic": "netconf_restconf_encor",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which NETCONF operation applies a configuration change to a datastore?",
+      "options": [
+        {
+          "id": "A",
+          "text": "<edit-config>"
+        },
+        {
+          "id": "B",
+          "text": "<get>"
+        },
+        {
+          "id": "C",
+          "text": "<close-session>"
+        },
+        {
+          "id": "D",
+          "text": "<hello>"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "<edit-config> writes configuration changes into a target datastore (running or candidate). <get>/<get-config> read, <lock>/<unlock> guard concurrent edits, and <commit> promotes a candidate to running.",
+        "distractors": {
+          "A": "",
+          "B": "<get> retrieves data; it doesn't change config.",
+          "C": "<close-session> ends the NETCONF session.",
+          "D": "<hello> exchanges capabilities at session start."
+        },
+        "exam_pattern": "NETCONF ops: <get>/<get-config> read, <edit-config> write, <lock>/<unlock>, <commit> (candidate→running). RESTCONF maps these to HTTP verbs."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 6.x NETCONF operations"
+      ],
+      "tags": [
+        "netconf",
+        "edit-config"
+      ]
+    },
+    {
+      "id": "encor-au-305",
+      "exam": "encor",
+      "domain": "automation",
+      "subtopic": "netconf_restconf_encor",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In RESTCONF, which HTTP method retrieves configuration or operational data for a resource?",
+      "options": [
+        {
+          "id": "A",
+          "text": "GET"
+        },
+        {
+          "id": "B",
+          "text": "DELETE"
+        },
+        {
+          "id": "C",
+          "text": "POST"
+        },
+        {
+          "id": "D",
+          "text": "PATCH"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "RESTCONF maps CRUD to HTTP: GET reads a resource's data, POST creates, PUT replaces, PATCH merges/updates, and DELETE removes — all against YANG-modeled paths.",
+        "distractors": {
+          "A": "",
+          "B": "DELETE removes a resource.",
+          "C": "POST creates a new resource.",
+          "D": "PATCH modifies part of a resource."
+        },
+        "exam_pattern": "RESTCONF verbs: GET read, POST create, PUT replace, PATCH merge, DELETE remove. Same REST semantics over YANG data."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 6.x RESTCONF verbs"
+      ],
+      "tags": [
+        "restconf",
+        "http-verbs"
+      ]
+    },
+    {
+      "id": "encor-au-306",
+      "exam": "encor",
+      "domain": "automation",
+      "subtopic": "controllers_apis",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A script calls the Catalyst Center (DNA Center) 'intent' REST API. What does an 'intent' API let the caller do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Express a desired outcome/policy that the controller renders into device configuration"
+        },
+        {
+          "id": "B",
+          "text": "Only reboot the controller"
+        },
+        {
+          "id": "C",
+          "text": "Directly edit each switch's startup-config file"
+        },
+        {
+          "id": "D",
+          "text": "Disable the controller's database"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Intent APIs are declarative: the caller states WHAT it wants (sites, policies, provisioning), and the controller figures out and pushes the device-level configuration to achieve it — the programmatic face of intent-based networking.",
+        "distractors": {
+          "A": "",
+          "B": "Intent APIs do far more than reboot the controller.",
+          "C": "You don't hand-edit each switch; the controller renders configs from intent.",
+          "D": "They don't disable the controller database."
+        },
+        "exam_pattern": "Controller intent/northbound API = declare outcome; controller renders device configs + assurance. Token-based auth (X-Auth-Token)."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 6.x Catalyst Center intent API"
+      ],
+      "tags": [
+        "dna-center",
+        "intent-api",
+        "rest"
+      ]
+    },
+    {
+      "id": "encor-au-307",
+      "exam": "encor",
+      "domain": "automation",
+      "subtopic": "controllers_apis",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which controller exposes the REST API used to automate a Cisco Catalyst SD-WAN fabric (templates, policies, monitoring)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "vManage"
+        },
+        {
+          "id": "B",
+          "text": "vBond"
+        },
+        {
+          "id": "C",
+          "text": "vSmart"
+        },
+        {
+          "id": "D",
+          "text": "A WAN Edge router"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "vManage is the SD-WAN management plane and hosts the REST API used to automate configuration templates, policies, and monitoring across the fabric.",
+        "distractors": {
+          "A": "",
+          "B": "vBond handles orchestration/onboarding, not the management API.",
+          "C": "vSmart is the control plane (OMP route/policy distribution).",
+          "D": "WAN Edge (cEdge/vEdge) devices are the data plane."
+        },
+        "exam_pattern": "SD-WAN APIs = vManage (management/REST). Planes: vManage (mgmt), vSmart (control), vBond (orchestration), WAN Edge (data)."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 6.x SD-WAN APIs"
+      ],
+      "tags": [
+        "sd-wan",
+        "vmanage",
+        "api"
       ]
     }
   ]

@@ -13,7 +13,7 @@ A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
 | Area | Status |
 |------|--------|
 | Exam blueprints (domains + weights + sub-topics) | ✅ CCNA & ENCOR |
-| Question bank | ✅ 308 original items (CCNA 166, ENCOR 142), every domain deep (17–42 each) |
+| Question bank | ✅ 377 original items (CCNA 205, ENCOR 172); every domain deep AND every sub-topic ≥4 |
 | Diagnostic baseline (30 Q, 5/domain) + focus recs | ✅ |
 | Endless Drill (adaptive, Leitner miss-boost, remediation mode) | ✅ + per-domain focus filter |
 | Structured Milestones (Read → Lesson Quiz → Milestone exam + PBQ, unit unlock) | ✅ |
