@@ -163,7 +163,9 @@ data/
 
 tools/
   content_ccna.py          # authored CCNA item pool (edit here)
+  content_ccna_2.py        # CCNA expansion pool (concatenated onto the above)
   content_encor.py         # authored ENCOR item pool (edit here)
+  content_encor_2.py       # ENCOR expansion pool (concatenated onto the above)
   build_content.py         # validates + regenerates data/questions/*.json
 
 tests/                     # pytest suite
