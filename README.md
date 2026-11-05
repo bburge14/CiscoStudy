@@ -149,6 +149,7 @@ studyengine/               # testable core (no Streamlit dependency)
   curriculum.py            # units/lessons/milestones + cumulative exams
   studyplan.py             # weakest-first study plan + mastery tracking
   exam.py                  # timed mock exam builder + readiness estimate
+  leveling.py              # XP + rank levels derived from profile progress
   cli_sim/                 # IOS CLI simulator + PBQ engine
     netutils.py            #   IPv4 / wildcard math
     device.py              #   device/topology model (STP/OSPF/EtherChannel behaviour)
