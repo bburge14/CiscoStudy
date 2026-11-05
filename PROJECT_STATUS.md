@@ -24,9 +24,11 @@ A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
 | Accounts & login | ✅ username/password, PBKDF2-salted-hashed, per-account storage |
 | Onboarding hub | ✅ login gate + "where to start?" Home (Home.py) with page links |
 | Personalized study plan | ✅ weakest-first, enforced order, read→drill→unlock (studyplan.py) |
+| Exam simulation | ✅ timed, domain-weighted, one-at-a-time (no back), pass/fail report (exam.py) |
+| Exam readiness estimate | ✅ weighted practice accuracy + coverage + verdict (on dashboard) |
 | Instructor view | ✅ Default = instructor; roster, per-learner drill-down, and account management (create/reset/role/delete) |
 | Launchers | ✅ `run.sh`, `run.bat`, `run-shared.bat` (LAN), exe |
-| Test suite | ✅ 173 tests passing |
+| Test suite | ✅ 179 tests passing |
 
 Run: `run.bat` (Windows) / `./run.sh` (macOS/Linux) / `streamlit run Home.py`.
 Test: `python -m pytest -q`.

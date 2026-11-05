@@ -4,7 +4,7 @@ from __future__ import annotations
 import pandas as pd
 import streamlit as st
 
-from studyengine import get_blueprint
+from studyengine import exam_readiness, get_blueprint
 from ui_common import (
     box_distribution,
     domain_mastery_table,
@@ -32,6 +32,23 @@ c4.metric("Baseline", f"{prof.baseline['overall']}%" if prof.baseline else "not 
 if seen == 0:
     st.info("No activity yet. Take the **Diagnostic Baseline** or run an **Endless Drill** to populate your stats.")
     st.stop()
+
+st.divider()
+st.subheader("🎯 Exam readiness")
+r = exam_readiness(prof, bp)
+rc1, rc2 = st.columns([1, 2])
+rc1.metric("Estimated score", f"{r['estimate']}%" if r["estimate"] is not None else "—")
+rc1.caption(f"Topics practiced: {r['coverage']}% of the exam")
+with rc2:
+    if r["ready"]:
+        st.success(f"**{r['verdict']}** — estimated {r['estimate']}%, {r['coverage']}% of the exam practiced.")
+    elif r["estimate"] is None:
+        st.info(f"{r['verdict']} — practice a few more domains to get an estimate.")
+    else:
+        st.warning(f"**{r['verdict']}** — estimated {r['estimate']}%, {r['coverage']}% of the exam practiced.")
+    st.caption("This is your practice accuracy weighted by the official domain weights — a study "
+               "gauge, not a prediction. Cisco's real cut score is scaled and unpublished. For a "
+               "fuller check, run a timed **Exam Simulation**.")
 
 st.divider()
 st.subheader("Mastery by domain")

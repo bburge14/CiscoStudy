@@ -14,6 +14,7 @@ from .curriculum import (
     milestone_exam,
 )
 from .diagnostic import build_baseline, recommend_focus
+from .exam import PASS_SCORE, build_exam, exam_readiness, exam_time_limit
 from .grading import Feedback, SessionScore, grade, score_session
 from .models import Lesson, Option, Question, Unit
 from .progress import Profile, QStat
@@ -32,6 +33,7 @@ __all__ = [
     "CCNA", "ENCOR", "EXAMS", "ExamBlueprint", "get_blueprint",
     "Curriculum", "load_curriculum", "lesson_markdown", "lesson_quiz", "milestone_exam",
     "build_baseline", "recommend_focus",
+    "PASS_SCORE", "build_exam", "exam_readiness", "exam_time_limit",
     "Feedback", "SessionScore", "grade", "score_session",
     "Lesson", "Option", "Question", "Unit",
     "Profile", "QStat",
