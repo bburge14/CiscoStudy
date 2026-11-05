@@ -142,7 +142,7 @@ else:
     pick = st.selectbox("Learner", list(by_slug), format_func=lambda s: by_slug[s]["name"])
     prof = load_user_profile(pick, exam)
 
-    seen, correct = prof.overall()
+    seen, correct = prof.study_overall()   # benchmark shown separately as Baseline
     d1, d2, d3 = st.columns(3)
     d1.metric("Answered", seen)
     d2.metric("Accuracy", f"{round(correct/seen*100)}%" if seen else "—")

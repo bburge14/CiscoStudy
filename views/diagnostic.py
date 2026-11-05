@@ -107,8 +107,11 @@ with col1:
     last = idx == total - 1
     if st.button("Finish" if last else "Next ▶", type="primary"):
         state["answers"][q.id] = sel
-        # record into the adaptive profile as we go
-        prof.record(q, q.check(sel))
+        # Record into the adaptive profile to seed the scheduler/plan, but mark
+        # it as a benchmark answer so it is EXCLUDED from study metrics + XP.
+        _correct = q.check(sel)
+        prof.record(q, _correct)
+        prof.note_baseline_answer(q, _correct)
         save_profile(exam)
         if last:
             state["done"] = True
@@ -116,6 +119,7 @@ with col1:
                 "overall": round(
                     sum(1 for i in state["ids"] if bank.get(i).check(state["answers"].get(i)))
                     / total * 100),
+                "total": total,
                 "ts": time.time(),
             }
             save_profile(exam)

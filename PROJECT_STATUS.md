@@ -30,7 +30,7 @@ A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
 | Personalized study plan | ✅ weakest-first, enforced order, read→drill→unlock (studyplan.py) |
 | Exam simulation | ✅ timed (native per-second countdown), domain-weighted, one-at-a-time (no back), pass/fail report (exam.py) |
 | Exam readiness estimate | ✅ weighted practice accuracy + coverage + verdict (on dashboard) |
-| XP / leveling | ✅ 9 ranks, XP derived from correct answers + mastery (studyengine/leveling.py); Home card, sidebar badge, +XP on each answer |
+| XP / leveling | ✅ 9 ranks, XP derived from STUDY correct answers + mastery (studyengine/leveling.py); the diagnostic benchmark is excluded from XP, "questions answered" and accuracy (Profile.study_overall); Home card, sidebar badge, +XP on each answer |
 | Instructor view | ✅ first account = instructor; roster, per-learner drill-down, account management (create/reset/role/delete); nav entry hidden from learners |
 | Launchers | ✅ `run.sh`, `run.bat`, `run-shared.bat` (LAN), exe |
 | Test suite | ✅ 198 tests passing (+ router AppTest smoke) |

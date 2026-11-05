@@ -31,7 +31,7 @@ st.markdown(f"Your study tool for **{EXAMS[exam]}**. Pick where to start — eve
 
 render_level_card(prof)
 
-seen, correct = prof.overall()
+seen, correct = prof.study_overall()   # benchmark excluded from study metrics
 c1, c2, c3 = st.columns(3)
 c1.metric("Questions answered", seen)
 c2.metric("Lifetime accuracy", f"{round(correct / seen * 100)}%" if seen else "—")

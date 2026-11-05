@@ -17,8 +17,9 @@ XP_PER_ANSWER = 2              # small participation credit (even on a miss)
 XP_PER_MASTERED_SUBTOPIC = 60  # sustained accuracy in a sub-topic
 XP_PER_MILESTONE = 120         # passing a structured milestone
 XP_PER_LESSON = 25             # passing a lesson quiz
-XP_FOR_DIAGNOSTIC = 50         # taking the baseline once
 MASTERY_MIN_ATTEMPTS = 4       # attempts before a sub-topic can count as mastered
+# Note: the diagnostic benchmark earns NO XP. It measures where you start; it
+# isn't study. Its answers are excluded via Profile.study_overall()/study_*.
 
 # (minimum cumulative XP, rank title). Original, networking-themed ranks — not
 # any vendor's trademarked certification names.
@@ -58,23 +59,23 @@ class LevelInfo:
 
 
 def mastered_subtopics(profile: Profile, min_attempts: int = MASTERY_MIN_ATTEMPTS) -> list[str]:
-    """Sub-topics answered at least `min_attempts` times at >= mastery accuracy."""
+    """Sub-topics answered at least `min_attempts` times at >= mastery accuracy,
+    counting STUDY attempts only (the diagnostic benchmark is excluded)."""
     out = []
-    for stp, (seen, _correct, acc) in profile.subtopic_stats().items():
+    for stp, (seen, _correct, acc) in profile.study_subtopic_stats().items():
         if seen >= min_attempts and acc >= MASTERY_THRESHOLD:
             out.append(stp)
     return out
 
 
 def compute_xp(profile: Profile) -> int:
-    """Total XP for a profile, derived entirely from its recorded progress."""
-    seen, correct = profile.overall()
+    """Total XP, derived from STUDY progress only. The diagnostic benchmark is
+    excluded (it assesses where you start; it is not studying)."""
+    seen, correct = profile.study_overall()
     xp = correct * XP_PER_CORRECT + seen * XP_PER_ANSWER
     xp += len(mastered_subtopics(profile)) * XP_PER_MASTERED_SUBTOPIC
     xp += len(profile.passed_milestones) * XP_PER_MILESTONE
     xp += len(profile.completed_lessons) * XP_PER_LESSON
-    if profile.baseline:
-        xp += XP_FOR_DIAGNOSTIC
     return int(xp)
 
 
