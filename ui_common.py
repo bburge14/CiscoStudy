@@ -545,9 +545,10 @@ def render_level_card(prof, *, compact: bool = False) -> None:
         with right:
             st.markdown(f"#### {li.title}")
             st.progress(li.pct, text=bar_text)
-    st.caption("XP comes from **correct** answers and **mastering** sub-topics (lessons and "
-               "milestones help too) — the diagnostic benchmark doesn't count, so your rank "
-               "reflects what you've actually learned.")
+    st.caption("XP rewards getting answers **right**, building **streaks**, and **mastering** "
+               "topics — missing costs you (more if you had it down), and the diagnostic doesn't "
+               "count. Your rank reflects how much you've actually learned, not how many "
+               "questions you've clicked.")
 
 
 def page_setup(title: str | None = None, icon: str | None = None) -> str:
@@ -638,9 +639,32 @@ def render_feedback(q: Question, fb: Feedback) -> None:
 def grade_and_record(exam: str, q: Question, selection) -> Feedback:
     fb = grade(q, selection)
     prof = get_profile(exam)
-    prof.record(q, fb.correct)
+    st.session_state["_xp_event"] = prof.record_study(q, fb.correct)
     save_profile(exam)
     return fb
+
+
+def last_xp_event() -> dict:
+    """The XP result of the most recent grade_and_record (delta, streak, flags)."""
+    return st.session_state.get("_xp_event") or {}
+
+
+def render_xp_event(info: dict) -> None:
+    """Render a +/- XP chip with streak + mastery/regression context."""
+    if not info:
+        return
+    delta = info.get("delta", 0)
+    bits = [f"**+{delta} XP**" if delta >= 0 else f"**{delta} XP**"]
+    if info.get("mastered"):
+        bits.append("🏅 mastered!")
+    elif info.get("learned"):
+        bits.append("📈 improving")
+    elif info.get("regressed"):
+        bits.append("⚠️ you had this one down")
+    streak = info.get("streak", 0)
+    if streak >= 3:
+        bits.append(f"🔥 {streak} in a row")
+    st.markdown("  ·  ".join(bits))
 
 
 # --- small analytics widgets ------------------------------------------------
@@ -736,7 +760,7 @@ def run_quiz(exam: str, skey: str, question_ids: list[str], instant: bool = Fals
     if st.button(submit_label, key=f"{skey}_submit", type="primary"):
         state["answers"][q.id] = sel
         fb = grade(q, sel)
-        prof.record(q, fb.correct)
+        prof.record_study(q, fb.correct)
         save_profile(exam)
         if instant:
             state["fb"] = fb

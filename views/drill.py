@@ -3,16 +3,18 @@ from __future__ import annotations
 
 import streamlit as st
 
-from studyengine import get_blueprint, profile_level
+from studyengine import get_blueprint
 from ui_common import (
     answer_widget,
     get_bank,
     get_profile,
     get_scheduler,
     grade_and_record,
+    last_xp_event,
     page_header,
     page_setup,
     render_feedback,
+    render_xp_event,
 )
 
 exam = page_setup("Endless Drill", icon="♾️")
@@ -87,9 +89,7 @@ st.caption(f"Domain: {bp.domain(q.domain).name}  ·  Sub-topic: {q.subtopic.repl
 if drill["phase"] == "answering":
     sel = answer_widget(q, key=f"{SKEY}_ans_{q.id}")
     if st.button("Submit", type="primary"):
-        xp_before = profile_level(prof).xp
-        fb = grade_and_record(exam, q, sel)
-        drill["xp_gain"] = max(profile_level(prof).xp - xp_before, 0)
+        fb = grade_and_record(exam, q, sel)   # awards study XP, stashes the event
         drill["fb"] = fb
         drill["phase"] = "feedback"
         drill["seen"] += 1
@@ -104,9 +104,7 @@ if drill["phase"] == "answering":
 
 # --- feedback phase ---------------------------------------------------------
 else:
-    gain = drill.get("xp_gain", 0)
-    if gain:
-        st.markdown(f"**+{gain} XP**")
+    render_xp_event(last_xp_event())
     render_feedback(q, drill["fb"])
     if st.button("Next question ▶", type="primary"):
         drill["qid"] = None
