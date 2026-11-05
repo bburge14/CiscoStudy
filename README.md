@@ -77,28 +77,43 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Then open <http://localhost:8501>. In the sidebar, pick your **learner profile**
-and **exam track** (CCNA / ENCOR). Progress auto-saves per profile (git-ignored,
-on the machine running the app).
+Then open <http://localhost:8501>, **create a login** (or sign in), and the
+onboarding hub lets you take the diagnostic or jump straight into any mode. Your
+progress saves to your account automatically (git-ignored, on the machine running
+the app).
 
-## Multiple learners & sharing
+## Accounts, onboarding & personalized plan
 
-The sidebar has a **learner profile** picker: each person creates and selects
-their own profile, and their progress is stored separately (under
-`.userdata/<profile>/` locally, or `~/.ciscostudy/<profile>/` for the exe). The
-profile is per browser session, so several people can use one running instance at
-once without clobbering each other.
+- **Login:** each learner creates an account (username + password). Passwords are
+  **salted and hashed** (PBKDF2-HMAC-SHA256, standard library) in
+  `.userdata/users.json`; each account's progress lives under
+  `.userdata/<user>/` (or `~/.ciscostudy/<user>/` for the exe). The signed-in user
+  is per browser session, so several people can use one running instance at once
+  without mixing progress.
+- **Onboarding hub (Home):** after login, a "Where do you want to start?" screen
+  links to the diagnostic, the study plan, lessons, drill and the PBQ lab.
+- **🧭 My Study Plan:** the diagnostic builds a **personalized, weakest-first
+  plan** — it walks you through your weak sub-topics one at a time (read the
+  lesson → drill it → the next topic unlocks when you reach 80%+).
 
-Ways to let other people use it:
+### Letting other people use it
 
 - **Same network (no servers):** run **`run-shared.bat`** (Windows) — or
   `streamlit run app.py --server.address 0.0.0.0` on macOS/Linux — then others on
-  the same Wi-Fi/LAN open `http://<your-PC-IP>:8501` and pick their own profile.
-- **Separate machines:** hand each person the `.exe` or the repo; each keeps its
-  own local profiles.
-- **Public web app with accounts:** for an internet-hosted, multi-user deployment
-  you'd swap the per-profile JSON files for a shared database (the free-tier hosts
-  have ephemeral disks). That's a larger change — see PROJECT_STATUS.md.
+  the same Wi-Fi/LAN open `http://<your-PC-IP>:8501` and sign in with their own
+  account.
+- **Separate machines:** hand each person the `.exe` or the repo.
+- **Public web app:** for an internet-hosted deployment you'd move accounts and
+  progress into a real database behind HTTPS (free hosts have ephemeral disks) —
+  a larger change noted in PROJECT_STATUS.md.
+
+> ⚠️ **Security note (please read if distributing).** The login is **lightweight
+> auth for a study tool**, not a hardened system. `run-shared.bat` serves plain
+> **HTTP** on your LAN, so passwords cross the network unencrypted. Tell users to
+> pick a **throwaway password** (never a real / CAC / network password) and keep
+> **no sensitive or CUI information** in the app — progress is stored in plaintext
+> JSON. For anything beyond a trusted study group, put it behind HTTPS with a
+> proper backend.
 
 ---
 

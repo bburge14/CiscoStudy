@@ -18,6 +18,14 @@ from .grading import Feedback, SessionScore, grade, score_session
 from .models import Lesson, Option, Question, Unit
 from .progress import Profile, QStat
 from .scheduler import DrillScheduler
+from .studyplan import (
+    PlanStep,
+    build_plan,
+    current_step,
+    is_mastered,
+    next_question_for_subtopic,
+    plan_progress,
+)
 
 __all__ = [
     "QuestionBank", "load_bank",
@@ -28,4 +36,6 @@ __all__ = [
     "Lesson", "Option", "Question", "Unit",
     "Profile", "QStat",
     "DrillScheduler",
+    "PlanStep", "build_plan", "current_step", "is_mastered",
+    "next_question_for_subtopic", "plan_progress",
 ]
