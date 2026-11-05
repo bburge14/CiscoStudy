@@ -3491,4 +3491,1124 @@ QUESTIONS = [
         "references": ["CCNA 200-301 Topic 6.x event-driven APIs"],
         "tags": ["webhook", "rest", "event-driven"],
     },
+    # ===================== FILL: thin subtopics (1.0 / 2.0) =====================
+    {
+        "id": "ccna-nf-301", "exam": "ccna", "domain": "network_fundamentals",
+        "subtopic": "osi_tcpip", "difficulty": 2, "type": "mcq",
+        "stem": "As data moves down the OSI stack from a sending host, what is the correct "
+                "order of the Protocol Data Units (PDUs)?",
+        "options": [
+            {"id": "A", "text": "Data → Segment → Packet → Frame → Bits"},
+            {"id": "B", "text": "Bits → Frame → Packet → Segment → Data"},
+            {"id": "C", "text": "Packet → Segment → Frame → Data → Bits"},
+            {"id": "D", "text": "Data → Packet → Segment → Frame → Bits"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "Encapsulation proceeds Data (L5-7) → Segment (L4, TCP/UDP) → Packet (L3, "
+                       "IP) → Frame (L2) → Bits (L1). Each layer adds its header as the PDU goes "
+                       "down the stack.",
+            "distractors": {
+                "A": "",
+                "B": "That's the DE-encapsulation order (receiving side, going up).",
+                "C": "Segment (L4) comes before Packet becomes Frame; this order is scrambled.",
+                "D": "The L4 Segment must come before the L3 Packet, not after.",
+            },
+            "exam_pattern": "Down the stack: Data, Segment, Packet, Frame, Bits. L4=segment, "
+                            "L3=packet, L2=frame, L1=bits. Reverse on receive.",
+        },
+        "verify_cli": [],
+        "references": ["CCNA 200-301 Topic 1.1 encapsulation"],
+        "tags": ["osi", "pdu", "encapsulation"],
+    },
+    {
+        "id": "ccna-nf-302", "exam": "ccna", "domain": "network_fundamentals",
+        "subtopic": "osi_tcpip", "difficulty": 1, "type": "mcq",
+        "stem": "A traditional firewall that filters on source/destination IP AND TCP/UDP port "
+                "numbers operates primarily at which OSI layers?",
+        "options": [
+            {"id": "A", "text": "Layers 3 and 4"},
+            {"id": "B", "text": "Layers 1 and 2"},
+            {"id": "C", "text": "Layer 7 only"},
+            {"id": "D", "text": "Layer 2 only"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "Filtering on IP addresses is Layer 3 and on TCP/UDP ports is Layer 4, so "
+                       "a stateful packet-filtering firewall works at Layers 3–4. (Next-gen "
+                       "firewalls add Layer 7 application awareness.)",
+            "distractors": {
+                "A": "",
+                "B": "L1/L2 deal with bits and frames/MACs, not IP/port filtering.",
+                "C": "Layer 7 is application content inspection; basic port/IP filtering is L3/L4.",
+                "D": "A switch is L2; a port/IP firewall reaches L3/L4.",
+            },
+            "exam_pattern": "Map the device to layers: switch L2, router/basic-firewall L3(-4), "
+                            "NGFW/proxy L7. IP = L3, ports = L4.",
+        },
+        "verify_cli": [],
+        "references": ["CCNA 200-301 Topic 1.1 OSI layers"],
+        "tags": ["osi", "firewall"],
+    },
+    {
+        "id": "ccna-nf-303", "exam": "ccna", "domain": "network_fundamentals",
+        "subtopic": "osi_tcpip", "difficulty": 2, "type": "mcq",
+        "stem": "In the four-layer TCP/IP model, which single layer corresponds to the OSI "
+                "Session, Presentation, and Application layers (5, 6, and 7)?",
+        "options": [
+            {"id": "A", "text": "The Application layer"},
+            {"id": "B", "text": "The Transport layer"},
+            {"id": "C", "text": "The Internet layer"},
+            {"id": "D", "text": "The Link layer"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "The TCP/IP model collapses OSI layers 5–7 into a single Application "
+                       "layer. Its Transport maps to OSI L4, Internet to L3, and Link/Network "
+                       "Access to L1–L2.",
+            "distractors": {
+                "A": "",
+                "B": "Transport maps to OSI Layer 4 only.",
+                "C": "Internet maps to OSI Layer 3.",
+                "D": "Link/Network Access maps to OSI Layers 1–2.",
+            },
+            "exam_pattern": "TCP/IP (4): Application (OSI 5-7), Transport (4), Internet (3), Link "
+                            "(1-2). Know the mapping both directions.",
+        },
+        "verify_cli": [],
+        "references": ["CCNA 200-301 Topic 1.1 TCP/IP model"],
+        "tags": ["tcp-ip-model", "osi"],
+    },
+    {
+        "id": "ccna-nf-304", "exam": "ccna", "domain": "network_fundamentals",
+        "subtopic": "wireless_fundamentals", "difficulty": 2, "type": "mcq",
+        "stem": "Compared with the 2.4 GHz band, what is a key trade-off of the 5 GHz band?",
+        "options": [
+            {"id": "A", "text": "More non-overlapping channels and higher throughput, but shorter range / less wall penetration"},
+            {"id": "B", "text": "Longer range and better penetration, but fewer channels"},
+            {"id": "C", "text": "Identical range and channels to 2.4 GHz"},
+            {"id": "D", "text": "It cannot be used for Wi-Fi"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "5 GHz offers many more non-overlapping channels and higher data rates "
+                       "with less interference, but its higher frequency means shorter range and "
+                       "weaker penetration through walls than 2.4 GHz.",
+            "distractors": {
+                "A": "",
+                "B": "That describes 2.4 GHz (better range/penetration, only 3 clean channels).",
+                "C": "They differ significantly in channels and range.",
+                "D": "5 GHz is widely used for Wi-Fi (802.11a/n/ac/ax).",
+            },
+            "exam_pattern": "2.4 GHz = better range/penetration, 3 clean channels (1/6/11), more "
+                            "interference. 5 GHz = more channels/throughput, shorter range.",
+        },
+        "verify_cli": [],
+        "references": ["CCNA 200-301 Topic 1.11 RF bands"],
+        "tags": ["wireless", "5ghz", "rf"],
+    },
+    {
+        "id": "ccna-nf-305", "exam": "ccna", "domain": "network_fundamentals",
+        "subtopic": "wireless_fundamentals", "difficulty": 2, "type": "mcq",
+        "stem": "In wireless terminology, what is an SSID?",
+        "options": [
+            {"id": "A", "text": "The human-readable name of a wireless network (WLAN)"},
+            {"id": "B", "text": "The MAC address of the access point's radio"},
+            {"id": "C", "text": "The channel number the AP uses"},
+            {"id": "D", "text": "The encryption key for the network"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "The SSID (Service Set Identifier) is the network name clients see and "
+                       "join. The AP radio's MAC that identifies a specific basic service set is "
+                       "the BSSID — a different thing.",
+            "distractors": {
+                "A": "",
+                "B": "The radio MAC identifying a BSS is the BSSID, not the SSID.",
+                "C": "The channel is an RF setting, not the network name.",
+                "D": "The encryption key (PSK) is separate from the SSID.",
+            },
+            "exam_pattern": "SSID = network NAME. BSSID = AP radio MAC (one BSS). ESS = multiple "
+                            "APs sharing one SSID for roaming.",
+        },
+        "verify_cli": [],
+        "references": ["CCNA 200-301 Topic 1.11 SSID/BSSID"],
+        "tags": ["wireless", "ssid"],
+    },
+    {
+        "id": "ccna-nf-306", "exam": "ccna", "domain": "network_fundamentals",
+        "subtopic": "wireless_fundamentals", "difficulty": 1, "type": "mcq",
+        "stem": "Which non-Wi-Fi source is a common cause of interference specifically in the "
+                "2.4 GHz band?",
+        "options": [
+            {"id": "A", "text": "Microwave ovens and classic Bluetooth devices"},
+            {"id": "B", "text": "Fiber-optic cabling"},
+            {"id": "C", "text": "Cat6 Ethernet runs"},
+            {"id": "D", "text": "Single-mode laser transceivers"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "Microwave ovens and older Bluetooth both operate in the 2.4 GHz ISM "
+                       "band, so they can interfere with 2.4 GHz Wi-Fi — one more reason crowded "
+                       "2.4 GHz is noisier than 5 GHz.",
+            "distractors": {
+                "A": "",
+                "B": "Fiber carries light internally and emits no RF interference.",
+                "C": "Copper Ethernet isn't a 2.4 GHz RF source for Wi-Fi.",
+                "D": "Optical transceivers don't radiate 2.4 GHz RF.",
+            },
+            "exam_pattern": "2.4 GHz interferers: microwaves, Bluetooth, cordless phones, baby "
+                            "monitors. Another reason to prefer 5 GHz where range allows.",
+        },
+        "verify_cli": [],
+        "references": ["CCNA 200-301 Topic 1.11 RF interference"],
+        "tags": ["wireless", "interference"],
+    },
+    {
+        "id": "ccna-nf-307", "exam": "ccna", "domain": "network_fundamentals",
+        "subtopic": "cabling_media", "difficulty": 2, "type": "mcq",
+        "stem": "Which statement best distinguishes single-mode fiber (SMF) from multimode "
+                "fiber (MMF)?",
+        "options": [
+            {"id": "A", "text": "SMF uses a laser and a small core for long distances; MMF uses LED/VCSEL and a larger core for shorter distances"},
+            {"id": "B", "text": "MMF reaches much farther than SMF"},
+            {"id": "C", "text": "SMF carries electrical signals; MMF carries light"},
+            {"id": "D", "text": "They are interchangeable on the same transceivers"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "SMF has a very small core and uses a laser to send one light path over "
+                       "long distances (kilometers). MMF has a larger core, uses LED/VCSEL "
+                       "sources, and is used for shorter runs (campus/data center).",
+            "distractors": {
+                "A": "",
+                "B": "SMF reaches much farther than MMF, not the other way around.",
+                "C": "Both carry light; neither carries electrical signals.",
+                "D": "SMF and MMF require matching optics; they're not interchangeable.",
+            },
+            "exam_pattern": "SMF = small core, laser, long haul. MMF = large core, LED/VCSEL, "
+                            "shorter. Match the fiber type to the transceiver and distance.",
+        },
+        "verify_cli": [],
+        "references": ["CCNA 200-301 Topic 1.3 fiber media"],
+        "tags": ["fiber", "smf", "mmf"],
+    },
+    {
+        "id": "ccna-nf-308", "exam": "ccna", "domain": "network_fundamentals",
+        "subtopic": "cabling_media", "difficulty": 1, "type": "mcq",
+        "stem": "What is the standard maximum cable length for a 1000BASE-T (Gigabit over "
+                "copper twisted pair) Ethernet run?",
+        "options": [
+            {"id": "A", "text": "100 meters"},
+            {"id": "B", "text": "550 meters"},
+            {"id": "C", "text": "10 meters"},
+            {"id": "D", "text": "1 kilometer"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "Twisted-pair Ethernet (10/100/1000BASE-T) is specified to 100 meters "
+                       "(about 328 feet) per run. Beyond that you need fiber or a "
+                       "repeater/switch.",
+            "distractors": {
+                "A": "",
+                "B": "550 m is a multimode-fiber figure, not copper.",
+                "C": "10 m is far below the copper limit.",
+                "D": "1 km is a single-mode-fiber range, not copper.",
+            },
+            "exam_pattern": "Copper UTP Ethernet = 100 m max. Need more? Use fiber (MMF ~hundreds "
+                            "of m, SMF km). Cat5e/6/6a differ in speed/shielding, not the 100 m.",
+        },
+        "verify_cli": [],
+        "references": ["CCNA 200-301 Topic 1.3 copper distance"],
+        "tags": ["cabling", "distance", "ethernet"],
+    },
+    {
+        "id": "ccna-na-301", "exam": "ccna", "domain": "network_access",
+        "subtopic": "cdp_lldp", "difficulty": 2, "type": "mcq",
+        "stem": "Which command shows a neighbor's platform, remote port, and management "
+                "address learned via Cisco Discovery Protocol?",
+        "options": [
+            {"id": "A", "text": "show cdp neighbors detail"},
+            {"id": "B", "text": "show interfaces status"},
+            {"id": "C", "text": "show ip arp"},
+            {"id": "D", "text": "show mac address-table"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "'show cdp neighbors detail' lists each directly connected Cisco "
+                       "neighbor's device ID, platform, local and remote interfaces, IOS "
+                       "version, and management IP — great for mapping a topology.",
+            "distractors": {
+                "A": "",
+                "B": "'show interfaces status' shows local port state/VLAN, not neighbor detail.",
+                "C": "'show ip arp' maps IP↔MAC, not CDP neighbor info.",
+                "D": "'show mac address-table' maps MAC↔port, not neighbor platform/version.",
+            },
+            "exam_pattern": "CDP/LLDP neighbor detail = device id, local/remote port, platform, "
+                            "mgmt IP. Use the plain 'show cdp neighbors' for a quick summary.",
+        },
+        "verify_cli": ["show cdp neighbors detail", "show lldp neighbors detail"],
+        "references": ["CCNA 200-301 Topic 2.3 CDP output"],
+        "tags": ["cdp", "neighbors"],
+    },
+    {
+        "id": "ccna-na-302", "exam": "ccna", "domain": "network_access",
+        "subtopic": "cdp_lldp", "difficulty": 2, "type": "mcq",
+        "stem": "Which protocol extension lets a switch advertise the voice VLAN and PoE/QoS "
+                "policy to an attached IP phone, even from non-Cisco gear?",
+        "options": [
+            {"id": "A", "text": "LLDP-MED"},
+            {"id": "B", "text": "CDP only"},
+            {"id": "C", "text": "DTP"},
+            {"id": "D", "text": "VTP"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "LLDP-MED (Media Endpoint Discovery) extends LLDP to exchange voice-VLAN, "
+                       "power (PoE), and QoS policy with endpoints like IP phones — the open-"
+                       "standard counterpart to Cisco's CDP voice-VLAN signaling.",
+            "distractors": {
+                "A": "",
+                "B": "CDP can do this for Cisco gear, but the question asks for the open "
+                     "standard that also works with non-Cisco phones.",
+                "C": "DTP negotiates trunking, not endpoint media policy.",
+                "D": "VTP distributes VLAN databases between switches, not endpoint policy.",
+            },
+            "exam_pattern": "LLDP-MED = voice VLAN + PoE + QoS to endpoints (open). CDP does the "
+                            "same for Cisco. DTP=trunk negotiation, VTP=VLAN DB sync.",
+        },
+        "verify_cli": ["show lldp neighbors detail"],
+        "references": ["CCNA 200-301 Topic 2.3 LLDP-MED"],
+        "tags": ["lldp-med", "voice-vlan"],
+    },
+    {
+        "id": "ccna-na-303", "exam": "ccna", "domain": "network_access",
+        "subtopic": "wlc_config", "difficulty": 2, "type": "mcq",
+        "stem": "A lightweight AP is powered up on a new VLAN but can't find its WLC. Which "
+                "method is commonly used to tell the AP the controller's IP during CAPWAP "
+                "discovery?",
+        "options": [
+            {"id": "A", "text": "DHCP option 43"},
+            {"id": "B", "text": "CDP option 150"},
+            {"id": "C", "text": "Spanning-tree root ID"},
+            {"id": "D", "text": "A static default gateway only"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "DHCP option 43 can return the WLC management IP(s) to a lightweight AP "
+                       "during CAPWAP discovery. APs also try a saved/primed controller, a DNS "
+                       "name (CISCO-CAPWAP-CONTROLLER), and local subnet broadcast.",
+            "distractors": {
+                "A": "",
+                "B": "Option 150 is for TFTP servers (e.g., IP phones), not CAPWAP WLC "
+                     "discovery; and it's a DHCP option, not CDP.",
+                "C": "STP root ID is unrelated to AP-to-WLC discovery.",
+                "D": "A gateway provides routing but doesn't tell the AP the WLC address.",
+            },
+            "exam_pattern": "CAPWAP WLC discovery: primed/stored, DHCP option 43, DNS "
+                            "(CISCO-CAPWAP-CONTROLLER), subnet broadcast. Option 43 is the "
+                            "classic exam answer.",
+        },
+        "verify_cli": [],
+        "references": ["CCNA 200-301 Topic 2.7 CAPWAP discovery"],
+        "tags": ["wireless", "capwap", "option43"],
+    },
+    {
+        "id": "ccna-na-304", "exam": "ccna", "domain": "network_access",
+        "subtopic": "wlc_config", "difficulty": 1, "type": "mcq",
+        "stem": "A WLAN is configured to NOT broadcast its SSID. Is this an effective security "
+                "control?",
+        "options": [
+            {"id": "A", "text": "No — hiding the SSID is obscurity only; the name is still discoverable, so use WPA2/WPA3 for real security"},
+            {"id": "B", "text": "Yes — a hidden SSID fully encrypts the traffic"},
+            {"id": "C", "text": "Yes — it prevents any device from connecting"},
+            {"id": "D", "text": "No — it disables the radio entirely"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "Not broadcasting the SSID only hides the name from casual scans; the "
+                       "SSID still appears in client probe/association frames and is easily "
+                       "recovered. Real protection comes from strong authentication/encryption "
+                       "(WPA2/WPA3), not hiding the name.",
+            "distractors": {
+                "A": "",
+                "B": "Hiding the name does not encrypt anything.",
+                "C": "Clients that know the name can still connect.",
+                "D": "It doesn't disable the radio; the WLAN still operates.",
+            },
+            "exam_pattern": "Hidden SSID = obscurity, not security. Rely on WPA2/WPA3 "
+                            "(enterprise/personal). MAC filtering is also weak on its own.",
+        },
+        "verify_cli": [],
+        "references": ["CCNA 200-301 Topic 2.7 WLAN SSID"],
+        "tags": ["wireless", "ssid", "security"],
+    },
+    {
+        "id": "ccna-na-305", "exam": "ccna", "domain": "network_access",
+        "subtopic": "wlc_config", "difficulty": 2, "type": "mcq",
+        "stem": "On a Cisco WLC, which interface is used for the controller's own management "
+                "and typically sources CAPWAP toward the APs?",
+        "options": [
+            {"id": "A", "text": "The management interface"},
+            {"id": "B", "text": "A dynamic (client) interface"},
+            {"id": "C", "text": "The virtual interface"},
+            {"id": "D", "text": "The redundancy port"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "The management interface handles in-band controller management and is "
+                       "the usual source/endpoint for CAPWAP control traffic with the APs.",
+            "distractors": {
+                "A": "",
+                "B": "Dynamic interfaces map WLANs to client VLANs, not controller management.",
+                "C": "The virtual interface supports web auth, DHCP relay, and mobility — not "
+                     "general management.",
+                "D": "The redundancy port is for WLC HA pairing, not AP management.",
+            },
+            "exam_pattern": "WLC interfaces: management (control/CAPWAP), virtual (web-auth/DHCP/"
+                            "mobility), dynamic (client VLANs), service (OOB). Know each role.",
+        },
+        "verify_cli": [],
+        "references": ["CCNA 200-301 Topic 2.7 WLC interfaces"],
+        "tags": ["wireless", "wlc", "management"],
+    },
+    # ===================== FILL: thin subtopics (3.0 / 4.0) =====================
+    {
+        "id": "ccna-ic-301", "exam": "ccna", "domain": "ip_connectivity",
+        "subtopic": "default_gateway", "difficulty": 1, "type": "mcq",
+        "stem": "When does an IPv4 host send a packet to its default gateway rather than "
+                "delivering it directly?",
+        "options": [
+            {"id": "A", "text": "When the destination is on a DIFFERENT subnet than the host"},
+            {"id": "B", "text": "When the destination is on the SAME subnet"},
+            {"id": "C", "text": "For every packet, local or remote"},
+            {"id": "D", "text": "Only for broadcast traffic"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "A host ANDs the destination IP with its own mask: if the destination is "
+                       "on a different subnet, it forwards the frame to the default gateway (the "
+                       "router) to be routed. Same-subnet traffic is delivered directly via ARP.",
+            "distractors": {
+                "A": "",
+                "B": "Same-subnet traffic goes directly to the host, not the gateway.",
+                "C": "Local traffic bypasses the gateway.",
+                "D": "Broadcasts stay on the local subnet; they aren't sent to the gateway to "
+                     "route.",
+            },
+            "exam_pattern": "Host logic: same subnet → ARP + deliver directly; different subnet "
+                            "→ send to default gateway. The gateway must be ON the host's subnet.",
+        },
+        "verify_cli": ["ipconfig", "show ip route"],
+        "references": ["CCNA 200-301 Topic 3.x default gateway"],
+        "tags": ["default-gateway", "routing"],
+    },
+    {
+        "id": "ccna-ic-302", "exam": "ccna", "domain": "ip_connectivity",
+        "subtopic": "default_gateway", "difficulty": 2, "type": "mcq",
+        "stem": "In 'show ip route', a router prints 'Gateway of last resort is 203.0.113.1 to "
+                "network 0.0.0.0'. What does this mean?",
+        "options": [
+            {"id": "A", "text": "Packets that match no more-specific route are forwarded to 203.0.113.1 (the default route next hop)"},
+            {"id": "B", "text": "The router has no routes at all"},
+            {"id": "C", "text": "203.0.113.1 is the router's own loopback"},
+            {"id": "D", "text": "All traffic is dropped"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "The gateway of last resort is where the router sends traffic that "
+                       "matches no specific route — i.e., the next hop of the default route "
+                       "(0.0.0.0/0). Here that's 203.0.113.1.",
+            "distractors": {
+                "A": "",
+                "B": "It has at least a default route; more-specific routes may also exist.",
+                "C": "203.0.113.1 is the default next hop, not necessarily a loopback.",
+                "D": "Unmatched traffic is forwarded to that next hop, not dropped.",
+            },
+            "exam_pattern": "Gateway of last resort = default-route next hop. 'No gateway of last "
+                            "resort' means no default and unmatched packets are dropped.",
+        },
+        "verify_cli": ["show ip route"],
+        "references": ["CCNA 200-301 Topic 3.1 gateway of last resort"],
+        "tags": ["default-route", "gateway-of-last-resort"],
+    },
+    {
+        "id": "ccna-ic-303", "exam": "ccna", "domain": "ip_connectivity",
+        "subtopic": "default_gateway", "difficulty": 2, "type": "mcq",
+        "stem": "To give hosts a redundant default gateway, what IP address should the hosts "
+                "use as their gateway when HSRP/VRRP is deployed on two routers?",
+        "options": [
+            {"id": "A", "text": "The virtual IP address shared by the FHRP group"},
+            {"id": "B", "text": "The physical IP of the primary router"},
+            {"id": "C", "text": "The physical IP of the backup router"},
+            {"id": "D", "text": "The broadcast address of the subnet"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "Hosts point to the FHRP virtual IP. Whichever router is active owns that "
+                       "virtual IP/MAC, so if it fails the standby takes over the same virtual "
+                       "address transparently — the hosts never change their gateway.",
+            "distractors": {
+                "A": "",
+                "B": "Using a router's physical IP means losing the gateway if that router fails.",
+                "C": "Same problem — a physical IP isn't redundant.",
+                "D": "The broadcast address is not a gateway.",
+            },
+            "exam_pattern": "FHRP (HSRP/VRRP/GLBP): hosts use the VIRTUAL IP. The active router "
+                            "owns it; failover moves the virtual IP/MAC transparently.",
+        },
+        "verify_cli": ["show standby brief"],
+        "references": ["CCNA 200-301 Topic 3.5 FHRP gateway"],
+        "tags": ["default-gateway", "fhrp", "redundancy"],
+    },
+    {
+        "id": "ccna-is-301", "exam": "ccna", "domain": "ip_services",
+        "subtopic": "dns", "difficulty": 2, "type": "mcq",
+        "stem": "A client asks its configured DNS server to fully resolve www.example.com. The "
+                "server then queries root, TLD, and authoritative servers on the client's "
+                "behalf. What is this type of lookup called?",
+        "options": [
+            {"id": "A", "text": "A recursive query (the resolver does the work and returns the final answer)"},
+            {"id": "B", "text": "An iterative query performed by the client"},
+            {"id": "C", "text": "A reverse (PTR) lookup"},
+            {"id": "D", "text": "A zone transfer"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "In a recursive query the client asks its resolver for the final answer, "
+                       "and the resolver does the iterative legwork (root → TLD → authoritative) "
+                       "and returns the result, caching it along the way.",
+            "distractors": {
+                "A": "",
+                "B": "Iterative queries (referrals) are what the resolver uses toward other "
+                     "servers; the client's request to its resolver is recursive.",
+                "C": "A PTR lookup resolves IP → name, not this name → IP resolution.",
+                "D": "A zone transfer replicates a whole zone between DNS servers.",
+            },
+            "exam_pattern": "Client→resolver = recursive (give me the answer). Resolver→others = "
+                            "iterative (referrals). Resolver caches results by TTL.",
+        },
+        "verify_cli": ["show hosts"],
+        "references": ["CCNA 200-301 Topic 4.3 DNS resolution"],
+        "tags": ["dns", "recursive"],
+    },
+    {
+        "id": "ccna-is-302", "exam": "ccna", "domain": "ip_services",
+        "subtopic": "dns", "difficulty": 1, "type": "mcq",
+        "stem": "Which DNS record type creates an ALIAS so that one name resolves to another "
+                "canonical name?",
+        "options": [
+            {"id": "A", "text": "CNAME"},
+            {"id": "B", "text": "A"},
+            {"id": "C", "text": "MX"},
+            {"id": "D", "text": "NS"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "A CNAME (canonical name) record aliases one name to another — e.g., "
+                       "www.example.com → example.com — so the resolver then looks up the "
+                       "target's A/AAAA record.",
+            "distractors": {
+                "A": "",
+                "B": "An A record maps a name directly to an IPv4 address.",
+                "C": "MX points to a mail exchanger for a domain.",
+                "D": "NS delegates a zone to authoritative name servers.",
+            },
+            "exam_pattern": "A = name→IPv4, AAAA = name→IPv6, CNAME = alias→name, MX = mail, "
+                            "NS = delegation, PTR = reverse.",
+        },
+        "verify_cli": [],
+        "references": ["CCNA 200-301 Topic 4.3 DNS records"],
+        "tags": ["dns", "cname"],
+    },
+    {
+        "id": "ccna-is-303", "exam": "ccna", "domain": "ip_services",
+        "subtopic": "dns", "difficulty": 1, "type": "fill",
+        "stem": "Enter the IOS global command that creates a static hostname-to-IP mapping so "
+                "'ping R2' works without DNS, mapping R2 to 10.0.0.2.",
+        "options": [],
+        "correct": ["ip host R2 10.0.0.2", "ip host r2 10.0.0.2", "ip host R2 10.0.0.2 "],
+        "explanation": {
+            "correct": "'ip host R2 10.0.0.2' adds a local static name entry, so the device "
+                       "resolves 'R2' to 10.0.0.2 without a DNS server — handy in labs.",
+            "distractors": {},
+            "exam_pattern": "Static local names = 'ip host <name> <ip>'. For a DNS server use "
+                            "'ip name-server' + 'ip domain-lookup'. 'show hosts' lists the cache.",
+        },
+        "verify_cli": ["show hosts"],
+        "references": ["CCNA 200-301 Topic 4.3 static hostnames"],
+        "tags": ["dns", "ip-host"],
+    },
+    {
+        "id": "ccna-is-304", "exam": "ccna", "domain": "ip_services",
+        "subtopic": "ntp", "difficulty": 2, "type": "mcq",
+        "stem": "A router has no upstream time source but should serve time to the LAN. Which "
+                "command makes it an authoritative NTP source at stratum 3?",
+        "options": [
+            {"id": "A", "text": "ntp master 3"},
+            {"id": "B", "text": "ntp server 3"},
+            {"id": "C", "text": "ntp peer 3"},
+            {"id": "D", "text": "clock stratum 3"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "'ntp master 3' makes the device an authoritative NTP server using its "
+                       "own clock, advertising stratum 3. Clients then point to it with 'ntp "
+                       "server <ip>'.",
+            "distractors": {
+                "A": "",
+                "B": "'ntp server' makes the device a CLIENT of another server.",
+                "C": "'ntp peer' forms a symmetric peer relationship, not a local master.",
+                "D": "'clock stratum' is not a valid IOS command for this.",
+            },
+            "exam_pattern": "Local authoritative source = 'ntp master <stratum>'. Client = 'ntp "
+                            "server <ip>'. Lower stratum = closer to the reference.",
+        },
+        "verify_cli": ["show ntp status", "show ntp associations"],
+        "references": ["CCNA 200-301 Topic 4.2 ntp master"],
+        "tags": ["ntp", "master"],
+    },
+    {
+        "id": "ccna-is-305", "exam": "ccna", "domain": "ip_services",
+        "subtopic": "ntp", "difficulty": 1, "type": "mcq",
+        "stem": "Why does accurate, synchronized time (NTP) matter for network operations?",
+        "options": [
+            {"id": "A", "text": "Correlating log timestamps across devices, and validating time-sensitive items like certificates and Kerberos tickets"},
+            {"id": "B", "text": "It increases interface bandwidth"},
+            {"id": "C", "text": "It encrypts management traffic"},
+            {"id": "D", "text": "It is required for STP to converge"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "Synchronized clocks let you correlate syslog/event timestamps across "
+                       "devices during troubleshooting, and are essential for certificate "
+                       "validity windows, Kerberos, and accurate accounting/logging.",
+            "distractors": {
+                "A": "",
+                "B": "NTP doesn't affect bandwidth.",
+                "C": "NTP itself isn't an encryption service (it can be authenticated).",
+                "D": "STP convergence doesn't depend on NTP.",
+            },
+            "exam_pattern": "NTP = consistent time → correlated logs, valid certs/Kerberos, "
+                            "trustworthy accounting. A foundational operational service.",
+        },
+        "verify_cli": ["show ntp status"],
+        "references": ["CCNA 200-301 Topic 4.2 NTP importance"],
+        "tags": ["ntp", "operations"],
+    },
+    {
+        "id": "ccna-is-306", "exam": "ccna", "domain": "ip_services",
+        "subtopic": "snmp", "difficulty": 2, "type": "mcq",
+        "stem": "Which SNMP operation does a MANAGER use to retrieve the next object in a MIB "
+                "tree, enabling a 'walk' of a table?",
+        "options": [
+            {"id": "A", "text": "GetNext (GETNEXT)"},
+            {"id": "B", "text": "Set (SET)"},
+            {"id": "C", "text": "Trap"},
+            {"id": "D", "text": "Inform"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "GETNEXT returns the next OID/value after the one requested, which lets a "
+                       "manager walk through table rows and discover objects without knowing "
+                       "every index in advance.",
+            "distractors": {
+                "A": "",
+                "B": "SET writes a value to a writable object.",
+                "C": "A Trap is an unsolicited notification from the AGENT to the manager.",
+                "D": "An Inform is an acknowledged notification from the agent, not a manager "
+                     "read.",
+            },
+            "exam_pattern": "Manager ops: GET (one), GETNEXT/GETBULK (walk), SET (write). Agent "
+                            "notifications: Trap (no ack), Inform (acked).",
+        },
+        "verify_cli": ["show snmp"],
+        "references": ["CCNA 200-301 Topic 4.4 SNMP operations"],
+        "tags": ["snmp", "getnext"],
+    },
+    {
+        "id": "ccna-is-307", "exam": "ccna", "domain": "ip_services",
+        "subtopic": "snmp", "difficulty": 2, "type": "mcq",
+        "stem": "Which command configures where an IOS device SENDS SNMP trap notifications?",
+        "options": [
+            {"id": "A", "text": "snmp-server host 10.1.1.9 version 2c PUBLICRO"},
+            {"id": "B", "text": "snmp-server community PUBLICRO RO"},
+            {"id": "C", "text": "logging host 10.1.1.9"},
+            {"id": "D", "text": "snmp-server location DC1"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "'snmp-server host <ip> ...' defines the trap/inform receiver (the NMS) "
+                       "and the version/community or user to use. 'snmp-server enable traps' "
+                       "chooses which notifications to send.",
+            "distractors": {
+                "A": "",
+                "B": "'snmp-server community' sets an access string for polling, not the trap "
+                     "destination.",
+                "C": "'logging host' is for SYSLOG, not SNMP traps.",
+                "D": "'snmp-server location' sets descriptive sysLocation only.",
+            },
+            "exam_pattern": "Trap target = 'snmp-server host' + 'snmp-server enable traps'. "
+                            "Polling access = 'snmp-server community' / v3 user. Syslog is "
+                            "separate.",
+        },
+        "verify_cli": ["show snmp host"],
+        "references": ["CCNA 200-301 Topic 4.4 SNMP host"],
+        "tags": ["snmp", "traps", "host"],
+    },
+    {
+        "id": "ccna-is-308", "exam": "ccna", "domain": "ip_services",
+        "subtopic": "syslog", "difficulty": 2, "type": "mcq",
+        "stem": "Given the message '%LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed "
+                "state to down', what does the '3' indicate?",
+        "options": [
+            {"id": "A", "text": "The severity level (3 = Error)"},
+            {"id": "B", "text": "The interface number"},
+            {"id": "C", "text": "The number of times it occurred"},
+            {"id": "D", "text": "The facility code"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "In 'FACILITY-SEVERITY-MNEMONIC', the number is the severity. Here LINK is "
+                       "the facility, 3 is the severity (Error), and UPDOWN is the mnemonic "
+                       "describing the event.",
+            "distractors": {
+                "A": "",
+                "B": "The interface is named in the message text (Gi0/1), not by the 3.",
+                "C": "It isn't an occurrence count.",
+                "D": "The facility is the text before the number (LINK), not the number itself.",
+            },
+            "exam_pattern": "Syslog format: %FACILITY-SEVERITY-MNEMONIC: text. Severity 0–7 "
+                            "(0=emergency … 7=debug). Lower = more severe.",
+        },
+        "verify_cli": ["show logging"],
+        "references": ["CCNA 200-301 Topic 4.5 syslog format"],
+        "tags": ["syslog", "message-format"],
+    },
+    {
+        "id": "ccna-is-309", "exam": "ccna", "domain": "ip_services",
+        "subtopic": "syslog", "difficulty": 1, "type": "mcq",
+        "stem": "Which logging destination keeps messages in the device's RAM so you can "
+                "review recent events with 'show logging', even with no syslog server?",
+        "options": [
+            {"id": "A", "text": "The logging buffer (logging buffered)"},
+            {"id": "B", "text": "The console line only"},
+            {"id": "C", "text": "A remote syslog host"},
+            {"id": "D", "text": "NVRAM startup-config"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "'logging buffered [size] [severity]' stores log messages in a RAM "
+                       "buffer, viewable with 'show logging'. It survives until reboot or buffer "
+                       "wrap — handy when there's no syslog server.",
+            "distractors": {
+                "A": "",
+                "B": "Console logging prints to the console session; it isn't a reviewable "
+                     "stored buffer.",
+                "C": "A remote host requires a syslog server, which the question excludes.",
+                "D": "NVRAM holds the startup config, not the live log buffer.",
+            },
+            "exam_pattern": "Destinations: console, vty/monitor (terminal monitor), buffered "
+                            "(RAM, 'show logging'), host (remote syslog). Buffer = local history.",
+        },
+        "verify_cli": ["show logging"],
+        "references": ["CCNA 200-301 Topic 4.5 logging destinations"],
+        "tags": ["syslog", "logging-buffered"],
+    },
+    # ===================== FILL: thin subtopics (5.0 / 6.0) =====================
+    {
+        "id": "ccna-se-301", "exam": "ccna", "domain": "security_fundamentals",
+        "subtopic": "dai", "difficulty": 2, "type": "mcq",
+        "stem": "On a switch running Dynamic ARP Inspection, how are ports classified by "
+                "default, and what happens to ARP replies on them?",
+        "options": [
+            {"id": "A", "text": "All ports are untrusted by default; ARP is validated against the DHCP snooping bindings and dropped if it doesn't match"},
+            {"id": "B", "text": "All ports are trusted by default; ARP is never inspected"},
+            {"id": "C", "text": "Only access ports are trusted"},
+            {"id": "D", "text": "DAI inspects only the first ARP per port"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "DAI treats ports as untrusted by default and checks each ARP on them "
+                       "against the DHCP snooping binding table (IP↔MAC↔port). Mismatched ARPs "
+                       "are dropped, stopping ARP spoofing.",
+            "distractors": {
+                "A": "",
+                "B": "Trusted-by-default would defeat DAI; untrusted is the safe default.",
+                "C": "Access ports toward hosts stay untrusted; uplinks are explicitly trusted.",
+                "D": "DAI inspects ARPs continuously, not just the first.",
+            },
+            "exam_pattern": "DAI: untrusted by default, validate against DHCP snooping bindings, "
+                            "trust uplinks/DHCP-facing ports. Requires DHCP snooping.",
+        },
+        "verify_cli": ["show ip arp inspection"],
+        "references": ["CCNA 200-301 Topic 5.7 DAI defaults"],
+        "tags": ["dai", "trust"],
+    },
+    {
+        "id": "ccna-se-302", "exam": "ccna", "domain": "security_fundamentals",
+        "subtopic": "dai", "difficulty": 2, "type": "mcq",
+        "stem": "Which ports should be configured as DAI 'trusted'?",
+        "options": [
+            {"id": "A", "text": "Uplinks to other switches / the DHCP server path"},
+            {"id": "B", "text": "All end-user access ports"},
+            {"id": "C", "text": "No ports at all"},
+            {"id": "D", "text": "Only ports in VLAN 1"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "Trust the infrastructure uplinks (switch-to-switch and toward the DHCP "
+                       "server), where legitimate ARPs transit, and keep user access ports "
+                       "untrusted so host ARPs are validated against the bindings.",
+            "distractors": {
+                "A": "",
+                "B": "Trusting user ports would let an attacker spoof ARPs freely.",
+                "C": "Uplinks generally must be trusted or valid traffic gets dropped.",
+                "D": "VLAN membership isn't the basis for trust; the port's role is.",
+            },
+            "exam_pattern": "DAI trust = uplinks/DHCP path. Untrusted = user access ports "
+                            "(validated). Same trust pattern as DHCP snooping.",
+        },
+        "verify_cli": ["show ip arp inspection interfaces"],
+        "references": ["CCNA 200-301 Topic 5.7 DAI trust"],
+        "tags": ["dai", "trusted-ports"],
+    },
+    {
+        "id": "ccna-se-303", "exam": "ccna", "domain": "security_fundamentals",
+        "subtopic": "dai", "difficulty": 3, "type": "mcq",
+        "stem": "A server uses a STATIC IP (no DHCP), so DAI keeps dropping its ARPs. How do "
+                "you allow it without disabling DAI?",
+        "options": [
+            {"id": "A", "text": "Define an ARP ACL mapping the server's IP to its MAC and apply it to DAI for that VLAN"},
+            {"id": "B", "text": "Trust every access port"},
+            {"id": "C", "text": "Disable DHCP snooping"},
+            {"id": "D", "text": "Give the server an APIPA address"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "Statically addressed hosts have no DHCP snooping binding, so you create "
+                       "an ARP access-list (IP↔MAC) and apply it to DAI for the VLAN. DAI then "
+                       "permits the server's ARPs while still validating everyone else.",
+            "distractors": {
+                "A": "",
+                "B": "Trusting all access ports removes protection for everyone.",
+                "C": "Disabling snooping breaks DAI (which relies on the binding table).",
+                "D": "Giving it APIPA breaks its connectivity and doesn't fix ARP validation.",
+            },
+            "exam_pattern": "Static hosts + DAI = ARP ACL (permit ip host <ip> mac host <mac>) "
+                            "applied to the VLAN. Keeps DAI on for everyone else.",
+        },
+        "verify_cli": ["show arp access-list", "show ip arp inspection"],
+        "references": ["CCNA 200-301 Topic 5.7 DAI ARP ACLs"],
+        "tags": ["dai", "arp-acl", "static"],
+    },
+    {
+        "id": "ccna-se-304", "exam": "ccna", "domain": "security_fundamentals",
+        "subtopic": "dai", "difficulty": 2, "type": "mcq",
+        "stem": "Why does DAI apply a default rate limit to ARP packets on untrusted ports?",
+        "options": [
+            {"id": "A", "text": "ARP inspection is CPU-based, so a flood could overwhelm the switch; exceeding the rate err-disables the port"},
+            {"id": "B", "text": "To encrypt ARP traffic"},
+            {"id": "C", "text": "To speed up ARP resolution"},
+            {"id": "D", "text": "To assign IP addresses faster"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "Because DAI validation is done in software (CPU), a burst of ARPs could "
+                       "be a DoS against the switch. A default per-port rate limit on untrusted "
+                       "ports err-disables a port that exceeds it, protecting the control plane.",
+            "distractors": {
+                "A": "",
+                "B": "DAI validates ARP; it doesn't encrypt it.",
+                "C": "Rate limiting constrains, not accelerates, ARP.",
+                "D": "DAI isn't an addressing mechanism.",
+            },
+            "exam_pattern": "DAI rate-limits ARP on untrusted ports (CPU protection); exceed → "
+                            "err-disable. Recover via shutdown/no shutdown or errdisable recovery.",
+        },
+        "verify_cli": ["show ip arp inspection interfaces"],
+        "references": ["CCNA 200-301 Topic 5.7 DAI rate limiting"],
+        "tags": ["dai", "rate-limit"],
+    },
+    {
+        "id": "ccna-se-305", "exam": "ccna", "domain": "security_fundamentals",
+        "subtopic": "port_security", "difficulty": 1, "type": "fill",
+        "stem": "Enter the interface command that limits a port-security-enabled port to a "
+                "maximum of 2 learned MAC addresses.",
+        "options": [],
+        "correct": [
+            "switchport port-security maximum 2",
+            "switchport port-security maximum 2 ",
+        ],
+        "explanation": {
+            "correct": "'switchport port-security maximum 2' caps the number of secure MAC "
+                       "addresses on the port at 2 (e.g., a PC plus a phone). A new MAC beyond "
+                       "the max triggers the violation action.",
+            "distractors": {},
+            "exam_pattern": "port-security building blocks: 'switchport port-security' (enable) "
+                            "+ 'maximum <n>' + 'mac-address sticky' + 'violation <mode>'.",
+        },
+        "verify_cli": ["show port-security interface gi0/1"],
+        "references": ["CCNA 200-301 Topic 5.7 port-security maximum"],
+        "tags": ["port-security", "maximum"],
+    },
+    {
+        "id": "ccna-se-306", "exam": "ccna", "domain": "security_fundamentals",
+        "subtopic": "port_security", "difficulty": 2, "type": "mcq",
+        "stem": "A port-security violation put Gi0/3 into err-disabled. Which action restores "
+                "it (after fixing the cause)?",
+        "options": [
+            {"id": "A", "text": "'shutdown' then 'no shutdown' on the interface (or configure errdisable recovery)"},
+            {"id": "B", "text": "Reload the entire switch only"},
+            {"id": "C", "text": "Delete the VLAN"},
+            {"id": "D", "text": "Change the port speed"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "An err-disabled port is recovered by bouncing it ('shutdown' then 'no "
+                       "shutdown') once the offending device is removed, or automatically via "
+                       "'errdisable recovery cause psecure-violation' with a timer.",
+            "distractors": {
+                "A": "",
+                "B": "A full reload is unnecessary and disruptive.",
+                "C": "Deleting the VLAN doesn't clear err-disable and breaks connectivity.",
+                "D": "Speed changes don't recover an err-disabled port.",
+            },
+            "exam_pattern": "Recover err-disable: fix cause → shut/no shut, or enable errdisable "
+                            "recovery. Default violation mode (shutdown) err-disables the port.",
+        },
+        "verify_cli": ["show interfaces status err-disabled"],
+        "references": ["CCNA 200-301 Topic 5.7 err-disable recovery"],
+        "tags": ["port-security", "err-disable"],
+    },
+    {
+        "id": "ccna-se-307", "exam": "ccna", "domain": "security_fundamentals",
+        "subtopic": "dhcp_snooping", "difficulty": 2, "type": "mcq",
+        "stem": "What does DHCP snooping insert into client DHCP requests (when option 82 is "
+                "enabled) as they are relayed?",
+        "options": [
+            {"id": "A", "text": "Option 82 (DHCP relay agent information) identifying the switch/port the request came from"},
+            {"id": "B", "text": "The client's password"},
+            {"id": "C", "text": "An OSPF LSA"},
+            {"id": "D", "text": "A spanning-tree BPDU"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "With option 82, DHCP snooping adds relay-agent information (circuit/remote "
+                       "ID = switch and port) to requests, which the server can use for "
+                       "assignment/policy and auditing of where a client connected.",
+            "distractors": {
+                "A": "",
+                "B": "No password is inserted.",
+                "C": "OSPF LSAs are routing data, unrelated to DHCP.",
+                "D": "BPDUs are STP messages, not DHCP option data.",
+            },
+            "exam_pattern": "DHCP snooping + option 82 = relay-agent info (which switch/port). "
+                            "Builds the binding table that DAI/IP Source Guard rely on.",
+        },
+        "verify_cli": ["show ip dhcp snooping"],
+        "references": ["CCNA 200-301 Topic 5.7 DHCP snooping option 82"],
+        "tags": ["dhcp-snooping", "option82"],
+    },
+    {
+        "id": "ccna-se-308", "exam": "ccna", "domain": "security_fundamentals",
+        "subtopic": "dhcp_snooping", "difficulty": 2, "type": "mcq",
+        "stem": "What threat does DHCP snooping primarily mitigate on untrusted access ports?",
+        "options": [
+            {"id": "A", "text": "A rogue DHCP server handing out bad addresses/gateways (DHCP spoofing)"},
+            {"id": "B", "text": "OSPF route poisoning"},
+            {"id": "C", "text": "BGP hijacking"},
+            {"id": "D", "text": "Spanning-tree loops"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "DHCP snooping blocks DHCP server messages (OFFER/ACK) from untrusted "
+                       "ports, stopping a rogue DHCP server from assigning clients a malicious "
+                       "gateway/DNS (which would enable man-in-the-middle).",
+            "distractors": {
+                "A": "",
+                "B": "Route poisoning is a Layer 3 routing concern, not DHCP snooping's job.",
+                "C": "BGP hijacking is an inter-domain routing issue.",
+                "D": "STP loops are handled by spanning tree / BPDU Guard.",
+            },
+            "exam_pattern": "DHCP snooping stops rogue DHCP servers (spoofing) on untrusted "
+                            "ports and builds the binding table for DAI/IPSG.",
+        },
+        "verify_cli": ["show ip dhcp snooping"],
+        "references": ["CCNA 200-301 Topic 5.7 DHCP spoofing"],
+        "tags": ["dhcp-snooping", "rogue-dhcp"],
+    },
+    {
+        "id": "ccna-se-309", "exam": "ccna", "domain": "security_fundamentals",
+        "subtopic": "vpn_concepts", "difficulty": 2, "type": "mcq",
+        "stem": "In IPsec, what does IKE Phase 1 establish?",
+        "options": [
+            {"id": "A", "text": "A secure, authenticated management channel (ISAKMP SA) used to negotiate the data SAs"},
+            {"id": "B", "text": "The actual encrypted data tunnel for user traffic"},
+            {"id": "C", "text": "The routing protocol adjacency"},
+            {"id": "D", "text": "The DHCP lease for the tunnel"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "IKE Phase 1 authenticates the peers and builds a secure ISAKMP/IKE SA — "
+                       "the protected channel used to negotiate the Phase 2 IPsec SAs that carry "
+                       "user data.",
+            "distractors": {
+                "A": "",
+                "B": "The data-carrying IPsec SAs are negotiated in Phase 2, over the Phase 1 "
+                     "channel.",
+                "C": "IKE isn't a routing adjacency.",
+                "D": "IKE doesn't assign DHCP leases for the tunnel.",
+            },
+            "exam_pattern": "IKE Phase 1 = authenticate peers + build the IKE/ISAKMP SA. Phase 2 "
+                            "= negotiate the IPsec SAs (ESP/AH) that protect user data.",
+        },
+        "verify_cli": ["show crypto isakmp sa", "show crypto ipsec sa"],
+        "references": ["CCNA 200-301 Topic 5.x IPsec/IKE"],
+        "tags": ["vpn", "ike", "ipsec"],
+    },
+    {
+        "id": "ccna-se-310", "exam": "ccna", "domain": "security_fundamentals",
+        "subtopic": "vpn_concepts", "difficulty": 2, "type": "mcq",
+        "stem": "Why are GRE and IPsec often combined (GRE over IPsec) for site-to-site VPNs?",
+        "options": [
+            {"id": "A", "text": "GRE carries multicast/routing protocols and multiple protocols; IPsec adds the encryption GRE lacks"},
+            {"id": "B", "text": "IPsec carries routing protocols but can't encrypt"},
+            {"id": "C", "text": "GRE encrypts and IPsec tunnels multicast"},
+            {"id": "D", "text": "They cannot be combined"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "Plain IPsec (tunnel mode) doesn't natively carry multicast/routing "
+                       "updates; GRE does, but offers no encryption. GRE-over-IPsec gives you "
+                       "both: run a routing protocol over the GRE tunnel and encrypt it with "
+                       "IPsec.",
+            "distractors": {
+                "A": "",
+                "B": "IPsec provides the encryption; it's GRE that carries multicast/multiproto.",
+                "C": "Reversed — GRE tunnels (no crypto), IPsec encrypts.",
+                "D": "GRE-over-IPsec is a very common combination.",
+            },
+            "exam_pattern": "GRE = multiprotocol/multicast tunnel, no crypto. IPsec = encryption. "
+                            "GRE-over-IPsec = routed, encrypted site-to-site (DMVPN builds on this).",
+        },
+        "verify_cli": ["show interfaces tunnel0", "show crypto ipsec sa"],
+        "references": ["CCNA 200-301 Topic 5.x GRE over IPsec"],
+        "tags": ["vpn", "gre", "ipsec"],
+    },
+    {
+        "id": "ccna-au-301", "exam": "ccna", "domain": "automation",
+        "subtopic": "sdn_controllers", "difficulty": 2, "type": "mcq",
+        "stem": "What does 'intent-based networking' (as with a central controller) mean?",
+        "options": [
+            {"id": "A", "text": "Admins declare the desired business outcome/policy; the controller translates it into device configuration and verifies it"},
+            {"id": "B", "text": "Each device is configured by hand via the CLI"},
+            {"id": "C", "text": "The network chooses its own IP addresses randomly"},
+            {"id": "D", "text": "Routing protocols are disabled"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "Intent-based networking is declarative: you express the intent (who can "
+                       "talk to whom, what policy), and the controller renders it into device "
+                       "configs, then uses assurance/telemetry to confirm the network matches "
+                       "the intent.",
+            "distractors": {
+                "A": "",
+                "B": "Hand CLI per device is the traditional imperative approach intent-based "
+                     "networking replaces.",
+                "C": "It doesn't randomize addressing.",
+                "D": "Routing still runs; intent sits above it.",
+            },
+            "exam_pattern": "Declarative/intent = say WHAT you want; controller does HOW + "
+                            "verifies. Imperative = you specify each step/command.",
+        },
+        "verify_cli": [],
+        "references": ["CCNA 200-301 Topic 6.1 intent-based networking"],
+        "tags": ["sdn", "intent-based", "declarative"],
+    },
+    {
+        "id": "ccna-au-302", "exam": "ccna", "domain": "automation",
+        "subtopic": "sdn_controllers", "difficulty": 2, "type": "mcq",
+        "stem": "On an SDN controller, which interface do business applications use to request "
+                "network services or read state?",
+        "options": [
+            {"id": "A", "text": "The northbound interface (NBI), typically a REST API"},
+            {"id": "B", "text": "The southbound interface (SBI)"},
+            {"id": "C", "text": "The console port"},
+            {"id": "D", "text": "The management VLAN"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "Applications talk UP to the controller via the northbound interface "
+                       "(usually REST APIs) to express intent or query state. The controller "
+                       "talks DOWN to devices via southbound interfaces (NETCONF/OpenFlow).",
+            "distractors": {
+                "A": "",
+                "B": "The southbound interface faces the network devices, not the apps.",
+                "C": "A console port is local device management, not the app interface.",
+                "D": "A management VLAN is transport, not the programmatic API.",
+            },
+            "exam_pattern": "Northbound = apps↔controller (REST). Southbound = controller↔devices "
+                            "(NETCONF/OpenFlow). Memorize the direction.",
+        },
+        "verify_cli": [],
+        "references": ["CCNA 200-301 Topic 6.1 northbound APIs"],
+        "tags": ["sdn", "northbound", "rest"],
+    },
+    {
+        "id": "ccna-au-303", "exam": "ccna", "domain": "automation",
+        "subtopic": "netconf_restconf", "difficulty": 2, "type": "mcq",
+        "stem": "Which statement about RESTCONF is correct?",
+        "options": [
+            {"id": "A", "text": "It uses HTTP(S) and REST verbs (GET/POST/PUT/PATCH/DELETE) with JSON or XML, over YANG models"},
+            {"id": "B", "text": "It uses SSH on port 830 with XML-only RPCs"},
+            {"id": "C", "text": "It is a CLI screen-scraping protocol"},
+            {"id": "D", "text": "It uses SNMP community strings"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "RESTCONF exposes YANG-modeled data over HTTP(S) using standard REST verbs "
+                       "and JSON or XML encodings — a web-friendly alternative to NETCONF.",
+            "distractors": {
+                "A": "",
+                "B": "SSH/830 with XML RPCs describes NETCONF, not RESTCONF.",
+                "C": "RESTCONF is a structured API over YANG, not screen scraping.",
+                "D": "It doesn't use SNMP community strings.",
+            },
+            "exam_pattern": "RESTCONF = HTTP(S) + REST verbs + JSON/XML (YANG). NETCONF = SSH 830 "
+                            "+ XML RPC + datastores (YANG). Both model-driven.",
+        },
+        "verify_cli": [],
+        "references": ["CCNA 200-301 Topic 6.x RESTCONF"],
+        "tags": ["restconf", "rest", "yang"],
+    },
+    {
+        "id": "ccna-au-304", "exam": "ccna", "domain": "automation",
+        "subtopic": "netconf_restconf", "difficulty": 2, "type": "mcq",
+        "stem": "Which NETCONF datastore represents the currently active, running configuration "
+                "of a device?",
+        "options": [
+            {"id": "A", "text": "running"},
+            {"id": "B", "text": "candidate"},
+            {"id": "C", "text": "startup"},
+            {"id": "D", "text": "backup"},
+        ],
+        "correct": ["A"],
+        "explanation": {
+            "correct": "The 'running' datastore is the live, in-effect configuration. 'candidate' "
+                       "is an editable scratch copy you commit to running, and 'startup' is what "
+                       "loads at boot.",
+            "distractors": {
+                "A": "",
+                "B": "'candidate' is a proposed config you validate then commit.",
+                "C": "'startup' is the saved boot config.",
+                "D": "'backup' is not a standard NETCONF datastore.",
+            },
+            "exam_pattern": "NETCONF datastores: running (active), candidate (edit→commit), "
+                            "startup (boot). RESTCONF edits the running/intended data directly.",
+        },
+        "verify_cli": [],
+        "references": ["CCNA 200-301 Topic 6.x NETCONF datastores"],
+        "tags": ["netconf", "datastores"],
+    },
 ]  # end of CCNA extra pool
