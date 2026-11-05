@@ -68,6 +68,27 @@ def test_roster_summary_lists_accounts_with_roles(tmp_path, monkeypatch):
     assert all({"answered", "accuracy", "baseline", "weak", "last_seen"} <= set(r) for r in rows)
 
 
+def test_default_is_always_instructor(tmp_path, monkeypatch):
+    monkeypatch.setattr(U, "USERDATA", tmp_path)
+    U.create_account("sarge", "pw123456", "Sarge")        # first -> instructor
+    U.create_account("default", "pw123456", "Default")    # would be a learner...
+    assert U.is_instructor("default") is True             # ...but Default is forced instructor
+
+
+def test_admin_create_reset_role_delete(tmp_path, monkeypatch):
+    monkeypatch.setattr(U, "USERDATA", tmp_path)
+    U.create_account("default", "pw123456", "Default")    # instructor/admin
+    slug, err = U.admin_create_account("airman2", "temp1234", "learner")
+    assert err is None and U.is_instructor(slug) is False
+    U.set_role(slug, "instructor")
+    assert U.is_instructor(slug) is True
+    ok, err = U.set_password_admin(slug, "newpw123")
+    assert ok and U.authenticate("airman2", "newpw123") == slug
+    U.delete_account(slug)
+    assert slug not in U.list_users()
+    assert not (tmp_path / slug).exists()
+
+
 def test_claim_legacy_profile_keeps_data(tmp_path, monkeypatch):
     monkeypatch.setattr(U, "USERDATA", tmp_path)
     # a pre-existing, password-less profile folder with saved progress

@@ -97,6 +97,15 @@ def _load_registry() -> dict:
     for sub in USERDATA.iterdir():
         if sub.is_dir():
             reg.setdefault(sub.name, {"name": sub.name, "created": time.time()})
+    # Ensure a stable instructor: the "default" admin account is always the
+    # instructor; otherwise promote the earliest-created real account.
+    accounts = {s: e for s, e in reg.items() if e.get("hash")}
+    if accounts.get("default") and accounts["default"].get("role") != "instructor":
+        reg["default"]["role"] = "instructor"
+    elif accounts and "default" not in accounts and not any(
+            e.get("role") == "instructor" for e in accounts.values()):
+        first = min(accounts.items(), key=lambda kv: kv[1].get("created", 0.0))[0]
+        reg[first]["role"] = "instructor"
     _save_registry(reg)
     return reg
 
@@ -197,6 +206,46 @@ def claim_profile(slug: str, password: str, display_name: str | None = None):
     return slug, None
 
 
+# --- instructor account management -------------------------------------------
+def set_role(slug: str, role: str) -> bool:
+    reg = _load_registry()
+    if slug not in reg:
+        return False
+    reg[slug]["role"] = "instructor" if role == "instructor" else "learner"
+    _save_registry(reg)
+    return True
+
+
+def admin_create_account(username: str, password: str, role: str = "learner"):
+    """Instructor creates an account for someone else (no auto-login)."""
+    slug, err = create_account(username, password)
+    if err:
+        return None, err
+    set_role(slug, role)
+    return slug, None
+
+
+def set_password_admin(slug: str, password: str):
+    if len(password or "") < 4:
+        return False, "Password must be at least 4 characters."
+    reg = _load_registry()
+    if slug not in reg:
+        return False, "No such account."
+    salt, h = _hash_pw(password)
+    reg[slug].update({"salt": salt, "hash": h})
+    _save_registry(reg)
+    return True, None
+
+
+def delete_account(slug: str) -> bool:
+    import shutil
+    reg = _load_registry()
+    reg.pop(slug, None)
+    _save_registry(reg)
+    shutil.rmtree(USERDATA / slug, ignore_errors=True)
+    return True
+
+
 def current_user() -> str:
     return st.session_state.get("auth_user") or "default"
 
@@ -271,62 +320,80 @@ def _clear_session_study_state() -> None:
 
 # --- shared page chrome -----------------------------------------------------
 def _render_login() -> None:
-    st.title("🔐 CiscoStudy")
-    st.caption("CCNA 200-301 & CCNP ENCOR 350-401 study and diagnostic tool. "
-               "Sign in so your progress saves to your own account.")
-
-    tab_in, tab_new = st.tabs(["Sign in", "Create account"])
-    with tab_in:
-        with st.form("login_form"):
-            u = st.text_input("Username")
-            p = st.text_input("Password", type="password")
-            if st.form_submit_button("Sign in", type="primary"):
-                slug = authenticate(u, p)
-                if slug:
-                    _clear_session_study_state()
-                    st.session_state["auth_user"] = slug
-                    st.rerun()
-                else:
-                    st.error("Wrong username or password.")
-    with tab_new:
-        with st.form("signup_form"):
-            name = st.text_input("Display name", placeholder="e.g. A1C Smith")
-            u = st.text_input("Username", key="su_user")
-            p = st.text_input("Password", type="password", key="su_pw")
-            p2 = st.text_input("Confirm password", type="password", key="su_pw2")
-            if st.form_submit_button("Create account", type="primary"):
-                if p != p2:
-                    st.error("Passwords don't match.")
-                else:
-                    slug, err = create_account(u, p, name)
-                    if err:
-                        st.error(err)
-                    else:
+    _, mid, _ = st.columns([1, 2, 1])   # centered, half-width card
+    with mid:
+        st.title("🔐 CiscoStudy")
+        st.caption("CCNA 200-301 & CCNP ENCOR 350-401 study and diagnostic tool. "
+                   "Sign in so your progress saves to your own account.")
+        tab_in, tab_new = st.tabs(["Sign in", "Create account"])
+        with tab_in:
+            with st.form("login_form"):
+                u = st.text_input("Username")
+                p = st.text_input("Password", type="password")
+                if st.form_submit_button("Sign in", type="primary"):
+                    slug = authenticate(u, p)
+                    if slug:
                         _clear_session_study_state()
                         st.session_state["auth_user"] = slug
                         st.rerun()
-
-    legacy = passwordless_profiles()
-    if legacy:
-        with st.expander("Keep progress from an existing local profile"):
-            st.caption("These profiles already have data on this machine but no password. "
-                       "Set one to turn a profile into your account and keep its progress.")
-            with st.form("claim_form"):
-                slug = st.selectbox("Profile", sorted(legacy),
-                                    format_func=lambda s: legacy[s].get("name", s))
-                p = st.text_input("New password", type="password", key="claim_pw")
-                if st.form_submit_button("Secure & sign in"):
-                    got, err = claim_profile(slug, p)
-                    if err:
-                        st.error(err)
                     else:
-                        _clear_session_study_state()
-                        st.session_state["auth_user"] = got
-                        st.rerun()
+                        st.error("Wrong username or password.")
+        with tab_new:
+            with st.form("signup_form"):
+                name = st.text_input("Display name", placeholder="e.g. A1C Smith")
+                u = st.text_input("Username", key="su_user")
+                p = st.text_input("Password", type="password", key="su_pw")
+                p2 = st.text_input("Confirm password", type="password", key="su_pw2")
+                if st.form_submit_button("Create account", type="primary"):
+                    if p != p2:
+                        st.error("Passwords don't match.")
+                    else:
+                        slug, err = create_account(u, p, name)
+                        if err:
+                            st.error(err)
+                        else:
+                            _clear_session_study_state()
+                            st.session_state["auth_user"] = slug
+                            st.rerun()
 
-    st.caption("⚠️ Lightweight login for a study tool: passwords are salted + hashed and stored "
-               "locally. Don't reuse a real / CAC / network password, and don't store any "
-               "sensitive or CUI information here.")
+        legacy = passwordless_profiles()
+        if legacy:
+            with st.expander("Keep progress from an existing local profile"):
+                st.caption("These profiles already have data on this machine but no password. "
+                           "Set one to turn a profile into your account and keep its progress.")
+                with st.form("claim_form"):
+                    slug = st.selectbox("Profile", sorted(legacy),
+                                        format_func=lambda s: legacy[s].get("name", s))
+                    p = st.text_input("New password", type="password", key="claim_pw")
+                    if st.form_submit_button("Secure & sign in"):
+                        got, err = claim_profile(slug, p)
+                        if err:
+                            st.error(err)
+                        else:
+                            _clear_session_study_state()
+                            st.session_state["auth_user"] = got
+                            st.rerun()
+
+        st.caption("⚠️ Lightweight login for a study tool: passwords are salted + hashed and "
+                   "stored locally. Don't reuse a real / CAC / network password, and don't store "
+                   "any sensitive or CUI information here.")
+
+
+def _account_bar(user: str) -> None:
+    """Top-right account menu (name, role, instructor tools, log out)."""
+    name = _load_registry().get(user, {}).get("name", user)
+    inst = is_instructor(user)
+    _, acct = st.columns([6, 1])
+    with acct:
+        with st.popover(f"👤 {name}", use_container_width=True):
+            st.markdown(f"**{name}**")
+            st.caption("🧑‍🏫 Instructor" if inst else "Learner")
+            if inst:
+                st.page_link("pages/7_Instructor.py", label="Instructor tools", icon="🧑‍🏫")
+            if st.button("Log out", key="logout_top", use_container_width=True):
+                _clear_session_study_state()
+                st.session_state.pop("auth_user", None)
+                st.rerun()
 
 
 def page_setup(title: str, icon: str = "🛜") -> str:
@@ -341,16 +408,10 @@ def page_setup(title: str, icon: str = "🛜") -> str:
         _render_login()
         st.stop()
 
-    name = _load_registry().get(user, {}).get("name", user)
+    _account_bar(user)   # account menu in the top-right
+
     with st.sidebar:
         st.markdown("### CiscoStudy")
-        st.caption(f"Signed in as **{name}**" + ("  ·  🧑‍🏫 Instructor" if is_instructor(user) else ""))
-        if st.button("Log out"):
-            _clear_session_study_state()
-            st.session_state.pop("auth_user", None)
-            st.rerun()
-        st.divider()
-
         exam = st.radio(
             "Exam track",
             list(EXAMS),
