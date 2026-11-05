@@ -4,7 +4,6 @@ from __future__ import annotations
 import random
 import time
 
-import pandas as pd
 import streamlit as st
 
 from studyengine import build_baseline, get_blueprint, recommend_focus, score_session
@@ -13,6 +12,7 @@ from ui_common import (
     get_bank,
     get_profile,
     page_setup,
+    pct_bar,
     save_profile,
 )
 
@@ -68,7 +68,7 @@ if state["done"]:
         chart[d.name] = pct
         rows.append({"Domain": d.name, "Score": f"{ds.correct}/{ds.seen}" if ds else "0/0",
                      "Accuracy": f"{pct}%", "Exam weight": f"{round(d.weight*100)}%"})
-    st.bar_chart(pd.DataFrame({"Accuracy %": chart}), horizontal=True)
+    pct_bar(chart)
     st.dataframe(rows, width="stretch", hide_index=True)
 
     recs = recommend_focus(score, bp, threshold=0.8)

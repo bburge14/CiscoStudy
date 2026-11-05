@@ -84,36 +84,21 @@ the app).
 
 ## Accounts, onboarding & personalized plan
 
-- **Login:** each learner creates an account (username + password). Passwords are
-  **salted and hashed** (PBKDF2-HMAC-SHA256, standard library) in
-  `.userdata/users.json`; each account's progress lives under
-  `.userdata/<user>/` (or `~/.ciscostudy/<user>/` for the exe). The signed-in user
-  is per browser session, so several people can use one running instance at once
-  without mixing progress.
-- **Onboarding hub (Home):** after login, a "Where do you want to start?" screen
-  links to the diagnostic, the study plan, lessons, drill and the PBQ lab.
-- **🧭 My Study Plan:** the diagnostic builds a **personalized, weakest-first
-  plan** — it walks you through your weak sub-topics one at a time (read the
-  lesson → drill it → the next topic unlocks when you reach 80%+).
+- **Login:** username + password, salted and hashed (PBKDF2-HMAC-SHA256, stdlib)
+  in `.userdata/users.json`. Per-account progress lives under `.userdata/<user>/`
+  (or `~/.ciscostudy/<user>/` for the exe). The signed-in user is per browser
+  session, so one instance serves multiple users without mixing progress. The
+  first account (or `default`) is the instructor/admin; see the Instructor view
+  for the roster and account management.
+- **Onboarding hub (Home):** after login, a "where to start?" screen linking to
+  the diagnostic, study plan, lessons, drill, PBQ lab and exam simulation.
+- **🧭 My Study Plan:** the diagnostic builds a weakest-first plan that walks you
+  through weak sub-topics one at a time (read → drill → unlock at 80%+).
 
-### Letting other people use it
-
-- **Same network (no servers):** run **`run-shared.bat`** (Windows) — or
-  `streamlit run Home.py --server.address 0.0.0.0` on macOS/Linux — then others on
-  the same Wi-Fi/LAN open `http://<your-PC-IP>:8501` and sign in with their own
-  account.
-- **Separate machines:** hand each person the `.exe` or the repo.
-- **Public web app:** for an internet-hosted deployment you'd move accounts and
-  progress into a real database behind HTTPS (free hosts have ephemeral disks) —
-  a larger change noted in PROJECT_STATUS.md.
-
-> ⚠️ **Security note (please read if distributing).** The login is **lightweight
-> auth for a study tool**, not a hardened system. `run-shared.bat` serves plain
-> **HTTP** on your LAN, so passwords cross the network unencrypted. Tell users to
-> pick a **throwaway password** (never a real / CAC / network password) and keep
-> **no sensitive or CUI information** in the app — progress is stored in plaintext
-> JSON. For anything beyond a trusted study group, put it behind HTTPS with a
-> proper backend.
+**Multi-user:** `run-shared.bat` (or `streamlit run Home.py
+--server.address 0.0.0.0`) serves it on the LAN. Auth is lightweight (plain HTTP,
+plaintext-JSON progress) — fine for a study tool, use throwaway passwords. For a
+real internet deployment, move accounts/progress to a database behind HTTPS.
 
 ---
 

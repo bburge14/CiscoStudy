@@ -29,14 +29,8 @@ if not exist "%USERPROFILE%\.streamlit\credentials.toml" (
 %PY% -m pip install -q -r requirements.txt
 
 echo.
-echo ============================================================
-echo  CiscoStudy is now shared on your local network.
-echo  On THIS PC:            http://localhost:8501
-echo  On other devices:      http://THIS-PC-IP:8501
-echo    (run 'ipconfig' and use the IPv4 Address, e.g. 192.168.1.x)
-echo  Tell each person to pick/create their own profile in the sidebar.
-echo  Press Ctrl+C to stop sharing.
-echo ============================================================
+echo  Serving CiscoStudy on 0.0.0.0:8501 (LAN). Local: http://localhost:8501
+echo  Ctrl+C to stop.
 echo.
 %PY% -m streamlit run Home.py --server.address 0.0.0.0 --server.port 8501 --server.headless true
 

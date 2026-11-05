@@ -56,9 +56,7 @@ st.divider()
 st.subheader("Roster")
 
 if not learners:
-    st.info("No learner accounts yet. Have your airmen open the app and create an account — "
-            "they'll appear here. (On a shared instance, run `run-shared.bat` and give them "
-            "your PC's `http://<ip>:8501` address.)")
+    st.info("No learner accounts yet. Accounts created on this instance will appear here.")
     st.stop()
 
 

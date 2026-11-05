@@ -27,7 +27,7 @@ from studyengine import (
     load_curriculum,
     score_session,
 )
-from studyengine.cli_sim import Console, topology_dot
+from studyengine.cli_sim import Console, topology_svg
 from studyengine.models import Question
 from studyengine.progress import BOX_WEIGHT, Profile
 
@@ -340,7 +340,7 @@ def _render_login() -> None:
                         st.error("Wrong username or password.")
         with tab_new:
             with st.form("signup_form"):
-                name = st.text_input("Display name", placeholder="e.g. A1C Smith")
+                name = st.text_input("Display name", placeholder="e.g. Jordan Lee")
                 u = st.text_input("Username", key="su_user")
                 p = st.text_input("Password", type="password", key="su_pw")
                 p2 = st.text_input("Confirm password", type="password", key="su_pw2")
@@ -374,9 +374,8 @@ def _render_login() -> None:
                             st.session_state["auth_user"] = got
                             st.rerun()
 
-        st.caption("⚠️ Lightweight login for a study tool: passwords are salted + hashed and "
-                   "stored locally. Don't reuse a real / CAC / network password, and don't store "
-                   "any sensitive or CUI information here.")
+        st.caption("Passwords are salted + hashed and stored locally. Lightweight auth for a "
+                   "study tool — use a throwaway password, not a real one.")
 
 
 def _account_bar(user: str) -> None:
@@ -521,6 +520,24 @@ def box_distribution(exam: str) -> dict[int, int]:
     return dist
 
 
+def pct_bar(data: dict, value_label: str = "Accuracy %") -> None:
+    """Horizontal percentage bar chart on a FIXED 0–100 axis (not auto-scaled)."""
+    import altair as alt
+    import pandas as pd
+    df = pd.DataFrame({"Domain": list(data.keys()), value_label: list(data.values())})
+    chart = (
+        alt.Chart(df)
+        .mark_bar(color="#1BA0D7")
+        .encode(
+            x=alt.X(f"{value_label}:Q", scale=alt.Scale(domain=[0, 100]), title=value_label),
+            y=alt.Y("Domain:N", sort=None, title=None),
+            tooltip=["Domain", value_label],
+        )
+        .properties(height=max(120, 34 * len(df)))
+    )
+    st.altair_chart(chart, use_container_width=True)
+
+
 # --- reusable quiz runner ---------------------------------------------------
 def reset_quiz(skey: str) -> None:
     st.session_state.pop(skey, None)
@@ -606,9 +623,9 @@ def render_pbq(scenario, skey_prefix: str) -> bool:
 
     st.markdown("**Topology**")
     try:
-        st.graphviz_chart(topology_dot(topo, scenario.device))
-        st.caption("Live from the scenario — the console device is highlighted; a down link "
-                   "shows red/dashed. The diagram updates as you configure.")
+        st.html(topology_svg(topo, scenario.device))
+        st.caption("Live from the scenario — the console device is ringed; a down link shows "
+                   "red/dashed. The diagram updates as you configure.")
     except Exception:
         st.caption("(Topology diagram unavailable.)")
 
