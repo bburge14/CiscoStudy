@@ -501,7 +501,15 @@ def render_account_bar() -> None:
 
 def render_sidebar_chrome() -> None:
     """Sidebar: exam-track picker + lifetime stats (nav links are added by the router).
-    Also injects the custom-glyph CSS that re-skins the native nav icons."""
+    Also injects the custom-glyph CSS and the centered content-width layout."""
+    # Cap the main content to a comfortable, centered column (left-aligned text).
+    # Full-width 'wide' layout sprawls on big monitors; this reads far better and
+    # still fills the screen on a phone / portrait display.
+    st.markdown(
+        "<style>[data-testid='stMainBlockContainer'], section.main .block-container"
+        "{max-width:960px;margin-left:auto;margin-right:auto;}</style>",
+        unsafe_allow_html=True,
+    )
     st.markdown(ui_icons.nav_css(), unsafe_allow_html=True)
     with st.sidebar:
         st.markdown("### CiscoStudy")
