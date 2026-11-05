@@ -1,6 +1,6 @@
 {
   "exam": "encor",
-  "count": 35,
+  "count": 98,
   "questions": [
     {
       "id": "encor-ar-001",
@@ -1775,6 +1775,3168 @@
         "dnac",
         "catalyst-center",
         "api-token"
+      ]
+    },
+    {
+      "id": "encor-ar-101",
+      "exam": "encor",
+      "domain": "architecture",
+      "subtopic": "enterprise_design",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In a classic three-tier campus design, which layer is the Layer 3 aggregation point that applies policy and summarizes routes between the access layer and the core?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Distribution layer"
+        },
+        {
+          "id": "B",
+          "text": "Access layer"
+        },
+        {
+          "id": "C",
+          "text": "Core layer"
+        },
+        {
+          "id": "D",
+          "text": "Data-center spine"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The distribution layer aggregates access-layer switches, is the usual Layer 2/Layer 3 boundary, applies policy (ACLs/QoS), and summarizes routes toward the core.",
+        "distractors": {
+          "A": "",
+          "B": "The access layer connects end devices and enforces port-level features (PoE, port security), not route summarization.",
+          "C": "The core is built for high-speed, low-latency transport and avoids policy to keep forwarding fast.",
+          "D": "Spine is a data-center (spine-leaf) role, not the campus distribution layer."
+        },
+        "exam_pattern": "Access = connect hosts; Distribution = policy + L2/L3 boundary + summarization; Core = fast transport. A collapsed core merges core + distribution (two-tier)."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 1.1 enterprise design"
+      ],
+      "tags": [
+        "campus-design",
+        "three-tier"
+      ]
+    },
+    {
+      "id": "encor-ar-102",
+      "exam": "encor",
+      "domain": "architecture",
+      "subtopic": "enterprise_design",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A small campus uses a collapsed-core (two-tier) design. What does 'collapsed core' mean?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The core and distribution functions run on the same devices"
+        },
+        {
+          "id": "B",
+          "text": "All switches are Layer 2 only"
+        },
+        {
+          "id": "C",
+          "text": "The access layer is removed"
+        },
+        {
+          "id": "D",
+          "text": "The network uses a single switch for everything"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A collapsed-core (two-tier) design combines the core and distribution roles into the same distribution switches, which is cost-effective for small/medium campuses that don't need a dedicated core.",
+        "distractors": {
+          "A": "",
+          "B": "A collapsed core still uses Layer 3 at the distribution boundary.",
+          "C": "The access layer remains; it's the core that is merged into distribution.",
+          "D": "It's still a multi-switch design with redundancy, not one switch."
+        },
+        "exam_pattern": "Two-tier = collapsed core (core merged into distribution). Three-tier adds a dedicated core for large networks / many distribution blocks."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 1.1 two-tier vs three-tier"
+      ],
+      "tags": [
+        "campus-design",
+        "collapsed-core"
+      ]
+    },
+    {
+      "id": "encor-ar-103",
+      "exam": "encor",
+      "domain": "architecture",
+      "subtopic": "high_availability",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which high-availability mechanism lets a redundant supervisor continue forwarding using the existing hardware (CEF) tables while the control plane restarts, avoiding a traffic outage?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NSF/SSO (Nonstop Forwarding with Stateful Switchover)"
+        },
+        {
+          "id": "B",
+          "text": "HSRP preempt"
+        },
+        {
+          "id": "C",
+          "text": "RSTP edge ports"
+        },
+        {
+          "id": "D",
+          "text": "PortFast"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "SSO synchronizes state to a standby supervisor so it takes over instantly, and NSF keeps forwarding from the existing CEF/FIB entries while routing protocols gracefully re-converge — so data traffic isn't dropped during a supervisor failover.",
+        "distractors": {
+          "A": "",
+          "B": "HSRP provides gateway redundancy between devices, not intra-chassis supervisor failover.",
+          "C": "RSTP edge ports speed STP transitions, unrelated to supervisor redundancy.",
+          "D": "PortFast is an access-port STP feature, not control-plane HA."
+        },
+        "exam_pattern": "NSF/SSO = control-plane HA within a chassis (keep forwarding during switchover). FHRP = gateway HA between chassis. Don't mix the two."
+      },
+      "verify_cli": [
+        "show redundancy states"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 1.2 high availability"
+      ],
+      "tags": [
+        "nsf",
+        "sso",
+        "high-availability"
+      ]
+    },
+    {
+      "id": "encor-ar-104",
+      "exam": "encor",
+      "domain": "architecture",
+      "subtopic": "high_availability",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which technology lets multiple physical Catalyst switches be managed and operate as a single logical switch over a dedicated ring, sharing one control plane?",
+      "options": [
+        {
+          "id": "A",
+          "text": "StackWise"
+        },
+        {
+          "id": "B",
+          "text": "VRRP"
+        },
+        {
+          "id": "C",
+          "text": "MST"
+        },
+        {
+          "id": "D",
+          "text": "GLBP"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "StackWise joins several access switches into one logical unit over a StackWise ring, with a single management/control plane and cross-stack EtherChannel — simplifying operations and adding redundancy.",
+        "distractors": {
+          "A": "",
+          "B": "VRRP is a first-hop gateway redundancy protocol, not switch stacking.",
+          "C": "MST is a spanning-tree variant that maps VLANs to instances.",
+          "D": "GLBP is a load-balancing FHRP, not a stacking technology."
+        },
+        "exam_pattern": "StackWise (access) and VSS/StackWise Virtual (distribution/core) = many boxes, one logical switch. FHRPs (HSRP/VRRP/GLBP) = gateway redundancy only."
+      },
+      "verify_cli": [
+        "show switch",
+        "show switch stack-ports"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 1.2 StackWise"
+      ],
+      "tags": [
+        "stackwise",
+        "high-availability"
+      ]
+    },
+    {
+      "id": "encor-ar-105",
+      "exam": "encor",
+      "domain": "architecture",
+      "subtopic": "fabric_overview",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In Cisco SD-Access, which protocols provide the fabric control plane and the fabric data plane, respectively?",
+      "options": [
+        {
+          "id": "A",
+          "text": "LISP for the control plane and VXLAN for the data plane"
+        },
+        {
+          "id": "B",
+          "text": "OSPF for the control plane and GRE for the data plane"
+        },
+        {
+          "id": "C",
+          "text": "BGP for the control plane and MPLS for the data plane"
+        },
+        {
+          "id": "D",
+          "text": "STP for the control plane and 802.1Q for the data plane"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "SD-Access uses LISP as the control plane (endpoint-ID to routing-locator mapping database), VXLAN as the data-plane encapsulation, and Cisco TrustSec (SGTs) for group-based policy.",
+        "distractors": {
+          "A": "",
+          "B": "OSPF/GRE describe a traditional routed overlay, not the SD-Access fabric planes.",
+          "C": "BGP/MPLS is a service-provider VPN model, not the SD-Access fabric design.",
+          "D": "STP/802.1Q is classic Layer 2, which the fabric overlay specifically replaces."
+        },
+        "exam_pattern": "SD-Access = LISP (control) + VXLAN (data) + TrustSec/SGT (policy). Underlay is any routed IP transport (often IS-IS)."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 1.3 SD-Access fabric"
+      ],
+      "tags": [
+        "sd-access",
+        "lisp",
+        "vxlan",
+        "fabric"
+      ]
+    },
+    {
+      "id": "encor-ar-106",
+      "exam": "encor",
+      "domain": "architecture",
+      "subtopic": "fabric_overview",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In an SD-Access fabric, which node is responsible for connecting the fabric to networks outside of it (e.g., the data center or WAN)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fabric border node"
+        },
+        {
+          "id": "B",
+          "text": "Fabric edge node"
+        },
+        {
+          "id": "C",
+          "text": "Fabric control-plane node"
+        },
+        {
+          "id": "D",
+          "text": "Fabric intermediate node"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The fabric border node is the gateway between the fabric and external domains (WAN, data center, Internet), handling route import/export and the hand-off of fabric traffic.",
+        "distractors": {
+          "A": "",
+          "B": "The fabric edge node connects endpoints (like an access switch) into the fabric.",
+          "C": "The control-plane node runs the LISP map-server/resolver (endpoint database).",
+          "D": "Intermediate nodes are pure underlay transport (no fabric role)."
+        },
+        "exam_pattern": "Roles: edge = connect endpoints; border = exit to external; control-plane = LISP map database; intermediate = underlay transit."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 1.3 fabric roles"
+      ],
+      "tags": [
+        "sd-access",
+        "fabric-roles"
+      ]
+    },
+    {
+      "id": "encor-ar-107",
+      "exam": "encor",
+      "domain": "architecture",
+      "subtopic": "wireless_deployment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A client moves between two lightweight APs joined to the SAME WLC and keeps its IP address. What type of roam is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Intra-controller (Layer 2) roam"
+        },
+        {
+          "id": "B",
+          "text": "Inter-controller Layer 3 roam"
+        },
+        {
+          "id": "C",
+          "text": "Auto-anchor (guest) roam"
+        },
+        {
+          "id": "D",
+          "text": "Mobility-group reset"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "When both APs are on the same WLC, the controller simply updates its client database — an intra-controller (Layer 2) roam — and the client keeps its IP with minimal disruption.",
+        "distractors": {
+          "A": "",
+          "B": "Inter-controller roaming involves two different WLCs (Layer 2 or Layer 3 mobility between them).",
+          "C": "Auto-anchor tunnels guest traffic to a DMZ anchor controller — a specific design, not this basic same-WLC roam.",
+          "D": "There is no 'mobility-group reset' roam type."
+        },
+        "exam_pattern": "Same WLC = intra-controller roam. Different WLCs = inter-controller (L2 if same client subnet, L3 if different, using anchor/foreign)."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 1.x wireless roaming"
+      ],
+      "tags": [
+        "wireless",
+        "roaming"
+      ]
+    },
+    {
+      "id": "encor-ar-108",
+      "exam": "encor",
+      "domain": "architecture",
+      "subtopic": "machine_learning_ai",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In Cisco DNA Center Assurance, what is the primary role of its AI/ML analytics?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Establish behavioral baselines and flag anomalies/issues with guided remediation"
+        },
+        {
+          "id": "B",
+          "text": "Replace the routing protocol on every device"
+        },
+        {
+          "id": "C",
+          "text": "Encrypt all management traffic end to end"
+        },
+        {
+          "id": "D",
+          "text": "Act as the DHCP server for the fabric"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "DNA Center Assurance uses machine learning to build baselines of normal network/client behavior, detect anomalies and correlate them into issues, and suggest or automate remediation — shifting ops from reactive to proactive.",
+        "distractors": {
+          "A": "",
+          "B": "Analytics observe and advise; they don't replace routing protocols.",
+          "C": "Encrypting management traffic is a security feature, not the purpose of ML analytics.",
+          "D": "DHCP services are unrelated to the assurance analytics engine."
+        },
+        "exam_pattern": "Network AI/ML (DNA Assurance) = baselining + anomaly detection + guided remediation. Think 'insight and automation,' not forwarding."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 1.x AI/ML in networking"
+      ],
+      "tags": [
+        "ai-ml",
+        "dna-center",
+        "assurance"
+      ]
+    },
+    {
+      "id": "encor-ar-109",
+      "exam": "encor",
+      "domain": "architecture",
+      "subtopic": "machine_learning_ai",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which description best matches 'supervised' machine learning as applied to network analytics?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A model trained on labeled examples to predict/classify new data"
+        },
+        {
+          "id": "B",
+          "text": "A model that finds structure in unlabeled data via clustering"
+        },
+        {
+          "id": "C",
+          "text": "A static rule set written by an engineer"
+        },
+        {
+          "id": "D",
+          "text": "A protocol that floods telemetry to all collectors"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Supervised learning trains on labeled input/output pairs so the model can classify or predict outcomes for new, unseen data (e.g., 'this traffic pattern = this application').",
+        "distractors": {
+          "A": "",
+          "B": "Finding structure in UNlabeled data via clustering is UNsupervised learning.",
+          "C": "A hand-written rule set is not machine learning at all.",
+          "D": "That describes a telemetry transport mechanism, not an ML method."
+        },
+        "exam_pattern": "Supervised = labeled data → predict/classify. Unsupervised = unlabeled → cluster/anomaly. Know the one-line distinction."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 1.x machine learning concepts"
+      ],
+      "tags": [
+        "ai-ml",
+        "supervised-learning"
+      ]
+    },
+    {
+      "id": "encor-vi-101",
+      "exam": "encor",
+      "domain": "virtualization",
+      "subtopic": "device_virtualization",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What distinguishes a Type 1 hypervisor from a Type 2 hypervisor?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Type 1 runs directly on the server hardware (bare-metal); Type 2 runs on top of a host OS"
+        },
+        {
+          "id": "B",
+          "text": "Type 1 runs on top of a host OS; Type 2 runs on bare metal"
+        },
+        {
+          "id": "C",
+          "text": "Type 1 only runs containers; Type 2 only runs VMs"
+        },
+        {
+          "id": "D",
+          "text": "There is no functional difference"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A Type 1 (bare-metal) hypervisor such as ESXi runs directly on hardware for best performance and isolation. A Type 2 hypervisor (e.g., VirtualBox) runs as an application on top of a host operating system.",
+        "distractors": {
+          "A": "",
+          "B": "Reversed — Type 1 is bare-metal, Type 2 is hosted.",
+          "C": "Both types virtualize full VMs; containers are a separate OS-level virtualization model.",
+          "D": "The placement (bare-metal vs hosted) is a real, exam-relevant difference."
+        },
+        "exam_pattern": "Type 1 = bare-metal (ESXi, KVM, Hyper-V role). Type 2 = hosted on an OS (VirtualBox, VMware Workstation). Containers share the host kernel."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 2.1 device virtualization"
+      ],
+      "tags": [
+        "hypervisor",
+        "virtualization"
+      ]
+    },
+    {
+      "id": "encor-vi-102",
+      "exam": "encor",
+      "domain": "virtualization",
+      "subtopic": "device_virtualization",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "How do containers differ from virtual machines?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Containers share the host OS kernel and package only the app + dependencies; VMs include a full guest OS"
+        },
+        {
+          "id": "B",
+          "text": "Containers each include a full guest operating system"
+        },
+        {
+          "id": "C",
+          "text": "VMs are always smaller and faster to start than containers"
+        },
+        {
+          "id": "D",
+          "text": "Containers require a Type 1 hypervisor to run"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Containers virtualize at the OS level: they share the host kernel and bundle just the application and its libraries, so they're lightweight and start quickly. VMs virtualize hardware and each carry a complete guest OS.",
+        "distractors": {
+          "A": "",
+          "B": "Carrying a full guest OS describes a VM, not a container.",
+          "C": "Containers are generally smaller and faster to start than VMs, not the reverse.",
+          "D": "Containers use a container runtime on the host OS, not a hypervisor."
+        },
+        "exam_pattern": "Container = share kernel, app+libs, fast/light. VM = full guest OS on a hypervisor, stronger isolation, heavier."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 2.1 containers vs VMs"
+      ],
+      "tags": [
+        "containers",
+        "virtualization"
+      ]
+    },
+    {
+      "id": "encor-vi-103",
+      "exam": "encor",
+      "domain": "virtualization",
+      "subtopic": "network_virtualization_vrf",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What does VRF-lite provide on a single router?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Multiple independent routing/forwarding tables for traffic segmentation"
+        },
+        {
+          "id": "B",
+          "text": "Encryption of all routed packets"
+        },
+        {
+          "id": "C",
+          "text": "A backup supervisor engine"
+        },
+        {
+          "id": "D",
+          "text": "Automatic IP address assignment to hosts"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "VRF (Virtual Routing and Forwarding) creates multiple isolated routing and forwarding tables on one device, so overlapping or separate customer/segment traffic stays logically separated. 'VRF-lite' is VRF without MPLS.",
+        "distractors": {
+          "A": "",
+          "B": "VRF segments routing; it does not encrypt packets (that's IPsec/MACsec).",
+          "C": "VRF is a logical construct, not hardware supervisor redundancy.",
+          "D": "Address assignment is DHCP, unrelated to VRF."
+        },
+        "exam_pattern": "VRF = separate routing tables per segment on one box. VRF-lite = no MPLS; full MPLS L3VPN adds RD/RT with MP-BGP."
+      },
+      "verify_cli": [
+        "show vrf",
+        "show ip route vrf CUST_A"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 2.3 VRF"
+      ],
+      "tags": [
+        "vrf",
+        "segmentation"
+      ]
+    },
+    {
+      "id": "encor-vi-104",
+      "exam": "encor",
+      "domain": "virtualization",
+      "subtopic": "overlay_vxlan",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "How many Layer 2 segments can VXLAN identify, and what field provides that scale compared with a traditional VLAN?",
+      "options": [
+        {
+          "id": "A",
+          "text": "~16 million, via the 24-bit VNI"
+        },
+        {
+          "id": "B",
+          "text": "4096, via the 12-bit VLAN ID"
+        },
+        {
+          "id": "C",
+          "text": "65,536, via a 16-bit tag"
+        },
+        {
+          "id": "D",
+          "text": "256, via an 8-bit field"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "VXLAN uses a 24-bit VNID (VNI), giving ~16 million segments — far beyond the 4094 usable VLANs of the 12-bit 802.1Q ID. VXLAN encapsulates Ethernet in UDP (port 4789) between VTEPs.",
+        "distractors": {
+          "A": "",
+          "B": "4096 (12-bit) is the traditional VLAN limit VXLAN was created to exceed.",
+          "C": "16 bits (65,536) is not the VXLAN VNI size.",
+          "D": "8 bits is unrelated to VXLAN."
+        },
+        "exam_pattern": "VXLAN: 24-bit VNI (~16M segments), MAC-in-UDP (4789), VTEP endpoints, often MP-BGP EVPN control plane. VLAN = 12-bit (4094)."
+      },
+      "verify_cli": [
+        "show nve vni",
+        "show nve peers"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 2.4 VXLAN"
+      ],
+      "tags": [
+        "vxlan",
+        "vni",
+        "overlay"
+      ]
+    },
+    {
+      "id": "encor-vi-105",
+      "exam": "encor",
+      "domain": "virtualization",
+      "subtopic": "overlay_vxlan",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In a VXLAN overlay, what is the function of a VTEP?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It encapsulates/decapsulates Ethernet frames into/out of VXLAN at the edge"
+        },
+        {
+          "id": "B",
+          "text": "It is the 24-bit segment identifier"
+        },
+        {
+          "id": "C",
+          "text": "It is the underlay routing protocol"
+        },
+        {
+          "id": "D",
+          "text": "It is the controller that assigns VNIs"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A VTEP (VXLAN Tunnel Endpoint) sits at the edge of the overlay and performs encapsulation of local Ethernet frames into VXLAN/UDP toward remote VTEPs, and decapsulation in the reverse direction.",
+        "distractors": {
+          "A": "",
+          "B": "The 24-bit identifier is the VNI, not the VTEP.",
+          "C": "The underlay runs normal IP routing; the VTEP uses it but isn't the routing protocol.",
+          "D": "A controller (or MP-BGP EVPN) handles mappings; the VTEP does the encap/decap."
+        },
+        "exam_pattern": "VTEP = encap/decap edge. VNI = segment ID. Underlay = IP transport. EVPN/controller = control plane/mapping."
+      },
+      "verify_cli": [
+        "show nve interface",
+        "show nve peers"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 2.4 VTEP"
+      ],
+      "tags": [
+        "vxlan",
+        "vtep"
+      ]
+    },
+    {
+      "id": "encor-vi-106",
+      "exam": "encor",
+      "domain": "virtualization",
+      "subtopic": "data_path_virtualization",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A point-to-point GRE tunnel is configured between two routers across the Internet. By itself, what does GRE provide?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tunneling of multiple protocols with NO native encryption"
+        },
+        {
+          "id": "B",
+          "text": "Strong AES encryption of the payload"
+        },
+        {
+          "id": "C",
+          "text": "Automatic hop-by-hop MPLS labeling"
+        },
+        {
+          "id": "D",
+          "text": "Built-in dynamic routing without any routing protocol"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "GRE encapsulates many passenger protocols (including multicast/routing updates) in an IP tunnel, but it provides NO encryption on its own — it is commonly paired with IPsec for confidentiality.",
+        "distractors": {
+          "A": "",
+          "B": "GRE does not encrypt; add IPsec for that.",
+          "C": "GRE is not MPLS labeling.",
+          "D": "GRE carries routing protocols but doesn't replace them; you still run OSPF/EIGRP/BGP over it."
+        },
+        "exam_pattern": "GRE = flexible multiprotocol/multicast tunnel, no crypto. GRE-over-IPsec adds encryption. DMVPN builds on mGRE + IPsec + NHRP."
+      },
+      "verify_cli": [
+        "show interfaces tunnel0"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 2.2 GRE tunneling"
+      ],
+      "tags": [
+        "gre",
+        "tunneling"
+      ]
+    },
+    {
+      "id": "encor-in-101",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "ospf_advanced",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which OSPF LSA type is generated by an ABR to advertise a network from one area into another (inter-area route)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Type 3 (Summary LSA)"
+        },
+        {
+          "id": "B",
+          "text": "Type 1 (Router LSA)"
+        },
+        {
+          "id": "C",
+          "text": "Type 5 (External LSA)"
+        },
+        {
+          "id": "D",
+          "text": "Type 2 (Network LSA)"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A Type 3 Summary LSA is originated by an Area Border Router to advertise networks learned in one area into other areas (inter-area/O IA routes).",
+        "distractors": {
+          "A": "",
+          "B": "Type 1 Router LSAs describe a router's links WITHIN an area; they don't cross area boundaries.",
+          "C": "Type 5 External LSAs carry routes redistributed from outside OSPF (via an ASBR), shown as O E1/E2.",
+          "D": "Type 2 Network LSAs are generated by the DR to describe a multi-access segment within an area."
+        },
+        "exam_pattern": "LSA cheat sheet: 1 Router, 2 Network (DR), 3 Summary (ABR inter-area), 4 ASBR-summary, 5 External (ASBR), 7 NSSA-external."
+      },
+      "verify_cli": [
+        "show ip ospf database"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.1 OSPF LSAs"
+      ],
+      "tags": [
+        "ospf",
+        "lsa"
+      ]
+    },
+    {
+      "id": "encor-in-102",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "ospf_advanced",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In a totally stubby area, which routes does the ABR inject, and what is blocked?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only a default route is injected; both Type 5 external and Type 3 inter-area LSAs are blocked"
+        },
+        {
+          "id": "B",
+          "text": "All external and inter-area routes are allowed"
+        },
+        {
+          "id": "C",
+          "text": "Only Type 5 externals are allowed; inter-area is blocked"
+        },
+        {
+          "id": "D",
+          "text": "Nothing is injected; the area is isolated"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A totally stubby area blocks both Type 5 (external) and Type 3 (summary/inter-area) LSAs; the ABR injects a single default route (0.0.0.0/0) so internal routers reach everything through the ABR — minimizing LSDB size.",
+        "distractors": {
+          "A": "",
+          "B": "A regular (non-stub) area allows all; this is specifically a totally stubby area.",
+          "C": "Stub areas block Type 5 but still allow Type 3; totally stubby blocks both.",
+          "D": "The area isn't isolated — it reaches the rest via the injected default."
+        },
+        "exam_pattern": "Stub: block Type 5 (default in). Totally stubby: block Type 5 + 3 (default in). NSSA: allow Type 7 externals. Totally NSSA: Type 7 + default, block 3/5."
+      },
+      "verify_cli": [
+        "show ip ospf",
+        "show ip route ospf"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.1 OSPF area types"
+      ],
+      "tags": [
+        "ospf",
+        "stub-area"
+      ]
+    },
+    {
+      "id": "encor-in-103",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "bgp",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Two BGP routers are stuck in the 'Active' state and never reach Established. What does 'Active' most commonly indicate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The router is trying to initiate a TCP session but is not getting a reply (reachability/peer problem)"
+        },
+        {
+          "id": "B",
+          "text": "The session is up and actively exchanging routes"
+        },
+        {
+          "id": "C",
+          "text": "BGP is actively load-balancing traffic"
+        },
+        {
+          "id": "D",
+          "text": "The neighbor relationship is fully established"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "In BGP, 'Active' means the router is actively trying to open the TCP (port 179) session to the peer but not succeeding — usually a reachability issue, wrong neighbor IP, missing route to the peer, an ACL, or a mismatched remote-AS/update-source.",
+        "distractors": {
+          "A": "",
+          "B": "Exchanging routes happens only in the ESTABLISHED state.",
+          "C": "'Active' is a session FSM state, not a traffic-forwarding behavior.",
+          "D": "Established — not Active — is the fully formed peering state."
+        },
+        "exam_pattern": "BGP FSM: Idle→Connect→Active→OpenSent→OpenConfirm→Established. Stuck in Active/Idle = TCP 179 reachability/config problem."
+      },
+      "verify_cli": [
+        "show ip bgp summary",
+        "show ip bgp neighbors"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.4 BGP states"
+      ],
+      "tags": [
+        "bgp",
+        "neighbor-states"
+      ]
+    },
+    {
+      "id": "encor-in-104",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "bgp",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Ignoring Weight, which BGP path attribute is evaluated FIRST in best-path selection, and is it higher-or-lower-preferred?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Local Preference — higher is preferred"
+        },
+        {
+          "id": "B",
+          "text": "MED — lower is preferred"
+        },
+        {
+          "id": "C",
+          "text": "AS-Path length — shorter is preferred"
+        },
+        {
+          "id": "D",
+          "text": "Origin code — IGP over EGP over incomplete"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "After the Cisco-only Weight (highest, local to the router), the next attribute is Local Preference, where HIGHER wins. It is exchanged among iBGP peers to influence the AS's egress choice.",
+        "distractors": {
+          "A": "",
+          "B": "MED is far down the list and only compared (lowest wins) between paths from the same neighboring AS.",
+          "C": "AS-Path (shortest wins) is evaluated after Local Preference and locally originated checks.",
+          "D": "Origin (IGP<EGP<incomplete) comes after AS-Path and origin-type checks."
+        },
+        "exam_pattern": "Order (mnemonic 'We Love Oranges AS Oranges Mean Pure Refreshment'): Weight↑, LocalPref↑, Originated-local, AS-path↓, Origin(IGP), MED↓, eBGP>iBGP, lowest IGP metric, router-id."
+      },
+      "verify_cli": [
+        "show ip bgp",
+        "show ip bgp 10.0.0.0"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.4 BGP path selection"
+      ],
+      "tags": [
+        "bgp",
+        "path-selection",
+        "local-preference"
+      ]
+    },
+    {
+      "id": "encor-in-105",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "bgp",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An iBGP-learned route has a next hop that other iBGP routers can't reach, so the route is not used. Which command on the border router fixes this cleanly?",
+      "options": [
+        {
+          "id": "A",
+          "text": "neighbor <ip> next-hop-self"
+        },
+        {
+          "id": "B",
+          "text": "neighbor <ip> ebgp-multihop 2"
+        },
+        {
+          "id": "C",
+          "text": "bgp always-compare-med"
+        },
+        {
+          "id": "D",
+          "text": "neighbor <ip> remove-private-as"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "By default BGP does not change the next hop on iBGP-advertised eBGP routes, so internal routers may not have a route to that external next hop. 'next-hop-self' makes the border router advertise itself as the next hop, which internal routers can always reach.",
+        "distractors": {
+          "A": "",
+          "B": "ebgp-multihop is for forming eBGP sessions between non-directly-connected peers, not fixing the iBGP next hop.",
+          "C": "always-compare-med changes MED comparison, unrelated to next-hop reachability.",
+          "D": "remove-private-as strips private ASNs on eBGP advertisements, not the next-hop issue."
+        },
+        "exam_pattern": "iBGP next-hop-unreachable → 'next-hop-self' on the border router (or advertise the external subnet into the IGP). Classic iBGP gotcha."
+      },
+      "verify_cli": [
+        "show ip bgp",
+        "show ip route"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.4 BGP next-hop"
+      ],
+      "tags": [
+        "bgp",
+        "next-hop-self",
+        "ibgp"
+      ]
+    },
+    {
+      "id": "encor-in-106",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "eigrp",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In EIGRP, a route's Feasible Distance is 3072 via the successor. A second path has a Reported (advertised) Distance of 2560 and a computed distance of 4096. Is that second path a feasible successor?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Yes — its RD (2560) is less than the FD (3072), satisfying the feasibility condition"
+        },
+        {
+          "id": "B",
+          "text": "No — its total computed distance (4096) is greater than the FD"
+        },
+        {
+          "id": "C",
+          "text": "Yes — because 4096 is greater than 3072"
+        },
+        {
+          "id": "D",
+          "text": "No — EIGRP has no feasible successors"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The feasibility condition tests the neighbor's Reported Distance against the current Feasible Distance: if RD < FD, the path is loop-free and qualifies as a feasible successor (a precomputed backup). 2560 < 3072, so yes — even though its own total distance is higher.",
+        "distractors": {
+          "A": "",
+          "B": "The feasibility test uses the REPORTED distance, not the total computed distance, so 4096 doesn't disqualify it.",
+          "C": "The comparison is RD < FD, not total > FD.",
+          "D": "EIGRP absolutely uses feasible successors (loop-free backups) via DUAL."
+        },
+        "exam_pattern": "Feasibility condition: neighbor's RD < my FD → feasible successor (instant backup). Successor = lowest FD. If no FS, DUAL goes Active and queries."
+      },
+      "verify_cli": [
+        "show ip eigrp topology"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.3 EIGRP DUAL"
+      ],
+      "tags": [
+        "eigrp",
+        "feasible-successor",
+        "dual"
+      ]
+    },
+    {
+      "id": "encor-in-107",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "eigrp",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "By default (K1=K3=1, others 0), EIGRP's composite metric is based on which two path characteristics?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Minimum bandwidth and cumulative delay"
+        },
+        {
+          "id": "B",
+          "text": "Hop count and MTU"
+        },
+        {
+          "id": "C",
+          "text": "Reliability and load"
+        },
+        {
+          "id": "D",
+          "text": "Bandwidth and MTU"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "With default K-values (K1=1, K3=1, K2=K4=K5=0), EIGRP's metric uses the minimum bandwidth along the path and the cumulative delay. MTU is carried but not used in the metric.",
+        "distractors": {
+          "A": "",
+          "B": "Hop count is RIP's metric; MTU is not part of the EIGRP metric calculation.",
+          "C": "Reliability and load are only used if you enable K2/K4/K5 (not recommended, can cause instability).",
+          "D": "MTU is tracked (tie-break/info) but is not a metric component."
+        },
+        "exam_pattern": "Default EIGRP metric = bandwidth (min) + delay (sum). K2/K4/K5 off. Changing K-values must match on all neighbors or adjacency fails."
+      },
+      "verify_cli": [
+        "show ip eigrp topology",
+        "show ip protocols"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.3 EIGRP metric"
+      ],
+      "tags": [
+        "eigrp",
+        "metric",
+        "k-values"
+      ]
+    },
+    {
+      "id": "encor-in-108",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "multicast",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which protocol do IPv4 hosts use to tell their local router which multicast groups they want to receive?",
+      "options": [
+        {
+          "id": "A",
+          "text": "IGMP"
+        },
+        {
+          "id": "B",
+          "text": "PIM"
+        },
+        {
+          "id": "C",
+          "text": "CGMP"
+        },
+        {
+          "id": "D",
+          "text": "MSDP"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "IGMP (Internet Group Management Protocol) runs between hosts and their first-hop router so hosts can join/leave IPv4 multicast groups. The router then uses PIM upstream to build the distribution tree.",
+        "distractors": {
+          "A": "",
+          "B": "PIM builds multicast trees BETWEEN routers; it isn't the host-to-router signaling.",
+          "C": "CGMP is a legacy Cisco switch/router protocol, largely replaced by IGMP snooping.",
+          "D": "MSDP shares source info between PIM-SM domains (RPs), not host membership."
+        },
+        "exam_pattern": "Host↔router = IGMP (v2 most common; v3 adds source filtering). Router↔router trees = PIM (sparse uses an RP + shared tree, then source tree)."
+      },
+      "verify_cli": [
+        "show ip igmp groups",
+        "show ip mroute"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.x multicast IGMP"
+      ],
+      "tags": [
+        "multicast",
+        "igmp"
+      ]
+    },
+    {
+      "id": "encor-in-109",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "multicast",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In PIM Sparse Mode, what is the role of the Rendezvous Point (RP)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is the root of the shared tree where sources and receivers initially meet"
+        },
+        {
+          "id": "B",
+          "text": "It floods multicast to every router and prunes back"
+        },
+        {
+          "id": "C",
+          "text": "It is the receiver's default gateway"
+        },
+        {
+          "id": "D",
+          "text": "It assigns multicast group addresses to hosts"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "PIM-SM is pull-based: the RP is the root of the shared (*,G) tree. Sources register to the RP and receivers join toward it, so they 'meet' at the RP; routers may then build a shortest-path (S,G) source tree and cut over to it.",
+        "distractors": {
+          "A": "",
+          "B": "Flood-and-prune is PIM DENSE mode behavior, not sparse mode with an RP.",
+          "C": "The RP is a multicast tree root, not a unicast default gateway.",
+          "D": "Group addresses aren't assigned to hosts by the RP; apps choose group addresses."
+        },
+        "exam_pattern": "PIM-SM = RP-rooted shared tree (*,G), then switch to source tree (S,G) via RPF. PIM-DM = flood-and-prune. RPF check prevents loops."
+      },
+      "verify_cli": [
+        "show ip pim rp mapping",
+        "show ip mroute"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.x PIM sparse mode"
+      ],
+      "tags": [
+        "multicast",
+        "pim",
+        "rendezvous-point"
+      ]
+    },
+    {
+      "id": "encor-in-110",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "layer2_stp_advanced",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In MST (802.1s), two switches must be in the same MST region to interoperate as one instance. Which THREE attributes must match to form a region?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Region name, revision number, and VLAN-to-instance mapping"
+        },
+        {
+          "id": "B",
+          "text": "Bridge priority, root cost, and port roles"
+        },
+        {
+          "id": "C",
+          "text": "Hostname, management IP, and NTP server"
+        },
+        {
+          "id": "D",
+          "text": "VTP domain, password, and mode"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Switches are in the same MST region only if their configuration name, revision number, and VLAN-to-instance mapping are identical. A mismatch in any one puts the switch in a different region (boundary behavior).",
+        "distractors": {
+          "A": "",
+          "B": "Those are STP election outcomes, not the region-membership criteria.",
+          "C": "Hostname/IP/NTP are unrelated to MST region identity.",
+          "D": "VTP is a VLAN distribution protocol, separate from MST region membership."
+        },
+        "exam_pattern": "MST region = same NAME + REVISION + VLAN-to-instance MAP. Any difference = separate region. MST maps many VLANs onto few instances."
+      },
+      "verify_cli": [
+        "show spanning-tree mst configuration"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.2 MST"
+      ],
+      "tags": [
+        "mst",
+        "stp-advanced"
+      ]
+    },
+    {
+      "id": "encor-in-111",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "etherchannel_advanced",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You want a Layer 3 (routed) EtherChannel between two switches. Which sequence is correct on the port-channel interface?",
+      "options": [
+        {
+          "id": "A",
+          "text": "'no switchport' then 'ip address ...' on the port-channel, with members set to the same channel-group"
+        },
+        {
+          "id": "B",
+          "text": "'switchport mode trunk' then 'ip address ...'"
+        },
+        {
+          "id": "C",
+          "text": "Assign the IP to each physical member individually"
+        },
+        {
+          "id": "D",
+          "text": "'switchport access vlan' then 'ip address ...'"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A routed EtherChannel is created by making the port-channel a Layer 3 interface: 'no switchport' then assign the 'ip address'. The physical members join via 'channel-group N mode ...' and must also be 'no switchport'.",
+        "distractors": {
+          "A": "",
+          "B": "'switchport mode trunk' keeps it Layer 2; you can't put an IP on a switchport.",
+          "C": "The IP belongs on the port-channel logical interface, not on each member.",
+          "D": "Access-VLAN config is Layer 2; it conflicts with routing an IP on the channel."
+        },
+        "exam_pattern": "L3 EtherChannel: 'no switchport' + ip address on Port-channel; members 'no switchport' + channel-group. L2 EtherChannel uses switchport trunk/access."
+      },
+      "verify_cli": [
+        "show etherchannel summary",
+        "show ip interface brief"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.2 Layer 3 EtherChannel"
+      ],
+      "tags": [
+        "etherchannel",
+        "layer3"
+      ]
+    },
+    {
+      "id": "encor-in-112",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "qos",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In the Modular QoS CLI (MQC), what is the correct build order to apply a policy to an interface?",
+      "options": [
+        {
+          "id": "A",
+          "text": "class-map (match) → policy-map (action) → service-policy on the interface"
+        },
+        {
+          "id": "B",
+          "text": "policy-map → class-map → service-policy"
+        },
+        {
+          "id": "C",
+          "text": "service-policy → class-map → policy-map"
+        },
+        {
+          "id": "D",
+          "text": "access-list → route-map → policy-map"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "MQC: define a class-map to MATCH traffic, reference it in a policy-map to set the ACTION (mark/queue/police/shape), then attach the policy to an interface with service-policy input|output.",
+        "distractors": {
+          "A": "",
+          "B": "The class-map must exist before the policy-map references it.",
+          "C": "service-policy is the last step (applies the finished policy), not the first.",
+          "D": "route-maps are for PBR/redistribution, not the standard MQC QoS flow."
+        },
+        "exam_pattern": "MQC = class-map (match) → policy-map (do) → service-policy (apply). Match first, act second, attach last."
+      },
+      "verify_cli": [
+        "show policy-map interface gi0/1"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.5 MQC QoS"
+      ],
+      "tags": [
+        "qos",
+        "mqc"
+      ]
+    },
+    {
+      "id": "encor-in-113",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "qos",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which queuing feature guarantees low latency for voice by servicing a priority queue first, up to a policed bandwidth?",
+      "options": [
+        {
+          "id": "A",
+          "text": "LLQ (Low Latency Queuing)"
+        },
+        {
+          "id": "B",
+          "text": "WRED"
+        },
+        {
+          "id": "C",
+          "text": "WFQ without a priority class"
+        },
+        {
+          "id": "D",
+          "text": "FIFO"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "LLQ adds a strict-priority queue (policed to a configured bandwidth) on top of CBWFQ, so real-time voice is dequeued first for minimal latency and jitter while the policer prevents it from starving other classes.",
+        "distractors": {
+          "A": "",
+          "B": "WRED is a congestion-AVOIDANCE drop mechanism, not a low-latency queue.",
+          "C": "Plain WFQ fairly shares bandwidth but offers no strict priority for voice.",
+          "D": "FIFO gives no differentiation at all."
+        },
+        "exam_pattern": "LLQ = CBWFQ + strict priority (policed) for voice/real-time. WRED = avoid congestion via early random drops. Shaping buffers; policing drops."
+      },
+      "verify_cli": [
+        "show policy-map interface"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.5 LLQ"
+      ],
+      "tags": [
+        "qos",
+        "llq",
+        "voice"
+      ]
+    },
+    {
+      "id": "encor-in-114",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "ospf_advanced",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "OSPFv3 for IPv6 differs from OSPFv2 in which key way regarding how it enables the protocol on interfaces?",
+      "options": [
+        {
+          "id": "A",
+          "text": "OSPFv3 is enabled per-interface (e.g., 'ipv6 ospf 1 area 0'), not via network statements"
+        },
+        {
+          "id": "B",
+          "text": "OSPFv3 uses the same 'network' area statements as OSPFv2"
+        },
+        {
+          "id": "C",
+          "text": "OSPFv3 runs only on loopback interfaces"
+        },
+        {
+          "id": "D",
+          "text": "OSPFv3 requires a 32-bit router-id derived from an IPv6 address"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "OSPFv3 is configured per-interface with 'ipv6 ospf <pid> area <area>' (or the newer address-family model), rather than the OSPFv2 'network ... area' statements under the router process.",
+        "distractors": {
+          "A": "",
+          "B": "OSPFv3 does NOT use 'network' statements; that's the OSPFv2 method.",
+          "C": "OSPFv3 runs on any participating interface, not only loopbacks.",
+          "D": "OSPFv3 still uses a 32-bit router-id, but it must be configured manually if no IPv4 is present — and that's not the 'how it's enabled' difference asked."
+        },
+        "exam_pattern": "OSPFv3: per-interface enablement, runs over IPv6 link-local, still 32-bit RID (set it if no IPv4), uses LSAs 8/9 for link/prefix info."
+      },
+      "verify_cli": [
+        "show ipv6 ospf interface",
+        "show ipv6 ospf neighbor"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.1 OSPFv3"
+      ],
+      "tags": [
+        "ospfv3",
+        "ipv6"
+      ]
+    },
+    {
+      "id": "encor-in-115",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "ip_services_encor",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which feature forwards packets based on a policy (e.g., source address or application) instead of the normal destination-based routing table?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Policy-Based Routing (PBR)"
+        },
+        {
+          "id": "B",
+          "text": "CEF"
+        },
+        {
+          "id": "C",
+          "text": "ECMP"
+        },
+        {
+          "id": "D",
+          "text": "GLBP"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "PBR uses a route-map (often matching an ACL on source/app) with 'set ip next-hop' to override the normal destination-based forwarding — useful for sending specific traffic over a particular path.",
+        "distractors": {
+          "A": "",
+          "B": "CEF is the fast-switching forwarding architecture; it follows the routing table, it doesn't apply policy.",
+          "C": "ECMP load-shares across equal-cost destination routes; it's still destination-based.",
+          "D": "GLBP is a first-hop redundancy/load-balancing protocol, not source-based forwarding."
+        },
+        "exam_pattern": "PBR = route-map + match (ACL) + set next-hop, applied inbound with 'ip policy route-map'. Overrides destination routing for matched traffic."
+      },
+      "verify_cli": [
+        "show route-map",
+        "show ip policy"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.x policy-based routing"
+      ],
+      "tags": [
+        "pbr",
+        "route-map"
+      ]
+    },
+    {
+      "id": "encor-in-116",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "bgp",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the administrative distance of an eBGP route versus an iBGP route on a Cisco router?",
+      "options": [
+        {
+          "id": "A",
+          "text": "eBGP is 20; iBGP is 200"
+        },
+        {
+          "id": "B",
+          "text": "eBGP is 200; iBGP is 20"
+        },
+        {
+          "id": "C",
+          "text": "Both are 110"
+        },
+        {
+          "id": "D",
+          "text": "eBGP is 90; iBGP is 170"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Cisco assigns eBGP an administrative distance of 20 (very trusted, beating IGPs) and iBGP 200 (less trusted than IGPs like OSPF/EIGRP), so internal IGP routes are usually preferred over iBGP for the same prefix.",
+        "distractors": {
+          "A": "",
+          "B": "Reversed — eBGP is the low (20) one.",
+          "C": "110 is OSPF, not BGP.",
+          "D": "90/170 are internal/external EIGRP."
+        },
+        "exam_pattern": "AD: eBGP 20, EIGRP 90, OSPF 110, IS-IS 115, RIP 120, ext-EIGRP 170, iBGP 200. eBGP's low AD can override IGPs — watch for that."
+      },
+      "verify_cli": [
+        "show ip route",
+        "show ip bgp"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.4 BGP AD"
+      ],
+      "tags": [
+        "bgp",
+        "administrative-distance"
+      ]
+    },
+    {
+      "id": "encor-in-117",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "layer2_stp_advanced",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which RSTP port role is a backup path to the root that is normally discarding and takes over if the root port fails?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Alternate port"
+        },
+        {
+          "id": "B",
+          "text": "Designated port"
+        },
+        {
+          "id": "C",
+          "text": "Root port"
+        },
+        {
+          "id": "D",
+          "text": "Backup port"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "In RSTP, the alternate port provides an alternate path to the root bridge; it is discarding during normal operation and can rapidly become the root port if the current root port is lost.",
+        "distractors": {
+          "A": "",
+          "B": "A designated port is the forwarding port for a segment (away from root).",
+          "C": "The root port is the active best path to the root — the one being backed up.",
+          "D": "A backup port is a redundant link to the SAME segment (seen with hubs), not an alternate path to the root."
+        },
+        "exam_pattern": "RSTP roles: Root (best to root), Designated (forward per segment), Alternate (backup path to root, discarding), Backup (redundant to same segment)."
+      },
+      "verify_cli": [
+        "show spanning-tree"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.2 RSTP roles"
+      ],
+      "tags": [
+        "rstp",
+        "port-roles"
+      ]
+    },
+    {
+      "id": "encor-in-118",
+      "exam": "encor",
+      "domain": "infrastructure",
+      "subtopic": "multicast",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which IPv4 multicast range is reserved for link-local control traffic (e.g., OSPF 224.0.0.5/.6, EIGRP 224.0.0.10) and is never routed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "224.0.0.0 – 224.0.0.255"
+        },
+        {
+          "id": "B",
+          "text": "232.0.0.0/8"
+        },
+        {
+          "id": "C",
+          "text": "239.0.0.0/8"
+        },
+        {
+          "id": "D",
+          "text": "233.0.0.0/8"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "224.0.0.0–224.0.0.255 (224.0.0.0/24) is the link-local scope used by control protocols (OSPF 224.0.0.5/6, EIGRP 224.0.0.10, RIPv2 224.0.0.9). Routers do not forward this range (TTL effectively 1).",
+        "distractors": {
+          "A": "",
+          "B": "232.0.0.0/8 is Source-Specific Multicast (SSM).",
+          "C": "239.0.0.0/8 is the administratively-scoped/private multicast range.",
+          "D": "233.0.0.0/8 is GLOP addressing."
+        },
+        "exam_pattern": "224.0.0.0/24 = link-local control (not routed). 232/8 = SSM. 239/8 = private/org-local. Memorize the protocol group addresses."
+      },
+      "verify_cli": [
+        "show ip mroute"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 3.x multicast addressing"
+      ],
+      "tags": [
+        "multicast",
+        "addressing"
+      ]
+    },
+    {
+      "id": "encor-as-101",
+      "exam": "encor",
+      "domain": "network_assurance",
+      "subtopic": "spans",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You need to copy traffic from switches in a remote closet to an analyzer several hops away across a routed Layer 3 network. Which SPAN technology is required?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ERSPAN (GRE-encapsulated, routable)"
+        },
+        {
+          "id": "B",
+          "text": "Local SPAN"
+        },
+        {
+          "id": "C",
+          "text": "RSPAN"
+        },
+        {
+          "id": "D",
+          "text": "A hub on the uplink"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "ERSPAN encapsulates mirrored traffic in GRE so it can be routed across a Layer 3 network to a remote analyzer — exactly the multi-hop, routed requirement here.",
+        "distractors": {
+          "A": "",
+          "B": "Local SPAN only mirrors between ports on the SAME switch.",
+          "C": "RSPAN carries mirrored traffic over a special VLAN across switches, but that VLAN must be trunked Layer 2 end to end — it can't traverse a routed L3 network.",
+          "D": "A hub is not a management-grade solution and doesn't solve the L3 transport problem."
+        },
+        "exam_pattern": "Local SPAN = same switch. RSPAN = across switches via an L2 VLAN. ERSPAN = across an L3/routed network via GRE."
+      },
+      "verify_cli": [
+        "show monitor session all"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 4.x SPAN/RSPAN/ERSPAN"
+      ],
+      "tags": [
+        "span",
+        "erspan",
+        "monitoring"
+      ]
+    },
+    {
+      "id": "encor-as-102",
+      "exam": "encor",
+      "domain": "network_assurance",
+      "subtopic": "flexible_netflow",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In Flexible NetFlow, what determines whether two packets belong to the SAME flow?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They match on all of the flow record's KEY fields (match statements)"
+        },
+        {
+          "id": "B",
+          "text": "They share the same non-key (collect) fields"
+        },
+        {
+          "id": "C",
+          "text": "They are exported by the same flow exporter"
+        },
+        {
+          "id": "D",
+          "text": "They arrive on the same SNMP ifIndex only"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A Flexible NetFlow flow is defined by the KEY fields (the 'match' statements in the flow record) — e.g., source/dest IP, ports, protocol, ToS. Packets identical on all key fields are the same flow; 'collect' (non-key) fields just add data like byte/packet counts.",
+        "distractors": {
+          "A": "",
+          "B": "Non-key (collect) fields are gathered per flow but don't define flow identity.",
+          "C": "The exporter sends the data to a collector; it doesn't define flows.",
+          "D": "Interface index alone doesn't define a flow; the full key set does."
+        },
+        "exam_pattern": "FNF pieces: flow RECORD (match=key, collect=non-key) → flow MONITOR (record + cache) → flow EXPORTER (where to send). Key fields define the flow."
+      },
+      "verify_cli": [
+        "show flow monitor",
+        "show flow record"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 4.x Flexible NetFlow"
+      ],
+      "tags": [
+        "netflow",
+        "flexible-netflow"
+      ]
+    },
+    {
+      "id": "encor-as-103",
+      "exam": "encor",
+      "domain": "network_assurance",
+      "subtopic": "ipsla",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "How is IP SLA typically used to drive automatic failover of a static default route?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An IP SLA probe is tied to a tracked object; the static route is conditioned on 'track', and withdrawn if the probe fails"
+        },
+        {
+          "id": "B",
+          "text": "IP SLA directly edits the routing table on failure"
+        },
+        {
+          "id": "C",
+          "text": "IP SLA increases OSPF cost automatically"
+        },
+        {
+          "id": "D",
+          "text": "IP SLA sends a RADIUS message to reroute"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "You configure an IP SLA probe (e.g., icmp-echo to a target), bind it to a tracked object, and add 'track' to the static route. If the probe fails, the tracked object goes down and the static route is withdrawn, letting a floating backup route take over.",
+        "distractors": {
+          "A": "",
+          "B": "IP SLA doesn't edit routes directly; object tracking + the route's 'track' keyword does the conditioning.",
+          "C": "IP SLA doesn't auto-adjust OSPF cost; that's a different mechanism.",
+          "D": "RADIUS is unrelated to IP SLA route failover."
+        },
+        "exam_pattern": "IP SLA + track + static route = reachability-based failover. Probe down → tracked object down → route withdrawn → backup installs."
+      },
+      "verify_cli": [
+        "show ip sla statistics",
+        "show track"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 4.x IP SLA + object tracking"
+      ],
+      "tags": [
+        "ipsla",
+        "object-tracking",
+        "failover"
+      ]
+    },
+    {
+      "id": "encor-as-104",
+      "exam": "encor",
+      "domain": "network_assurance",
+      "subtopic": "debugs",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To see 'debug' output in an SSH/VTY session (not just the console), which command must you run in that session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "terminal monitor"
+        },
+        {
+          "id": "B",
+          "text": "logging console debugging"
+        },
+        {
+          "id": "C",
+          "text": "debug all"
+        },
+        {
+          "id": "D",
+          "text": "show logging"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Debug and log messages go to the console by default. In a VTY (Telnet/SSH) session you must enter 'terminal monitor' to mirror logging/debug output to that remote session.",
+        "distractors": {
+          "A": "",
+          "B": "'logging console' affects the console line, not your remote VTY session.",
+          "C": "'debug all' is dangerous (can overload the CPU) and still wouldn't appear in your VTY without terminal monitor.",
+          "D": "'show logging' displays the buffer once; it doesn't stream live debugs to your session."
+        },
+        "exam_pattern": "Remote session + want live debugs = 'terminal monitor'. Be sparing with debugs on production (CPU impact); prefer conditional debugging."
+      },
+      "verify_cli": [
+        "show logging"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 4.x debugging"
+      ],
+      "tags": [
+        "debug",
+        "terminal-monitor"
+      ]
+    },
+    {
+      "id": "encor-as-105",
+      "exam": "encor",
+      "domain": "network_assurance",
+      "subtopic": "snmp_syslog",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which SNMPv3 security level provides BOTH authentication and encryption of the SNMP payload?",
+      "options": [
+        {
+          "id": "A",
+          "text": "authPriv"
+        },
+        {
+          "id": "B",
+          "text": "authNoPriv"
+        },
+        {
+          "id": "C",
+          "text": "noAuthNoPriv"
+        },
+        {
+          "id": "D",
+          "text": "privNoAuth"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "SNMPv3 'authPriv' authenticates the sender (HMAC-MD5/SHA) AND encrypts the payload (DES/AES) for confidentiality — the most secure level.",
+        "distractors": {
+          "A": "",
+          "B": "authNoPriv authenticates but does NOT encrypt.",
+          "C": "noAuthNoPriv provides neither (community-string-like).",
+          "D": "'privNoAuth' is not a valid level — you can't have privacy without auth."
+        },
+        "exam_pattern": "SNMPv3 levels: noAuthNoPriv < authNoPriv < authPriv. Privacy (encryption) always requires authentication, so authPriv is the top."
+      },
+      "verify_cli": [
+        "show snmp user",
+        "show snmp group"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 4.x SNMPv3"
+      ],
+      "tags": [
+        "snmpv3",
+        "security-levels"
+      ]
+    },
+    {
+      "id": "encor-as-106",
+      "exam": "encor",
+      "domain": "network_assurance",
+      "subtopic": "diagnostics_tools",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A traceroute shows '* * *' for one hop but completes to the destination on later hops. What is the MOST likely explanation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "That hop is not replying to the probes (e.g., ICMP/TTL-exceeded rate-limited or filtered), but still forwards traffic"
+        },
+        {
+          "id": "B",
+          "text": "The destination is unreachable"
+        },
+        {
+          "id": "C",
+          "text": "There is a routing loop at that hop"
+        },
+        {
+          "id": "D",
+          "text": "DNS resolution failed for the whole path"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A single hop of '* * *' that still lets the trace complete means that router isn't sending TTL-exceeded/port-unreachable replies (filtered or rate-limited control-plane responses), yet it continues to forward the data plane normally.",
+        "distractors": {
+          "A": "",
+          "B": "If the destination were unreachable the trace wouldn't complete to it.",
+          "C": "A loop would show repeating addresses and the trace wouldn't progress cleanly to the end.",
+          "D": "DNS only affects name display; numeric hops would still show."
+        },
+        "exam_pattern": "Intermittent '*' at one hop but trace completes = that hop isn't answering probes (filtered/rate-limited control plane), not a data-plane failure."
+      },
+      "verify_cli": [
+        "traceroute",
+        "ping"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 4.x diagnostic tools"
+      ],
+      "tags": [
+        "traceroute",
+        "diagnostics"
+      ]
+    },
+    {
+      "id": "encor-as-107",
+      "exam": "encor",
+      "domain": "network_assurance",
+      "subtopic": "flexible_netflow",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which three components must be assembled and applied to an interface to collect and export Flexible NetFlow data?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A flow record, a flow exporter, and a flow monitor"
+        },
+        {
+          "id": "B",
+          "text": "A class-map, a policy-map, and a service-policy"
+        },
+        {
+          "id": "C",
+          "text": "An ACL, a route-map, and a prefix-list"
+        },
+        {
+          "id": "D",
+          "text": "A SPAN source, a SPAN destination, and a VLAN"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "FNF is built from a flow RECORD (which fields/keys to track), a flow EXPORTER (where to send the data), and a flow MONITOR (ties the record + cache + exporter) that is applied to the interface with 'ip flow monitor'.",
+        "distractors": {
+          "A": "",
+          "B": "class-map/policy-map/service-policy is the QoS (MQC) flow, not NetFlow.",
+          "C": "ACL/route-map/prefix-list are routing/policy constructs, not NetFlow.",
+          "D": "Those are SPAN components, a different monitoring feature."
+        },
+        "exam_pattern": "FNF = record + exporter + monitor, applied to the interface. Record = what; exporter = where; monitor = glue + apply."
+      },
+      "verify_cli": [
+        "show flow monitor",
+        "show flow exporter"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 4.x FNF components"
+      ],
+      "tags": [
+        "netflow",
+        "components"
+      ]
+    },
+    {
+      "id": "encor-as-108",
+      "exam": "encor",
+      "domain": "network_assurance",
+      "subtopic": "ipsla",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which IP SLA operation is specifically designed to measure one-way latency, jitter, and packet loss for VoIP-style traffic?",
+      "options": [
+        {
+          "id": "A",
+          "text": "udp-jitter"
+        },
+        {
+          "id": "B",
+          "text": "icmp-echo"
+        },
+        {
+          "id": "C",
+          "text": "tcp-connect"
+        },
+        {
+          "id": "D",
+          "text": "dns"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The IP SLA udp-jitter operation sends timestamped UDP packets to a responder, measuring jitter, latency (including one-way with time sync), and loss — the metrics that matter for voice/video.",
+        "distractors": {
+          "A": "",
+          "B": "icmp-echo measures round-trip reachability/latency but not jitter.",
+          "C": "tcp-connect measures connection setup time to a TCP port.",
+          "D": "The dns operation measures name-resolution time."
+        },
+        "exam_pattern": "udp-jitter = jitter/latency/loss (VoIP), needs an IP SLA Responder. icmp-echo = basic reachability. Pick by the metric required."
+      },
+      "verify_cli": [
+        "show ip sla configuration",
+        "show ip sla statistics"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 4.x IP SLA operations"
+      ],
+      "tags": [
+        "ipsla",
+        "udp-jitter",
+        "voip"
+      ]
+    },
+    {
+      "id": "encor-as-109",
+      "exam": "encor",
+      "domain": "network_assurance",
+      "subtopic": "diagnostics_tools",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which command shows the real-time CPU utilization and the processes consuming it on an IOS device?",
+      "options": [
+        {
+          "id": "A",
+          "text": "show processes cpu"
+        },
+        {
+          "id": "B",
+          "text": "show memory"
+        },
+        {
+          "id": "C",
+          "text": "show version"
+        },
+        {
+          "id": "D",
+          "text": "show ip interface brief"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "'show processes cpu' (optionally 'sorted' or 'history') displays overall CPU utilization for 5s/1m/5m and a per-process breakdown — the go-to for diagnosing a high-CPU condition.",
+        "distractors": {
+          "A": "",
+          "B": "'show memory' reports memory allocation, not CPU.",
+          "C": "'show version' shows image/uptime/hardware, not live CPU.",
+          "D": "'show ip interface brief' lists interface status/IPs."
+        },
+        "exam_pattern": "High CPU? → 'show processes cpu sorted'. High memory? → 'show processes memory'. Know which 'show' answers which symptom."
+      },
+      "verify_cli": [
+        "show processes cpu sorted"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 4.x device diagnostics"
+      ],
+      "tags": [
+        "diagnostics",
+        "cpu"
+      ]
+    },
+    {
+      "id": "encor-se-101",
+      "exam": "encor",
+      "domain": "security",
+      "subtopic": "device_access_control",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which AAA protocol is preferred for DEVICE ADMINISTRATION because it separates authentication, authorization, and accounting and encrypts the entire packet?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TACACS+"
+        },
+        {
+          "id": "B",
+          "text": "RADIUS"
+        },
+        {
+          "id": "C",
+          "text": "SNMPv2c"
+        },
+        {
+          "id": "D",
+          "text": "Kerberos"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "TACACS+ (TCP 49, Cisco-originated) encrypts the whole payload and splits AAA into independent functions, which makes it ideal for per-command authorization during device administration.",
+        "distractors": {
+          "A": "",
+          "B": "RADIUS (UDP) encrypts only the password and combines auth+authz; it's preferred for network ACCESS (802.1X), not granular device admin.",
+          "C": "SNMPv2c is a management protocol with weak community-string security, not AAA.",
+          "D": "Kerberos is a ticket-based auth system, not the device-admin AAA transport described."
+        },
+        "exam_pattern": "Device admin (per-command authz, full encryption) → TACACS+. Network access (802.1X) → RADIUS. Match use case to protocol."
+      },
+      "verify_cli": [
+        "show tacacs",
+        "show aaa servers"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 5.x device access control"
+      ],
+      "tags": [
+        "tacacs",
+        "aaa",
+        "device-admin"
+      ]
+    },
+    {
+      "id": "encor-se-102",
+      "exam": "encor",
+      "domain": "security",
+      "subtopic": "cope_security",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "What is the purpose of Control Plane Policing (CoPP)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rate-limit/filter traffic destined to the router's control plane (CPU) to protect it from overload/DoS"
+        },
+        {
+          "id": "B",
+          "text": "Encrypt all routing protocol updates"
+        },
+        {
+          "id": "C",
+          "text": "Load-balance data-plane traffic across links"
+        },
+        {
+          "id": "D",
+          "text": "Assign SGTs to endpoints"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "CoPP applies a QoS policy to traffic punted to the control plane (the CPU) — e.g., routing protocols, SSH, SNMP, ARP — so excessive or malicious control traffic is policed/dropped and the CPU stays protected during a storm or DoS.",
+        "distractors": {
+          "A": "",
+          "B": "Encrypting routing updates is authentication/MACsec, not CoPP.",
+          "C": "Load-balancing is a data-plane/forwarding function, unrelated to CoPP.",
+          "D": "SGT assignment is TrustSec, a separate feature."
+        },
+        "exam_pattern": "CoPP = protect the CPU/control plane with a policed service-policy on 'control-plane'. Classify control traffic, then police/drop excess."
+      },
+      "verify_cli": [
+        "show policy-map control-plane"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 5.x CoPP"
+      ],
+      "tags": [
+        "copp",
+        "control-plane",
+        "security"
+      ]
+    },
+    {
+      "id": "encor-se-103",
+      "exam": "encor",
+      "domain": "security",
+      "subtopic": "wireless_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which authentication method does WPA3-Personal use to replace the WPA2-Personal 4-way handshake and resist offline dictionary attacks?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SAE (Simultaneous Authentication of Equals)"
+        },
+        {
+          "id": "B",
+          "text": "TKIP"
+        },
+        {
+          "id": "C",
+          "text": "WEP shared key"
+        },
+        {
+          "id": "D",
+          "text": "EAP-TLS"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "WPA3-Personal uses SAE (a.k.a. Dragonfly), which provides forward secrecy and resists offline dictionary attacks against the pre-shared password, replacing the WPA2-PSK method.",
+        "distractors": {
+          "A": "",
+          "B": "TKIP is the deprecated WPA/legacy cipher, not WPA3's authentication.",
+          "C": "WEP shared key is obsolete and insecure.",
+          "D": "EAP-TLS is an 802.1X enterprise method (certificates); the question is about WPA3-PERSONAL, which uses SAE."
+        },
+        "exam_pattern": "WPA3-Personal = SAE (anti-dictionary, forward secrecy). WPA3-Enterprise = 802.1X/EAP + optional 192-bit mode. WPA2-Personal = PSK 4-way handshake."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 5.x wireless security"
+      ],
+      "tags": [
+        "wpa3",
+        "sae",
+        "wireless-security"
+      ]
+    },
+    {
+      "id": "encor-se-104",
+      "exam": "encor",
+      "domain": "security",
+      "subtopic": "network_access_control_8021x",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A printer without an 802.1X supplicant must still be authenticated on a secured switch port. Which feature authenticates it by its MAC address?",
+      "options": [
+        {
+          "id": "A",
+          "text": "MAB (MAC Authentication Bypass)"
+        },
+        {
+          "id": "B",
+          "text": "EAP-FAST"
+        },
+        {
+          "id": "C",
+          "text": "Web authentication"
+        },
+        {
+          "id": "D",
+          "text": "Port security sticky MAC"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "MAB lets the switch send the device's MAC address to the RADIUS server (ISE) as the identity when no 802.1X supplicant responds, so headless devices like printers can be authorized. It's commonly a fallback after 802.1X times out.",
+        "distractors": {
+          "A": "",
+          "B": "EAP-FAST is an 802.1X EAP method requiring a supplicant — which the printer lacks.",
+          "C": "Web auth needs a user with a browser to enter credentials — not suitable for a printer.",
+          "D": "Port security limits MACs locally but does NOT authenticate against a central policy server (no dynamic authorization/dACL/SGT)."
+        },
+        "exam_pattern": "Headless device on a dot1x port → MAB (MAC as identity to RADIUS). Order often: 802.1X → MAB → WebAuth as fallbacks."
+      },
+      "verify_cli": [
+        "show authentication sessions interface gi0/5"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 5.x NAC / MAB"
+      ],
+      "tags": [
+        "mab",
+        "dot1x",
+        "nac"
+      ]
+    },
+    {
+      "id": "encor-se-105",
+      "exam": "encor",
+      "domain": "security",
+      "subtopic": "infrastructure_security_acls",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which feature drops packets that arrive with a source IP that the router would not use that interface to reach (anti-spoofing based on the FIB)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Unicast Reverse Path Forwarding (uRPF)"
+        },
+        {
+          "id": "B",
+          "text": "DHCP snooping"
+        },
+        {
+          "id": "C",
+          "text": "DAI"
+        },
+        {
+          "id": "D",
+          "text": "Storm control"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "uRPF checks the source address of incoming packets against the FIB: in strict mode, if the best route back to that source isn't via the ingress interface, the packet is dropped — mitigating IP spoofing.",
+        "distractors": {
+          "A": "",
+          "B": "DHCP snooping validates DHCP messages and builds the binding table; it isn't FIB-based source validation.",
+          "C": "DAI validates ARP against the DHCP snooping bindings (Layer 2), not the routing FIB.",
+          "D": "Storm control rate-limits broadcast/multicast/unicast floods, not spoofed sources."
+        },
+        "exam_pattern": "uRPF = FIB-based source check (strict vs loose) for anti-spoofing. Layer 2 anti-spoofing = DHCP snooping + DAI + IP Source Guard."
+      },
+      "verify_cli": [
+        "show ip interface gi0/0",
+        "show cef interface"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 5.x uRPF"
+      ],
+      "tags": [
+        "urpf",
+        "anti-spoofing"
+      ]
+    },
+    {
+      "id": "encor-se-106",
+      "exam": "encor",
+      "domain": "security",
+      "subtopic": "device_access_control",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which configuration restricts VTY (SSH) management access to only the subnet 10.10.10.0/24?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An access-class ACL applied to the VTY lines permitting 10.10.10.0 0.0.0.255"
+        },
+        {
+          "id": "B",
+          "text": "An ip access-group on GigabitEthernet0/0"
+        },
+        {
+          "id": "C",
+          "text": "service password-encryption"
+        },
+        {
+          "id": "D",
+          "text": "login local on the console line"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Management-plane access is restricted by applying an ACL to the VTY lines with 'access-class <acl> in'. Permitting only 10.10.10.0/24 limits who can open an SSH/Telnet session to the device.",
+        "distractors": {
+          "A": "",
+          "B": "'ip access-group' filters transit/data traffic on an interface, not who can log in to the VTY lines.",
+          "C": "service password-encryption obfuscates stored passwords; it doesn't restrict source access.",
+          "D": "'login local' sets the auth method on the console, not a source-IP restriction on VTY."
+        },
+        "exam_pattern": "Restrict management logins → 'access-class' on 'line vty'. Restrict transit traffic → 'ip access-group' on the interface. Don't swap them."
+      },
+      "verify_cli": [
+        "show running-config | section line vty"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 5.x management plane access"
+      ],
+      "tags": [
+        "vty",
+        "access-class",
+        "management-plane"
+      ]
+    },
+    {
+      "id": "encor-se-107",
+      "exam": "encor",
+      "domain": "security",
+      "subtopic": "cope_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which planes are being referred to when hardening a router for 'management plane, control plane, and data plane' protection?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Managing the device (SSH/SNMP), running protocols/CPU traffic, and forwarding user packets"
+        },
+        {
+          "id": "B",
+          "text": "Physical, virtual, and cloud layers"
+        },
+        {
+          "id": "C",
+          "text": "Access, distribution, and core"
+        },
+        {
+          "id": "D",
+          "text": "North, south, and east-west"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The management plane handles device administration (SSH, SNMP, NetConf); the control plane runs protocols and processes CPU-punted traffic (routing, ARP); the data plane forwards user traffic. Each is hardened with different tools (e.g., VTY ACLs, CoPP, infrastructure ACLs/uRPF).",
+        "distractors": {
+          "A": "",
+          "B": "Physical/virtual/cloud are deployment layers, not the three device planes.",
+          "C": "Access/distribution/core are campus tiers, not device planes.",
+          "D": "North/south/east-west describe traffic directions, not device planes."
+        },
+        "exam_pattern": "Management = admin access (VTY ACL, AAA, SSH). Control = CPU/protocols (CoPP, routing auth). Data = forwarding (iACLs, uRPF, DAI/IPSG)."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 5.x device hardening planes"
+      ],
+      "tags": [
+        "device-hardening",
+        "planes"
+      ]
+    },
+    {
+      "id": "encor-se-108",
+      "exam": "encor",
+      "domain": "security",
+      "subtopic": "wireless_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On a WLC, which WLAN security option uses an external RADIUS server and 802.1X/EAP to authenticate each wireless user individually?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WPA2/WPA3-Enterprise (802.1X)"
+        },
+        {
+          "id": "B",
+          "text": "WPA2-Personal (PSK)"
+        },
+        {
+          "id": "C",
+          "text": "Open authentication"
+        },
+        {
+          "id": "D",
+          "text": "Static WEP"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "WPA2/WPA3-Enterprise uses 802.1X with an external RADIUS/AAA server so each user authenticates with unique credentials (or certificates) via EAP — unlike a single shared PSK.",
+        "distractors": {
+          "A": "",
+          "B": "WPA2-Personal uses one shared pre-shared key for everyone, no per-user RADIUS auth.",
+          "C": "Open authentication provides no authentication at all.",
+          "D": "Static WEP is obsolete and insecure."
+        },
+        "exam_pattern": "Per-user auth with RADIUS = Enterprise/802.1X/EAP. Shared password = Personal/PSK. WPA3 strengthens both (SAE / 192-bit)."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 5.x WLAN security (enterprise)"
+      ],
+      "tags": [
+        "wpa-enterprise",
+        "dot1x",
+        "wireless-security"
+      ]
+    },
+    {
+      "id": "encor-se-109",
+      "exam": "encor",
+      "domain": "security",
+      "subtopic": "network_access_control_8021x",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In Cisco TrustSec, how is policy enforced independently of IP addressing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Traffic is tagged with a Security Group Tag (SGT) and filtered by an SGACL based on group, not IP"
+        },
+        {
+          "id": "B",
+          "text": "By applying a standard numbered ACL per subnet"
+        },
+        {
+          "id": "C",
+          "text": "By assigning each user a static VLAN only"
+        },
+        {
+          "id": "D",
+          "text": "By using DHCP reservations"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "TrustSec classifies endpoints into security groups and carries a Security Group Tag (SGT) with their traffic; SGACLs then permit/deny based on source/destination GROUP, decoupling policy from IP addresses and subnets.",
+        "distractors": {
+          "A": "",
+          "B": "Per-subnet numbered ACLs are exactly the IP-coupled approach TrustSec avoids.",
+          "C": "Static VLAN assignment alone isn't group-based policy enforcement.",
+          "D": "DHCP reservations assign addresses; they don't enforce group policy."
+        },
+        "exam_pattern": "TrustSec = classify → tag (SGT) → enforce (SGACL) by group. Policy follows identity/group, not IP/subnet."
+      },
+      "verify_cli": [
+        "show cts role-based sgt-map all"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 5.x TrustSec/SGT"
+      ],
+      "tags": [
+        "trustsec",
+        "sgt",
+        "sgacl"
+      ]
+    },
+    {
+      "id": "encor-se-110",
+      "exam": "encor",
+      "domain": "security",
+      "subtopic": "device_access_control",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which command set is the minimum to force SSH (and disable Telnet) for remote management on the VTY lines?",
+      "options": [
+        {
+          "id": "A",
+          "text": "transport input ssh (on line vty), plus a hostname, ip domain-name, and crypto key generate rsa"
+        },
+        {
+          "id": "B",
+          "text": "transport input telnet on line vty"
+        },
+        {
+          "id": "C",
+          "text": "service password-encryption only"
+        },
+        {
+          "id": "D",
+          "text": "enable secret only"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "SSH needs an RSA key pair, which requires a hostname and ip domain-name before 'crypto key generate rsa'. Restricting the VTY lines with 'transport input ssh' then forces SSH and blocks Telnet.",
+        "distractors": {
+          "A": "",
+          "B": "'transport input telnet' allows the insecure protocol — the opposite of the goal.",
+          "C": "Password encryption alone doesn't enable SSH or block Telnet.",
+          "D": "'enable secret' protects privileged mode but doesn't configure SSH transport."
+        },
+        "exam_pattern": "SSH recipe: hostname + ip domain-name + crypto key generate rsa (≥768-bit, 2048 recommended) + 'transport input ssh' + local/AAA login."
+      },
+      "verify_cli": [
+        "show ip ssh",
+        "show running-config | section line vty"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 5.x secure management (SSH)"
+      ],
+      "tags": [
+        "ssh",
+        "device-access"
+      ]
+    },
+    {
+      "id": "encor-se-111",
+      "exam": "encor",
+      "domain": "security",
+      "subtopic": "infrastructure_security_acls",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the purpose of an infrastructure ACL (iACL) deployed at the network edge?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Protect the infrastructure IP space by denying external traffic TO device addresses while permitting transit traffic THROUGH"
+        },
+        {
+          "id": "B",
+          "text": "Encrypt all transit traffic"
+        },
+        {
+          "id": "C",
+          "text": "Replace routing protocols with static filtering"
+        },
+        {
+          "id": "D",
+          "text": "Assign QoS markings to voice"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "An iACL permits legitimate transit traffic through the network but denies packets destined to the infrastructure's own device/loopback addresses from untrusted sources, shielding routers from direct attack.",
+        "distractors": {
+          "A": "",
+          "B": "iACLs filter; they don't encrypt.",
+          "C": "iACLs complement routing; they don't replace it.",
+          "D": "QoS marking is a separate function from an infrastructure protection ACL."
+        },
+        "exam_pattern": "iACL = deny-to-infrastructure, permit-through. Protects device addresses at the edge; pair with CoPP (control plane) and uRPF (anti-spoof)."
+      },
+      "verify_cli": [
+        "show access-lists"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 5.x infrastructure ACLs"
+      ],
+      "tags": [
+        "iacl",
+        "infrastructure-security"
+      ]
+    },
+    {
+      "id": "encor-au-101",
+      "exam": "encor",
+      "domain": "automation",
+      "subtopic": "model_driven_telemetry",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "What is the key advantage of model-driven telemetry (MDT) over traditional SNMP polling for operational data?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Devices PUSH data via subscriptions (periodic or on-change), which scales better and is more real-time than pull-based polling"
+        },
+        {
+          "id": "B",
+          "text": "It uses UDP community strings for authentication"
+        },
+        {
+          "id": "C",
+          "text": "It requires the NMS to poll each OID individually"
+        },
+        {
+          "id": "D",
+          "text": "It only works over Telnet"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "MDT lets the device stream YANG-modeled data to a collector on a subscription (periodic intervals or on-change), typically over gRPC/gNMI or NETCONF. Push + structured data scales far better and is more timely than SNMP's per-OID polling.",
+        "distractors": {
+          "A": "",
+          "B": "Community strings are SNMP; MDT uses modern transports/security (gRPC/TLS).",
+          "C": "Per-OID polling is exactly the SNMP limitation MDT replaces.",
+          "D": "MDT uses gRPC/gNMI/NETCONF over secure transports, not Telnet."
+        },
+        "exam_pattern": "MDT = push (dial-in/dial-out) + YANG + gRPC/gNMI, periodic or on-change subscriptions. SNMP = pull/poll per OID. Push scales."
+      },
+      "verify_cli": [
+        "show telemetry ietf subscription all"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 6.x model-driven telemetry"
+      ],
+      "tags": [
+        "telemetry",
+        "mdt",
+        "grpc"
+      ]
+    },
+    {
+      "id": "encor-au-102",
+      "exam": "encor",
+      "domain": "automation",
+      "subtopic": "eem_scripting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An EEM applet is written with 'event syslog pattern \"%LINK-3-UPDOWN.*Gi0/1\"' and several 'action' lines. When do the actions run?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Automatically whenever a matching syslog message is generated"
+        },
+        {
+          "id": "B",
+          "text": "Only when an administrator types the applet name"
+        },
+        {
+          "id": "C",
+          "text": "Once at device boot"
+        },
+        {
+          "id": "D",
+          "text": "Never — EEM cannot match syslog"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "EEM applets are event-driven: the 'event' detector (here a syslog pattern) triggers the 'action' lines automatically when a matching message occurs — enabling on-box automation like auto-remediation or notifications.",
+        "distractors": {
+          "A": "",
+          "B": "That describes 'event none' (manually run with 'event manager run'), not a syslog-triggered applet.",
+          "C": "A boot trigger would be an 'event timer'/'event syslog' for a boot message, not this Gi0/1 link event.",
+          "D": "Syslog is one of EEM's core event detectors."
+        },
+        "exam_pattern": "EEM = event (detector: syslog/timer/counter/cli/snmp) → action (cli/syslog/mail/snmp-trap). On-box, event-driven automation."
+      },
+      "verify_cli": [
+        "show event manager policy registered"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 6.x EEM"
+      ],
+      "tags": [
+        "eem",
+        "automation",
+        "syslog"
+      ]
+    },
+    {
+      "id": "encor-au-103",
+      "exam": "encor",
+      "domain": "automation",
+      "subtopic": "python_data",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In Python, which data structure is an unordered collection of unique KEY:VALUE pairs?",
+      "options": [
+        {
+          "id": "A",
+          "text": "dict (dictionary)"
+        },
+        {
+          "id": "B",
+          "text": "list"
+        },
+        {
+          "id": "C",
+          "text": "tuple"
+        },
+        {
+          "id": "D",
+          "text": "str (string)"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A Python dict stores key:value pairs with unique keys, e.g. {'intf': 'Gi0/1', 'vlan': 10}, and is accessed by key — the natural fit for parsed JSON objects.",
+        "distractors": {
+          "A": "",
+          "B": "A list is an ordered sequence indexed by position ([...]), not key:value.",
+          "C": "A tuple is an ordered, immutable sequence (...).",
+          "D": "A string is a sequence of characters."
+        },
+        "exam_pattern": "Python ↔ JSON: dict ↔ object {}, list ↔ array []. dict=key access, list=index access, tuple=immutable list, set=unique unordered."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 6.x Python data structures"
+      ],
+      "tags": [
+        "python",
+        "dict"
+      ]
+    },
+    {
+      "id": "encor-au-104",
+      "exam": "encor",
+      "domain": "automation",
+      "subtopic": "json_yaml_xml",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which statement about YAML is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It uses indentation for structure and '-' to denote list items"
+        },
+        {
+          "id": "B",
+          "text": "It wraps every element in opening/closing tags"
+        },
+        {
+          "id": "C",
+          "text": "It requires curly braces and commas like JSON"
+        },
+        {
+          "id": "D",
+          "text": "Indentation is ignored in YAML"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "YAML is whitespace-significant: nesting is shown by indentation and list items begin with '- '. It's popular for human-edited config (e.g., Ansible playbooks) because it's clean to read.",
+        "distractors": {
+          "A": "",
+          "B": "Tag pairs around elements describe XML, not YAML.",
+          "C": "Braces/commas are JSON syntax; YAML avoids them in its block style.",
+          "D": "Indentation is MEANINGFUL in YAML — getting it wrong breaks the document."
+        },
+        "exam_pattern": "YAML = indentation + '-' lists (Ansible). JSON = {}/[]/commas (APIs). XML = <tags> (NETCONF). Recognize each on sight."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 6.x data formats"
+      ],
+      "tags": [
+        "yaml",
+        "data-formats"
+      ]
+    },
+    {
+      "id": "encor-au-105",
+      "exam": "encor",
+      "domain": "automation",
+      "subtopic": "netconf_restconf_encor",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which NETCONF datastore holds a configuration you can edit and validate before committing it to the active configuration?",
+      "options": [
+        {
+          "id": "A",
+          "text": "candidate"
+        },
+        {
+          "id": "B",
+          "text": "running"
+        },
+        {
+          "id": "C",
+          "text": "startup"
+        },
+        {
+          "id": "D",
+          "text": "intended"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The candidate datastore is a scratch copy you can modify and validate, then 'commit' to the running datastore atomically — enabling transactional, all-or-nothing configuration changes.",
+        "distractors": {
+          "A": "",
+          "B": "The running datastore is the active, in-effect configuration.",
+          "C": "The startup datastore is loaded at boot (saved config).",
+          "D": "'intended' is not a standard NETCONF datastore name."
+        },
+        "exam_pattern": "NETCONF datastores: running (active), startup (boot), candidate (edit→validate→commit). Candidate enables transactional config."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 6.x NETCONF datastores"
+      ],
+      "tags": [
+        "netconf",
+        "datastores"
+      ]
+    },
+    {
+      "id": "encor-au-106",
+      "exam": "encor",
+      "domain": "automation",
+      "subtopic": "controllers_apis",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A script authenticates to Cisco DNA Center and receives a token it then sends in subsequent requests. Which HTTP header typically carries that token?",
+      "options": [
+        {
+          "id": "A",
+          "text": "X-Auth-Token (a custom auth header)"
+        },
+        {
+          "id": "B",
+          "text": "Content-Length"
+        },
+        {
+          "id": "C",
+          "text": "User-Agent"
+        },
+        {
+          "id": "D",
+          "text": "Accept-Encoding"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "DNA Center's REST API returns a token from its auth endpoint that the client places in the 'X-Auth-Token' header on later calls to prove it is authenticated (token-based auth avoids resending credentials each time).",
+        "distractors": {
+          "A": "",
+          "B": "Content-Length states the body size, not authentication.",
+          "C": "User-Agent identifies the client software.",
+          "D": "Accept-Encoding negotiates compression."
+        },
+        "exam_pattern": "Token-based REST auth: POST credentials → get token → send it in an auth header (X-Auth-Token / 'Authorization: Bearer ...') on every subsequent call."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 6.x controller APIs"
+      ],
+      "tags": [
+        "dna-center",
+        "rest",
+        "token"
+      ]
+    },
+    {
+      "id": "encor-au-107",
+      "exam": "encor",
+      "domain": "automation",
+      "subtopic": "json_yaml_xml",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which data format does NETCONF use for its payloads?",
+      "options": [
+        {
+          "id": "A",
+          "text": "XML"
+        },
+        {
+          "id": "B",
+          "text": "YAML"
+        },
+        {
+          "id": "C",
+          "text": "CSV"
+        },
+        {
+          "id": "D",
+          "text": "Protobuf only"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "NETCONF encodes its RPCs and configuration/operational data in XML. (RESTCONF, by contrast, can use JSON or XML.)",
+        "distractors": {
+          "A": "",
+          "B": "YAML is common for Ansible, not NETCONF payloads.",
+          "C": "CSV is a flat tabular format, not used by NETCONF.",
+          "D": "Protobuf is associated with gRPC telemetry, not NETCONF RPC payloads."
+        },
+        "exam_pattern": "NETCONF = XML over SSH. RESTCONF = JSON or XML over HTTPS. Both ride YANG models. gRPC telemetry often uses protobuf."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 6.x NETCONF encoding"
+      ],
+      "tags": [
+        "netconf",
+        "xml"
+      ]
+    },
+    {
+      "id": "encor-au-108",
+      "exam": "encor",
+      "domain": "automation",
+      "subtopic": "python_data",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A Python script does: data = response.json(); then name = data['interface']['name']. What must response.json() have returned for this to succeed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A dict whose 'interface' value is itself a dict containing a 'name' key"
+        },
+        {
+          "id": "B",
+          "text": "A list of interface names"
+        },
+        {
+          "id": "C",
+          "text": "A plain string"
+        },
+        {
+          "id": "D",
+          "text": "An integer"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Chained bracket access data['interface']['name'] requires data to be a dict with key 'interface' whose value is another dict containing key 'name' — i.e., a nested JSON object parsed into nested dicts.",
+        "distractors": {
+          "A": "",
+          "B": "A list would be indexed by integers (data[0]), not string keys.",
+          "C": "A string isn't subscriptable by these keys.",
+          "D": "An integer can't be indexed by keys at all."
+        },
+        "exam_pattern": "response.json() → Python objects: {} becomes dict (key access), [] becomes list (index access). Trace the brackets to the structure."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 6.x parsing JSON in Python"
+      ],
+      "tags": [
+        "python",
+        "json",
+        "requests"
+      ]
+    },
+    {
+      "id": "encor-au-109",
+      "exam": "encor",
+      "domain": "automation",
+      "subtopic": "controllers_apis",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In a Cisco SD-WAN (Catalyst SD-WAN) fabric, which controller is the central management and programmability/API plane?",
+      "options": [
+        {
+          "id": "A",
+          "text": "vManage"
+        },
+        {
+          "id": "B",
+          "text": "vSmart"
+        },
+        {
+          "id": "C",
+          "text": "vBond"
+        },
+        {
+          "id": "D",
+          "text": "WLC"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "vManage is the single-pane management plane for SD-WAN: GUI, templates, monitoring, and the REST API used for automation. vSmart is the control plane (OMP policy), vBond is orchestration/onboarding.",
+        "distractors": {
+          "A": "",
+          "B": "vSmart is the control plane distributing routes/policy via OMP, not the management API plane.",
+          "C": "vBond authenticates and introduces devices (orchestration), not central management.",
+          "D": "A WLC manages wireless APs, unrelated to SD-WAN controllers."
+        },
+        "exam_pattern": "SD-WAN planes: vManage = management/API, vSmart = control (OMP), vBond = orchestration, WAN Edge (cEdge/vEdge) = data plane."
+      },
+      "verify_cli": [],
+      "references": [
+        "ENCOR 350-401 Topic 6.x SD-WAN components"
+      ],
+      "tags": [
+        "sd-wan",
+        "vmanage",
+        "controllers"
+      ]
+    },
+    {
+      "id": "encor-au-110",
+      "exam": "encor",
+      "domain": "automation",
+      "subtopic": "eem_scripting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Why might an EEM applet include the line 'action 1.0 cli command \"enable\"' before configuration actions?",
+      "options": [
+        {
+          "id": "A",
+          "text": "EEM CLI actions run in user EXEC by default, so you must enter privileged EXEC to run config commands"
+        },
+        {
+          "id": "B",
+          "text": "To reboot the router before applying config"
+        },
+        {
+          "id": "C",
+          "text": "To encrypt the applet"
+        },
+        {
+          "id": "D",
+          "text": "Because 'enable' is required to read syslog"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "EEM applet CLI actions start in user EXEC mode. To run privileged or configuration commands you first issue 'enable' (and 'configure terminal'), so the subsequent actions have the needed privilege.",
+        "distractors": {
+          "A": "",
+          "B": "'enable' enters privileged EXEC; it does not reboot anything.",
+          "C": "It doesn't encrypt the applet.",
+          "D": "The syslog event detector works regardless of the action's privilege level."
+        },
+        "exam_pattern": "EEM CLI actions begin in user EXEC → add 'enable' then 'configure terminal' before config actions. Sequence actions with increasing numbers."
+      },
+      "verify_cli": [
+        "show event manager policy registered"
+      ],
+      "references": [
+        "ENCOR 350-401 Topic 6.x EEM applet actions"
+      ],
+      "tags": [
+        "eem",
+        "cli-actions"
       ]
     }
   ]
