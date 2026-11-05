@@ -7,79 +7,68 @@ from __future__ import annotations
 import streamlit as st
 
 from studyengine import get_blueprint
-from ui_common import EXAMS, domain_mastery_table, get_bank, get_profile, page_setup
+from ui_common import (
+    EXAMS,
+    current_user,
+    get_bank,
+    get_profile,
+    list_users,
+    page_setup,
+)
 
-exam = page_setup("Home", icon="🛜")
+exam = page_setup("Home", icon="🛜")   # gates on login
 bank = get_bank()
 bp = get_blueprint(exam)
 prof = get_profile(exam)
+name = list_users().get(current_user(), {}).get("name", "there")
 
-st.title("🛜 CiscoStudy")
-st.markdown(
-    f"**Custom study & diagnostic platform for {EXAMS[exam]}.** "
-    "Authentic, blueprint-aligned items with real IOS syntax, `show` output and "
-    "performance-based labs — no placeholder questions."
-)
+st.title(f"👋 Welcome, {name}")
+st.markdown(f"Your study tool for **{EXAMS[exam]}**. Pick where to start — everything you do "
+            "saves to your account automatically.")
 
 seen, correct = prof.overall()
-c1, c2, c3, c4 = st.columns(4)
-c1.metric("Item bank", f"{len(bank.query(exam=exam))} items")
-c2.metric("Answered", seen)
-c3.metric("Lifetime accuracy", f"{round(correct / seen * 100)}%" if seen else "—")
-baseline_done = "✓ taken" if prof.baseline else "not taken"
-c4.metric("Diagnostic", baseline_done)
+c1, c2, c3 = st.columns(3)
+c1.metric("Questions answered", seen)
+c2.metric("Lifetime accuracy", f"{round(correct / seen * 100)}%" if seen else "—")
+c3.metric("Diagnostic", f"{prof.baseline['overall']}%" if prof.baseline else "not taken")
 
 st.divider()
+st.subheader("Where do you want to start?")
 
-# --- recommended next step --------------------------------------------------
-st.subheader("Where to start")
 if not prof.baseline:
-    st.info(
-        "👉 Begin with the **Diagnostic Baseline** (30 questions, 5 per official "
-        "domain) to map your starting score and auto-build a remediation queue."
-    )
+    st.markdown("**New here? Start with the diagnostic** — 30 questions (5 per domain) that map "
+                "your weak spots and build your personalized study plan.")
+    st.page_link("pages/1_Diagnostic_Baseline.py",
+                 label="Take the Diagnostic Baseline  (recommended first)", icon="🎯")
 else:
     weak = prof.weak_subtopics()
     if weak:
-        names = ", ".join(s.replace("_", " ") for s, _, _ in weak[:4])
-        st.warning(f"🎯 Remediation queue active. Weakest sub-topics: **{names}**. "
-                   "Use **Endless Drill → remediation mode** to close the gaps.")
-    else:
-        st.success("No sub-topics below 80% yet. Keep drilling and work the "
-                   "**Structured Milestones** to build exam coverage.")
+        names = ", ".join(s.replace("_", " ") for s, _, _ in weak[:3])
+        st.markdown(f"Pick up your **personalized plan** — next up: *{names}*.")
+    st.page_link("pages/2_My_Study_Plan.py", label="Continue my Study Plan", icon="🧭")
+
+st.markdown("#### …or jump straight into anything:")
+colA, colB = st.columns(2)
+with colA:
+    st.page_link("pages/2_My_Study_Plan.py", label="My Study Plan — guided, weakest-first", icon="🧭")
+    st.page_link("pages/3_Endless_Drill.py", label="Endless Drill — adaptive practice", icon="♾️")
+    st.page_link("pages/6_Progress_Dashboard.py", label="Progress Dashboard", icon="📊")
+with colB:
+    st.page_link("pages/4_Structured_Milestones.py", label="Lessons & Milestones — read then test", icon="📚")
+    st.page_link("pages/5_PBQ_Lab.py", label="PBQ Lab — hands-on Cisco CLI", icon="🖥️")
+    st.page_link("pages/1_Diagnostic_Baseline.py", label="Diagnostic Baseline", icon="🎯")
 
 st.divider()
-
-# --- study modes guide ------------------------------------------------------
-st.subheader("Study modes")
-m1, m2 = st.columns(2)
-with m1:
-    st.markdown(
-        "#### 🎯 Diagnostic Baseline\n"
-        "30-question snapshot (5 per domain) → per-domain scorecard and an "
-        "automatic sub-80% remediation queue.\n\n"
-        "#### ♾️ Endless Drill\n"
-        "Infinite adaptive stream with **instant grading** and deep breakdowns. "
-        "Missed items resurface far more often; a remediation toggle targets your "
-        "weak sub-topics."
-    )
-with m2:
-    st.markdown(
-        "#### 📚 Structured Milestones\n"
-        "Per unit: **Read** a Markdown lesson → **Lesson Quiz** → cumulative "
-        "**Milestone Exam** + an interactive **PBQ** to unlock the next unit.\n\n"
-        "#### 🖥️ PBQ Lab\n"
-        "Troubleshoot broken topologies in a real Cisco **IOS CLI simulator** "
-        "(`conf t`, `router ospf`, `switchport…`). Validation checks the actual "
-        "resulting protocol state."
-    )
-
-st.divider()
-st.subheader(f"Domain coverage — {bp.name}")
-st.dataframe(domain_mastery_table(exam), width="stretch", hide_index=True)
-
-st.caption(
-    "Use the sidebar to switch exam tracks or open a study mode. All content is "
-    "original study material aligned to the public Cisco exam blueprints and real "
-    "IOS behaviour."
+st.subheader("How it works")
+st.markdown(
+    "- **🎯 Diagnostic Baseline** finds your weak spots (5 questions per official domain).\n"
+    "- **🧭 My Study Plan** then walks you through those weak topics one at a time — read the "
+    "lesson, drill it until you've got it, and the next topic unlocks.\n"
+    "- **📚 Lessons & Milestones** teach each unit in plain language, then test you and gate the "
+    "next unit behind a hands-on task.\n"
+    "- **♾️ Endless Drill** is open practice that resurfaces what you miss; **🖥️ PBQ Lab** drops "
+    "you into a real Cisco IOS command line to fix broken networks.\n"
+    "- Every answer explains **why the right answer is right and why the wrong ones are traps.**"
 )
+st.caption(f"{EXAMS[exam]} · {len(bank.query(exam=exam))} questions in this track. "
+           "Switch tracks or log out from the sidebar.")

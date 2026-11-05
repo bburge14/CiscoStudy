@@ -5,6 +5,9 @@ testable without Streamlit.
 """
 from __future__ import annotations
 
+import binascii
+import hashlib
+import hmac
 import json
 import os
 import random
@@ -111,8 +114,77 @@ def create_user(name: str) -> str:
     return slug
 
 
+# --- authentication (lightweight: separates each learner's saved progress) --
+def _hash_pw(password: str, salt: bytes | None = None) -> tuple[str, str]:
+    salt = salt or os.urandom(16)
+    dk = hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), salt, 120_000)
+    return binascii.hexlify(salt).decode(), binascii.hexlify(dk).decode()
+
+
+def _verify_pw(password: str, salt_hex: str, hash_hex: str) -> bool:
+    try:
+        salt = binascii.unhexlify(salt_hex)
+    except Exception:
+        return False
+    _, calc = _hash_pw(password, salt)
+    return hmac.compare_digest(calc, hash_hex)
+
+
+def create_account(username: str, password: str, display_name: str | None = None):
+    """Return (slug, None) on success, or (None, error_message)."""
+    username = (username or "").strip()
+    if not username:
+        return None, "Enter a username."
+    if len(password or "") < 4:
+        return None, "Password must be at least 4 characters."
+    slug = _slugify(username)
+    reg = _load_registry()
+    if reg.get(slug, {}).get("hash"):
+        return None, "That username is already taken."
+    salt, h = _hash_pw(password)
+    entry = reg.setdefault(slug, {})
+    entry.update({
+        "name": (display_name or username).strip() or slug,
+        "username": username, "salt": salt, "hash": h,
+        "created": entry.get("created", time.time()),
+    })
+    _save_registry(reg)
+    (USERDATA / slug).mkdir(parents=True, exist_ok=True)
+    return slug, None
+
+
+def authenticate(username: str, password: str):
+    slug = _slugify(username or "")
+    entry = _load_registry().get(slug)
+    if entry and entry.get("hash") and _verify_pw(password or "", entry.get("salt", ""), entry["hash"]):
+        return slug
+    return None
+
+
+def passwordless_profiles() -> dict:
+    """Legacy profiles (e.g. 'default') that hold data but have no password yet."""
+    return {s: e for s, e in _load_registry().items() if not e.get("hash")}
+
+
+def claim_profile(slug: str, password: str, display_name: str | None = None):
+    """Set a password on an existing password-less profile, keeping its data."""
+    if len(password or "") < 4:
+        return None, "Password must be at least 4 characters."
+    reg = _load_registry()
+    if slug not in reg:
+        return None, "That profile no longer exists."
+    if reg[slug].get("hash"):
+        return None, "That profile already has a password."
+    salt, h = _hash_pw(password)
+    reg[slug].update({"salt": salt, "hash": h})
+    if display_name:
+        reg[slug]["name"] = display_name.strip() or reg[slug].get("name", slug)
+    _save_registry(reg)
+    return slug, None
+
+
 def current_user() -> str:
-    return st.session_state.get("user", "default")
+    return st.session_state.get("auth_user") or "default"
 
 
 # --- profile persistence (per learner) --------------------------------------
@@ -145,7 +217,8 @@ def reset_profile(exam: str) -> None:
 
 
 _STUDY_STATE_PREFIXES = ("drill_", "dx_", "ms", "lq", "lqids_", "msids_",
-                         "mspbq_", "pbq_passed_", "lab_", "sched_")
+                         "mspbq_", "pbq_passed_", "lab_", "sched_", "profile_",
+                         "plandrill_")
 
 
 def _clear_session_study_state() -> None:
@@ -155,42 +228,85 @@ def _clear_session_study_state() -> None:
 
 
 # --- shared page chrome -----------------------------------------------------
+def _render_login() -> None:
+    st.title("🔐 CiscoStudy")
+    st.caption("CCNA 200-301 & CCNP ENCOR 350-401 study and diagnostic tool. "
+               "Sign in so your progress saves to your own account.")
+
+    tab_in, tab_new = st.tabs(["Sign in", "Create account"])
+    with tab_in:
+        with st.form("login_form"):
+            u = st.text_input("Username")
+            p = st.text_input("Password", type="password")
+            if st.form_submit_button("Sign in", type="primary"):
+                slug = authenticate(u, p)
+                if slug:
+                    _clear_session_study_state()
+                    st.session_state["auth_user"] = slug
+                    st.rerun()
+                else:
+                    st.error("Wrong username or password.")
+    with tab_new:
+        with st.form("signup_form"):
+            name = st.text_input("Display name", placeholder="e.g. A1C Smith")
+            u = st.text_input("Username", key="su_user")
+            p = st.text_input("Password", type="password", key="su_pw")
+            p2 = st.text_input("Confirm password", type="password", key="su_pw2")
+            if st.form_submit_button("Create account", type="primary"):
+                if p != p2:
+                    st.error("Passwords don't match.")
+                else:
+                    slug, err = create_account(u, p, name)
+                    if err:
+                        st.error(err)
+                    else:
+                        _clear_session_study_state()
+                        st.session_state["auth_user"] = slug
+                        st.rerun()
+
+    legacy = passwordless_profiles()
+    if legacy:
+        with st.expander("Keep progress from an existing local profile"):
+            st.caption("These profiles already have data on this machine but no password. "
+                       "Set one to turn a profile into your account and keep its progress.")
+            with st.form("claim_form"):
+                slug = st.selectbox("Profile", sorted(legacy),
+                                    format_func=lambda s: legacy[s].get("name", s))
+                p = st.text_input("New password", type="password", key="claim_pw")
+                if st.form_submit_button("Secure & sign in"):
+                    got, err = claim_profile(slug, p)
+                    if err:
+                        st.error(err)
+                    else:
+                        _clear_session_study_state()
+                        st.session_state["auth_user"] = got
+                        st.rerun()
+
+    st.caption("⚠️ Lightweight login for a study tool: passwords are salted + hashed and stored "
+               "locally. Don't reuse a real / CAC / network password, and don't store any "
+               "sensitive or CUI information here.")
+
+
 def page_setup(title: str, icon: str = "🛜") -> str:
     st.set_page_config(page_title=f"CiscoStudy · {title}", page_icon=icon, layout="wide")
     if "exam" not in st.session_state:
         st.session_state["exam"] = "ccna"
 
-    reg = list_users()
-    if not reg:
-        create_user("Default")
-        reg = list_users()
-    if st.session_state.get("user") not in reg:
-        st.session_state["user"] = "default" if "default" in reg else sorted(reg)[0]
+    # --- login gate: no page renders until signed in ---
+    user = st.session_state.get("auth_user")
+    if not user or user not in _load_registry():
+        st.session_state.pop("auth_user", None)
+        _render_login()
+        st.stop()
 
+    name = _load_registry().get(user, {}).get("name", user)
     with st.sidebar:
         st.markdown("### CiscoStudy")
-
-        # --- learner profile picker (per browser session) ---
-        slugs = sorted(reg, key=lambda s: reg[s].get("name", s).lower())
-        names = {s: reg[s].get("name", s) for s in slugs}
-        sel = st.selectbox(
-            "Learner profile", slugs,
-            index=slugs.index(st.session_state["user"]),
-            format_func=lambda s: names.get(s, s),
-        )
-        if sel != st.session_state["user"]:
-            st.session_state["user"] = sel
+        st.caption(f"Signed in as **{name}**")
+        if st.button("Log out"):
             _clear_session_study_state()
+            st.session_state.pop("auth_user", None)
             st.rerun()
-        with st.expander("➕ New profile"):
-            with st.form("new_profile", clear_on_submit=True):
-                new_name = st.text_input("Name", placeholder="e.g. Alex")
-                if st.form_submit_button("Create & switch") and new_name.strip():
-                    st.session_state["user"] = create_user(new_name)
-                    _clear_session_study_state()
-                    st.rerun()
-            st.caption("Shared instance? Each person should create and select their "
-                       "own profile so progress stays separate.")
         st.divider()
 
         exam = st.radio(
@@ -207,10 +323,9 @@ def page_setup(title: str, icon: str = "🛜") -> str:
         prof = get_profile(exam)
         seen, correct = prof.overall()
         acc = f"{round(correct / seen * 100)}%" if seen else "—"
-        st.caption(f"Profile: **{names.get(st.session_state['user'], st.session_state['user'])}**")
         st.metric("Questions answered", seen)
         st.metric("Lifetime accuracy", acc)
-        st.caption("Progress auto-saves per profile after every answer.")
+        st.caption("Progress auto-saves to your account after every answer.")
     return st.session_state["exam"]
 
 
