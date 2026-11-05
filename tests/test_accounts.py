@@ -101,3 +101,69 @@ def test_claim_legacy_profile_keeps_data(tmp_path, monkeypatch):
     assert "default" not in U.passwordless_profiles()
     # the data folder (and its file) is preserved
     assert (tmp_path / "default" / "profile_ccna.json").exists()
+
+
+# --- self-service account editing -------------------------------------------
+def test_rename_account_changes_login_keeps_role_and_data(tmp_path, monkeypatch):
+    monkeypatch.setattr(U, "USERDATA", tmp_path)
+    U.create_account("default", "pw123456", "Default")      # instructor/admin
+    (tmp_path / "default" / "profile_ccna.json").write_text('{"marker": 1}')
+    new_slug, err = U.rename_account("default", "Brad Burge")
+    assert err is None and new_slug == "brad-burge"
+    assert "default" not in U.list_users()
+    assert U.is_instructor("brad-burge") is True            # role carried over
+    # saved progress moved with the login
+    assert not (tmp_path / "default").exists()
+    assert (tmp_path / "brad-burge" / "profile_ccna.json").read_text() == '{"marker": 1}'
+    # sign in with the new username and the same password
+    assert U.authenticate("Brad Burge", "pw123456") == "brad-burge"
+
+
+def test_rename_rejects_taken_and_empty(tmp_path, monkeypatch):
+    monkeypatch.setattr(U, "USERDATA", tmp_path)
+    U.create_account("alice", "pw123456", "Alice")
+    U.create_account("bob", "pw123456", "Bob")
+    _, err = U.rename_account("alice", "Bob")
+    assert err and "taken" in err.lower()
+    _, err = U.rename_account("alice", "   ")
+    assert err and "username" in err.lower()
+
+
+def test_change_password_requires_current(tmp_path, monkeypatch):
+    monkeypatch.setattr(U, "USERDATA", tmp_path)
+    slug, _ = U.create_account("casey", "oldpw123", "Casey")
+    ok, err = U.change_password(slug, "wrongpw", "newpw123")
+    assert not ok and "incorrect" in err.lower()
+    ok, err = U.change_password(slug, "oldpw123", "newpw123")
+    assert ok and err is None
+    assert U.authenticate("casey", "newpw123") == slug
+    assert U.authenticate("casey", "oldpw123") is None
+
+
+def test_change_password_min_length(tmp_path, monkeypatch):
+    monkeypatch.setattr(U, "USERDATA", tmp_path)
+    slug, _ = U.create_account("dana", "oldpw123", "Dana")
+    ok, err = U.change_password(slug, "oldpw123", "no")
+    assert not ok and "4 char" in err.lower()
+
+
+def test_set_display_name(tmp_path, monkeypatch):
+    monkeypatch.setattr(U, "USERDATA", tmp_path)
+    slug, _ = U.create_account("erin", "pw123456", "Erin")
+    assert U.set_display_name(slug, "Erin Q. Public")
+    assert U.list_users()[slug]["name"] == "Erin Q. Public"
+    assert U.set_display_name(slug, "   ") is False
+
+
+def test_cannot_delete_or_demote_last_instructor(tmp_path, monkeypatch):
+    monkeypatch.setattr(U, "USERDATA", tmp_path)
+    slug, _ = U.create_account("solo", "pw123456", "Solo")   # the only instructor
+    assert U.is_instructor(slug)
+    assert U.delete_account(slug) is False
+    assert slug in U.list_users()
+    assert U.set_role(slug, "learner") is False
+    assert U.is_instructor(slug) is True
+    # with a second instructor, demotion/deletion is allowed again
+    U.create_account("second", "pw123456", "Second")
+    U.set_role("second", "instructor")
+    assert U.set_role(slug, "learner") is True

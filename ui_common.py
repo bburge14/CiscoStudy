@@ -144,6 +144,10 @@ def _any_instructor(reg: dict) -> bool:
     return any(e.get("role") == "instructor" for e in reg.values())
 
 
+def _count_instructors(reg: dict) -> int:
+    return sum(1 for e in reg.values() if e.get("role") == "instructor")
+
+
 def is_instructor(slug: str) -> bool:
     return _load_registry().get(slug, {}).get("role") == "instructor"
 
@@ -212,9 +216,77 @@ def set_role(slug: str, role: str) -> bool:
     reg = _load_registry()
     if slug not in reg:
         return False
-    reg[slug]["role"] = "instructor" if role == "instructor" else "learner"
+    new_role = "instructor" if role == "instructor" else "learner"
+    # Keep at least one instructor on the instance.
+    if (new_role == "learner" and reg[slug].get("role") == "instructor"
+            and _count_instructors(reg) <= 1):
+        return False
+    reg[slug]["role"] = new_role
     _save_registry(reg)
     return True
+
+
+def rename_account(old_slug: str, new_username: str):
+    """Change an account's login/username (its slug), carrying its saved progress.
+
+    Returns (new_slug, None) on success or (None, error). Moves the on-disk
+    profile directory and the registry entry; the caller updates auth_user."""
+    import shutil
+    new_username = (new_username or "").strip()
+    if not new_username:
+        return None, "Enter a username."
+    reg = _load_registry()
+    if old_slug not in reg:
+        return None, "That account no longer exists."
+    new_slug = _slugify(new_username)
+    if new_slug == old_slug:  # casing-only tweak to the stored label
+        reg[old_slug]["username"] = new_username
+        _save_registry(reg)
+        return old_slug, None
+    if new_slug in reg:
+        return None, "That username is already taken."
+    old_dir, new_dir = USERDATA / old_slug, USERDATA / new_slug
+    try:
+        if new_dir.exists():  # orphan dir not referenced by any account
+            shutil.rmtree(new_dir, ignore_errors=True)
+        if old_dir.exists():
+            old_dir.rename(new_dir)
+    except Exception as e:  # pragma: no cover - filesystem edge
+        return None, f"Could not move saved progress ({e})."
+    entry = reg.pop(old_slug)
+    entry["username"] = new_username
+    reg[new_slug] = entry
+    _save_registry(reg)
+    return new_slug, None
+
+
+def set_display_name(slug: str, name: str) -> bool:
+    name = (name or "").strip()
+    if not name:
+        return False
+    reg = _load_registry()
+    if slug not in reg:
+        return False
+    reg[slug]["name"] = name
+    _save_registry(reg)
+    return True
+
+
+def change_password(slug: str, old_password: str, new_password: str):
+    """Self-service password change: verifies the current password first.
+    Returns (True, None) or (False, error)."""
+    if len(new_password or "") < 4:
+        return False, "New password must be at least 4 characters."
+    reg = _load_registry()
+    entry = reg.get(slug)
+    if not entry or not entry.get("hash"):
+        return False, "No such account."
+    if not _verify_pw(old_password or "", entry.get("salt", ""), entry["hash"]):
+        return False, "Current password is incorrect."
+    salt, h = _hash_pw(new_password)
+    entry.update({"salt": salt, "hash": h})
+    _save_registry(reg)
+    return True, None
 
 
 def admin_create_account(username: str, password: str, role: str = "learner"):
@@ -241,6 +313,11 @@ def set_password_admin(slug: str, password: str):
 def delete_account(slug: str) -> bool:
     import shutil
     reg = _load_registry()
+    if slug not in reg:
+        return False
+    # Never delete the instance's last instructor (it would lose its admin).
+    if reg[slug].get("role") == "instructor" and _count_instructors(reg) <= 1:
+        return False
     reg.pop(slug, None)
     _save_registry(reg)
     shutil.rmtree(USERDATA / slug, ignore_errors=True)
@@ -402,6 +479,8 @@ def render_account_bar() -> None:
         with st.popover(f"👤 {name}", width="stretch"):
             st.markdown(f"**{name}**")
             st.caption("🧑‍🏫 Instructor" if inst else "Learner")
+            st.page_link("views/account.py", label="My account",
+                         icon=":material/manage_accounts:")
             if inst:
                 st.page_link("views/instructor.py", label="Instructor tools",
                              icon=":material/supervisor_account:")

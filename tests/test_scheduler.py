@@ -61,3 +61,34 @@ def test_next_avoids_recent():
     recent = [q.id for q in BANK.query(exam="ccna")[:-1]]  # suppress all but one
     nxt = sch.next(prof, recent_ids=recent)
     assert nxt.id not in set(recent)
+
+
+def test_domain_filter_scopes_the_stream():
+    prof = Profile("ccna")
+    sch = _sched()
+    # Every draw stays within the requested domain(s).
+    picks = {sch.next(prof, domains=["security_fundamentals"]).domain for _ in range(40)}
+    assert picks == {"security_fundamentals"}
+    multi = {sch.next(prof, domains=["automation", "ip_services"]).domain for _ in range(60)}
+    assert multi <= {"automation", "ip_services"}
+
+
+def test_domain_filter_default_is_all_domains():
+    prof = Profile("ccna")
+    sch = _sched()
+    picks = {sch.next(prof).domain for _ in range(200)}
+    assert len(picks) > 1  # no scope -> the whole blueprint is in play
+
+
+def test_unknown_domain_falls_back_to_full_pool():
+    prof = Profile("ccna")
+    sch = _sched()
+    # A domain with no questions must not wedge the drill (returns something).
+    assert sch.next(prof, domains=["does_not_exist"]) is not None
+
+
+def test_domains_available_lists_real_domains():
+    sch = _sched()
+    avail = sch.domains_available()
+    assert "ip_connectivity" in avail and "security_fundamentals" in avail
+    assert all(isinstance(d, str) for d in avail)

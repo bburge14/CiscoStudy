@@ -33,6 +33,7 @@ pages = [
     st.Page("views/milestones.py", title="Lessons & Milestones", icon=":material/menu_book:"),
     st.Page("views/pbq_lab.py", title="PBQ Lab", icon=":material/terminal:"),
     st.Page("views/progress.py", title="Progress", icon=":material/bar_chart:"),
+    st.Page("views/account.py", title="My Account", icon=":material/manage_accounts:"),
 ]
 if is_instructor(current_user()):
     pages.append(

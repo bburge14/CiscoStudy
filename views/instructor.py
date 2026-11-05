@@ -134,8 +134,8 @@ accounts = {s: e for s, e in list_users().items() if e.get("hash")}
 sel = st.selectbox("Edit an account", list(accounts),
                    format_func=lambda s: accounts[s].get("name", s), key="edit_acct")
 meta = accounts[sel]
-st.caption(f"Role: **{meta.get('role', 'learner')}**"
-           + ("  ·  the Default admin account always stays instructor." if sel == "default" else ""))
+st.caption(f"Role: **{meta.get('role', 'learner')}**  ·  the instance always keeps "
+           "at least one instructor.")
 
 ca, cb = st.columns(2)
 with ca:
@@ -145,25 +145,26 @@ with ca:
             ok, err = set_password_admin(sel, rpw)
             (st.error(err) if err else st.success("Password reset."))
 with cb:
-    if sel != "default":
-        target = "learner" if meta.get("role") == "instructor" else "instructor"
-        if st.button(f"Make {target}", key="toggle_role"):
-            set_role(sel, target)
+    target = "learner" if meta.get("role") == "instructor" else "instructor"
+    if st.button(f"Make {target}", key="toggle_role"):
+        if set_role(sel, target):
             st.rerun()
-    else:
-        st.caption("The Default admin can't be demoted.")
+        else:
+            st.error("The instance needs at least one instructor.")
 
-if sel not in ("default", current_user()):
+if sel != current_user():
     with st.expander("🗑️ Delete this account"):
         st.warning(f"Permanently delete **{meta.get('name', sel)}** and all of their progress. "
                    "This cannot be undone.")
         sure = st.checkbox("I understand — delete it", key="del_sure")
         if st.button("Delete account", key="del_btn", disabled=not sure):
-            delete_account(sel)
-            st.success("Account deleted.")
-            st.rerun()
-elif sel == current_user():
+            if delete_account(sel):
+                st.success("Account deleted.")
+                st.rerun()
+            else:
+                st.error("Can't delete the instance's last instructor.")
+else:
     st.caption("You can't delete the account you're signed in with.")
 
-st.caption("Read-only roster above; learners can't see each other's progress. The Default "
-           "account is this instance's instructor/admin.")
+st.caption("Read-only roster above; learners can't see each other's progress. Accounts "
+           "created or edited here take effect immediately.")

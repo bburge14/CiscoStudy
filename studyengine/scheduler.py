@@ -45,11 +45,22 @@ class DrillScheduler:
         profile: Profile,
         recent_ids: list[str] | tuple[str, ...] = (),
         remediation: bool = False,
+        domains: list[str] | tuple[str, ...] | set[str] | None = None,
     ) -> Question | None:
         if not self._pool:
             return None
+
+        # Scope to the chosen domain(s) first; everything below (suppression,
+        # remediation, the repeat fallback) stays within that scope.
+        base = self._pool
+        if domains:
+            dom = set(domains)
+            scoped = [q for q in base if q.domain in dom]
+            if scoped:
+                base = scoped
+
         recent = set(recent_ids)
-        pool = [q for q in self._pool if q.id not in recent]
+        pool = [q for q in base if q.id not in recent]
 
         if remediation:
             weak = {s for s, _, _ in profile.weak_subtopics()}
@@ -58,11 +69,19 @@ class DrillScheduler:
                 if weak_pool:
                     pool = weak_pool
 
-        if not pool:  # exhausted suppression window -> allow repeats
-            pool = self._pool
+        if not pool:  # exhausted suppression window -> allow repeats (within scope)
+            pool = base
 
         weights = [self.weight(q, profile) for q in pool]
         return self.rng.choices(pool, weights=weights, k=1)[0]
+
+    def domains_available(self) -> list[str]:
+        """Domain keys that actually have questions in this exam's pool."""
+        seen: list[str] = []
+        for q in self._pool:
+            if q.domain not in seen:
+                seen.append(q.domain)
+        return seen
 
     def remediation_available(self, profile: Profile) -> bool:
         weak = {s for s, _, _ in profile.weak_subtopics()}
