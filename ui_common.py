@@ -19,6 +19,7 @@ from pathlib import Path
 
 import streamlit as st
 
+import ui_icons
 from studyengine import (
     DrillScheduler,
     Feedback,
@@ -491,7 +492,9 @@ def render_account_bar() -> None:
 
 
 def render_sidebar_chrome() -> None:
-    """Sidebar: exam-track picker + lifetime stats (nav links are added by the router)."""
+    """Sidebar: exam-track picker + lifetime stats (nav links are added by the router).
+    Also injects the custom-glyph CSS that re-skins the native nav icons."""
+    st.markdown(ui_icons.nav_css(), unsafe_allow_html=True)
     with st.sidebar:
         st.markdown("### CiscoStudy")
         exam = st.radio(
@@ -514,6 +517,11 @@ def page_setup(title: str | None = None, icon: str | None = None) -> str:
     """Pages call this for the selected exam track. The login gate, account bar,
     sidebar and page config are rendered once by the router (Home.py)."""
     return st.session_state.get("exam", "ccna")
+
+
+def page_header(icon_key: str, title: str) -> None:
+    """Render a page title with a custom brand glyph in place of st.title()."""
+    st.html(ui_icons.header_html(icon_key, title))
 
 
 def get_scheduler(exam: str) -> DrillScheduler:

@@ -9,6 +9,7 @@ from ui_common import (
     current_user,
     is_instructor,
     list_users,
+    page_header,
     page_setup,
     rename_account,
     set_display_name,
@@ -18,7 +19,7 @@ page_setup("My Account", icon="👤")
 user = current_user()
 meta = list_users().get(user, {})
 
-st.title("My Account")
+page_header("user_gear", "My Account")
 st.caption(
     f"Signed in as **{meta.get('name', user)}**  ·  login `{meta.get('username', user)}`  ·  "
     + ("Instructor / admin" if is_instructor(user) else "Learner")

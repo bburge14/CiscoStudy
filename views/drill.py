@@ -10,6 +10,7 @@ from ui_common import (
     get_profile,
     get_scheduler,
     grade_and_record,
+    page_header,
     page_setup,
     render_feedback,
 )
@@ -26,7 +27,7 @@ drill = st.session_state.setdefault(
            "recent": [], "seen": 0, "correct": 0, "streak": 0, "missed": []}
 )
 
-st.title("♾️ Endless Drill")
+page_header("cycle", "Endless Drill")
 
 # --- controls ---------------------------------------------------------------
 dom_keys = sched.domains_available()

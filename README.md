@@ -132,8 +132,10 @@ views/                     # one module per page (st.navigation targets)
   milestones.py            #   lessons + milestone exams + PBQ gate
   pbq_lab.py               #   hands-on Cisco IOS CLI lab
   progress.py              #   mastery dashboards
+  account.py               #   self-service account editing (login / name / password)
   instructor.py            #   roster + account management (instructors only)
 ui_common.py               # shared Streamlit helpers (auth, rendering, quiz runner, PBQ terminal)
+ui_icons.py                # original network-glyph SVG icon set (nav + page headers)
 
 studyengine/               # testable core (no Streamlit dependency)
   blueprints.py            # official domain weightings & sub-topics

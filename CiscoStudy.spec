@@ -40,6 +40,7 @@ for pkg in [
 datas += [
     ("Home.py", "."),
     ("ui_common.py", "."),
+    ("ui_icons.py", "."),
     ("views", "views"),
     ("studyengine", "studyengine"),
     ("data", "data"),
@@ -51,7 +52,7 @@ a = Analysis(
     pathex=[],
     binaries=binaries,
     datas=datas,
-    hiddenimports=hiddenimports + ["studyengine", "ui_common"],
+    hiddenimports=hiddenimports + ["studyengine", "ui_common", "ui_icons"],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],

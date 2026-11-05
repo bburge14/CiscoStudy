@@ -14,6 +14,7 @@ from ui_common import (
     get_profile,
     is_instructor,
     list_users,
+    page_header,
     page_setup,
 )
 
@@ -23,7 +24,7 @@ bp = get_blueprint(exam)
 prof = get_profile(exam)
 name = list_users().get(current_user(), {}).get("name", "there")
 
-st.title(f"👋 Welcome, {name}")
+page_header("home", f"Welcome, {name}")
 st.markdown(f"Your study tool for **{EXAMS[exam]}**. Pick where to start — everything you do "
             "saves to your account automatically.")
 

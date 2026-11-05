@@ -21,6 +21,7 @@ from ui_common import (
     get_curriculum,
     get_profile,
     grade_and_record,
+    page_header,
     page_setup,
     render_feedback,
 )
@@ -89,7 +90,7 @@ def _render_drill(cur_step) -> None:
 
 
 # --- page body --------------------------------------------------------------
-st.title("🧭 My Study Plan")
+page_header("route", "My Study Plan")
 
 steps = build_plan(prof, bank, cur, bp)
 done, total = plan_progress(steps)

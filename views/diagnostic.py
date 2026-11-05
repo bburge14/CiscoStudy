@@ -11,6 +11,7 @@ from ui_common import (
     answer_widget,
     get_bank,
     get_profile,
+    page_header,
     page_setup,
     pct_bar,
     save_profile,
@@ -22,7 +23,7 @@ bp = get_blueprint(exam)
 prof = get_profile(exam)
 SKEY = f"dx_{exam}"
 
-st.title("🎯 Diagnostic Baseline")
+page_header("gauge", "Diagnostic Baseline")
 st.caption(f"{bp.name} — 30 questions, 5 from each of the 6 official domains.")
 
 state = st.session_state.get(SKEY)
