@@ -13,11 +13,16 @@ import streamlit as st
 from studyengine import get_blueprint
 from ui_common import (
     EXAMS,
+    admin_create_account,
     current_user,
+    delete_account,
     is_instructor,
+    list_users,
     load_user_profile,
     page_setup,
     roster_summary,
+    set_password_admin,
+    set_role,
 )
 
 exam = page_setup("Instructor", icon="🧑‍🏫")
@@ -109,6 +114,58 @@ if weak:
 else:
     st.success("No sub-topics below 80% for this learner.")
 
-st.caption("Read-only view. Progress is stored per account on this machine; learners can't see "
-           "each other's. (Hiding this page from learners' sidebars would need a nav refactor — "
-           "say the word if you want it.)")
+# --- account management -----------------------------------------------------
+st.divider()
+st.subheader("Manage accounts")
+
+with st.expander("➕ Create an account (pre-provision a learner)"):
+    with st.form("admin_create", clear_on_submit=True):
+        nu = st.text_input("Username")
+        npw = st.text_input("Temporary password", type="password")
+        nrole = st.selectbox("Role", ["learner", "instructor"])
+        if st.form_submit_button("Create"):
+            slug, err = admin_create_account(nu, npw, nrole)
+            if err:
+                st.error(err)
+            else:
+                st.success(f"Created **{nu}**. Share the temporary password; they can keep it "
+                           "or you can reset it here.")
+                st.rerun()
+
+accounts = {s: e for s, e in list_users().items() if e.get("hash")}
+sel = st.selectbox("Edit an account", list(accounts),
+                   format_func=lambda s: accounts[s].get("name", s), key="edit_acct")
+meta = accounts[sel]
+st.caption(f"Role: **{meta.get('role', 'learner')}**"
+           + ("  ·  the Default admin account always stays instructor." if sel == "default" else ""))
+
+ca, cb = st.columns(2)
+with ca:
+    with st.form("reset_pw", clear_on_submit=True):
+        rpw = st.text_input("Set a new password", type="password")
+        if st.form_submit_button("Reset password"):
+            ok, err = set_password_admin(sel, rpw)
+            (st.error(err) if err else st.success("Password reset."))
+with cb:
+    if sel != "default":
+        target = "learner" if meta.get("role") == "instructor" else "instructor"
+        if st.button(f"Make {target}", key="toggle_role"):
+            set_role(sel, target)
+            st.rerun()
+    else:
+        st.caption("The Default admin can't be demoted.")
+
+if sel not in ("default", current_user()):
+    with st.expander("🗑️ Delete this account"):
+        st.warning(f"Permanently delete **{meta.get('name', sel)}** and all of their progress. "
+                   "This cannot be undone.")
+        sure = st.checkbox("I understand — delete it", key="del_sure")
+        if st.button("Delete account", key="del_btn", disabled=not sure):
+            delete_account(sel)
+            st.success("Account deleted.")
+            st.rerun()
+elif sel == current_user():
+    st.caption("You can't delete the account you're signed in with.")
+
+st.caption("Read-only roster above; learners can't see each other's progress. The Default "
+           "account is this instance's instructor/admin.")

@@ -40,28 +40,28 @@ if not prof.baseline:
     st.markdown("**New here? Start with the diagnostic** — 30 questions (5 per domain) that map "
                 "your weak spots and build your personalized study plan.")
     st.page_link("pages/1_Diagnostic_Baseline.py",
-                 label="Take the Diagnostic Baseline  (recommended first)", icon="🎯")
+                 label="Take the Diagnostic Baseline  (recommended first)", icon=":material/fact_check:")
 else:
     weak = prof.weak_subtopics()
     if weak:
         names = ", ".join(s.replace("_", " ") for s, _, _ in weak[:3])
         st.markdown(f"Pick up your **personalized plan** — next up: *{names}*.")
-    st.page_link("pages/2_My_Study_Plan.py", label="Continue my Study Plan", icon="🧭")
+    st.page_link("pages/2_My_Study_Plan.py", label="Continue my Study Plan", icon=":material/route:")
 
 st.markdown("#### …or jump straight into anything:")
 colA, colB = st.columns(2)
 with colA:
-    st.page_link("pages/2_My_Study_Plan.py", label="My Study Plan — guided, weakest-first", icon="🧭")
-    st.page_link("pages/3_Endless_Drill.py", label="Endless Drill — adaptive practice", icon="♾️")
-    st.page_link("pages/6_Progress_Dashboard.py", label="Progress Dashboard", icon="📊")
+    st.page_link("pages/2_My_Study_Plan.py", label="My Study Plan — guided, weakest-first", icon=":material/route:")
+    st.page_link("pages/3_Endless_Drill.py", label="Endless Drill — adaptive practice", icon=":material/all_inclusive:")
+    st.page_link("pages/6_Progress_Dashboard.py", label="Progress Dashboard", icon=":material/bar_chart:")
 with colB:
-    st.page_link("pages/4_Structured_Milestones.py", label="Lessons & Milestones — read then test", icon="📚")
-    st.page_link("pages/5_PBQ_Lab.py", label="PBQ Lab — hands-on Cisco CLI", icon="🖥️")
-    st.page_link("pages/1_Diagnostic_Baseline.py", label="Diagnostic Baseline", icon="🎯")
+    st.page_link("pages/4_Structured_Milestones.py", label="Lessons & Milestones — read then test", icon=":material/menu_book:")
+    st.page_link("pages/5_PBQ_Lab.py", label="PBQ Lab — hands-on Cisco CLI", icon=":material/terminal:")
+    st.page_link("pages/1_Diagnostic_Baseline.py", label="Diagnostic Baseline", icon=":material/fact_check:")
 
 if is_instructor(current_user()):
     st.info("🧑‍🏫 You're the **instructor** on this instance.")
-    st.page_link("pages/7_Instructor.py", label="Instructor view — see your learners' progress", icon="🧑‍🏫")
+    st.page_link("pages/7_Instructor.py", label="Instructor view — see your learners' progress", icon=":material/supervisor_account:")
 
 st.divider()
 st.subheader("How it works")
