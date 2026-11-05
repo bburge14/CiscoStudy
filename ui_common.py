@@ -378,57 +378,62 @@ def _render_login() -> None:
                    "study tool — use a throwaway password, not a real one.")
 
 
-def _account_bar(user: str) -> None:
+def ensure_login() -> bool:
+    """Login gate for the router. Returns True if signed in, else renders the
+    login screen and returns False (the router then st.stop()s)."""
+    if "exam" not in st.session_state:
+        st.session_state["exam"] = "ccna"
+    user = st.session_state.get("auth_user")
+    if user and user in _load_registry():
+        return True
+    st.session_state.pop("auth_user", None)
+    _render_login()
+    return False
+
+
+def render_account_bar() -> None:
     """Top-right account menu (name, role, instructor tools, log out)."""
+    user = current_user()
     name = _load_registry().get(user, {}).get("name", user)
     inst = is_instructor(user)
     _, acct = st.columns([6, 1])
     with acct:
-        with st.popover(f"👤 {name}", use_container_width=True):
+        with st.popover(f"👤 {name}", width="stretch"):
             st.markdown(f"**{name}**")
             st.caption("🧑‍🏫 Instructor" if inst else "Learner")
             if inst:
-                st.page_link("pages/7_Instructor.py", label="Instructor tools", icon="🧑‍🏫")
-            if st.button("Log out", key="logout_top", use_container_width=True):
+                st.page_link("views/instructor.py", label="Instructor tools",
+                             icon=":material/supervisor_account:")
+            if st.button("Log out", key="logout_top", width="stretch"):
                 _clear_session_study_state()
                 st.session_state.pop("auth_user", None)
                 st.rerun()
 
 
-def page_setup(title: str, icon: str = "🛜") -> str:
-    st.set_page_config(page_title=f"CiscoStudy · {title}", page_icon=icon, layout="wide")
-    if "exam" not in st.session_state:
-        st.session_state["exam"] = "ccna"
-
-    # --- login gate: no page renders until signed in ---
-    user = st.session_state.get("auth_user")
-    if not user or user not in _load_registry():
-        st.session_state.pop("auth_user", None)
-        _render_login()
-        st.stop()
-
-    _account_bar(user)   # account menu in the top-right
-
+def render_sidebar_chrome() -> None:
+    """Sidebar: exam-track picker + lifetime stats (nav links are added by the router)."""
     with st.sidebar:
         st.markdown("### CiscoStudy")
         exam = st.radio(
-            "Exam track",
-            list(EXAMS),
-            format_func=lambda e: EXAMS[e],
-            index=list(EXAMS).index(st.session_state["exam"]),
+            "Exam track", list(EXAMS), format_func=lambda e: EXAMS[e],
+            index=list(EXAMS).index(st.session_state.get("exam", "ccna")),
             key="exam_selector",
         )
-        if exam != st.session_state["exam"]:
+        if exam != st.session_state.get("exam"):
             st.session_state["exam"] = exam
             st.rerun()
-
         prof = get_profile(exam)
         seen, correct = prof.overall()
         acc = f"{round(correct / seen * 100)}%" if seen else "—"
         st.metric("Questions answered", seen)
         st.metric("Lifetime accuracy", acc)
         st.caption("Progress auto-saves to your account after every answer.")
-    return st.session_state["exam"]
+
+
+def page_setup(title: str | None = None, icon: str | None = None) -> str:
+    """Pages call this for the selected exam track. The login gate, account bar,
+    sidebar and page config are rendered once by the router (Home.py)."""
+    return st.session_state.get("exam", "ccna")
 
 
 def get_scheduler(exam: str) -> DrillScheduler:
@@ -535,7 +540,7 @@ def pct_bar(data: dict, value_label: str = "Accuracy %") -> None:
         )
         .properties(height=max(120, 34 * len(df)))
     )
-    st.altair_chart(chart, use_container_width=True)
+    st.altair_chart(chart, width="stretch")
 
 
 # --- reusable quiz runner ---------------------------------------------------

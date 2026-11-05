@@ -122,14 +122,18 @@ diagnostic baseline, the curriculum, the CLI simulator, and **every PBQ
 ## Project layout
 
 ```
-Home.py                    # Streamlit entry (login gate + onboarding hub)
-pages/                     # Streamlit multipage UI
-  1_Diagnostic_Baseline.py
-  2_Endless_Drill.py
-  3_Structured_Milestones.py
-  4_PBQ_Lab.py
-  5_Progress_Dashboard.py
-ui_common.py               # shared Streamlit helpers (rendering, quiz runner, PBQ terminal)
+Home.py                    # Streamlit entry: login gate, account menu, nav router
+views/                     # one module per page (st.navigation targets)
+  home.py                  #   onboarding hub / dashboard
+  diagnostic.py            #   30-question baseline
+  study_plan.py            #   guided weakest-first plan
+  drill.py                 #   endless adaptive drill
+  exam_sim.py              #   timed pass/fail mock exam
+  milestones.py            #   lessons + milestone exams + PBQ gate
+  pbq_lab.py               #   hands-on Cisco IOS CLI lab
+  progress.py              #   mastery dashboards
+  instructor.py            #   roster + account management (instructors only)
+ui_common.py               # shared Streamlit helpers (auth, rendering, quiz runner, PBQ terminal)
 
 studyengine/               # testable core (no Streamlit dependency)
   blueprints.py            # official domain weightings & sub-topics
@@ -140,11 +144,14 @@ studyengine/               # testable core (no Streamlit dependency)
   progress.py              # Leitner boxes, accuracy, remediation, persistence
   diagnostic.py            # 30-question baseline + focus recommendations
   curriculum.py            # units/lessons/milestones + cumulative exams
+  studyplan.py             # weakest-first study plan + mastery tracking
+  exam.py                  # timed mock exam builder + readiness estimate
   cli_sim/                 # IOS CLI simulator + PBQ engine
     netutils.py            #   IPv4 / wildcard math
     device.py              #   device/topology model (STP/OSPF/EtherChannel behaviour)
     parser.py              #   IOS command interpreter + show renderers
     pbq.py                 #   PBQ scenarios with real-state validation
+    diagram.py             #   hand-drawn SVG topology diagrams
 
 data/
   questions/ccna.json      # generated item banks (canonical, loaded at runtime)
