@@ -40,7 +40,7 @@ for pkg in [
 datas += [
     ("Home.py", "."),
     ("ui_common.py", "."),
-    ("pages", "pages"),
+    ("views", "views"),
     ("studyengine", "studyengine"),
     ("data", "data"),
     (".streamlit", ".streamlit"),

@@ -1,11 +1,12 @@
 # PROJECT_STATUS
 
-_Last updated: 2026-11-04_
+_Last updated: 2026-11-05_
 
 ## What this is
 A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
 350-401. Core study logic is a standalone, unit-tested Python package
-(`studyengine`); the UI is a Streamlit multipage app.
+(`studyengine`); the UI is a Streamlit multipage app driven by a native
+`st.navigation` router (`Home.py`) with one module per page under `views/`.
 
 ## Current state — complete and working
 
@@ -19,16 +20,16 @@ A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
 | Lessons (Markdown) | ✅ 22 lessons (14 CCNA, 8 ENCOR) |
 | CLI simulator (IOS subset + realistic `show` + IOS errors) | ✅ |
 | PBQ engine with real-state validation | ✅ 11 scenarios (8 CCNA, 3 ENCOR) |
-| PBQ topology diagrams | ✅ generated from the live topology (Graphviz), no copyrighted art |
-| Progress dashboard + persistence | ✅ per-account, auto-saved |
+| PBQ topology diagrams | ✅ hand-drawn inline SVG from the live topology (router/switch/L3 device icons, down-link + console highlighting), no copyrighted art |
+| Progress dashboard + persistence | ✅ per-account, auto-saved; mastery-by-domain chart on a fixed 0–100 axis |
 | Accounts & login | ✅ username/password, PBKDF2-salted-hashed, per-account storage |
-| Onboarding hub | ✅ login gate + "where to start?" Home (Home.py) with page links |
+| Onboarding hub | ✅ login gate + "where to start?" Home with icon'd role-aware sidebar nav (`st.navigation` router) |
 | Personalized study plan | ✅ weakest-first, enforced order, read→drill→unlock (studyplan.py) |
-| Exam simulation | ✅ timed, domain-weighted, one-at-a-time (no back), pass/fail report (exam.py) |
+| Exam simulation | ✅ timed (native per-second countdown), domain-weighted, one-at-a-time (no back), pass/fail report (exam.py) |
 | Exam readiness estimate | ✅ weighted practice accuracy + coverage + verdict (on dashboard) |
-| Instructor view | ✅ Default = instructor; roster, per-learner drill-down, and account management (create/reset/role/delete) |
+| Instructor view | ✅ first account = instructor; roster, per-learner drill-down, account management (create/reset/role/delete); nav entry hidden from learners |
 | Launchers | ✅ `run.sh`, `run.bat`, `run-shared.bat` (LAN), exe |
-| Test suite | ✅ 179 tests passing |
+| Test suite | ✅ 181 tests passing (+ router AppTest smoke) |
 
 Run: `run.bat` (Windows) / `./run.sh` (macOS/Linux) / `streamlit run Home.py`.
 Test: `python -m pytest -q`.
@@ -77,7 +78,6 @@ L3 routed-port uplink (ENCOR).
   items yet (e.g. CCNA `dns`, ENCOR `machine_learning_ai`).
 - More PBQ scenarios (HSRP failover, ACL placement, BGP next-hop) — note these
   need new state/commands in the simulator (HSRP, `ip route`, BGP are not modelled yet).
-- Timed exam mode and a weak-area "exam readiness" score.
 - Export/import of a profile's progress.
 - **Internet-hosted multi-user**: the current per-profile JSON files work for a
   local or LAN-shared instance (each browser session picks a profile). For a
