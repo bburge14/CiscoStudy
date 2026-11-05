@@ -17,6 +17,7 @@ A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
 | Diagnostic baseline (30 Q, 5/domain) + focus recs | ✅ |
 | Endless Drill (adaptive, Leitner miss-boost, remediation mode) | ✅ + per-domain focus filter |
 | Structured Milestones (Read → Lesson Quiz → Milestone exam + PBQ, unit unlock) | ✅ |
+| Open-Book Review (honor-system: peeking is allowed but scored + flags the topic for study) | ✅ lesson side-pane per question |
 | Lessons (Markdown) | ✅ 22 lessons (14 CCNA, 8 ENCOR) |
 | CLI simulator (IOS subset + realistic `show` + IOS errors) | ✅ |
 | PBQ engine with real-state validation | ✅ 11 scenarios (8 CCNA, 3 ENCOR) |

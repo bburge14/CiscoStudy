@@ -130,6 +130,7 @@ views/                     # one module per page (st.navigation targets)
   drill.py                 #   endless adaptive drill
   exam_sim.py              #   timed pass/fail mock exam
   milestones.py            #   lessons + milestone exams + PBQ gate
+  open_book.py             #   open-book review (peeking allowed but scored)
   pbq_lab.py               #   hands-on Cisco IOS CLI lab
   progress.py              #   mastery dashboards
   account.py               #   self-service account editing (login / name / password)
