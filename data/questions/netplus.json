@@ -1,6 +1,6 @@
 {
   "exam": "netplus",
-  "count": 33,
+  "count": 149,
   "questions": [
     {
       "id": "netplus-nc-001",
@@ -1322,6 +1322,4678 @@
           "D": "A protocol analyzer captures and decodes traffic; it cannot physically trace a cable."
         },
         "exam_pattern": "Find or trace a specific cable in a bundle = tone generator and probe (toner)."
+      }
+    },
+    {
+      "id": "netplus-nc-101",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "osi_model",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "As data is encapsulated moving down the OSI model on a sending host, the Transport layer hands a protocol data unit (PDU) to the Network layer. For a TCP connection, what is the Transport-layer PDU called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Segment"
+        },
+        {
+          "id": "B",
+          "text": "Packet"
+        },
+        {
+          "id": "C",
+          "text": "Bit"
+        },
+        {
+          "id": "D",
+          "text": "Frame"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "At the Transport layer (L4), TCP data units are called segments (UDP uses datagrams). The Network layer then wraps a segment into a packet.",
+        "distractors": {
+          "A": "",
+          "B": "A packet is the Network-layer (L3) PDU, formed when a segment is given IP addressing.",
+          "C": "A bit is the Physical-layer (L1) unit — the raw signal placed on the medium.",
+          "D": "A frame is the Data Link-layer (L2) PDU, built when a packet gets MAC addresses and a trailer."
+        },
+        "exam_pattern": "PDU by layer: L4 segment/datagram, L3 packet, L2 frame, L1 bit."
+      }
+    },
+    {
+      "id": "netplus-nc-102",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "osi_model",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which OSI layer is responsible for establishing, coordinating, and tearing down the dialog (session) between two communicating applications, including functions such as checkpointing for recovery?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Layer 4 - Transport"
+        },
+        {
+          "id": "B",
+          "text": "Layer 5 - Session"
+        },
+        {
+          "id": "C",
+          "text": "Layer 7 - Application"
+        },
+        {
+          "id": "D",
+          "text": "Layer 6 - Presentation"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The Session layer (L5) sets up, manages, and terminates sessions/dialogs between applications and can insert checkpoints for recovery.",
+        "distractors": {
+          "A": "The Transport layer (L4) provides end-to-end delivery, segmentation, and TCP/UDP port multiplexing — not dialog control.",
+          "B": "",
+          "C": "The Application layer (L7) provides network services directly to user programs (HTTP, SMTP, DNS).",
+          "D": "The Presentation layer (L6) translates, compresses, and encrypts data formats."
+        },
+        "exam_pattern": "L5 session/dialog control & checkpoints; L6 format/translate/encrypt; L7 app services."
+      }
+    },
+    {
+      "id": "netplus-nc-103",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "osi_model",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A developer must identify the OSI layer that handles data translation between application and network formats — character-set encoding (such as ASCII to Unicode), compression, and encryption/decryption formatting. Which layer is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Layer 7 - Application"
+        },
+        {
+          "id": "B",
+          "text": "Layer 6 - Presentation"
+        },
+        {
+          "id": "C",
+          "text": "Layer 5 - Session"
+        },
+        {
+          "id": "D",
+          "text": "Layer 4 - Transport"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The Presentation layer (L6) is the translator of the stack: it converts character encodings, compresses, and handles encryption/decryption formatting so the Application layer receives usable data.",
+        "distractors": {
+          "A": "The Application layer (L7) exposes network services to user programs (HTTP, FTP, DNS); it does not perform the format translation itself.",
+          "B": "",
+          "C": "The Session layer (L5) manages the dialog between applications, not data representation.",
+          "D": "The Transport layer (L4) handles segmentation and reliable/unreliable delivery with ports."
+        },
+        "exam_pattern": "L6 Presentation = translate/compress/encrypt (data representation)."
+      }
+    },
+    {
+      "id": "netplus-nc-104",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "network_appliances",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A security appliance is placed inline in the traffic path and is configured to automatically drop packets that match a known attack signature before they reach the target host. Which appliance is described?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Load balancer"
+        },
+        {
+          "id": "B",
+          "text": "IDS (intrusion detection system)"
+        },
+        {
+          "id": "C",
+          "text": "IPS (intrusion prevention system)"
+        },
+        {
+          "id": "D",
+          "text": "Forward proxy"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "An IPS sits inline and can actively block/drop malicious traffic in real time, not merely alert on it.",
+        "distractors": {
+          "A": "A load balancer distributes client requests across a server pool; it does not inspect for and drop attacks.",
+          "B": "An IDS is passive and typically out-of-band (on a SPAN port or tap); it detects and alerts but cannot by itself drop the traffic.",
+          "C": "",
+          "D": "A forward proxy fetches web content on behalf of internal clients; it is not an inline attack-blocking sensor."
+        },
+        "exam_pattern": "Inline + blocks = IPS; passive/out-of-band + alerts only = IDS."
+      }
+    },
+    {
+      "id": "netplus-nc-105",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "network_appliances",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An enterprise deploys 150 lightweight access points across a campus and needs to centrally push configuration, manage RF channel and power assignments, and coordinate client roaming. Which device provides this central control?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Layer 2 access switch"
+        },
+        {
+          "id": "B",
+          "text": "Wireless LAN controller (WLC)"
+        },
+        {
+          "id": "C",
+          "text": "A load balancer"
+        },
+        {
+          "id": "D",
+          "text": "An autonomous (standalone) access point"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A wireless LAN controller centrally manages many lightweight/thin APs — pushing configuration and handling RF management (channel/power) and seamless roaming from a single point.",
+        "distractors": {
+          "A": "A Layer 2 switch forwards frames and can power APs via PoE, but it does not manage wireless RF or roaming.",
+          "B": "",
+          "C": "A load balancer distributes server traffic and has no role in wireless AP management.",
+          "D": "An autonomous AP is configured individually and does not centrally control other APs, so it does not scale to coordinate 150 APs."
+        },
+        "exam_pattern": "Central management of many lightweight APs (RF, roaming) = WLC."
+      }
+    },
+    {
+      "id": "netplus-nc-106",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "network_appliances",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "All employee web browsing is directed through a server that fetches pages on the users' behalf, caches content, and enforces URL/content filtering on outbound requests. Which appliance is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Forward proxy"
+        },
+        {
+          "id": "B",
+          "text": "Load balancer"
+        },
+        {
+          "id": "C",
+          "text": "Reverse proxy"
+        },
+        {
+          "id": "D",
+          "text": "CDN edge node"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A forward proxy sits between internal clients and the Internet, making outbound requests on their behalf — enabling caching, content/URL filtering, and client anonymity.",
+        "distractors": {
+          "A": "",
+          "B": "A load balancer spreads inbound traffic across a pool of servers; it is not a client-side web filter/cache.",
+          "C": "A reverse proxy sits in front of internal servers and handles inbound client requests (e.g., TLS offload, hiding servers) — the opposite direction.",
+          "D": "A CDN edge node caches a provider's content near users but is operated by the content provider, not an enterprise's outbound web filter."
+        },
+        "exam_pattern": "Forward proxy = on behalf of internal clients (outbound); reverse proxy = in front of servers (inbound)."
+      }
+    },
+    {
+      "id": "netplus-nc-107",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "cloud_concepts",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A company wants to rent virtual machines, block storage, and virtual networking from a provider while retaining full control to install and manage its own operating systems, middleware, and applications. Which cloud service model fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "IaaS (Infrastructure as a Service)"
+        },
+        {
+          "id": "B",
+          "text": "PaaS (Platform as a Service)"
+        },
+        {
+          "id": "C",
+          "text": "DaaS (Desktop as a Service)"
+        },
+        {
+          "id": "D",
+          "text": "SaaS (Software as a Service)"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "IaaS delivers the raw infrastructure (compute, storage, network); the customer manages everything from the operating system upward.",
+        "distractors": {
+          "A": "",
+          "B": "With PaaS the provider manages the OS and runtime platform, so the customer cannot control the operating system — only the app and data.",
+          "C": "DaaS provides hosted virtual desktops to users, not general-purpose infrastructure to build on.",
+          "D": "SaaS delivers a finished application to end users with no OS or platform access."
+        },
+        "exam_pattern": "IaaS = you manage OS and up; PaaS = app/data only; SaaS = just use the app."
+      }
+    },
+    {
+      "id": "netplus-nc-108",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "cloud_concepts",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization keeps regulated customer data on its own private cloud but automatically bursts extra workload to a public cloud provider during seasonal peaks, with the two environments integrated. Which cloud deployment model is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Private cloud"
+        },
+        {
+          "id": "B",
+          "text": "Public cloud"
+        },
+        {
+          "id": "C",
+          "text": "Community cloud"
+        },
+        {
+          "id": "D",
+          "text": "Hybrid cloud"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A hybrid cloud combines private and public resources that are integrated so workloads can move between them — cloud bursting to public during peaks is the classic example.",
+        "distractors": {
+          "A": "A purely private cloud has no public-cloud bursting component.",
+          "B": "A purely public deployment would not keep the regulated data on a private cloud — the scenario uses both.",
+          "C": "A community cloud is shared by several organizations with common requirements, which is not what is described.",
+          "D": ""
+        },
+        "exam_pattern": "Private + public integrated (cloud bursting) = hybrid."
+      }
+    },
+    {
+      "id": "netplus-nc-109",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "cloud_concepts",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A cloud platform automatically adds compute instances within minutes when load rises and removes them when load falls, so capacity continuously tracks real-time demand. Which cloud characteristic best describes this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Scalability"
+        },
+        {
+          "id": "B",
+          "text": "Multitenancy"
+        },
+        {
+          "id": "C",
+          "text": "Network function virtualization (NFV)"
+        },
+        {
+          "id": "D",
+          "text": "Elasticity"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Elasticity is the automatic, dynamic scaling OUT and back IN to match demand in near real time — provisioning and de-provisioning without manual intervention.",
+        "distractors": {
+          "A": "Scalability is the broader ability to grow capacity to handle more load, but it does not by itself imply automatic, real-time shrink-and-grow — elasticity is the automatic, bidirectional form.",
+          "B": "Multitenancy means multiple customers share the same underlying resources in isolation — unrelated to auto-scaling.",
+          "C": "NFV replaces dedicated network hardware with software-based functions on commodity servers — not demand-based auto-scaling.",
+          "D": ""
+        },
+        "exam_pattern": "Automatic scale out/in to match demand = elasticity; raw ability to grow = scalability."
+      }
+    },
+    {
+      "id": "netplus-nc-110",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "ports_protocols",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A network management station periodically queries devices for interface counters and also receives unsolicited alert messages when a device event occurs. Which default ports carry the polling and the alert (trap) traffic, respectively?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UDP 514 for polling and UDP 161 for traps"
+        },
+        {
+          "id": "B",
+          "text": "UDP 162 for polling and UDP 161 for traps"
+        },
+        {
+          "id": "C",
+          "text": "TCP 161 for polling and TCP 162 for traps"
+        },
+        {
+          "id": "D",
+          "text": "UDP 161 for polling and UDP 162 for traps"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "SNMP managers poll agents on UDP 161 (get/set); agents send unsolicited traps/informs to the manager on UDP 162.",
+        "distractors": {
+          "A": "UDP 514 is Syslog, not SNMP polling; SNMP polling is UDP 161.",
+          "B": "The port roles are reversed — polling is 161 and traps are 162, not the other way around.",
+          "C": "SNMP uses UDP, not TCP, for these operations.",
+          "D": ""
+        },
+        "exam_pattern": "SNMP: poll/get = UDP 161, trap = UDP 162."
+      }
+    },
+    {
+      "id": "netplus-nc-111",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "ports_protocols",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An application must authenticate users against a directory service over an encrypted (TLS-protected) connection. Which protocol and default port should be configured?",
+      "options": [
+        {
+          "id": "A",
+          "text": "LDAPS on TCP 636"
+        },
+        {
+          "id": "B",
+          "text": "HTTPS on TCP 443"
+        },
+        {
+          "id": "C",
+          "text": "RDP on TCP 3389"
+        },
+        {
+          "id": "D",
+          "text": "LDAP on TCP 389"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "LDAPS is LDAP secured with SSL/TLS and listens on TCP 636 — the right choice for an encrypted directory query.",
+        "distractors": {
+          "A": "",
+          "B": "HTTPS (TCP 443) secures web traffic, not LDAP directory queries.",
+          "C": "RDP (TCP 3389) is a remote desktop protocol, not a directory-access protocol.",
+          "D": "Plain LDAP on TCP 389 is unencrypted (cleartext), so it does not meet the encrypted-connection requirement."
+        },
+        "exam_pattern": "LDAP = 389 (cleartext); LDAPS = 636 (TLS)."
+      }
+    },
+    {
+      "id": "netplus-nc-112",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "ports_protocols",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "A firewall rule set must permit two services from network devices to a management server: accurate time synchronization and centralized event logging. Which two default UDP ports must be allowed? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "UDP 161 (SNMP)"
+        },
+        {
+          "id": "B",
+          "text": "UDP 69 (TFTP)"
+        },
+        {
+          "id": "C",
+          "text": "UDP 123 (NTP)"
+        },
+        {
+          "id": "D",
+          "text": "UDP 514 (Syslog)"
+        }
+      ],
+      "correct": [
+        "C",
+        "D"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "Time synchronization uses NTP on UDP 123, and centralized logging commonly uses Syslog on UDP 514.",
+        "distractors": {
+          "A": "UDP 161 is SNMP polling — monitoring, not time sync or logging.",
+          "B": "UDP 69 is TFTP (trivial file transfer), used for firmware/config transfers, not time or logging.",
+          "C": "",
+          "D": ""
+        },
+        "exam_pattern": "NTP = UDP 123; Syslog = UDP 514."
+      }
+    },
+    {
+      "id": "netplus-nc-113",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "traffic_types",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "A technician is classifying IPv4 delivery methods. Which two delivery types can carry a single transmission to more than one recipient? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Multicast"
+        },
+        {
+          "id": "B",
+          "text": "Broadcast"
+        },
+        {
+          "id": "C",
+          "text": "Unicast"
+        },
+        {
+          "id": "D",
+          "text": "Anycast"
+        }
+      ],
+      "correct": [
+        "A",
+        "B"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "Multicast delivers one transmission to a group of subscribed hosts, and broadcast delivers it to all hosts on the local subnet — both reach multiple recipients.",
+        "distractors": {
+          "A": "",
+          "B": "",
+          "C": "Unicast is strictly one-to-one — a single source to a single destination.",
+          "D": "Anycast is addressed to a group but delivered to only the single, topologically nearest member, so just one recipient receives it."
+        },
+        "exam_pattern": "Multiple recipients = multicast (group) or broadcast (all local); unicast = one; anycast = nearest one."
+      }
+    },
+    {
+      "id": "netplus-nc-114",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "traffic_types",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A content provider advertises the same IP address from many servers in different regions, and the routing system delivers each client's request to the single closest server instance. Which addressing/delivery method is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Multicast"
+        },
+        {
+          "id": "B",
+          "text": "Unicast"
+        },
+        {
+          "id": "C",
+          "text": "Broadcast"
+        },
+        {
+          "id": "D",
+          "text": "Anycast"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Anycast assigns one address to multiple nodes; the network routes each request to the topologically nearest node — widely used for DNS root servers and CDNs.",
+        "distractors": {
+          "A": "Multicast delivers to all members of a subscribed group at once, not to a single nearest node.",
+          "B": "Unicast uses a unique address per host, so it cannot share one address across many regional servers.",
+          "C": "Broadcast floods all hosts on a local subnet and is not routed across regions.",
+          "D": ""
+        },
+        "exam_pattern": "One shared address, delivered to the nearest of many = anycast."
+      }
+    },
+    {
+      "id": "netplus-nc-115",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "ipv4_subnetting_np",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A point-to-point WAN link between two routers needs exactly two usable host addresses (one per router) with no waste. Using the standard usable-host formula, which prefix length should be assigned?",
+      "options": [
+        {
+          "id": "A",
+          "text": "/30"
+        },
+        {
+          "id": "B",
+          "text": "/31"
+        },
+        {
+          "id": "C",
+          "text": "/29"
+        },
+        {
+          "id": "D",
+          "text": "/28"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "/30 (255.255.255.252) yields 2^2 - 2 = 2 usable host addresses — the traditional, most efficient choice for a point-to-point link.",
+        "distractors": {
+          "A": "",
+          "B": "/31 yields 2^1 - 2 = 0 usable hosts under the standard formula; RFC 3021 repurposes a /31 for point-to-point links, but the exam's host-count math treats /30 as the standard two-host subnet.",
+          "C": "/29 provides 2^3 - 2 = 6 usable hosts — more than needed, wasting four addresses on a two-host link.",
+          "D": "/28 provides 2^4 - 2 = 14 usable hosts — far more than required."
+        },
+        "exam_pattern": "Point-to-point, 2 usable hosts (2^n - 2) = /30."
+      }
+    },
+    {
+      "id": "netplus-nc-116",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "ipv4_subnetting_np",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A Windows workstation set to obtain an address automatically shows an IPv4 address of 169.254.80.12 and can reach only other hosts on its own link. What does this most likely indicate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The address is the IPv4 loopback"
+        },
+        {
+          "id": "B",
+          "text": "The DHCP server assigned a valid private (RFC 1918) address"
+        },
+        {
+          "id": "C",
+          "text": "The client received a public, Internet-routable address"
+        },
+        {
+          "id": "D",
+          "text": "The client failed to reach a DHCP server and self-assigned an APIPA address"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "169.254.0.0/16 is the APIPA (link-local) range. A host self-assigns from it only when it cannot obtain a lease from a DHCP server, which is why it reaches only the local link.",
+        "distractors": {
+          "A": "The IPv4 loopback is 127.0.0.1 (127.0.0.0/8), not 169.254.x.x.",
+          "B": "RFC 1918 private ranges are 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16 — 169.254.x.x is not one of them and is not DHCP-assigned.",
+          "C": "169.254.x.x is reserved link-local space and is never a routable public address.",
+          "D": ""
+        },
+        "exam_pattern": "169.254.x.x = APIPA = DHCP failure, local link only."
+      }
+    },
+    {
+      "id": "netplus-nc-117",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "ipv4_subnetting_np",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A host is configured with the IPv4 address 172.16.20.75 /26. What is the network (subnet) address of the subnet this host belongs to?",
+      "options": [
+        {
+          "id": "A",
+          "text": "172.16.20.72"
+        },
+        {
+          "id": "B",
+          "text": "172.16.20.128"
+        },
+        {
+          "id": "C",
+          "text": "172.16.20.64"
+        },
+        {
+          "id": "D",
+          "text": "172.16.20.0"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A /26 (255.255.255.192) has a block size of 64 in the last octet, giving subnets .0, .64, .128, .192. The host .75 falls in the .64-.127 range, so its network address is 172.16.20.64 (broadcast .127).",
+        "distractors": {
+          "A": "172.16.20.72 is a host address inside the .64 subnet, not the subnet/network address itself.",
+          "B": "172.16.20.128 is the next /26 subnet (.128-.191), above the host's range.",
+          "C": "",
+          "D": "172.16.20.0 is the first /26 subnet (.0-.63); .75 is beyond .63, so it is not in that subnet."
+        },
+        "exam_pattern": "/26 block size = 64; round the host down to the nearest multiple of the block size for the network address."
+      }
+    },
+    {
+      "id": "netplus-nc-118",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "ipv6_np",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "During stateless address autoconfiguration (SLAAC), an IPv6 host derives its 64-bit interface identifier from its 48-bit MAC address by splitting the MAC, inserting FFFE in the middle, and inverting the universal/local (7th) bit. What is this process called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DHCPv6 (stateful)"
+        },
+        {
+          "id": "B",
+          "text": "Duplicate Address Detection (DAD)"
+        },
+        {
+          "id": "C",
+          "text": "NAT64"
+        },
+        {
+          "id": "D",
+          "text": "EUI-64"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "EUI-64 expands a 48-bit MAC into a 64-bit interface ID by inserting FFFE between the OUI and device portions and flipping the U/L bit; SLAAC can use it to build the host portion of an address.",
+        "distractors": {
+          "A": "DHCPv6 (stateful) has a server assign the full address and options — it does not derive the interface ID from the MAC.",
+          "B": "DAD checks whether a tentative address is already in use on the link; it does not generate the interface ID.",
+          "C": "NAT64 translates between IPv6 and IPv4 addresses for interoperability — unrelated to building an interface ID.",
+          "D": ""
+        },
+        "exam_pattern": "MAC -> 64-bit interface ID (insert FFFE, flip U/L bit) = EUI-64 (used by SLAAC)."
+      }
+    },
+    {
+      "id": "netplus-nc-119",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "ipv6_np",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which of the following is the correct fully compressed form of the IPv6 address 2001:0db8:0000:0000:0000:ff00:0042:8329?",
+      "options": [
+        {
+          "id": "A",
+          "text": "2001:db8::ff00::42:8329"
+        },
+        {
+          "id": "B",
+          "text": "2001:db8:0:0:0:ff00:42:8329"
+        },
+        {
+          "id": "C",
+          "text": "2001:0db8::ff00:042:8329"
+        },
+        {
+          "id": "D",
+          "text": "2001:db8::ff00:42:8329"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Remove the leading zeros in each group (0db8->db8, 0042->42) and replace the single longest run of all-zero groups (the three 0000 groups) with one '::', giving 2001:db8::ff00:42:8329.",
+        "distractors": {
+          "A": "'::' may appear only once in an address; using it twice is invalid and ambiguous.",
+          "B": "This correctly drops leading zeros but never applies '::' to the zero groups, so it is valid but not fully compressed.",
+          "C": "This keeps leading zeros (0db8 and 042); leading zeros within each group must be removed.",
+          "D": ""
+        },
+        "exam_pattern": "Compression: strip leading zeros per group; replace one longest all-zero run with a single '::'."
+      }
+    },
+    {
+      "id": "netplus-nc-120",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "ipv6_np",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "To migrate gradually, an enterprise configures its routers, switches, and hosts to run IPv4 and IPv6 simultaneously on the same interfaces so each application can use whichever protocol it supports. Which transition mechanism is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "6to4 tunneling"
+        },
+        {
+          "id": "B",
+          "text": "SLAAC"
+        },
+        {
+          "id": "C",
+          "text": "Dual stack"
+        },
+        {
+          "id": "D",
+          "text": "NAT64"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Dual stack runs IPv4 and IPv6 concurrently on the same devices/interfaces, letting traffic use either protocol — the most common, straightforward transition approach.",
+        "distractors": {
+          "A": "6to4 (and similar tunneling) encapsulates IPv6 packets inside IPv4 to cross an IPv4-only network — not running both natively side by side.",
+          "B": "SLAAC is an IPv6 address-assignment method, not an IPv4/IPv6 coexistence mechanism.",
+          "C": "",
+          "D": "NAT64 translates between IPv6-only and IPv4-only hosts; it is for interoperation, not running both stacks on every device."
+        },
+        "exam_pattern": "Run IPv4 and IPv6 at the same time on the same devices = dual stack."
+      }
+    },
+    {
+      "id": "netplus-nc-121",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "network_topologies",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "In an office LAN, every workstation has its own cable running back to a single central switch. If one workstation's cable fails, only that workstation loses connectivity. Which physical topology is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Full mesh"
+        },
+        {
+          "id": "B",
+          "text": "Ring"
+        },
+        {
+          "id": "C",
+          "text": "Star"
+        },
+        {
+          "id": "D",
+          "text": "Bus"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "In a star topology every node connects to a central device (switch); a single node/cable failure affects only that node, although the central device itself is a single point of failure.",
+        "distractors": {
+          "A": "In a full mesh every node links directly to every other node — far more cabling than one central connection per host.",
+          "B": "A ring connects each device to two neighbors in a loop, so a single break can disrupt the ring.",
+          "C": "",
+          "D": "A bus topology shares one backbone cable; a break in the backbone can take down the whole segment."
+        },
+        "exam_pattern": "All nodes to one central device = star; central device = single point of failure."
+      }
+    },
+    {
+      "id": "netplus-nc-122",
+      "exam": "netplus",
+      "domain": "networking_concepts",
+      "subtopic": "network_topologies",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A small campus network merges the core and distribution functions onto the same pair of switches instead of using three separate layers. What is this two-tier hierarchical design called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Full mesh"
+        },
+        {
+          "id": "B",
+          "text": "Spine-and-leaf"
+        },
+        {
+          "id": "C",
+          "text": "Collapsed core"
+        },
+        {
+          "id": "D",
+          "text": "Three-tier (core/distribution/access)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A collapsed-core (two-tier) design combines the core and distribution layers into one, leaving a collapsed-core layer and an access layer — common and cost-effective for smaller networks.",
+        "distractors": {
+          "A": "Full mesh connects every node to every other node and is not a hierarchical campus tier model.",
+          "B": "Spine-and-leaf is a data-center fabric (every leaf to every spine), not a campus core/distribution collapse.",
+          "C": "",
+          "D": "The three-tier model keeps core, distribution, and access as three distinct layers — the opposite of collapsing them."
+        },
+        "exam_pattern": "Core + distribution merged into one layer = collapsed core (two-tier)."
+      }
+    },
+    {
+      "id": "netplus-ni-101",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "routing_technologies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A branch router must forward any traffic for which it has no more specific entry to its ISP. Which route accomplishes this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A host route (0.0.0.0/32) for the unspecified address"
+        },
+        {
+          "id": "B",
+          "text": "A summary route for 10.0.0.0/8"
+        },
+        {
+          "id": "C",
+          "text": "A default route (0.0.0.0/0) pointing at the ISP next hop"
+        },
+        {
+          "id": "D",
+          "text": "A route to 255.255.255.255/32"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A default route (0.0.0.0/0) — the gateway of last resort — matches every destination not covered by a more specific route and forwards it to the ISP.",
+        "distractors": {
+          "A": "0.0.0.0/32 is a single-host route for the unspecified address, not a catch-all for all networks.",
+          "B": "A 10.0.0.0/8 summary only matches that private range, not 'everything else.'",
+          "C": "",
+          "D": "255.255.255.255 is the limited broadcast address; a /32 route to it is not a default route."
+        },
+        "exam_pattern": "Default route = 0.0.0.0/0 (IPv4) or ::/0 (IPv6) = gateway of last resort for unknown destinations."
+      }
+    },
+    {
+      "id": "netplus-ni-102",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "routing_technologies",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A routing table contains 10.1.1.0/24 via R1, 10.1.0.0/16 via R2, and 0.0.0.0/0 via R3. A packet is destined for 10.1.1.55. Which next hop is used?",
+      "options": [
+        {
+          "id": "A",
+          "text": "R1, because 10.1.1.0/24 is the longest-prefix match"
+        },
+        {
+          "id": "B",
+          "text": "R2, because 10.1.0.0/16 covers a larger range"
+        },
+        {
+          "id": "C",
+          "text": "The packet is load-balanced across all three paths"
+        },
+        {
+          "id": "D",
+          "text": "R3, the default route"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "When several routes match, the router always uses the most specific (longest) prefix. 10.1.1.55 matches /24, /16, and /0, and the /24 is longest, so R1 wins.",
+        "distractors": {
+          "A": "",
+          "B": "The /16 matches but is less specific than the /24; longest-prefix match prefers the /24.",
+          "C": "Equal-cost load balancing applies only to multiple routes of the SAME prefix length and metric, not routes of different lengths.",
+          "D": "The default (/0) is the least specific and is used only when nothing more specific matches."
+        },
+        "exam_pattern": "Longest (most specific) prefix always wins — evaluated before administrative distance or metric."
+      }
+    },
+    {
+      "id": "netplus-ni-103",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "routing_technologies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company has a single public IPv4 address but hundreds of internal hosts that must reach the Internet at the same time. Which technology lets them all share that one public address?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Assigning each host a public /24 address"
+        },
+        {
+          "id": "B",
+          "text": "Static one-to-one NAT"
+        },
+        {
+          "id": "C",
+          "text": "DHCP reservations"
+        },
+        {
+          "id": "D",
+          "text": "PAT (NAT overload), which distinguishes sessions by source port"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "PAT (Port Address Translation, also called NAT overload) maps many private addresses to one public address, using a unique source port per session to keep them apart.",
+        "distractors": {
+          "A": "The scenario provides only one public address, so a per-host public /24 is not available.",
+          "B": "Static NAT maps one private address to one public address, so it cannot share a single public address among many hosts.",
+          "C": "DHCP hands out internal addresses; it performs no address translation to the public Internet.",
+          "D": ""
+        },
+        "exam_pattern": "Many private hosts behind ONE public IP = PAT / NAT overload (port-based). One-to-one = static NAT."
+      }
+    },
+    {
+      "id": "netplus-ni-104",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "routing_technologies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A single router interface must route between several VLANs that arrive from a switch over one 802.1Q trunk. How is this configured?",
+      "options": [
+        {
+          "id": "A",
+          "text": "All VLANs sharing one IP subnet on the physical interface"
+        },
+        {
+          "id": "B",
+          "text": "One subinterface per VLAN, each with an 802.1Q tag and gateway IP (router-on-a-stick)"
+        },
+        {
+          "id": "C",
+          "text": "Spanning Tree enabled on the router interface"
+        },
+        {
+          "id": "D",
+          "text": "The physical interface configured as a single access port"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Router-on-a-stick splits one physical interface into logical subinterfaces, one per VLAN, each tagged with 802.1Q and given the gateway IP for that VLAN's subnet.",
+        "distractors": {
+          "A": "Each VLAN must be its own subnet with its own gateway; one shared subnet defeats the separation VLANs provide.",
+          "B": "",
+          "C": "STP is a Layer 2 loop-prevention protocol on switches; it does nothing for inter-VLAN routing.",
+          "D": "An access port carries a single untagged VLAN and cannot route among multiple VLANs."
+        },
+        "exam_pattern": "One router interface + trunk + multiple VLANs = 802.1Q subinterfaces (router-on-a-stick)."
+      }
+    },
+    {
+      "id": "netplus-ni-105",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "routing_technologies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A network requires default-gateway redundancy using a protocol that is an open IETF standard rather than vendor-proprietary. Which first-hop redundancy protocol fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "STP"
+        },
+        {
+          "id": "B",
+          "text": "VRRP"
+        },
+        {
+          "id": "C",
+          "text": "HSRP"
+        },
+        {
+          "id": "D",
+          "text": "GLBP"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "VRRP (Virtual Router Redundancy Protocol) is the open IETF-standard FHRP: it presents a virtual IP as the default gateway with a master router and backups.",
+        "distractors": {
+          "A": "STP prevents Layer 2 switching loops; it is not a gateway-redundancy protocol.",
+          "B": "",
+          "C": "HSRP provides the same gateway redundancy but is Cisco-proprietary, not an open standard.",
+          "D": "GLBP is also Cisco-proprietary (and adds load balancing across gateways), so it is not an open standard."
+        },
+        "exam_pattern": "FHRP gateway redundancy: VRRP = open standard; HSRP and GLBP = Cisco proprietary."
+      }
+    },
+    {
+      "id": "netplus-ni-106",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "routing_technologies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which statement correctly describes the metric a routing protocol uses to choose the best path?",
+      "options": [
+        {
+          "id": "A",
+          "text": "OSPF counts the number of router hops"
+        },
+        {
+          "id": "B",
+          "text": "RIP selects paths by the lowest administrative distance"
+        },
+        {
+          "id": "C",
+          "text": "BGP always chooses the path with the highest bandwidth"
+        },
+        {
+          "id": "D",
+          "text": "OSPF uses a cost derived from interface bandwidth"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "OSPF is a link-state protocol whose metric is cost, calculated inversely from interface bandwidth, so the lower-cost (higher-bandwidth) path is preferred.",
+        "distractors": {
+          "A": "Hop count is RIP's metric; OSPF uses bandwidth-based cost, not hops.",
+          "B": "RIP's metric is hop count (max 15). Administrative distance chooses BETWEEN protocols, it is not RIP's path metric.",
+          "C": "BGP selects paths using attributes such as AS-path length and local preference, not raw bandwidth.",
+          "D": ""
+        },
+        "exam_pattern": "RIP = hop count; OSPF = cost (bandwidth); EIGRP = bandwidth+delay composite; BGP = path attributes."
+      }
+    },
+    {
+      "id": "netplus-ni-107",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "switching_technologies",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In a spanning-tree topology, how is the root bridge elected?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The switch with the most active ports becomes root"
+        },
+        {
+          "id": "B",
+          "text": "The switch that booted most recently becomes root"
+        },
+        {
+          "id": "C",
+          "text": "The switch with the highest IP address becomes root"
+        },
+        {
+          "id": "D",
+          "text": "The switch with the lowest bridge ID (priority, then lowest MAC address) becomes root"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "STP elects the root bridge as the switch with the lowest bridge ID — priority first, with the lowest MAC address breaking ties.",
+        "distractors": {
+          "A": "Port count has no bearing on which switch becomes root.",
+          "B": "Boot order does not decide the root; the lowest bridge ID does.",
+          "C": "STP operates at Layer 2 and does not use IP addresses in the election.",
+          "D": ""
+        },
+        "exam_pattern": "Root bridge = lowest bridge ID (priority + MAC). Lower priority wins; tie broken by lowest MAC."
+      }
+    },
+    {
+      "id": "netplus-ni-108",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "switching_technologies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On an 802.1Q trunk, frames for one VLAN cross the link untagged. What is that VLAN called, and what is the key hardening recommendation for it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The management VLAN; by definition it is always tagged"
+        },
+        {
+          "id": "B",
+          "text": "The native VLAN; change it from the default VLAN 1 and do not use it for user data"
+        },
+        {
+          "id": "C",
+          "text": "The voice VLAN; it must always remain VLAN 1"
+        },
+        {
+          "id": "D",
+          "text": "The default VLAN; it can never be changed"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The native VLAN carries untagged frames on a trunk. Best practice is to move it off the default VLAN 1 and keep user traffic out of it to reduce VLAN-hopping risk.",
+        "distractors": {
+          "A": "The native VLAN is untagged by definition, so describing it as always tagged is incorrect.",
+          "B": "",
+          "C": "A voice VLAN carries tagged IP-phone traffic; it is not the untagged native VLAN and need not be VLAN 1.",
+          "D": "VLAN 1 is the default native VLAN, but it can and should be changed for security."
+        },
+        "exam_pattern": "Native VLAN = the untagged VLAN on an 802.1Q trunk; change it off VLAN 1 to harden against VLAN hopping."
+      }
+    },
+    {
+      "id": "netplus-ni-109",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "switching_technologies",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An administrator wants a switch access port to accept only one known MAC address and to disable itself if a different device connects. Which feature provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Port security"
+        },
+        {
+          "id": "B",
+          "text": "Spanning Tree PortFast"
+        },
+        {
+          "id": "C",
+          "text": "Port mirroring (SPAN)"
+        },
+        {
+          "id": "D",
+          "text": "DHCP snooping"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Port security restricts which and how many MAC addresses may use a port and can take a violation action such as err-disabling (shutting down) the port.",
+        "distractors": {
+          "A": "",
+          "B": "PortFast skips STP listening/learning to speed up access-port startup; it is not a security control.",
+          "C": "SPAN copies traffic to a monitor port for analysis; it enforces no MAC restrictions.",
+          "D": "DHCP snooping blocks rogue DHCP server replies; it does not lock a port to a specific MAC."
+        },
+        "exam_pattern": "Lock a port to specific/limited MACs = port security (violation modes: shutdown, restrict, protect)."
+      }
+    },
+    {
+      "id": "netplus-ni-110",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "switching_technologies",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An installer must power a pan-tilt-zoom camera that draws about 45 W at the device. Which PoE standard is required?",
+      "options": [
+        {
+          "id": "A",
+          "text": "802.3af (PoE), 15.4 W"
+        },
+        {
+          "id": "B",
+          "text": "802.3at (PoE+), 30 W"
+        },
+        {
+          "id": "C",
+          "text": "802.3ab (1000BASE-T)"
+        },
+        {
+          "id": "D",
+          "text": "802.3bt (PoE++ / 4PPoE), up to 60-100 W"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "45 W exceeds both PoE (15.4 W) and PoE+ (30 W), so 802.3bt (PoE++/4PPoE) is required; it supplies up to 60 W (Type 3) or ~100 W (Type 4) at the source.",
+        "distractors": {
+          "A": "802.3af (PoE) provides only 15.4 W at the source (~12.95 W at the device) — far short of 45 W.",
+          "B": "802.3at (PoE+) provides 30 W at the source (~25.5 W at the device) — still insufficient.",
+          "C": "802.3ab is the 1000BASE-T Gigabit-over-copper standard, not a power-delivery standard.",
+          "D": ""
+        },
+        "exam_pattern": "PoE 802.3af = 15.4 W; PoE+ 802.3at = 30 W; PoE++ 802.3bt = 60 W (Type 3) / up to 100 W (Type 4)."
+      }
+    },
+    {
+      "id": "netplus-ni-111",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "switching_technologies",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "A team bonds four physical links between two switches into one logical link using LACP. Which two benefits does this provide? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Increased aggregate bandwidth between the switches"
+        },
+        {
+          "id": "B",
+          "text": "Automatic routing between VLANs"
+        },
+        {
+          "id": "C",
+          "text": "Removal of the need to run STP on any port"
+        },
+        {
+          "id": "D",
+          "text": "Redundancy if one member link fails"
+        }
+      ],
+      "correct": [
+        "A",
+        "D"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "Link aggregation (LACP / 802.3ad) combines links so their bandwidth adds up, and traffic shifts to the surviving members if one link in the bundle fails.",
+        "distractors": {
+          "A": "",
+          "B": "Inter-VLAN routing is a Layer 3 function; aggregation is a Layer 2/physical bonding of links.",
+          "C": "The bundle appears to STP as a single logical link, but STP still runs and protects all other ports.",
+          "D": ""
+        },
+        "exam_pattern": "LACP/LAG = more bandwidth + link redundancy between two devices; it is not routing and does not replace STP."
+      }
+    },
+    {
+      "id": "netplus-ni-112",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "switching_technologies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To raise throughput on an iSCSI storage network, an administrator enables jumbo frames. What MTU is typically used, and where must it be set?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An MTU of 576 bytes, end to end"
+        },
+        {
+          "id": "B",
+          "text": "An MTU of 9000 bytes, configured consistently on every device in the path"
+        },
+        {
+          "id": "C",
+          "text": "An MTU of 1500 bytes, on the server only"
+        },
+        {
+          "id": "D",
+          "text": "An MTU of 68 bytes, on the switch only"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Jumbo frames use an MTU of about 9000 bytes to carry more payload per frame; the value must match on all devices in the path (NICs and switches) or fragmentation/drops occur.",
+        "distractors": {
+          "A": "576 bytes is a minimum IPv4 datagram guideline, far smaller than a jumbo frame.",
+          "B": "",
+          "C": "1500 bytes is the standard Ethernet MTU, not a jumbo frame, and MTU must be consistent end-to-end rather than on the server alone.",
+          "D": "68 bytes is the IPv4 minimum MTU; it is not a jumbo frame, and setting one device alone creates a mismatch."
+        },
+        "exam_pattern": "Jumbo frames ≈ 9000-byte MTU, enabled consistently on all devices in the path."
+      }
+    },
+    {
+      "id": "netplus-ni-113",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "wireless_standards",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "In the 2.4 GHz band (North America), which set of 20 MHz channels is non-overlapping and recommended for adjacent access points?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1, 5, and 9"
+        },
+        {
+          "id": "B",
+          "text": "1, 6, and 11"
+        },
+        {
+          "id": "C",
+          "text": "36, 40, and 44"
+        },
+        {
+          "id": "D",
+          "text": "1, 2, and 3"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "In 2.4 GHz, 20 MHz channels overlap, and only channels 1, 6, and 11 do not overlap, so they are used for neighboring APs to avoid co-channel interference.",
+        "distractors": {
+          "A": "1, 5, and 9 still overlap; 2.4 GHz channels need five channels of separation, which 1/6/11 provides.",
+          "B": "",
+          "C": "36, 40, and 44 are 5 GHz channels, not 2.4 GHz.",
+          "D": "Channels 1, 2, and 3 are adjacent and overlap heavily, causing interference."
+        },
+        "exam_pattern": "2.4 GHz non-overlapping = 1, 6, 11. The 5 GHz band offers many more non-overlapping channels."
+      }
+    },
+    {
+      "id": "netplus-ni-114",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "wireless_standards",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An engineer combines two adjacent 20 MHz Wi-Fi channels into one wider channel to increase throughput. What is this called, and what width results?",
+      "options": [
+        {
+          "id": "A",
+          "text": "MU-MIMO, producing a 160 MHz channel"
+        },
+        {
+          "id": "B",
+          "text": "Band steering, producing a 20 MHz channel"
+        },
+        {
+          "id": "C",
+          "text": "Frequency hopping, producing an 80 MHz channel"
+        },
+        {
+          "id": "D",
+          "text": "Channel bonding, producing a 40 MHz channel"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Channel bonding joins adjacent channels; two 20 MHz channels bond into 40 MHz (further bonding yields 80 and 160 MHz in 5/6 GHz).",
+        "distractors": {
+          "A": "MU-MIMO serves multiple clients using spatial streams; although 160 MHz is a valid bonded width, MU-MIMO is not the bonding mechanism.",
+          "B": "Band steering nudges dual-band clients toward 5 GHz; it does not widen a channel.",
+          "C": "Frequency hopping is a legacy spread-spectrum technique, not channel bonding.",
+          "D": ""
+        },
+        "exam_pattern": "Channel-bonding widths: 20 → 40 → 80 → 160 MHz. Wider = more throughput but fewer non-overlapping channels."
+      }
+    },
+    {
+      "id": "netplus-ni-115",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "wireless_standards",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An audit requires the WLAN to use the strongest standard personal authentication available, replacing the older pre-shared-key handshake that is vulnerable to offline cracking. Which should be deployed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An open network fronted by a captive portal"
+        },
+        {
+          "id": "B",
+          "text": "WPA3-Personal, which uses SAE (Simultaneous Authentication of Equals)"
+        },
+        {
+          "id": "C",
+          "text": "WPA2-Personal with TKIP"
+        },
+        {
+          "id": "D",
+          "text": "WEP with a 128-bit key"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "WPA3-Personal replaces the WPA2 four-way PSK handshake with SAE, which resists offline dictionary/brute-force attacks and adds forward secrecy.",
+        "distractors": {
+          "A": "An open network provides no encryption; a captive portal only gates access, it does not encrypt traffic.",
+          "B": "",
+          "C": "The WPA2-Personal PSK handshake is exactly the mechanism susceptible to offline cracking, and TKIP is deprecated.",
+          "D": "WEP is cryptographically broken and must never be used."
+        },
+        "exam_pattern": "WPA3-Personal = SAE (stronger than WPA2-PSK). WPA2/WPA3-Enterprise = 802.1X/RADIUS."
+      }
+    },
+    {
+      "id": "netplus-ni-116",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "wireless_standards",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company wants each wireless user to authenticate with their own domain credentials against a RADIUS server instead of a shared Wi-Fi password. Which mode provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "MAC address filtering"
+        },
+        {
+          "id": "B",
+          "text": "WPA2/WPA3-Enterprise (802.1X)"
+        },
+        {
+          "id": "C",
+          "text": "WPS push-button"
+        },
+        {
+          "id": "D",
+          "text": "WPA2-Personal (PSK)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Enterprise mode uses 802.1X with a RADIUS server (and EAP) so each user authenticates individually rather than sharing one pre-shared key.",
+        "distractors": {
+          "A": "MAC filtering allows/denies by hardware address, which is easily spoofed and is not credential-based authentication.",
+          "B": "",
+          "C": "WPS is a simplified setup method (PIN/push-button) and is considered insecure; it is not per-user authentication.",
+          "D": "Personal/PSK mode uses one shared passphrase for everyone — the opposite of per-user credentials."
+        },
+        "exam_pattern": "Per-user wireless login via RADIUS = Enterprise/802.1X; shared passphrase = Personal/PSK."
+      }
+    },
+    {
+      "id": "netplus-ni-117",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "wireless_standards",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A campus deploys 300 access points that must be configured and managed centrally with coordinated channels and seamless roaming. Which design fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A single AP with a high-gain omnidirectional antenna"
+        },
+        {
+          "id": "B",
+          "text": "Lightweight APs controlled by a wireless LAN controller (WLC)"
+        },
+        {
+          "id": "C",
+          "text": "Autonomous APs each configured individually"
+        },
+        {
+          "id": "D",
+          "text": "A wireless range extender on each floor"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Lightweight (thin) APs offload configuration and control to a WLC, giving central management, coordinated channel/power, and seamless roaming across hundreds of APs.",
+        "distractors": {
+          "A": "A single AP, however powerful, cannot cover a campus or serve that many clients.",
+          "B": "",
+          "C": "Autonomous (fat) APs each hold their own configuration and must be managed one by one — impractical at 300 units.",
+          "D": "Range extenders repeat an existing signal (roughly halving throughput) and are a SOHO fix, not enterprise central management."
+        },
+        "exam_pattern": "Many centrally managed APs = lightweight APs + WLC; standalone self-contained config = autonomous APs."
+      }
+    },
+    {
+      "id": "netplus-ni-118",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "wireless_standards",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "Compared with the 5 GHz band, which two statements about the 2.4 GHz band are true? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is immune to interference from microwaves and Bluetooth"
+        },
+        {
+          "id": "B",
+          "text": "It has only three non-overlapping 20 MHz channels (1, 6, 11)"
+        },
+        {
+          "id": "C",
+          "text": "It offers more non-overlapping channels than 5 GHz"
+        },
+        {
+          "id": "D",
+          "text": "It generally provides longer range and better obstacle penetration"
+        }
+      ],
+      "correct": [
+        "B",
+        "D"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "2.4 GHz propagates farther and penetrates walls better than 5 GHz, but it is crowded — only channels 1, 6, and 11 are non-overlapping.",
+        "distractors": {
+          "A": "2.4 GHz is in fact prone to interference from microwaves, Bluetooth, and cordless phones.",
+          "B": "",
+          "C": "5 GHz has many more non-overlapping channels than 2.4 GHz, not fewer.",
+          "D": ""
+        },
+        "exam_pattern": "2.4 GHz = longer range, only 3 non-overlapping channels, more interference; 5 GHz = shorter range, more channels, higher speed."
+      }
+    },
+    {
+      "id": "netplus-ni-119",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "physical_installations",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A data-center run must support 10GBASE-T over copper across the full 100 m channel. Which cabling category is the minimum that guarantees 10 Gbps at 100 m?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cat3"
+        },
+        {
+          "id": "B",
+          "text": "Cat5e"
+        },
+        {
+          "id": "C",
+          "text": "Cat6"
+        },
+        {
+          "id": "D",
+          "text": "Cat6a"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Cat6a supports 10GBASE-T to the full 100 m, so it is the minimum category for a 100 m 10 Gbps copper channel.",
+        "distractors": {
+          "A": "Cat3 is legacy voice/10BASE-T cabling — far too slow for 10 Gbps.",
+          "B": "Cat5e is specified for 1GBASE-T (1 Gbps), not 10GBASE-T.",
+          "C": "Cat6 can carry 10G but only to about 55 m (less with alien crosstalk), not the full 100 m.",
+          "D": ""
+        },
+        "exam_pattern": "10G copper distances: Cat6 ≈ 55 m, Cat6a = 100 m; Cat5e is 1G only."
+      }
+    },
+    {
+      "id": "netplus-ni-120",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "physical_installations",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A carrier link must span 40 km between two cities. Which media and light source are appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Multimode fiber with a larger connector"
+        },
+        {
+          "id": "B",
+          "text": "Multimode fiber (MMF) with an LED source"
+        },
+        {
+          "id": "C",
+          "text": "Single-mode fiber (SMF) with a laser source"
+        },
+        {
+          "id": "D",
+          "text": "Cat6a shielded twisted-pair copper"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Single-mode fiber has a very small core carrying one light path from a laser, giving the low attenuation and dispersion needed for long-haul links of tens of kilometers.",
+        "distractors": {
+          "A": "Changing the connector does not overcome multimode's distance limit; the fiber type is the constraint.",
+          "B": "Multimode fiber is for short runs (hundreds of meters); over 40 km modal dispersion makes it unusable.",
+          "C": "",
+          "D": "Copper Ethernet is limited to 100 m — impossible for a 40 km link."
+        },
+        "exam_pattern": "Long distance = single-mode fiber (laser); short/in-building = multimode fiber (LED/VCSEL)."
+      }
+    },
+    {
+      "id": "netplus-ni-121",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "physical_installations",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A patch cable is terminated to T568A on one end and T568B on the other. What kind of cable is this, and what is its traditional use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A rollover (console) cable for a router's console port"
+        },
+        {
+          "id": "B",
+          "text": "A loopback plug for testing a single NIC"
+        },
+        {
+          "id": "C",
+          "text": "A straight-through cable for PC-to-switch connections"
+        },
+        {
+          "id": "D",
+          "text": "A crossover cable, historically used to connect two like devices (e.g., switch-to-switch) without auto-MDIX"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Different standards on each end (T568A on one, T568B on the other) make a crossover cable, which swaps the transmit and receive pairs to join similar devices when auto-MDIX is absent.",
+        "distractors": {
+          "A": "A rollover/console cable reverses all eight conductors for a device's console port; it is not the A/B pin pairing.",
+          "B": "A loopback plug jumpers transmit back to receive on one connector; it is not a two-ended crossover cable.",
+          "C": "A straight-through cable uses the SAME standard on both ends (B/B or A/A).",
+          "D": ""
+        },
+        "exam_pattern": "Same standard on both ends = straight-through; T568A on one end + T568B on the other = crossover."
+      }
+    },
+    {
+      "id": "netplus-ni-122",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "physical_installations",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A switch needs a single-port, hot-swappable optical module supporting 10 Gbps. Which transceiver form factor fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An RJ45 keystone jack"
+        },
+        {
+          "id": "B",
+          "text": "SFP+"
+        },
+        {
+          "id": "C",
+          "text": "SFP"
+        },
+        {
+          "id": "D",
+          "text": "QSFP28"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "SFP+ is the enhanced small form-factor pluggable rated for 10 Gbps on a single port and is hot-swappable into a switch cage.",
+        "distractors": {
+          "A": "An RJ45 keystone is a copper jack, not a pluggable optical transceiver.",
+          "B": "",
+          "C": "A standard SFP tops out at about 1 Gbps, not 10 Gbps.",
+          "D": "QSFP28 is a quad module for 100 Gbps (4x25G) — more than a single 10G port and a different cage."
+        },
+        "exam_pattern": "Transceiver speeds: SFP = 1G, SFP+ = 10G, SFP28 = 25G, QSFP+ = 40G, QSFP28 = 100G."
+      }
+    },
+    {
+      "id": "netplus-ni-123",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "physical_installations",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In a multi-floor building, the central equipment room holds the provider demarc and core switching, and a wiring closet on each floor serves nearby work areas and connects back to that room. What are these two spaces called, respectively?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Demarc and smartjack"
+        },
+        {
+          "id": "B",
+          "text": "Patch panel and punchdown block"
+        },
+        {
+          "id": "C",
+          "text": "IDF (central room) and MDF (per-floor closet)"
+        },
+        {
+          "id": "D",
+          "text": "MDF (main distribution frame) and IDF (intermediate distribution frame)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The central room is the MDF (main distribution frame); each floor's closet is an IDF (intermediate distribution frame) that backhauls to the MDF over backbone cabling.",
+        "distractors": {
+          "A": "The demarc is the provider handoff point and a smartjack is a demarc device; neither names the building's distribution frames.",
+          "B": "Patch panels and punchdown blocks are components mounted inside the frames, not the rooms themselves.",
+          "C": "The naming is reversed — the central room is the MDF and the floor closets are IDFs.",
+          "D": ""
+        },
+        "exam_pattern": "MDF = central main frame; IDF = per-floor/area closet backhauled to the MDF."
+      }
+    },
+    {
+      "id": "netplus-ni-124",
+      "exam": "netplus",
+      "domain": "network_implementation",
+      "subtopic": "physical_installations",
+      "difficulty": 1,
+      "type": "multi",
+      "stem": "A technician is terminating fiber-optic patch cords. Which two connectors are designed for fiber-optic cabling? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "ST"
+        },
+        {
+          "id": "B",
+          "text": "LC"
+        },
+        {
+          "id": "C",
+          "text": "RJ45"
+        },
+        {
+          "id": "D",
+          "text": "BNC"
+        }
+      ],
+      "correct": [
+        "A",
+        "B"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "LC (little/Lucent connector) and ST (straight tip) are both fiber-optic connectors; other fiber connectors include SC and MTRJ.",
+        "distractors": {
+          "A": "",
+          "B": "",
+          "C": "RJ45 is the 8P8C modular connector for twisted-pair copper Ethernet, not fiber.",
+          "D": "BNC is a bayonet connector used with coaxial cable, not fiber."
+        },
+        "exam_pattern": "Fiber connectors: LC, SC, ST, MTRJ. Copper = RJ45; coax = BNC/F-type."
+      }
+    },
+    {
+      "id": "netplus-nops-101",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "network_documentation",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A team keeps creating duplicate IP assignments and has no central record of which addresses are in use, reserved, or free across many subnets. Which solution BEST addresses this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A wireless site survey"
+        },
+        {
+          "id": "B",
+          "text": "A rack diagram"
+        },
+        {
+          "id": "C",
+          "text": "IPAM (IP Address Management)"
+        },
+        {
+          "id": "D",
+          "text": "A service-level agreement (SLA)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "IPAM centralizes tracking of IP address usage, subnets, reservations, and often integrated DNS/DHCP, replacing error-prone spreadsheets and preventing duplicate assignments.",
+        "distractors": {
+          "A": "A site survey assesses wireless RF coverage for AP placement, unrelated to IP tracking.",
+          "B": "A rack diagram shows front/rear equipment placement by rack unit, not IP usage.",
+          "C": "",
+          "D": "An SLA defines agreed service metrics with a provider; it tracks no addresses."
+        },
+        "exam_pattern": "Central IP/subnet/DNS/DHCP record = IPAM; it solves duplicate-IP and 'who has what' problems."
+      }
+    },
+    {
+      "id": "netplus-nops-102",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "network_documentation",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A data-center technician needs a document showing which rack unit (RU) each server and switch occupies, front and rear, to plan a new install. Which document provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An asset inventory"
+        },
+        {
+          "id": "B",
+          "text": "A rack diagram"
+        },
+        {
+          "id": "C",
+          "text": "A logical network diagram"
+        },
+        {
+          "id": "D",
+          "text": "An IP address management (IPAM) report"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A rack diagram maps the RU-by-RU placement of equipment in a rack (front and rear), used to plan space, cabling, power, and airflow.",
+        "distractors": {
+          "A": "An asset inventory lists devices, serials, and owners but not their physical rack positions.",
+          "B": "",
+          "C": "A logical diagram shows IP subnets, VLANs, and routing relationships, not physical RU slots.",
+          "D": "An IPAM report tracks address usage, not equipment placement in a rack."
+        },
+        "exam_pattern": "Rack diagram = physical RU placement of gear in a rack."
+      }
+    },
+    {
+      "id": "netplus-nops-103",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "network_documentation",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After a wireless site survey, an engineer produces a color-gradient overlay on the floor plan showing RF signal strength in each area of the building. What is this output called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A physical/wiring diagram"
+        },
+        {
+          "id": "B",
+          "text": "A rack diagram"
+        },
+        {
+          "id": "C",
+          "text": "A heat map"
+        },
+        {
+          "id": "D",
+          "text": "A logical network diagram"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A wireless heat map overlays color-coded signal strength (and interference) onto the floor plan, the key deliverable of a site survey for planning AP placement.",
+        "distractors": {
+          "A": "A physical/wiring diagram documents cable runs and port terminations, not RF coverage.",
+          "B": "A rack diagram shows equipment placement by rack unit, not RF coverage.",
+          "C": "",
+          "D": "A logical diagram shows IP/VLAN/routing relationships, not signal strength."
+        },
+        "exam_pattern": "Wireless heat map = color-coded RF coverage over a floor plan (produced by a site survey)."
+      }
+    },
+    {
+      "id": "netplus-nops-104",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "network_documentation",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Before a scheduled firewall rule modification, the team submits a request, has it reviewed and approved by stakeholders, schedules a maintenance window, and prepares a rollback plan. Which process is being followed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Change management"
+        },
+        {
+          "id": "B",
+          "text": "Baseline configuration review"
+        },
+        {
+          "id": "C",
+          "text": "Asset lifecycle management"
+        },
+        {
+          "id": "D",
+          "text": "Incident response"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Change management governs planned changes through a documented request, approval, scheduling, implementation, and rollback plan to limit risk and keep an audit trail.",
+        "distractors": {
+          "A": "",
+          "B": "A baseline configuration is a documented known-good config; comparing to it is not the approval workflow.",
+          "C": "Asset lifecycle management tracks hardware/software from procurement to retirement (incl. EOL/EOS).",
+          "D": "Incident response reacts to an unplanned security event or outage, not a scheduled change."
+        },
+        "exam_pattern": "Request + approval + maintenance window + rollback = change management."
+      }
+    },
+    {
+      "id": "netplus-nops-105",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "network_documentation",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A vendor publishes a date after which a router model will receive no further software updates, security patches, or technical support. Which hardware/software lifecycle milestone does this describe?",
+      "options": [
+        {
+          "id": "A",
+          "text": "End-of-life (EOL) announcement"
+        },
+        {
+          "id": "B",
+          "text": "Recovery point objective (RPO)"
+        },
+        {
+          "id": "C",
+          "text": "Mean time between failures (MTBF)"
+        },
+        {
+          "id": "D",
+          "text": "End-of-support (EOS)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "End-of-support (EOS/EOSL) is the date after which the vendor provides no more patches, updates, or support, leaving the device a growing security risk that should be replaced.",
+        "distractors": {
+          "A": "An EOL announcement marks that a product is being discontinued/no longer sold, but patches and support may continue until the later EOS date.",
+          "B": "RPO is a disaster-recovery data-loss target, not a product lifecycle milestone.",
+          "C": "MTBF is a reliability statistic (average time between failures), not a support cutoff.",
+          "D": ""
+        },
+        "exam_pattern": "EOL = no longer sold; EOS/EOSL = no more patches or support (plan replacement for security)."
+      }
+    },
+    {
+      "id": "netplus-nops-106",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "network_monitoring",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A VoIP engineer finds that voice packets arrive with inconsistent inter-packet delay, causing choppy audio, even though the average latency is acceptable. Which performance metric describes this variation in delay?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Jitter"
+        },
+        {
+          "id": "B",
+          "text": "Bandwidth"
+        },
+        {
+          "id": "C",
+          "text": "Packet loss"
+        },
+        {
+          "id": "D",
+          "text": "Latency"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Jitter is the variation in packet-to-packet delay. Even with acceptable average latency, high jitter breaks real-time audio/video and must be buffered or controlled with QoS.",
+        "distractors": {
+          "A": "",
+          "B": "Bandwidth is link capacity, not the timing variation of delivered packets.",
+          "C": "Packet loss is packets never arriving (gaps/dropouts), a different symptom than uneven timing.",
+          "D": "Latency is the absolute delay, which the scenario says is acceptable; the problem is its variation."
+        },
+        "exam_pattern": "Jitter = variation in latency (hurts VoIP/video); latency = delay; loss = dropped packets."
+      }
+    },
+    {
+      "id": "netplus-nops-107",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "network_monitoring",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A security operations team wants one platform that collects logs from firewalls, servers, and switches, correlates events across all of them, and raises alerts on suspicious patterns. Which solution fits BEST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A protocol analyzer"
+        },
+        {
+          "id": "B",
+          "text": "An SNMP trap receiver"
+        },
+        {
+          "id": "C",
+          "text": "A SIEM"
+        },
+        {
+          "id": "D",
+          "text": "A NetFlow collector"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A SIEM (Security Information and Event Management) aggregates logs from many sources, correlates them, and generates alerts/dashboards — centralized security monitoring.",
+        "distractors": {
+          "A": "A protocol analyzer decodes captured packets; it is not a centralized log-correlation platform.",
+          "B": "An SNMP trap receiver collects device state notifications; it does not correlate multi-source logs.",
+          "C": "",
+          "D": "A NetFlow collector aggregates traffic-flow records (who talks to whom), not multi-source log events."
+        },
+        "exam_pattern": "Aggregate + correlate + alert across many log sources = SIEM."
+      }
+    },
+    {
+      "id": "netplus-nops-108",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "network_monitoring",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To troubleshoot a malformed application handshake, an engineer must inspect the actual bytes and header fields of individual frames traversing a switch port. Which approach is MOST appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SNMP polling of the interface's counters"
+        },
+        {
+          "id": "B",
+          "text": "Exporting NetFlow records"
+        },
+        {
+          "id": "C",
+          "text": "Reviewing the syslog server"
+        },
+        {
+          "id": "D",
+          "text": "A packet capture with a protocol analyzer via a port mirror (SPAN) or TAP"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Seeing the real frame contents and header fields requires capturing packets with a protocol analyzer, typically fed by a SPAN/port-mirror session or a physical TAP.",
+        "distractors": {
+          "A": "SNMP polling returns counters/health totals, not the contents of individual frames.",
+          "B": "NetFlow summarizes conversation metadata (IPs, ports, byte counts), not full packet payloads.",
+          "C": "Syslog carries device event messages, not the raw bytes of captured frames.",
+          "D": ""
+        },
+        "exam_pattern": "Need the actual packet contents/headers = packet capture (sniffer/protocol analyzer via SPAN/TAP)."
+      }
+    },
+    {
+      "id": "netplus-nops-109",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "network_monitoring",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A wiring closet repeatedly overheats, causing switches to shut down. Which monitoring addition would alert staff BEFORE the equipment fails again?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A wireless heat map"
+        },
+        {
+          "id": "B",
+          "text": "Temperature and humidity environmental sensors"
+        },
+        {
+          "id": "C",
+          "text": "A SIEM log-correlation rule"
+        },
+        {
+          "id": "D",
+          "text": "NetFlow traffic collection"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Environmental sensors (temperature, humidity, and often power/water/airflow) monitor the physical conditions of IDF/MDF/data-center spaces and alert before heat causes shutdowns.",
+        "distractors": {
+          "A": "A wireless heat map shows RF coverage, not thermal/environmental conditions.",
+          "B": "",
+          "C": "A SIEM correlates logs; it cannot read closet temperature unless a sensor feeds it data.",
+          "D": "NetFlow accounts for traffic volume and has nothing to do with temperature."
+        },
+        "exam_pattern": "Overheating/physical conditions = environmental sensors (temp/humidity/power) in the IDF/MDF."
+      }
+    },
+    {
+      "id": "netplus-nops-110",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "network_monitoring",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "While diagnosing a flaky link, an engineer reviews a switch interface's statistics. Which TWO counters point to a physical-layer problem such as bad cabling, EMI, or a duplex mismatch? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "DHCP decline messages"
+        },
+        {
+          "id": "B",
+          "text": "Late collisions"
+        },
+        {
+          "id": "C",
+          "text": "CRC (FCS) errors"
+        },
+        {
+          "id": "D",
+          "text": "Successfully forwarded unicast packets"
+        }
+      ],
+      "correct": [
+        "B",
+        "C"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "Rising CRC/FCS errors indicate corrupted frames (bad cable, connector, EMI, or duplex mismatch), and late collisions are a classic sign of a duplex mismatch — both are Layer 1 indicators found in interface statistics.",
+        "distractors": {
+          "A": "A DHCP decline is a client addressing event, not an interface error counter.",
+          "B": "",
+          "C": "",
+          "D": "Successfully forwarded unicasts are normal traffic, not an error indicator."
+        },
+        "exam_pattern": "L1 health shows in error counters: CRC/FCS errors, runts, giants, late collisions (cabling/EMI/duplex)."
+      }
+    },
+    {
+      "id": "netplus-nops-111",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "disaster_recovery",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Management states that after a failure the e-commerce site must be back online within 2 hours. Which metric does this 2-hour target define?",
+      "options": [
+        {
+          "id": "A",
+          "text": "MTBF (Mean Time Between Failures)"
+        },
+        {
+          "id": "B",
+          "text": "RPO (Recovery Point Objective)"
+        },
+        {
+          "id": "C",
+          "text": "MTTR (Mean Time To Repair)"
+        },
+        {
+          "id": "D",
+          "text": "RTO (Recovery Time Objective)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "RTO is the maximum tolerable time to restore service after an outage — the '2 hours to be back online' target is an RTO.",
+        "distractors": {
+          "A": "MTBF is the average uptime between failures, a reliability statistic, not a recovery goal.",
+          "B": "RPO is the tolerable amount of DATA loss (how far back the last recovery point is), not restore time.",
+          "C": "MTTR is the average/actual time taken to repair a failure (a measured value), not the business target.",
+          "D": ""
+        },
+        "exam_pattern": "RTO = how long until service is back UP (goal); RPO = how much DATA can be lost; MTTR/MTBF are measured stats."
+      }
+    },
+    {
+      "id": "netplus-nops-112",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "disaster_recovery",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization needs a recovery facility that is fully equipped and running with near-real-time replicated data so it can take over operations within minutes of a disaster. Which site type is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cloud archive"
+        },
+        {
+          "id": "B",
+          "text": "Hot site"
+        },
+        {
+          "id": "C",
+          "text": "Warm site"
+        },
+        {
+          "id": "D",
+          "text": "Cold site"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A hot site is fully operational with hardware, connectivity, and continuously replicated data, enabling near-immediate failover — the fastest and most expensive option.",
+        "distractors": {
+          "A": "A cloud archive stores backup data cheaply but is not a ready-to-run operational facility.",
+          "B": "",
+          "C": "A warm site has hardware and connectivity but needs data restore and setup, so recovery takes hours to days.",
+          "D": "A cold site provides only space and power; equipment and data must be brought in, giving the longest recovery."
+        },
+        "exam_pattern": "Cold (space/power only) < warm (equipped, needs data) < hot (live + replicated, fastest/costliest)."
+      }
+    },
+    {
+      "id": "netplus-nops-113",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "disaster_recovery",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A backup scheme takes a full backup every Sunday and, each weeknight, backs up all data changed SINCE SUNDAY'S FULL. To restore data as of Thursday evening, which backup sets are required and what is this scheme called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Every nightly set but not the full — an incremental scheme"
+        },
+        {
+          "id": "B",
+          "text": "The Sunday full plus Thursday's set — 2 sets — a differential scheme"
+        },
+        {
+          "id": "C",
+          "text": "The Sunday full plus every nightly set through Thursday — an incremental scheme"
+        },
+        {
+          "id": "D",
+          "text": "Only Thursday's set — a snapshot scheme"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Backing up everything changed since the last FULL is a differential. Restoring needs only the full plus the most recent differential (Sunday full + Thursday) = 2 sets.",
+        "distractors": {
+          "A": "Incremental still requires the base full to restore, and this scheme is differential, not incremental.",
+          "B": "",
+          "C": "That describes incremental (each set holds changes since the PREVIOUS backup), which needs the full + all increments.",
+          "D": "A snapshot is a point-in-time image, not this cumulative-since-full chain."
+        },
+        "exam_pattern": "Differential = changes since last FULL (restore = full + 1 diff); incremental = changes since last BACKUP (restore = full + all increments)."
+      }
+    },
+    {
+      "id": "netplus-nops-114",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "disaster_recovery",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Two routers share a single virtual IP address acting as the default gateway, so if the active router fails the standby takes over the virtual IP with no client reconfiguration. Which type of protocol provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A First Hop Redundancy Protocol (FHRP) such as VRRP or HSRP"
+        },
+        {
+          "id": "B",
+          "text": "A routing protocol such as OSPF"
+        },
+        {
+          "id": "C",
+          "text": "Link aggregation (LACP)"
+        },
+        {
+          "id": "D",
+          "text": "Spanning Tree Protocol (STP)"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "An FHRP (VRRP, HSRP, or GLBP) presents a shared virtual gateway IP/MAC; one router is active and another standby, giving hosts gateway redundancy with no reconfiguration on failover.",
+        "distractors": {
+          "A": "",
+          "B": "OSPF exchanges routes between routers but does not present a shared virtual gateway IP to end hosts.",
+          "C": "LACP bundles physical links for bandwidth/redundancy between two devices, not a virtual gateway.",
+          "D": "STP prevents Layer 2 switching loops; it provides no default-gateway failover."
+        },
+        "exam_pattern": "Shared virtual gateway IP + active/standby failover = FHRP (HSRP/VRRP/GLBP)."
+      }
+    },
+    {
+      "id": "netplus-nops-115",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "disaster_recovery",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "An administrator deploys two firewalls in an active-active high-availability cluster. Which TWO statements accurately describe active-active compared with active-passive? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only one node ever forwards traffic at a time"
+        },
+        {
+          "id": "B",
+          "text": "Both nodes process traffic simultaneously, increasing aggregate throughput"
+        },
+        {
+          "id": "C",
+          "text": "The standby node sits idle until the primary fails"
+        },
+        {
+          "id": "D",
+          "text": "Load is shared across both nodes during normal operation"
+        }
+      ],
+      "correct": [
+        "B",
+        "D"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "In active-active, both nodes are live at once and share the load, so the pair also delivers more aggregate capacity than a single node — not just failover.",
+        "distractors": {
+          "A": "Forwarding through only one node at a time is active-passive; active-active forwards through both concurrently.",
+          "B": "",
+          "C": "A standby that sits idle until failover describes active-PASSIVE, not active-active.",
+          "D": ""
+        },
+        "exam_pattern": "Active-active = both nodes work and share load (more capacity); active-passive = standby idle until failover."
+      }
+    },
+    {
+      "id": "netplus-nops-116",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "dns_dhcp_services",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A client must resolve a hostname to an IPv6 address. Which DNS record type returns that answer?",
+      "options": [
+        {
+          "id": "A",
+          "text": "PTR"
+        },
+        {
+          "id": "B",
+          "text": "A"
+        },
+        {
+          "id": "C",
+          "text": "AAAA"
+        },
+        {
+          "id": "D",
+          "text": "CNAME"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The AAAA ('quad-A') record maps a hostname to a 128-bit IPv6 address.",
+        "distractors": {
+          "A": "A PTR record is used for reverse lookups (IP address back to a name).",
+          "B": "An A record maps a hostname to a 32-bit IPv4 address, not IPv6.",
+          "C": "",
+          "D": "A CNAME is an alias pointing to another canonical name; it returns no address itself."
+        },
+        "exam_pattern": "A = IPv4, AAAA = IPv6, PTR = reverse lookup, CNAME = alias."
+      }
+    },
+    {
+      "id": "netplus-nops-117",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "dns_dhcp_services",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An administrator wants a specific network printer to ALWAYS receive the same IP address from DHCP, tied to its MAC address, while still being managed by the DHCP server. Which configuration achieves this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A DHCP relay (IP helper)"
+        },
+        {
+          "id": "B",
+          "text": "A DHCP reservation"
+        },
+        {
+          "id": "C",
+          "text": "A DHCP exclusion"
+        },
+        {
+          "id": "D",
+          "text": "A shorter scope lease time"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A reservation binds a chosen IP to the device's MAC in the DHCP scope, so DHCP always hands that host the same address while still managing it centrally.",
+        "distractors": {
+          "A": "An IP helper forwards DHCP requests across subnets; it does not reserve an address.",
+          "B": "",
+          "C": "An exclusion removes addresses from the pool so DHCP never assigns them; you would then have to static-assign the printer manually.",
+          "D": "A shorter lease just renews more often; it does not pin a specific address to the host."
+        },
+        "exam_pattern": "Reservation = DHCP always gives a set IP to a MAC; exclusion = addresses DHCP must NOT assign."
+      }
+    },
+    {
+      "id": "netplus-nops-118",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "dns_dhcp_services",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Clients on VLAN 20 receive no address from the central DHCP server on VLAN 10 because their broadcast Discover never leaves the local subnet. Which configuration on the VLAN 20 gateway resolves this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A shorter lease duration"
+        },
+        {
+          "id": "B",
+          "text": "DHCP snooping on the uplink"
+        },
+        {
+          "id": "C",
+          "text": "A DHCP exclusion range on VLAN 20"
+        },
+        {
+          "id": "D",
+          "text": "An IP helper-address (DHCP relay) pointing to the DHCP server"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Routers do not forward broadcasts, so a DHCP relay / IP helper-address on the client-side gateway converts the broadcast Discover to a unicast and forwards it to the server across subnets.",
+        "distractors": {
+          "A": "Lease duration has no effect on whether requests reach the server across subnets.",
+          "B": "DHCP snooping is a security filter against rogue DHCP servers; it does not relay Discover messages.",
+          "C": "An exclusion merely withholds some addresses; it does not forward cross-subnet DHCP requests.",
+          "D": ""
+        },
+        "exam_pattern": "DHCP broadcast can't cross a router → configure IP helper-address (DHCP relay) on the client's gateway."
+      }
+    },
+    {
+      "id": "netplus-nops-119",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "dns_dhcp_services",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A workstation sends a query to its configured DNS server, which then performs the full lookup on the client's behalf — querying root, TLD, and other servers until it returns the final answer and caches it. In this exchange the client's DNS server is acting as what?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An authoritative name server"
+        },
+        {
+          "id": "B",
+          "text": "A recursive resolver"
+        },
+        {
+          "id": "C",
+          "text": "A root hint"
+        },
+        {
+          "id": "D",
+          "text": "A reverse-lookup zone"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A recursive resolver does the full legwork for the client (root → TLD → authoritative), returns the final answer, and caches it. The client itself makes only one (recursive) request.",
+        "distractors": {
+          "A": "An authoritative server holds and answers only for its own zone data; it does not chase the whole chain for clients.",
+          "B": "",
+          "C": "Root hints are the preconfigured addresses of the root servers a resolver starts from, not a role the server plays.",
+          "D": "A reverse-lookup zone maps IP addresses to names (PTR); it is a zone type, not this resolving behavior."
+        },
+        "exam_pattern": "Recursive resolver does the work (root→TLD→authoritative) and caches; authoritative answers only for its own zone."
+      }
+    },
+    {
+      "id": "netplus-nops-120",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "dns_dhcp_services",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization wants assurance that DNS responses are authentic and have not been forged or tampered with, using cryptographic signatures on the records. Which technology provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DNSSEC"
+        },
+        {
+          "id": "B",
+          "text": "A longer DHCP lease"
+        },
+        {
+          "id": "C",
+          "text": "A chain of CNAME aliases"
+        },
+        {
+          "id": "D",
+          "text": "Split-horizon (internal/external) DNS"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "DNSSEC digitally signs DNS records (RRSIG/DNSKEY/DS) so resolvers can validate that answers are authentic and unmodified, defeating spoofing/cache poisoning. Note it validates, it does not encrypt.",
+        "distractors": {
+          "A": "",
+          "B": "DHCP lease length is unrelated to DNS record authenticity.",
+          "C": "Chaining CNAMEs is only aliasing; it adds no authentication or integrity check.",
+          "D": "Split-horizon serves different answers to internal vs external clients but does not cryptographically sign or validate records."
+        },
+        "exam_pattern": "DNSSEC = signatures that validate record authenticity/integrity (not confidentiality — DoH/DoT handle encryption)."
+      }
+    },
+    {
+      "id": "netplus-nops-121",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "snmp_logging_np",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A security review requires that all SNMP management traffic be both authenticated AND encrypted. Which SNMP version must be deployed to meet this requirement?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SNMPv3"
+        },
+        {
+          "id": "B",
+          "text": "SNMPv2c"
+        },
+        {
+          "id": "C",
+          "text": "SNMPv1"
+        },
+        {
+          "id": "D",
+          "text": "SNMPv2c with a long community string"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Only SNMPv3 adds a security model with authentication (authNoPriv) and optional privacy/encryption (authPriv); it is the version required when SNMP must be authenticated and encrypted.",
+        "distractors": {
+          "A": "",
+          "B": "SNMPv2c relies on a cleartext community string — no real authentication framework and no encryption.",
+          "C": "SNMPv1 is the oldest version, also community-based and sent in cleartext.",
+          "D": "Lengthening a community string does not add authentication or encryption; it is still cleartext v2c."
+        },
+        "exam_pattern": "Authentication + encryption for SNMP = SNMPv3 (authPriv); v1/v2c use cleartext community strings."
+      }
+    },
+    {
+      "id": "netplus-nops-122",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "snmp_logging_np",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An administrator wants managed devices to IMMEDIATELY notify the SNMP manager the moment an interface goes down, instead of waiting for the next scheduled query. Which SNMP mechanism provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SNMP polling (manager-initiated GET requests)"
+        },
+        {
+          "id": "B",
+          "text": "A MIB walk"
+        },
+        {
+          "id": "C",
+          "text": "Syslog facility codes"
+        },
+        {
+          "id": "D",
+          "text": "SNMP traps (agent-initiated notifications)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A trap (or inform) is an unsolicited, agent-initiated message pushed to the manager the instant an event occurs, so notification is immediate rather than waiting for the next poll.",
+        "distractors": {
+          "A": "Polling is the manager querying agents on a schedule, so a failure is not seen until the next poll interval.",
+          "B": "A MIB walk retrieves a tree of OIDs on demand — still manager-initiated, not event-driven.",
+          "C": "Syslog facility codes categorize log sources; they are not an SNMP notification mechanism.",
+          "D": ""
+        },
+        "exam_pattern": "Trap/inform = agent pushes an event to the manager; GET/poll = manager pulls on a schedule."
+      }
+    },
+    {
+      "id": "netplus-nops-123",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "snmp_logging_np",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "While correlating syslog entries from many devices during an incident, the analyst finds the timestamps don't line up, making it impossible to order events. Which service should be deployed to fix this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NTP to synchronize device clocks to a common time source"
+        },
+        {
+          "id": "B",
+          "text": "A larger DHCP scope"
+        },
+        {
+          "id": "C",
+          "text": "A higher minimum syslog severity level"
+        },
+        {
+          "id": "D",
+          "text": "SNMPv3 on all devices"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Correlatable, orderable log timestamps require every device to share the same accurate clock, so all devices should sync to a common NTP time source.",
+        "distractors": {
+          "A": "",
+          "B": "DHCP scope size has nothing to do with the accuracy or alignment of log timestamps.",
+          "C": "Severity level only filters which messages are logged; it does not align clocks.",
+          "D": "SNMPv3 secures SNMP; it does not synchronize time for log timestamps."
+        },
+        "exam_pattern": "Consistent, correlatable log timestamps across devices = NTP (sync all devices to the same time source)."
+      }
+    },
+    {
+      "id": "netplus-nops-124",
+      "exam": "netplus",
+      "domain": "network_operations",
+      "subtopic": "snmp_logging_np",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In SNMP, a manager retrieves a value identified by a hierarchical numeric string (for example 1.3.6.1.2.1.1.3.0 for system uptime). What is this identifier called, and where is its definition stored?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A syslog facility, stored on the resolver"
+        },
+        {
+          "id": "B",
+          "text": "An OID, defined in a MIB"
+        },
+        {
+          "id": "C",
+          "text": "A community string, stored on the agent"
+        },
+        {
+          "id": "D",
+          "text": "A trap, stored on the manager"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The dotted-number string is an Object Identifier (OID) that uniquely addresses a managed object; the MIB is the database/definitions that describe those objects and their OIDs.",
+        "distractors": {
+          "A": "A syslog facility categorizes log messages and is unrelated to SNMP object naming.",
+          "B": "",
+          "C": "A community string is the shared password used by SNMP v1/v2c, not an object identifier.",
+          "D": "A trap is an unsolicited event notification, not the identifier of a polled value."
+        },
+        "exam_pattern": "MIB = the definitions/database; OID = the dotted-number address of a specific object; agent holds values, manager queries them."
+      }
+    },
+    {
+      "id": "netplus-nsec-101",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "security_concepts_np",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A network team needs a AAA protocol for device administration that encrypts the ENTIRE packet payload and separates authentication, authorization, and accounting so individual CLI commands can be authorized per administrator. Which protocol BEST fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Kerberos"
+        },
+        {
+          "id": "B",
+          "text": "TACACS+"
+        },
+        {
+          "id": "C",
+          "text": "LDAP"
+        },
+        {
+          "id": "D",
+          "text": "RADIUS"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "TACACS+ (TCP 49) encrypts the full packet body and treats authentication, authorization, and accounting as independent functions, which is why it is preferred for device administration and granular per-command authorization.",
+        "distractors": {
+          "A": "Kerberos is a ticket-based SSO authentication system, not a device-administration AAA protocol with per-command authorization.",
+          "B": "",
+          "C": "LDAP queries a directory for identity/attribute lookups; it is not an AAA protocol that authorizes administrative commands.",
+          "D": "RADIUS encrypts only the password in the Access-Request (not the whole packet), combines authentication and authorization, and uses UDP; it is common for network access (e.g., 802.1X) rather than per-command device admin."
+        },
+        "exam_pattern": "Encrypts the whole packet + separates A/A/A + per-command device admin = TACACS+ (TCP 49). Encrypts only the password + combines authn/authz + UDP = RADIUS."
+      }
+    },
+    {
+      "id": "netplus-nsec-102",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "security_concepts_np",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A security architecture assumes NO device or user is trusted by default — even on the internal LAN — and continuously verifies identity and posture for every access request before granting the minimum access needed. Which concept is being described?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Zero trust"
+        },
+        {
+          "id": "B",
+          "text": "Defense in depth"
+        },
+        {
+          "id": "C",
+          "text": "Implicit trust based on network location"
+        },
+        {
+          "id": "D",
+          "text": "Screened subnet (DMZ)"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Zero trust removes implicit trust tied to network location and requires continuous verification (identity, device posture, policy) for every request, granting only least-privilege access — 'never trust, always verify.'",
+        "distractors": {
+          "A": "",
+          "B": "Defense in depth layers multiple controls, but it does not by itself mandate per-request verification with no implicit trust; it is a complementary idea, not the one described.",
+          "C": "Trusting a host simply because it sits inside the perimeter is exactly the legacy model zero trust replaces.",
+          "D": "A screened subnet (DMZ) is a segmentation zone for public-facing servers, not an access-trust model."
+        },
+        "exam_pattern": "'Never trust, always verify,' no trust by location, continuous verification + least privilege = zero trust."
+      }
+    },
+    {
+      "id": "netplus-nsec-103",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "security_concepts_np",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Near a company office, an attacker stands up a wireless access point broadcasting the SAME SSID as the corporate WLAN, hoping employee devices associate to it so their traffic can be intercepted. Which attack is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Deauthentication attack"
+        },
+        {
+          "id": "B",
+          "text": "DNS poisoning"
+        },
+        {
+          "id": "C",
+          "text": "Evil twin"
+        },
+        {
+          "id": "D",
+          "text": "Rogue DHCP server"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "An evil twin is a malicious access point that impersonates a legitimate SSID so victims connect to it, letting the attacker capture or manipulate their traffic.",
+        "distractors": {
+          "A": "A deauthentication attack sends spoofed 802.11 deauth frames to knock clients off a network; it can precede an evil twin but is not the impersonating AP itself.",
+          "B": "DNS poisoning corrupts name-resolution responses to redirect by hostname, not by spoofing a Wi-Fi SSID.",
+          "C": "",
+          "D": "A rogue DHCP server hands out malicious IP configuration on a wired/wireless segment; it does not impersonate an SSID to lure associations."
+        },
+        "exam_pattern": "Malicious AP broadcasting a legitimate SSID to lure clients = evil twin."
+      }
+    },
+    {
+      "id": "netplus-nsec-104",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "security_concepts_np",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "From an access port in VLAN 10, an attacker crafts a frame with TWO stacked 802.1Q tags. The first switch strips the outer (native VLAN) tag and forwards the frame on a trunk; the inner tag then steers it into VLAN 20, which the attacker should not reach. Which attack is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DHCP starvation"
+        },
+        {
+          "id": "B",
+          "text": "VLAN hopping via double tagging"
+        },
+        {
+          "id": "C",
+          "text": "ARP spoofing"
+        },
+        {
+          "id": "D",
+          "text": "MAC flooding"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Double-tagging VLAN hopping abuses the native VLAN: the first switch removes the outer tag and the remaining inner tag delivers the frame into a VLAN the attacker is not a member of.",
+        "distractors": {
+          "A": "DHCP starvation exhausts a DHCP scope with spoofed requests; it is an availability attack on addressing, not VLAN traversal.",
+          "B": "",
+          "C": "ARP spoofing forges IP-to-MAC bindings for on-path interception, operating within a VLAN rather than hopping between VLANs via tagging.",
+          "D": "MAC flooding overwhelms the switch CAM table to force unknown-unicast flooding; it does not use stacked tags to cross VLANs."
+        },
+        "exam_pattern": "Stacked 802.1Q tags exploiting the native VLAN = double-tagging VLAN hopping. Mitigate by assigning the native VLAN to an unused VLAN and disabling auto-trunking."
+      }
+    },
+    {
+      "id": "netplus-nsec-105",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "security_concepts_np",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company hosts public web and email servers that Internet users must reach, but it does NOT want inbound Internet traffic to touch the internal LAN. Where should these servers be placed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "On the internal user LAN alongside workstations"
+        },
+        {
+          "id": "B",
+          "text": "In a screened subnet (DMZ) between the Internet and the internal network"
+        },
+        {
+          "id": "C",
+          "text": "On the out-of-band management network"
+        },
+        {
+          "id": "D",
+          "text": "Directly on the Internet with public IPs and no firewall"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A screened subnet (DMZ) is an isolated segment for public-facing servers: firewall policy permits the needed inbound traffic to the DMZ while blocking that traffic from reaching the trusted internal LAN.",
+        "distractors": {
+          "A": "Placing public servers on the internal LAN exposes workstations and internal resources to Internet-originated traffic — the opposite of the requirement.",
+          "B": "",
+          "C": "The out-of-band management network is a protected admin-only path for managing devices, not a place to publish public services.",
+          "D": "Putting servers directly on the Internet with no firewall removes all protection and segmentation."
+        },
+        "exam_pattern": "Public-facing servers reachable from the Internet but isolated from the LAN = screened subnet (DMZ)."
+      }
+    },
+    {
+      "id": "netplus-nsec-106",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "network_hardening",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Clients on an access switch intermittently receive IP addresses and a default gateway from an unauthorized device plugged into a user port. The admin wants the switch to accept DHCP server replies (OFFER/ACK) ONLY from the uplink toward the real DHCP server and drop them on all user ports. Which feature does this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "BPDU guard"
+        },
+        {
+          "id": "B",
+          "text": "Dynamic ARP inspection"
+        },
+        {
+          "id": "C",
+          "text": "DHCP snooping"
+        },
+        {
+          "id": "D",
+          "text": "Port security"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "DHCP snooping marks ports as trusted or untrusted; DHCP server messages are permitted only on trusted ports (the legitimate uplink) and dropped on untrusted user ports, defeating rogue DHCP servers. It also builds a binding table of IP-to-MAC/port.",
+        "distractors": {
+          "A": "BPDU guard protects spanning tree by disabling a port that receives unexpected BPDUs; it is unrelated to DHCP.",
+          "B": "Dynamic ARP inspection validates ARP packets against the snooping binding table; it mitigates ARP spoofing, not rogue DHCP replies.",
+          "C": "",
+          "D": "Port security restricts which MAC addresses may use a port; it does not distinguish legitimate from rogue DHCP server traffic."
+        },
+        "exam_pattern": "Block rogue DHCP by trusting only the real server's port = DHCP snooping (it also feeds the binding table used by DAI and IP Source Guard)."
+      }
+    },
+    {
+      "id": "netplus-nsec-107",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "network_hardening",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "After an ARP spoofing incident, a network engineer wants switches to intercept ARP packets on untrusted ports and DROP any whose IP-to-MAC binding does not match a known-good table. Which feature provides this, and what does it depend on?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An extended ACL applied to the SVI"
+        },
+        {
+          "id": "B",
+          "text": "Dynamic ARP inspection, using the DHCP snooping binding table"
+        },
+        {
+          "id": "C",
+          "text": "Port security with sticky MAC learning"
+        },
+        {
+          "id": "D",
+          "text": "DHCP snooping alone"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Dynamic ARP inspection (DAI) validates each ARP packet on untrusted ports against the DHCP snooping binding table (or static ARP ACLs) and discards packets with a forged IP-to-MAC mapping, stopping ARP spoofing/poisoning.",
+        "distractors": {
+          "A": "An ACL filters IP traffic by addresses/ports/protocols; ARP is a Layer 2 protocol that standard/extended IP ACLs do not evaluate.",
+          "B": "",
+          "C": "Port security limits MAC addresses per port; it does not verify the IP-to-MAC binding carried inside ARP messages.",
+          "D": "DHCP snooping builds the binding table DAI relies on but does not itself inspect or drop ARP packets."
+        },
+        "exam_pattern": "Drop forged ARP by checking the IP-to-MAC binding = Dynamic ARP Inspection, which depends on the DHCP snooping binding table."
+      }
+    },
+    {
+      "id": "netplus-nsec-108",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "network_hardening",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "To remotely manage switches and routers over an ENCRYPTED session and eliminate clear-text credentials crossing the network, an administrator should disable Telnet and enable which protocol?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Telnet on a nonstandard port"
+        },
+        {
+          "id": "B",
+          "text": "SNMPv2c"
+        },
+        {
+          "id": "C",
+          "text": "HTTP"
+        },
+        {
+          "id": "D",
+          "text": "SSH"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "SSH (TCP 22) encrypts the entire management session, including credentials, and is the secure replacement for Telnet, which sends everything in clear text.",
+        "distractors": {
+          "A": "Changing Telnet's port does not add encryption — the session is still clear text and credentials remain exposed.",
+          "B": "SNMPv2c is a monitoring protocol and uses clear-text community strings; it is not an encrypted interactive management session and does not replace Telnet.",
+          "C": "HTTP is a clear-text management/web protocol; HTTPS would be the encrypted option, not HTTP.",
+          "D": ""
+        },
+        "exam_pattern": "Replace clear-text Telnet (TCP 23) with encrypted SSH (TCP 22) for device management."
+      }
+    },
+    {
+      "id": "netplus-nsec-109",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "network_hardening",
+      "difficulty": 2,
+      "type": "multi",
+      "select_count": 2,
+      "stem": "A technician is hardening a newly installed access switch before connecting it to the production network. Which TWO actions are hardening best practices? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Administratively disable unused switchports"
+        },
+        {
+          "id": "B",
+          "text": "Leave every port in the default VLAN 1 for simplicity"
+        },
+        {
+          "id": "C",
+          "text": "Enable Telnet so remote access is easier"
+        },
+        {
+          "id": "D",
+          "text": "Configure SNMPv1 with the community string 'public'"
+        },
+        {
+          "id": "E",
+          "text": "Change the default administrator username and password"
+        }
+      ],
+      "correct": [
+        "A",
+        "E"
+      ],
+      "explanation": {
+        "correct": "Replacing default credentials removes a well-known, easily guessed entry point, and disabling unused ports shrinks the attack surface so an intruder cannot simply plug in to an open live port.",
+        "distractors": {
+          "A": "",
+          "B": "Leaving hosts in VLAN 1 (the default/native VLAN) is discouraged; unused ports and the native VLAN should be moved off VLAN 1 to limit exposure.",
+          "C": "Telnet is clear text; enabling it weakens the device — SSH should be used instead.",
+          "D": "SNMPv1 with the default 'public' community sends clear-text, well-known credentials; SNMPv3 (authenticated/encrypted) is the hardened choice.",
+          "E": ""
+        },
+        "exam_pattern": "New-device hardening staples: change default credentials, disable unused ports, use SSH/SNMPv3, and avoid default VLAN 1."
+      }
+    },
+    {
+      "id": "netplus-nsec-110",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "network_hardening",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A design requires that administrators can still reach device consoles to manage and recover equipment even when the production data network is saturated or down. Management traffic rides a separate, dedicated path via console/management ports. What is this approach called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Port mirroring (SPAN)"
+        },
+        {
+          "id": "B",
+          "text": "In-band management"
+        },
+        {
+          "id": "C",
+          "text": "Split tunneling"
+        },
+        {
+          "id": "D",
+          "text": "Out-of-band (OOB) management"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Out-of-band management uses a separate, dedicated channel (console servers, dedicated management ports, sometimes a cellular/modem path) so devices remain reachable even if the production network is unavailable.",
+        "distractors": {
+          "A": "Port mirroring (SPAN) copies traffic to a monitoring port for analysis; it is not a management access method.",
+          "B": "In-band management shares the production data network — exactly what fails when that network is down or congested.",
+          "C": "Split tunneling is a VPN client setting that sends only some traffic through the tunnel; it is unrelated to a dedicated management path.",
+          "D": ""
+        },
+        "exam_pattern": "Separate dedicated path that works when the data network is down = out-of-band management; sharing the production network = in-band."
+      }
+    },
+    {
+      "id": "netplus-nsec-111",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "remote_access",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company wants to permanently link the LANs of its headquarters and a branch office across the Internet so hosts at both sites communicate as if on one network. The tunnel is terminated by each site's edge firewall/router, not by individual user devices. Which solution is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A host-to-host (transport-mode) tunnel between two servers"
+        },
+        {
+          "id": "B",
+          "text": "A site-to-site VPN"
+        },
+        {
+          "id": "C",
+          "text": "A clientless SSL VPN portal"
+        },
+        {
+          "id": "D",
+          "text": "A client-to-site (remote-access) VPN"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A site-to-site VPN joins two networks through a persistent tunnel between their edge gateways; end hosts need no VPN software because the gateways encrypt/decrypt on their behalf.",
+        "distractors": {
+          "A": "A host-to-host tunnel secures traffic between two specific endpoints, not the full LANs behind two gateways.",
+          "B": "",
+          "C": "A clientless SSL VPN gives an individual user browser-based access to specific apps — it does not bridge two site LANs.",
+          "D": "A client-to-site VPN connects a single user's device into the network, not two whole LANs via their gateways."
+        },
+        "exam_pattern": "Two whole sites joined gateway-to-gateway = site-to-site VPN; a single user's device dialing in = client-to-site."
+      }
+    },
+    {
+      "id": "netplus-nsec-112",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "remote_access",
+      "difficulty": 3,
+      "type": "multi",
+      "select_count": 2,
+      "stem": "A remote-access VPN is configured for SPLIT tunneling. Which TWO statements correctly describe its behavior? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Split tunneling blocks the client from reaching any local LAN device such as a home printer."
+        },
+        {
+          "id": "B",
+          "text": "Split tunneling encrypts the client's traffic at the physical layer."
+        },
+        {
+          "id": "C",
+          "text": "Traffic destined for corporate subnets is sent through the encrypted VPN tunnel."
+        },
+        {
+          "id": "D",
+          "text": "All client traffic, including general web browsing, is forced through the corporate network for inspection."
+        },
+        {
+          "id": "E",
+          "text": "Internet-bound traffic leaves the client's local connection without traversing the corporate gateway."
+        }
+      ],
+      "correct": [
+        "C",
+        "E"
+      ],
+      "explanation": {
+        "correct": "With split tunneling, only traffic bound for corporate resources is routed into the encrypted tunnel; everything else (general Internet traffic) exits the client's local connection directly, reducing load on the corporate gateway.",
+        "distractors": {
+          "A": "Split tunneling actually allows reaching local LAN devices, since local/Internet traffic is not pulled into the tunnel.",
+          "B": "VPNs protect traffic with encryption at Layer 3 (e.g., IPsec) or the session layer (SSL/TLS), not at the physical layer.",
+          "C": "",
+          "D": "Forcing ALL traffic through the corporate gateway describes FULL tunneling, the opposite of split tunneling.",
+          "E": ""
+        },
+        "exam_pattern": "Split tunnel = corporate traffic in the tunnel, Internet traffic direct. Full tunnel = everything through the corporate gateway."
+      }
+    },
+    {
+      "id": "netplus-nsec-113",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "remote_access",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In an IPsec VPN, which component provides CONFIDENTIALITY by encrypting the packet payload (in addition to integrity and authentication)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Encapsulating Security Payload (ESP)"
+        },
+        {
+          "id": "B",
+          "text": "Generic Routing Encapsulation (GRE)"
+        },
+        {
+          "id": "C",
+          "text": "Authentication Header (AH)"
+        },
+        {
+          "id": "D",
+          "text": "Internet Key Exchange (IKE)"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "ESP (IP protocol 50) encrypts the payload to provide confidentiality, and can also provide integrity and authentication — it is the IPsec component that actually encrypts the data.",
+        "distractors": {
+          "A": "",
+          "B": "GRE is a tunneling/encapsulation protocol with no built-in encryption; it needs IPsec to add confidentiality.",
+          "C": "AH (IP protocol 51) provides integrity and authentication only; it does NOT encrypt the payload, so it offers no confidentiality.",
+          "D": "IKE (UDP 500/4500) negotiates the security associations and keys; it sets up the tunnel but is not what encrypts the ongoing data payload."
+        },
+        "exam_pattern": "Encryption/confidentiality in IPsec = ESP. AH = integrity/authentication only (no encryption). IKE = key exchange / SA negotiation."
+      }
+    },
+    {
+      "id": "netplus-nsec-114",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "remote_access",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A help-desk technician needs to connect to the full graphical desktop of a remote Windows server to run GUI management tools. Which native Microsoft protocol and port are used?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SSH over TCP 22"
+        },
+        {
+          "id": "B",
+          "text": "RDP over TCP 3389"
+        },
+        {
+          "id": "C",
+          "text": "VNC over TCP 5900"
+        },
+        {
+          "id": "D",
+          "text": "Telnet over TCP 23"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Remote Desktop Protocol (RDP) is Microsoft's native remote-GUI protocol and listens on TCP 3389.",
+        "distractors": {
+          "A": "SSH (TCP 22) provides an encrypted command-line session, typically to Linux/Unix hosts and network devices — not a Windows graphical desktop.",
+          "B": "",
+          "C": "VNC does offer a remote GUI and uses TCP 5900, but it is a cross-platform third-party protocol, not Microsoft's native protocol, and it is not on 3389.",
+          "D": "Telnet (TCP 23) is an unencrypted text/CLI protocol, not a graphical remote desktop."
+        },
+        "exam_pattern": "Windows remote graphical desktop = RDP, TCP 3389. SSH 22 = secure CLI; VNC 5900 = cross-platform GUI; Telnet 23 = clear-text CLI."
+      }
+    },
+    {
+      "id": "netplus-nsec-115",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "remote_access",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To administer servers in a protected subnet, administrators must first connect to a single hardened host positioned between the admin network and the secure zone; all management sessions are funneled and logged through it. What is this host called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A RADIUS server"
+        },
+        {
+          "id": "B",
+          "text": "A forward proxy server"
+        },
+        {
+          "id": "C",
+          "text": "A honeypot"
+        },
+        {
+          "id": "D",
+          "text": "A jump box (bastion host)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A jump box (bastion host) is a single hardened, closely monitored system used as the controlled entry point for administering devices in a secure zone, concentrating and logging all management access.",
+        "distractors": {
+          "A": "A RADIUS server performs AAA for network access; it authenticates users but is not the pivot host through which admins connect.",
+          "B": "A forward proxy relays user requests (typically outbound web traffic) on their behalf; it is not a hardened administrative pivot host.",
+          "C": "A honeypot is a decoy system meant to attract and study attackers, not a sanctioned admin gateway.",
+          "D": ""
+        },
+        "exam_pattern": "Single hardened pivot/entry host for reaching a secure zone = jump box / bastion host."
+      }
+    },
+    {
+      "id": "netplus-nsec-116",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "physical_security_np",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A server-room door is secured with a fingerprint scanner, so entry depends on a physical trait that cannot be lost, shared, or easily duplicated. This access control is BEST described as which authentication factor?",
+      "options": [
+        {
+          "id": "A",
+          "text": "PIN/cipher lock — something you know"
+        },
+        {
+          "id": "B",
+          "text": "Proximity card — something you have"
+        },
+        {
+          "id": "C",
+          "text": "Biometric — something you are"
+        },
+        {
+          "id": "D",
+          "text": "Asset tag — something you are assigned"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A fingerprint (or retina/face) scanner is biometric authentication — the 'something you are' factor — tied to a unique physical trait that cannot be handed to someone else.",
+        "distractors": {
+          "A": "A PIN or cipher-lock code is 'something you know' and can be shared or shoulder-surfed.",
+          "B": "A proximity card is 'something you have'; it can be lost, stolen, or cloned, so it is not the trait-based factor described.",
+          "C": "",
+          "D": "An asset tag labels equipment for inventory; it is not a personal authentication factor at all."
+        },
+        "exam_pattern": "Fingerprint/retina/face at a door = biometric, the 'something you are' factor."
+      }
+    },
+    {
+      "id": "netplus-nsec-117",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "physical_security_np",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Management wants to continuously monitor and RECORD who is physically present at the data center entrances so any incident can be reviewed afterward. Which physical security control BEST meets this need?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Motion-activated security lighting"
+        },
+        {
+          "id": "B",
+          "text": "Bollards at the entrance"
+        },
+        {
+          "id": "C",
+          "text": "An access control vestibule (mantrap)"
+        },
+        {
+          "id": "D",
+          "text": "Security cameras (CCTV/video surveillance)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Security cameras (CCTV) continuously capture and store video of entrances, providing a detective record that can be reviewed after an incident (and a visible deterrent).",
+        "distractors": {
+          "A": "Motion-activated lighting improves visibility and deters intruders but records nothing for later review.",
+          "B": "Bollards block vehicles from an entrance; they neither monitor nor record people.",
+          "C": "An access control vestibule prevents tailgating by admitting one person at a time, but it does not create a reviewable visual record of who was present.",
+          "D": ""
+        },
+        "exam_pattern": "Continuously record/monitor who is present for later review = security cameras (CCTV)."
+      }
+    },
+    {
+      "id": "netplus-nsec-118",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "physical_security_np",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A facility wants to stop a vehicle from being driven through the glass doors of its lobby entrance while still allowing pedestrians to walk through. Which physical control is MOST appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Perimeter fencing"
+        },
+        {
+          "id": "B",
+          "text": "An access control vestibule"
+        },
+        {
+          "id": "C",
+          "text": "Security lighting"
+        },
+        {
+          "id": "D",
+          "text": "Bollards"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Bollards are short, sturdy posts set in front of an entrance to physically block vehicles from ramming through while still letting people walk between them.",
+        "distractors": {
+          "A": "Perimeter fencing marks and deters access at the property boundary but is not what protects a specific pedestrian doorway from a vehicle.",
+          "B": "An access control vestibule controls people tailgating through a door — it is not designed to stop a vehicle.",
+          "C": "Security lighting improves visibility and deters intruders; it provides no physical barrier to a vehicle.",
+          "D": ""
+        },
+        "exam_pattern": "Stop a vehicle at an entrance while allowing foot traffic = bollards."
+      }
+    },
+    {
+      "id": "netplus-nsec-119",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "physical_security_np",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An IT department attaches scannable RFID/barcode labels to every switch, router, and laptop so equipment can be inventoried and, if it leaves the building, identified as company property. What are these labels called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Smart lockers"
+        },
+        {
+          "id": "B",
+          "text": "Tamper-evident seals"
+        },
+        {
+          "id": "C",
+          "text": "Proximity badges"
+        },
+        {
+          "id": "D",
+          "text": "Asset tags"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Asset tags are labels (often RFID or barcode) applied to equipment for inventory tracking and to mark ownership, aiding accountability and theft identification.",
+        "distractors": {
+          "A": "Smart lockers securely store or hand off devices/packages; they are not labels affixed to equipment.",
+          "B": "Tamper-evident seals reveal whether a device has been opened or tampered with — a different purpose from inventory/ownership tracking.",
+          "C": "Proximity badges authenticate people at doors; they do not inventory equipment.",
+          "D": ""
+        },
+        "exam_pattern": "Labels for inventory and ownership tracking of equipment = asset tags."
+      }
+    },
+    {
+      "id": "netplus-nsec-120",
+      "exam": "netplus",
+      "domain": "network_security",
+      "subtopic": "physical_security_np",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company wants to know whether anyone has physically OPENED the chassis of a deployed network appliance in a remote closet. Which control BEST provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A proximity card reader on the closet door"
+        },
+        {
+          "id": "B",
+          "text": "An asset tag"
+        },
+        {
+          "id": "C",
+          "text": "Tamper detection (tamper-evident seals/sensors)"
+        },
+        {
+          "id": "D",
+          "text": "A cable lock"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Tamper detection — tamper-evident seals or tamper switches/sensors — makes unauthorized opening of a device visible or logs it, so technicians can tell the chassis was accessed.",
+        "distractors": {
+          "A": "A card reader controls who enters the closet; it does not detect tampering with the device itself once someone is inside.",
+          "B": "An asset tag identifies ownership and aids inventory; it does not indicate whether the device was opened.",
+          "C": "",
+          "D": "A cable lock deters theft of the device but does not reveal that the chassis was opened."
+        },
+        "exam_pattern": "Reveal that a device chassis was opened = tamper detection (seals/sensors)."
+      }
+    },
+    {
+      "id": "netplus-nt-101",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "troubleshooting_methodology",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A ticket states only 'the internet is down.' Before changing anything, the technician interviews the user, asks what recently changed, and tries to reproduce the failure. Which step of the CompTIA methodology is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Identify the problem"
+        },
+        {
+          "id": "B",
+          "text": "Establish a theory of probable cause"
+        },
+        {
+          "id": "C",
+          "text": "Test the theory to determine the cause"
+        },
+        {
+          "id": "D",
+          "text": "Verify full system functionality"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Step 1, identify the problem, is where you gather information, question users, determine what changed, and duplicate the problem if possible.",
+        "distractors": {
+          "A": "",
+          "B": "Establishing a theory (step 2) comes only after you have identified and scoped the problem.",
+          "C": "Testing the theory (step 3) requires a theory to test, which does not exist yet.",
+          "D": "Verifying full functionality (step 6) happens after a fix is implemented."
+        },
+        "exam_pattern": "Gather info / question users / ask what changed / duplicate = Step 1, Identify the problem."
+      }
+    },
+    {
+      "id": "netplus-nt-102",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "troubleshooting_methodology",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A technician has implemented a fix and the application now responds. According to the CompTIA methodology, what should be done BEFORE documenting the outcome?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Verify full system functionality and, if applicable, implement preventive measures"
+        },
+        {
+          "id": "B",
+          "text": "Escalate the issue to the vendor"
+        },
+        {
+          "id": "C",
+          "text": "Identify the problem and question users"
+        },
+        {
+          "id": "D",
+          "text": "Establish a theory of probable cause"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Step 6 is verify full system functionality and implement preventive measures; documentation (step 7) is the final step, after verification.",
+        "distractors": {
+          "A": "",
+          "B": "Escalation belongs to step 5 (implement the solution OR escalate), not after a successful fix.",
+          "C": "Identifying the problem is step 1, the very beginning of the process.",
+          "D": "Establishing a theory is step 2, long before a fix is implemented."
+        },
+        "exam_pattern": "After the fix, VERIFY (step 6) before you DOCUMENT (step 7)."
+      }
+    },
+    {
+      "id": "netplus-nt-103",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "troubleshooting_methodology",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "While testing a theory of probable cause, the technician proves the theory is wrong. According to the CompTIA methodology, what is the correct NEXT action?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Implement the original solution anyway and watch for results"
+        },
+        {
+          "id": "B",
+          "text": "Verify full system functionality"
+        },
+        {
+          "id": "C",
+          "text": "Document that the problem cannot be solved"
+        },
+        {
+          "id": "D",
+          "text": "Establish a new theory or escalate"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "If testing does not confirm the theory, the methodology says to establish a new theory (reattempt step 2) or escalate to someone with more expertise.",
+        "distractors": {
+          "A": "Implementing a fix for a disproven theory is premature; you have not found the cause.",
+          "B": "Verification occurs only after a solution has actually been implemented.",
+          "C": "A disproven theory does not mean the problem is unsolvable; you form another theory.",
+          "D": ""
+        },
+        "exam_pattern": "Theory confirmed -> plan/implement. Theory NOT confirmed -> new theory or escalate."
+      }
+    },
+    {
+      "id": "netplus-nt-104",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "troubleshooting_methodology",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "When establishing a theory of probable cause, a technician deliberately begins at Layer 1 (check the cable and link) and works upward through the OSI model. What is this approach called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The bottom-to-top OSI approach"
+        },
+        {
+          "id": "B",
+          "text": "Divide and conquer"
+        },
+        {
+          "id": "C",
+          "text": "The top-to-bottom OSI approach"
+        },
+        {
+          "id": "D",
+          "text": "Escalation"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Starting at the physical layer and moving up toward the application layer is the bottom-to-top (bottom-up) OSI troubleshooting approach.",
+        "distractors": {
+          "A": "",
+          "B": "Divide and conquer starts at a middle layer and moves up or down based on results.",
+          "C": "Top-to-bottom starts at the application layer and works DOWN toward the physical layer.",
+          "D": "Escalation is handing the issue to higher-tier support, not an OSI testing strategy."
+        },
+        "exam_pattern": "Layer 1 upward = bottom-to-top; Layer 7 downward = top-to-bottom; start in the middle = divide and conquer."
+      }
+    },
+    {
+      "id": "netplus-nt-105",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "troubleshooting_methodology",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "Which activities belong to Step 1, 'Identify the problem,' of the CompTIA troubleshooting methodology? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Determine whether anything has recently changed"
+        },
+        {
+          "id": "B",
+          "text": "Submit a final root-cause report to management"
+        },
+        {
+          "id": "C",
+          "text": "Implement preventive measures"
+        },
+        {
+          "id": "D",
+          "text": "Question users and gather information about the symptoms"
+        }
+      ],
+      "correct": [
+        "A",
+        "D"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "Step 1 includes gathering information, questioning users, identifying symptoms, determining if anything changed, and duplicating the problem if possible.",
+        "distractors": {
+          "A": "",
+          "B": "Reporting/documenting findings and outcomes is step 7, the final step.",
+          "C": "Implementing preventive measures is part of step 6 (verify full system functionality).",
+          "D": ""
+        },
+        "exam_pattern": "Identify the problem = ask users, find symptoms, ask what changed, duplicate the issue."
+      }
+    },
+    {
+      "id": "netplus-nt-106",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "cabling_issues",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A copper patch cable passes a basic wiremap/continuity test showing all eight pins connected end-to-end, yet gigabit links on it suffer excessive crosstalk and errors. Which wiring fault is MOST likely?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Split pairs"
+        },
+        {
+          "id": "B",
+          "text": "Exceeding the 100-meter limit"
+        },
+        {
+          "id": "C",
+          "text": "An open on pin 1"
+        },
+        {
+          "id": "D",
+          "text": "A short between two conductors"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Split pairs keep correct pin-to-pin continuity (so a basic wiremap tester passes) but break the twisted-pair pairing, so near-end crosstalk (NEXT) rises and high-speed links fail. A cable certifier is needed to detect it.",
+        "distractors": {
+          "A": "",
+          "B": "A distance problem is a loss/attenuation issue unrelated to a cable that tests continuous but has high crosstalk.",
+          "C": "An open conductor breaks continuity on that pin, so a wiremap tester would flag it, not pass.",
+          "D": "A short also fails the continuity test and typically shows as connected pins that should not be."
+        },
+        "exam_pattern": "Continuity test PASSES but crosstalk is high = split pairs (only a certifier catches it)."
+      }
+    },
+    {
+      "id": "netplus-nt-107",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "cabling_issues",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An uplink between two switches uses single-mode (SMF) transceivers, but a technician patches it with multimode (MMF) fiber jumpers. The link will not come up or shows very high optical loss. What is the problem?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The jumpers are too short for the transceivers"
+        },
+        {
+          "id": "B",
+          "text": "Auto-MDIX is disabled on the switches"
+        },
+        {
+          "id": "C",
+          "text": "The transceivers need a crossover adapter"
+        },
+        {
+          "id": "D",
+          "text": "Fiber type mismatch - single-mode optics require single-mode fiber"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Single-mode optics are built for the ~9-micron SMF core; forcing their signal through a 50/62.5-micron multimode core causes severe loss and a failed link. Match fiber type to the optics.",
+        "distractors": {
+          "A": "Jumper length does not cause a type mismatch; a too-short cord simply would not reach.",
+          "B": "Auto-MDIX concerns copper TX/RX crossover, not fiber-mode compatibility.",
+          "C": "Crossover adapters relate to copper straight/crossover wiring, not single-mode vs multimode fiber.",
+          "D": ""
+        },
+        "exam_pattern": "SMF optics + MMF cord (or vice versa) = fiber type mismatch, huge loss or no link."
+      }
+    },
+    {
+      "id": "netplus-nt-108",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "cabling_issues",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A UTP run is bundled tightly alongside fluorescent light ballasts and power conduit. The link shows intermittent errors that get worse whenever the lights are on. Which cabling issue is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Attenuation"
+        },
+        {
+          "id": "B",
+          "text": "A duplex mismatch"
+        },
+        {
+          "id": "C",
+          "text": "Electromagnetic interference (EMI)"
+        },
+        {
+          "id": "D",
+          "text": "An open circuit"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Power conduit and fluorescent ballasts emit electromagnetic fields that induce noise into unshielded twisted pair. The correlation with the lights is the tell. Reroute with separation or use shielded cable.",
+        "distractors": {
+          "A": "Attenuation is signal loss over distance; it is constant and not tied to whether the lights are on.",
+          "B": "A duplex mismatch causes collisions and CRC errors regardless of nearby lighting.",
+          "C": "",
+          "D": "An open circuit breaks the link entirely rather than causing intermittent, light-correlated errors."
+        },
+        "exam_pattern": "Errors that track with nearby power/lighting = EMI; separate cables or use STP."
+      }
+    },
+    {
+      "id": "netplus-nt-109",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "cabling_issues",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A fiber link that worked at install begins showing increased optical loss and intermittent errors after a patch cord was repeatedly unplugged and reseated. Inspection shows contamination on the ferrule end-face. What is the BEST action?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Increase the MTU on both ends"
+        },
+        {
+          "id": "B",
+          "text": "Force the interface to half-duplex"
+        },
+        {
+          "id": "C",
+          "text": "Clean the fiber connector end-faces with proper fiber-cleaning tools"
+        },
+        {
+          "id": "D",
+          "text": "Replace the switch power supply"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A dirty fiber connector is one of the most common causes of optical loss. Inspecting and cleaning the end-face with the correct tools restores the link before considering hardware swaps.",
+        "distractors": {
+          "A": "MTU affects frame size, not optical signal level on a dirty connector.",
+          "B": "Duplex settings are a copper/negotiation concept and do not fix a contaminated fiber end-face.",
+          "C": "",
+          "D": "A power-supply fault would not produce localized contamination-related optical loss on one link."
+        },
+        "exam_pattern": "Rising fiber loss after reseating + visible contamination = dirty connector; clean it first."
+      }
+    },
+    {
+      "id": "netplus-nt-110",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "cabling_issues",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A patch cable was terminated with the T568A standard on one end and T568B on the other. On legacy equipment without Auto-MDIX, what is the effect of this cable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It behaves as a crossover cable, swapping the transmit and receive pairs"
+        },
+        {
+          "id": "B",
+          "text": "It automatically exceeds the 100-meter limit"
+        },
+        {
+          "id": "C",
+          "text": "It creates a short across all four pairs"
+        },
+        {
+          "id": "D",
+          "text": "It converts the copper link into single-mode fiber"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Mixing T568A on one end with T568B on the other swaps pairs 2 and 3, which produces a crossover cable - transmit and receive are crossed. Without Auto-MDIX that is wrong for a host-to-switch run.",
+        "distractors": {
+          "A": "",
+          "B": "Pinout has nothing to do with cable length or the 100-meter channel limit.",
+          "C": "Different termination standards do not short conductors together; each pin still maps to one pin.",
+          "D": "Termination standards apply to copper; they cannot turn a cable into fiber."
+        },
+        "exam_pattern": "T568A on one end + T568B on the other = a crossover (TX/RX swapped)."
+      }
+    },
+    {
+      "id": "netplus-nt-111",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "connectivity_tools",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A long-haul fiber link has failed, and the technician needs to find the distance to a break or high-loss event along the fiber. Which tool is designed for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A multimeter"
+        },
+        {
+          "id": "B",
+          "text": "A tone generator and probe"
+        },
+        {
+          "id": "C",
+          "text": "An OTDR (optical time-domain reflectometer)"
+        },
+        {
+          "id": "D",
+          "text": "A loopback plug"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "An OTDR sends light pulses down the fiber and times the reflected light, mapping splices, bends, and breaks and reporting the distance to each event.",
+        "distractors": {
+          "A": "A multimeter measures electrical values (voltage/resistance), not optical fiber faults.",
+          "B": "A tone generator and probe traces copper cables, not faults on fiber.",
+          "C": "",
+          "D": "A loopback plug tests a local port or interface; it cannot locate a fiber break by distance."
+        },
+        "exam_pattern": "Distance-to-fault on fiber = OTDR."
+      }
+    },
+    {
+      "id": "netplus-nt-112",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "connectivity_tools",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A technician suspects a fiber link's received signal is too weak and wants to measure the actual received optical power in dBm to compare against the transceiver's power budget. Which tool should be used?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A protocol analyzer"
+        },
+        {
+          "id": "B",
+          "text": "An optical power meter (light meter)"
+        },
+        {
+          "id": "C",
+          "text": "A copper cable certifier"
+        },
+        {
+          "id": "D",
+          "text": "An OTDR"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "An optical power meter reads absolute received power in dBm at a point, which is exactly what you compare to the transceiver's receive-sensitivity budget.",
+        "distractors": {
+          "A": "A protocol analyzer decodes captured packets; it has no visibility into optical power levels.",
+          "B": "",
+          "C": "A copper cable certifier measures twisted-pair parameters and cannot read optical power.",
+          "D": "An OTDR characterizes the fiber and locates events via backscatter; it is not the simple end-to-end dBm power reading."
+        },
+        "exam_pattern": "Read received optical power in dBm = optical power/light meter; find the fault location = OTDR."
+      }
+    },
+    {
+      "id": "netplus-nt-113",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "connectivity_tools",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Users in one area report slow, dropping Wi-Fi, and the technician suspects nearby access points are using overlapping 2.4 GHz channels. Which tool BEST confirms channel usage and overlap?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A tone generator and probe"
+        },
+        {
+          "id": "B",
+          "text": "A Wi-Fi analyzer"
+        },
+        {
+          "id": "C",
+          "text": "A loopback plug"
+        },
+        {
+          "id": "D",
+          "text": "A copper cable tester"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A Wi-Fi analyzer shows which channels nearby SSIDs occupy, their signal strength, and overlap, letting you pick non-overlapping channels (1, 6, 11 in 2.4 GHz).",
+        "distractors": {
+          "A": "A tone generator and probe traces physical copper cables, not wireless channels.",
+          "B": "",
+          "C": "A loopback plug tests a wired port, not wireless spectrum usage.",
+          "D": "A copper cable tester checks wired continuity/wiremap, irrelevant to RF channel overlap."
+        },
+        "exam_pattern": "Channel overlap / interference / signal strength survey = Wi-Fi analyzer."
+      }
+    },
+    {
+      "id": "netplus-nt-114",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "connectivity_tools",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An application intermittently fails, and the team must inspect the actual packets, TCP handshakes, and retransmissions on the wire to find the cause. Which tool is MOST appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A protocol analyzer / packet capture (e.g., Wireshark or tcpdump)"
+        },
+        {
+          "id": "B",
+          "text": "A copper cable certifier"
+        },
+        {
+          "id": "C",
+          "text": "ping"
+        },
+        {
+          "id": "D",
+          "text": "ipconfig /all"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A protocol analyzer captures and decodes frames so you can inspect the three-way handshake, retransmissions, resets, and application payloads to pinpoint the failure.",
+        "distractors": {
+          "A": "",
+          "B": "A cable certifier validates physical cabling, not protocol-level conversations.",
+          "C": "ping only confirms reachability and round-trip time; it does not decode application traffic.",
+          "D": "ipconfig /all shows the local IP configuration, not packets on the wire."
+        },
+        "exam_pattern": "Need to see the actual packets / handshake / retransmissions = protocol analyzer (packet capture)."
+      }
+    },
+    {
+      "id": "netplus-nt-115",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "connectivity_tools",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Traffic to a remote site is slow, and a technician wants per-hop latency AND packet loss sampled over time to find which hop introduces delay. On Windows, which tool provides this combined per-hop data?",
+      "options": [
+        {
+          "id": "A",
+          "text": "arp -a"
+        },
+        {
+          "id": "B",
+          "text": "netstat -r"
+        },
+        {
+          "id": "C",
+          "text": "pathping"
+        },
+        {
+          "id": "D",
+          "text": "nslookup"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "pathping combines the functions of ping and tracert, sending probes over a sampling period to report per-hop latency and packet-loss percentages along the path.",
+        "distractors": {
+          "A": "arp -a displays the local IP-to-MAC cache, not path statistics.",
+          "B": "netstat -r prints the local routing table, not live per-hop latency and loss.",
+          "C": "",
+          "D": "nslookup queries DNS name resolution; it does not measure per-hop latency or loss."
+        },
+        "exam_pattern": "Per-hop latency + loss over time on Windows = pathping (ping + tracert combined)."
+      }
+    },
+    {
+      "id": "netplus-nt-116",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "connectivity_tools",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "A technician needs to view a workstation's current IP address, subnet mask, and default gateway. Which commands display this LOCAL interface configuration? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "ipconfig /all on Windows"
+        },
+        {
+          "id": "B",
+          "text": "ip address (or ifconfig) on Linux"
+        },
+        {
+          "id": "C",
+          "text": "nslookup example.com"
+        },
+        {
+          "id": "D",
+          "text": "tracert to the default gateway"
+        }
+      ],
+      "correct": [
+        "A",
+        "B"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "ipconfig /all (Windows) and ip address / ifconfig (Linux/Unix) print the adapter's IP, mask, gateway, and DNS settings assigned to the local host.",
+        "distractors": {
+          "A": "",
+          "B": "",
+          "C": "nslookup queries DNS for name resolution; it does not show the local adapter's configuration.",
+          "D": "tracert maps the path to a destination; it does not list the local IP/mask/gateway settings."
+        },
+        "exam_pattern": "Show local IP config: ipconfig (Windows) and ip/ifconfig (Linux)."
+      }
+    },
+    {
+      "id": "netplus-nt-117",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "network_service_issues",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After an employee plugged a consumer wireless router into a wall jack, some clients began leasing addresses in an unexpected range with a wrong default gateway and lost access to corporate resources. What is the MOST likely cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The clients fell back to APIPA"
+        },
+        {
+          "id": "B",
+          "text": "DNS cache poisoning on the corporate DNS server"
+        },
+        {
+          "id": "C",
+          "text": "A duplex mismatch on the uplink"
+        },
+        {
+          "id": "D",
+          "text": "A rogue DHCP server is handing out incorrect leases"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The consumer router runs its own DHCP service; clients that lease from it get the router's range and gateway instead of the corporate ones. DHCP snooping prevents rogue servers.",
+        "distractors": {
+          "A": "APIPA (169.254.x.x) only appears when NO DHCP answers; here clients did receive leases, just from the wrong server.",
+          "B": "DNS poisoning corrupts name-to-IP answers; it does not change a client's leased IP/gateway range.",
+          "C": "A duplex mismatch causes errors and slowness, not clients leasing addresses from the wrong range.",
+          "D": ""
+        },
+        "exam_pattern": "Unauthorized device leasing wrong IP/gateway = rogue DHCP; mitigate with DHCP snooping."
+      }
+    },
+    {
+      "id": "netplus-nt-118",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "network_service_issues",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A host is set to IP 10.1.5.20 with mask 255.255.255.0 and gateway 10.1.4.1. It can reach other hosts in 10.1.5.0/24 but cannot reach its gateway or any remote network. What is the cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An expired TLS certificate on the gateway"
+        },
+        {
+          "id": "B",
+          "text": "An incorrect subnet mask - the gateway is outside the host's configured subnet"
+        },
+        {
+          "id": "C",
+          "text": "A fully exhausted DHCP scope"
+        },
+        {
+          "id": "D",
+          "text": "A rogue access point on the LAN"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "With a /24 mask the host treats only 10.1.5.0-10.1.5.255 as local, so gateway 10.1.4.1 looks unreachable and all off-subnet traffic fails. A /23 mask (255.255.254.0) would include the gateway.",
+        "distractors": {
+          "A": "A TLS certificate affects HTTPS trust, not IP-layer reachability of a gateway.",
+          "B": "",
+          "C": "A statically or correctly leased address still works locally; an exhausted scope would stop new leases, not break routing like this.",
+          "D": "A rogue AP is a wireless security concern and does not explain a mask/gateway mismatch."
+        },
+        "exam_pattern": "Local works, remote fails, gateway unreachable = wrong subnet mask putting the gateway off-subnet."
+      }
+    },
+    {
+      "id": "netplus-nt-119",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "network_service_issues",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Two devices on the same LAN intermittently lose connectivity, and one displays an 'IP address conflict' message. A static IP had been configured inside the active DHCP range. What is the cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An MTU mismatch"
+        },
+        {
+          "id": "B",
+          "text": "A missing DNS SPF record"
+        },
+        {
+          "id": "C",
+          "text": "APIPA self-assignment"
+        },
+        {
+          "id": "D",
+          "text": "A duplicate IP address - the static address overlaps a DHCP-assigned lease"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Assigning a static IP inside the DHCP pool (without an exclusion or reservation) lets DHCP hand the same address to another host, producing a duplicate-IP conflict and intermittent loss.",
+        "distractors": {
+          "A": "An MTU mismatch causes drops of large frames, not an IP-address-conflict notification.",
+          "B": "An SPF record is an email anti-spoofing DNS record, unrelated to IP conflicts.",
+          "C": "APIPA uses 169.254.x.x when no DHCP answers; it does not produce a conflict message between two devices.",
+          "D": ""
+        },
+        "exam_pattern": "Static IP inside the DHCP range = duplicate IP / address conflict; exclude or reserve it."
+      }
+    },
+    {
+      "id": "netplus-nt-120",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "network_service_issues",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Users cannot reach internal servers by name, but connecting by IP address works. The technician finds the clients' configured DNS server is an address that was decommissioned last week. What is the correct fix?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Point the clients at a valid DNS server (correct the DHCP option 6 or static entry)"
+        },
+        {
+          "id": "B",
+          "text": "Increase the DHCP lease duration"
+        },
+        {
+          "id": "C",
+          "text": "Replace the Ethernet cabling to the clients"
+        },
+        {
+          "id": "D",
+          "text": "Enable jumbo frames on the clients"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Working by IP but failing by name is a name-resolution (DNS) problem. The clients point at a dead DNS server, so correct the DNS server address they are given (DHCP option 6 or static).",
+        "distractors": {
+          "A": "",
+          "B": "Lease duration governs how long an address is held; it does not repair a bad DNS server setting.",
+          "C": "Cabling is fine - IP connectivity works - so re-cabling does not fix name resolution.",
+          "D": "Jumbo frames change MTU; they have no effect on DNS name resolution."
+        },
+        "exam_pattern": "Works by IP, fails by name = DNS; fix the DNS server the clients are configured to use."
+      }
+    },
+    {
+      "id": "netplus-nt-121",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "network_service_issues",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A new internal web app is unreachable on TCP 443 from a branch office, yet the same clients successfully ping the server by IP, and other internal sites work. What is the MOST likely cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A firewall or ACL along the path is blocking TCP 443"
+        },
+        {
+          "id": "B",
+          "text": "The clients have APIPA addresses"
+        },
+        {
+          "id": "C",
+          "text": "The DHCP scope is exhausted"
+        },
+        {
+          "id": "D",
+          "text": "The server NIC is stuck in half-duplex"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "ICMP ping succeeds (reachability and routing are fine) but the specific TCP port fails - the classic signature of a firewall rule or ACL blocking that port/service along the path.",
+        "distractors": {
+          "A": "",
+          "B": "With APIPA (169.254.x.x) the clients could not ping the server or reach other sites at all.",
+          "C": "An exhausted DHCP scope prevents getting an address; these clients clearly have working IP connectivity.",
+          "D": "A duplex problem degrades all traffic with errors; it would not block only TCP 443 while ping works."
+        },
+        "exam_pattern": "Ping works but a specific port/service fails = blocked port (firewall/ACL)."
+      }
+    },
+    {
+      "id": "netplus-nt-122",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "performance_issues",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Users report choppy, robotic VoIP audio during busy periods, though data apps are fine. Monitoring shows highly variable packet delay on the voice stream. Which action BEST addresses this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Increase the DHCP lease time"
+        },
+        {
+          "id": "B",
+          "text": "Disable Auto-MDIX on the access switches"
+        },
+        {
+          "id": "C",
+          "text": "Implement QoS to prioritize voice traffic (and use a jitter buffer)"
+        },
+        {
+          "id": "D",
+          "text": "Replace the DNS servers"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Variable delay is jitter, which wrecks real-time voice. QoS prioritizes/queues voice ahead of bulk data, and a jitter buffer smooths the variation, restoring clear audio.",
+        "distractors": {
+          "A": "DHCP lease time governs addressing, not real-time voice delay variation.",
+          "B": "Auto-MDIX concerns cable TX/RX detection and has nothing to do with voice jitter.",
+          "C": "",
+          "D": "DNS resolves names; it does not affect jitter on an established call."
+        },
+        "exam_pattern": "Choppy VoIP + variable delay = jitter; fix with QoS prioritization and a jitter buffer."
+      }
+    },
+    {
+      "id": "netplus-nt-123",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "performance_issues",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A switch interface counter shows a rising number of 'giants.' What does this counter indicate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Frames smaller than 64 bytes"
+        },
+        {
+          "id": "B",
+          "text": "Frames received that are larger than the maximum allowed frame size"
+        },
+        {
+          "id": "C",
+          "text": "The total count of broadcast frames"
+        },
+        {
+          "id": "D",
+          "text": "Jumbo frames that were successfully forwarded"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Giants are frames that exceed the maximum allowed size (e.g., beyond the configured MTU), often from a faulty NIC/driver or an MTU/jumbo misconfiguration.",
+        "distractors": {
+          "A": "Frames smaller than 64 bytes are runts, usually from collisions or a bad NIC - the opposite of giants.",
+          "B": "",
+          "C": "Broadcasts are tracked separately and are not what the giants counter measures.",
+          "D": "The giants counter flags oversized/error frames, not successfully forwarded jumbo frames."
+        },
+        "exam_pattern": "Giants = oversized frames; runts = undersized (<64 byte) frames."
+      }
+    },
+    {
+      "id": "netplus-nt-124",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "performance_issues",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A WAN link's utilization graph sits at 100% every afternoon, and throughput-sensitive applications slow for all users during those hours. What does this MOST likely indicate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An expired DHCP scope"
+        },
+        {
+          "id": "B",
+          "text": "A DNS misconfiguration"
+        },
+        {
+          "id": "C",
+          "text": "Bandwidth saturation (congestion) on the link"
+        },
+        {
+          "id": "D",
+          "text": "A duplicate IP address"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Sustained 100% utilization means the link is saturated; queued and dropped packets slow everyone. Remedies include more bandwidth or QoS/traffic shaping to protect priority traffic.",
+        "distractors": {
+          "A": "An expired/exhausted DHCP scope blocks new leases; it does not drive link utilization to 100%.",
+          "B": "A DNS problem breaks name resolution; it does not peg a link at 100% utilization.",
+          "C": "",
+          "D": "A duplicate IP affects two specific hosts intermittently, not a time-of-day full-link saturation."
+        },
+        "exam_pattern": "Link pinned at 100% utilization + slowness for all = bandwidth saturation/congestion."
+      }
+    },
+    {
+      "id": "netplus-nt-125",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "performance_issues",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "After jumbo frames (MTU 9000) were enabled on some servers and storage but an intermediate switch was left at 1500, large transfers fail or perform terribly while small pings succeed. What is the cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A dirty fiber connector"
+        },
+        {
+          "id": "B",
+          "text": "A duplex mismatch on the uplink"
+        },
+        {
+          "id": "C",
+          "text": "An MTU (jumbo-frame) mismatch along the path"
+        },
+        {
+          "id": "D",
+          "text": "A rogue DHCP server"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Jumbo frames must be enabled end-to-end. A device left at 1500 drops the oversized frames (or forces fragmentation), so small packets pass but large transfers fail. Match MTU across the whole path.",
+        "distractors": {
+          "A": "A dirty fiber connector raises optical loss for all traffic, not selectively for large frames.",
+          "B": "A duplex mismatch produces collisions/CRC errors on all traffic, not a clean small-works/large-fails pattern.",
+          "C": "",
+          "D": "A rogue DHCP server affects addressing, not frame-size handling of large transfers."
+        },
+        "exam_pattern": "Small packets fine, large fail across a path = MTU/jumbo-frame mismatch; set MTU consistently end-to-end."
+      }
+    },
+    {
+      "id": "netplus-nt-126",
+      "exam": "netplus",
+      "domain": "network_troubleshooting",
+      "subtopic": "performance_issues",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A core router becomes sluggish, drops packets, and responds slowly to management sessions. Monitoring shows its CPU pegged near 100% during a traffic spike. Which performance issue is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A split-pair wiring fault"
+        },
+        {
+          "id": "B",
+          "text": "An incorrect subnet mask on the clients"
+        },
+        {
+          "id": "C",
+          "text": "High device resource utilization (CPU/memory)"
+        },
+        {
+          "id": "D",
+          "text": "Attenuation on the uplink cable"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "When a device's CPU or memory is exhausted it cannot process or forward traffic promptly, so it drops packets and responds slowly regardless of link health. Investigate the process/traffic, then offload or upgrade.",
+        "distractors": {
+          "A": "A split-pair fault causes crosstalk on a cable run, not device-wide CPU exhaustion.",
+          "B": "An incorrect subnet mask breaks specific hosts' routing, not the router's CPU utilization.",
+          "C": "",
+          "D": "Attenuation is a cabling/signal-loss issue on one link; it would not peg the router's CPU."
+        },
+        "exam_pattern": "Device slow + drops + CPU/memory near 100% = resource exhaustion on the device itself."
       }
     }
   ]
