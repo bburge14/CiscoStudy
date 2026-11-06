@@ -30,7 +30,7 @@ from ui_common import (
     set_role,
 )
 
-exam = page_setup("Instructor", icon="🧑‍🏫")
+exam = page_setup("Instructor")
 bp = get_blueprint(exam)
 
 page_header("people", "Instructor View")
@@ -61,7 +61,7 @@ c4.metric("Avg accuracy (active)", f"{avg_acc}%" if avg_acc is not None else "�
 st.divider()
 st.subheader("Manage accounts")
 
-with st.expander("➕ Create a new account", expanded=not learners):
+with st.expander("Create a new account", expanded=not learners):
     st.caption("Add a learner (or another instructor). Share the temporary password — "
                "they can change it later from their own **My Account** page.")
     with st.form("admin_create", clear_on_submit=True):
@@ -129,7 +129,7 @@ if accounts:
                 st.error("The instance needs at least one instructor.")
 
     if sel != current_user():
-        with st.expander("🗑️ Delete this account"):
+        with st.expander("Delete this account"):
             st.warning(f"Permanently delete **{meta.get('name', sel)}** and all of their "
                        "progress. This cannot be undone.")
             sure = st.checkbox("I understand — delete it", key="del_sure")
@@ -206,7 +206,7 @@ else:
                "account, its login and role stay the same.")
     rb, rp = st.columns(2)
     with rb:
-        with st.expander("♻️ Reset benchmark only"):
+        with st.expander("Reset benchmark only"):
             st.caption("Clears the diagnostic result so they can re-take it. Study "
                        "progress (mastery, XP, answered counts) is kept.")
             ok_b = st.checkbox("Reset the benchmark", key=f"rb_{pick}")
@@ -218,7 +218,7 @@ else:
                 else:
                     st.error("Couldn't reset — account not found.")
     with rp:
-        with st.expander("🗑️ Reset all progress"):
+        with st.expander("Reset all progress"):
             st.warning(f"Wipe **everything** for {by_slug[pick]['name']} on this track — "
                        "mastery, XP, streaks, answered counts, milestones and the "
                        "benchmark. This cannot be undone.")

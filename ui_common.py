@@ -9,6 +9,7 @@ import base64
 import binascii
 import hashlib
 import hmac
+import html
 import json
 import os
 import random
@@ -68,6 +69,65 @@ CERT_CATALOG = [
     ]},
 ]
 PASS_THRESHOLD = 0.8
+
+# --- per-track accent theming ----------------------------------------------
+# Every track gets its own accent so the whole app recolors to the cert you're
+# studying — primary buttons, progress bars, header glyphs and highlights all
+# follow the track. The CertWize wordmark keeps its brand blue; everything
+# contextual follows the selected certification.
+TRACK_ACCENT = {
+    "ccna":    "#4D8DFF",   # Cisco — blue
+    "encor":   "#8B7CF6",   # Cisco pro — violet
+    "secplus": "#22C58B",   # CompTIA Security+ — green
+    "netplus": "#2BB6CC",   # CompTIA Network+ — teal
+    "aplus1":  "#E8913A",   # CompTIA A+ Core 1 — amber
+    "aplus2":  "#E86A8B",   # CompTIA A+ Core 2 — rose
+}
+
+
+def accent_for(exam: str) -> str:
+    return TRACK_ACCENT.get(exam, ui_icons.BRAND)
+
+
+def current_accent() -> str:
+    return accent_for(st.session_state.get("exam", "ccna"))
+
+
+def glyph(key: str, size: int = 18, color: str | None = None) -> str:
+    """Inline custom-glyph markup, tinted to the current track accent by default."""
+    return ui_icons.inline(key, size=size, color=color or current_accent())
+
+
+def section_header(key: str, text: str, size: float = 1.3) -> None:
+    """A custom-glyph section heading — the cohesive replacement for an
+    emoji-prefixed st.subheader()."""
+    st.markdown(
+        f"<div style='display:flex;align-items:center;margin:.55rem 0 .4rem;"
+        f"font-weight:700;font-size:{size}rem;letter-spacing:-.01em'>"
+        f"{ui_icons.inline(key, round(size * 17), current_accent())}"
+        f"<span>{html.escape(text)}</span></div>",
+        unsafe_allow_html=True,
+    )
+
+
+def _theme_css(accent: str) -> str:
+    """Recolor Streamlit's primary-colored chrome (buttons, progress, links,
+    sliders, toggles) to the active track's accent, via one injected style block."""
+    return (
+        "<style>"
+        f":root{{--cw-accent:{accent};}}"
+        # primary buttons
+        'button[kind="primary"],[data-testid="stBaseButton-primary"]{'
+        'background-color:var(--cw-accent)!important;border-color:var(--cw-accent)!important;}'
+        'button[kind="primary"]:hover,[data-testid="stBaseButton-primary"]:hover{'
+        'filter:brightness(1.08);}'
+        # progress-bar fill
+        '[data-testid="stProgress"] div[role="progressbar"]>div,'
+        '.stProgress div[role="progressbar"]>div{background-color:var(--cw-accent)!important;}'
+        # links
+        '.stMarkdown a{color:var(--cw-accent);}'
+        "</style>"
+    )
 
 
 # --- cached immutable resources --------------------------------------------
@@ -562,9 +622,9 @@ def render_account_bar() -> None:
         "</style>",
         unsafe_allow_html=True,
     )
-    with st.popover(f"👤 {name}", width="content"):
+    with st.popover(name, width="content"):
             st.markdown(f"**{name}**")
-            st.caption("🧑‍🏫 Instructor" if inst else "Learner")
+            st.caption("Instructor" if inst else "Learner")
             st.page_link("views/account.py", label="My account",
                          icon=":material/manage_accounts:")
             if inst:
@@ -576,41 +636,68 @@ def render_account_bar() -> None:
                 st.rerun()
 
 
+def _render_track_picker() -> None:
+    """The 'Active track' dropdown. Lists every known certification; tracks whose
+    content isn't built yet show as 'coming soon' and are non-selectable — picking
+    one snaps the dropdown back to your current track and explains why."""
+    all_tracks = list(_BLUEPRINTS)          # ccna, encor, secplus, netplus, aplus1, aplus2
+    live = set(LIVE_EXAMS)
+    st.session_state.setdefault("track_select", st.session_state.get("exam", "ccna"))
+
+    def _label(k: str) -> str:
+        name = _BLUEPRINTS[k].name
+        return name if k in live else f"{name}   ·   coming soon"
+
+    def _on_change() -> None:
+        choice = st.session_state["track_select"]
+        if choice in live:
+            st.session_state["exam"] = choice
+        else:   # not built yet — revert the widget and flag a note
+            st.session_state["track_select"] = st.session_state.get("exam", "ccna")
+            st.session_state["_track_soon"] = _BLUEPRINTS[choice].name
+
+    st.selectbox("Active track", all_tracks, key="track_select",
+                 format_func=_label, on_change=_on_change)
+    soon = st.session_state.pop("_track_soon", None)
+    if soon:
+        st.caption(f"**{soon}** isn't ready yet — its question bank is still being built. "
+                   "Live tracks switch instantly.")
+
+
 def render_sidebar_chrome() -> None:
-    """Sidebar: exam-track picker + lifetime stats (nav links are added by the router).
-    Also injects the custom-glyph CSS and the centered content-width layout."""
-    # Cap the main content to a comfortable, centered column (left-aligned text).
-    # Full-width 'wide' layout sprawls on big monitors; this reads far better and
-    # still fills the screen on a phone / portrait display.
+    """Sidebar: CertWize brand + track dropdown on top, the nav links below, then a
+    compact rank card. Injects the custom-glyph nav icons, the per-track accent
+    theme, and the centered content-width layout, and reorders the sidebar so the
+    brand leads (Streamlit renders user content below the nav by default)."""
+    accent = current_accent()
     st.markdown(
-        "<style>[data-testid='stMainBlockContainer'], section.main .block-container"
-        "{max-width:960px;margin-left:auto;margin-right:auto;}</style>",
+        "<style>"
+        # a comfortable, centered main column
+        "[data-testid='stMainBlockContainer'], section.main .block-container"
+        "{max-width:960px;margin-left:auto;margin-right:auto;}"
+        # brand + track picker + rank card ABOVE the auto-generated nav links
+        "[data-testid='stSidebarContent']{display:flex;flex-direction:column;}"
+        "[data-testid='stSidebarUserContent']{order:1;}"
+        "[data-testid='stSidebarNav']{order:2;margin-top:.15rem;}"
+        # hairline rule between the brand block and the nav
+        "[data-testid='stSidebarNav']::before{content:'';display:block;height:1px;"
+        "background:rgba(255,255,255,.08);margin:.1rem .25rem .5rem;}"
+        "</style>",
         unsafe_allow_html=True,
     )
     st.markdown(ui_icons.nav_css(), unsafe_allow_html=True)
+    st.markdown(_theme_css(accent), unsafe_allow_html=True)
+
     with st.sidebar:
         st.markdown(
-            "<div style='font-size:1.45rem;font-weight:800;letter-spacing:-0.01em;"
-            "padding:0.15rem 0 0'>Cert<span style='color:#4D8DFF'>Wize</span></div>"
-            "<div style='color:#8A94A6;font-size:0.68rem;text-transform:uppercase;"
-            "letter-spacing:0.1em;margin:0 0 0.7rem'>IT Certification Trainer</div>",
+            "<div style='font-size:1.5rem;font-weight:800;letter-spacing:-0.02em;"
+            "padding:0.05rem 0 0'>Cert<span style='color:#4D8DFF'>Wize</span></div>"
+            "<div style='color:#8A94A6;font-size:0.66rem;text-transform:uppercase;"
+            "letter-spacing:0.12em;margin:0 0 0.6rem'>IT Certification Trainer</div>",
             unsafe_allow_html=True,
         )
-        exam = st.radio(
-            "Active track", list(EXAMS), format_func=lambda e: EXAMS[e],
-            index=list(EXAMS).index(st.session_state.get("exam", "ccna")),
-            key="exam_selector",
-        )
-        if exam != st.session_state.get("exam"):
-            st.session_state["exam"] = exam
-            st.rerun()
-        prof = get_profile(exam)
-        seen, correct = prof.study_overall()   # benchmark excluded
-        acc = f"{round(correct / seen * 100)}%" if seen else "—"
-        render_level_card(prof, compact=True)
-        st.metric("Questions answered", seen)
-        st.metric("Lifetime accuracy", acc)
-        st.caption("Progress auto-saves to your account after every answer.")
+        _render_track_picker()
+        render_level_card(get_profile(st.session_state.get("exam", "ccna")), compact=True)
 
 
 def render_level_card(prof, *, compact: bool = False) -> None:
@@ -621,14 +708,18 @@ def render_level_card(prof, *, compact: bool = False) -> None:
     else:
         bar_text = f"{li.into}/{li.span} XP → {li.next_title}"
     if compact:
-        st.markdown(f"**⬢ Lvl {li.level} · {li.title}**")
+        st.markdown(
+            f"<div style='font-weight:700;margin:.15rem 0 .2rem'>"
+            f"<span style='color:{current_accent()}'>Lvl {li.level}</span> · {html.escape(li.title)}</div>",
+            unsafe_allow_html=True,
+        )
         st.progress(li.pct, text=bar_text)
         return
     with st.container(border=True):
         left, right = st.columns([1, 3])
         with left:
             st.markdown(
-                f"<div style='font-size:2.6rem;font-weight:800;line-height:1;color:{ui_icons.BRAND}'>"
+                f"<div style='font-size:2.6rem;font-weight:800;line-height:1;color:{current_accent()}'>"
                 f"{li.level}</div><div style='font-size:.7rem;letter-spacing:.08em;"
                 f"opacity:.6'>LEVEL</div>",
                 unsafe_allow_html=True,
@@ -649,8 +740,8 @@ def page_setup(title: str | None = None, icon: str | None = None) -> str:
 
 
 def page_header(icon_key: str, title: str) -> None:
-    """Render a page title with a custom brand glyph in place of st.title()."""
-    st.html(ui_icons.header_html(icon_key, title))
+    """Render a page title with a custom glyph, tinted to the active track accent."""
+    st.html(ui_icons.header_html(icon_key, title, current_accent()))
 
 
 def get_scheduler(exam: str) -> DrillScheduler:
@@ -703,21 +794,21 @@ def answer_widget(q: Question, key: str):
 def render_feedback(q: Question, fb: Feedback) -> None:
     key_txt = ", ".join(fb.correct_ids)
     if fb.correct:
-        st.success("✅  Correct")
+        st.success("Correct")
     else:
-        st.error(f"❌  Incorrect — correct answer: **{key_txt}**")
+        st.error(f"Incorrect — correct answer: **{key_txt}**")
 
     st.markdown("**Why the correct answer is right**")
     st.markdown(fb.why_correct)
 
     traps = {k: v for k, v in fb.distractor_notes.items() if v}
     if traps:
-        with st.expander("Why the Cisco distractors are traps", expanded=not fb.correct):
+        with st.expander("Why the wrong answers are traps", expanded=not fb.correct):
             for oid, note in traps.items():
                 st.markdown(f"- **{oid}** — {note}")
 
     if fb.exam_pattern:
-        st.info(f"🎯  **Spot it on the exam:** {fb.exam_pattern}")
+        st.info(f"**Spot it on the exam:** {fb.exam_pattern}")
 
     if fb.verify_cli:
         st.markdown("**Verify on the device**")
@@ -754,21 +845,22 @@ def render_quiz_review(exam: str, question_ids: list[str], answers: dict) -> Non
     missed = [(qid, q) for qid, q in items if not q.check(answers.get(qid))]
     correct = [(qid, q) for qid, q in items if q.check(answers.get(qid))]
 
-    st.markdown("#### 📋 Review every question")
+    section_header("clipboard", "Review every question", size=1.15)
     if not missed:
-        st.success("You got every question right — nothing to remediate. 🎉")
+        st.success("You got every question right — nothing to remediate.")
     else:
         st.caption(f"This quiz didn't give feedback as you went, so here's the breakdown. "
                    f"The **{len(missed)}** you missed are first, with the correct answer "
                    "and why.")
         for qid, q in missed:
             with st.container(border=True):
-                st.markdown(f"**❌ {q.stem}**")
+                st.markdown(f"{glyph('cross', 18, '#E06C6C')} **{html.escape(q.stem)}**",
+                            unsafe_allow_html=True)
                 st.caption(f"Your answer: {_format_selection(q, answers.get(qid))}")
                 render_feedback(q, grade(q, answers.get(qid)))
 
     if correct:
-        with st.expander(f"✅ Questions you got right ({len(correct)})"):
+        with st.expander(f"Questions you got right ({len(correct)})"):
             for qid, q in correct:
                 st.markdown(f"- **{q.stem}**  →  correct: **{', '.join(q.correct)}**")
 
@@ -793,18 +885,25 @@ def render_xp_event(info: dict) -> None:
     if not info:
         return
     delta = info.get("delta", 0)
-    bits = [f"**+{delta} XP**" if delta >= 0 else f"**{delta} XP**"]
+    acc = current_accent()
+    bits = [f"<b style='color:{acc}'>+{delta} XP</b>" if delta >= 0 else f"<b>{delta} XP</b>"]
     if info.get("mastered"):
-        bits.append("🏅 mastered!")
+        bits.append(f"{ui_icons.inline('trophy', 16, acc)}mastered!")
     elif info.get("learned"):
-        bits.append("📈 improving")
+        bits.append(f"{ui_icons.inline('trend_up', 16, acc)}improving")
     elif info.get("regressed"):
         m = info.get("misses", 0)
-        bits.append(f"⚠️ missed {m}× in a row — stings more" if m >= 2 else "⚠️ missed")
+        bits.append(ui_icons.inline("warn", 16, "#E0A96C")
+                    + (f"missed {m}× in a row — stings more" if m >= 2 else "missed"))
     streak = info.get("streak", 0)
     if streak >= 3:
-        bits.append(f"🔥 {streak} in a row")
-    st.markdown("  ·  ".join(bits))
+        bits.append(f"{ui_icons.inline('flame', 16, '#E8913A')}{streak} in a row")
+    st.markdown(
+        "<div style='display:flex;flex-wrap:wrap;align-items:center;gap:.15rem 1.1rem'>"
+        + "".join(f"<span style='display:inline-flex;align-items:center'>{b}</span>" for b in bits)
+        + "</div>",
+        unsafe_allow_html=True,
+    )
 
 
 # --- small analytics widgets ------------------------------------------------
@@ -985,11 +1084,11 @@ def render_pbq(scenario, skey_prefix: str) -> bool:
         cmd = st.text_input("Enter IOS command", key=input_key,
                             placeholder="e.g. configure terminal", label_visibility="collapsed")
         cols = st.columns([1, 1, 1])
-        run = cols[0].form_submit_button("Run ▶", type="primary", width="stretch")
-        tab = cols[1].form_submit_button("⇥ Complete", width="stretch")
+        run = cols[0].form_submit_button("Run", type="primary", width="stretch")
+        tab = cols[1].form_submit_button("Complete", width="stretch")
         clear = cols[2].form_submit_button("Reset lab", width="stretch")
-    st.caption("💡 Type **?** for the commands valid here (`?`, `show ?`, `switchport ?`), "
-               "**⇥ Complete** to auto-finish, or **help** for how it works.")
+    st.caption("Type **?** for the commands valid here (`?`, `show ?`, `switchport ?`), "
+               "**Complete** to auto-finish the current word, or **help** for how it works.")
     if tab:
         st.session_state[pend_key] = complete(con.mode, cmd)
         st.rerun()
@@ -1006,15 +1105,14 @@ def render_pbq(scenario, skey_prefix: str) -> bool:
         st.rerun()
 
     passed = False
-    if st.button("Validate ticket ✔", key=f"{skey_prefix}_validate"):
+    if st.button("Validate ticket", key=f"{skey_prefix}_validate", type="primary"):
         checks = scenario.validate(topo)
         for c in checks:
-            (st.success if c.passed else st.error)(
-                f"{'✅' if c.passed else '❌'}  {c.description}")
+            (st.success if c.passed else st.error)(c.description)
         if all(c.passed for c in checks):
             passed = True
             st.session_state[f"pbq_passed_{scenario.id}"] = True
-            st.success(f"🎉  {scenario.success}")
+            st.success(scenario.success)
             st.balloons()
         else:
             st.warning("Not resolved yet — review the failed checks above and the hints.")

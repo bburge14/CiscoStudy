@@ -15,7 +15,7 @@ from ui_common import (
     set_display_name,
 )
 
-page_setup("My Account", icon="👤")
+page_setup("My Account")
 user = current_user()
 meta = list_users().get(user, {})
 

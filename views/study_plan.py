@@ -20,13 +20,15 @@ from ui_common import (
     get_bank,
     get_curriculum,
     get_profile,
+    glyph,
     grade_and_record,
     page_header,
     page_setup,
     render_feedback,
+    section_header,
 )
 
-exam = page_setup("My Study Plan", icon="🧭")
+exam = page_setup("My Study Plan")
 bank = get_bank()
 cur = get_curriculum()
 bp = get_blueprint(exam)
@@ -59,11 +61,11 @@ def _render_drill(cur_step) -> None:
         render_feedback(q, ds["fb"])
         mastered, seen, correct, need = _mastered_now(q.subtopic)
         if mastered:
-            st.success(f"✅ **{q.subtopic.replace('_', ' ').title()} mastered** "
+            st.success(f"**{q.subtopic.replace('_', ' ').title()} mastered** "
                        f"({correct}/{seen}) — unlocking your next topic.")
         else:
             st.caption(f"This topic: {correct}/{seen} right · need {need}+ answered at {TARGET_PCT}%+.")
-        if st.button("Next question ▶", key=f"{K}_next", type="primary"):
+        if st.button("Next question", key=f"{K}_next", type="primary"):
             if mastered:
                 ds.update({"sub": None, "qid": None, "phase": "answering", "fb": None})
             else:
@@ -97,7 +99,7 @@ done, total = plan_progress(steps)
 cur_step = current_step(steps)
 
 if not prof.baseline:
-    st.info("📋 Take the **Diagnostic Baseline** first and this plan rebuilds around the exact "
+    st.info("Take the **Diagnostic Baseline** first and this plan rebuilds around the exact "
             "topics you're weakest on. You can start now, but it won't be personalized yet.")
 elif prof.baseline:
     st.caption(f"Built from your diagnostic ({prof.baseline['overall']}%), weakest topics first.")
@@ -116,14 +118,14 @@ if ds and ds.get("phase") == "feedback" and ds.get("qid"):
 display_step = next((s for s in steps if s.subtopic == display_sub), None) or cur_step
 
 if cur_step is None and not display_sub:
-    st.success("🎉 **Every topic is mastered.** Your coverage is exam-ready — keep it sharp with "
+    st.success("**Every topic is mastered.** Your coverage is exam-ready — keep it sharp with "
                "**Endless Drill**, and prove it under pressure in the **Structured Milestones** and **PBQ Lab**.")
 else:
     s = display_step
-    st.subheader(f"👉 Now studying: {s.label.title()}")
+    section_header("route", f"Now studying: {s.label.title()}")
     st.caption(f"**{s.domain_name}** · {s.reason()}")
 
-    with st.expander("📖 Read the lesson first", expanded=False):
+    with st.expander("Read the lesson first", expanded=False):
         if s.lesson_ids:
             for lid in s.lesson_ids:
                 les = cur.lesson(lid)
@@ -131,15 +133,19 @@ else:
         else:
             st.caption("No dedicated lesson for this topic — you'll learn it by drilling below.")
 
-    st.markdown(f"**🎯 Drill it until mastered** (need {s.need}+ answered at {TARGET_PCT}%+)")
+    st.markdown(f"{glyph('target', 18)} **Drill it until mastered** "
+                f"(need {s.need}+ answered at {TARGET_PCT}%+)", unsafe_allow_html=True)
     _render_drill(cur_step)
 
 # --- the whole ordered plan -------------------------------------------------
 st.divider()
-with st.expander(f"📋 Full plan — {done}/{total} topics mastered", expanded=(total and done == 0)):
+with st.expander(f"Full plan — {done}/{total} topics mastered", expanded=(total and done == 0)):
+    _step_glyph = {"done": glyph("check", 16, "#22C58B"),
+                   "current": glyph("route", 16),
+                   "upcoming": glyph("lock", 16, "#8A94A6")}
     for i, step in enumerate(steps, 1):
-        icon = {"done": "✅", "current": "👉", "upcoming": "🔒"}[step.status]
         extra = f" · {step.pct}%" if step.pct is not None else " · not tested"
         weight = f" · {round(step.weight * 100)}% of exam"
-        st.markdown(f"{icon} **{i}. {step.label.title()}** — {step.domain_name}{extra}{weight}")
-    st.caption("🔒 locked topics unlock as you master the ones above them.")
+        st.markdown(f"{_step_glyph[step.status]} **{i}. {step.label.title()}** — "
+                    f"{step.domain_name}{extra}{weight}", unsafe_allow_html=True)
+    st.caption("Locked topics unlock as you master the ones above them.")

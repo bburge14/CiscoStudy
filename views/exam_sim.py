@@ -1,5 +1,5 @@
 """Timed exam simulation: domain-weighted, one question at a time (no going
-back, like the real CCNA), a countdown, and a scored pass/fail report."""
+back, like the real exam), a countdown, and a scored pass/fail report."""
 from __future__ import annotations
 
 import random
@@ -8,6 +8,7 @@ import time
 import pandas as pd
 import streamlit as st
 
+import ui_icons
 from studyengine import (
     PASS_SCORE,
     build_exam,
@@ -25,7 +26,7 @@ from ui_common import (
     save_profile,
 )
 
-exam = page_setup("Exam Simulation", icon="📝")
+exam = page_setup("Exam Simulation")
 bank = get_bank()
 bp = get_blueprint(exam)
 prof = get_profile(exam)
@@ -78,7 +79,8 @@ def _timer(state: dict) -> None:
     color = "#e06c6c" if remaining < 120 else "#E6EAF1"
     st.markdown(
         f"<div style='text-align:right;font-size:20px;font-weight:700;color:{color}'>"
-        f"⏱ {_fmt(remaining)}</div>", unsafe_allow_html=True)
+        f"{ui_icons.inline('stopwatch', 18, color)}{_fmt(remaining)}</div>",
+        unsafe_allow_html=True)
     if remaining <= 0 and state.get("phase") == "running":
         _finalize(state)
         st.rerun()
@@ -90,7 +92,7 @@ if state is None:
     st.markdown(
         f"A timed, domain-weighted mock of **{bp.name}**. Questions come one at a time and you "
         f"**can't go back** (like the real exam). Pass line here is **{PASS_PCT}%** — a study "
-        "proxy; Cisco's real cut score is scaled and unpublished.")
+        "proxy; the real cut score is scaled and unpublished.")
     choice = st.radio(
         "Length", ["Quick (20)", f"Standard (40)", f"Full ({avail})"], index=1,
         help="Time is ~1.25 minutes per question, like the real pace.")
@@ -122,14 +124,14 @@ if state["phase"] == "running":
 
     c = st.columns([1.4, 1, 1.4, 3])
     last = idx == total - 1
-    if c[0].button("Finish" if last else "Submit & next ▶", type="primary"):
+    if c[0].button("Finish" if last else "Submit & next", type="primary"):
         state["answers"][q.id] = sel
         if last or int(state["deadline"] - time.time()) <= 0:
             _finalize(state)
         else:
             state["idx"] += 1
         st.rerun()
-    if c[1].button("Skip ▶", help="Leave this one unanswered and move on (counts as incorrect)."):
+    if c[1].button("Skip", help="Leave this one unanswered and move on (counts as incorrect)."):
         # store nothing -> graded as unanswered/incorrect, like skipping on the real exam
         if last or int(state["deadline"] - time.time()) <= 0:
             _finalize(state)
@@ -146,9 +148,9 @@ if state["phase"] == "running":
 # --- done -------------------------------------------------------------------
 s = state["summary"]
 if s["passed"]:
-    st.success(f"## ✅ PASS — {s['pct']}%")
+    st.success(f"## PASS — {s['pct']}%")
 else:
-    st.error(f"## ❌ Below the line — {s['pct']}%  (need {PASS_PCT}%)")
+    st.error(f"## Below the line — {s['pct']}%  (need {PASS_PCT}%)")
 
 m = st.columns(4)
 m[0].metric("Score", f"{s['correct']}/{s['total']}")
@@ -171,7 +173,7 @@ st.divider()
 wrong = s["total"] - s["correct"]
 st.markdown(f"**Review** — you missed **{wrong}** of {s['total']}. See each one with the "
             "correct answer and why.")
-if st.toggle("📋 Show the question-by-question review", key=f"{SKEY}_review"):
+if st.toggle("Show the question-by-question review", key=f"{SKEY}_review"):
     render_quiz_review(exam, state["ids"], state["answers"])
 
 st.info("These answers were recorded, so your **Study Plan** and **Progress** readiness now "

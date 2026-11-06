@@ -12,13 +12,14 @@ from ui_common import (
     current_user,
     get_bank,
     get_profile,
+    glyph,
     is_instructor,
     list_users,
     page_setup,
     render_level_card,
 )
 
-exam = page_setup("Home", icon="🛜")   # gates on login
+exam = page_setup("Home")   # gates on login
 bank = get_bank()
 prof = get_profile(exam)
 name = html.escape(list_users().get(current_user(), {}).get("name", "there"))
@@ -44,41 +45,44 @@ c3.metric("Diagnostic", f"{prof.baseline['overall']}%" if prof.baseline else "no
 st.markdown("### Your next step")
 if not prof.baseline:
     with st.container(border=True):
-        st.markdown("**🎯 Start with the Diagnostic Baseline**")
+        st.markdown(f"{glyph('gauge', 20)} **Start with the Diagnostic Baseline**",
+                    unsafe_allow_html=True)
         st.caption("30 questions (5 per domain) map your weak spots and build a personalized plan.")
         st.page_link("views/diagnostic.py", label="Take the diagnostic", icon=":material/fact_check:")
 else:
     with st.container(border=True):
         weak = prof.weak_subtopics()
+        extra = ""
         if weak:
             names = ", ".join(s.replace("_", " ") for s, _, _ in weak[:3])
-            st.markdown(f"**🧭 Continue your Study Plan** — next up: *{names}*")
-        else:
-            st.markdown("**🧭 Continue your Study Plan**")
+            extra = f" — next up: <i>{html.escape(names)}</i>"
+        st.markdown(f"{glyph('route', 20)} **Continue your Study Plan**{extra}",
+                    unsafe_allow_html=True)
         st.caption("Guided, weakest-first: read the lesson, drill it, unlock the next topic.")
         st.page_link("views/study_plan.py", label="Continue my plan", icon=":material/route:")
 
 # --- practice-mode grid -----------------------------------------------------
 st.markdown(f"### Jump into {EXAMS[exam].split()[0]} practice")
 MODES = [
-    ("views/study_plan.py", "🧭", "Study Plan", "Guided, weakest-first path"),
-    ("views/drill.py", "♾️", "Endless Drill", "Adaptive practice that resurfaces misses"),
-    ("views/milestones.py", "📚", "Lessons & Milestones", "Read, quiz, then a hands-on gate"),
-    ("views/open_book.py", "📖", "Open-Book Practice", "Find answers in the book — scaled XP"),
-    ("views/pbq_lab.py", "🖥️", "PBQ Lab", "Fix broken networks in a real IOS CLI"),
-    ("views/exam_sim.py", "⏱️", "Exam Simulation", "Timed, domain-weighted mock exam"),
-    ("views/progress.py", "📊", "Progress", "Mastery by domain + exam readiness"),
-    ("views/diagnostic.py", "🎯", "Diagnostic", "Re-baseline your weak spots"),
+    ("views/study_plan.py", "route", "Study Plan", "Guided, weakest-first path"),
+    ("views/drill.py", "cycle", "Endless Drill", "Adaptive practice that resurfaces misses"),
+    ("views/milestones.py", "book", "Lessons & Milestones", "Read, quiz, then a hands-on gate"),
+    ("views/open_book.py", "book_search", "Open-Book Practice", "Find answers in the book — scaled XP"),
+    ("views/pbq_lab.py", "terminal", "PBQ Lab", "Hands-on command-line troubleshooting"),
+    ("views/exam_sim.py", "stopwatch", "Exam Simulation", "Timed, domain-weighted mock exam"),
+    ("views/progress.py", "bars", "Progress", "Mastery by domain + exam readiness"),
+    ("views/diagnostic.py", "gauge", "Diagnostic", "Re-baseline your weak spots"),
 ]
 for r in range(0, len(MODES), 2):
     cols = st.columns(2)
-    for col, (link, icon, title, desc) in zip(cols, MODES[r:r + 2]):
+    for col, (link, gkey, title, desc) in zip(cols, MODES[r:r + 2]):
         with col, st.container(border=True):
             st.markdown(
-                f"<div style='font-weight:700'>{icon}&nbsp; {title}</div>"
+                f"<div style='font-weight:700;display:flex;align-items:center'>"
+                f"{glyph(gkey, 20)}{title}</div>"
                 f"<div style='color:#9AA4B2;font-size:0.86rem;min-height:2.3em'>{desc}</div>",
                 unsafe_allow_html=True)
-            st.page_link(link, label="Open", icon=":material/arrow_forward:")
+            st.page_link(link, label="Open")
 
 if is_instructor(current_user()):
     st.page_link("views/instructor.py", label="Instructor view — your learners' progress",
@@ -93,7 +97,7 @@ st.caption("CertWize is growing into a full IT-cert trainer. Live tracks are rea
 
 def _switch(key: str) -> None:
     st.session_state["exam"] = key
-    st.session_state["exam_selector"] = key   # keep the sidebar picker in sync
+    st.session_state["track_select"] = key   # keep the sidebar dropdown in sync
 
 
 for prov in CERT_CATALOG:
@@ -121,12 +125,21 @@ for prov in CERT_CATALOG:
                 st.button("Coming soon", key=f"soon_{cert['key']}", disabled=True, width="stretch")
 
 with st.expander("New here? How CertWize works"):
+    _rows = [
+        ("gauge", "Diagnostic", "finds your weak spots (5 questions per official domain)."),
+        ("route", "Study Plan", "walks those weak topics one at a time — read, drill, unlock the next."),
+        ("book", "Lessons & Milestones", "teach each unit, then gate the next behind a hands-on task."),
+        ("cycle", "Endless Drill", "resurfaces what you miss; the PBQ Lab drops you into a live CLI."),
+    ]
     st.markdown(
-        "- **🎯 Diagnostic** finds your weak spots (5 questions per official domain).\n"
-        "- **🧭 Study Plan** walks those weak topics one at a time — read, drill, unlock the next.\n"
-        "- **📚 Lessons & Milestones** teach each unit, then gate the next behind a hands-on task.\n"
-        "- **♾️ Endless Drill** resurfaces what you miss; **🖥️ PBQ Lab** drops you into a real CLI.\n"
-        "- Every answer explains **why the right answer is right and why the wrong ones are traps.**"
+        "".join(
+            f"<div style='display:flex;align-items:flex-start;margin:.25rem 0'>"
+            f"{glyph(k, 18)}<div><b>{t}</b> {d}</div></div>"
+            for k, t, d in _rows
+        )
+        + "<div style='color:#9AA4B2;margin-top:.4rem'>Every answer explains "
+          "<b>why the right answer is right and why the wrong ones are traps.</b></div>",
+        unsafe_allow_html=True,
     )
 
 st.caption(f"{EXAMS[exam]} · {len(bank.query(exam=exam))} questions in this track · "

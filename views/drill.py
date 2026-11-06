@@ -17,7 +17,7 @@ from ui_common import (
     render_xp_event,
 )
 
-exam = page_setup("Endless Drill", icon="♾️")
+exam = page_setup("Endless Drill")
 bank = get_bank()
 bp = get_blueprint(exam)
 prof = get_profile(exam)
@@ -93,7 +93,7 @@ if drill["phase"] == "answering":
         submit = st.button("Submit", type="primary")
     with cskip:
         # Skip: move on without grading — no XP, no streak change, not counted.
-        if st.button("Skip ▶", key=f"{SKEY}_skip",
+        if st.button("Skip", key=f"{SKEY}_skip",
                      help="Move on without answering — no effect on your score."):
             drill["recent"] = ([q.id] + drill["recent"])[:8]
             drill["qid"] = None
@@ -116,7 +116,7 @@ if drill["phase"] == "answering":
 else:
     render_xp_event(last_xp_event())
     render_feedback(q, drill["fb"])
-    if st.button("Next question ▶", type="primary"):
+    if st.button("Next question", type="primary"):
         drill["qid"] = None
         st.rerun()
 
