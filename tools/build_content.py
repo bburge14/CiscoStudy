@@ -7,6 +7,8 @@ Validation mirrors tests/test_data_integrity.py so a bad edit fails fast here.
 from __future__ import annotations
 
 import json
+import random
+import string
 import sys
 from pathlib import Path
 
@@ -33,6 +35,32 @@ SOURCES = {
     "ccna": content_ccna.QUESTIONS + _extra("content_ccna_2"),
     "encor": content_encor.QUESTIONS + _extra("content_encor_2"),
 }
+
+
+def shuffle_options(item: dict) -> dict:
+    """Randomise the A/B/C/D order of an MCQ/multi item so the correct answer
+    isn't always in the same slot. Seeded by the question id, so the order is
+    deterministic and stable across rebuilds (no churn), while spreading the
+    answer key evenly across positions instead of defaulting to 'A'."""
+    if item.get("type") not in ("mcq", "multi") or not item.get("options"):
+        return item
+    correct = set(item.get("correct", []))
+    notes = (item.get("explanation") or {}).get("distractors", {}) or {}
+    bundle = [{"text": o["text"], "ok": o["id"] in correct, "note": notes.get(o["id"], "")}
+              for o in item["options"]]
+    random.Random(item["id"]).shuffle(bundle)
+    new_item = dict(item)
+    new_item["options"] = []
+    new_item["correct"] = []
+    new_notes: dict[str, str] = {}
+    for i, b in enumerate(bundle):
+        nid = string.ascii_uppercase[i]
+        new_item["options"].append({"id": nid, "text": b["text"]})
+        if b["ok"]:
+            new_item["correct"].append(nid)
+        new_notes[nid] = b["note"]
+    new_item["explanation"] = {**(item.get("explanation") or {}), "distractors": new_notes}
+    return new_item
 
 
 def validate(exam: str, raw_items: list[dict]) -> list[dict]:
@@ -97,6 +125,7 @@ def main() -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     grand_total = 0
     for exam, items in SOURCES.items():
+        items = [shuffle_options(it) for it in items]
         validate(exam, items)
         payload = {"exam": exam, "count": len(items), "questions": items}
         path = out_dir / f"{exam}.json"
