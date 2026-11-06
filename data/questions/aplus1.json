@@ -1,6 +1,6 @@
 {
   "exam": "aplus1",
-  "count": 31,
+  "count": 149,
   "questions": [
     {
       "id": "aplus1-mob-001",
@@ -1244,6 +1244,4765 @@
           "D": ""
         },
         "exam_pattern": "Random shutdowns under load + dust/blocked airflow = overheating / thermal protection."
+      }
+    },
+    {
+      "id": "aplus1-hw-101",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "cables_connectors",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A technician needs a USB standard capable of 10 Gbps for an external NVMe enclosure. Which USB specification provides this data rate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "USB 2.0"
+        },
+        {
+          "id": "B",
+          "text": "USB 3.2 Gen 1"
+        },
+        {
+          "id": "C",
+          "text": "USB 1.1"
+        },
+        {
+          "id": "D",
+          "text": "USB 3.2 Gen 2"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "USB 3.2 Gen 2 (formerly USB 3.1 Gen 2, SuperSpeed+) runs at 10 Gbps, enough to approach NVMe speeds over an external enclosure.",
+        "distractors": {
+          "A": "USB 2.0 (Hi-Speed) is only 480 Mbps — far too slow for an NVMe enclosure.",
+          "B": "USB 3.2 Gen 1 (the old USB 3.0 / 3.1 Gen 1, SuperSpeed) tops out at 5 Gbps.",
+          "C": "USB 1.1 (Full-Speed) is a legacy 12 Mbps standard.",
+          "D": ""
+        },
+        "exam_pattern": "USB speeds: 2.0 = 480 Mbps, 3.2 Gen 1 = 5 Gbps, 3.2 Gen 2 = 10 Gbps, Gen 2x2 = 20 Gbps."
+      }
+    },
+    {
+      "id": "aplus1-hw-102",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "cables_connectors",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A workstation user wants ONE cable on the USB-C connector that carries 40 Gbps of data plus video. Which interface meets all of these requirements?",
+      "options": [
+        {
+          "id": "A",
+          "text": "USB 3.2 Gen 1"
+        },
+        {
+          "id": "B",
+          "text": "Thunderbolt 3"
+        },
+        {
+          "id": "C",
+          "text": "HDMI 1.4"
+        },
+        {
+          "id": "D",
+          "text": "eSATA"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Thunderbolt 3 (and 4) run at 40 Gbps over the USB-C connector and carry data, video (DisplayPort), and power on a single cable.",
+        "distractors": {
+          "A": "USB 3.2 Gen 1 is only 5 Gbps and does not natively carry DisplayPort video on its own.",
+          "B": "",
+          "C": "HDMI 1.4 is a video-only connector (about 10.2 Gbps) and is not a USB-C port.",
+          "D": "eSATA carries only the SATA storage signal (about 6 Gbps) — no video and not USB-C."
+        },
+        "exam_pattern": "Thunderbolt 3/4 = 40 Gbps over USB-C, carrying data + video + power."
+      }
+    },
+    {
+      "id": "aplus1-hw-103",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "cables_connectors",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An M.2 SSD has TWO notches on its edge connector (both a B key and an M key). What does this B+M keying indicate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It supports PCIe x4 NVMe at full speed"
+        },
+        {
+          "id": "B",
+          "text": "It will physically fit either a B-keyed or an M-keyed M.2 socket"
+        },
+        {
+          "id": "C",
+          "text": "It requires a separate 24-pin power connector"
+        },
+        {
+          "id": "D",
+          "text": "It only works in laptops, never in desktops"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A B+M (two-notch) module uses the pins common to both keys, so it drops into either a B-key or an M-key socket; such modules are SATA or PCIe x2.",
+        "distractors": {
+          "A": "Full PCIe x4 NVMe needs an M-key-only module; a B+M module is limited to PCIe x2 or SATA.",
+          "B": "",
+          "C": "M.2 draws power through its edge connector; there is no separate 24-pin feed (that is the ATX board connector).",
+          "D": "M.2 sockets appear on both laptops and desktop motherboards."
+        },
+        "exam_pattern": "M.2 keys: M-key = up to PCIe x4 (NVMe); B-key = PCIe x2/SATA; B+M (two notches) fits both sockets."
+      }
+    },
+    {
+      "id": "aplus1-hw-104",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "cables_connectors",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "A technician needs a single cable that carries BOTH digital video AND audio from a PC to a display. Which TWO interfaces do this? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "DVI-D"
+        },
+        {
+          "id": "B",
+          "text": "HDMI"
+        },
+        {
+          "id": "C",
+          "text": "DisplayPort"
+        },
+        {
+          "id": "D",
+          "text": "VGA"
+        }
+      ],
+      "correct": [
+        "B",
+        "C"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "HDMI and DisplayPort both carry digital video and audio over one cable, which is why they are standard on modern GPUs, laptops, and TVs/monitors.",
+        "distractors": {
+          "A": "DVI-D carries digital video only — standard DVI does not carry audio.",
+          "B": "",
+          "C": "",
+          "D": "VGA is an analog, video-only connector (15-pin); it carries no audio and no digital signal."
+        },
+        "exam_pattern": "Video + audio on one cable = HDMI / DisplayPort; DVI = video only; VGA = analog video only."
+      }
+    },
+    {
+      "id": "aplus1-hw-105",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "memory_ram",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A technician tries to install a DDR4 DIMM into a motherboard with DDR5 slots, but the module will not seat. What is the reason?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DDR4 needs a higher voltage that physically melts the slot"
+        },
+        {
+          "id": "B",
+          "text": "The notch (key) on a DDR4 module is in a different position than a DDR5 slot's key"
+        },
+        {
+          "id": "C",
+          "text": "A DDR4 module has far more pins than a DDR5 slot can accept"
+        },
+        {
+          "id": "D",
+          "text": "The DDR4 module is physically much longer than the slot"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Each DDR generation is keyed in a different notch position and is not physically or electrically interchangeable, so a DDR4 stick will not seat in a DDR5 slot.",
+        "distractors": {
+          "A": "Voltages differ (DDR3 1.5 V, DDR4 1.2 V, DDR5 1.1 V) but a mismatch does not 'melt' the slot; the key simply blocks seating.",
+          "B": "",
+          "C": "DDR4 and DDR5 desktop DIMMs both have 288 pins, so pin count is not the obstacle — the keying position differs.",
+          "D": "Full-size desktop DIMMs are the same length across generations; length is not the issue."
+        },
+        "exam_pattern": "DDR generations are notch-keyed and NOT interchangeable; voltages: DDR3 1.5 V, DDR4 1.2 V, DDR5 1.1 V."
+      }
+    },
+    {
+      "id": "aplus1-hw-106",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "memory_ram",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To get the best memory bandwidth, a technician installs two identical sticks into the color-matched slots (A2 and B2). Which configuration does this create?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Triple parity"
+        },
+        {
+          "id": "B",
+          "text": "Dual channel"
+        },
+        {
+          "id": "C",
+          "text": "ECC"
+        },
+        {
+          "id": "D",
+          "text": "Single channel"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Matched modules in the paired, color-coded slots enable dual-channel mode, widening the path to memory and roughly doubling bandwidth versus one stick.",
+        "distractors": {
+          "A": "'Triple parity' is not a memory channel mode (dual parity is RAID 6, a storage term).",
+          "B": "",
+          "C": "ECC is an error-detection/correction feature of the modules, not a channel configuration.",
+          "D": "Single channel uses one module (or populates one channel), giving lower bandwidth."
+        },
+        "exam_pattern": "Matched pairs in color-matched slots = dual channel; HEDT/server boards add triple/quad channel."
+      }
+    },
+    {
+      "id": "aplus1-hw-107",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "memory_ram",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A Windows PC with little RAM is slow, and the OS is using an area on the storage drive to hold data that overflows physical memory. What is this disk-based area called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The ReadyBoost cache"
+        },
+        {
+          "id": "B",
+          "text": "A shadow copy"
+        },
+        {
+          "id": "C",
+          "text": "The ECC buffer"
+        },
+        {
+          "id": "D",
+          "text": "The pagefile (virtual memory)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Virtual memory uses a pagefile on the drive as overflow for physical RAM; heavy paging ('thrashing') slows the system and signals that more RAM is needed.",
+        "distractors": {
+          "A": "ReadyBoost uses a USB flash drive as a supplemental cache — not the primary pagefile being described.",
+          "B": "Shadow Copy (VSS) takes point-in-time snapshots for restore/backup, not memory overflow.",
+          "C": "There is no 'ECC buffer' that extends RAM onto disk; ECC corrects bit errors within RAM.",
+          "D": ""
+        },
+        "exam_pattern": "RAM overflow spills to the pagefile on disk = virtual memory; constant paging means add physical RAM."
+      }
+    },
+    {
+      "id": "aplus1-hw-108",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "memory_ram",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A server board's documentation calls for 'registered (buffered)' memory. What does the register/buffer on an RDIMM actually do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replaces the CPU's internal cache"
+        },
+        {
+          "id": "B",
+          "text": "Stores the system BIOS/UEFI firmware"
+        },
+        {
+          "id": "C",
+          "text": "Buffers address/command signals between the modules and the memory controller for stability with many modules"
+        },
+        {
+          "id": "D",
+          "text": "Doubles the rated clock speed of the RAM"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Registered (buffered) DIMMs place a register between the DRAM chips and the controller, reducing electrical load so servers can run many high-capacity modules reliably.",
+        "distractors": {
+          "A": "CPU cache (L1/L2/L3) is separate on-die SRAM; buffering does not replace it.",
+          "B": "Firmware lives in the BIOS/UEFI flash chip, not on a DIMM's register.",
+          "C": "",
+          "D": "Buffering improves signal integrity and capacity, not clock speed — RDIMMs are often slightly slower."
+        },
+        "exam_pattern": "Registered/buffered (RDIMM) = servers (more modules, stability); unbuffered (UDIMM) = desktops."
+      }
+    },
+    {
+      "id": "aplus1-hw-109",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "storage_devices",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An older ultrabook holds a compact SSD on a card that carries the SATA signal in a slot predating M.2. Which legacy SSD form factor is this MOST likely?",
+      "options": [
+        {
+          "id": "A",
+          "text": "M.2 NVMe"
+        },
+        {
+          "id": "B",
+          "text": "mSATA"
+        },
+        {
+          "id": "C",
+          "text": "eMMC soldered storage"
+        },
+        {
+          "id": "D",
+          "text": "3.5-inch SATA"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "mSATA is a small SSD form factor (physically like Mini PCIe) that carries the SATA signal; it was common in ultrabooks before M.2 replaced it.",
+        "distractors": {
+          "A": "M.2 NVMe is the newer, faster standard that superseded mSATA and can use the PCIe bus.",
+          "B": "",
+          "C": "eMMC is flash soldered to the board (phones, budget laptops), not a removable SATA card.",
+          "D": "3.5-inch is the desktop hard-drive size, not a compact ultrabook SSD card."
+        },
+        "exam_pattern": "mSATA = legacy compact SATA SSD; M.2 = modern (SATA or NVMe/PCIe); eMMC = soldered flash."
+      }
+    },
+    {
+      "id": "aplus1-hw-110",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "storage_devices",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A budget laptop drive combines a large spinning platter with a small NAND flash cache to speed up frequently used files in one unit. What is this drive called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SSHD (solid-state hybrid drive)"
+        },
+        {
+          "id": "B",
+          "text": "RAID 0 array"
+        },
+        {
+          "id": "C",
+          "text": "Optical drive"
+        },
+        {
+          "id": "D",
+          "text": "NVMe SSD"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "An SSHD pairs a magnetic HDD with a small SSD cache, accelerating commonly used data while keeping the high capacity and low cost of a spinning drive.",
+        "distractors": {
+          "A": "",
+          "B": "RAID 0 stripes across multiple separate drives; it is not a single hybrid device.",
+          "C": "An optical drive reads/writes CDs, DVDs, or Blu-ray discs — not a hybrid storage device.",
+          "D": "An NVMe SSD is pure flash on the PCIe bus — no spinning platter."
+        },
+        "exam_pattern": "SSHD = HDD platter + small flash cache in one drive (capacity plus some speed)."
+      }
+    },
+    {
+      "id": "aplus1-hw-111",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "storage_devices",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A database server needs BOTH the speed of striping AND the redundancy of mirroring, and the budget allows at least four drives. Which RAID level BEST fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "RAID 10 (1+0)"
+        },
+        {
+          "id": "B",
+          "text": "RAID 1"
+        },
+        {
+          "id": "C",
+          "text": "RAID 0"
+        },
+        {
+          "id": "D",
+          "text": "RAID 5"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "RAID 10 mirrors pairs of drives and stripes across them, giving both high performance and fault tolerance; it requires a minimum of four drives.",
+        "distractors": {
+          "A": "",
+          "B": "RAID 1 mirrors for redundancy but does not stripe, so it lacks the performance gain.",
+          "C": "RAID 0 stripes for speed only, with zero redundancy — one failure loses the whole array.",
+          "D": "RAID 5 adds redundancy with single distributed parity but carries a write penalty, so writes are slower than RAID 10."
+        },
+        "exam_pattern": "RAID 10 = stripe of mirrors (min 4, speed + redundancy); RAID 5 = striping with single distributed parity (min 3)."
+      }
+    },
+    {
+      "id": "aplus1-hw-112",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "storage_devices",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A technician must connect an external drive enclosure to a shielded port that uses the SATA protocol and is rated for external cable runs up to about 2 meters. Which port is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Molex"
+        },
+        {
+          "id": "B",
+          "text": "RJ11"
+        },
+        {
+          "id": "C",
+          "text": "eSATA"
+        },
+        {
+          "id": "D",
+          "text": "Internal 7-pin SATA"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "eSATA (external SATA) is the externally shielded variant with a sturdier connector rated for longer runs (about 2 m); note that standard eSATA carries data only — no power.",
+        "distractors": {
+          "A": "Molex is a legacy 4-pin DC power connector, not a data interface.",
+          "B": "RJ11 is a 6-position telephone-line connector, unrelated to storage.",
+          "C": "",
+          "D": "The internal 7-pin SATA data connector is unshielded and intended for inside the case (about 1 m)."
+        },
+        "exam_pattern": "eSATA = external, shielded, data-only (no power), ~2 m; internal SATA data cable ~1 m."
+      }
+    },
+    {
+      "id": "aplus1-hw-113",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "motherboards_cpu",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A technician handles an Intel desktop CPU and sees flat contact pads on its underside, while the delicate pins are in the motherboard socket. Which socket type is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SO-DIMM"
+        },
+        {
+          "id": "B",
+          "text": "BGA (Ball Grid Array)"
+        },
+        {
+          "id": "C",
+          "text": "PGA (Pin Grid Array)"
+        },
+        {
+          "id": "D",
+          "text": "LGA (Land Grid Array)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "LGA puts the pins in the socket and flat lands/pads on the CPU — the arrangement Intel desktop processors have long used.",
+        "distractors": {
+          "A": "SO-DIMM is a laptop RAM form factor, not a CPU socket.",
+          "B": "BGA solders the chip permanently to the board (laptops, phones); it is not a swappable socket.",
+          "C": "PGA places the pins on the CPU and the holes in the socket (traditionally AMD).",
+          "D": ""
+        },
+        "exam_pattern": "LGA = pins on socket (Intel); PGA = pins on CPU (traditional AMD); BGA = soldered."
+      }
+    },
+    {
+      "id": "aplus1-hw-114",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "motherboards_cpu",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A technician installs a discrete graphics card. Which expansion slot provides the MOST lanes and is the standard choice for a modern GPU?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Legacy PCI (32-bit)"
+        },
+        {
+          "id": "B",
+          "text": "PCIe x4"
+        },
+        {
+          "id": "C",
+          "text": "PCIe x1"
+        },
+        {
+          "id": "D",
+          "text": "PCIe x16"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A PCIe x16 slot provides 16 lanes, the highest common bandwidth and the standard slot for a graphics card.",
+        "distractors": {
+          "A": "Legacy PCI is an older, slower parallel bus with no 'lanes' and is not used for modern GPUs.",
+          "B": "PCIe x4 offers more than x1 but far fewer lanes than x16.",
+          "C": "PCIe x1 has a single lane, used for small cards (sound, NIC, capture) — too little bandwidth for a GPU.",
+          "D": ""
+        },
+        "exam_pattern": "GPU → PCIe x16; smaller add-in cards → x1/x4; more lanes = more bandwidth."
+      }
+    },
+    {
+      "id": "aplus1-hw-115",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "motherboards_cpu",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Every time a desktop is unplugged overnight, it boots with the wrong date/time and loses its saved BIOS/UEFI settings. Which component should be replaced?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The power supply"
+        },
+        {
+          "id": "B",
+          "text": "The CPU"
+        },
+        {
+          "id": "C",
+          "text": "A RAM module"
+        },
+        {
+          "id": "D",
+          "text": "The CMOS battery (CR2032 coin cell)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A coin-cell CMOS battery (typically CR2032) keeps the real-time clock and BIOS/UEFI settings alive with no power; losing time/settings points to a dead CMOS battery.",
+        "distractors": {
+          "A": "A failed PSU would prevent the system from powering on, not merely reset the clock.",
+          "B": "A failing CPU causes crashes or no-boot, not specifically a reset clock.",
+          "C": "Bad RAM causes memory errors or no-boot, not loss of date/time settings.",
+          "D": ""
+        },
+        "exam_pattern": "Clock resets / BIOS settings lost after power-off = dead CMOS battery (CR2032)."
+      }
+    },
+    {
+      "id": "aplus1-hw-116",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "motherboards_cpu",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "A technician must enable CPU hardware-assisted virtualization in firmware to run a hypervisor efficiently. Which TWO technologies are the CPU virtualization extensions? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "TPM 2.0"
+        },
+        {
+          "id": "B",
+          "text": "Intel VT-x"
+        },
+        {
+          "id": "C",
+          "text": "Intel SpeedStep"
+        },
+        {
+          "id": "D",
+          "text": "AMD-V"
+        }
+      ],
+      "correct": [
+        "B",
+        "D"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "Intel VT-x and AMD-V are the hardware virtualization extensions; enabling them in BIOS/UEFI lets a hypervisor run VMs with hardware acceleration.",
+        "distractors": {
+          "A": "TPM 2.0 is a security/crypto module (BitLocker, Windows 11), not a virtualization extension.",
+          "B": "",
+          "C": "Intel SpeedStep is a CPU power/frequency-scaling feature, unrelated to virtualization.",
+          "D": ""
+        },
+        "exam_pattern": "Firmware virtualization = Intel VT-x / AMD-V; don't confuse with TPM (security) or SpeedStep (power)."
+      }
+    },
+    {
+      "id": "aplus1-hw-117",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "power_supplies",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "A high-end graphics card needs supplemental power directly from the PSU. Which TWO connectors are the standard PCIe power connectors for a GPU? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "8-pin (6+2) PCIe"
+        },
+        {
+          "id": "B",
+          "text": "6-pin PCIe"
+        },
+        {
+          "id": "C",
+          "text": "15-pin SATA power"
+        },
+        {
+          "id": "D",
+          "text": "24-pin ATX"
+        }
+      ],
+      "correct": [
+        "A",
+        "B"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "GPUs draw supplemental power through 6-pin and 8-pin (6+2) PCIe power connectors from the power supply.",
+        "distractors": {
+          "A": "",
+          "B": "",
+          "C": "The 15-pin SATA power connector feeds drives, not a GPU's PCIe power input.",
+          "D": "The 24-pin ATX connector powers the motherboard, not the graphics card directly."
+        },
+        "exam_pattern": "GPU supplemental power = 6-pin / 8-pin (6+2) PCIe; 24-pin = motherboard; SATA power = drives."
+      }
+    },
+    {
+      "id": "aplus1-hw-118",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "power_supplies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Besides the 24-pin main connector, which connector supplies dedicated power to the CPU near the top of the motherboard?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A 6-pin PCIe connector"
+        },
+        {
+          "id": "B",
+          "text": "A 15-pin SATA power connector"
+        },
+        {
+          "id": "C",
+          "text": "The 4/8-pin EPS (CPU / ATX12V) connector"
+        },
+        {
+          "id": "D",
+          "text": "A 4-pin Molex connector"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The 4-pin or 8-pin EPS connector (often labeled CPU or ATX12V) delivers dedicated 12 V power to the processor's voltage regulators near the top of the board.",
+        "distractors": {
+          "A": "A 6-pin PCIe connector supplies graphics cards, not the CPU socket.",
+          "B": "A 15-pin SATA power connector feeds storage drives.",
+          "C": "",
+          "D": "A 4-pin Molex is a legacy peripheral/fan power connector, not the CPU power feed."
+        },
+        "exam_pattern": "24-pin = board; 4/8-pin EPS (ATX12V) = CPU; 6/8-pin PCIe = GPU; SATA/Molex = drives."
+      }
+    },
+    {
+      "id": "aplus1-hw-119",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "power_supplies",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A technician wants a power supply that lets them attach ONLY the cables a build actually needs, improving airflow and cable management. Which PSU design provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Non-modular (fixed cables)"
+        },
+        {
+          "id": "B",
+          "text": "Semi-passive (fanless at low load)"
+        },
+        {
+          "id": "C",
+          "text": "Fully modular"
+        },
+        {
+          "id": "D",
+          "text": "Dual-rail"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A fully modular PSU has detachable cables, so only the required cables are connected, reducing clutter and improving airflow.",
+        "distractors": {
+          "A": "A non-modular PSU has every cable permanently attached, so unused leads must be tucked away.",
+          "B": "Semi-passive/fanless refers to cooling and noise behavior, not detachable cabling.",
+          "C": "",
+          "D": "Dual-rail describes how the 12 V output is split across protected rails, not cable attachment."
+        },
+        "exam_pattern": "Modular = detach unused cables; non-modular = fixed cables; semi-modular = some fixed, some detachable."
+      }
+    },
+    {
+      "id": "aplus1-hw-120",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "power_supplies",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A PSU has a red slide switch marked '115/230.' What does setting this switch wrong for the region's mains voltage risk?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Converting the PSU's output from DC back to AC"
+        },
+        {
+          "id": "B",
+          "text": "Changing the 80 PLUS efficiency rating"
+        },
+        {
+          "id": "C",
+          "text": "Increasing the PSU's maximum wattage"
+        },
+        {
+          "id": "D",
+          "text": "Component damage or a no-power condition, because it selects the AC input voltage range"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The 115/230 selector matches the PSU to the local mains (about 120 V in North America, about 230 V in Europe). Set to 115 on 230 V mains it can be destroyed; set to 230 on 115 V it usually will not power on.",
+        "distractors": {
+          "A": "A PSU converts AC to DC for the PC; this switch does not reverse that.",
+          "B": "The switch selects input voltage; it does not alter the 80 PLUS efficiency certification.",
+          "C": "Maximum wattage is fixed by the PSU's design, not by the input-voltage switch.",
+          "D": ""
+        },
+        "exam_pattern": "115/230 selector matches mains; wrong setting = damage (115 on 230 V) or no power (230 on 115 V)."
+      }
+    },
+    {
+      "id": "aplus1-hw-121",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "peripherals",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An office must scan 50-page documents without placing each sheet on the glass by hand. Which scanner feature should the technician recommend?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A barcode wand"
+        },
+        {
+          "id": "B",
+          "text": "Flatbed glass only"
+        },
+        {
+          "id": "C",
+          "text": "A signature pad"
+        },
+        {
+          "id": "D",
+          "text": "An automatic document feeder (ADF)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "An ADF pulls in a stack of pages and scans them one after another, ideal for multi-page documents; many ADFs also support duplex (two-sided) scanning.",
+        "distractors": {
+          "A": "A barcode wand/scanner reads barcodes, not full document pages.",
+          "B": "A flatbed-only scanner requires placing each page on the glass individually.",
+          "C": "A signature pad captures handwritten signatures, not document pages.",
+          "D": ""
+        },
+        "exam_pattern": "Multi-page/batch scanning = ADF; single page, photos, or books = flatbed glass."
+      }
+    },
+    {
+      "id": "aplus1-hw-122",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "peripherals",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A retail checkout needs a device for customers to sign for credit-card purchases electronically. Which peripheral is purpose-built for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A signature pad"
+        },
+        {
+          "id": "B",
+          "text": "A flatbed scanner"
+        },
+        {
+          "id": "C",
+          "text": "A KVM switch"
+        },
+        {
+          "id": "D",
+          "text": "A webcam"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A signature pad captures a handwritten signature electronically, commonly at point-of-sale and for signing documents.",
+        "distractors": {
+          "A": "",
+          "B": "A flatbed scanner digitizes pages or photos, not a live signature at checkout.",
+          "C": "A KVM switch shares one keyboard/monitor/mouse among multiple PCs.",
+          "D": "A webcam captures video/images, not a pen-based signature."
+        },
+        "exam_pattern": "Capture a handwritten signature at the point of sale = signature pad."
+      }
+    },
+    {
+      "id": "aplus1-hw-123",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "peripherals",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On a tablet, which component translates the user's finger touches and gestures into input coordinates the operating system can use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The webcam"
+        },
+        {
+          "id": "B",
+          "text": "The inverter"
+        },
+        {
+          "id": "C",
+          "text": "The LCD backlight"
+        },
+        {
+          "id": "D",
+          "text": "The digitizer (touchscreen sensor)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The digitizer is the touch-sensitive layer over the display that converts physical touch or pen contact into digital coordinates for the OS.",
+        "distractors": {
+          "A": "A webcam captures images/video, not touch input.",
+          "B": "An inverter supplies high voltage to a CCFL backlight on older LCDs; it does not sense touch.",
+          "C": "The backlight illuminates the LCD panel; it produces no input.",
+          "D": ""
+        },
+        "exam_pattern": "Touch input layer = digitizer; display output = LCD/backlight; older backlight power = inverter."
+      }
+    },
+    {
+      "id": "aplus1-hw-124",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "printers",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A laser printer's output smears when rubbed right after printing. Which step/component is responsible for permanently bonding the toner to the paper?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cleaning"
+        },
+        {
+          "id": "B",
+          "text": "Charging"
+        },
+        {
+          "id": "C",
+          "text": "Fusing (the fuser assembly's heat and pressure)"
+        },
+        {
+          "id": "D",
+          "text": "Developing"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The fusing step uses the fuser's heated rollers and pressure to melt and bond toner to the paper; smearing/unfused toner points to a fuser problem.",
+        "distractors": {
+          "A": "Cleaning removes residual toner and charge from the drum at the end of the cycle.",
+          "B": "Charging applies a uniform charge to the drum before imaging — not where toner is bonded.",
+          "C": "",
+          "D": "Developing coats the latent image on the drum with toner, before it ever reaches the paper."
+        },
+        "exam_pattern": "Toner smears / won't bond = fusing step; order: processing, charging, exposing, developing, transferring, fusing, cleaning."
+      }
+    },
+    {
+      "id": "aplus1-hw-125",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "printers",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A warehouse must print on multipart carbon-copy (NCR) forms, where pins physically strike through several sheets at once. Which printer type is required?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Direct thermal"
+        },
+        {
+          "id": "B",
+          "text": "Inkjet"
+        },
+        {
+          "id": "C",
+          "text": "Laser"
+        },
+        {
+          "id": "D",
+          "text": "Impact (dot-matrix)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "An impact (dot-matrix) printer strikes pins against an inked ribbon and paper, the only common type that can print through multipart carbon/NCR forms.",
+        "distractors": {
+          "A": "A direct thermal printer heats special paper and also cannot create carbon copies.",
+          "B": "An inkjet sprays ink droplets and cannot press through carbon copies.",
+          "C": "A laser printer uses toner and heat and cannot imprint through multipart forms.",
+          "D": ""
+        },
+        "exam_pattern": "Multipart/carbon-copy forms = impact (dot-matrix) printer (pins + ribbon)."
+      }
+    },
+    {
+      "id": "aplus1-hw-126",
+      "exam": "aplus1",
+      "domain": "hardware",
+      "subtopic": "printers",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A maker's 3D printer melts a spool of plastic filament and extrudes it layer by layer through a heated nozzle. Which 3D printing technology is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Laser toner fusing"
+        },
+        {
+          "id": "B",
+          "text": "FDM (fused deposition modeling) using filament"
+        },
+        {
+          "id": "C",
+          "text": "Dye sublimation"
+        },
+        {
+          "id": "D",
+          "text": "Resin (SLA / vat photopolymerization)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "FDM feeds a thermoplastic filament through a heated nozzle and deposits it layer by layer — the most common consumer 3D printing method.",
+        "distractors": {
+          "A": "Toner fusing is a 2D laser-printer process, not a 3D printing technology.",
+          "B": "",
+          "C": "Dye sublimation is a 2D photo-printing method that heats dye onto media.",
+          "D": "Resin (SLA) printing cures liquid photopolymer with light; there is no filament spool or heated nozzle."
+        },
+        "exam_pattern": "3D FDM = heated nozzle + filament spool; resin/SLA = UV-cured liquid resin."
+      }
+    },
+    {
+      "id": "aplus1-mob-101",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "laptop_hardware",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A laptop has an empty 2.5-inch SATA bay and an empty M.2 slot wired for PCIe. A technician wants the drive with the HIGHEST sequential throughput. Which option should they install?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A 2.5-inch SATA SSD"
+        },
+        {
+          "id": "B",
+          "text": "An M.2 NVMe SSD"
+        },
+        {
+          "id": "C",
+          "text": "An M.2 SATA SSD"
+        },
+        {
+          "id": "D",
+          "text": "A 2.5-inch 7200 RPM hard drive"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "An M.2 NVMe SSD talks over PCIe lanes, so it easily exceeds 2,000-7,000 MB/s and blows past anything on the SATA bus.",
+        "distractors": {
+          "A": "A 2.5-inch SATA SSD is fast but capped by the SATA III bus at about 6 Gb/s (~550 MB/s).",
+          "B": "",
+          "C": "An M.2 SATA SSD uses the same small slot but still rides the SATA bus, so it hits the same ~550 MB/s ceiling — M.2 is only the form factor.",
+          "D": "A mechanical 7200 RPM hard drive is the slowest choice by far (~100-160 MB/s)."
+        },
+        "exam_pattern": "M.2 is a form factor, not a speed. NVMe (PCIe) = fastest; SATA (2.5\" or M.2) is capped ~6 Gb/s."
+      }
+    },
+    {
+      "id": "aplus1-mob-102",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "laptop_hardware",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A user's laptop no longer sits flat and the trackpad is bulging upward from underneath. What has MOST likely happened, and how should the technician respond?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The SSD is full; delete files to free space"
+        },
+        {
+          "id": "B",
+          "text": "A SO-DIMM has come loose; reseat the memory modules"
+        },
+        {
+          "id": "C",
+          "text": "The system board warped from heat; replace the motherboard"
+        },
+        {
+          "id": "D",
+          "text": "The lithium-ion battery is swelling; power it down, avoid puncturing it, and replace it with the correct part"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A swelling (puffed) lithium-ion battery expands and pushes the case and trackpad outward. It is a fire/injury hazard: stop using it, do not puncture it, and swap in the correct replacement.",
+        "distractors": {
+          "A": "A full SSD slows the system or blocks saves; it cannot deform the case.",
+          "B": "A loose SO-DIMM causes no-boot or memory errors, not physical bulging of the chassis.",
+          "C": "A warped board is not what lifts the trackpad, and replacing it ignores the obvious swollen battery underneath.",
+          "D": ""
+        },
+        "exam_pattern": "Case/trackpad bulging = swollen Li-ion battery. Do not puncture; replace it safely."
+      }
+    },
+    {
+      "id": "aplus1-mob-103",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "laptop_hardware",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "While replacing the wireless card in an older laptop, a technician finds a half-size card with a 52-pin edge connector that seats at an angle under two retention clips — it is not an M.2 card. Which interface is this WLAN card using?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Conventional PCI"
+        },
+        {
+          "id": "B",
+          "text": "ExpressCard"
+        },
+        {
+          "id": "C",
+          "text": "M.2"
+        },
+        {
+          "id": "D",
+          "text": "Mini-PCIe"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Older laptop Wi-Fi/Bluetooth modules use Mini PCI Express (Mini-PCIe): a small 52-pin card that inserts at an angle and clips down.",
+        "distractors": {
+          "A": "Conventional PCI is a legacy desktop expansion bus with long slots, not used for internal laptop WLAN modules.",
+          "B": "ExpressCard is a user-accessible slot on the side of a laptop for external add-in cards, not the internal WLAN card interface.",
+          "C": "M.2 is the newer, smaller keyed edge-connector standard that replaced Mini-PCIe for WLAN — the stem rules it out.",
+          "D": ""
+        },
+        "exam_pattern": "52-pin angled WLAN card = Mini-PCIe (older); the newer equivalent is a keyed M.2 card."
+      }
+    },
+    {
+      "id": "aplus1-mob-104",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "laptop_hardware",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A company wants staff to unlock their laptops by touch instead of typing a password. Which built-in laptop component provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TPM chip"
+        },
+        {
+          "id": "B",
+          "text": "NFC sensor"
+        },
+        {
+          "id": "C",
+          "text": "Smart card reader"
+        },
+        {
+          "id": "D",
+          "text": "Fingerprint reader"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A fingerprint reader is a biometric scanner that authenticates the user from a body characteristic — a touch instead of a typed password.",
+        "distractors": {
+          "A": "A TPM securely stores encryption keys and measurements; it does not read fingerprints.",
+          "B": "An NFC sensor handles contactless tap (pay/pair); it is not a biometric reader.",
+          "C": "A smart card reader authenticates from a physical card the user inserts/taps, not from a body trait.",
+          "D": ""
+        },
+        "exam_pattern": "Unlock 'by touch' / body trait = biometric (fingerprint reader). TPM stores keys; smart card = possession."
+      }
+    },
+    {
+      "id": "aplus1-mob-105",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "laptop_hardware",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A laptop has two SO-DIMM slots and supports dual-channel memory. To give the user 16 GB with the BEST memory bandwidth, how should the technician install it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Install the single fastest SO-DIMM available and ignore the second slot"
+        },
+        {
+          "id": "B",
+          "text": "Install two matched 8 GB SO-DIMMs, one in each slot, to enable dual-channel mode"
+        },
+        {
+          "id": "C",
+          "text": "Install a 16 GB and a 4 GB SO-DIMM together"
+        },
+        {
+          "id": "D",
+          "text": "Install one 16 GB SO-DIMM and leave the second slot empty"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Dual-channel needs a matched module in each channel. Two identical 8 GB SO-DIMMs populate both channels, roughly doubling memory bandwidth over a single stick.",
+        "distractors": {
+          "A": "A single module — however fast — still runs single-channel; dual-channel requires two populated channels.",
+          "B": "",
+          "C": "Mismatched capacities break symmetric dual-channel (best case a slower flex mode), so it is not optimal.",
+          "D": "One 16 GB module fills only one channel, so the system runs in single-channel mode."
+        },
+        "exam_pattern": "Best laptop RAM bandwidth = a MATCHED pair, one per channel (dual-channel). One stick = single-channel."
+      }
+    },
+    {
+      "id": "aplus1-mob-106",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_display",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An older laptop uses a CCFL-backlit LCD. One component converts the laptop's low-voltage DC into the high-voltage AC the CCFL tube needs, and its failure is a common cause of a dim or flickering screen. Which component is it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The digitizer"
+        },
+        {
+          "id": "B",
+          "text": "The GPU"
+        },
+        {
+          "id": "C",
+          "text": "The inverter"
+        },
+        {
+          "id": "D",
+          "text": "The polarizing layer"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The inverter steps the laptop's low-voltage DC up to the high-voltage AC a CCFL backlight tube requires. A failing inverter commonly causes a dim, flickering, or dark screen.",
+        "distractors": {
+          "A": "The digitizer senses touch input; it has nothing to do with powering the backlight.",
+          "B": "The GPU renders the image but does not supply backlight power.",
+          "C": "",
+          "D": "The polarizer is a passive optical layer in the LCD stack, not a power-conversion component."
+        },
+        "exam_pattern": "CCFL backlight needs an inverter (DC->high-voltage AC). Dim/flicker on a CCFL screen -> suspect the inverter."
+      }
+    },
+    {
+      "id": "aplus1-mob-107",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_display",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A newer laptop LCD uses LED backlighting rather than CCFL. Which statement about the LED backlight is ACCURATE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It still requires a CCFL inverter to operate"
+        },
+        {
+          "id": "B",
+          "text": "It is more energy-efficient and allows a thinner panel, with no high-voltage inverter required"
+        },
+        {
+          "id": "C",
+          "text": "It removes the need for an LCD layer entirely"
+        },
+        {
+          "id": "D",
+          "text": "Each pixel emits its own light, so the panel needs no backlight at all"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "LED backlights are driven directly from low-voltage DC, so they drop the inverter, run cooler and more efficiently, and let panels be thinner than CCFL designs.",
+        "distractors": {
+          "A": "The point of LED backlighting is that it needs no high-voltage inverter at all.",
+          "B": "",
+          "C": "An LED-backlit display still uses an LCD layer to form the image; the LEDs only light it.",
+          "D": "Per-pixel self-emission describes OLED. An LED-backlit LCD still shines light through a shared backlight and LCD layer."
+        },
+        "exam_pattern": "LED-backlit LCD still has a backlight + LCD layer (no inverter). Per-pixel self-lit = OLED."
+      }
+    },
+    {
+      "id": "aplus1-mob-108",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_display",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On a touchscreen laptop the image displays perfectly, but taps and swipes no longer register anywhere on the screen. Which component has MOST likely failed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The LCD panel"
+        },
+        {
+          "id": "B",
+          "text": "The digitizer"
+        },
+        {
+          "id": "C",
+          "text": "The inverter"
+        },
+        {
+          "id": "D",
+          "text": "The GPU"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The digitizer is the touch-sensing layer bonded over the display. If touch is dead but the picture is fine, the digitizer (or its cable) is the suspect.",
+        "distractors": {
+          "A": "A failed LCD panel would show a bad or missing image — but the stem says the image is perfect.",
+          "B": "",
+          "C": "An inverter powers a CCFL backlight; its failure dims the screen, it does not kill touch input.",
+          "D": "A GPU fault corrupts or blanks the rendered image; it does not selectively disable touch while the image is fine."
+        },
+        "exam_pattern": "Image good + touch dead = digitizer. Image bad + touch fine = LCD panel."
+      }
+    },
+    {
+      "id": "aplus1-mob-109",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_display",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An executive works on confidential data on flights and wants to stop the passengers beside them from reading the laptop screen. Which accessory BEST addresses this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An anti-glare (matte) screen protector"
+        },
+        {
+          "id": "B",
+          "text": "A privacy filter"
+        },
+        {
+          "id": "C",
+          "text": "A blue-light filter"
+        },
+        {
+          "id": "D",
+          "text": "A webcam cover"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A privacy filter narrows the viewing angle so the screen looks dark to anyone off to the side, blocking shoulder-surfing while staying readable head-on.",
+        "distractors": {
+          "A": "An anti-glare protector cuts reflections; it does nothing to hide the screen from a neighbor.",
+          "B": "",
+          "C": "A blue-light filter reduces eye strain and does not restrict who can see the screen.",
+          "D": "A webcam cover blocks the camera lens, not the view of the display."
+        },
+        "exam_pattern": "Stop side viewing / shoulder-surfing = privacy filter (narrows viewing angle). Anti-glare only cuts reflections."
+      }
+    },
+    {
+      "id": "aplus1-mob-110",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_display",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A graphic designer needs a laptop whose LCD gives the most accurate, consistent color across wide viewing angles. Which LCD panel type should the technician recommend?",
+      "options": [
+        {
+          "id": "A",
+          "text": "VA (vertical alignment)"
+        },
+        {
+          "id": "B",
+          "text": "E-ink (electrophoretic)"
+        },
+        {
+          "id": "C",
+          "text": "TN (twisted nematic)"
+        },
+        {
+          "id": "D",
+          "text": "IPS (in-plane switching)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "IPS panels are prized for accurate, color-consistent reproduction that holds up across wide viewing angles — the standard pick for color-critical work.",
+        "distractors": {
+          "A": "VA panels give strong contrast, but colors shift more off-axis than on an IPS panel.",
+          "B": "E-ink is a low-power reflective technology for e-readers, not a color-accurate laptop display.",
+          "C": "TN panels are cheap and fast but have the weakest color and narrowest viewing angles.",
+          "D": ""
+        },
+        "exam_pattern": "Color accuracy + wide angles among LCDs = IPS. TN = cheap/fast/poor angles; VA = high contrast."
+      }
+    },
+    {
+      "id": "aplus1-mob-111",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_ports_accessories",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "A laptop advertises a Thunderbolt 3 port. Which TWO statements about Thunderbolt 3 are correct? (Choose TWO.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "It uses a proprietary rectangular connector that is incompatible with USB-C"
+        },
+        {
+          "id": "B",
+          "text": "It can carry PCIe and DisplayPort data over a single cable"
+        },
+        {
+          "id": "C",
+          "text": "It supports speeds up to 40 Gbps"
+        },
+        {
+          "id": "D",
+          "text": "It is limited to 5 Gbps, the same as USB 3.0"
+        }
+      ],
+      "correct": [
+        "B",
+        "C"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "Thunderbolt 3 runs up to 40 Gbps and tunnels both PCIe and DisplayPort over one cable, which is why it can drive docks, external GPUs, and high-res monitors.",
+        "distractors": {
+          "A": "Thunderbolt 3 uses the USB-C connector; a USB-C device plugs into a TB3 port (the port is backward-compatible with USB-C).",
+          "B": "",
+          "C": "",
+          "D": "5 Gbps is USB 3.0 (USB 3.2 Gen 1). Thunderbolt 3 is eight times that at 40 Gbps."
+        },
+        "exam_pattern": "Thunderbolt 3/4 = USB-C connector, up to 40 Gbps, tunnels PCIe + DisplayPort."
+      }
+    },
+    {
+      "id": "aplus1-mob-112",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_ports_accessories",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "At their desk a user wants one connection to the laptop that adds Gigabit Ethernet, drives two external monitors, and delivers charging power — going beyond simply mirroring the laptop's built-in ports. Which accessory is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A USB hub"
+        },
+        {
+          "id": "B",
+          "text": "A docking station"
+        },
+        {
+          "id": "C",
+          "text": "A KVM switch"
+        },
+        {
+          "id": "D",
+          "text": "A port replicator"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A docking station adds capabilities the laptop may not have on its own — extra video outputs, wired networking, more ports, and power delivery — through a single connection.",
+        "distractors": {
+          "A": "A USB hub only fans out additional USB ports; it does not drive monitors or supply laptop charging.",
+          "B": "",
+          "C": "A KVM switch shares one keyboard, video, and mouse among multiple computers — a different purpose entirely.",
+          "D": "A port replicator essentially duplicates the ports the laptop already has; it does not add video outputs or charging beyond that."
+        },
+        "exam_pattern": "Adds NEW capabilities (video, Ethernet, charging) = docking station. Just mirrors existing ports = port replicator."
+      }
+    },
+    {
+      "id": "aplus1-mob-113",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_ports_accessories",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A technician needs a charge-and-sync cable for an older iPhone made before Apple moved to USB-C. Which proprietary connector does that phone use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Thunderbolt"
+        },
+        {
+          "id": "B",
+          "text": "Lightning"
+        },
+        {
+          "id": "C",
+          "text": "Micro-USB"
+        },
+        {
+          "id": "D",
+          "text": "USB-C"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Lightning is Apple's small, reversible proprietary connector used on iPhones (and many iPads) before the switch to USB-C.",
+        "distractors": {
+          "A": "Thunderbolt is a high-speed interface (on USB-C connectors), not the iPhone's proprietary charge/sync port.",
+          "B": "",
+          "C": "Micro-USB is the older Android/peripheral connector, never used as the iPhone charge port.",
+          "D": "USB-C is the later, industry-standard reversible connector Apple moved to; the stem specifies a device from before that change."
+        },
+        "exam_pattern": "Pre-USB-C iPhone charge/sync = Lightning (Apple proprietary)."
+      }
+    },
+    {
+      "id": "aplus1-mob-114",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_ports_accessories",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A user wants to add removable flash storage to an Android phone that has an expansion slot. Which memory card format is designed for that slot?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CompactFlash (CF)"
+        },
+        {
+          "id": "B",
+          "text": "microSD"
+        },
+        {
+          "id": "C",
+          "text": "Full-size SD"
+        },
+        {
+          "id": "D",
+          "text": "MMC (MultiMediaCard)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "microSD is the tiny flash card format built for phones and other small mobile devices; an adapter lets it also fit full-size SD slots.",
+        "distractors": {
+          "A": "CompactFlash is a large, thick card used in professional cameras, far too big for a phone slot.",
+          "B": "",
+          "C": "Full-size SD cards are used in cameras and laptops; they do not fit a phone's microSD slot.",
+          "D": "MMC is a legacy card format largely superseded by SD/microSD and not used in modern phone slots."
+        },
+        "exam_pattern": "Phone removable storage = microSD. Full-size SD = cameras/laptops; CF = pro cameras."
+      }
+    },
+    {
+      "id": "aplus1-mob-115",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_ports_accessories",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A technician notices a rectangular USB Type-A port on a laptop has a blue plastic insert. By common convention, what does the blue color indicate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is a USB 2.0 Hi-Speed port (480 Mbps)"
+        },
+        {
+          "id": "B",
+          "text": "It supplies no power and is data-only"
+        },
+        {
+          "id": "C",
+          "text": "It is a USB 3.0 (USB 3.2 Gen 1) SuperSpeed port (5 Gbps)"
+        },
+        {
+          "id": "D",
+          "text": "It is a Thunderbolt 4 port"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "By convention a blue insert marks a USB 3.0 (USB 3.2 Gen 1) SuperSpeed port rated at 5 Gbps.",
+        "distractors": {
+          "A": "USB 2.0 Hi-Speed ports are conventionally black (and run 480 Mbps), not blue.",
+          "B": "USB-A ports still provide power; color coding signals speed, not a lack of power.",
+          "C": "",
+          "D": "Thunderbolt uses the USB-C connector, not a blue Type-A port."
+        },
+        "exam_pattern": "Blue USB-A insert = USB 3.0 SuperSpeed (5 Gbps); black = USB 2.0 (480 Mbps)."
+      }
+    },
+    {
+      "id": "aplus1-mob-116",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_connectivity",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "A user with no Wi-Fi wants to get their laptop online through their smartphone's cellular data. Which TWO of the following are valid ways to share that connection? (Choose TWO.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Connect the phone to the laptop with a USB cable and enable USB tethering"
+        },
+        {
+          "id": "B",
+          "text": "Enable airplane mode on the phone"
+        },
+        {
+          "id": "C",
+          "text": "Hold the phone against the laptop to transfer the connection over NFC"
+        },
+        {
+          "id": "D",
+          "text": "Turn on the phone's Wi-Fi hotspot and join it from the laptop"
+        }
+      ],
+      "correct": [
+        "A",
+        "D"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "USB tethering shares cellular data over the cable (and charges the phone), while a Wi-Fi hotspot broadcasts it as an SSID the laptop joins. (Bluetooth tethering is a third valid method, not listed here.)",
+        "distractors": {
+          "A": "",
+          "B": "Airplane mode disables the phone's radios, which would cut off the cellular data you are trying to share.",
+          "C": "NFC works only at a few centimeters for tap-to-pay/tap-to-pair; it does not carry an internet session.",
+          "D": ""
+        },
+        "exam_pattern": "Share phone data = USB tethering, Wi-Fi hotspot, or Bluetooth tethering. NFC/airplane mode do not apply."
+      }
+    },
+    {
+      "id": "aplus1-mob-117",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_connectivity",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A flight crew asks a passenger to disable all of their phone's wireless radios at once before takeoff. Which single setting does this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Turning off Bluetooth only"
+        },
+        {
+          "id": "B",
+          "text": "Turning off the mobile hotspot"
+        },
+        {
+          "id": "C",
+          "text": "Airplane mode"
+        },
+        {
+          "id": "D",
+          "text": "Do Not Disturb"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Airplane mode turns off the device's radios together — cellular, Wi-Fi, Bluetooth, and NFC — in one action (Wi-Fi/Bluetooth can be re-enabled separately if allowed).",
+        "distractors": {
+          "A": "Disabling Bluetooth alone leaves cellular and Wi-Fi active.",
+          "B": "Turning off the hotspot stops sharing data but does not disable the phone's own radios.",
+          "C": "",
+          "D": "Do Not Disturb silences notifications and calls but leaves the radios transmitting."
+        },
+        "exam_pattern": "Disable ALL radios at once = airplane mode. Do Not Disturb only silences alerts."
+      }
+    },
+    {
+      "id": "aplus1-mob-118",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_connectivity",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A user cannot get a new Bluetooth speaker to connect to their phone. Which step is specifically required to establish the initial Bluetooth link between the two devices?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Insert a SIM card into the speaker"
+        },
+        {
+          "id": "B",
+          "text": "Assign the speaker a static IP address"
+        },
+        {
+          "id": "C",
+          "text": "Put the devices in pairing/discoverable mode and confirm the passkey"
+        },
+        {
+          "id": "D",
+          "text": "Join both devices to the same Wi-Fi SSID"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Bluetooth requires pairing: make the accessory discoverable, select it on the phone, and confirm the passkey/PIN so the two devices trust each other.",
+        "distractors": {
+          "A": "A SIM identifies a phone to a cellular carrier; a Bluetooth speaker has no SIM.",
+          "B": "Bluetooth devices do not use IP addressing; no static IP is involved in pairing.",
+          "C": "",
+          "D": "Bluetooth is its own short-range link and does not depend on sharing a Wi-Fi SSID."
+        },
+        "exam_pattern": "Bluetooth = discoverable/pairing mode + confirm passkey. No IP, SSID, or SIM needed."
+      }
+    },
+    {
+      "id": "aplus1-mob-119",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_connectivity",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A hiking app needs precise outdoor positioning even when there is no cellular signal and no nearby Wi-Fi. Which technology provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cellular tower triangulation"
+        },
+        {
+          "id": "B",
+          "text": "NFC"
+        },
+        {
+          "id": "C",
+          "text": "Wi-Fi-based positioning"
+        },
+        {
+          "id": "D",
+          "text": "GPS (satellite positioning)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "GPS receives signals from navigation satellites, so it gives precise location outdoors independent of any cell or Wi-Fi network.",
+        "distractors": {
+          "A": "Cellular triangulation needs cell towers in range and is far less precise — exactly what is missing here.",
+          "B": "NFC is a few-centimeter tap technology and provides no geographic location at all.",
+          "C": "Wi-Fi positioning relies on known nearby access points, which the scenario rules out.",
+          "D": ""
+        },
+        "exam_pattern": "Precise location with no cell/Wi-Fi = GPS (satellites). Tower/Wi-Fi methods need that infrastructure."
+      }
+    },
+    {
+      "id": "aplus1-mob-120",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_connectivity",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A user upgrades to a new phone on the same carrier and wants to move their phone number and subscriber identity over by swapping a removable card. Which component stores that subscriber identity?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The microSD card"
+        },
+        {
+          "id": "B",
+          "text": "The SIM card"
+        },
+        {
+          "id": "C",
+          "text": "The baseband modem"
+        },
+        {
+          "id": "D",
+          "text": "The eMMC internal storage"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The SIM (Subscriber Identity Module) card stores the subscriber identity (IMSI) and carrier credentials, so moving it to a compatible phone carries the service over.",
+        "distractors": {
+          "A": "A microSD card holds user files and media; it does not identify the subscriber to the carrier.",
+          "B": "",
+          "C": "The baseband modem processes the cellular radio signal but does not store the subscriber identity.",
+          "D": "eMMC is soldered internal storage for the OS and data, not a removable subscriber-identity card."
+        },
+        "exam_pattern": "Removable card that identifies you to the carrier = SIM. microSD/eMMC are storage, not identity."
+      }
+    },
+    {
+      "id": "aplus1-mob-121",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_apps_sync",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A user reads the same email account on a phone, a tablet, and a laptop and wants messages and folders to stay in sync, remaining stored on the mail server. Which standard retrieval protocol should be configured?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SMTP"
+        },
+        {
+          "id": "B",
+          "text": "POP3"
+        },
+        {
+          "id": "C",
+          "text": "IMAP"
+        },
+        {
+          "id": "D",
+          "text": "FTP"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "IMAP keeps mail on the server and syncs read state and folders across every device, which is exactly what multi-device access needs.",
+        "distractors": {
+          "A": "SMTP only sends/relays outgoing mail; it does not retrieve or sync a mailbox.",
+          "B": "POP3 typically downloads mail to a single device (often removing it from the server) and does not sync folders across devices.",
+          "C": "",
+          "D": "FTP transfers files between hosts and has nothing to do with email retrieval."
+        },
+        "exam_pattern": "Multi-device, server-stored, synced mail = IMAP. POP3 = download to one device."
+      }
+    },
+    {
+      "id": "aplus1-mob-122",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_apps_sync",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A technician is configuring a mobile mail client to retrieve mail using IMAP secured with SSL/TLS. Which port should the incoming-mail setting use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "993"
+        },
+        {
+          "id": "B",
+          "text": "143"
+        },
+        {
+          "id": "C",
+          "text": "995"
+        },
+        {
+          "id": "D",
+          "text": "110"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Secure IMAP (IMAP over SSL/TLS, IMAPS) uses TCP port 993.",
+        "distractors": {
+          "A": "",
+          "B": "Port 143 is plain (unencrypted) IMAP.",
+          "C": "Port 995 is secure POP3 (POP3S), not IMAP.",
+          "D": "Port 110 is unencrypted POP3."
+        },
+        "exam_pattern": "IMAP 143 / IMAPS 993; POP3 110 / POP3S 995. 'Secure IMAP' = 993."
+      }
+    },
+    {
+      "id": "aplus1-mob-123",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_apps_sync",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Under a BYOD policy, a company must be able to control and remotely wipe ONLY its corporate email and apps on an employee-owned phone, without touching the employee's personal photos and accounts. Which approach BEST meets this requirement?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Full Mobile Device Management (MDM) enrollment that manages the whole device and wipes it entirely"
+        },
+        {
+          "id": "B",
+          "text": "Mobile Application Management (MAM) that containerizes corporate apps and allows a selective wipe of just that data"
+        },
+        {
+          "id": "C",
+          "text": "Performing a full factory reset whenever an employee leaves"
+        },
+        {
+          "id": "D",
+          "text": "Enabling full-device encryption"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "MAM manages at the application level, placing corporate apps and data in a container the company can configure and selectively wipe while leaving personal data untouched — ideal for BYOD.",
+        "distractors": {
+          "A": "Full MDM manages the entire device; a full wipe would also erase the user's personal data, which the policy forbids.",
+          "B": "",
+          "C": "A factory reset erases everything on the device, personal data included — the opposite of selective separation.",
+          "D": "Full-device encryption protects data at rest but does not separate or selectively wipe corporate vs personal data."
+        },
+        "exam_pattern": "Separate/selectively wipe corporate data on a personal device = MAM (containerization). MDM manages the whole device."
+      }
+    },
+    {
+      "id": "aplus1-mob-124",
+      "exam": "aplus1",
+      "domain": "mobile_devices",
+      "subtopic": "mobile_apps_sync",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To sign in to a corporate app, a user enters their password and then a one-time code generated by an authenticator app on their phone. What does this describe?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Multi-factor authentication, where the code adds a second 'something you know' factor"
+        },
+        {
+          "id": "B",
+          "text": "Biometric authentication, a 'something you are' factor"
+        },
+        {
+          "id": "C",
+          "text": "Multi-factor authentication, where the app code adds a 'something you have' factor to the password"
+        },
+        {
+          "id": "D",
+          "text": "Single sign-on (SSO) that replaces the password with one login for many apps"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Using a password plus a code from an authenticator app combines two different factor types: 'something you know' (password) and 'something you have' (the phone/app that generates the code) = MFA.",
+        "distractors": {
+          "A": "The one-time code is tied to a device you possess, so it is a 'something you have' factor, not another 'something you know'.",
+          "B": "No fingerprint, face, or other body trait is used here, so it is not a biometric ('something you are') factor.",
+          "C": "",
+          "D": "SSO lets one authentication cover many apps; it does not describe adding a second factor at login."
+        },
+        "exam_pattern": "Password + authenticator-app code = MFA (know + have). Authenticator/token code = 'something you have'."
+      }
+    },
+    {
+      "id": "aplus1-net-101",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "ports_protocols_a1",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A user wants their email to stay stored on the mail server and remain in sync whether they read it from a phone or a laptop. Which protocol, and its default TCP port, supports this server-side mailbox access?",
+      "options": [
+        {
+          "id": "A",
+          "text": "IMAP, TCP 143"
+        },
+        {
+          "id": "B",
+          "text": "HTTPS, TCP 443"
+        },
+        {
+          "id": "C",
+          "text": "POP3, TCP 110"
+        },
+        {
+          "id": "D",
+          "text": "SMTP, TCP 25"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "IMAP (TCP 143) keeps messages on the server and synchronizes mailbox state across multiple devices.",
+        "distractors": {
+          "A": "",
+          "B": "HTTPS (TCP 443) carries secure web traffic (e.g., a webmail front-end), not the mail retrieval protocol itself.",
+          "C": "POP3 (TCP 110) typically downloads mail and removes it from the server, so it does not keep multiple devices in sync.",
+          "D": "SMTP (TCP 25) sends/relays outbound mail between servers; it does not retrieve a mailbox."
+        },
+        "exam_pattern": "IMAP 143 = server-side multi-device sync; POP3 110 = download-and-remove; SMTP 25 = send."
+      }
+    },
+    {
+      "id": "aplus1-net-102",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "ports_protocols_a1",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "To replace insecure Telnet for remote command-line management of a switch, an administrator enables an encrypted protocol. Which port must the firewall allow?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TCP 80"
+        },
+        {
+          "id": "B",
+          "text": "TCP 23"
+        },
+        {
+          "id": "C",
+          "text": "TCP 22"
+        },
+        {
+          "id": "D",
+          "text": "TCP 3389"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "SSH uses TCP 22 to provide an encrypted remote command-line session, the secure replacement for Telnet.",
+        "distractors": {
+          "A": "TCP 80 is HTTP web traffic, unrelated to remote CLI management.",
+          "B": "TCP 23 is Telnet itself — the unencrypted protocol being replaced.",
+          "C": "",
+          "D": "TCP 3389 is RDP, a graphical remote-desktop protocol, not a command-line one."
+        },
+        "exam_pattern": "SSH 22 = encrypted CLI; Telnet 23 = plaintext CLI; RDP 3389 = graphical remote desktop."
+      }
+    },
+    {
+      "id": "aplus1-net-103",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "ports_protocols_a1",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "Classic (active-mode) FTP uses two separate TCP ports by default — one for commands and one for data. Which TWO ports are these? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "TCP 21"
+        },
+        {
+          "id": "B",
+          "text": "TCP 25"
+        },
+        {
+          "id": "C",
+          "text": "TCP 22"
+        },
+        {
+          "id": "D",
+          "text": "TCP 20"
+        }
+      ],
+      "correct": [
+        "A",
+        "D"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "FTP uses TCP 21 for the control/command channel and TCP 20 for the active-mode data channel.",
+        "distractors": {
+          "A": "",
+          "B": "TCP 25 is SMTP for outbound email, not file transfer.",
+          "C": "TCP 22 is SSH, which also carries SFTP/SCP — a different, encrypted transfer method, not FTP.",
+          "D": ""
+        },
+        "exam_pattern": "FTP = TCP 21 (control) + TCP 20 (data); SFTP rides SSH on TCP 22."
+      }
+    },
+    {
+      "id": "aplus1-net-104",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "ports_protocols_a1",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Windows file and printer sharing needs to work directly over TCP/IP without legacy NetBIOS. Which port carries this SMB/CIFS traffic?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TCP 143"
+        },
+        {
+          "id": "B",
+          "text": "TCP 445"
+        },
+        {
+          "id": "C",
+          "text": "TCP 389"
+        },
+        {
+          "id": "D",
+          "text": "TCP 139"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "SMB/CIFS runs directly over TCP 445 (direct hosting), the modern file- and printer-sharing port.",
+        "distractors": {
+          "A": "TCP 143 is IMAP email retrieval.",
+          "B": "",
+          "C": "TCP 389 is LDAP directory lookups.",
+          "D": "TCP 139 is the legacy NetBIOS Session Service that older SMB used before direct hosting (part of the 137-139 NetBIOS range)."
+        },
+        "exam_pattern": "SMB/CIFS direct over TCP 445; NetBIOS 137-139 is the legacy path."
+      }
+    },
+    {
+      "id": "aplus1-net-105",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "ports_protocols_a1",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A monitoring server must RECEIVE unsolicited trap notifications sent by SNMP agents on network devices. Which UDP port does the manager listen on for those traps?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UDP 161"
+        },
+        {
+          "id": "B",
+          "text": "UDP 67"
+        },
+        {
+          "id": "C",
+          "text": "TCP 389"
+        },
+        {
+          "id": "D",
+          "text": "UDP 162"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "SNMP managers receive agent-initiated traps/informs on UDP 162.",
+        "distractors": {
+          "A": "UDP 161 is where the SNMP AGENT listens for the manager's polling (GET/SET) requests — not where traps are received.",
+          "B": "UDP 67 is the DHCP server port, unrelated to SNMP.",
+          "C": "TCP/UDP 389 is LDAP for directory services, unrelated to SNMP.",
+          "D": ""
+        },
+        "exam_pattern": "SNMP agent polled on UDP 161; manager receives traps on UDP 162."
+      }
+    },
+    {
+      "id": "aplus1-net-106",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "networking_hardware",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A growing office must segment its network into VLANs and prioritize voice traffic with QoS. Which device supports this configuration?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ethernet hub"
+        },
+        {
+          "id": "B",
+          "text": "Unmanaged switch"
+        },
+        {
+          "id": "C",
+          "text": "Managed switch"
+        },
+        {
+          "id": "D",
+          "text": "Wireless access point"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A managed switch exposes a configuration interface for VLANs, QoS, port security, and monitoring.",
+        "distractors": {
+          "A": "A hub is a Layer 1 repeater that copies signals to all ports with no intelligence at all.",
+          "B": "An unmanaged switch is plug-and-play with no VLAN, QoS, or management interface.",
+          "C": "",
+          "D": "An access point bridges wireless clients onto the LAN but does not provide switch VLAN/QoS configuration."
+        },
+        "exam_pattern": "Need VLANs/QoS/management = managed switch; plug-and-play with no config = unmanaged."
+      }
+    },
+    {
+      "id": "aplus1-net-107",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "networking_hardware",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An existing non-PoE switch must deliver power over Ethernet to a single ceiling access point at the end of one cable run, as cheaply as possible. Which device fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Patch panel"
+        },
+        {
+          "id": "B",
+          "text": "PoE injector"
+        },
+        {
+          "id": "C",
+          "text": "Media converter"
+        },
+        {
+          "id": "D",
+          "text": "PoE switch"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A PoE injector adds power to a single Ethernet link between a non-PoE switch and one powered device — the cheapest fix for one endpoint.",
+        "distractors": {
+          "A": "A patch panel only terminates and organizes cabling; it passes no power.",
+          "B": "",
+          "C": "A media converter changes the physical medium (e.g., copper to fiber); it does not supply power.",
+          "D": "A PoE switch powers every port but means replacing the whole switch just to power one device."
+        },
+        "exam_pattern": "Power one link off a non-PoE switch = PoE injector; power many ports = PoE switch (802.3af ~15 W, 802.3at ~30 W at the port)."
+      }
+    },
+    {
+      "id": "aplus1-net-108",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "networking_hardware",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An IP phone needs roughly 25 W delivered over its Ethernet cable. Which standard must the switch support to provide that power?",
+      "options": [
+        {
+          "id": "A",
+          "text": "802.3ad (LACP)"
+        },
+        {
+          "id": "B",
+          "text": "802.3at (PoE+)"
+        },
+        {
+          "id": "C",
+          "text": "802.3af (PoE)"
+        },
+        {
+          "id": "D",
+          "text": "802.11ac"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "802.3at (PoE+) supplies about 30 W at the port (~25.5 W at the device), enough for a 25 W load.",
+        "distractors": {
+          "A": "802.3ad is link aggregation (LACP) — bonding links for bandwidth, not supplying power.",
+          "B": "",
+          "C": "802.3af (standard PoE) supplies only ~15.4 W at the port (~12.95 W at the device) — not enough.",
+          "D": "802.11ac is a Wi-Fi standard and has nothing to do with power delivery."
+        },
+        "exam_pattern": "802.3af ~15 W, 802.3at (PoE+) ~30 W at the port; a higher draw needs PoE+."
+      }
+    },
+    {
+      "id": "aplus1-net-109",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "networking_hardware",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A fiber-to-the-home ISP installs a box where the incoming optical fiber terminates and is converted to an Ethernet handoff for the customer's router. What is this device?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cable modem"
+        },
+        {
+          "id": "B",
+          "text": "DSL modem"
+        },
+        {
+          "id": "C",
+          "text": "NIC"
+        },
+        {
+          "id": "D",
+          "text": "ONT (optical network terminal)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "An ONT terminates the fiber at the premises and converts the optical signal to an electrical/Ethernet handoff.",
+        "distractors": {
+          "A": "A cable modem connects over coaxial DOCSIS, not fiber.",
+          "B": "A DSL modem connects over twisted-pair telephone lines, not fiber.",
+          "C": "A NIC is the network adapter inside a host, not the ISP's fiber demarcation device.",
+          "D": ""
+        },
+        "exam_pattern": "Fiber termination/handoff at the premises = ONT; coax = cable modem; phone line = DSL modem."
+      }
+    },
+    {
+      "id": "aplus1-net-110",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "networking_hardware",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In which networking approach is the control plane (which makes forwarding decisions) decoupled from the data plane and managed centrally by programmable software?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An unmanaged switch"
+        },
+        {
+          "id": "B",
+          "text": "A patch panel"
+        },
+        {
+          "id": "C",
+          "text": "Software-defined networking (SDN)"
+        },
+        {
+          "id": "D",
+          "text": "A traditional router"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "SDN separates the control plane from the data plane and centralizes control in programmable software/controllers.",
+        "distractors": {
+          "A": "An unmanaged switch forwards frames with no programmable control plane at all.",
+          "B": "A patch panel is passive cabling hardware with no planes to separate.",
+          "C": "",
+          "D": "A traditional router keeps the control and data planes together inside each box."
+        },
+        "exam_pattern": "Control plane separated from data plane + centrally programmable = SDN."
+      }
+    },
+    {
+      "id": "aplus1-net-111",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "wireless_a1",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which 802.11 wireless standard operates ONLY in the 5 GHz band?",
+      "options": [
+        {
+          "id": "A",
+          "text": "802.11n"
+        },
+        {
+          "id": "B",
+          "text": "802.11b"
+        },
+        {
+          "id": "C",
+          "text": "802.11ac"
+        },
+        {
+          "id": "D",
+          "text": "802.11g"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "802.11ac (Wi-Fi 5) operates only in the 5 GHz band and delivers multi-gigabit throughput.",
+        "distractors": {
+          "A": "802.11n is dual-band, working in both 2.4 and 5 GHz (up to 600 Mbps).",
+          "B": "802.11b operates only in 2.4 GHz (up to 11 Mbps).",
+          "C": "",
+          "D": "802.11g operates only in 2.4 GHz (up to 54 Mbps)."
+        },
+        "exam_pattern": "a/ac = 5 GHz; b/g = 2.4 GHz; n = both; ac is 5 GHz-only and multi-gigabit."
+      }
+    },
+    {
+      "id": "aplus1-net-112",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "wireless_a1",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Three access points cover the same area on the 2.4 GHz band. Which channel assignment avoids overlapping, interfering channels?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1, 6, and 11"
+        },
+        {
+          "id": "B",
+          "text": "2, 5, and 9"
+        },
+        {
+          "id": "C",
+          "text": "1, 2, and 3"
+        },
+        {
+          "id": "D",
+          "text": "1, 6, and 12"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "In the 2.4 GHz band, channels 1, 6, and 11 are the standard non-overlapping set (each 20 MHz channel is spaced far enough apart to avoid overlap).",
+        "distractors": {
+          "A": "",
+          "B": "Channels 2, 5, and 9 still overlap and are not the recognized non-overlapping set.",
+          "C": "Channels 1, 2, and 3 are adjacent and overlap heavily, so the APs would interfere.",
+          "D": "Channel 12 is not usable in North America, and 1/6/12 is not the standard set."
+        },
+        "exam_pattern": "2.4 GHz non-overlapping channels = 1, 6, 11."
+      }
+    },
+    {
+      "id": "aplus1-net-113",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "wireless_a1",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A wireless standard reaches theoretical throughput near 9.6 Gbps and, in its 6E variant, adds use of the 6 GHz band. Which standard is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "802.11g"
+        },
+        {
+          "id": "B",
+          "text": "802.11n (Wi-Fi 4)"
+        },
+        {
+          "id": "C",
+          "text": "802.11ax (Wi-Fi 6/6E)"
+        },
+        {
+          "id": "D",
+          "text": "802.11ac (Wi-Fi 5)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "802.11ax (Wi-Fi 6) peaks near 9.6 Gbps and works in 2.4 and 5 GHz; the 6E designation adds the 6 GHz band.",
+        "distractors": {
+          "A": "802.11g peaks at 54 Mbps in 2.4 GHz.",
+          "B": "802.11n peaks around 600 Mbps across 2.4/5 GHz.",
+          "C": "",
+          "D": "802.11ac (Wi-Fi 5) is 5 GHz only and tops out well below 9.6 Gbps, with no 6 GHz support."
+        },
+        "exam_pattern": "802.11ax = Wi-Fi 6 (~9.6 Gbps); Wi-Fi 6E adds the 6 GHz band."
+      }
+    },
+    {
+      "id": "aplus1-net-114",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "wireless_a1",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A customer taps a smartphone within a few centimeters of a payment terminal to pay. Which short-range wireless technology is in use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Bluetooth"
+        },
+        {
+          "id": "B",
+          "text": "Infrared"
+        },
+        {
+          "id": "C",
+          "text": "NFC"
+        },
+        {
+          "id": "D",
+          "text": "Long-range active RFID"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "NFC is a 13.56 MHz technology with a range of only about 4 cm, used for contactless tap-to-pay.",
+        "distractors": {
+          "A": "Bluetooth pairs devices over roughly 10 meters — far beyond a tap and not the standard here.",
+          "B": "Infrared needs line of sight and is used for legacy remotes/data links, not payments.",
+          "C": "",
+          "D": "General/active RFID can be read from centimeters to meters; NFC is the specific ~4 cm, tap-to-pay branch of RFID."
+        },
+        "exam_pattern": "Tap-to-pay at ~4 cm = NFC (a 13.56 MHz, very-short-range form of RFID)."
+      }
+    },
+    {
+      "id": "aplus1-net-115",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "wireless_a1",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company links two buildings about 3 km apart using directional antennas with clear line of sight, instead of trenching cable. Which wireless solution is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NFC"
+        },
+        {
+          "id": "B",
+          "text": "Bluetooth"
+        },
+        {
+          "id": "C",
+          "text": "A single omnidirectional 2.4 GHz access point"
+        },
+        {
+          "id": "D",
+          "text": "Long-range fixed wireless"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Long-range fixed wireless uses directional (point-to-point) antennas with line of sight to bridge sites kilometers apart.",
+        "distractors": {
+          "A": "NFC works only within a few centimeters.",
+          "B": "Bluetooth is a personal-area technology effective for only about 10 meters.",
+          "C": "A single omnidirectional AP radiates in all directions over a small area and cannot bridge a multi-kilometer point-to-point link.",
+          "D": ""
+        },
+        "exam_pattern": "Multi-kilometer point-to-point with directional antennas + line of sight = long-range fixed wireless."
+      }
+    },
+    {
+      "id": "aplus1-net-116",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "network_services_a1",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company routes all employee web requests through a server that caches frequently visited pages and blocks access to disallowed sites. Which server role is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DNS server"
+        },
+        {
+          "id": "B",
+          "text": "Print server"
+        },
+        {
+          "id": "C",
+          "text": "Proxy server"
+        },
+        {
+          "id": "D",
+          "text": "Load balancer"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A proxy server sits between clients and the internet to cache content and filter/allow outbound web access.",
+        "distractors": {
+          "A": "A DNS server resolves names to IP addresses.",
+          "B": "A print server manages shared printers.",
+          "C": "",
+          "D": "A load balancer spreads incoming traffic across multiple back-end servers; it is not for caching or filtering user web access."
+        },
+        "exam_pattern": "Caches + filters outbound user web traffic = proxy server."
+      }
+    },
+    {
+      "id": "aplus1-net-117",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "network_services_a1",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A popular website runs on a farm of identical web servers. Which device distributes incoming client requests across those servers so no single one is overwhelmed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Load balancer"
+        },
+        {
+          "id": "B",
+          "text": "Proxy server"
+        },
+        {
+          "id": "C",
+          "text": "Spam gateway"
+        },
+        {
+          "id": "D",
+          "text": "DHCP server"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A load balancer distributes inbound requests across a pool of identical servers for capacity and availability.",
+        "distractors": {
+          "A": "",
+          "B": "A proxy forwards and filters outbound client requests; it is not for distributing inbound load across a server pool.",
+          "C": "A spam gateway filters inbound email for junk and malware.",
+          "D": "A DHCP server leases IP configuration to clients."
+        },
+        "exam_pattern": "Spreads inbound load across many identical servers = load balancer."
+      }
+    },
+    {
+      "id": "aplus1-net-118",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "network_services_a1",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A network administrator wants routers, switches, and firewalls to forward their event logs to one central collector for retention and review. Which server role does this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "File server"
+        },
+        {
+          "id": "B",
+          "text": "Spam gateway"
+        },
+        {
+          "id": "C",
+          "text": "Syslog server"
+        },
+        {
+          "id": "D",
+          "text": "Authentication server"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A syslog server centrally collects and stores event/log messages forwarded by network devices.",
+        "distractors": {
+          "A": "A file server stores user files and shares, not device event logs specifically.",
+          "B": "A spam gateway filters inbound email.",
+          "C": "",
+          "D": "An authentication server validates credentials (e.g., RADIUS/Active Directory); it is not a log collector."
+        },
+        "exam_pattern": "Centralized collection of device event logs = syslog server."
+      }
+    },
+    {
+      "id": "aplus1-net-119",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "network_services_a1",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A utility uses a specialized system to supervise and collect data from remote industrial equipment such as pumps and sensors across a facility. This system is BEST described as?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SCADA"
+        },
+        {
+          "id": "B",
+          "text": "Proxy server"
+        },
+        {
+          "id": "C",
+          "text": "Load balancer"
+        },
+        {
+          "id": "D",
+          "text": "UTM"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "SCADA (supervisory control and data acquisition) monitors and controls industrial processes and equipment as part of an ICS.",
+        "distractors": {
+          "A": "",
+          "B": "A proxy server forwards and filters web requests.",
+          "C": "A load balancer distributes network traffic across servers.",
+          "D": "UTM is an all-in-one security appliance, not an industrial control/monitoring system."
+        },
+        "exam_pattern": "Supervisory control + data acquisition for industrial/ICS equipment = SCADA."
+      }
+    },
+    {
+      "id": "aplus1-net-120",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "network_services_a1",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "Which TWO of the following are security appliances whose main purpose is to inspect or filter traffic, rather than general-purpose server roles? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Unified threat management (UTM) appliance"
+        },
+        {
+          "id": "B",
+          "text": "File server"
+        },
+        {
+          "id": "C",
+          "text": "Spam gateway"
+        },
+        {
+          "id": "D",
+          "text": "Print server"
+        }
+      ],
+      "correct": [
+        "A",
+        "C"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "A UTM combines multiple security functions (firewall, IPS, antivirus, content filtering) in one appliance, and a spam gateway inspects/filters inbound email — both are security appliances that filter traffic.",
+        "distractors": {
+          "A": "",
+          "B": "A file server stores and serves files; it is not a security-filtering device.",
+          "C": "",
+          "D": "A print server shares printers; it performs no traffic inspection or filtering."
+        },
+        "exam_pattern": "UTM (multi-function security) and spam gateway (email filtering) are security appliances, not general server roles."
+      }
+    },
+    {
+      "id": "aplus1-net-121",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "internet_connection_types",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A remote research cabin has no wired service and connects to the internet through a dish aimed at an orbiting satellite. Users notice a long delay on video calls. Which connection type is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DSL"
+        },
+        {
+          "id": "B",
+          "text": "Cable"
+        },
+        {
+          "id": "C",
+          "text": "Fiber"
+        },
+        {
+          "id": "D",
+          "text": "Satellite"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Satellite reaches remote sites via a dish to an orbiting satellite, but the long signal path adds high latency — exactly the delay described.",
+        "distractors": {
+          "A": "DSL uses twisted-pair phone lines, which are also wired.",
+          "B": "Cable uses coaxial DOCSIS over a wired plant, not a satellite.",
+          "C": "Fiber is a wired optical service with very low latency, not a dish link.",
+          "D": ""
+        },
+        "exam_pattern": "Dish to orbit + high latency + remote availability = satellite."
+      }
+    },
+    {
+      "id": "aplus1-net-122",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "internet_connection_types",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A home uses existing twisted-pair telephone wiring for internet, and the ISP warns that throughput drops the farther the home is from the provider's central office. Which connection type is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cable"
+        },
+        {
+          "id": "B",
+          "text": "DSL"
+        },
+        {
+          "id": "C",
+          "text": "Fiber"
+        },
+        {
+          "id": "D",
+          "text": "Cellular"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "DSL runs over twisted-pair phone lines and is distance-limited: speed degrades as the distance from the central office/DSLAM increases.",
+        "distractors": {
+          "A": "Cable runs over coaxial lines and shares neighborhood bandwidth; its speed is not tied to central-office distance this way.",
+          "B": "",
+          "C": "Fiber maintains high speed over long distances.",
+          "D": "Cellular is wireless over carrier towers, not phone wiring."
+        },
+        "exam_pattern": "Phone-line copper + speed limited by distance from the CO = DSL."
+      }
+    },
+    {
+      "id": "aplus1-net-123",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "internet_connection_types",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A business wants the highest available speeds with the lowest latency and symmetric upload/download, delivered over strands of glass. Which connection type should it choose?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fiber"
+        },
+        {
+          "id": "B",
+          "text": "Cable"
+        },
+        {
+          "id": "C",
+          "text": "Satellite"
+        },
+        {
+          "id": "D",
+          "text": "DSL"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Fiber uses optical glass strands to deliver the highest speeds and lowest latency, and can offer symmetric upload/download.",
+        "distractors": {
+          "A": "",
+          "B": "Cable is fast but typically asymmetric and shares bandwidth among subscribers in an area.",
+          "C": "Satellite has high latency and generally lower throughput.",
+          "D": "DSL speeds are limited and degrade with distance from the CO."
+        },
+        "exam_pattern": "Glass + top speed + lowest latency + symmetric = fiber."
+      }
+    },
+    {
+      "id": "aplus1-net-124",
+      "exam": "aplus1",
+      "domain": "networking_a1",
+      "subtopic": "internet_connection_types",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A field technician needs internet on a laptop anywhere there is carrier coverage, with no fixed antenna and no wired drop. Which connection type best fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DSL"
+        },
+        {
+          "id": "B",
+          "text": "Cable"
+        },
+        {
+          "id": "C",
+          "text": "Fixed wireless"
+        },
+        {
+          "id": "D",
+          "text": "Cellular (4G/5G)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Cellular (4G LTE/5G) provides mobile broadband anywhere a carrier has coverage, with no fixed installation.",
+        "distractors": {
+          "A": "DSL requires a wired phone-line drop at a fixed location.",
+          "B": "Cable requires a wired coaxial drop at a fixed location.",
+          "C": "Fixed wireless needs a stationary antenna aimed with line of sight at the ISP's tower — it is not mobile.",
+          "D": ""
+        },
+        "exam_pattern": "Mobile, anywhere-with-coverage = cellular (4G/5G); fixed wireless needs a fixed, line-of-sight antenna."
+      }
+    },
+    {
+      "id": "aplus1-ts-101",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "troubleshooting_methodology_a1",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A technician is about to edit the registry and roll back a driver to resolve an issue on a user's workstation. Following CompTIA best practice, which precaution should be taken BEFORE implementing these changes?",
+      "options": [
+        {
+          "id": "A",
+          "text": "If applicable, perform a backup and consider corporate policies, procedures, and impact"
+        },
+        {
+          "id": "B",
+          "text": "Document the findings, actions, and outcomes"
+        },
+        {
+          "id": "C",
+          "text": "Establish a new theory of probable cause"
+        },
+        {
+          "id": "D",
+          "text": "Verify full system functionality"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Before implementing changes the methodology says to consider corporate policies, procedures, and impact, and — if applicable — back up data so a failed change cannot cause irreversible loss.",
+        "distractors": {
+          "A": "",
+          "B": "Documenting findings/actions/outcomes is the final step (step 6), performed after the fix.",
+          "C": "Establishing a theory is step 2; the technician is already past it and ready to implement a fix.",
+          "D": "Verifying full system functionality is step 5, which comes after the change is implemented."
+        },
+        "exam_pattern": "Before changing anything: consider corporate policy/impact and back up data first."
+      }
+    },
+    {
+      "id": "aplus1-ts-102",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "troubleshooting_methodology_a1",
+      "difficulty": 2,
+      "type": "multi",
+      "select_count": 2,
+      "stem": "A technician is on step 1 of the CompTIA methodology, identifying the problem. Which TWO actions belong to this step? (Select TWO.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Gather information by questioning the user about the symptoms"
+        },
+        {
+          "id": "B",
+          "text": "Determine whether anything has recently changed on the system"
+        },
+        {
+          "id": "C",
+          "text": "Establish a plan of action to resolve the problem"
+        },
+        {
+          "id": "D",
+          "text": "Document the findings, actions, and outcomes"
+        },
+        {
+          "id": "E",
+          "text": "Verify full system functionality and implement preventive measures"
+        }
+      ],
+      "correct": [
+        "A",
+        "B"
+      ],
+      "explanation": {
+        "correct": "Identifying the problem (step 1) includes gathering information from the user, identifying symptoms, questioning the user, and determining if anything has changed.",
+        "distractors": {
+          "A": "",
+          "B": "",
+          "C": "Establishing a plan of action is step 4, after a theory has been tested and confirmed.",
+          "D": "Documenting findings/actions/outcomes is the final step (step 6).",
+          "E": "Verifying functionality and adding preventive measures is step 5, performed after the fix."
+        },
+        "exam_pattern": "Step 1 = gather info, question the user, note recent changes — not plan/verify/document."
+      }
+    },
+    {
+      "id": "aplus1-ts-103",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "troubleshooting_methodology_a1",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A technician is establishing a theory of probable cause for a monitor that shows no image. Applying the 'question the obvious' principle, what should be suspected FIRST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Corrupt operating system files requiring a full reinstall"
+        },
+        {
+          "id": "B",
+          "text": "A simple cause such as the monitor being powered off or the video cable unseated"
+        },
+        {
+          "id": "C",
+          "text": "A faulty CPU that needs to be reseated"
+        },
+        {
+          "id": "D",
+          "text": "A failed motherboard that must be replaced"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "'Question the obvious' means ruling out simple, common causes first — power, cables, and settings — before moving on to complex or costly theories.",
+        "distractors": {
+          "A": "Reinstalling the OS is a drastic action and would not explain a monitor with no image.",
+          "B": "",
+          "C": "Reseating the CPU is invasive and is not the obvious first thing to check for a blank screen.",
+          "D": "Replacing the motherboard is an expensive, invasive theory that skips the obvious simple checks."
+        },
+        "exam_pattern": "Question the obvious = check power/cables/settings before complex, invasive theories."
+      }
+    },
+    {
+      "id": "aplus1-ts-104",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "troubleshooting_methodology_a1",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A technician has implemented a fix and the device is working again. According to step 5 of the methodology (verify full system functionality), what else should be done at this step?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Question the user to gather information about symptoms"
+        },
+        {
+          "id": "B",
+          "text": "Confirm full functionality and, if applicable, implement preventive measures"
+        },
+        {
+          "id": "C",
+          "text": "Immediately escalate the ticket to tier-2 support"
+        },
+        {
+          "id": "D",
+          "text": "Establish a new theory of probable cause"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Step 5 is to verify full system functionality and, if applicable, implement preventive measures so the same problem is less likely to recur.",
+        "distractors": {
+          "A": "Questioning the user to gather information is part of step 1, which happened at the start.",
+          "B": "",
+          "C": "Escalation applies when a theory cannot be confirmed, not after a verified, working fix.",
+          "D": "Establishing a theory is step 2; the issue is already resolved, so a new theory is unnecessary."
+        },
+        "exam_pattern": "Step 5 = verify full functionality AND add preventive measures to stop a recurrence."
+      }
+    },
+    {
+      "id": "aplus1-ts-105",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "troubleshooting_methodology_a1",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Why does the CompTIA troubleshooting methodology end with documenting the findings, actions, and outcomes?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To remove the need to verify system functionality"
+        },
+        {
+          "id": "B",
+          "text": "To assign blame to the user who caused the original failure"
+        },
+        {
+          "id": "C",
+          "text": "Because documentation must be completed before a theory is tested"
+        },
+        {
+          "id": "D",
+          "text": "To build a reference that speeds up resolving similar issues in the future"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Documentation (step 6) creates a knowledge-base record so the same or a similar problem can be diagnosed and resolved faster next time, and supports accountability and trends.",
+        "distractors": {
+          "A": "Documentation never replaces verification; verifying functionality (step 5) still happens first.",
+          "B": "The purpose is knowledge capture and consistency, not assigning blame.",
+          "C": "Documentation is the LAST step — it follows testing, the fix, and verification, not precedes testing.",
+          "D": ""
+        },
+        "exam_pattern": "Step 6 documentation = a future reference / knowledge base, performed last of all."
+      }
+    },
+    {
+      "id": "aplus1-ts-106",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "troubleshooting_methodology_a1",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "After testing, a technician's theory of probable cause is NOT confirmed. According to the methodology, what are the technician's options at this point?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Establish a new theory, or escalate the issue if necessary"
+        },
+        {
+          "id": "B",
+          "text": "Implement the planned fix regardless of the test result"
+        },
+        {
+          "id": "C",
+          "text": "Immediately document the findings and close the ticket"
+        },
+        {
+          "id": "D",
+          "text": "Verify full system functionality and add preventive measures"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Step 3 says that if the theory is not confirmed by testing, the technician re-establishes a new theory of probable cause or escalates to a higher level of support.",
+        "distractors": {
+          "A": "",
+          "B": "Implementing a fix built on an unconfirmed theory risks wasted effort or new damage.",
+          "C": "Documenting and closing is premature — the root cause has not yet been found.",
+          "D": "Verifying functionality is step 5 and only makes sense after a confirmed cause and a fix."
+        },
+        "exam_pattern": "Theory NOT confirmed → form a new theory or escalate; never force an unverified fix."
+      }
+    },
+    {
+      "id": "aplus1-ts-107",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "hardware_troubleshooting",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A desktop is completely unresponsive — no fans spin, no LEDs light, and nothing happens when the power button is pressed. The technician has confirmed the wall outlet works. Which component is the MOST likely cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The sound card"
+        },
+        {
+          "id": "B",
+          "text": "A single bad RAM module"
+        },
+        {
+          "id": "C",
+          "text": "The hard drive"
+        },
+        {
+          "id": "D",
+          "text": "The power supply unit (PSU)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "No power at all — no fans, no lights — after confirming the outlet points to the PSU (or its cabling/power button). Nothing in the system can start without it.",
+        "distractors": {
+          "A": "The sound card only affects audio; it has no bearing on whether the system powers on.",
+          "B": "Bad RAM lets the system power on (fans/lights) but fail POST, often with beep codes — not a dead box.",
+          "C": "A dead hard drive still lets the system power on and POST; you'd get a 'no boot device' message.",
+          "D": ""
+        },
+        "exam_pattern": "Dead box — no fans/lights at all = power problem (PSU/cabling), not a POST-level fault."
+      }
+    },
+    {
+      "id": "aplus1-ts-108",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "hardware_troubleshooting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A computer has become very slow, some files fail to open, and a repetitive loud clicking sound comes from the drive bay. What is MOST likely happening?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The CMOS battery is dead"
+        },
+        {
+          "id": "B",
+          "text": "The RAM is overheating"
+        },
+        {
+          "id": "C",
+          "text": "The mechanical hard drive is failing"
+        },
+        {
+          "id": "D",
+          "text": "The video driver is corrupt"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A repetitive clicking noise from a mechanical (HDD) drive, combined with slow performance and unreadable files, is the classic 'click of death' of a failing hard drive — back it up now.",
+        "distractors": {
+          "A": "A dead CMOS battery resets the clock/BIOS settings; it makes no noise and doesn't corrupt files.",
+          "B": "Overheating RAM causes crashes or no-POST, not a mechanical clicking sound from the drive bay.",
+          "C": "",
+          "D": "A corrupt video driver causes display artifacts or black screens, not drive noise or unreadable files."
+        },
+        "exam_pattern": "Loud repetitive clicking + unreadable files = failing mechanical HDD (back up immediately)."
+      }
+    },
+    {
+      "id": "aplus1-ts-109",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "hardware_troubleshooting",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A desktop randomly reboots and locks up. Inspecting the motherboard, the technician sees several capacitors near the CPU socket are bulging on top and leaking. What should be concluded?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The thermal paste simply needs to be reapplied"
+        },
+        {
+          "id": "B",
+          "text": "The motherboard has failing (swollen) capacitors and should be replaced"
+        },
+        {
+          "id": "C",
+          "text": "The power button is physically stuck"
+        },
+        {
+          "id": "D",
+          "text": "The RAM only needs to be reseated"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Bulging or leaking (distended) capacitors can no longer filter power properly, causing instability, random reboots, and lockups. The motherboard needs to be replaced.",
+        "distractors": {
+          "A": "Reapplying thermal paste addresses CPU heat; it does nothing for physically damaged capacitors.",
+          "B": "",
+          "C": "A stuck power button might cause power issues, but visibly swollen capacitors are the clear fault here.",
+          "D": "Reseating RAM won't fix power delivery from blown capacitors, though it's a cheap thing to rule out."
+        },
+        "exam_pattern": "Bulging/leaking capacitors = failing motherboard → random reboots/lockups; replace the board."
+      }
+    },
+    {
+      "id": "aplus1-ts-110",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "hardware_troubleshooting",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "While a technician is using a desktop, a burning smell and a thin wisp of smoke rise from the case. What is the FIRST action the technician should take?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Open a browser on the PC to search the error online"
+        },
+        {
+          "id": "B",
+          "text": "Immediately power off the system and disconnect it from power"
+        },
+        {
+          "id": "C",
+          "text": "Keep working and watch the temperature readings"
+        },
+        {
+          "id": "D",
+          "text": "Reinstall the operating system"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A burning smell or smoke signals a component failure and a fire/shock hazard. Shut the system down and unplug it immediately to prevent damage or injury before diagnosing.",
+        "distractors": {
+          "A": "Using the smoking PC keeps it energized — the priority is to remove power, not to research online.",
+          "B": "",
+          "C": "Continuing to run a smoking system risks fire, further damage, and personal injury.",
+          "D": "Reinstalling the OS does nothing for a physical/electrical fault and keeps the hazard powered."
+        },
+        "exam_pattern": "Burning smell/smoke = power off and unplug first (safety), then diagnose the dead component."
+      }
+    },
+    {
+      "id": "aplus1-ts-111",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "hardware_troubleshooting",
+      "difficulty": 2,
+      "type": "multi",
+      "select_count": 2,
+      "stem": "A Windows PC has begun throwing frequent Blue Screen of Death (BSOD) STOP errors. Which TWO are the MOST common underlying causes to investigate? (Select TWO.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "A bad or incompatible device driver"
+        },
+        {
+          "id": "B",
+          "text": "A disconnected network cable"
+        },
+        {
+          "id": "C",
+          "text": "A full Recycle Bin"
+        },
+        {
+          "id": "D",
+          "text": "Faulty or failing RAM"
+        },
+        {
+          "id": "E",
+          "text": "An unplugged monitor cable"
+        }
+      ],
+      "correct": [
+        "A",
+        "D"
+      ],
+      "explanation": {
+        "correct": "BSOD STOP errors most often stem from bad memory or a faulty/incompatible driver (also failing storage or overheating). Memory diagnostics and driver rollbacks are prime first checks.",
+        "distractors": {
+          "A": "",
+          "B": "A disconnected network cable drops connectivity; it does not cause a Blue Screen crash.",
+          "C": "A full Recycle Bin is harmless housekeeping and never triggers a kernel-level BSOD.",
+          "D": "",
+          "E": "An unplugged monitor cable causes no image — it does not crash the kernel with a STOP error."
+        },
+        "exam_pattern": "BSOD = kernel-level fault → suspect RAM, drivers, failing disk, or overheating first."
+      }
+    },
+    {
+      "id": "aplus1-ts-112",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "display_troubleshooting",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A new LCD monitor has one pixel that stays black no matter what image is displayed; it never shows any color. What is this defect called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A dead pixel"
+        },
+        {
+          "id": "B",
+          "text": "A stuck pixel"
+        },
+        {
+          "id": "C",
+          "text": "A display artifact"
+        },
+        {
+          "id": "D",
+          "text": "Burn-in"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A dead pixel receives no power and remains permanently black/unlit regardless of the image.",
+        "distractors": {
+          "A": "",
+          "B": "A stuck pixel is frozen ON showing a single fixed color (red, green, or blue), not black.",
+          "C": "Artifacts are transient glitches (blocks/shapes) usually from the GPU, not one permanent dead dot.",
+          "D": "Burn-in is a faint permanent ghost of a long-displayed static image, not a single black dot."
+        },
+        "exam_pattern": "Dead pixel = always black/off; stuck pixel = frozen on one color; burn-in = ghost of static image."
+      }
+    },
+    {
+      "id": "aplus1-ts-113",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "display_troubleshooting",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "During gaming, a user sees stray colored blocks, flickering textures, and random shapes scattered across the screen, and they get worse as the system heats up. External monitors show the same glitches. What is the MOST likely cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A failing or overheating graphics card (GPU)"
+        },
+        {
+          "id": "B",
+          "text": "A dead CMOS battery"
+        },
+        {
+          "id": "C",
+          "text": "A faulty keyboard"
+        },
+        {
+          "id": "D",
+          "text": "A disconnected speaker"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "On-screen artifacts (colored blocks, corrupt textures, random shapes) that worsen with heat and appear on any connected display point to a failing/overheating GPU or its video memory.",
+        "distractors": {
+          "A": "",
+          "B": "A dead CMOS battery resets BIOS settings/clock; it does not produce rendered graphics artifacts.",
+          "C": "A faulty keyboard affects input only and cannot generate corrupt video output.",
+          "D": "A disconnected speaker affects audio; it has no effect on what the display renders."
+        },
+        "exam_pattern": "Rendered artifacts worsening with heat = failing/overheating GPU (or VRAM), not a cable/driver."
+      }
+    },
+    {
+      "id": "aplus1-ts-114",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "display_troubleshooting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An information kiosk shows the same static menu all day. A faint permanent outline of that menu is now visible even when other content is on screen. What is this phenomenon?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Backlight failure"
+        },
+        {
+          "id": "B",
+          "text": "An incorrect refresh rate"
+        },
+        {
+          "id": "C",
+          "text": "Burn-in (image persistence)"
+        },
+        {
+          "id": "D",
+          "text": "A cluster of dead pixels"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Displaying a static image for long periods can leave a permanent ghost — burn-in (image persistence) — common on OLED and plasma and seen on older/always-on panels.",
+        "distractors": {
+          "A": "Backlight failure makes the whole panel dim or dark; it does not imprint a ghost image.",
+          "B": "A wrong refresh rate causes flicker or no signal, not a persistent ghost of prior content.",
+          "C": "",
+          "D": "Dead pixels are isolated unlit dots, not a faint full-image ghost of previous content."
+        },
+        "exam_pattern": "Faint permanent ghost of a long-static image = burn-in / image persistence."
+      }
+    },
+    {
+      "id": "aplus1-ts-115",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "display_troubleshooting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A desktop's monitor displays everything with a strong reddish tint, though the picture is otherwise sharp and correctly sized. What should the technician check FIRST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The power supply wattage rating"
+        },
+        {
+          "id": "B",
+          "text": "The hard drive's SMART health status"
+        },
+        {
+          "id": "C",
+          "text": "The video cable connection and its pins (and color settings)"
+        },
+        {
+          "id": "D",
+          "text": "The amount of installed system RAM"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "An overall color tint usually means a color channel is being lost — most often a loose or damaged video cable, bent/broken connector pins (classic on VGA), or wrong color settings.",
+        "distractors": {
+          "A": "PSU wattage affects whether components get power, not the color balance of the display output.",
+          "B": "Drive health affects storage reliability, not the color of the video signal on screen.",
+          "C": "",
+          "D": "System RAM has no role in color reproduction; a shortage causes crashes or slowness, not tints."
+        },
+        "exam_pattern": "Whole-screen color tint = check the video cable/pins/connector and color settings first."
+      }
+    },
+    {
+      "id": "aplus1-ts-116",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "display_troubleshooting",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A classroom projector runs for about 20 minutes, then suddenly shuts off with its temperature-warning indicator lit; after it cools it powers back on. What is the MOST likely cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The HDMI source cable was unplugged"
+        },
+        {
+          "id": "B",
+          "text": "The remote control battery is low"
+        },
+        {
+          "id": "C",
+          "text": "The projector is overheating — its air filter/vents are likely clogged or a fan is failing"
+        },
+        {
+          "id": "D",
+          "text": "The projector lamp (bulb) has completely burned out"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Running for a while and then shutting off with a temperature warning — recovering after it cools — is a thermal-protection shutdown, typically from a clogged filter/vents or a failing fan.",
+        "distractors": {
+          "A": "An unplugged source causes a 'no signal' screen but no temperature warning or thermal shutdown.",
+          "B": "A low remote battery only affects remote control; it cannot power the projector off from overheating.",
+          "C": "",
+          "D": "A burned-out lamp gives no image at all and will not light up again after cooling."
+        },
+        "exam_pattern": "Projector shuts off after warming up + temp light = overheating (clean filter/vents, check fan)."
+      }
+    },
+    {
+      "id": "aplus1-ts-117",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "network_troubleshooting_a1",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A workstation can ping other devices on its own LAN and reach a local file server, but it cannot reach any site on the internet by name OR by IP address. Which is the MOST likely problem?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A misconfigured or unreachable default gateway"
+        },
+        {
+          "id": "B",
+          "text": "A completely failed network interface card"
+        },
+        {
+          "id": "C",
+          "text": "The access-layer switch has failed"
+        },
+        {
+          "id": "D",
+          "text": "The Ethernet cable is unplugged"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Local traffic works but nothing off-subnet does — by name or by IP — which points to the default gateway (the router that forwards traffic beyond the LAN) being wrong or unreachable.",
+        "distractors": {
+          "A": "",
+          "B": "A failed NIC would break local LAN access too; here the LAN works fine.",
+          "C": "A failed switch would cut off the local LAN as well, yet local hosts are reachable.",
+          "D": "An unplugged cable would stop ALL connectivity, including the local file server it can reach."
+        },
+        "exam_pattern": "LAN works but no internet (even by IP) = default gateway problem; name-only failure = DNS."
+      }
+    },
+    {
+      "id": "aplus1-ts-118",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "network_troubleshooting_a1",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A user cannot open any website by its URL, but when the technician types a site's raw IP address into the browser the page loads normally. What is the MOST likely cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A failed default gateway"
+        },
+        {
+          "id": "B",
+          "text": "An expired DHCP lease with no address"
+        },
+        {
+          "id": "C",
+          "text": "A damaged patch cable"
+        },
+        {
+          "id": "D",
+          "text": "A DNS resolution problem"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Reaching a site by IP but not by name means routing/connectivity is fine and only name-to-IP translation is broken — a DNS issue (wrong/unreachable DNS server or bad records).",
+        "distractors": {
+          "A": "A failed gateway would block the IP-address access too, yet loading by IP works.",
+          "B": "With no DHCP lease the host would have an APIPA address and reach nothing — not even by IP.",
+          "C": "A damaged cable would break all connectivity; here IP-based browsing succeeds.",
+          "D": ""
+        },
+        "exam_pattern": "Works by IP but not by name = DNS. Fails by name AND IP (off-subnet) = gateway."
+      }
+    },
+    {
+      "id": "aplus1-ts-119",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "network_troubleshooting_a1",
+      "difficulty": 3,
+      "type": "multi",
+      "select_count": 2,
+      "stem": "A user on a wired connection reports slow file transfers and intermittent drops. Which TWO are plausible causes a technician should investigate? (Select TWO.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "The web browser's cache is full"
+        },
+        {
+          "id": "B",
+          "text": "The desktop wallpaper is set to a large image"
+        },
+        {
+          "id": "C",
+          "text": "The screen saver has been disabled"
+        },
+        {
+          "id": "D",
+          "text": "A speed/duplex mismatch between the NIC and the switch port"
+        },
+        {
+          "id": "E",
+          "text": "A damaged or only partially seated Ethernet cable"
+        }
+      ],
+      "correct": [
+        "D",
+        "E"
+      ],
+      "explanation": {
+        "correct": "Slow, intermittent wired links commonly trace to a bad/loose cable (or interference) or a speed/duplex mismatch, which causes collisions/retransmits and poor throughput.",
+        "distractors": {
+          "A": "A full browser cache might slow page loads slightly but does not cause wired link drops or slow transfers.",
+          "B": "A large wallpaper image uses a little memory locally but has no effect on network throughput.",
+          "C": "The screen saver setting is unrelated to network performance or connectivity.",
+          "D": "",
+          "E": ""
+        },
+        "exam_pattern": "Slow/intermittent wired link = check cabling/interference and speed/duplex mismatch."
+      }
+    },
+    {
+      "id": "aplus1-ts-120",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "network_troubleshooting_a1",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "VoIP phone users complain of choppy audio and dropped words, although calls still connect and stay up. A technician measures high latency and jitter on the network. What does this indicate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The phones' batteries are dead"
+        },
+        {
+          "id": "B",
+          "text": "Latency and jitter are degrading the real-time voice traffic"
+        },
+        {
+          "id": "C",
+          "text": "The DHCP server has run out of addresses to lease"
+        },
+        {
+          "id": "D",
+          "text": "DNS is failing to resolve hostnames"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Real-time voice is very sensitive to delay variation. High latency and especially jitter (variation in packet delay) cause choppy, broken audio even when the call itself stays connected.",
+        "distractors": {
+          "A": "Desk VoIP phones are powered (often via PoE); dead batteries aren't the cause of jitter-based audio loss.",
+          "B": "",
+          "C": "A depleted DHCP pool would stop devices from getting an address, not cause choppy audio on live calls.",
+          "D": "DNS failures block name resolution; they don't make an already-connected call's audio choppy."
+        },
+        "exam_pattern": "Choppy VoIP on connected calls = latency/jitter (prioritize voice with QoS)."
+      }
+    },
+    {
+      "id": "aplus1-ts-121",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "network_troubleshooting_a1",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A switch port's link light repeatedly goes up and down, and the attached PC keeps losing and regaining its connection every few seconds. This behavior is BEST described as what?",
+      "options": [
+        {
+          "id": "A",
+          "text": "APIPA addressing"
+        },
+        {
+          "id": "B",
+          "text": "Port flapping, often caused by a faulty cable, connector, or NIC"
+        },
+        {
+          "id": "C",
+          "text": "Normal NIC power-saving behavior"
+        },
+        {
+          "id": "D",
+          "text": "A broadcast storm caused by a switching loop"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A link that repeatedly goes up and down is port flapping — the connection keeps resetting, typically from a damaged cable/connector, a failing NIC, or an auto-negotiation problem.",
+        "distractors": {
+          "A": "APIPA (169.254.x.x) is a self-assigned address when DHCP fails — it does not cycle the link light.",
+          "B": "",
+          "C": "Power saving may idle a link but does not cause a steady few-second up/down cycle that drops the user.",
+          "D": "A broadcast storm floods the network from a loop, slowing everything, but it isn't a single port's up/down link."
+        },
+        "exam_pattern": "Link light cycling up/down every few seconds = port flapping (cable/connector/NIC/negotiation)."
+      }
+    },
+    {
+      "id": "aplus1-ts-122",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "printer_troubleshooting",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A laser printer's output has become uniformly light and faded across the entire page. What is the MOST likely cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The network cable is unplugged"
+        },
+        {
+          "id": "B",
+          "text": "The toner cartridge is low on toner"
+        },
+        {
+          "id": "C",
+          "text": "The pickup roller is worn out"
+        },
+        {
+          "id": "D",
+          "text": "The fuser assembly has failed"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Uniformly faded, light output across the whole page is the classic sign of low toner (or a low density setting). Redistributing or replacing the toner cartridge restores density.",
+        "distractors": {
+          "A": "An unplugged network cable stops jobs from printing entirely; it cannot make a printed page faint.",
+          "B": "",
+          "C": "A worn pickup roller causes misfeeds and jams, not faded print.",
+          "D": "A failed fuser leaves toner unfused so it smears/rubs off — it does not make output uniformly faint."
+        },
+        "exam_pattern": "Uniformly faded laser output = low toner; smears/rubs off = fuser."
+      }
+    },
+    {
+      "id": "aplus1-ts-123",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "printer_troubleshooting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Every page from a laser printer shows the SAME vertical black line running down the sheet in the exact same position. What is the MOST likely cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A paper jam in the input tray"
+        },
+        {
+          "id": "B",
+          "text": "An incorrect print driver"
+        },
+        {
+          "id": "C",
+          "text": "A low ink cartridge"
+        },
+        {
+          "id": "D",
+          "text": "A scratched or damaged imaging drum"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A consistent vertical line/streak in the same place on every page indicates a scratched, damaged, or contaminated imaging drum that deposits toner along that track each rotation.",
+        "distractors": {
+          "A": "A paper jam stops or crumples pages; it does not print a clean, repeating vertical line.",
+          "B": "A wrong driver produces garbled/incorrect output, not a single consistent vertical streak.",
+          "C": "Laser printers use toner, not ink — an 'ink cartridge' is the wrong technology for this device.",
+          "D": ""
+        },
+        "exam_pattern": "Repeating vertical line in the same spot on every laser page = damaged/dirty imaging drum."
+      }
+    },
+    {
+      "id": "aplus1-ts-124",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "printer_troubleshooting",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A laser printer produces a faint second copy of the previous image repeated further down the same page. What is this effect called, and what is its likely cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A duplex (two-sided) printing setting"
+        },
+        {
+          "id": "B",
+          "text": "A simple paper jam"
+        },
+        {
+          "id": "C",
+          "text": "A clogged inkjet print-head nozzle"
+        },
+        {
+          "id": "D",
+          "text": "Ghosting, usually caused by a worn drum or a failing fuser"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Ghost images — a faint repeat of content elsewhere on the page — come from residual charge or heat retention, typically a worn imaging drum or a failing fuser that isn't clearing prior images.",
+        "distractors": {
+          "A": "Duplex printing puts content on both sides of the sheet; it does not create a faint repeat on one side.",
+          "B": "A paper jam halts or crumples printing; it does not create a repeated ghost image.",
+          "C": "Clogged nozzles are an inkjet fault (gaps/streaks), not relevant to a laser printer's ghosting.",
+          "D": ""
+        },
+        "exam_pattern": "Faint repeated 'ghost' image on a laser page = worn drum or failing fuser."
+      }
+    },
+    {
+      "id": "aplus1-ts-125",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "printer_troubleshooting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A laser printer frequently grabs several sheets of paper at once, feeding multiple pages together and causing jams. Which component is the MOST likely culprit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The print driver"
+        },
+        {
+          "id": "B",
+          "text": "The imaging drum"
+        },
+        {
+          "id": "C",
+          "text": "The fuser assembly"
+        },
+        {
+          "id": "D",
+          "text": "Worn pickup/separation rollers (or separation pad)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Multiple sheets pulled at once (multi-feed) points to worn pickup/separation rollers or a worn separation pad that can no longer isolate a single sheet from the stack.",
+        "distractors": {
+          "A": "The print driver formats the job on the PC; it cannot cause the hardware to grab extra sheets.",
+          "B": "The imaging drum transfers the image; it does not control paper feeding from the tray.",
+          "C": "The fuser bonds toner with heat/pressure; it has no role in how many sheets are picked up.",
+          "D": ""
+        },
+        "exam_pattern": "Multiple sheets pulled / misfeeds = worn pickup/separation rollers or separation pad."
+      }
+    },
+    {
+      "id": "aplus1-ts-126",
+      "exam": "aplus1",
+      "domain": "hw_net_troubleshooting",
+      "subtopic": "printer_troubleshooting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An inkjet printer that sat unused for months now prints with horizontal white gaps and missing streaks through text and images. What should the technician try FIRST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the imaging drum"
+        },
+        {
+          "id": "B",
+          "text": "Reinstall the computer's operating system"
+        },
+        {
+          "id": "C",
+          "text": "Run the printer's print-head cleaning utility to clear the clogged nozzles"
+        },
+        {
+          "id": "D",
+          "text": "Replace the fuser assembly"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "On an inkjet, missing streaks/gaps — especially after long disuse — mean dried ink has clogged nozzles. Running the built-in head-cleaning cycle clears them before any parts are replaced.",
+        "distractors": {
+          "A": "Inkjets have no imaging drum — that too is a laser component, not part of an inkjet.",
+          "B": "Reinstalling the OS is a drastic, unrelated step; the symptom is a mechanical ink-flow (nozzle) issue.",
+          "C": "",
+          "D": "Inkjets have no fuser assembly — that is a laser-printer component."
+        },
+        "exam_pattern": "Inkjet gaps/missing streaks (often after disuse) = clogged nozzles → run head cleaning first."
+      }
+    },
+    {
+      "id": "aplus1-virt-101",
+      "exam": "aplus1",
+      "domain": "virtualization_cloud",
+      "subtopic": "cloud_models",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A development team wants a ready-made environment — operating system, language runtime, and a managed database already provided — so it can deploy its own code without building or maintaining any servers. Which cloud service model fits BEST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SaaS (Software as a Service)"
+        },
+        {
+          "id": "B",
+          "text": "An on-premises bare-metal server"
+        },
+        {
+          "id": "C",
+          "text": "IaaS (Infrastructure as a Service)"
+        },
+        {
+          "id": "D",
+          "text": "PaaS (Platform as a Service)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "PaaS supplies a managed platform (OS, runtime, tools, often a database) on which the customer deploys its OWN applications, without managing the underlying servers or OS.",
+        "distractors": {
+          "A": "SaaS is a finished application the provider runs end to end; the team here is deploying its own code, not using a ready app.",
+          "B": "An on-premises server is not a cloud service model and requires the team to own and maintain all hardware.",
+          "C": "IaaS gives raw VMs/storage/networking the customer must configure AND patch the OS on — more management than described.",
+          "D": ""
+        },
+        "exam_pattern": "Deploy your OWN code on a managed stack = PaaS; raw VMs you manage = IaaS; finished app = SaaS."
+      }
+    },
+    {
+      "id": "aplus1-virt-102",
+      "exam": "aplus1",
+      "domain": "virtualization_cloud",
+      "subtopic": "cloud_models",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A company rents virtual machines from an IaaS provider. In this model, which task remains the CUSTOMER's responsibility?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Patching and securing the guest operating system and applications on the VMs"
+        },
+        {
+          "id": "B",
+          "text": "Maintaining the physical servers and storage hardware"
+        },
+        {
+          "id": "C",
+          "text": "Running and updating the hypervisor host"
+        },
+        {
+          "id": "D",
+          "text": "Providing datacenter power, cooling, and physical security"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "With IaaS the provider owns everything up to the hypervisor; the customer is responsible for the guest OS, middleware, and applications — including patching and securing them.",
+        "distractors": {
+          "A": "",
+          "B": "Physical servers and storage are the provider's responsibility in every cloud model.",
+          "C": "The hypervisor/host layer is managed by the provider in IaaS, not the tenant.",
+          "D": "Facility power, cooling, and physical security are always handled by the cloud provider."
+        },
+        "exam_pattern": "IaaS splits duties: provider = hardware + hypervisor; customer = guest OS + apps + data."
+      }
+    },
+    {
+      "id": "aplus1-virt-103",
+      "exam": "aplus1",
+      "domain": "virtualization_cloud",
+      "subtopic": "cloud_models",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A startup's monthly cloud invoice changes each month based on exactly how many compute-hours and how many gigabytes of storage it actually used. Which cloud characteristic does this billing reflect?",
+      "options": [
+        {
+          "id": "A",
+          "text": "File synchronization"
+        },
+        {
+          "id": "B",
+          "text": "High availability"
+        },
+        {
+          "id": "C",
+          "text": "Metered (measured) utilization"
+        },
+        {
+          "id": "D",
+          "text": "Rapid elasticity"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Metered (measured) utilization means usage is tracked and billed per unit consumed — pay only for the compute and storage you actually use.",
+        "distractors": {
+          "A": "File synchronization keeps copies of files consistent across devices; it is unrelated to pay-per-use billing.",
+          "B": "High availability is about keeping the service running with minimal downtime (redundancy/failover).",
+          "C": "",
+          "D": "Rapid elasticity is the ability to scale resources up and down on demand, not the billing of usage."
+        },
+        "exam_pattern": "Pay only for what you use / usage-based billing = metered utilization (a.k.a. measured service)."
+      }
+    },
+    {
+      "id": "aplus1-virt-104",
+      "exam": "aplus1",
+      "domain": "virtualization_cloud",
+      "subtopic": "cloud_models",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Several independent hospitals jointly fund and share one cloud environment that is purpose-built to meet healthcare privacy regulations common to all of them. Which cloud DEPLOYMENT model is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Community cloud"
+        },
+        {
+          "id": "B",
+          "text": "Private cloud"
+        },
+        {
+          "id": "C",
+          "text": "Public cloud"
+        },
+        {
+          "id": "D",
+          "text": "Hybrid cloud"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A community cloud is shared by several organizations that have common requirements (here, the same compliance needs) and share the cost of a dedicated environment.",
+        "distractors": {
+          "A": "",
+          "B": "A private cloud is dedicated to a SINGLE organization, not shared among several hospitals.",
+          "C": "A public cloud is open to any customer and owned by a third-party provider, not limited to a group with shared requirements.",
+          "D": "A hybrid cloud combines private and public clouds; nothing here mixes two deployment types."
+        },
+        "exam_pattern": "Shared by several orgs with common needs = community; one org only = private; open to all = public."
+      }
+    },
+    {
+      "id": "aplus1-virt-105",
+      "exam": "aplus1",
+      "domain": "virtualization_cloud",
+      "subtopic": "cloud_models",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A bank builds a cloud entirely on hardware in its own datacenter, dedicated solely to the bank, so it keeps full control for regulatory reasons. Which cloud DEPLOYMENT model is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hybrid cloud"
+        },
+        {
+          "id": "B",
+          "text": "Private cloud"
+        },
+        {
+          "id": "C",
+          "text": "Community cloud"
+        },
+        {
+          "id": "D",
+          "text": "Public cloud"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A private cloud is owned by and dedicated to a single organization — often on its own hardware — giving maximum control over security and compliance.",
+        "distractors": {
+          "A": "A hybrid cloud combines private and public resources; this scenario describes a private cloud only.",
+          "B": "",
+          "C": "A community cloud is shared among several organizations with common requirements, not one bank alone.",
+          "D": "A public cloud is a shared, provider-owned environment open to many customers — the opposite of dedicated."
+        },
+        "exam_pattern": "Dedicated to one organization, full control = private cloud."
+      }
+    },
+    {
+      "id": "aplus1-virt-106",
+      "exam": "aplus1",
+      "domain": "virtualization_cloud",
+      "subtopic": "cloud_models",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An employee edits a document on a work laptop, and the updated file automatically appears on their phone and tablet through the same cloud service. Which cloud feature provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Metered utilization"
+        },
+        {
+          "id": "B",
+          "text": "File synchronization"
+        },
+        {
+          "id": "C",
+          "text": "Rapid elasticity"
+        },
+        {
+          "id": "D",
+          "text": "Resource pooling"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "File synchronization keeps a file consistent across all of a user's devices by uploading changes to the cloud and pushing them back down to every linked device.",
+        "distractors": {
+          "A": "Metered utilization is usage-based billing; it does not describe propagating file changes.",
+          "B": "",
+          "C": "Rapid elasticity is on-demand scaling of compute resources, not keeping files in sync across devices.",
+          "D": "Resource pooling is the provider serving many tenants from shared hardware — a back-end concept, not file sync."
+        },
+        "exam_pattern": "Same file auto-updates on all your devices = cloud file synchronization."
+      }
+    },
+    {
+      "id": "aplus1-virt-107",
+      "exam": "aplus1",
+      "domain": "virtualization_cloud",
+      "subtopic": "cloud_models",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization runs each employee's Windows desktop as a virtual machine on central servers in the datacenter; users connect to their desktop remotely from the office and from home. What is this technology called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SaaS (Software as a Service)"
+        },
+        {
+          "id": "B",
+          "text": "Cloud file synchronization"
+        },
+        {
+          "id": "C",
+          "text": "VDI (Virtual Desktop Infrastructure)"
+        },
+        {
+          "id": "D",
+          "text": "A Type 1 bare-metal hypervisor"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "VDI hosts users' desktop operating systems as VMs on centralized servers; users connect to their virtual desktop over the network, so processing and data stay in the datacenter/cloud.",
+        "distractors": {
+          "A": "SaaS delivers a single finished application, not a full remote desktop environment per user.",
+          "B": "File synchronization keeps files consistent across devices; it does not deliver whole hosted desktops.",
+          "C": "",
+          "D": "A Type 1 hypervisor is the virtualization layer VDI may run on, but the named technology here is VDI itself."
+        },
+        "exam_pattern": "User desktops hosted centrally and accessed remotely = VDI (often with thin-client endpoints)."
+      }
+    },
+    {
+      "id": "aplus1-virt-108",
+      "exam": "aplus1",
+      "domain": "virtualization_cloud",
+      "subtopic": "cloud_models",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A business stops buying and owning its own servers and instead pays a predictable monthly cloud subscription. In financial terms, this shift moves spending from:",
+      "options": [
+        {
+          "id": "A",
+          "text": "It does not change how the costs are classified"
+        },
+        {
+          "id": "B",
+          "text": "Operational expenditure (OpEx) to capital expenditure (CapEx)"
+        },
+        {
+          "id": "C",
+          "text": "Capital expenditure (CapEx) to operational expenditure (OpEx)"
+        },
+        {
+          "id": "D",
+          "text": "Capital expenditure (CapEx) to hardware depreciation"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Buying servers is a large up-front CapEx (a capital asset purchase). A recurring cloud subscription is an ongoing OpEx, so moving to the cloud shifts CapEx to OpEx.",
+        "distractors": {
+          "A": "The classification clearly changes: an asset purchase becomes a recurring service expense.",
+          "B": "This reverses the relationship — owning hardware is the CapEx side, and the subscription is the OpEx side.",
+          "C": "",
+          "D": "Depreciation applies to owned capital assets; subscribing to the cloud replaces that asset with an operating expense."
+        },
+        "exam_pattern": "Own the hardware up front = CapEx; pay a recurring cloud subscription = OpEx."
+      }
+    },
+    {
+      "id": "aplus1-virt-109",
+      "exam": "aplus1",
+      "domain": "virtualization_cloud",
+      "subtopic": "cloud_models",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "Which TWO statements correctly describe the PUBLIC cloud deployment model? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Its hardware is dedicated to a single organization for its exclusive use"
+        },
+        {
+          "id": "B",
+          "text": "Its resources are shared externally among many unrelated customers (multitenant)"
+        },
+        {
+          "id": "C",
+          "text": "It is owned and operated by a third-party provider and reached over the internet"
+        },
+        {
+          "id": "D",
+          "text": "Its resources are shared only internally within one company"
+        }
+      ],
+      "correct": [
+        "B",
+        "C"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "A public cloud is run by a third-party provider and accessed over the internet, and its pooled resources are shared externally among many unrelated tenants.",
+        "distractors": {
+          "A": "Dedicating hardware to a single organization describes a PRIVATE cloud, not a public one.",
+          "B": "",
+          "C": "",
+          "D": "Sharing resources only internally within one company also describes a private cloud, not public."
+        },
+        "exam_pattern": "Public = third-party provider, internet-accessed, resources shared EXTERNALLY across many tenants."
+      }
+    },
+    {
+      "id": "aplus1-virt-110",
+      "exam": "aplus1",
+      "domain": "virtualization_cloud",
+      "subtopic": "client_side_virtualization",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A datacenter team installs VMware ESXi directly onto a server's hardware, with no underlying Windows or Linux operating system beneath it. Which TYPE of hypervisor is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A container runtime"
+        },
+        {
+          "id": "B",
+          "text": "A cross-architecture emulator"
+        },
+        {
+          "id": "C",
+          "text": "Type 1 (bare-metal) hypervisor"
+        },
+        {
+          "id": "D",
+          "text": "Type 2 (hosted) hypervisor"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A Type 1 (bare-metal) hypervisor installs directly on the hardware and IS the lowest software layer — ESXi, Hyper-V, and Xen are examples. There is no host OS beneath it.",
+        "distractors": {
+          "A": "A container runtime shares the host kernel to isolate apps, not to run full VMs on bare hardware.",
+          "B": "An emulator translates a different CPU architecture; ESXi runs same-architecture VMs natively on the metal.",
+          "C": "",
+          "D": "A Type 2 (hosted) hypervisor runs as an application on top of an existing host OS (e.g., VirtualBox on Windows)."
+        },
+        "exam_pattern": "Installs straight on hardware, no host OS = Type 1 (bare-metal); runs on a host OS = Type 2."
+      }
+    },
+    {
+      "id": "aplus1-virt-111",
+      "exam": "aplus1",
+      "domain": "virtualization_cloud",
+      "subtopic": "client_side_virtualization",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A technician tries to launch a 64-bit guest in a hypervisor and gets an error that hardware-assisted virtualization is not available. Which setting must be enabled in the workstation's UEFI/BIOS?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Intel VT-x / AMD-V (hardware virtualization extensions)"
+        },
+        {
+          "id": "B",
+          "text": "TPM 2.0"
+        },
+        {
+          "id": "C",
+          "text": "Fast Boot"
+        },
+        {
+          "id": "D",
+          "text": "Secure Boot"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Client-side virtualization requires the CPU's hardware-assisted virtualization extensions — Intel VT-x or AMD-V — which are toggled in UEFI/BIOS and are often disabled by default.",
+        "distractors": {
+          "A": "",
+          "B": "TPM 2.0 is a security module for keys/attestation; it is unrelated to running guest VMs.",
+          "C": "Fast Boot shortens POST/startup; it has nothing to do with enabling virtualization.",
+          "D": "Secure Boot validates boot-loader signatures; it does not provide CPU virtualization support (and can even block some hypervisors)."
+        },
+        "exam_pattern": "'Virtualization not available' in a hypervisor → enable Intel VT-x / AMD-V in UEFI/BIOS."
+      }
+    },
+    {
+      "id": "aplus1-virt-112",
+      "exam": "aplus1",
+      "domain": "virtualization_cloud",
+      "subtopic": "client_side_virtualization",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A security analyst wants to open and observe a suspicious executable without putting the host or the network at risk. Which use of client-side virtualization fits BEST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Run it on a thin client connected to the corporate VDI"
+        },
+        {
+          "id": "B",
+          "text": "Run it directly on the host and rely on antivirus to catch problems"
+        },
+        {
+          "id": "C",
+          "text": "Deploy it to a public PaaS platform to test it"
+        },
+        {
+          "id": "D",
+          "text": "Run it in an isolated sandbox VM that can be snapshotted and reverted"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A sandbox is an isolated VM used to detonate/observe risky software; snapshots let the analyst revert to a clean state, and isolation keeps anything malicious away from the host and network.",
+        "distractors": {
+          "A": "A thin client is just a terminal into shared VDI desktops — detonating malware there endangers the hosted environment.",
+          "B": "Running unknown malware directly on the host risks the very machine you are trying to protect, antivirus or not.",
+          "C": "PaaS is for deploying trusted application code, not for safely isolating and analyzing malware.",
+          "D": ""
+        },
+        "exam_pattern": "Safely test risky/unknown software = isolated sandbox VM (snapshot, then revert)."
+      }
+    },
+    {
+      "id": "aplus1-virt-113",
+      "exam": "aplus1",
+      "domain": "virtualization_cloud",
+      "subtopic": "client_side_virtualization",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A manufacturer must keep using a critical application that only runs on Windows XP, but all of its physical PCs now run Windows 11. What is the SAFEST way to keep the app running?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Connect to a public SaaS version of Windows XP"
+        },
+        {
+          "id": "B",
+          "text": "Reinstall Windows XP on the bare hardware of each PC"
+        },
+        {
+          "id": "C",
+          "text": "Dual-boot every Windows 11 PC with a second Windows XP installation"
+        },
+        {
+          "id": "D",
+          "text": "Run Windows XP inside a virtual machine that hosts the legacy application"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Running the unsupported legacy OS inside a VM is a core purpose of client-side virtualization: the old app keeps working, isolated from the modern host, without downgrading the physical PCs.",
+        "distractors": {
+          "A": "There is no SaaS 'Windows XP'; an operating system is not delivered as a public software-as-a-service app.",
+          "B": "Putting XP back on bare hardware exposes unsupported, insecure OSes directly and wastes the modern deployment.",
+          "C": "Dual-booting means rebooting into an outdated, unpatched OS on every machine and losing access to the modern desktop while in use.",
+          "D": ""
+        },
+        "exam_pattern": "Keep legacy software/OS alive on modern hardware = run the old OS in a VM."
+      }
+    },
+    {
+      "id": "aplus1-virt-114",
+      "exam": "aplus1",
+      "domain": "virtualization_cloud",
+      "subtopic": "client_side_virtualization",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A developer on a macOS laptop needs to test a website in a Windows-only browser, so they run a full Windows guest in a VM on the Mac. Which PURPOSE of client-side virtualization does this illustrate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sandboxing suspicious files"
+        },
+        {
+          "id": "B",
+          "text": "Supporting a legacy operating system"
+        },
+        {
+          "id": "C",
+          "text": "Cross-platform virtualization"
+        },
+        {
+          "id": "D",
+          "text": "Application streaming from the cloud"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Cross-platform virtualization runs an operating system different from the host's so you can use software for another platform — here, running Windows on a Mac to test a Windows-only browser.",
+        "distractors": {
+          "A": "Sandboxing isolates risky/unknown software for safety; this is about running another platform's OS, not containing malware.",
+          "B": "Legacy support is about keeping an OLD/unsupported OS running; current Windows on a Mac is a cross-platform need.",
+          "C": "",
+          "D": "Application streaming delivers apps from a server/cloud; here a full guest OS runs locally in a VM."
+        },
+        "exam_pattern": "Run a different platform's OS on your host (Windows on a Mac) = cross-platform virtualization."
+      }
+    },
+    {
+      "id": "aplus1-virt-115",
+      "exam": "aplus1",
+      "domain": "virtualization_cloud",
+      "subtopic": "client_side_virtualization",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A VM must appear on the physical office LAN as its own device — getting an IP address from the office DHCP router and being directly reachable by other hosts on that LAN. Which virtual network mode should be configured?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Host-only networking"
+        },
+        {
+          "id": "B",
+          "text": "Internal (private) networking"
+        },
+        {
+          "id": "C",
+          "text": "NAT networking"
+        },
+        {
+          "id": "D",
+          "text": "Bridged networking"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Bridged mode connects the VM's virtual NIC straight to the physical network, so the VM gets its own IP from the LAN's DHCP and is a first-class, directly reachable host on that LAN.",
+        "distractors": {
+          "A": "Host-only networking creates a private link between the host and VM only, with no access to the physical LAN.",
+          "B": "Internal/private networking connects VMs to each other but not to the host or the external LAN.",
+          "C": "NAT hides the VM behind the host's IP address; the VM can reach out but is not directly reachable as its own LAN device.",
+          "D": ""
+        },
+        "exam_pattern": "VM needs its own LAN IP, directly reachable = bridged; VM hidden behind host IP = NAT."
+      }
+    },
+    {
+      "id": "aplus1-virt-116",
+      "exam": "aplus1",
+      "domain": "virtualization_cloud",
+      "subtopic": "client_side_virtualization",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "To run software compiled for a completely different CPU architecture (for example, an ARM program) on an x86 PC, the virtualization software must translate the guest's machine instructions. Which tool does this, as opposed to a standard VM?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An emulator"
+        },
+        {
+          "id": "B",
+          "text": "A standard virtual machine"
+        },
+        {
+          "id": "C",
+          "text": "A container"
+        },
+        {
+          "id": "D",
+          "text": "A Type 1 bare-metal hypervisor"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "An emulator imitates a DIFFERENT hardware/CPU architecture by translating its instructions, so software built for another platform can run — at a performance cost — on the host.",
+        "distractors": {
+          "A": "",
+          "B": "A standard VM runs a guest on the SAME CPU architecture as the host, executing instructions natively, not translating them.",
+          "C": "A container shares the host kernel and architecture to isolate apps; it cannot run a foreign CPU architecture.",
+          "D": "A Type 1 hypervisor partitions the SAME architecture's hardware among VMs; it does not translate a foreign instruction set."
+        },
+        "exam_pattern": "Different CPU architecture → emulator (translates instructions); same architecture → VM (runs natively)."
+      }
+    },
+    {
+      "id": "aplus1-virt-117",
+      "exam": "aplus1",
+      "domain": "virtualization_cloud",
+      "subtopic": "client_side_virtualization",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "A technician is hardening a host that runs several guest VMs. Which TWO statements about VM security requirements are correct? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Running an OS inside a VM makes that guest immune to malware"
+        },
+        {
+          "id": "B",
+          "text": "Proper isolation keeps a compromised VM from reaching the host or the other VMs"
+        },
+        {
+          "id": "C",
+          "text": "Each guest OS must still be patched and protected with anti-malware, just like a physical PC"
+        },
+        {
+          "id": "D",
+          "text": "Guest VMs never need their own firewall because the host protects them"
+        }
+      ],
+      "correct": [
+        "B",
+        "C"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "A guest OS is a full operating system — it needs the same patching and anti-malware as a physical machine — and strong isolation between VMs (and from the host) limits the blast radius if one is compromised.",
+        "distractors": {
+          "A": "A VM is not immune to malware; the guest OS can be infected exactly like a physical machine.",
+          "B": "",
+          "C": "",
+          "D": "Each guest still needs its own OS-level security (firewall/anti-malware); the host cannot substitute for protecting the guest."
+        },
+        "exam_pattern": "VM security = patch/protect EACH guest + enforce isolation; a VM is not inherently malware-proof."
+      }
+    },
+    {
+      "id": "aplus1-virt-118",
+      "exam": "aplus1",
+      "domain": "virtualization_cloud",
+      "subtopic": "client_side_virtualization",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "After creating several virtual machines on a workstation, a technician notices the host's free disk space has dropped sharply. Why do VMs consume so much storage?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Each VM stores its guest OS and data in a large virtual-disk file on the host"
+        },
+        {
+          "id": "B",
+          "text": "VMs store nothing locally; all of their data lives in the cloud"
+        },
+        {
+          "id": "C",
+          "text": "Only snapshots use disk space, and snapshots are always tiny"
+        },
+        {
+          "id": "D",
+          "text": "The hypervisor compresses every VM down to a few megabytes"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A VM keeps its entire guest operating system and data inside a virtual hard-disk file (e.g., .vdi/.vmdk) on the host, so each VM consumes real host storage that must be planned for.",
+        "distractors": {
+          "A": "",
+          "B": "Client-side VMs store their virtual disks locally on the host; they do not keep all data in the cloud.",
+          "C": "Snapshots add to disk use, but the main consumer is the VM's full virtual disk holding the OS and data.",
+          "D": "Hypervisors do not shrink full guest installs to a few megabytes — a guest OS needs gigabytes of disk."
+        },
+        "exam_pattern": "Each VM needs host RAM, CPU, AND disk — its virtual-disk file holds the whole guest OS."
       }
     }
   ]
