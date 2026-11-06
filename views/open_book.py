@@ -30,7 +30,7 @@ from ui_common import (
     render_xp_event,
 )
 
-exam = page_setup("Open-Book Practice", icon="📖")
+exam = page_setup("Open-Book Practice")
 bank = get_bank()
 bp = get_blueprint(exam)
 prof = get_profile(exam)
@@ -139,7 +139,7 @@ if ob["phase"] == "answering":
     with csub:
         submit = st.button("Submit", type="primary", key=f"{SKEY}_submit")
     with cskip:
-        if st.button("Skip ▶", key=f"{SKEY}_skip",
+        if st.button("Skip", key=f"{SKEY}_skip",
                      help="Move on without answering — no effect on your score."):
             ob["recent"] = ([q.id] + ob["recent"])[:8]
             ob["qid"] = None
@@ -162,7 +162,7 @@ if ob["phase"] == "answering":
         st.rerun()
 
     st.divider()
-    if st.toggle("📖 Open the book", key=f"{SKEY}_book",
+    if st.toggle("Open the book", key=f"{SKEY}_book",
                  help="Browse the lessons (scoped by the mode above) to find the answer."):
         _render_book()
 
@@ -170,12 +170,12 @@ if ob["phase"] == "answering":
 else:
     fb = ob["fb"]
     if fb.correct:
-        st.success("✅ **Correct.**")
+        st.success("**Correct.**")
     else:
-        st.error("❌ **Incorrect** — this one will resurface so you can nail it next time.")
+        st.error("**Incorrect** — this one will resurface so you can nail it next time.")
     render_xp_event(last_xp_event())
     render_feedback(q, fb)
-    if st.button("Next question ▶", type="primary", key=f"{SKEY}_next"):
+    if st.button("Next question", type="primary", key=f"{SKEY}_next"):
         ob["qid"] = None
         st.session_state.pop(f"{SKEY}_book", None)   # reset the book per question
         st.rerun()

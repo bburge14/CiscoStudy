@@ -3,17 +3,26 @@
 _Last updated: 2026-11-06_
 
 ## What this is
-A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
-350-401. Core study logic is a standalone, unit-tested Python package
-(`studyengine`); the UI is a Streamlit multipage app driven by a native
-`st.navigation` router (`Home.py`) with one module per page under `views/`.
+**CertWize** — a Streamlit study & diagnostic platform for IT certifications. The
+engine is data-driven by exam blueprints, so adding a cert = a new blueprint + a
+question bank (no engine changes). Live tracks: **CCNA 200-301**, **CCNP ENCOR
+350-401**, **CompTIA Security+ SY0-701**; Network+ and A+ Core 1/2 have blueprints
+and show as "coming soon" in the track picker until their banks are authored. Core
+study logic is a standalone, unit-tested Python package (`studyengine`); the UI is
+a Streamlit multipage app driven by a native `st.navigation` router (`Home.py`)
+with one module per page under `views/`.
+
+The whole UI uses ONE cohesive custom glyph set (`ui_icons.py`) — no emoji / Material
+defaults anywhere in the app body — and recolors per track (see "per-track accent").
 
 ## Current state — complete and working
 
 | Area | Status |
 |------|--------|
-| Exam blueprints (domains + weights + sub-topics) | ✅ CCNA & ENCOR |
-| Question bank | ✅ 377 original items (CCNA 205, ENCOR 172); every domain deep AND every sub-topic ≥4 |
+| Exam blueprints (domains + weights + sub-topics) | ✅ CCNA, ENCOR, Security+ live; Network+ / A+ Core 1 & 2 blueprints staged ("coming soon") |
+| Question bank | ✅ 407 original items (CCNA 205, ENCOR 172, Security+ 30); every live domain ≥5 |
+| Track picker | ✅ sidebar **dropdown** lists every track; unbuilt ones show "· coming soon" and are non-selectable (revert + notice) |
+| Per-track accent theme | ✅ each track has its own accent (Cisco blue/violet, Security+ green, Network+ teal, A+ amber/rose); header glyphs, level card, progress bars, primary buttons recolor to the active track (`TRACK_ACCENT` + `_theme_css`) |
 | Diagnostic baseline (30 Q, 5/domain) + focus recs | ✅ |
 | Endless Drill (adaptive, Leitner miss-boost, remediation mode) | ✅ + per-domain focus filter + Skip |
 | Structured Milestones (Read → Lesson Quiz → Milestone exam + PBQ, unit unlock) | ✅ lesson quiz = instant feedback; milestone exam = graded at end + full after-quiz review (missed-first) |
@@ -25,7 +34,8 @@ A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
 | Progress dashboard + persistence | ✅ per-account, auto-saved; mastery-by-domain chart on a fixed 0–100 axis |
 | Accounts & login | ✅ username/password, PBKDF2-salted-hashed, per-account storage |
 | Onboarding hub | ✅ login gate + "where to start?" Home with role-aware sidebar nav (`st.navigation` router) |
-| Custom icon set | ✅ original network-glyph SVGs (`ui_icons.py`) re-skin the nav (CSS mask) + page headers — not Material/emoji defaults |
+| Custom icon set | ✅ original monochrome SVG glyph set (`ui_icons.py`) used EVERYWHERE — nav (CSS mask), page headers, card/section headers, status chips, XP badges — via `ui_icons.inline()` / `ui_common.glyph()` / `section_header()`. No emoji or Material defaults in the app body (only inline ✓/● text marks survive in dropdown/dataframe cells where SVG can't render) |
+| Sidebar layout | ✅ brand wordmark + track dropdown + rank card pinned ABOVE the nav links (CSS `order` on `stSidebarContent`), then the custom-glyph nav |
 | Self-service account page | ✅ change your display name, login/username (keeps progress), and password; last-instructor guard |
 | Personalized study plan | ✅ weakest-first, enforced order, read→drill→unlock (studyplan.py) |
 | Exam simulation | ✅ timed (native per-second countdown), domain-weighted, one-at-a-time (no back), pass/fail report (exam.py) |
@@ -33,7 +43,7 @@ A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
 | XP / leveling | ✅ 9 ranks, event-based XP (Profile.record_study): rewards getting better (improving/mastering items) + streaks; penalizes misses with per-question escalation — missing the SAME item again and again costs more (−6 → −9 → −12 → −15 floor), a correct answer resets the chain; no credit for mere attempts; steep curve (Level 2 ≈ 30–50 correct answers). Benchmark excluded (study_overall). Home card, sidebar badge, +/−XP + streak chip on each answer |
 | Instructor view | ✅ first account = instructor; roster, per-learner drill-down, account management (create/edit name+login/reset password/role/delete), and reset a learner's status (benchmark only, or all progress); nav entry hidden from learners |
 | Launchers | ✅ `run.sh`, `run.bat`, `run-shared.bat` (LAN), exe |
-| Test suite | ✅ 514 tests passing (+ router/page AppTest smoke) |
+| Test suite | ✅ 557 tests passing (+ router/page AppTest smoke) |
 
 Run: `run.bat` (Windows) / `./run.sh` (macOS/Linux) / `streamlit run Home.py`.
 Test: `python -m pytest -q`.

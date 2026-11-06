@@ -14,9 +14,10 @@ from ui_common import (
     page_setup,
     pct_bar,
     reset_profile,
+    section_header,
 )
 
-exam = page_setup("Progress Dashboard", icon="📊")
+exam = page_setup("Progress Dashboard")
 bp = get_blueprint(exam)
 prof = get_profile(exam)
 cur = get_curriculum()
@@ -36,7 +37,7 @@ if seen == 0:
     st.stop()
 
 st.divider()
-st.subheader("🎯 Exam readiness")
+section_header("target", "Exam readiness")
 r = exam_readiness(prof, bp)
 rc1, rc2 = st.columns([1, 2])
 rc1.metric("Estimated score", f"{r['estimate']}%" if r["estimate"] is not None else "—")
@@ -49,7 +50,7 @@ with rc2:
     else:
         st.warning(f"**{r['verdict']}** — estimated {r['estimate']}%, {r['coverage']}% of the exam practiced.")
     st.caption("This is your practice accuracy weighted by the official domain weights — a study "
-               "gauge, not a prediction. Cisco's real cut score is scaled and unpublished. For a "
+               "gauge, not a prediction. The real cut score is scaled and unpublished. For a "
                "fuller check, run a timed **Exam Simulation**.")
 
 st.divider()
@@ -66,7 +67,7 @@ st.divider()
 col_a, col_b = st.columns(2)
 
 with col_a:
-    st.subheader("🎯 Remediation queue")
+    section_header("target", "Remediation queue", size=1.1)
     weak = prof.weak_subtopics()
     if weak:
         st.caption("Sub-topics below 80% (worst first). Target these in Endless Drill → remediation mode.")
@@ -79,7 +80,7 @@ with col_a:
         st.success("No sub-topics below 80%. Nice work.")
 
 with col_b:
-    st.subheader("Spaced-repetition boxes")
+    section_header("cycle", "Spaced-repetition boxes", size=1.1)
     st.caption("Box 1 = just missed (surfaces ~8× more often) → Box 5 = mastered.")
     dist = box_distribution(exam)
     st.bar_chart(pd.DataFrame({"Items": {f"Box {b}": dist[b] for b in sorted(dist)}}))
@@ -90,15 +91,15 @@ units = cur.units_for(exam)
 st.dataframe(
     [{"Unit": f"{u.order}. {u.title}",
       "Lessons passed": f"{sum(1 for l in u.lessons if l.id in prof.completed_lessons)}/{len(u.lessons)}",
-      "Milestone": "✅ passed" if u.id in prof.passed_milestones else "— open",
-      "PBQ": (("✅" if st.session_state.get(f'pbq_passed_{u.pbq_id}') else "— ") + "required")
+      "Milestone": "✓ passed" if u.id in prof.passed_milestones else "— open",
+      "PBQ": (("✓ " if st.session_state.get(f'pbq_passed_{u.pbq_id}') else "— ") + "required")
              if u.pbq_id else "n/a"}
      for u in units],
     width="stretch", hide_index=True,
 )
 
 st.divider()
-with st.expander("⚠️ Reset progress for this profile + track"):
+with st.expander("Reset progress for this profile + track"):
     st.warning("This permanently clears the CURRENT profile's answered-item history, "
                "mastery boxes, completed lessons, milestones and baseline for this exam "
                "track. Other profiles and the other exam track are untouched.")

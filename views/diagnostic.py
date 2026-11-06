@@ -17,7 +17,7 @@ from ui_common import (
     save_profile,
 )
 
-exam = page_setup("Diagnostic Baseline", icon="🎯")
+exam = page_setup("Diagnostic Baseline")
 bank = get_bank()
 bp = get_blueprint(exam)
 prof = get_profile(exam)
@@ -38,7 +38,7 @@ def _start():
 if state is None:
     if prof.baseline:
         st.info(f"Last baseline score: **{prof.baseline['overall']}%** "
-                f"({time.strftime('%Y-%m-%d', time.localtime(prof.baseline['ts']))}).")
+                f"({time.strftime('%Y-%m-%d', time.localtime(prof.baseline.get('ts') or time.time()))}).")
     st.markdown(
         "This untimed snapshot maps your starting level across every domain and "
         "**auto-builds a remediation queue** for any domain/sub-topic under 80%. "
@@ -105,7 +105,7 @@ sel = answer_widget(q, key=f"{SKEY}_ans_{idx}")
 col1, col2 = st.columns([1, 5])
 with col1:
     last = idx == total - 1
-    if st.button("Finish" if last else "Next ▶", type="primary"):
+    if st.button("Finish" if last else "Next", type="primary"):
         state["answers"][q.id] = sel
         # Record into the adaptive profile to seed the scheduler/plan, but mark
         # it as a benchmark answer so it is EXCLUDED from study metrics + XP.

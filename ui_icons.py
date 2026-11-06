@@ -112,6 +112,66 @@ _GLYPHS: dict[str, str] = {
         '<path d="M9 11.8 11 14l4-4.2" stroke="CC" stroke-width="2" fill="none" '
         'stroke-linecap="round" stroke-linejoin="round"/>'
     ),
+    # status / inline glyphs (replace emoji everywhere) ---------------------
+    "target": (  # diagnostic focus / "spot it on the exam"
+        '<circle cx="12" cy="12" r="8.5" stroke="CC" stroke-width="2" fill="none"/>'
+        '<circle cx="12" cy="12" r="4.3" stroke="CC" stroke-width="2" fill="none"/>'
+        '<circle cx="12" cy="12" r="1.4" fill="CC"/>'
+    ),
+    "check": (
+        '<path d="M4.5 12.5 9.5 17.5 19.5 6.5" stroke="CC" stroke-width="2.4" fill="none" '
+        'stroke-linecap="round" stroke-linejoin="round"/>'
+    ),
+    "cross": (
+        '<path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5" stroke="CC" stroke-width="2.4" '
+        'fill="none" stroke-linecap="round"/>'
+    ),
+    "lock": (
+        '<rect x="5" y="10.5" width="14" height="9.5" rx="2.2" stroke="CC" stroke-width="2" fill="none"/>'
+        '<path d="M8.2 10.5V8a3.8 3.8 0 0 1 7.6 0v2.5" stroke="CC" stroke-width="2" fill="none" '
+        'stroke-linecap="round"/>'
+        '<circle cx="12" cy="15.2" r="1.4" fill="CC"/>'
+    ),
+    "lock_open": (
+        '<rect x="5" y="10.5" width="14" height="9.5" rx="2.2" stroke="CC" stroke-width="2" fill="none"/>'
+        '<path d="M8.2 10.5V8a3.8 3.8 0 0 1 7.3-1.3" stroke="CC" stroke-width="2" fill="none" '
+        'stroke-linecap="round"/>'
+        '<circle cx="12" cy="15.2" r="1.4" fill="CC"/>'
+    ),
+    "bulb": (  # tips / hints
+        '<path d="M8.6 15.5a5 5 0 1 1 6.8 0c-.7.6-1.1 1.3-1.1 2.1v.4H9.7v-.4c0-.8-.4-1.5-1.1-2.1Z" '
+        'stroke="CC" stroke-width="2" fill="none" stroke-linejoin="round"/>'
+        '<path d="M9.8 21h4.4" stroke="CC" stroke-width="2" stroke-linecap="round"/>'
+    ),
+    "clipboard": (  # review / full plan
+        '<rect x="5" y="5" width="14" height="16" rx="2.2" stroke="CC" stroke-width="2" fill="none"/>'
+        '<rect x="8.6" y="3.4" width="6.8" height="3.4" rx="1.1" stroke="CC" stroke-width="1.8" fill="none"/>'
+        '<path d="M8.8 11h6.4M8.8 14.5h6.4M8.8 18h4" stroke="CC" stroke-width="1.8" stroke-linecap="round"/>'
+    ),
+    "trophy": (  # mastered
+        '<path d="M8 4.5h8v3.5a4 4 0 0 1-8 0V4.5Z" stroke="CC" stroke-width="2" fill="none" '
+        'stroke-linejoin="round"/>'
+        '<path d="M8 5.6H5.6v1.3a2.6 2.6 0 0 0 2.6 2.6M16 5.6h2.4v1.3a2.6 2.6 0 0 1-2.6 2.6" '
+        'stroke="CC" stroke-width="1.8" fill="none" stroke-linecap="round"/>'
+        '<path d="M12 12v3.4M9.3 19.5h5.4M10 19.5c0-1.6.9-2.6 2-2.6s2 1 2 2.6" stroke="CC" '
+        'stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
+    ),
+    "trend_up": (  # improving
+        '<path d="M4 15.5 10 9.5l3.4 3.4L20 6.3" stroke="CC" stroke-width="2.2" fill="none" '
+        'stroke-linecap="round" stroke-linejoin="round"/>'
+        '<path d="M15 6.3h5v5" stroke="CC" stroke-width="2.2" fill="none" stroke-linecap="round" '
+        'stroke-linejoin="round"/>'
+    ),
+    "flame": (  # streak
+        '<path d="M12 3.4c.6 3.2-2.7 4.6-2.7 7.4a2.7 2.7 0 0 0 5.4 0c0-.8-.3-1.5-.7-2.1 2 .7 3.3 '
+        '2.7 3.3 5a5.3 5.3 0 0 1-10.6 0c0-4.1 3.7-5.7 5.3-10.3Z" stroke="CC" stroke-width="1.8" '
+        'fill="none" stroke-linejoin="round"/>'
+    ),
+    "warn": (  # caution
+        '<path d="M12 4 21 19.5H3L12 4Z" stroke="CC" stroke-width="2" fill="none" stroke-linejoin="round"/>'
+        '<path d="M12 10v4.4" stroke="CC" stroke-width="2" stroke-linecap="round"/>'
+        '<circle cx="12" cy="17.4" r="1.1" fill="CC"/>'
+    ),
 }
 
 # Sidebar-nav + page-link href suffix -> glyph key.
@@ -165,6 +225,15 @@ def nav_css() -> str:
             f'mask:url("{uri}") no-repeat center / contain;}}'
         )
     return "<style>\n" + "\n".join(rules) + "\n</style>"
+
+
+def inline(key: str, size: int = 18, color: str = BRAND) -> str:
+    """An inline colored glyph <img> for dropping into markdown/HTML — vertically
+    centered with a little trailing space, so section headers, cards and status
+    chips all use the custom glyph set instead of emoji."""
+    uri = data_uri(key, color)
+    return (f'<img src="{uri}" width="{size}" height="{size}" alt="" '
+            f'style="vertical-align:-0.18em;margin-right:0.4rem;flex:none"/>')
 
 
 def header_html(key: str, title: str, color: str = BRAND) -> str:
