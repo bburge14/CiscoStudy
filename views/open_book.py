@@ -1,4 +1,4 @@
-"""Open-Book Review: a true open-book test with adjustable help.
+"""Open-Book Practice: a true open-book test with adjustable help.
 
 The book is there while you answer. Leave it shut and a miss is free; open it and
 a wrong answer costs XP — more the more the book helped — while a correct answer
@@ -30,7 +30,7 @@ from ui_common import (
     render_xp_event,
 )
 
-exam = page_setup("Open-Book Review", icon="📖")
+exam = page_setup("Open-Book Practice", icon="📖")
 bank = get_bank()
 bp = get_blueprint(exam)
 prof = get_profile(exam)
@@ -42,18 +42,19 @@ ob = st.session_state.setdefault(
            "recent": [], "answered": 0, "correct": 0},
 )
 
-page_header("book_search", "Open-Book Review")
+page_header("book_search", "Open-Book Practice")
 
 st.markdown(
     "An open-book test: the book is there while you answer. Leave it shut and a miss is "
     "free — **open it and a wrong answer costs you**, more the more the book helped. "
     "Choose how much help it gives you finding the answer."
 )
+st.markdown("**How much help do you want?** (this scales your XP — pick before you answer)")
 mode = st.radio(
-    "Book access", ["Full book", "General area", "Pinpoint"], horizontal=True,
-    key=f"{SKEY}_mode",
-    help="Full book = search everything (hardest). General area = narrowed to this "
-         "question's domain. Pinpoint = the exact lesson (easiest).",
+    "Help level", ["Full book", "General area", "Pinpoint"], horizontal=True,
+    key=f"{SKEY}_mode", label_visibility="collapsed",
+    help="Full book = search everything (hardest, full XP). General area = narrowed to "
+         "this question's domain. Pinpoint = the exact lesson (easiest, least XP).",
 )
 XP_SCALE = {"Full book": 1.0, "General area": 0.7, "Pinpoint": 0.4}
 # A miss costs XP only if you opened the book, scaled UP by how much it helped:

@@ -31,7 +31,7 @@ pages = [
     st.Page("views/drill.py", title="Endless Drill", icon=":material/all_inclusive:"),
     st.Page("views/exam_sim.py", title="Exam Simulation", icon=":material/timer:"),
     st.Page("views/milestones.py", title="Lessons & Milestones", icon=":material/menu_book:"),
-    st.Page("views/open_book.py", title="Open-Book Review", icon=":material/menu_book:"),
+    st.Page("views/open_book.py", title="Open-Book Practice", icon=":material/menu_book:"),
     st.Page("views/pbq_lab.py", title="PBQ Lab", icon=":material/terminal:"),
     st.Page("views/progress.py", title="Progress", icon=":material/bar_chart:"),
     st.Page("views/account.py", title="My Account", icon=":material/manage_accounts:"),

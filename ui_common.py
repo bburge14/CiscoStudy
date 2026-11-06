@@ -520,7 +520,9 @@ def render_account_bar() -> None:
     user = current_user()
     name = _load_registry().get(user, {}).get("name", user)
     inst = is_instructor(user)
-    _, acct = st.columns([6, 1])
+    # Give the chip a roomy right-hand column so the full name shows instead of
+    # being clipped to "Brad…" (the old [6,1] column was far too narrow).
+    _, acct = st.columns([2, 1])
     with acct:
         with st.popover(f"👤 {name}", width="stretch"):
             st.markdown(f"**{name}**")
