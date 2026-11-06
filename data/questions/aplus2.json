@@ -1,0 +1,1050 @@
+{
+  "exam": "aplus2",
+  "count": 26,
+  "questions": [
+    {
+      "id": "aplus2-os-001",
+      "exam": "aplus2",
+      "domain": "operating_systems",
+      "subtopic": "windows_editions",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A business laptop must join the company's Active Directory domain, be encrypted with BitLocker, and have settings pushed via the local Group Policy Editor. What is the MINIMUM Windows 10/11 edition that supports all three?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Windows Enterprise"
+        },
+        {
+          "id": "B",
+          "text": "Windows Pro"
+        },
+        {
+          "id": "C",
+          "text": "Windows Pro for Workstations"
+        },
+        {
+          "id": "D",
+          "text": "Windows Home"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Domain join, BitLocker, and gpedit.msc all first appear in Windows Pro, so Pro is the minimum edition that meets every requirement.",
+        "distractors": {
+          "A": "Enterprise also qualifies but is volume-licensed with extras (AppLocker, DirectAccess); it is more than the minimum.",
+          "B": "",
+          "C": "Pro for Workstations supports them but adds ReFS, more RAM/CPU sockets and server-grade features you don't need — it exceeds the MINIMUM.",
+          "D": "Home cannot join a domain, has no BitLocker, and ships without the Local Group Policy Editor — it fails all three needs."
+        },
+        "exam_pattern": "Home = consumer (no domain join, no BitLocker, no gpedit). Pro = business baseline. Enterprise/Education = volume-licensed with the extras."
+      }
+    },
+    {
+      "id": "aplus2-os-002",
+      "exam": "aplus2",
+      "domain": "operating_systems",
+      "subtopic": "windows_tools",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "After installing a new webcam, a technician sees it listed with a yellow exclamation mark indicating a driver problem. Which built-in Windows tool is used to view and manage hardware devices and their drivers?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Device Manager (devmgmt.msc)"
+        },
+        {
+          "id": "B",
+          "text": "Event Viewer (eventvwr.msc)"
+        },
+        {
+          "id": "C",
+          "text": "Task Manager (taskmgr.exe)"
+        },
+        {
+          "id": "D",
+          "text": "Disk Management (diskmgmt.msc)"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Device Manager lists installed hardware and its drivers; a yellow '!' flags a device with a driver/resource issue you can update or roll back there.",
+        "distractors": {
+          "A": "",
+          "B": "Event Viewer displays system/application logs; it records events but doesn't manage devices.",
+          "C": "Task Manager shows running processes, startup apps and performance — not hardware drivers.",
+          "D": "Disk Management creates/formats partitions and volumes, not device drivers."
+        },
+        "exam_pattern": "Hardware + drivers = Device Manager (devmgmt.msc); yellow '!' = driver/resource problem."
+      }
+    },
+    {
+      "id": "aplus2-os-003",
+      "exam": "aplus2",
+      "domain": "operating_systems",
+      "subtopic": "command_line",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Windows is behaving oddly and a technician suspects corrupted protected system files. From an elevated Command Prompt, which command scans those files and automatically repairs them?",
+      "options": [
+        {
+          "id": "A",
+          "text": "diskpart"
+        },
+        {
+          "id": "B",
+          "text": "gpupdate /force"
+        },
+        {
+          "id": "C",
+          "text": "chkdsk /f"
+        },
+        {
+          "id": "D",
+          "text": "sfc /scannow"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "System File Checker (sfc /scannow) verifies the integrity of protected Windows system files and replaces corrupted ones from a cached copy.",
+        "distractors": {
+          "A": "diskpart is an interactive partition/volume manager; it doesn't repair system files.",
+          "B": "gpupdate /force reapplies Group Policy settings — unrelated to file corruption.",
+          "C": "chkdsk /f fixes file-system errors on a disk volume, not corrupted OS system files.",
+          "D": ""
+        },
+        "exam_pattern": "Corrupt system files = sfc /scannow; disk/file-system errors = chkdsk; deeper image repair = DISM /Online /Cleanup-Image /RestoreHealth."
+      }
+    },
+    {
+      "id": "aplus2-os-004",
+      "exam": "aplus2",
+      "domain": "operating_systems",
+      "subtopic": "os_features",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A user needs to copy a single 12 GB video file onto a USB flash drive and read/write it on both Windows and macOS. Which file system should the drive be formatted with?",
+      "options": [
+        {
+          "id": "A",
+          "text": "FAT32"
+        },
+        {
+          "id": "B",
+          "text": "NTFS"
+        },
+        {
+          "id": "C",
+          "text": "ext4"
+        },
+        {
+          "id": "D",
+          "text": "exFAT"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "exFAT has no practical 4 GB file-size cap and is read/write on both Windows and macOS, making it ideal for large files on cross-platform removable media.",
+        "distractors": {
+          "A": "FAT32 caps individual files at 4 GB, so it cannot hold a 12 GB file.",
+          "B": "NTFS handles large files but macOS mounts it read-only by default, breaking cross-platform write.",
+          "C": "ext4 is a Linux file system that Windows and macOS do not natively read or write.",
+          "D": ""
+        },
+        "exam_pattern": "exFAT = large files + cross-platform (Win/mac) flash media; FAT32 capped at 4 GB files; NTFS = Windows."
+      }
+    },
+    {
+      "id": "aplus2-os-005",
+      "exam": "aplus2",
+      "domain": "operating_systems",
+      "subtopic": "os_installation",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A technician is performing a clean install of Windows 11 on a new 4 TB drive and wants to use the entire capacity and boot in UEFI mode with Secure Boot. Which partitioning scheme must the drive use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "exFAT"
+        },
+        {
+          "id": "B",
+          "text": "Dynamic disk"
+        },
+        {
+          "id": "C",
+          "text": "MBR"
+        },
+        {
+          "id": "D",
+          "text": "GPT"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "GPT supports volumes larger than 2 TB and is required to boot Windows in native UEFI/Secure Boot mode, so it uses the full 4 TB.",
+        "distractors": {
+          "A": "exFAT is a file system, not a partition scheme, so it doesn't answer this.",
+          "B": "Dynamic disk is a Windows disk TYPE (vs basic) for spanning/mirroring; it's unrelated to UEFI booting a 4 TB drive.",
+          "C": "MBR tops out at 2 TB and 4 primary partitions, and pairs with legacy BIOS boot — it can't use the full drive.",
+          "D": ""
+        },
+        "exam_pattern": "UEFI + drives > 2 TB = GPT; legacy BIOS/MBR caps at 2 TB and 4 primary partitions."
+      }
+    },
+    {
+      "id": "aplus2-os-006",
+      "exam": "aplus2",
+      "domain": "operating_systems",
+      "subtopic": "networking_os",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "From a Windows command line, a technician needs to map the shared folder \\\\fileserver\\projects to drive letter S:. Which command does this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "netstat -S \\\\fileserver\\projects"
+        },
+        {
+          "id": "B",
+          "text": "net use S: \\\\fileserver\\projects"
+        },
+        {
+          "id": "C",
+          "text": "nslookup \\\\fileserver\\projects"
+        },
+        {
+          "id": "D",
+          "text": "net user S: \\\\fileserver\\projects"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "net use <drive>: <UNC path> maps a shared network folder to a drive letter from the CLI.",
+        "distractors": {
+          "A": "netstat displays active connections and listening ports; it doesn't map drives.",
+          "B": "",
+          "C": "nslookup queries DNS name resolution; it can't mount a share.",
+          "D": "net user creates and manages local/domain user accounts — it does not map drives."
+        },
+        "exam_pattern": "Map a network drive from CLI = net use <letter>: \\\\server\\share."
+      }
+    },
+    {
+      "id": "aplus2-os-007",
+      "exam": "aplus2",
+      "domain": "operating_systems",
+      "subtopic": "macos_linux",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A macOS user accidentally deleted a document last week and wants to restore the earlier version using Apple's built-in backup utility. Which feature should they use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Time Machine"
+        },
+        {
+          "id": "B",
+          "text": "Mission Control"
+        },
+        {
+          "id": "C",
+          "text": "Spotlight"
+        },
+        {
+          "id": "D",
+          "text": "Disk Utility"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Time Machine is macOS's automatic backup tool; the user can browse back in time to a previous date and restore the deleted file.",
+        "distractors": {
+          "A": "",
+          "B": "Mission Control arranges open windows, spaces and desktops — it doesn't recover files.",
+          "C": "Spotlight is the system-wide search feature, not a backup/restore tool.",
+          "D": "Disk Utility formats, partitions and repairs disks (First Aid); it is not a file backup system."
+        },
+        "exam_pattern": "macOS: Time Machine = backups, Spotlight = search, Disk Utility = format/repair, Keychain = passwords."
+      }
+    },
+    {
+      "id": "aplus2-os-008",
+      "exam": "aplus2",
+      "domain": "operating_systems",
+      "subtopic": "macos_linux",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On a Linux workstation a user downloaded a shell script named deploy.sh and needs to make it executable before running it. Which command accomplishes this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ls -l deploy.sh"
+        },
+        {
+          "id": "B",
+          "text": "chown root deploy.sh"
+        },
+        {
+          "id": "C",
+          "text": "chmod +x deploy.sh"
+        },
+        {
+          "id": "D",
+          "text": "grep deploy.sh"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "chmod changes a file's permission bits; +x adds the execute permission so the script can be run.",
+        "distractors": {
+          "A": "ls -l only LISTS a file's permissions and details — it shows them but changes nothing.",
+          "B": "chown changes the file's OWNER, not its execute permission.",
+          "C": "",
+          "D": "grep searches for text patterns within files; it doesn't set permissions."
+        },
+        "exam_pattern": "chmod = change permissions (+x execute); chown = change owner; ls -l shows permissions."
+      }
+    },
+    {
+      "id": "aplus2-sec-001",
+      "exam": "aplus2",
+      "domain": "security_a2",
+      "subtopic": "security_concepts_a2",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A secure login requires a password plus a one-time code generated by an authenticator app on the user's phone. Which two categories of authentication factors does this use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Something you know and something you are"
+        },
+        {
+          "id": "B",
+          "text": "Something you know and something you have"
+        },
+        {
+          "id": "C",
+          "text": "Something you are and something you do"
+        },
+        {
+          "id": "D",
+          "text": "Something you have and somewhere you are"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The password is 'something you know' and the authenticator app on the phone is 'something you have,' so this is true multifactor authentication.",
+        "distractors": {
+          "A": "'Something you are' is a biometric (fingerprint, face) — no biometric is used here.",
+          "B": "",
+          "C": "'Something you do' is a behavioral factor (gesture, typing rhythm); neither it nor a biometric is used.",
+          "D": "'Somewhere you are' is a location/geolocation factor, which isn't part of this login."
+        },
+        "exam_pattern": "Factors: know (password/PIN), have (token/phone/smart card), are (biometric). MFA = two or more DIFFERENT categories."
+      }
+    },
+    {
+      "id": "aplus2-sec-002",
+      "exam": "aplus2",
+      "domain": "security_a2",
+      "subtopic": "malware_a2",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A user's documents are now inaccessible and an on-screen message demands payment in cryptocurrency in exchange for a key to unlock them. Which type of malware is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Keylogger"
+        },
+        {
+          "id": "B",
+          "text": "Ransomware"
+        },
+        {
+          "id": "C",
+          "text": "Rootkit"
+        },
+        {
+          "id": "D",
+          "text": "Spyware"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Ransomware encrypts the victim's files and demands payment (often in cryptocurrency) for the decryption key — exactly the behavior described.",
+        "distractors": {
+          "A": "A keylogger secretly records keystrokes to steal credentials, not encrypt data for ransom.",
+          "B": "",
+          "C": "A rootkit hides itself and maintains stealthy privileged access; it doesn't ransom files.",
+          "D": "Spyware covertly gathers information about the user; it doesn't lock files for payment."
+        },
+        "exam_pattern": "Files encrypted + payment demand = ransomware; hidden admin-level persistence = rootkit; captured keystrokes = keylogger."
+      }
+    },
+    {
+      "id": "aplus2-sec-003",
+      "exam": "aplus2",
+      "domain": "security_a2",
+      "subtopic": "social_engineering_a2",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An unauthorized person slips through a badge-secured door by walking in closely behind an employee who just swiped their card. Which attack is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dumpster diving"
+        },
+        {
+          "id": "B",
+          "text": "Phishing"
+        },
+        {
+          "id": "C",
+          "text": "Shoulder surfing"
+        },
+        {
+          "id": "D",
+          "text": "Tailgating"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Tailgating is following an authorized person through a secured entry point without presenting your own credentials.",
+        "distractors": {
+          "A": "Dumpster diving is searching discarded trash for useful information.",
+          "B": "Phishing uses fraudulent messages to trick victims into revealing information or clicking links.",
+          "C": "Shoulder surfing is secretly watching someone enter a password or PIN, not following them through a door.",
+          "D": ""
+        },
+        "exam_pattern": "Following someone through a secure door = tailgating; a mantrap/access control vestibule is the classic countermeasure."
+      }
+    },
+    {
+      "id": "aplus2-sec-004",
+      "exam": "aplus2",
+      "domain": "security_a2",
+      "subtopic": "windows_security",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A user's account has Full Control NTFS permission on a shared folder, but the Share permission for their group is set to Read. The user opens the folder from another PC across the network. What is their effective permission?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Read"
+        },
+        {
+          "id": "B",
+          "text": "No access"
+        },
+        {
+          "id": "C",
+          "text": "Full Control"
+        },
+        {
+          "id": "D",
+          "text": "Modify"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "When a resource is reached over the network, Windows applies the MORE restrictive of the combined NTFS and Share permissions. Full Control (NTFS) vs Read (Share) resolves to Read.",
+        "distractors": {
+          "A": "",
+          "B": "The user does have access — Read — so 'No access' is wrong.",
+          "C": "Full Control is only the NTFS side; the Read share permission overrides it for network access.",
+          "D": "Modify is neither of the two permissions in play and isn't the intersection of them."
+        },
+        "exam_pattern": "Network access: effective permission = the MORE restrictive of combined NTFS vs combined Share. Local access ignores Share permissions."
+      }
+    },
+    {
+      "id": "aplus2-sec-005",
+      "exam": "aplus2",
+      "domain": "security_a2",
+      "subtopic": "workstation_hardening",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "A technician is hardening shared lab workstations against malware and unauthorized access. Which TWO actions improve the security posture? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Disable Windows Defender Firewall on all machines"
+        },
+        {
+          "id": "B",
+          "text": "Disable AutoRun/AutoPlay for removable media"
+        },
+        {
+          "id": "C",
+          "text": "Add every lab user to the local Administrators group"
+        },
+        {
+          "id": "D",
+          "text": "Enforce a strong password policy with account lockout"
+        }
+      ],
+      "correct": [
+        "B",
+        "D"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "Disabling AutoRun stops malware on inserted USB drives from launching automatically, and a strong password policy with lockout resists guessing/brute-force — both harden the system.",
+        "distractors": {
+          "A": "Turning off the firewall removes a protective control and WEAKENS security — the opposite of hardening.",
+          "B": "",
+          "C": "Making everyone a local administrator violates least privilege and lets any user (or their malware) change the system.",
+          "D": ""
+        },
+        "exam_pattern": "Harden = disable AutoRun, enforce strong passwords/lockout, patch, least privilege. Never 'harden' by disabling the firewall or handing out admin."
+      }
+    },
+    {
+      "id": "aplus2-sec-006",
+      "exam": "aplus2",
+      "domain": "security_a2",
+      "subtopic": "data_destruction",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A hospital must guarantee that data on failed magnetic hard drives is unrecoverable before the drives leave the building, and the drives will NOT be reused. Which method is the MOST appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Shredding the drives"
+        },
+        {
+          "id": "B",
+          "text": "Overwriting once, then redeploying the drives"
+        },
+        {
+          "id": "C",
+          "text": "Performing a quick format"
+        },
+        {
+          "id": "D",
+          "text": "Deleting the files and emptying the Recycle Bin"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Shredding physically destroys the platters so data can never be recovered, and the drive is not reused — the right choice when disposal and certainty are required.",
+        "distractors": {
+          "A": "",
+          "B": "A single overwrite then redeploy is sanitization for REUSE, but the requirement is destruction with the drive not reused and removed from the building.",
+          "C": "A quick format only clears the file table; the underlying data remains and is recoverable.",
+          "D": "Deleting files and emptying the Recycle Bin removes pointers only — the data is trivially recoverable."
+        },
+        "exam_pattern": "Physical destruction (shred/drill/incinerate/degauss) = unrecoverable & not reused; wiping/overwrite = sanitize for REUSE; format/delete are NOT secure."
+      }
+    },
+    {
+      "id": "aplus2-swts-001",
+      "exam": "aplus2",
+      "domain": "software_troubleshooting",
+      "subtopic": "windows_troubleshooting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A Windows PC began throwing frequent blue screens (BSOD/STOP errors) immediately after the user installed a new graphics driver. What is the BEST first step to resolve it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Run a disk defragmentation"
+        },
+        {
+          "id": "B",
+          "text": "Boot into Safe Mode and roll back the graphics driver in Device Manager"
+        },
+        {
+          "id": "C",
+          "text": "Perform a clean reinstall of Windows"
+        },
+        {
+          "id": "D",
+          "text": "Replace the motherboard"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The crashes started right after the driver change, so rolling back the driver (from Safe Mode if Windows won't stay up) directly undoes the likely cause.",
+        "distractors": {
+          "A": "Defragmentation addresses disk fragmentation/performance, not driver-induced STOP errors.",
+          "B": "",
+          "C": "Reinstalling Windows is drastic and premature when a simple driver rollback likely fixes it.",
+          "D": "Replacing hardware is unjustified; nothing points to a failed motherboard, and the trigger was a driver."
+        },
+        "exam_pattern": "BSOD right after a driver/update change -> roll back the driver/update (Safe Mode if needed) before drastic steps."
+      }
+    },
+    {
+      "id": "aplus2-swts-002",
+      "exam": "aplus2",
+      "domain": "software_troubleshooting",
+      "subtopic": "windows_troubleshooting",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A Windows 10 PC takes a very long time to reach the desktop because too many applications launch at boot. Which tool lets the technician disable unnecessary startup programs?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Disk Management"
+        },
+        {
+          "id": "B",
+          "text": "Task Manager, Startup tab"
+        },
+        {
+          "id": "C",
+          "text": "Windows Defender"
+        },
+        {
+          "id": "D",
+          "text": "Device Manager"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "In Windows 10/11 the Startup tab of Task Manager lists auto-start programs and lets you disable them (msconfig's Startup tab now redirects here).",
+        "distractors": {
+          "A": "Disk Management handles partitions and volumes, not startup applications.",
+          "B": "",
+          "C": "Windows Defender is antivirus/antimalware; it doesn't control the startup program list.",
+          "D": "Device Manager manages hardware and drivers, not which programs launch at boot."
+        },
+        "exam_pattern": "Manage startup programs in Win10/11 = Task Manager > Startup (msconfig's old job)."
+      }
+    },
+    {
+      "id": "aplus2-swts-003",
+      "exam": "aplus2",
+      "domain": "software_troubleshooting",
+      "subtopic": "os_security_troubleshooting",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Following CompTIA's best-practice procedure for malware removal, a technician has just investigated and verified the malware symptoms on a PC. What is the NEXT step?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Educate the end user"
+        },
+        {
+          "id": "B",
+          "text": "Quarantine the infected system"
+        },
+        {
+          "id": "C",
+          "text": "Schedule scans and run updates"
+        },
+        {
+          "id": "D",
+          "text": "Enable System Restore and create a restore point"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "After verifying symptoms, the next step is to quarantine the infected system so the malware cannot spread while you work on it.",
+        "distractors": {
+          "A": "Educating the end user is the FINAL (7th) step, done after the system is clean.",
+          "B": "",
+          "C": "Scheduling scans and running updates is step 5, part of ongoing remediation — not immediately after identification.",
+          "D": "You DISABLE System Restore early (step 3); re-enabling it and creating a restore point is step 6, near the end."
+        },
+        "exam_pattern": "Malware 7 steps: Investigate -> Quarantine -> Disable System Restore -> Remediate -> Schedule scans/update -> Re-enable System Restore -> Educate."
+      }
+    },
+    {
+      "id": "aplus2-swts-004",
+      "exam": "aplus2",
+      "domain": "software_troubleshooting",
+      "subtopic": "os_security_troubleshooting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On one user's PC, many HTTPS websites throw 'Your connection is not private' / invalid certificate errors, yet the same sites load fine on other computers. What should the technician check FIRST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Whether every one of those websites is down at once"
+        },
+        {
+          "id": "B",
+          "text": "Whether the router needs a firmware update"
+        },
+        {
+          "id": "C",
+          "text": "The PC's system date and time"
+        },
+        {
+          "id": "D",
+          "text": "Whether the keyboard is failing"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "An incorrect system clock makes valid certificates appear expired or not-yet-valid, so TLS validation fails across many sites — and the problem is isolated to that one PC.",
+        "distractors": {
+          "A": "Every one of those sites being down simultaneously is implausible and would affect all computers, not just one.",
+          "B": "A router firmware issue would affect all devices on the network, not cause cert errors on a single PC.",
+          "C": "",
+          "D": "A failing keyboard has nothing to do with certificate trust errors."
+        },
+        "exam_pattern": "Cert 'not valid / not private' errors on many sites but one PC only -> check that PC's date/time first."
+      }
+    },
+    {
+      "id": "aplus2-swts-005",
+      "exam": "aplus2",
+      "domain": "software_troubleshooting",
+      "subtopic": "mobile_os_troubleshooting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company smartphone suddenly has very poor battery life, feels hot even when idle, and shows a spike in cellular data usage. The technician suspects a rogue app. What is the BEST first step?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Review per-app battery and data usage in Settings and uninstall the suspicious app"
+        },
+        {
+          "id": "B",
+          "text": "Permanently disable the cellular radio"
+        },
+        {
+          "id": "C",
+          "text": "Perform a factory reset before investigating"
+        },
+        {
+          "id": "D",
+          "text": "Replace the phone's battery immediately"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The battery/data usage screens pinpoint which app is consuming resources, so you can uninstall the offending app — a targeted, least-invasive first step.",
+        "distractors": {
+          "A": "",
+          "B": "Disabling cellular permanently breaks the phone's purpose and doesn't remove the rogue app.",
+          "C": "A factory reset is a last resort and wipes user data; investigate and remove the app first.",
+          "D": "Swapping the battery ignores the symptom pattern (overheating + data spike) that points to software."
+        },
+        "exam_pattern": "Mobile: fast drain + overheating + data spike -> check per-app battery/data usage and uninstall the rogue app before wiping."
+      }
+    },
+    {
+      "id": "aplus2-ops-001",
+      "exam": "aplus2",
+      "domain": "operational_procedures",
+      "subtopic": "documentation_a2",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A new technician asks for the exact, repeatable step-by-step instructions the team follows to image and configure a new laptop. Which type of document provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "End-user license agreement (EULA)"
+        },
+        {
+          "id": "B",
+          "text": "Standard operating procedure (SOP)"
+        },
+        {
+          "id": "C",
+          "text": "Network topology diagram"
+        },
+        {
+          "id": "D",
+          "text": "Incident report"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A standard operating procedure documents the agreed, repeatable steps for a task so everyone performs it consistently.",
+        "distractors": {
+          "A": "A EULA states the legal terms for using software; it is not a work procedure.",
+          "B": "",
+          "C": "A topology diagram maps how devices connect on the network, not how to perform a task.",
+          "D": "An incident report records the details of a specific event after it happens."
+        },
+        "exam_pattern": "Step-by-step 'how we do X' = SOP; map of the network = topology diagram."
+      }
+    },
+    {
+      "id": "aplus2-ops-002",
+      "exam": "aplus2",
+      "domain": "operational_procedures",
+      "subtopic": "change_management_a2",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Before a major server upgrade is submitted to the change advisory board, management asks what the team will do if the upgrade fails in production. Which element of the change request answers this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The risk analysis"
+        },
+        {
+          "id": "B",
+          "text": "The rollback (back-out) plan"
+        },
+        {
+          "id": "C",
+          "text": "The purpose of the change"
+        },
+        {
+          "id": "D",
+          "text": "The scope of the change"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The rollback/back-out plan documents how to revert the systems to their previous working state if the change fails.",
+        "distractors": {
+          "A": "Risk analysis weighs the likelihood and impact of problems, but doesn't itself specify the reversal steps.",
+          "B": "",
+          "C": "Purpose explains WHY the change is being made, not what to do if it fails.",
+          "D": "Scope defines which systems/users the change affects, not how to undo it."
+        },
+        "exam_pattern": "'What if it breaks?' = rollback/back-out plan. Scope = what's touched; risk analysis = what could go wrong."
+      }
+    },
+    {
+      "id": "aplus2-ops-003",
+      "exam": "aplus2",
+      "domain": "operational_procedures",
+      "subtopic": "backup_recovery",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company runs a full backup every Sunday. Each weekday it then backs up only the data changed since the LAST backup of any type and clears the archive bit, keeping nightly backups as fast as possible. Which backup type runs on weekdays?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Full"
+        },
+        {
+          "id": "B",
+          "text": "Synthetic full"
+        },
+        {
+          "id": "C",
+          "text": "Differential"
+        },
+        {
+          "id": "D",
+          "text": "Incremental"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "An incremental backup captures only what changed since the last backup of ANY type and clears the archive bit — fast to back up, but a restore needs the full plus every increment.",
+        "distractors": {
+          "A": "A full backup copies all data every time — that's the weekly job, not the quick nightly one.",
+          "B": "A synthetic full is assembled from existing backups on the backup server; it isn't the daily changed-data job described.",
+          "C": "A differential backs up everything changed since the last FULL and does NOT clear the archive bit, so it grows larger each day.",
+          "D": ""
+        },
+        "exam_pattern": "Incremental = since last backup (any), fast backup/slow restore, clears archive bit. Differential = since last FULL, grows daily, restore = full + one diff. (See also the 3-2-1 rule.)"
+      }
+    },
+    {
+      "id": "aplus2-ops-004",
+      "exam": "aplus2",
+      "domain": "operational_procedures",
+      "subtopic": "safety",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "A technician is about to replace RAM and an expansion card inside a desktop. Which TWO practices help prevent electrostatic discharge (ESD) damage to the components? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Wear an anti-static wrist strap connected to a grounding point"
+        },
+        {
+          "id": "B",
+          "text": "Touch the gold edge connectors and chips directly to 'ground' them"
+        },
+        {
+          "id": "C",
+          "text": "Store and transport the components in anti-static bags"
+        },
+        {
+          "id": "D",
+          "text": "Work while standing on a carpeted floor"
+        }
+      ],
+      "correct": [
+        "A",
+        "C"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "An anti-static wrist strap keeps you at the same potential as the chassis, and anti-static bags protect parts from static while handling/storing them — both reduce ESD risk.",
+        "distractors": {
+          "A": "",
+          "B": "You should handle cards by their edges and AVOID touching the gold contacts and chips, which is where ESD does its damage.",
+          "C": "",
+          "D": "Carpet generates static charge; working on it INCREASES the chance of ESD, not reduces it."
+        },
+        "exam_pattern": "Prevent ESD: anti-static wrist strap + mat, anti-static bags, raise humidity, handle boards by the edges; avoid carpet and touching contacts."
+      }
+    },
+    {
+      "id": "aplus2-ops-005",
+      "exam": "aplus2",
+      "domain": "operational_procedures",
+      "subtopic": "incident_response_a2",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A technician discovers illegal content on a company computer that may become evidence in a legal case. Documenting every person who handles the drive, and when, from seizure through to court, is known as what?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Acceptable use policy"
+        },
+        {
+          "id": "B",
+          "text": "Rollback plan"
+        },
+        {
+          "id": "C",
+          "text": "Chain of custody"
+        },
+        {
+          "id": "D",
+          "text": "Knowledge base article"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Chain of custody is the documented, unbroken record of who controlled the evidence and when, preserving its integrity and admissibility.",
+        "distractors": {
+          "A": "An acceptable use policy defines how employees may use company resources.",
+          "B": "A rollback plan is a change-management concept for reverting a failed change.",
+          "C": "",
+          "D": "A knowledge base article is reference documentation for solving known issues."
+        },
+        "exam_pattern": "First responder: identify, report through proper channels, preserve the data/device, and document the chain of custody."
+      }
+    },
+    {
+      "id": "aplus2-ops-006",
+      "exam": "aplus2",
+      "domain": "operational_procedures",
+      "subtopic": "communication_professionalism",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A frustrated customer is venting at length about a recurring problem. Which response best demonstrates professional communication?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Listen actively without interrupting, acknowledge the issue, then explain the next steps"
+        },
+        {
+          "id": "B",
+          "text": "Tell them it's not your department and end the call"
+        },
+        {
+          "id": "C",
+          "text": "Put them on hold and complain about the 'silly' issue to a coworker"
+        },
+        {
+          "id": "D",
+          "text": "Interrupt to correct them and point out what they did wrong"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Actively listening, not interrupting, showing empathy, and clearly explaining next steps are core professional-communication behaviors.",
+        "distractors": {
+          "A": "",
+          "B": "Brushing the customer off and abandoning the call fails to meet or set expectations.",
+          "C": "Mocking a customer, even on hold, is unprofessional and breaches basic courtesy.",
+          "D": "Interrupting and blaming the customer is dismissive and escalates frustration."
+        },
+        "exam_pattern": "Professionalism: actively listen, don't interrupt, be empathetic, avoid jargon, and set/meet expectations."
+      }
+    },
+    {
+      "id": "aplus2-ops-007",
+      "exam": "aplus2",
+      "domain": "operational_procedures",
+      "subtopic": "scripting_basics",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A technician saved an automation script with a .ps1 file extension. Which scripting environment is this file intended for?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Python interpreter"
+        },
+        {
+          "id": "B",
+          "text": "Windows PowerShell"
+        },
+        {
+          "id": "C",
+          "text": "Linux Bash shell"
+        },
+        {
+          "id": "D",
+          "text": "Windows batch (Command Prompt)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The .ps1 extension identifies a Windows PowerShell script.",
+        "distractors": {
+          "A": "Python scripts use the .py extension.",
+          "B": "",
+          "C": "Bash shell scripts use the .sh extension.",
+          "D": "Windows batch files use .bat (or .cmd), not .ps1."
+        },
+        "exam_pattern": ".ps1 PowerShell | .bat/.cmd batch | .sh Bash | .py Python | .vbs VBScript | .js JavaScript."
+      }
+    }
+  ]
+}

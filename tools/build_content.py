@@ -21,6 +21,9 @@ from studyengine.models import Question  # noqa: E402
 import content_ccna  # noqa: E402
 import content_encor  # noqa: E402
 import content_secplus  # noqa: E402
+import content_netplus  # noqa: E402
+import content_aplus1  # noqa: E402
+import content_aplus2  # noqa: E402
 
 
 def _extra(module_name: str) -> list[dict]:
@@ -36,6 +39,9 @@ SOURCES = {
     "ccna": content_ccna.QUESTIONS + _extra("content_ccna_2"),
     "encor": content_encor.QUESTIONS + _extra("content_encor_2"),
     "secplus": content_secplus.QUESTIONS + _extra("content_secplus_2"),
+    "netplus": content_netplus.QUESTIONS + _extra("content_netplus_2"),
+    "aplus1": content_aplus1.QUESTIONS + _extra("content_aplus1_2"),
+    "aplus2": content_aplus2.QUESTIONS + _extra("content_aplus2_2"),
 }
 
 

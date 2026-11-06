@@ -228,7 +228,7 @@ EXAMS: dict[str, ExamBlueprint] = {
 
 # Tracks that have a real question bank and are selectable in the UI. Blueprints
 # for the rest exist (objectives captured) but stay "coming soon" until built.
-LIVE_EXAMS: tuple[str, ...] = ("ccna", "encor", "secplus")
+LIVE_EXAMS: tuple[str, ...] = ("ccna", "encor", "secplus", "netplus", "aplus1", "aplus2")
 
 
 def get_blueprint(code: str) -> ExamBlueprint:
