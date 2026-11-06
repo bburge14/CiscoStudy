@@ -17,6 +17,7 @@ from .device import (
     mac_to_int,
     normalize_ifname,
     ospf_router_id,
+    resolve_ifname,
 )
 from .netutils import is_valid_ipv4, mask_to_prefix, prefix_to_mask
 
@@ -282,6 +283,8 @@ class Console:
             self.ctx_ifs = ifaces
             self.range = True
         else:
+            if resolve_ifname("".join(rest)) is None:    # e.g. "ge0/1" isn't a real type
+                return self._invalid(orig, 1)
             iface = self.dev.get_if("".join(rest))
             self.ctx_ifs = [iface]
             self.range = False
@@ -298,12 +301,16 @@ class Console:
                 a = normalize_ifname(a.strip())
                 m = re.match(r"^(.*?)(\d+)$", a)
                 if not m:
-                    continue
+                    return []
                 prefix, start = m.group(1), int(m.group(2))
                 end = int(re.sub(r"\D", "", b)) if re.sub(r"\D", "", b) else start
                 for n in range(start, end + 1):
+                    if resolve_ifname(f"{prefix}{n}") is None:
+                        return []
                     out.append(self.dev.get_if(f"{prefix}{n}"))
             elif chunk:
+                if resolve_ifname(chunk) is None:
+                    return []
                 out.append(self.dev.get_if(chunk))
         return out
 
@@ -578,9 +585,29 @@ class Console:
                 return self._show_trunk()
             if len(toks) > 1 and _kw(toks[1].lower(), "status", 3):
                 return self._show_if_status()
+            if len(toks) > 1:                         # a specific interface
+                canon = resolve_ifname(toks[1])
+                iface = self.dev.get_if(canon, create=False) if canon else None
+                if iface is None:
+                    return self._invalid(orig, 2)     # bad type or no such port
+                if len(toks) > 2 and _kw(toks[2].lower(), "status", 3):
+                    return self._show_if_status(only=iface)
+                return self._show_if_detail(iface)
             return self._show_if_brief()
         if _kw(t0, "vlan", 2):
-            return self._show_vlan_brief()
+            if len(toks) == 1:
+                return self._show_vlan_brief()
+            sub = toks[1].lower()
+            if _kw(sub, "brief", 2):
+                return self._show_vlan_brief()
+            if _kw(sub, "id", 2):
+                if len(toks) < 3:
+                    return self._incomplete()
+                if not toks[2].isdigit():
+                    return self._invalid(orig, 3)
+                return self._show_vlan_brief(only=int(toks[2]))
+            # bare "show vlan 1" / "show vlan summary" etc. are not valid IOS here
+            return self._invalid(orig, 2)
         if _kw(t0, "spanning-tree", 4):
             vid = None
             if len(toks) >= 3 and _kw(toks[1].lower(), "vlan", 2) and toks[2].isdigit():
@@ -690,20 +717,55 @@ class Console:
             rows.append(f"{i.name:<26} {ip:<15} YES {method:<6} {status:<21} {proto}")
         return "\n".join(rows)
 
-    def _show_if_status(self):
+    def _show_if_status(self, only=None):
         rows = ["Port      Name               Status       Vlan       Duplex  Speed Type"]
-        for name in sorted(self.dev.interfaces):
-            i = self.dev.interfaces[name]
+        items = [only] if only is not None else \
+            [self.dev.interfaces[n] for n in sorted(self.dev.interfaces)]
+        for i in items:
             st = "disabled" if i.shutdown else "connected"
             vlan = "trunk" if i.sw_mode == "trunk" else (str(i.access_vlan) if i.is_switchport else "routed")
-            rows.append(f"{i.name:<9} {i.description[:18]:<18} {st:<12} {vlan:<10} {i.duplex:<7} {i.speed:<5} 10/100/1000")
+            rows.append(f"{_short(i.name):<9} {i.description[:18]:<18} {st:<12} {vlan:<10} {i.duplex:<7} {i.speed:<5} 10/100/1000")
         return "\n".join(rows)
 
-    def _show_vlan_brief(self):
+    def _show_if_detail(self, i):
+        """Detailed single-interface view (show interfaces <name>)."""
+        if i.shutdown:
+            head = f"{i.name} is administratively down, line protocol is down"
+        else:
+            up = True
+            peer = self.topo.neighbor_of(self.dev.hostname, i.name)
+            if peer:
+                pdev = self.topo.devices.get(peer[0])
+                pif = pdev.get_if(peer[1], create=False) if pdev else None
+                up = bool(pif and not pif.shutdown)
+            head = (f"{i.name} is up, line protocol is up (connected)" if up
+                    else f"{i.name} is down, line protocol is down (notconnect)")
+        duplex = {"full": "Full-duplex", "half": "Half-duplex", "auto": "Auto-duplex"}.get(
+            i.duplex, f"{i.duplex}-duplex")
+        speed = "Auto-speed" if i.speed == "auto" else (
+            f"{i.speed}Mb/s" if str(i.speed).isdigit() else str(i.speed))
+        bw = 1000000 if i.name.startswith(
+            ("GigabitEthernet", "TenGigabitEthernet", "Port-channel")) else 100000
+        addr = (f"  Internet address is {i.ip}/{mask_to_prefix(i.mask)}"
+                if i.ip and i.mask else "  Internet address is not set")
+        return "\n".join([
+            head,
+            f"  Hardware is iGbE, address is {self.dev.base_mac} (bia {self.dev.base_mac})",
+            addr,
+            f"  MTU {i.mtu} bytes, BW {bw} Kbit/sec, DLY 10 usec,",
+            "     reliability 255/255, txload 1/255, rxload 1/255",
+            "  Encapsulation ARPA, loopback not set",
+            "  Keepalive set (10 sec)",
+            f"  {duplex}, {speed}, media type is RJ45",
+        ])
+
+    def _show_vlan_brief(self, only=None):
         base = {1: "default"}
         base.update(self.dev.vlans)
         base.update({1002: "fddi-default", 1003: "token-ring-default",
                      1004: "fddinet-default", 1005: "trnet-default"})
+        if only is not None and only not in base:
+            return f"VLAN id {only} not found in current VLAN database"
         ports: dict[int, list[str]] = {}
         for name in sorted(self.dev.interfaces):
             i = self.dev.interfaces[name]
@@ -712,6 +774,8 @@ class Console:
         rows = ["VLAN Name                             Status    Ports",
                 "---- -------------------------------- --------- -------------------------------"]
         for vid in sorted(base):
+            if only is not None and vid != only:
+                continue
             status = "act/unsup" if vid >= 1002 else "active"
             plist = ", ".join(ports.get(vid, []))
             rows.append(f"{vid:<4} {base[vid]:<32} {status:<9} {plist}")
