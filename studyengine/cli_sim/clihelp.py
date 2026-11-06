@@ -220,6 +220,23 @@ def help_query(mode: str, text_before_qmark: str) -> str:
     return "\n".join(f"  {kw:<16}{desc}".rstrip() for kw, desc in opts)
 
 
+def complete(mode: str, text: str) -> str:
+    """Tab-style auto-finish: expand the last (partial) word to its full IOS
+    keyword when it's unambiguous. Unknown or ambiguous input is left as typed."""
+    if not text or text.endswith(" "):
+        return text
+    toks = text.split()
+    node = _walk(ROOTS.get(mode, {}), toks[:-1])
+    if not isinstance(node, dict):
+        return text
+    partial = toks[-1].lower()
+    kws = [k for k in node if not k.startswith("__") and k.startswith(partial)]
+    if len(kws) == 1:
+        toks[-1] = kws[0]
+        return " ".join(toks) + " "
+    return text
+
+
 HELP_BLURB = (
     "Help may be requested at any point in a command by entering\n"
     "a question mark '?'.  If nothing matches, the help list will\n"

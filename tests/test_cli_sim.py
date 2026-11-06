@@ -180,6 +180,22 @@ def test_show_interface_name_is_scoped_and_validates_type():
     assert "% Invalid input" in con.execute("show interfaces ge0/1")
 
 
+def test_show_interface_accepts_spaced_name_and_is_detailed():
+    con = Console(_switch_topo(), "SW1")
+    con.apply_config(["interface gi0/1", "description UPLINK"])
+    con.execute("enable")
+    # "GigabitEthernet 0/1" (space between type and number) is valid IOS
+    out = con.execute("show interface GigabitEthernet 0/1")
+    assert "GigabitEthernet0/1 is" in out and "line protocol" in out
+    assert "MTU 1500 bytes" in out            # detailed, not the brief table
+    # bare `show interfaces` is the DETAILED view on IOS, not the brief table
+    allout = con.execute("show interfaces")
+    assert "line protocol" in allout and "IP-Address" not in allout
+    # the compact table is `show ip interface brief`
+    brief = con.execute("show ip interface brief")
+    assert "IP-Address" in brief and "line protocol" not in brief
+
+
 def test_context_help_lists_valid_commands_per_mode():
     con = Console(_switch_topo(), "SW1")
     # user mode

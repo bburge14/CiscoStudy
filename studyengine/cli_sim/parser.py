@@ -590,19 +590,20 @@ class Console:
         if _kw(t0, "ip", 2):
             return self._show_ip(toks[1:], orig)
         if _kw(t0, "interfaces", 3):
-            if len(toks) > 1 and _kw(toks[1].lower(), "trunk", 2):
+            rest = toks[1:]
+            if rest and _kw(rest[0].lower(), "trunk", 2):
                 return self._show_trunk()
-            if len(toks) > 1 and _kw(toks[1].lower(), "status", 3):
+            if rest and _kw(rest[0].lower(), "status", 3):
                 return self._show_if_status()
-            if len(toks) > 1:                         # a specific interface
-                canon = resolve_ifname(toks[1])
+            if rest:                                  # a specific interface
+                want_status = len(rest) > 1 and _kw(rest[-1].lower(), "status", 3)
+                name_toks = rest[:-1] if want_status else rest
+                canon = resolve_ifname("".join(name_toks))   # joins "Gig 0/1" -> Gi0/1
                 iface = self.dev.get_if(canon, create=False) if canon else None
                 if iface is None:
                     return self._invalid(orig, 2)     # bad type or no such port
-                if len(toks) > 2 and _kw(toks[2].lower(), "status", 3):
-                    return self._show_if_status(only=iface)
-                return self._show_if_detail(iface)
-            return self._show_if_brief()
+                return self._show_if_status(only=iface) if want_status else self._show_if_detail(iface)
+            return self._show_if_all_detail()         # bare `show interfaces` is detailed on IOS
         if _kw(t0, "vlan", 2):
             if len(toks) == 1:
                 return self._show_vlan_brief()
@@ -765,8 +766,18 @@ class Console:
             "     reliability 255/255, txload 1/255, rxload 1/255",
             "  Encapsulation ARPA, loopback not set",
             "  Keepalive set (10 sec)",
-            f"  {duplex}, {speed}, media type is RJ45",
+            f"  {duplex}, {speed}, media type is 10/100/1000BaseTX",
+            "  input flow-control is off, output flow-control is unsupported",
+            "  5 minute input rate 0 bits/sec, 0 packets/sec",
+            "  5 minute output rate 0 bits/sec, 0 packets/sec",
+            "     0 packets input, 0 bytes, 0 no buffer",
+            "     0 packets output, 0 bytes, 0 underruns",
         ])
+
+    def _show_if_all_detail(self):
+        """Bare `show interfaces` — detailed block for every interface (IOS)."""
+        return "\n".join(self._show_if_detail(self.dev.interfaces[n])
+                         for n in sorted(self.dev.interfaces))
 
     def _show_vlan_brief(self, only=None):
         base = {1: "default"}

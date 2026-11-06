@@ -938,21 +938,31 @@ def render_pbq(scenario, skey_prefix: str) -> bool:
     lines.append(con.prompt)
     st.code("\n".join(lines) or con.prompt, language="text")
 
-    with st.form(f"{skey_prefix}_form", clear_on_submit=True):
-        cmd = st.text_input("Enter IOS command", placeholder="e.g. configure terminal",
-                            label_visibility="collapsed")
-        cols = st.columns([1, 1, 6])
+    from studyengine.cli_sim.clihelp import complete
+    input_key = f"{skey_prefix}_cmd"
+    pend_key = f"{skey_prefix}_pending"
+    if pend_key in st.session_state:                 # apply a queued auto-finish / clear
+        st.session_state[input_key] = st.session_state.pop(pend_key)
+    with st.form(f"{skey_prefix}_form", clear_on_submit=False):
+        cmd = st.text_input("Enter IOS command", key=input_key,
+                            placeholder="e.g. configure terminal", label_visibility="collapsed")
+        cols = st.columns([1, 1, 1, 5])
         run = cols[0].form_submit_button("Run ▶", type="primary")
-        clear = cols[1].form_submit_button("Reset lab")
-    st.caption("💡 Type **?** for the commands available at this point — like real IOS "
-               "(`?`, `show ?`, `switchport ?`, `sh?`) — or **help** for how it works.")
+        tab = cols[1].form_submit_button("⇥ Complete")
+        clear = cols[2].form_submit_button("Reset lab")
+    st.caption("💡 Type **?** for the commands valid here (`?`, `show ?`, `switchport ?`), "
+               "**⇥ Complete** to auto-finish, or **help** for how it works.")
+    if tab:
+        st.session_state[pend_key] = complete(con.mode, cmd)
+        st.rerun()
     if run and cmd.strip():
         prompt_before = con.prompt
         out = con.execute(cmd)
         st.session_state[tx_key].append((prompt_before, cmd, out))
+        st.session_state[pend_key] = ""             # clear the box next run
         st.rerun()
     if clear:
-        for k in (topo_key, tx_key, dev_key, cons_key):
+        for k in (topo_key, tx_key, dev_key, cons_key, input_key, pend_key):
             st.session_state.pop(k, None)
         st.session_state.pop(f"pbq_passed_{scenario.id}", None)
         st.rerun()
