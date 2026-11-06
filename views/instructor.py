@@ -172,10 +172,11 @@ with tab_accounts:
                    "·  the instance always keeps at least one instructor.")
 
         # identity (name + login) saved together
-        with st.form("edit_identity", border=False):
+        with st.form(f"edit_identity_{sel}", border=False):
             ec = st.columns(2)
-            nn = ec[0].text_input("Display name", value=meta.get("name", sel))
-            nlog = ec[1].text_input("Login (username)", value=meta.get("username", sel))
+            nn = ec[0].text_input("Display name", value=meta.get("name", sel), key=f"edit_nn_{sel}")
+            nlog = ec[1].text_input("Login (username)", value=meta.get("username", sel),
+                                    key=f"edit_nlog_{sel}")
             if st.form_submit_button("Save changes"):
                 err_any = False
                 if nn.strip() and nn != meta.get("name", sel):
@@ -193,15 +194,15 @@ with tab_accounts:
         # password + role, side by side
         pc = st.columns(2)
         with pc[0]:
-            with st.form("reset_pw", border=False, clear_on_submit=True):
-                rpw = st.text_input("Set a new password", type="password")
+            with st.form(f"reset_pw_{sel}", border=False, clear_on_submit=True):
+                rpw = st.text_input("Set a new password", type="password", key=f"rpw_{sel}")
                 if st.form_submit_button("Reset password"):
                     ok, err = set_password_admin(sel, rpw)
                     st.error(err) if err else st.success("Password reset.")
         with pc[1]:
             target = "learner" if meta.get("role") == "instructor" else "instructor"
             st.caption(f"This account is currently a **{meta.get('role', 'learner')}**.")
-            if st.button(f"Make {target}", key="toggle_role"):
+            if st.button(f"Make {target}", key=f"toggle_role_{sel}"):
                 if set_role(sel, target):
                     st.rerun()
                 else:
@@ -213,8 +214,8 @@ with tab_accounts:
             st.markdown("**Danger zone**")
             dz = st.columns([3, 1])
             sure = dz[0].checkbox(f"Permanently delete **{meta.get('name', sel)}** and all of "
-                                  "their progress — this cannot be undone", key="del_sure")
-            if dz[1].button("Delete account", key="del_btn", disabled=not sure):
+                                  "their progress — this cannot be undone", key=f"del_sure_{sel}")
+            if dz[1].button("Delete account", key=f"del_btn_{sel}", disabled=not sure):
                 if delete_account(sel):
                     st.success("Account deleted.")
                     st.rerun()
