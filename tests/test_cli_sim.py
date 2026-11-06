@@ -279,6 +279,23 @@ def test_etherchannel_summary_zero_aggregators_when_unbundled():
     assert "(I)" in out and "(P)" not in out              # stand-alone, not bundled
 
 
+def test_short_abbreviations_and_interface_jump():
+    con = Console(_switch_topo(), "SW1")
+    con.apply_config(["interface gi0/1", "switchport mode trunk", "exit"])
+    con.execute("enable")
+    # any unique prefix resolves, like real IOS
+    for cmd in ("sh ip o n", "sh int st", "sh vlan br", "sh ip r"):
+        assert "Invalid input" not in con.execute(cmd), cmd
+    con.execute("conf t")
+    con.execute("interface gi0/1")
+    assert con.execute("sw mo acc") == ""                        # switchport mode access
+    assert con.dev.get_if("Gi0/1", create=False).sw_mode == "access"
+    # jump straight to another interface from config-if (no `exit` needed)
+    assert con.execute("int gi0/2") == "" and con.prompt == "SW1(config-if)#"
+    con.execute("shutdown")
+    assert con.dev.get_if("Gi0/2", create=False).shutdown
+
+
 def test_ping_reachable_same_subnet():
     r = Console(_router_topo(), "R1")
     r.apply_config(["interface gi0/0", "ip address 10.0.0.1 255.255.255.0", "no shutdown"])

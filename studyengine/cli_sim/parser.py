@@ -325,6 +325,10 @@ class Console:
 
     def _conf_if(self, toks, orig):
         t0 = toks[0].lower()
+        # IOS lets you jump straight to another interface (or back to global
+        # commands) from config-if without `exit` first.
+        if _kw(t0, "interface", 3) and len(toks) > 1:
+            return self._enter_interface(toks[1:], orig)
         neg = t0 == "no"
         body = toks[1:] if neg else toks
         if not body:
@@ -420,7 +424,7 @@ class Console:
                 i.is_switchport = not neg
             return ""
         r0 = rest[0].lower()
-        if _kw(r0, "mode", 3):
+        if _kw(r0, "mode", 2):
             if len(rest) < 2:
                 return self._incomplete()
             m = rest[1].lower()
@@ -587,7 +591,7 @@ class Console:
             return self._apply_pipe(self._show(toks[:p], orig), toks[p + 1:])
         t0 = toks[0].lower()
         if _kw(t0, "running-config", 2) or _kw(t0, "startup-config", 5):
-            if len(toks) >= 3 and _kw(toks[1].lower(), "interface", 3):
+            if len(toks) >= 3 and _kw(toks[1].lower(), "interface", 1):
                 return self._run_config(only_if="".join(toks[2:]))
             return self._run_config()
         if _kw(t0, "ip", 2):
@@ -596,10 +600,10 @@ class Console:
             rest = toks[1:]
             if rest and _kw(rest[0].lower(), "trunk", 2):
                 return self._show_trunk()
-            if rest and _kw(rest[0].lower(), "status", 3):
+            if rest and _kw(rest[0].lower(), "status", 2):
                 return self._show_if_status()
             if rest:                                  # a specific interface
-                want_status = len(rest) > 1 and _kw(rest[-1].lower(), "status", 3)
+                want_status = len(rest) > 1 and _kw(rest[-1].lower(), "status", 2)
                 name_toks = rest[:-1] if want_status else rest
                 canon = resolve_ifname("".join(name_toks))   # joins "Gig 0/1" -> Gi0/1
                 iface = self.dev.get_if(canon, create=False) if canon else None
@@ -611,9 +615,9 @@ class Console:
             if len(toks) == 1:
                 return self._show_vlan_brief()
             sub = toks[1].lower()
-            if _kw(sub, "brief", 2):
+            if _kw(sub, "brief", 1):
                 return self._show_vlan_brief()
-            if _kw(sub, "id", 2):
+            if _kw(sub, "id", 1):
                 if len(toks) < 3:
                     return self._incomplete()
                 if not toks[2].isdigit():
@@ -638,17 +642,19 @@ class Console:
         if not rest:
             return self._incomplete()
         r0 = rest[0].lower()
-        if _kw(r0, "interface", 3) and len(rest) > 1 and _kw(rest[1].lower(), "brief", 2):
+        # Sub-keywords are unique by first letter here, so a 1-char prefix is fine
+        # (matches real IOS abbreviation: `sh ip o n` == show ip ospf neighbor).
+        if _kw(r0, "interface", 1) and len(rest) > 1 and _kw(rest[1].lower(), "brief", 1):
             return self._show_if_brief()
-        if _kw(r0, "route", 3):
+        if _kw(r0, "route", 1):
             return self._show_ip_route()
-        if _kw(r0, "protocols", 4):
+        if _kw(r0, "protocols", 2):
             return self._show_ip_protocols()
-        if _kw(r0, "ospf", 2):
-            if len(rest) > 1 and _kw(rest[1].lower(), "neighbor", 3):
-                return self._show_ospf_neighbor()
-            if len(rest) > 2 and _kw(rest[1].lower(), "interface", 3) and _kw(rest[2].lower(), "brief", 2):
+        if _kw(r0, "ospf", 1):
+            if len(rest) > 2 and _kw(rest[1].lower(), "interface", 1) and _kw(rest[2].lower(), "brief", 1):
                 return self._show_ospf_if_brief()
+            if len(rest) > 1 and _kw(rest[1].lower(), "neighbor", 1):
+                return self._show_ospf_neighbor()
             return self._show_ospf_neighbor()
         return self._invalid(orig, 2)
 
