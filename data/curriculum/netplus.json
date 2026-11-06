@@ -1,0 +1,184 @@
+{
+  "exam": "netplus",
+  "units": [
+    {
+      "id": "netplus-u1",
+      "order": 1,
+      "title": "Networking Concepts",
+      "summary": "The OSI model, ports and protocols, appliances, topologies, cloud, and IPv4/IPv6 addressing.",
+      "domains": [
+        "networking_concepts"
+      ],
+      "milestone_size": 26,
+      "pbq_id": "netplus-pbq-ports",
+      "lessons": [
+        {
+          "id": "netplus-l-osi",
+          "title": "OSI Model, Ports & Protocols",
+          "markdown_path": "netplus/nc-osi-ports.md",
+          "subtopics": [
+            "osi_model",
+            "ports_protocols",
+            "traffic_types"
+          ],
+          "quiz_size": 12
+        },
+        {
+          "id": "netplus-l-appliances",
+          "title": "Appliances, Topologies & Cloud",
+          "markdown_path": "netplus/nc-appliances-topologies.md",
+          "subtopics": [
+            "network_appliances",
+            "network_topologies",
+            "cloud_concepts"
+          ],
+          "quiz_size": 10
+        },
+        {
+          "id": "netplus-l-addressing",
+          "title": "IPv4 Subnetting & IPv6",
+          "markdown_path": "netplus/nc-addressing.md",
+          "subtopics": [
+            "ipv4_subnetting_np",
+            "ipv6_np"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "netplus-u2",
+      "order": 2,
+      "title": "Network Implementation",
+      "summary": "Routing and switching technologies, 802.11 wireless standards, and physical installations.",
+      "domains": [
+        "network_implementation"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "netplus-l-routeswitch",
+          "title": "Routing & Switching Technologies",
+          "markdown_path": "netplus/ni-routing-switching.md",
+          "subtopics": [
+            "routing_technologies",
+            "switching_technologies"
+          ],
+          "quiz_size": 12
+        },
+        {
+          "id": "netplus-l-wifi-physical",
+          "title": "Wireless Standards & Physical Installations",
+          "markdown_path": "netplus/ni-wireless-physical.md",
+          "subtopics": [
+            "wireless_standards",
+            "physical_installations"
+          ],
+          "quiz_size": 12
+        }
+      ]
+    },
+    {
+      "id": "netplus-u3",
+      "order": 3,
+      "title": "Network Operations",
+      "summary": "Documentation, monitoring, SNMP/logging, DNS/DHCP services, and disaster recovery.",
+      "domains": [
+        "network_operations"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "netplus-l-docs-monitor",
+          "title": "Documentation, Monitoring & Logging",
+          "markdown_path": "netplus/no-docs-monitoring.md",
+          "subtopics": [
+            "network_documentation",
+            "network_monitoring",
+            "snmp_logging_np"
+          ],
+          "quiz_size": 12
+        },
+        {
+          "id": "netplus-l-dns-dhcp-dr",
+          "title": "DNS, DHCP & Disaster Recovery",
+          "markdown_path": "netplus/no-dns-dhcp-dr.md",
+          "subtopics": [
+            "dns_dhcp_services",
+            "disaster_recovery"
+          ],
+          "quiz_size": 12
+        }
+      ]
+    },
+    {
+      "id": "netplus-u4",
+      "order": 4,
+      "title": "Network Security",
+      "summary": "Security concepts, hardening, segmentation and 802.1X, remote access/VPN, and physical security.",
+      "domains": [
+        "network_security"
+      ],
+      "milestone_size": 22,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "netplus-l-sec-harden",
+          "title": "Security Concepts & Network Hardening",
+          "markdown_path": "netplus/ns-concepts-hardening.md",
+          "subtopics": [
+            "security_concepts_np",
+            "network_hardening"
+          ],
+          "quiz_size": 12
+        },
+        {
+          "id": "netplus-l-remote-physec",
+          "title": "Remote Access & Physical Security",
+          "markdown_path": "netplus/ns-remote-physical.md",
+          "subtopics": [
+            "remote_access",
+            "physical_security_np"
+          ],
+          "quiz_size": 10
+        }
+      ]
+    },
+    {
+      "id": "netplus-u5",
+      "order": 5,
+      "title": "Network Troubleshooting",
+      "summary": "The 7-step methodology, connectivity tools, cabling faults, and service and performance issues.",
+      "domains": [
+        "network_troubleshooting"
+      ],
+      "milestone_size": 26,
+      "pbq_id": "netplus-pbq-ts",
+      "lessons": [
+        {
+          "id": "netplus-l-method-tools",
+          "title": "Troubleshooting Methodology & Tools",
+          "markdown_path": "netplus/nt-methodology-tools.md",
+          "subtopics": [
+            "troubleshooting_methodology",
+            "connectivity_tools"
+          ],
+          "quiz_size": 12
+        },
+        {
+          "id": "netplus-l-cable-perf",
+          "title": "Cabling, Service & Performance Issues",
+          "markdown_path": "netplus/nt-cabling-performance.md",
+          "subtopics": [
+            "cabling_issues",
+            "network_service_issues",
+            "performance_issues"
+          ],
+          "quiz_size": 12
+        }
+      ]
+    }
+  ]
+}
