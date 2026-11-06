@@ -496,8 +496,8 @@ QUESTIONS = [
     {
         "id": "encor-in-007", "exam": "encor", "domain": "infrastructure",
         "subtopic": "layer2_stp_advanced", "difficulty": 2, "type": "mcq",
-        "stem": "Which feature, enabled on an access port, will err-disable the port if it "
-                "receives a superior BPDU, protecting a configured STP topology from a rogue switch?",
+        "stem": "Which feature, enabled on a PortFast access port, will err-disable the port if it "
+                "receives ANY BPDU, protecting the edge from a rogue switch being plugged in?",
         "options": [
             {"id": "A", "text": "Root Guard"},
             {"id": "B", "text": "BPDU Guard"},
