@@ -47,15 +47,30 @@ def test_miss_resets_streak_and_reduces_xp():
     assert info["delta"] < 0 and p.answer_streak == 0 and p.xp < before
 
 
-def test_regression_costs_more_than_a_fresh_miss():
-    p1, p2 = Profile("ccna"), Profile("ccna")
-    q1 = _q(_ccna_ids(2)[0])
-    p1.record_study(q1, True)          # box 2 -> 3
-    p1.record_study(q1, True)          # box 3 -> 4
-    reg = p1.record_study(q1, False)   # missing one you had down -> regression
-    fresh = p2.record_study(_q(_ccna_ids(2)[1]), False)   # a brand-new miss
-    assert reg["regressed"] and not fresh["regressed"]
-    assert reg["delta"] < fresh["delta"]
+def test_consecutive_misses_of_the_same_question_escalate():
+    # Missing the SAME question again and again hurts progressively more.
+    p = Profile("ccna")
+    qid = _ccna_ids(1)[0]
+    d1 = p.record_study(_q(qid), False)   # first miss
+    d2 = p.record_study(_q(qid), False)   # missed again
+    d3 = p.record_study(_q(qid), False)   # and again
+    d4 = p.record_study(_q(qid), False)   # and again (hits the floor)
+    d5 = p.record_study(_q(qid), False)   # stays at the floor
+    assert (d1["delta"], d2["delta"], d3["delta"], d4["delta"]) == (-6, -9, -12, -15)
+    assert d5["delta"] == -15                      # capped, doesn't keep growing
+    assert not d1["regressed"] and d2["regressed"]  # the repeat is flagged, not the first
+    assert d3["misses"] == 3
+
+
+def test_getting_it_right_resets_the_miss_escalation():
+    # A single slip after getting it right is back to the base penalty.
+    p = Profile("ccna")
+    qid = _ccna_ids(1)[0]
+    assert p.record_study(_q(qid), False)["delta"] == -6    # miss 1
+    assert p.record_study(_q(qid), False)["delta"] == -9    # miss 2 (escalating)
+    p.record_study(_q(qid), True)                           # got it right -> resets
+    back = p.record_study(_q(qid), False)                   # next miss is a fresh slip
+    assert back["delta"] == -6 and not back["regressed"]
 
 
 def test_mastering_a_question_awards_a_big_bonus():

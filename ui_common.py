@@ -753,7 +753,8 @@ def render_xp_event(info: dict) -> None:
     elif info.get("learned"):
         bits.append("📈 improving")
     elif info.get("regressed"):
-        bits.append("⚠️ you had this one down")
+        m = info.get("misses", 0)
+        bits.append(f"⚠️ missed {m}× in a row — stings more" if m >= 2 else "⚠️ missed")
     streak = info.get("streak", 0)
     if streak >= 3:
         bits.append(f"🔥 {streak} in a row")

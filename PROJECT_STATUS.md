@@ -1,6 +1,6 @@
 # PROJECT_STATUS
 
-_Last updated: 2026-11-05_
+_Last updated: 2026-11-06_
 
 ## What this is
 A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
@@ -15,9 +15,9 @@ A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
 | Exam blueprints (domains + weights + sub-topics) | ✅ CCNA & ENCOR |
 | Question bank | ✅ 377 original items (CCNA 205, ENCOR 172); every domain deep AND every sub-topic ≥4 |
 | Diagnostic baseline (30 Q, 5/domain) + focus recs | ✅ |
-| Endless Drill (adaptive, Leitner miss-boost, remediation mode) | ✅ + per-domain focus filter |
-| Structured Milestones (Read → Lesson Quiz → Milestone exam + PBQ, unit unlock) | ✅ |
-| Open-Book Review (honor-system: peeking is allowed but scored + flags the topic for study) | ✅ lesson side-pane per question |
+| Endless Drill (adaptive, Leitner miss-boost, remediation mode) | ✅ + per-domain focus filter + Skip |
+| Structured Milestones (Read → Lesson Quiz → Milestone exam + PBQ, unit unlock) | ✅ lesson quiz = instant feedback; milestone exam = graded at end + full after-quiz review (missed-first) |
+| Open-Book Review (real open-book: find the answer yourself) | ✅ 3 help levels (Full book / General area / Pinpoint); correct earns less the more help you took (100/70/40%); a miss is free with the book shut, else costs — scaled up by help (Pinpoint worst); book resets per question |
 | Lessons (Markdown) | ✅ 22 lessons (14 CCNA, 8 ENCOR) |
 | CLI simulator (IOS subset + realistic `show` + IOS errors) | ✅ |
 | PBQ engine with real-state validation | ✅ 11 scenarios (8 CCNA, 3 ENCOR) |
@@ -30,10 +30,10 @@ A local Streamlit study & diagnostic platform for CCNA 200-301 and CCNP ENCOR
 | Personalized study plan | ✅ weakest-first, enforced order, read→drill→unlock (studyplan.py) |
 | Exam simulation | ✅ timed (native per-second countdown), domain-weighted, one-at-a-time (no back), pass/fail report (exam.py) |
 | Exam readiness estimate | ✅ weighted practice accuracy + coverage + verdict (on dashboard) |
-| XP / leveling | ✅ 9 ranks, event-based XP (Profile.record_study): rewards getting better (improving/mastering items) + streaks, penalizes misses (harder on regressions), no credit for mere attempts; steep curve (Level 2 ≈ 30–50 correct answers). Benchmark excluded (study_overall). Home card, sidebar badge, +/−XP + streak chip on each answer |
-| Instructor view | ✅ first account = instructor; roster, per-learner drill-down, account management (create/reset/role/delete); nav entry hidden from learners |
+| XP / leveling | ✅ 9 ranks, event-based XP (Profile.record_study): rewards getting better (improving/mastering items) + streaks; penalizes misses with per-question escalation — missing the SAME item again and again costs more (−6 → −9 → −12 → −15 floor), a correct answer resets the chain; no credit for mere attempts; steep curve (Level 2 ≈ 30–50 correct answers). Benchmark excluded (study_overall). Home card, sidebar badge, +/−XP + streak chip on each answer |
+| Instructor view | ✅ first account = instructor; roster, per-learner drill-down, account management (create/edit name+login/reset password/role/delete), and reset a learner's status (benchmark only, or all progress); nav entry hidden from learners |
 | Launchers | ✅ `run.sh`, `run.bat`, `run-shared.bat` (LAN), exe |
-| Test suite | ✅ 198 tests passing (+ router AppTest smoke) |
+| Test suite | ✅ 514 tests passing (+ router/page AppTest smoke) |
 
 Run: `run.bat` (Windows) / `./run.sh` (macOS/Linux) / `streamlit run Home.py`.
 Test: `python -m pytest -q`.
