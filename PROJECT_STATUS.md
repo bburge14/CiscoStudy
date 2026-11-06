@@ -5,12 +5,13 @@ _Last updated: 2026-11-06_
 ## What this is
 **CertWize** — a Streamlit study & diagnostic platform for IT certifications. The
 engine is data-driven by exam blueprints, so adding a cert = a new blueprint + a
-question bank (no engine changes). Live tracks: **CCNA 200-301**, **CCNP ENCOR
-350-401**, **CompTIA Security+ SY0-701**; Network+ and A+ Core 1/2 have blueprints
-and show as "coming soon" in the track picker until their banks are authored. Core
-study logic is a standalone, unit-tested Python package (`studyengine`); the UI is
-a Streamlit multipage app driven by a native `st.navigation` router (`Home.py`)
-with one module per page under `views/`.
+question bank (no engine changes). Live tracks (all selectable in the picker):
+**CCNA 200-301**, **CCNP ENCOR 350-401**, **CompTIA Security+ SY0-701**, **Network+
+N10-009**, **A+ Core 1 (220-1101)** and **A+ Core 2 (220-1102)**. (The AWS Cloud
+Practitioner catalog tile stays "coming soon" — no blueprint yet.) Core study logic
+is a standalone, unit-tested Python package (`studyengine`); the UI is a Streamlit
+multipage app driven by a native `st.navigation` router (`Home.py`) with one module
+per page under `views/`.
 
 The whole UI uses ONE cohesive custom glyph set (`ui_icons.py`) — no emoji / Material
 defaults anywhere in the app body — and recolors per track (see "per-track accent").
@@ -19,8 +20,8 @@ defaults anywhere in the app body — and recolors per track (see "per-track acc
 
 | Area | Status |
 |------|--------|
-| Exam blueprints (domains + weights + sub-topics) | ✅ CCNA, ENCOR, Security+ live; Network+ / A+ Core 1 & 2 blueprints staged ("coming soon") |
-| Question bank | ✅ 407 original items (CCNA 205, ENCOR 172, Security+ 30); every live domain ≥5 |
+| Exam blueprints (domains + weights + sub-topics) | ✅ 6 live: CCNA, ENCOR, Security+, Network+, A+ Core 1, A+ Core 2 |
+| Question bank | ✅ 497 original items (CCNA 205, ENCOR 172, Security+ 30, Network+ 33, A+ Core 1 31, A+ Core 2 26); every live domain ≥5. CompTIA banks are a first pass (~5–6/domain) — depth to grow |
 | Track picker | ✅ sidebar **dropdown** lists every track; unbuilt ones show "· coming soon" and are non-selectable (revert + notice) |
 | Per-track accent theme | ✅ each track has its own accent (Cisco blue/violet, Security+ green, Network+ teal, A+ amber/rose); header glyphs, level card, progress bars, primary buttons recolor to the active track (`TRACK_ACCENT` + `_theme_css`) |
 | Diagnostic baseline (30 Q, 5/domain) + focus recs | ✅ |
@@ -43,7 +44,7 @@ defaults anywhere in the app body — and recolors per track (see "per-track acc
 | XP / leveling | ✅ 9 ranks, event-based XP (Profile.record_study): rewards getting better (improving/mastering items) + streaks; penalizes misses with per-question escalation — missing the SAME item again and again costs more (−6 → −9 → −12 → −15 floor), a correct answer resets the chain; no credit for mere attempts; steep curve (Level 2 ≈ 30–50 correct answers). Benchmark excluded (study_overall). Home card, sidebar badge, +/−XP + streak chip on each answer |
 | Instructor view | ✅ first account = instructor; roster, per-learner drill-down, account management (create/edit name+login/reset password/role/delete), and reset a learner's status (benchmark only, or all progress); nav entry hidden from learners |
 | Launchers | ✅ `run.sh`, `run.bat`, `run-shared.bat` (LAN), exe |
-| Test suite | ✅ 557 tests passing (+ router/page AppTest smoke) |
+| Test suite | ✅ 650 tests passing (+ router/page AppTest smoke) |
 
 Run: `run.bat` (Windows) / `./run.sh` (macOS/Linux) / `streamlit run Home.py`.
 Test: `python -m pytest -q`.
@@ -54,8 +55,9 @@ OSPF wildcard/network mismatch (CCNA); OSPF MTU/EXSTART, EtherChannel LACP-vs-PA
 L3 routed-port uplink (ENCOR).
 
 ## How the content pipeline works
-- Questions are **authored** in `tools/content_ccna.py` / `tools/content_encor.py`
-  as Python dicts (safer than hand-written JSON, allows triple-quoted exhibits).
+- Questions are **authored** in `tools/content_<track>.py` (ccna, encor, secplus,
+  netplus, aplus1, aplus2; optional `_2` expansion pools) as Python dicts (safer
+  than hand-written JSON, allows triple-quoted exhibits).
 - `python tools/build_content.py` **validates** them (blueprint tags,
   option/key/distractor consistency, ≥5 per domain) and **emits** the canonical
   `data/questions/*.json` that the engine loads at runtime.

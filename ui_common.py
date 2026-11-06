@@ -60,9 +60,9 @@ CERT_CATALOG = [
     ]},
     {"provider": "CompTIA", "blurb": "Vendor-neutral IT foundations", "certs": [
         {"key": "secplus", "name": "Security+ SY0-701", "status": "active"},
-        {"key": "netplus", "name": "Network+ N10-009", "status": "soon"},
-        {"key": "aplus1", "name": "A+ Core 1 (220-1101)", "status": "soon"},
-        {"key": "aplus2", "name": "A+ Core 2 (220-1102)", "status": "soon"},
+        {"key": "netplus", "name": "Network+ N10-009", "status": "active"},
+        {"key": "aplus1", "name": "A+ Core 1 (220-1101)", "status": "active"},
+        {"key": "aplus2", "name": "A+ Core 2 (220-1102)", "status": "active"},
     ]},
     {"provider": "AWS", "blurb": "Cloud fundamentals & architecture", "certs": [
         {"key": "clf", "name": "Cloud Practitioner", "status": "soon"},
