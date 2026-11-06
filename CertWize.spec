@@ -1,8 +1,8 @@
 # -*- mode: python ; coding: utf-8 -*-
-"""PyInstaller spec that bundles CiscoStudy (Streamlit app + engine + content)
-into a single self-contained Windows executable: dist/CiscoStudy.exe.
+"""PyInstaller spec that bundles CertWize (Streamlit app + engine + content)
+into a single self-contained Windows executable: dist/CertWize.exe.
 
-Build (on Windows):   pyinstaller --noconfirm --clean CiscoStudy.spec
+Build (on Windows):   pyinstaller --noconfirm --clean CertWize.spec
 """
 from PyInstaller.utils.hooks import collect_all, copy_metadata
 
@@ -67,7 +67,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name="CiscoStudy",
+    name="CertWize",
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

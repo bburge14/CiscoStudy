@@ -35,13 +35,34 @@ from studyengine.models import Question
 from studyengine.progress import BOX_WEIGHT, Profile
 
 ROOT = Path(__file__).resolve().parent
-if getattr(sys, "frozen", False):
-    # Packaged .exe: the bundle is extracted to a temp dir that is wiped on
-    # exit, so keep learner progress in a stable, writable per-user folder.
-    USERDATA = Path(os.environ.get("CISCOSTUDY_DATA") or (Path.home() / ".ciscostudy"))
+# CISCOSTUDY_DATA wins everywhere so a hosted deploy can point progress at a
+# persistent disk (e.g. CISCOSTUDY_DATA=/var/data); packaged .exe falls back to
+# a stable per-user folder; local dev uses ./.userdata next to the code.
+if os.environ.get("CISCOSTUDY_DATA"):
+    USERDATA = Path(os.environ["CISCOSTUDY_DATA"])
+elif getattr(sys, "frozen", False):
+    USERDATA = Path.home() / ".ciscostudy"
 else:
     USERDATA = ROOT / ".userdata"
 EXAMS = {"ccna": "CCNA 200-301", "encor": "CCNP ENCOR 350-401"}
+
+# The certification catalog — the multi-track vision shown on the home landing.
+# Tracks with status "active" have real content (keys match EXAMS); "soon" tracks
+# render as coming-soon placeholders until their content is built.
+CERT_CATALOG = [
+    {"provider": "Cisco", "blurb": "Routing, switching & enterprise networking", "certs": [
+        {"key": "ccna", "name": "CCNA 200-301", "status": "active"},
+        {"key": "encor", "name": "CCNP ENCOR 350-401", "status": "active"},
+    ]},
+    {"provider": "CompTIA", "blurb": "Vendor-neutral IT foundations", "certs": [
+        {"key": "aplus", "name": "A+", "status": "soon"},
+        {"key": "netplus", "name": "Network+", "status": "soon"},
+        {"key": "secplus", "name": "Security+", "status": "soon"},
+    ]},
+    {"provider": "AWS", "blurb": "Cloud fundamentals & architecture", "certs": [
+        {"key": "clf", "name": "Cloud Practitioner", "status": "soon"},
+    ]},
+]
 PASS_THRESHOLD = 0.8
 
 
@@ -446,9 +467,16 @@ def _render_login() -> None:
         "</style>",
         unsafe_allow_html=True,
     )
-    st.title("🔐 CiscoStudy")
-    st.caption("CCNA 200-301 & CCNP ENCOR 350-401 study and diagnostic tool. "
-               "Sign in so your progress saves to your own account.")
+    st.markdown(
+        "<div style='text-align:center;margin:0.75rem 0 0.25rem'>"
+        "<div style='font-size:2.5rem;font-weight:800;letter-spacing:-0.02em;line-height:1'>"
+        "Cert<span style='color:#4D8DFF'>Wize</span></div>"
+        "<div style='color:#9AA4B2;font-size:0.98rem;margin-top:0.4rem'>"
+        "Your IT certification trainer — practice, labs &amp; realistic exam sims</div></div>",
+        unsafe_allow_html=True,
+    )
+    st.caption("<div style='text-align:center'>Sign in so your progress saves to your own account.</div>",
+               unsafe_allow_html=True)
     tab_in, tab_new = st.tabs(["Sign in", "Create account"])
     with tab_in:
         with st.form("login_form"):
@@ -557,9 +585,15 @@ def render_sidebar_chrome() -> None:
     )
     st.markdown(ui_icons.nav_css(), unsafe_allow_html=True)
     with st.sidebar:
-        st.markdown("### CiscoStudy")
+        st.markdown(
+            "<div style='font-size:1.45rem;font-weight:800;letter-spacing:-0.01em;"
+            "padding:0.15rem 0 0'>Cert<span style='color:#4D8DFF'>Wize</span></div>"
+            "<div style='color:#8A94A6;font-size:0.68rem;text-transform:uppercase;"
+            "letter-spacing:0.1em;margin:0 0 0.7rem'>IT Certification Trainer</div>",
+            unsafe_allow_html=True,
+        )
         exam = st.radio(
-            "Exam track", list(EXAMS), format_func=lambda e: EXAMS[e],
+            "Active track", list(EXAMS), format_func=lambda e: EXAMS[e],
             index=list(EXAMS).index(st.session_state.get("exam", "ccna")),
             key="exam_selector",
         )

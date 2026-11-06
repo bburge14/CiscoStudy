@@ -1,4 +1,4 @@
-# Runtime dependencies for the CiscoStudy platform.
+# Runtime dependencies for the CertWize platform.
 # The study engine itself is pure standard-library Python; only the
 # web UI needs a third-party package.
 streamlit>=1.66,<2.0

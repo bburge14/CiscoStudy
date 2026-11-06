@@ -1,4 +1,4 @@
-"""Original, network/enterprise-themed glyph set for CiscoStudy.
+"""Original, network/enterprise-themed glyph set for CertWize.
 
 Streamlit's native sidebar nav only accepts Material symbols or emoji, which is
 why the default build looks generic. These are hand-authored monochrome SVG
@@ -129,7 +129,7 @@ NAV_GLYPHS: dict[str, str] = {
     "instructor": "people",
 }
 
-BRAND = "#1BA0D7"  # Cisco-ish cyan used for header icons + highlights
+BRAND = "#4D8DFF"  # CertWize blue — header icons + highlights (matches theme primaryColor)
 
 
 def svg(key: str, color: str = "#000000") -> str:

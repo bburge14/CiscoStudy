@@ -1,4 +1,4 @@
-# CiscoStudy
+# CertWize
 
 A local, self-hosted study & diagnostic platform for **CCNA 200-301** and
 **CCNP Enterprise ENCOR 350-401**, built with Python + Streamlit.

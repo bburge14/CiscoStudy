@@ -1,0 +1,21 @@
+# Render.com Blueprint — one-click deploy of the CertWize Streamlit app.
+# A persistent disk keeps per-account progress (.userdata) across restarts.
+# Note: a persistent disk requires a paid instance (free instances can't attach one).
+services:
+  - type: web
+    name: ciscostudy
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: >-
+      streamlit run Home.py
+      --server.port $PORT
+      --server.address 0.0.0.0
+      --server.headless true
+    envVars:
+      - key: CISCOSTUDY_DATA
+        value: /var/data
+    disk:
+      name: userdata
+      mountPath: /var/data
+      sizeGB: 1

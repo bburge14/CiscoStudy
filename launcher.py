@@ -1,4 +1,4 @@
-"""Frozen entry point for the packaged CiscoStudy .exe.
+"""Frozen entry point for the packaged CertWize .exe.
 
 PyInstaller bundles the Streamlit app and all dependencies into a single
 executable; this module is the thing that runs when the exe is launched. It
@@ -53,7 +53,7 @@ def main() -> None:
     port = os.environ.get("CISCOSTUDY_PORT", "8501")
 
     print("=" * 60)
-    print(" CiscoStudy is starting...")
+    print(" CertWize is starting...")
     print(f" Open your browser to:  http://localhost:{port}")
     print(" (a tab should open automatically)")
     print(" Close this window or press Ctrl+C to stop.")

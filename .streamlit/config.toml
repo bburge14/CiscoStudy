@@ -1,14 +1,15 @@
 [theme]
-primaryColor = "#1BA0D7"
-backgroundColor = "#0E1117"
-secondaryBackgroundColor = "#161B26"
-textColor = "#E6EAF1"
+primaryColor = "#4D8DFF"
+backgroundColor = "#0B0F1A"
+secondaryBackgroundColor = "#141A27"
+textColor = "#E8ECF4"
 font = "sans serif"
 
 [browser]
 gatherUsageStats = false
 
 [server]
-# Local study tool — keep it on the loopback by default.
+# Local study tool — keep it on the loopback by default. A hosted/LAN deploy
+# overrides this with `--server.address 0.0.0.0` (see the systemd unit / README).
 address = "localhost"
 port = 8501
