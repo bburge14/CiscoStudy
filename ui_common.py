@@ -944,6 +944,8 @@ def render_pbq(scenario, skey_prefix: str) -> bool:
         cols = st.columns([1, 1, 6])
         run = cols[0].form_submit_button("Run ▶", type="primary")
         clear = cols[1].form_submit_button("Reset lab")
+    st.caption("💡 Type **?** for the commands available at this point — like real IOS "
+               "(`?`, `show ?`, `switchport ?`, `sh?`) — or **help** for how it works.")
     if run and cmd.strip():
         prompt_before = con.prompt
         out = con.execute(cmd)
