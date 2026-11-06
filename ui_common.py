@@ -35,10 +35,13 @@ from studyengine.models import Question
 from studyengine.progress import BOX_WEIGHT, Profile
 
 ROOT = Path(__file__).resolve().parent
-if getattr(sys, "frozen", False):
-    # Packaged .exe: the bundle is extracted to a temp dir that is wiped on
-    # exit, so keep learner progress in a stable, writable per-user folder.
-    USERDATA = Path(os.environ.get("CISCOSTUDY_DATA") or (Path.home() / ".ciscostudy"))
+# CISCOSTUDY_DATA wins everywhere so a hosted deploy can point progress at a
+# persistent disk (e.g. CISCOSTUDY_DATA=/var/data); packaged .exe falls back to
+# a stable per-user folder; local dev uses ./.userdata next to the code.
+if os.environ.get("CISCOSTUDY_DATA"):
+    USERDATA = Path(os.environ["CISCOSTUDY_DATA"])
+elif getattr(sys, "frozen", False):
+    USERDATA = Path.home() / ".ciscostudy"
 else:
     USERDATA = ROOT / ".userdata"
 EXAMS = {"ccna": "CCNA 200-301", "encor": "CCNP ENCOR 350-401"}
