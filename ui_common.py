@@ -520,11 +520,17 @@ def render_account_bar() -> None:
     user = current_user()
     name = _load_registry().get(user, {}).get("name", user)
     inst = is_instructor(user)
-    # Give the chip a roomy right-hand column so the full name shows instead of
-    # being clipped to "Brad…" (the old [6,1] column was far too narrow).
-    _, acct = st.columns([2, 1])
-    with acct:
-        with st.popover(f"👤 {name}", width="stretch"):
+    # width="content" sizes the chip to the name so it's never clipped to "Brad…";
+    # margin-left:auto on its wrapper floats it flush-right; nowrap keeps the name
+    # on one line. (The app's only popover, scoped via :has to be safe.)
+    st.markdown(
+        "<style>"
+        "[data-testid='stLayoutWrapper']:has(> [data-testid='stPopover']){margin-left:auto;}"
+        "[data-testid='stPopoverButton'] p{white-space:nowrap;}"
+        "</style>",
+        unsafe_allow_html=True,
+    )
+    with st.popover(f"👤 {name}", width="content"):
             st.markdown(f"**{name}**")
             st.caption("🧑‍🏫 Instructor" if inst else "Learner")
             st.page_link("views/account.py", label="My account",
