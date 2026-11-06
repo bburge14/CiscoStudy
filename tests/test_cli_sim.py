@@ -180,6 +180,43 @@ def test_show_interface_name_is_scoped_and_validates_type():
     assert "% Invalid input" in con.execute("show interfaces ge0/1")
 
 
+def test_context_help_lists_valid_commands_per_mode():
+    con = Console(_switch_topo(), "SW1")
+    # user mode
+    top = con.execute("?")
+    assert "enable" in top and "show" in top and "configure" not in top
+    # show subcommands
+    assert "vlan" in con.execute("show ?") and "interfaces" in con.execute("show ?")
+    # context-sensitive deeper help
+    si = con.execute("show int ?")
+    assert "status" in si and "trunk" in si and "<interface>" in si
+    assert "<1-4094>" in con.execute("show vlan id ?")
+    # partial-word completion
+    assert "show" in con.execute("sh?")
+    # priv vs config roots
+    con.execute("enable")
+    assert "configure" in con.execute("?")
+    con.execute("configure terminal")
+    cfg = con.execute("?")
+    assert "interface" in cfg and "spanning-tree" in cfg and "vlan" in cfg
+    # interface mode
+    con.execute("interface gi0/1")
+    sp = con.execute("switchport ?")
+    assert "mode" in sp and "access" in sp and "trunk" in sp
+    # a bogus token gets the IOS 'unrecognized' help response, not a traceback
+    assert "Unrecognized" in con.execute("bogus?")
+
+
+def test_help_keyword_and_help_does_not_break_execution():
+    con = Console(_switch_topo(), "SW1")
+    assert "question mark" in con.execute("help")
+    # a real command still runs normally (the '?' hook doesn't swallow it)
+    con.execute("enable")
+    assert con.prompt == "SW1#"
+    con.apply_config(["vlan 7", "name TEST"])
+    assert con.dev.vlans.get(7) == "TEST"
+
+
 def test_ping_reachable_same_subnet():
     r = Console(_router_topo(), "R1")
     r.apply_config(["interface gi0/0", "ip address 10.0.0.1 255.255.255.0", "no shutdown"])

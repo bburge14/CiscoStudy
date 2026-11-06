@@ -84,9 +84,18 @@ class Console:
         s = orig.strip()
         if s == "" or s.startswith("!"):
             return ""
+        # Context-sensitive help: `?` lists what's valid at this point, in this
+        # mode — the real IOS discovery feature (and it only offers commands the
+        # simulator actually supports).
+        if "?" in s:
+            from .clihelp import help_query
+            return help_query(self.mode, orig[:orig.index("?")].lstrip())
         self.history.append(s)
         toks = s.split()
         t0 = toks[0].lower()
+        if t0 == "help":
+            from .clihelp import HELP_BLURB
+            return HELP_BLURB
 
         # `end` from any config mode
         if _kw(t0, "end", 3) and self.mode in CONF_MODES:
