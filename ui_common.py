@@ -681,6 +681,52 @@ def render_feedback(q: Question, fb: Feedback) -> None:
         st.caption("Reference: " + " · ".join(fb.references))
 
 
+def _format_selection(q: Question, sel) -> str:
+    """Human-readable version of what the learner actually chose."""
+    if sel in (None, "", [], ()):
+        return "_(skipped / left blank)_"
+    if q.is_fill:
+        return f"“{sel}”"
+    ids = sel if isinstance(sel, (list, tuple, set)) else [sel]
+    out = []
+    for oid in ids:
+        try:
+            out.append(f"{oid}. {q.option(oid).text}")
+        except KeyError:
+            out.append(str(oid))
+    return "; ".join(out) if out else "_(skipped / left blank)_"
+
+
+def render_quiz_review(exam: str, question_ids: list[str], answers: dict) -> None:
+    """After-quiz review for a test-mode quiz (one graded at the end with no
+    feedback as you go). Shows every question you missed with your answer, the
+    correct answer and the explanation, then recaps the ones you got right — so
+    a learner without the inline 'remediation' feedback can still learn from it.
+    """
+    bank = get_bank()
+    items = [(qid, bank.get(qid)) for qid in question_ids]
+    missed = [(qid, q) for qid, q in items if not q.check(answers.get(qid))]
+    correct = [(qid, q) for qid, q in items if q.check(answers.get(qid))]
+
+    st.markdown("#### 📋 Review every question")
+    if not missed:
+        st.success("You got every question right — nothing to remediate. 🎉")
+    else:
+        st.caption(f"This quiz didn't give feedback as you went, so here's the breakdown. "
+                   f"The **{len(missed)}** you missed are first, with the correct answer "
+                   "and why.")
+        for qid, q in missed:
+            with st.container(border=True):
+                st.markdown(f"**❌ {q.stem}**")
+                st.caption(f"Your answer: {_format_selection(q, answers.get(qid))}")
+                render_feedback(q, grade(q, answers.get(qid)))
+
+    if correct:
+        with st.expander(f"✅ Questions you got right ({len(correct)})"):
+            for qid, q in correct:
+                st.markdown(f"- **{q.stem}**  →  correct: **{', '.join(q.correct)}**")
+
+
 def grade_and_record(exam: str, q: Question, selection, *,
                      xp_scale: float = 1.0, miss_scale: float = 1.0) -> Feedback:
     fb = grade(q, selection)

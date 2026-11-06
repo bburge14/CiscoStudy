@@ -13,6 +13,7 @@ from ui_common import (
     page_header,
     page_setup,
     render_pbq,
+    render_quiz_review,
     reset_quiz,
     run_quiz,
     save_profile,
@@ -102,6 +103,9 @@ with tab_ms:
         (st.success if exam_passed else st.error)(
             ("Exam passed." if exam_passed else "Exam not passed.")
             + f" (need ≥{int(PASS_THRESHOLD*100)}%)")
+        # The milestone exam is graded at the end with no feedback as you go, so
+        # offer a full review afterward (the lesson quiz already gives it inline).
+        render_quiz_review(exam, st.session_state[ids_key], st.session_state[skey]["answers"])
         if st.button("Retake milestone exam", key=f"rm_{u.id}"):
             reset_quiz(skey)
             st.session_state.pop(ids_key, None)

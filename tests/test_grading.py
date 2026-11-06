@@ -61,6 +61,19 @@ def test_feedback_payload():
     assert fb.exam_pattern == "cue"
 
 
+def test_format_selection_for_review():
+    # The after-quiz review shows what the learner actually chose.
+    from ui_common import _format_selection
+    assert _format_selection(_mcq(), "B") == "B. b"
+    assert _format_selection(_multi(), ["C", "A"]) == "C. c; A. a"   # preserves chosen order
+    assert _format_selection(_fill(), "0.0.3.255") == "“0.0.3.255”"
+    # a skipped / blank answer reads as skipped, in every shape
+    for blank in (None, "", [], ()):
+        assert "skipped" in _format_selection(_mcq(), blank)
+    # an option id that isn't on the question falls back to the raw value
+    assert _format_selection(_mcq(), "Z") == "Z"
+
+
 def test_score_session_aggregates_by_domain():
     ids = [q.id for q in BANK.query(exam="ccna", domain="ip_connectivity")[:4]]
     attempts = [(ids[0], True), (ids[1], True), (ids[2], False), (ids[3], True)]
