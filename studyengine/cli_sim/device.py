@@ -58,6 +58,19 @@ def normalize_ifname(raw: str) -> str:
     return f"{_CANON[canon]}{num}"
 
 
+def resolve_ifname(raw: str) -> str | None:
+    """Canonical interface name, or None when the type is not a real IOS
+    interface type (so ``ge0/1`` or ``bogus5`` are rejected with an IOS error
+    instead of silently inventing a phantom interface). A recognised type must
+    also be followed by a port number (``Gi0/1``, ``Po1``, ``Gi0/1.10``)."""
+    norm = normalize_ifname(raw)
+    for canon in _CANON.values():
+        if norm.startswith(canon):
+            rest = norm[len(canon):]
+            return norm if re.fullmatch(r"\d+(/\d+)*(\.\d+)?", rest) else None
+    return None
+
+
 def mac_to_int(mac: str) -> int:
     return int(mac.replace(".", "").replace(":", "").replace("-", ""), 16)
 

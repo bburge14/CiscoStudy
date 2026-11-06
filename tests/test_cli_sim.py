@@ -1,4 +1,11 @@
-from studyengine.cli_sim import Console, Device, Topology, etherchannel_bundles, normalize_ifname
+from studyengine.cli_sim import (
+    Console,
+    Device,
+    Topology,
+    etherchannel_bundles,
+    normalize_ifname,
+    resolve_ifname,
+)
 
 
 def _switch_topo():
@@ -117,6 +124,60 @@ def test_stp_priority_validation():
     assert "increments of 4096" in bad
     con.execute("spanning-tree vlan 10 priority 24576")
     assert con.dev.stp_base_priority(10) == 24576
+
+
+def test_resolve_ifname_rejects_bogus_types():
+    assert resolve_ifname("gi0/1") == "GigabitEthernet0/1"
+    assert resolve_ifname("g0/1") == "GigabitEthernet0/1"
+    assert resolve_ifname("po1") == "Port-channel1"
+    assert resolve_ifname("GigabitEthernet0/1.10") == "GigabitEthernet0/1.10"
+    # 'ge' is not a real IOS type, and a type without a port number isn't a port
+    assert resolve_ifname("ge0/1") is None
+    assert resolve_ifname("bogus5") is None
+    assert resolve_ifname("gi") is None
+
+
+def test_interface_bad_type_is_rejected_not_invented():
+    con = Console(_switch_topo(), "SW1")
+    con.execute("enable")
+    con.execute("configure terminal")
+    out = con.execute("interface ge0/1")          # 'ge' isn't a valid type
+    assert "% Invalid input detected at '^' marker." in out
+    assert con.prompt == "SW1(config)#"           # did NOT enter config-if
+    assert "ge0/1" not in con.dev.interfaces       # and no phantom interface
+    assert con.execute("interface gi0/1") == ""    # the real abbreviation works
+    assert con.prompt == "SW1(config-if)#"
+
+
+def test_show_vlan_id_filters_and_bare_number_is_invalid():
+    con = Console(_switch_topo(), "SW1")
+    con.apply_config(["vlan 99", "name NATIVE", "exit",
+                      "vlan 20", "name USERS", "exit"])
+    con.execute("enable")
+    # bare "show vlan 1" is not valid IOS -> caret error (the reported bug)
+    bad = con.execute("show vlan 1")
+    assert "% Invalid input detected at '^' marker." in bad
+    # "show vlan id N" shows only that VLAN
+    one = con.execute("show vlan id 99")
+    assert "NATIVE" in one and "USERS" not in one and "default" not in one
+    # a non-existent id reports the IOS not-found message
+    assert "not found" in con.execute("show vlan id 5")
+    # the full table still lists everything
+    full = con.execute("show vlan")
+    assert "NATIVE" in full and "USERS" in full and "default" in full
+
+
+def test_show_interface_name_is_scoped_and_validates_type():
+    con = Console(_switch_topo(), "SW1")
+    con.apply_config(["interface gi0/1", "description UPLINK", "exit",
+                      "interface gi0/2", "description SERVER"])
+    con.execute("enable")
+    # a specific interface shows only itself, in detail (not the whole brief table)
+    detail = con.execute("show interfaces gi0/1")
+    assert "GigabitEthernet0/1 is" in detail and "line protocol" in detail
+    assert "GigabitEthernet0/2" not in detail
+    # a bogus type is rejected rather than dumping every interface
+    assert "% Invalid input" in con.execute("show interfaces ge0/1")
 
 
 def test_ping_reachable_same_subnet():
