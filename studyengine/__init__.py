@@ -5,7 +5,7 @@ All exam content in this package is original, written to match the public Cisco
 not a reproduction of any proprietary exam item bank.
 """
 from .bank import QuestionBank, load_bank
-from .blueprints import CCNA, ENCOR, EXAMS, ExamBlueprint, get_blueprint
+from .blueprints import CCNA, ENCOR, EXAMS, LIVE_EXAMS, ExamBlueprint, get_blueprint
 from .curriculum import (
     Curriculum,
     lesson_markdown,
@@ -31,7 +31,7 @@ from .studyplan import (
 
 __all__ = [
     "QuestionBank", "load_bank",
-    "CCNA", "ENCOR", "EXAMS", "ExamBlueprint", "get_blueprint",
+    "CCNA", "ENCOR", "EXAMS", "LIVE_EXAMS", "ExamBlueprint", "get_blueprint",
     "Curriculum", "load_curriculum", "lesson_markdown", "lesson_quiz", "milestone_exam",
     "build_baseline", "recommend_focus",
     "PASS_SCORE", "build_exam", "exam_readiness", "exam_time_limit",

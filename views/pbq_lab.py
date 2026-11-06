@@ -4,7 +4,7 @@ from __future__ import annotations
 import streamlit as st
 
 from studyengine.cli_sim import scenarios_for
-from ui_common import page_header, page_setup, render_pbq
+from ui_common import EXAMS, page_header, page_setup, render_pbq
 
 exam = page_setup("PBQ Lab", icon="🖥️")
 scenarios = scenarios_for(exam)
@@ -15,7 +15,11 @@ st.caption("Each ticket is a broken topology. Configure the device(s) with real 
            "protocol state (does the channel bundle? is the neighbor FULL? is this the root?).")
 
 if not scenarios:
-    st.info("No PBQ scenarios for this exam track.")
+    st.info(f"🖥️ The PBQ Lab is a live Cisco IOS CLI simulator, so it powers the Cisco "
+            f"tracks. **{EXAMS[exam]}** uses CompTIA-style performance tasks "
+            "(drag-and-drop, matching, ordering, sims) — those labs are on the roadmap. "
+            "For now, **Diagnostic**, **Endless Drill**, and **Exam Simulation** are fully "
+            "stocked for this track.")
     st.stop()
 
 # scenario picker with completion status

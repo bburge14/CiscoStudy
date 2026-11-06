@@ -23,16 +23,17 @@ MASTERY_MIN_ATTEMPTS = 4       # study attempts before a sub-topic counts as mas
 
 # (minimum cumulative XP, rank title). Original, networking-themed ranks — not
 # any vendor's trademarked certification names.
+# Cert-neutral skill ladder — reads sensibly on any track (Cisco, Security+, A+, …).
 LEVELS: list[tuple[int, str]] = [
-    (0,      "Cable Apprentice"),
-    (400,    "Patch Panel Rookie"),
-    (1000,   "LAN Technician"),
-    (2000,   "Network Associate"),
-    (3500,   "Routing Specialist"),
-    (5500,   "Senior Network Engineer"),
-    (8000,   "Network Architect"),
-    (11500,  "Principal Architect"),
-    (16000,  "Network Sage"),
+    (0,      "Apprentice"),
+    (400,    "Rookie"),
+    (1000,   "Technician"),
+    (2000,   "Practitioner"),
+    (3500,   "Specialist"),
+    (5500,   "Senior Engineer"),
+    (8000,   "Expert"),
+    (11500,  "Architect"),
+    (16000,  "Grandmaster"),
 ]
 
 

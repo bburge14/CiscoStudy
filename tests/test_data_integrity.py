@@ -37,7 +37,7 @@ def test_question_wellformed(q):
         assert not q.options, f"{q.id}: fill should not define options"
 
 
-@pytest.mark.parametrize("exam", ["ccna", "encor"])
+@pytest.mark.parametrize("exam", ["ccna", "encor", "secplus"])
 def test_five_per_domain_for_baseline(exam):
     counts = BANK.count_by_domain(exam)
     bp = get_blueprint(exam)
