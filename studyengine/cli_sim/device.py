@@ -26,9 +26,9 @@ _CANON = {
 }
 _ALIAS: dict[str, str] = {}
 for _canon, _names in [
-    ("tengigabitethernet", ["te", "ten", "teng", "tengig", "tengigabit", "tengigabitethernet"]),
-    ("gigabitethernet", ["g", "gi", "gig", "giga", "gigabit", "gigabitethernet"]),
-    ("fastethernet", ["f", "fa", "fas", "fast", "fastethernet"]),
+    ("tengigabitethernet", ["te", "ten", "teng", "tengig", "tengigabit", "tengigabitethernet", "xe"]),
+    ("gigabitethernet", ["g", "gi", "ge", "gig", "gige", "giga", "gigabit", "gigabitethernet"]),
+    ("fastethernet", ["f", "fa", "fe", "fas", "fast", "fastethernet"]),
     ("ethernet", ["et", "eth", "ethernet"]),
     ("port-channel", ["po", "port", "portchannel", "port-channel"]),
     ("loopback", ["lo", "loop", "loopback"]),

@@ -946,10 +946,10 @@ def render_pbq(scenario, skey_prefix: str) -> bool:
     with st.form(f"{skey_prefix}_form", clear_on_submit=False):
         cmd = st.text_input("Enter IOS command", key=input_key,
                             placeholder="e.g. configure terminal", label_visibility="collapsed")
-        cols = st.columns([1, 1, 1, 5])
-        run = cols[0].form_submit_button("Run ▶", type="primary")
-        tab = cols[1].form_submit_button("⇥ Complete")
-        clear = cols[2].form_submit_button("Reset lab")
+        cols = st.columns([1, 1, 1])
+        run = cols[0].form_submit_button("Run ▶", type="primary", width="stretch")
+        tab = cols[1].form_submit_button("⇥ Complete", width="stretch")
+        clear = cols[2].form_submit_button("Reset lab", width="stretch")
     st.caption("💡 Type **?** for the commands valid here (`?`, `show ?`, `switchport ?`), "
                "**⇥ Complete** to auto-finish, or **help** for how it works.")
     if tab:

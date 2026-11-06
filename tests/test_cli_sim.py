@@ -126,13 +126,15 @@ def test_stp_priority_validation():
     assert con.dev.stp_base_priority(10) == 24576
 
 
-def test_resolve_ifname_rejects_bogus_types():
+def test_resolve_ifname_accepts_aliases_rejects_bogus():
     assert resolve_ifname("gi0/1") == "GigabitEthernet0/1"
     assert resolve_ifname("g0/1") == "GigabitEthernet0/1"
+    assert resolve_ifname("ge0/1") == "GigabitEthernet0/1"   # common 'ge' alias
+    assert resolve_ifname("fe0/1") == "FastEthernet0/1"
     assert resolve_ifname("po1") == "Port-channel1"
     assert resolve_ifname("GigabitEthernet0/1.10") == "GigabitEthernet0/1.10"
-    # 'ge' is not a real IOS type, and a type without a port number isn't a port
-    assert resolve_ifname("ge0/1") is None
+    # a genuinely unknown type, and a type without a port number, are rejected
+    assert resolve_ifname("zz0/1") is None
     assert resolve_ifname("bogus5") is None
     assert resolve_ifname("gi") is None
 
@@ -141,12 +143,14 @@ def test_interface_bad_type_is_rejected_not_invented():
     con = Console(_switch_topo(), "SW1")
     con.execute("enable")
     con.execute("configure terminal")
-    out = con.execute("interface ge0/1")          # 'ge' isn't a valid type
+    out = con.execute("interface zz0/1")          # 'zz' isn't a valid type
     assert "% Invalid input detected at '^' marker." in out
     assert con.prompt == "SW1(config)#"           # did NOT enter config-if
-    assert "ge0/1" not in con.dev.interfaces       # and no phantom interface
-    assert con.execute("interface gi0/1") == ""    # the real abbreviation works
+    assert "zz0/1" not in con.dev.interfaces       # and no phantom interface
+    # 'ge' resolves to the real GigabitEthernet port (no phantom, no error)
+    assert con.execute("interface ge 0/1") == ""
     assert con.prompt == "SW1(config-if)#"
+    assert "GigabitEthernet0/1" in con.dev.interfaces and "ge0/1" not in con.dev.interfaces
 
 
 def test_show_vlan_id_filters_and_bare_number_is_invalid():
@@ -177,7 +181,7 @@ def test_show_interface_name_is_scoped_and_validates_type():
     assert "GigabitEthernet0/1 is" in detail and "line protocol" in detail
     assert "GigabitEthernet0/2" not in detail
     # a bogus type is rejected rather than dumping every interface
-    assert "% Invalid input" in con.execute("show interfaces ge0/1")
+    assert "% Invalid input" in con.execute("show interfaces zz0/1")
 
 
 def test_show_interface_accepts_spaced_name_and_is_detailed():
