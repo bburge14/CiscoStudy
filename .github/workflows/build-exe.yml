@@ -1,6 +1,6 @@
 name: Build Windows EXE
 
-# Produces a standalone CiscoStudy.exe on a Windows runner and uploads it as a
+# Produces a standalone CertWize.exe on a Windows runner and uploads it as a
 # downloadable artifact. Runs when packaging/source changes on this branch,
 # on demand (Actions tab -> Run workflow), and on version tags (attaches the
 # exe to a GitHub Release).
@@ -52,7 +52,7 @@ jobs:
           pip install pytest
           python -m pytest -q
 
-      - name: Build CiscoStudy.exe
+      - name: Build CertWize.exe
         run: pyinstaller --noconfirm --clean CertWize.spec
 
       - name: Show build output
@@ -61,12 +61,12 @@ jobs:
       - name: Upload the exe artifact
         uses: actions/upload-artifact@v4
         with:
-          name: CiscoStudy-windows-exe
-          path: dist/CiscoStudy.exe
+          name: CertWize-windows-exe
+          path: dist/CertWize.exe
           if-no-files-found: error
 
       - name: Attach exe to Release (tag builds only)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/CiscoStudy.exe
+          files: dist/CertWize.exe
