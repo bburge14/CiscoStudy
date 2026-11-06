@@ -143,8 +143,12 @@ class Device:
         iface = self.interfaces.get(norm)
         if iface is None and create:
             iface = Interface(name=norm, is_switchport=(self.kind != "router"))
-            if self.kind == "router":
-                iface.shutdown = True  # routers default physical ports admin-down
+            # Routers bring PHYSICAL ports up only after `no shutdown`; virtual
+            # interfaces (loopback/tunnel/port-channel) are up by default.
+            physical = norm.startswith(("GigabitEthernet", "TenGigabitEthernet",
+                                        "FastEthernet", "Ethernet", "Serial"))
+            if self.kind == "router" and physical:
+                iface.shutdown = True
             self.interfaces[norm] = iface
         return iface
 

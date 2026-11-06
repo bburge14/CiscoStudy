@@ -237,6 +237,48 @@ def test_help_keyword_and_help_does_not_break_execution():
     assert con.dev.vlans.get(7) == "TEST"
 
 
+def test_show_ip_protocols_lists_ospf_and_passive():
+    con = Console(_router_topo(), "R1")
+    con.apply_config([
+        "interface gi0/0", "ip address 10.0.0.1 255.255.255.0", "no shutdown", "exit",
+        "router ospf 1", "router-id 1.1.1.1",
+        "network 10.0.0.0 0.0.0.255 area 0", "passive-interface gi0/0", "exit",
+    ])
+    out = con.execute("show ip protocols")
+    assert 'Routing Protocol is "ospf 1"' in out and "Router ID 1.1.1.1" in out
+    assert "Routing for Networks" in out and "10.0.0.0 0.0.0.255 area 0" in out
+    assert "Passive Interface(s)" in out and "GigabitEthernet0/0" in out
+
+
+def test_output_pipe_filters():
+    con = Console(_switch_topo(), "SW1")
+    con.apply_config(["hostname SW1", "vlan 10", "name DATA", "exit",
+                      "interface gi0/1", "switchport mode trunk"])
+    con.execute("enable")
+    inc = con.execute("show run | include hostname")
+    assert "hostname SW1" in inc and "interface" not in inc
+    sec = con.execute("show run | section vlan 10")
+    assert "vlan 10" in sec and "name DATA" in sec and "hostname" not in sec
+
+
+def test_router_loopback_is_up_by_default():
+    con = Console(_router_topo(), "R1")
+    con.apply_config(["interface loopback0", "ip address 1.1.1.1 255.255.255.255"])
+    lo = con.dev.get_if("Loopback0", create=False)
+    assert lo is not None and not lo.shutdown          # loopbacks default up
+    con.apply_config(["interface gi0/3"])              # physical port defaults admin-down
+    assert con.dev.get_if("GigabitEthernet0/3", create=False).shutdown
+
+
+def test_etherchannel_summary_zero_aggregators_when_unbundled():
+    from studyengine.cli_sim import SCENARIOS
+    s = SCENARIOS["pbq-ccna-etherchannel"]
+    topo = s.build(); con = s.console(topo); con.execute("enable")
+    out = con.execute("show etherchannel summary")
+    assert "Number of aggregators:           0" in out    # nothing bundled yet
+    assert "(I)" in out and "(P)" not in out              # stand-alone, not bundled
+
+
 def test_ping_reachable_same_subnet():
     r = Console(_router_topo(), "R1")
     r.apply_config(["interface gi0/0", "ip address 10.0.0.1 255.255.255.0", "no shutdown"])
