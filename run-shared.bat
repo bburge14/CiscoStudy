@@ -1,12 +1,12 @@
 @echo off
 REM ===================================================================
-REM  Run CiscoStudy and share it on your LOCAL NETWORK so other people
+REM  Run CertWize and share it on your LOCAL NETWORK so other people
 REM  (on the same Wi-Fi / LAN) can use it from their own devices.
 REM  Each person picks or creates their own profile in the sidebar, so
 REM  everyone's progress is tracked separately on THIS machine.
 REM ===================================================================
 setlocal
-title CiscoStudy (shared on your network)
+title CertWize (shared on your network)
 cd /d "%~dp0"
 
 where py >nul 2>&1
@@ -29,7 +29,7 @@ if not exist "%USERPROFILE%\.streamlit\credentials.toml" (
 %PY% -m pip install -q -r requirements.txt
 
 echo.
-echo  Serving CiscoStudy on 0.0.0.0:8501 (LAN). Local: http://localhost:8501
+echo  Serving CertWize on 0.0.0.0:8501 (LAN). Local: http://localhost:8501
 echo  Ctrl+C to stop.
 echo.
 %PY% -m streamlit run Home.py --server.address 0.0.0.0 --server.port 8501 --server.headless true

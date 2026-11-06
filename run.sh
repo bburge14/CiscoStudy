@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Launch the CiscoStudy platform locally.
+# Launch the CertWize platform locally.
 set -euo pipefail
 cd "$(dirname "$0")"
 
