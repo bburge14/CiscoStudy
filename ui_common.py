@@ -682,11 +682,11 @@ def render_feedback(q: Question, fb: Feedback) -> None:
 
 
 def grade_and_record(exam: str, q: Question, selection, *,
-                     xp_scale: float = 1.0, penalize: bool = True) -> Feedback:
+                     xp_scale: float = 1.0, miss_scale: float = 1.0) -> Feedback:
     fb = grade(q, selection)
     prof = get_profile(exam)
     st.session_state["_xp_event"] = prof.record_study(
-        q, fb.correct, xp_scale=xp_scale, penalize=penalize)
+        q, fb.correct, xp_scale=xp_scale, miss_scale=miss_scale)
     save_profile(exam)
     return fb
 

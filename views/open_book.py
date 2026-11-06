@@ -1,8 +1,9 @@
 """Open-Book Review: a true open-book test with adjustable help.
 
-The book is open while you answer, and it never hurts your score (answers count
-toward your progress and XP like Endless Drill). You choose how much the book
-helps you find the answer:
+The book is there while you answer. Leave it shut and a miss is free; open it and
+a wrong answer costs XP — more the more the book helped — while a correct answer
+earns less the more help you took. Either way answers count toward your progress
+like Endless Drill. You choose how much the book helps you find the answer:
 
 * Full book    — every lesson is browsable; nothing tells you where the answer
                  is. You search it like real documentation.
@@ -44,8 +45,9 @@ ob = st.session_state.setdefault(
 page_header("book_search", "Open-Book Review")
 
 st.markdown(
-    "An open-book test: the book is open while you answer, and it **never hurts your "
-    "score**. Choose how much help it gives you finding the answer."
+    "An open-book test: the book is there while you answer. Leave it shut and a miss is "
+    "free — **open it and a wrong answer costs you**, more the more the book helped. "
+    "Choose how much help it gives you finding the answer."
 )
 mode = st.radio(
     "Book access", ["Full book", "General area", "Pinpoint"], horizontal=True,
@@ -54,9 +56,14 @@ mode = st.radio(
          "question's domain. Pinpoint = the exact lesson (easiest).",
 )
 XP_SCALE = {"Full book": 1.0, "General area": 0.7, "Pinpoint": 0.4}
-st.caption("Answer **without opening the book** for full XP. If you open it, a correct "
-           "answer earns less the more help the mode gives — **Full book 100% · General "
-           "area 70% · Pinpoint 40%** — and a miss never costs you anything.")
+# A miss costs XP only if you opened the book, scaled UP by how much it helped:
+# with Pinpoint the answer was in front of you, so missing stings most.
+MISS_SCALE = {"Full book": 0.4, "General area": 0.7, "Pinpoint": 1.0}
+st.caption("Answer **without opening the book** for full XP and no risk. Open it and a "
+           "correct answer earns less the more help the mode gives — **Full book 100% · "
+           "General area 70% · Pinpoint 40%** — while a **miss now costs you**, and more "
+           "the more help you had (**Pinpoint** stings most). Leave the book shut and a "
+           "miss is still free.")
 
 # --- scoreboard -------------------------------------------------------------
 acc = f"{round(ob['correct'] / ob['answered'] * 100)}%" if ob["answered"] else "—"
@@ -135,13 +142,16 @@ if ob["phase"] == "answering":
                      help="Move on without answering — no effect on your score."):
             ob["recent"] = ([q.id] + ob["recent"])[:8]
             ob["qid"] = None
+            st.session_state.pop(f"{SKEY}_book", None)   # reset the book per question
             st.rerun()
     if submit:
-        # If the book was open for this answer, scale the reward by how much
-        # help the mode gave; answering cold earns full XP. A miss never hurts.
+        # The book is scored only if it was open for THIS question. A correct
+        # answer's reward shrinks with how much the mode helped; a miss costs
+        # nothing with the book shut, and more the more it helped when open.
         used_book = bool(st.session_state.get(f"{SKEY}_book", False))
         scale = XP_SCALE.get(mode, 1.0) if used_book else 1.0
-        fb = grade_and_record(exam, q, sel, xp_scale=scale, penalize=False)
+        miss = MISS_SCALE.get(mode, 0.0) if used_book else 0.0
+        fb = grade_and_record(exam, q, sel, xp_scale=scale, miss_scale=miss)
         ob["fb"] = fb
         ob["answered"] += 1
         if fb.correct:
@@ -166,4 +176,5 @@ else:
     render_feedback(q, fb)
     if st.button("Next question ▶", type="primary", key=f"{SKEY}_next"):
         ob["qid"] = None
+        st.session_state.pop(f"{SKEY}_book", None)   # reset the book per question
         st.rerun()

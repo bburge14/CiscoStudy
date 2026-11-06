@@ -144,10 +144,22 @@ def test_open_book_scale_reduces_a_correct_reward():
     assert 0 < pin < full                 # less help-scaled reward, still positive
 
 
-def test_open_book_miss_costs_nothing_when_not_penalized():
+def test_open_book_miss_is_free_when_the_book_stays_shut():
     p = Profile("ccna")
-    info = p.record_study(_q(_ccna_ids(1)[0]), False, penalize=False)
+    info = p.record_study(_q(_ccna_ids(1)[0]), False, miss_scale=0.0)
     assert info["delta"] == 0 and p.xp == 0.0 and not info["regressed"]
+
+
+def test_open_book_miss_costs_more_the_more_the_book_helped():
+    # With the book open a miss DOES cost XP, scaled up by how much help the mode
+    # gave: a pinpoint miss (answer in front of you) stings more than a full-book one.
+    full, pin = Profile("ccna"), Profile("ccna")
+    ids = _ccna_ids(2)
+    d_full = full.record_study(_q(ids[0]), False, miss_scale=0.4)["delta"]
+    d_pin = pin.record_study(_q(ids[1]), False, miss_scale=1.0)["delta"]
+    assert d_full < 0 and d_pin < 0        # both hurt...
+    assert d_pin < d_full                  # ...but pinpoint hurts more (more negative)
+    assert full.xp == 0.0                  # xp still floors at zero
 
 
 def test_legacy_profile_without_xp_is_backfilled():
