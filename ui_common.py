@@ -326,6 +326,43 @@ def delete_account(slug: str) -> bool:
     return True
 
 
+def admin_reset_progress(slug: str, exam: str) -> bool:
+    """Instructor: wipe a learner's progress for one exam back to a clean slate.
+
+    Everything the learner earned goes — mastery boxes, XP, streaks, answered
+    counts, completed lessons/milestones AND the diagnostic benchmark: a fresh
+    empty Profile replaces the saved one. The account itself (login, role,
+    password) is untouched.
+    """
+    reg = _load_registry()
+    if slug not in reg:
+        return False
+    Profile(exam=exam).save(USERDATA / slug / f"profile_{exam}.json")
+    st.session_state.pop(f"profile_{slug}_{exam}", None)
+    return True
+
+
+def admin_reset_benchmark(slug: str, exam: str) -> bool:
+    """Instructor: clear ONLY a learner's diagnostic benchmark so they can take
+    it again. Study progress (boxes, XP, answered counts) is kept.
+
+    The benchmark's recorded answers stay excluded from study metrics: we clear
+    ``baseline`` (the score/"taken" flag) but keep ``baseline_stats`` (the
+    accumulator ``study_overall`` subtracts). Dropping that accumulator would
+    make those old benchmark answers suddenly count as study and inflate the
+    answered total, accuracy and XP — exactly what the diagnostic split avoids.
+    """
+    reg = _load_registry()
+    if slug not in reg:
+        return False
+    path = USERDATA / slug / f"profile_{exam}.json"
+    prof = Profile.load(path, exam)
+    prof.baseline = None
+    prof.save(path)
+    st.session_state.pop(f"profile_{slug}_{exam}", None)
+    return True
+
+
 def current_user() -> str:
     return st.session_state.get("auth_user") or "default"
 
@@ -483,9 +520,17 @@ def render_account_bar() -> None:
     user = current_user()
     name = _load_registry().get(user, {}).get("name", user)
     inst = is_instructor(user)
-    _, acct = st.columns([6, 1])
-    with acct:
-        with st.popover(f"👤 {name}", width="stretch"):
+    # width="content" sizes the chip to the name so it's never clipped to "Brad…";
+    # margin-left:auto on its wrapper floats it flush-right; nowrap keeps the name
+    # on one line. (The app's only popover, scoped via :has to be safe.)
+    st.markdown(
+        "<style>"
+        "[data-testid='stLayoutWrapper']:has(> [data-testid='stPopover']){margin-left:auto;}"
+        "[data-testid='stPopoverButton'] p{white-space:nowrap;}"
+        "</style>",
+        unsafe_allow_html=True,
+    )
+    with st.popover(f"👤 {name}", width="content"):
             st.markdown(f"**{name}**")
             st.caption("🧑‍🏫 Instructor" if inst else "Learner")
             st.page_link("views/account.py", label="My account",
@@ -644,10 +689,58 @@ def render_feedback(q: Question, fb: Feedback) -> None:
         st.caption("Reference: " + " · ".join(fb.references))
 
 
-def grade_and_record(exam: str, q: Question, selection) -> Feedback:
+def _format_selection(q: Question, sel) -> str:
+    """Human-readable version of what the learner actually chose."""
+    if sel in (None, "", [], ()):
+        return "_(skipped / left blank)_"
+    if q.is_fill:
+        return f"“{sel}”"
+    ids = sel if isinstance(sel, (list, tuple, set)) else [sel]
+    out = []
+    for oid in ids:
+        try:
+            out.append(f"{oid}. {q.option(oid).text}")
+        except KeyError:
+            out.append(str(oid))
+    return "; ".join(out) if out else "_(skipped / left blank)_"
+
+
+def render_quiz_review(exam: str, question_ids: list[str], answers: dict) -> None:
+    """After-quiz review for a test-mode quiz (one graded at the end with no
+    feedback as you go). Shows every question you missed with your answer, the
+    correct answer and the explanation, then recaps the ones you got right — so
+    a learner without the inline 'remediation' feedback can still learn from it.
+    """
+    bank = get_bank()
+    items = [(qid, bank.get(qid)) for qid in question_ids]
+    missed = [(qid, q) for qid, q in items if not q.check(answers.get(qid))]
+    correct = [(qid, q) for qid, q in items if q.check(answers.get(qid))]
+
+    st.markdown("#### 📋 Review every question")
+    if not missed:
+        st.success("You got every question right — nothing to remediate. 🎉")
+    else:
+        st.caption(f"This quiz didn't give feedback as you went, so here's the breakdown. "
+                   f"The **{len(missed)}** you missed are first, with the correct answer "
+                   "and why.")
+        for qid, q in missed:
+            with st.container(border=True):
+                st.markdown(f"**❌ {q.stem}**")
+                st.caption(f"Your answer: {_format_selection(q, answers.get(qid))}")
+                render_feedback(q, grade(q, answers.get(qid)))
+
+    if correct:
+        with st.expander(f"✅ Questions you got right ({len(correct)})"):
+            for qid, q in correct:
+                st.markdown(f"- **{q.stem}**  →  correct: **{', '.join(q.correct)}**")
+
+
+def grade_and_record(exam: str, q: Question, selection, *,
+                     xp_scale: float = 1.0, miss_scale: float = 1.0) -> Feedback:
     fb = grade(q, selection)
     prof = get_profile(exam)
-    st.session_state["_xp_event"] = prof.record_study(q, fb.correct)
+    st.session_state["_xp_event"] = prof.record_study(
+        q, fb.correct, xp_scale=xp_scale, miss_scale=miss_scale)
     save_profile(exam)
     return fb
 
@@ -668,7 +761,8 @@ def render_xp_event(info: dict) -> None:
     elif info.get("learned"):
         bits.append("📈 improving")
     elif info.get("regressed"):
-        bits.append("⚠️ you had this one down")
+        m = info.get("misses", 0)
+        bits.append(f"⚠️ missed {m}× in a row — stings more" if m >= 2 else "⚠️ missed")
     streak = info.get("streak", 0)
     if streak >= 3:
         bits.append(f"🔥 {streak} in a row")
@@ -765,7 +859,19 @@ def run_quiz(exam: str, skey: str, question_ids: list[str], instant: bool = Fals
 
     sel = answer_widget(q, key=f"{skey}_ans_{idx}")
     submit_label = "Submit" if instant else ("Finish" if idx == total - 1 else "Next ▶")
-    if st.button(submit_label, key=f"{skey}_submit", type="primary"):
+    csub, cskip = st.columns(2)
+    with csub:
+        do_submit = st.button(submit_label, key=f"{skey}_submit", type="primary")
+    with cskip:
+        if st.button("Skip ▶", key=f"{skey}_skip",
+                     help="Leave this one unanswered and move on (counts as incorrect)."):
+            if idx + 1 >= total:
+                state["done"] = True
+            else:
+                state["idx"] += 1
+                state["phase"] = "answering"
+            st.rerun()
+    if do_submit:
         state["answers"][q.id] = sel
         fb = grade(q, sel)
         prof.record_study(q, fb.correct)

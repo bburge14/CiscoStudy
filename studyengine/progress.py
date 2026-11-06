@@ -27,8 +27,9 @@ XP_STREAK_CAP = 12         # max streak bonus added to a correct answer
 XP_LEARN_BONUS = 6         # correct on a weak/new item (box <= 2): knowledge gained
 XP_MASTER_BONUS = 20       # correct that pushes an item to box 5 (mastered)
 XP_MASTERED_MAINTAIN = 1   # re-answering an already-mastered item: negligible
-XP_MISS_PENALTY = -6       # a wrong answer costs XP
-XP_REGRESS_PENALTY = -6    # extra cost for missing an item you had down (box >= 3)
+XP_MISS_PENALTY = -6       # first miss of a question (or first after getting it right)
+XP_MISS_ESCALATION = -3    # each ADDITIONAL consecutive miss of the SAME question...
+XP_MISS_ESCALATION_CAP = 3 # ...up to this many extra steps (so -6, -9, -12, -15 floor)
 
 
 @dataclass
@@ -83,17 +84,25 @@ class Profile:
             st.box = 1
         return st
 
-    def record_study(self, question: Question, correct: bool) -> dict:
+    def record_study(self, question: Question, correct: bool, *,
+                     xp_scale: float = 1.0, miss_scale: float = 1.0) -> dict:
         """Record a STUDY answer (drill, plan, quiz, open-book, exam) and award
         event-based XP. Rewards getting better (improving weak items, mastering
-        them) and streaks; penalizes misses — harder when you drop one you had
-        down. The diagnostic benchmark uses record()+note_baseline_answer()
-        instead and earns no XP.
+        them) and streaks; penalizes misses — and missing the SAME question again
+        and again hurts progressively more (getting it right resets that). The
+        diagnostic benchmark uses record()+note_baseline_answer() and earns no XP.
+
+        xp_scale multiplies a correct answer's reward (open-book uses < 1 when the
+        book was used, scaled by how much help the mode gave). miss_scale multiplies
+        a miss's penalty: 1.0 is the normal cost, 0.0 makes the miss free (open-book
+        when the book stayed shut), and open-book scales it up with how much the
+        book helped — missing one you had the answer for stings more.
 
         Returns {delta, streak, learned, mastered, regressed} for UI feedback."""
         pre_box = self.box_of(question.id)
-        self.record(question, correct)
+        qstat = self.record(question, correct)
         flags = {"learned": False, "mastered": False, "regressed": False}
+        misses_in_row = 0
         if correct:
             self.answer_streak += 1
             self.best_streak = max(self.best_streak, self.answer_streak)
@@ -108,14 +117,22 @@ class Profile:
                 if pre_box == 4:                    # box 4 -> 5: just mastered it
                     delta += XP_MASTER_BONUS
                     flags["mastered"] = True
+            delta = round(delta * max(xp_scale, 0.0))
         else:
             self.answer_streak = 0
-            delta = XP_MISS_PENALTY
-            if pre_box >= 3:                         # you had this down and missed it
-                delta += XP_REGRESS_PENALTY
-                flags["regressed"] = True
+            # qstat.streak is now negative; its size is how many times THIS
+            # question has been missed in a row. Each repeat hurts more, up to a
+            # floor; a correct answer flips the streak positive and resets it, so
+            # an isolated slip is always just the base penalty.
+            misses_in_row = max(1, -qstat.streak)
+            steps = min(misses_in_row - 1, XP_MISS_ESCALATION_CAP)
+            delta = 0                                # miss_scale 0 -> a free miss
+            if miss_scale > 0:
+                delta = round((XP_MISS_PENALTY + XP_MISS_ESCALATION * steps) * miss_scale)
+                flags["regressed"] = misses_in_row >= 2   # a repeat miss, getting worse
         self.xp = max(0.0, self.xp + delta)
-        return {"delta": int(delta), "streak": self.answer_streak, **flags}
+        return {"delta": int(delta), "streak": self.answer_streak,
+                "misses": misses_in_row, **flags}
 
     # -- scheduler hooks ---------------------------------------------------
     def box_of(self, qid: str) -> int:

@@ -88,7 +88,17 @@ st.caption(f"Domain: {bp.domain(q.domain).name}  ·  Sub-topic: {q.subtopic.repl
 # --- answering phase --------------------------------------------------------
 if drill["phase"] == "answering":
     sel = answer_widget(q, key=f"{SKEY}_ans_{q.id}")
-    if st.button("Submit", type="primary"):
+    csub, cskip = st.columns(2)
+    with csub:
+        submit = st.button("Submit", type="primary")
+    with cskip:
+        # Skip: move on without grading — no XP, no streak change, not counted.
+        if st.button("Skip ▶", key=f"{SKEY}_skip",
+                     help="Move on without answering — no effect on your score."):
+            drill["recent"] = ([q.id] + drill["recent"])[:8]
+            drill["qid"] = None
+            st.rerun()
+    if submit:
         fb = grade_and_record(exam, q, sel)   # awards study XP, stashes the event
         drill["fb"] = fb
         drill["phase"] = "feedback"

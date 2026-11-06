@@ -65,7 +65,6 @@ with colB:
     st.page_link("views/diagnostic.py", label="Diagnostic Baseline", icon=":material/fact_check:")
 
 if is_instructor(current_user()):
-    st.info("🧑‍🏫 You're the **instructor** on this instance.")
     st.page_link("views/instructor.py", label="Instructor view — see your learners' progress", icon=":material/supervisor_account:")
 
 st.divider()

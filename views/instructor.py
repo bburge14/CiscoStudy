@@ -14,6 +14,8 @@ from studyengine import get_blueprint
 from ui_common import (
     EXAMS,
     admin_create_account,
+    admin_reset_benchmark,
+    admin_reset_progress,
     current_user,
     delete_account,
     is_instructor,
@@ -197,6 +199,37 @@ else:
         )
     else:
         st.success("No sub-topics below 80% for this learner.")
+
+    # --- reset this learner's status ----------------------------------------
+    st.markdown("**Reset status**")
+    st.caption("Give this learner a clean slate. These clear progress only — the "
+               "account, its login and role stay the same.")
+    rb, rp = st.columns(2)
+    with rb:
+        with st.expander("♻️ Reset benchmark only"):
+            st.caption("Clears the diagnostic result so they can re-take it. Study "
+                       "progress (mastery, XP, answered counts) is kept.")
+            ok_b = st.checkbox("Reset the benchmark", key=f"rb_{pick}")
+            if st.button("Reset benchmark", key=f"rb_btn_{pick}", disabled=not ok_b):
+                if admin_reset_benchmark(pick, exam):
+                    st.success(f"Benchmark cleared for **{by_slug[pick]['name']}** — "
+                               "they can take the diagnostic again.")
+                    st.rerun()
+                else:
+                    st.error("Couldn't reset — account not found.")
+    with rp:
+        with st.expander("🗑️ Reset all progress"):
+            st.warning(f"Wipe **everything** for {by_slug[pick]['name']} on this track — "
+                       "mastery, XP, streaks, answered counts, milestones and the "
+                       "benchmark. This cannot be undone.")
+            ok_p = st.checkbox("I understand — reset all progress", key=f"rp_{pick}")
+            if st.button("Reset all progress", key=f"rp_btn_{pick}", disabled=not ok_p):
+                if admin_reset_progress(pick, exam):
+                    st.success(f"Progress reset for **{by_slug[pick]['name']}** on the "
+                               f"{EXAMS[exam]} track.")
+                    st.rerun()
+                else:
+                    st.error("Couldn't reset — account not found.")
 
 st.caption("Learners can't see each other's progress. Accounts created or edited here take "
            "effect immediately.")

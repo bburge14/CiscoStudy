@@ -15,7 +15,15 @@ from studyengine import (
     get_blueprint,
     score_session,
 )
-from ui_common import answer_widget, get_bank, get_profile, page_header, page_setup, save_profile
+from ui_common import (
+    answer_widget,
+    get_bank,
+    get_profile,
+    page_header,
+    page_setup,
+    render_quiz_review,
+    save_profile,
+)
 
 exam = page_setup("Exam Simulation", icon="📝")
 bank = get_bank()
@@ -112,7 +120,7 @@ if state["phase"] == "running":
     st.caption(f"{bp.domain(q.domain).name}")
     sel = answer_widget(q, key=f"{SKEY}_ans_{idx}")
 
-    c = st.columns([1, 1, 4])
+    c = st.columns([1.4, 1, 1.4, 3])
     last = idx == total - 1
     if c[0].button("Finish" if last else "Submit & next ▶", type="primary"):
         state["answers"][q.id] = sel
@@ -121,7 +129,14 @@ if state["phase"] == "running":
         else:
             state["idx"] += 1
         st.rerun()
-    if c[1].button("End exam now"):
+    if c[1].button("Skip ▶", help="Leave this one unanswered and move on (counts as incorrect)."):
+        # store nothing -> graded as unanswered/incorrect, like skipping on the real exam
+        if last or int(state["deadline"] - time.time()) <= 0:
+            _finalize(state)
+        else:
+            state["idx"] += 1
+        st.rerun()
+    if c[2].button("End exam now"):
         state["answers"][q.id] = sel
         _finalize(state)
         st.rerun()
@@ -149,6 +164,15 @@ for d in bp.domains:
                  "Accuracy": f"{round(corr/sn*100)}%" if sn else "—",
                  "Exam weight": f"{round(d.weight*100)}%"})
 st.dataframe(pd.DataFrame(rows), width="stretch", hide_index=True)
+
+# Full question-by-question review, opt-in (a Full exam is 200+ questions, so
+# don't render it all unless asked). Mirrors the milestone-exam review.
+st.divider()
+wrong = s["total"] - s["correct"]
+st.markdown(f"**Review** — you missed **{wrong}** of {s['total']}. See each one with the "
+            "correct answer and why.")
+if st.toggle("📋 Show the question-by-question review", key=f"{SKEY}_review"):
+    render_quiz_review(exam, state["ids"], state["answers"])
 
 st.info("These answers were recorded, so your **Study Plan** and **Progress** readiness now "
         "reflect this attempt. A mock like this is a study gauge — it doesn't predict the exact "
