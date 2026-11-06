@@ -325,6 +325,10 @@ class Console:
 
     def _conf_if(self, toks, orig):
         t0 = toks[0].lower()
+        # IOS lets you jump straight to another interface (or back to global
+        # commands) from config-if without `exit` first.
+        if _kw(t0, "interface", 3) and len(toks) > 1:
+            return self._enter_interface(toks[1:], orig)
         neg = t0 == "no"
         body = toks[1:] if neg else toks
         if not body:
@@ -420,7 +424,7 @@ class Console:
                 i.is_switchport = not neg
             return ""
         r0 = rest[0].lower()
-        if _kw(r0, "mode", 3):
+        if _kw(r0, "mode", 2):
             if len(rest) < 2:
                 return self._incomplete()
             m = rest[1].lower()
@@ -582,9 +586,12 @@ class Console:
     def _show(self, toks, orig):
         if not toks:
             return self._incomplete()
+        if "|" in toks:                               # output filters: | section/include/...
+            p = toks.index("|")
+            return self._apply_pipe(self._show(toks[:p], orig), toks[p + 1:])
         t0 = toks[0].lower()
         if _kw(t0, "running-config", 2) or _kw(t0, "startup-config", 5):
-            if len(toks) >= 3 and _kw(toks[1].lower(), "interface", 3):
+            if len(toks) >= 3 and _kw(toks[1].lower(), "interface", 1):
                 return self._run_config(only_if="".join(toks[2:]))
             return self._run_config()
         if _kw(t0, "ip", 2):
@@ -593,10 +600,10 @@ class Console:
             rest = toks[1:]
             if rest and _kw(rest[0].lower(), "trunk", 2):
                 return self._show_trunk()
-            if rest and _kw(rest[0].lower(), "status", 3):
+            if rest and _kw(rest[0].lower(), "status", 2):
                 return self._show_if_status()
             if rest:                                  # a specific interface
-                want_status = len(rest) > 1 and _kw(rest[-1].lower(), "status", 3)
+                want_status = len(rest) > 1 and _kw(rest[-1].lower(), "status", 2)
                 name_toks = rest[:-1] if want_status else rest
                 canon = resolve_ifname("".join(name_toks))   # joins "Gig 0/1" -> Gi0/1
                 iface = self.dev.get_if(canon, create=False) if canon else None
@@ -608,9 +615,9 @@ class Console:
             if len(toks) == 1:
                 return self._show_vlan_brief()
             sub = toks[1].lower()
-            if _kw(sub, "brief", 2):
+            if _kw(sub, "brief", 1):
                 return self._show_vlan_brief()
-            if _kw(sub, "id", 2):
+            if _kw(sub, "id", 1):
                 if len(toks) < 3:
                     return self._incomplete()
                 if not toks[2].isdigit():
@@ -635,15 +642,19 @@ class Console:
         if not rest:
             return self._incomplete()
         r0 = rest[0].lower()
-        if _kw(r0, "interface", 3) and len(rest) > 1 and _kw(rest[1].lower(), "brief", 2):
+        # Sub-keywords are unique by first letter here, so a 1-char prefix is fine
+        # (matches real IOS abbreviation: `sh ip o n` == show ip ospf neighbor).
+        if _kw(r0, "interface", 1) and len(rest) > 1 and _kw(rest[1].lower(), "brief", 1):
             return self._show_if_brief()
-        if _kw(r0, "route", 3):
+        if _kw(r0, "route", 1):
             return self._show_ip_route()
-        if _kw(r0, "ospf", 2):
-            if len(rest) > 1 and _kw(rest[1].lower(), "neighbor", 3):
-                return self._show_ospf_neighbor()
-            if len(rest) > 2 and _kw(rest[1].lower(), "interface", 3) and _kw(rest[2].lower(), "brief", 2):
+        if _kw(r0, "protocols", 2):
+            return self._show_ip_protocols()
+        if _kw(r0, "ospf", 1):
+            if len(rest) > 2 and _kw(rest[1].lower(), "interface", 1) and _kw(rest[2].lower(), "brief", 1):
                 return self._show_ospf_if_brief()
+            if len(rest) > 1 and _kw(rest[1].lower(), "neighbor", 1):
+                return self._show_ospf_neighbor()
             return self._show_ospf_neighbor()
         return self._invalid(orig, 2)
 
@@ -841,14 +852,8 @@ class Console:
         for i in self.dev.interfaces.values():
             if i.channel_group is not None and not i.name.startswith("Port-channel"):
                 groups.setdefault(i.channel_group, []).append(i)
-        header = ("Flags:  D - down        P - bundled in port-channel\n"
-                  "        I - stand-alone s - suspended\n"
-                  "        U - in use      f - failed to allocate aggregator\n"
-                  f"\nNumber of channel-groups in use: {len(groups)}\n"
-                  f"Number of aggregators:           {len(groups)}\n\n"
-                  "Group  Port-channel  Protocol    Ports\n"
-                  "------+-------------+-----------+-----------------------------------------------")
-        rows = [header]
+        rows = []
+        aggregators = 0
         for grp in sorted(groups):
             members = groups[grp]
             proto = members[0].channel_protocol()
@@ -856,21 +861,28 @@ class Console:
             bundled_any = False
             for m in members:
                 peer = self.topo.neighbor_of(self.dev.hostname, m.name)
-                flag = "D" if m.shutdown else "I"
+                flag = "D" if m.shutdown else "I"       # down, else up-but-stand-alone
                 if peer and not m.shutdown:
                     pdev = self.topo.devices.get(peer[0])
                     pif = pdev.get_if(peer[1], create=False) if pdev else None
                     if pif is not None:
                         bundles, _, _ = etherchannel_bundles(m.channel_mode, pif.channel_mode)
                         if bundles and not pif.shutdown:
-                            flag = "P"
+                            flag = "P"                  # bundled in the port-channel
                             bundled_any = True
-                        else:
-                            flag = "s"
                 port_flags.append(f"{_short(m.name)}({flag})")
+            if bundled_any:
+                aggregators += 1
             po_state = "SU" if bundled_any else "SD"
             rows.append(f"{grp:<6} Po{grp}({po_state}){'':<{max(0, 7 - len(str(grp)))}}  {proto:<11} " + "  ".join(port_flags))
-        return "\n".join(rows)
+        header = ("Flags:  D - down        P - bundled in port-channel\n"
+                  "        I - stand-alone s - suspended\n"
+                  "        U - in use      f - failed to allocate aggregator\n"
+                  f"\nNumber of channel-groups in use: {len(groups)}\n"
+                  f"Number of aggregators:           {aggregators}\n\n"
+                  "Group  Port-channel  Protocol    Ports\n"
+                  "------+-------------+-----------+-----------------------------------------------")
+        return "\n".join([header] + rows)
 
     def _show_ospf_neighbor(self):
         rows = []
@@ -881,10 +893,8 @@ class Console:
             peer = self.topo.neighbor_of(self.dev.hostname, name)
             pif = self.topo.devices[peer[0]].get_if(peer[1], create=False)
             addr = pif.ip if pif else "0.0.0.0"
-            if not adj.mtu_match:
-                state = "EXSTART/DROTHER"
-            else:
-                state = "FULL/DR" if adj.neighbor_dr else "FULL/BDR"
+            role = "DR" if adj.neighbor_dr else "BDR"
+            state = (f"FULL/{role}" if adj.mtu_match else f"EXSTART/{role}")
             rows.append(f"{adj.neighbor_rid:<15} 1   {state:<15} 00:00:38    {addr:<15} {name}")
         if not rows:
             return ""
@@ -932,6 +942,70 @@ class Console:
                         rows.append(f"O        {net}/{pfx} [110/2] via {pi.ip}, {_short(name)}")
                         seen.add(key)
         return "\n".join(rows)
+
+    def _apply_pipe(self, out, filt):
+        """IOS output modifiers: `| include/exclude/begin/section <pattern>`."""
+        if not filt:
+            return out
+        verb, pat = filt[0].lower(), " ".join(filt[1:])
+        low, lines = pat.lower(), out.split("\n")
+        if _kw(verb, "include", 3):
+            return "\n".join(l for l in lines if low in l.lower())
+        if _kw(verb, "exclude", 3):
+            return "\n".join(l for l in lines if low not in l.lower())
+        if _kw(verb, "begin", 3):
+            for idx, l in enumerate(lines):
+                if low in l.lower():
+                    return "\n".join(lines[idx:])
+            return ""
+        if _kw(verb, "section", 3):
+            # a matching top-level line plus its indented block
+            res, grab = [], False
+            for l in lines:
+                if not l.startswith((" ", "\t")):     # top-level line starts/ends a section
+                    grab = low in l.lower()
+                if grab:
+                    res.append(l)
+            return "\n".join(res)
+        return out
+
+    def _passive_ifaces(self, proc) -> set[str]:
+        result = set(proc.passive_interfaces)
+        if proc.passive_default:
+            for i in self.dev.interfaces.values():
+                if interface_ospf(self.dev, i) and i.name not in proc.no_passive_interfaces:
+                    result.add(i.name)
+        return result
+
+    def _show_ip_protocols(self):
+        if not self.dev.ospf:
+            return ""
+        blocks = []
+        for pid in sorted(self.dev.ospf):
+            proc = self.dev.ospf[pid]
+            areas = {a for _, _, a in proc.networks}
+            passive = sorted(self._passive_ifaces(proc))
+            lines = [
+                f'Routing Protocol is "ospf {pid}"',
+                "  Outgoing update filter list for all interfaces is not set",
+                "  Incoming update filter list for all interfaces is not set",
+                f"  Router ID {ospf_router_id(self.dev, proc)}",
+                f"  Number of areas in this router is {len(areas)}. "
+                f"{len(areas)} normal 0 stub 0 nssa",
+                "  Maximum path: 4",
+                "  Routing for Networks:",
+            ]
+            lines += [f"    {net} {wild} area {area}" for net, wild, area in proc.networks]
+            if passive:
+                lines.append("  Passive Interface(s):")
+                lines += [f"    {ifn}" for ifn in passive]
+            lines += [
+                "  Routing Information Sources:",
+                "    Gateway         Distance      Last Update",
+                "  Distance: (default is 110)",
+            ]
+            blocks.append("\n".join(lines))
+        return "\n\n".join(blocks)
 
     def _show_cdp(self):
         rows = ["Capability Codes: R - Router, S - Switch, H - Host, I - IGMP",

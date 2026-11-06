@@ -126,13 +126,15 @@ def test_stp_priority_validation():
     assert con.dev.stp_base_priority(10) == 24576
 
 
-def test_resolve_ifname_rejects_bogus_types():
+def test_resolve_ifname_accepts_aliases_rejects_bogus():
     assert resolve_ifname("gi0/1") == "GigabitEthernet0/1"
     assert resolve_ifname("g0/1") == "GigabitEthernet0/1"
+    assert resolve_ifname("ge0/1") == "GigabitEthernet0/1"   # common 'ge' alias
+    assert resolve_ifname("fe0/1") == "FastEthernet0/1"
     assert resolve_ifname("po1") == "Port-channel1"
     assert resolve_ifname("GigabitEthernet0/1.10") == "GigabitEthernet0/1.10"
-    # 'ge' is not a real IOS type, and a type without a port number isn't a port
-    assert resolve_ifname("ge0/1") is None
+    # a genuinely unknown type, and a type without a port number, are rejected
+    assert resolve_ifname("zz0/1") is None
     assert resolve_ifname("bogus5") is None
     assert resolve_ifname("gi") is None
 
@@ -141,12 +143,14 @@ def test_interface_bad_type_is_rejected_not_invented():
     con = Console(_switch_topo(), "SW1")
     con.execute("enable")
     con.execute("configure terminal")
-    out = con.execute("interface ge0/1")          # 'ge' isn't a valid type
+    out = con.execute("interface zz0/1")          # 'zz' isn't a valid type
     assert "% Invalid input detected at '^' marker." in out
     assert con.prompt == "SW1(config)#"           # did NOT enter config-if
-    assert "ge0/1" not in con.dev.interfaces       # and no phantom interface
-    assert con.execute("interface gi0/1") == ""    # the real abbreviation works
+    assert "zz0/1" not in con.dev.interfaces       # and no phantom interface
+    # 'ge' resolves to the real GigabitEthernet port (no phantom, no error)
+    assert con.execute("interface ge 0/1") == ""
     assert con.prompt == "SW1(config-if)#"
+    assert "GigabitEthernet0/1" in con.dev.interfaces and "ge0/1" not in con.dev.interfaces
 
 
 def test_show_vlan_id_filters_and_bare_number_is_invalid():
@@ -177,7 +181,7 @@ def test_show_interface_name_is_scoped_and_validates_type():
     assert "GigabitEthernet0/1 is" in detail and "line protocol" in detail
     assert "GigabitEthernet0/2" not in detail
     # a bogus type is rejected rather than dumping every interface
-    assert "% Invalid input" in con.execute("show interfaces ge0/1")
+    assert "% Invalid input" in con.execute("show interfaces zz0/1")
 
 
 def test_show_interface_accepts_spaced_name_and_is_detailed():
@@ -231,6 +235,65 @@ def test_help_keyword_and_help_does_not_break_execution():
     assert con.prompt == "SW1#"
     con.apply_config(["vlan 7", "name TEST"])
     assert con.dev.vlans.get(7) == "TEST"
+
+
+def test_show_ip_protocols_lists_ospf_and_passive():
+    con = Console(_router_topo(), "R1")
+    con.apply_config([
+        "interface gi0/0", "ip address 10.0.0.1 255.255.255.0", "no shutdown", "exit",
+        "router ospf 1", "router-id 1.1.1.1",
+        "network 10.0.0.0 0.0.0.255 area 0", "passive-interface gi0/0", "exit",
+    ])
+    out = con.execute("show ip protocols")
+    assert 'Routing Protocol is "ospf 1"' in out and "Router ID 1.1.1.1" in out
+    assert "Routing for Networks" in out and "10.0.0.0 0.0.0.255 area 0" in out
+    assert "Passive Interface(s)" in out and "GigabitEthernet0/0" in out
+
+
+def test_output_pipe_filters():
+    con = Console(_switch_topo(), "SW1")
+    con.apply_config(["hostname SW1", "vlan 10", "name DATA", "exit",
+                      "interface gi0/1", "switchport mode trunk"])
+    con.execute("enable")
+    inc = con.execute("show run | include hostname")
+    assert "hostname SW1" in inc and "interface" not in inc
+    sec = con.execute("show run | section vlan 10")
+    assert "vlan 10" in sec and "name DATA" in sec and "hostname" not in sec
+
+
+def test_router_loopback_is_up_by_default():
+    con = Console(_router_topo(), "R1")
+    con.apply_config(["interface loopback0", "ip address 1.1.1.1 255.255.255.255"])
+    lo = con.dev.get_if("Loopback0", create=False)
+    assert lo is not None and not lo.shutdown          # loopbacks default up
+    con.apply_config(["interface gi0/3"])              # physical port defaults admin-down
+    assert con.dev.get_if("GigabitEthernet0/3", create=False).shutdown
+
+
+def test_etherchannel_summary_zero_aggregators_when_unbundled():
+    from studyengine.cli_sim import SCENARIOS
+    s = SCENARIOS["pbq-ccna-etherchannel"]
+    topo = s.build(); con = s.console(topo); con.execute("enable")
+    out = con.execute("show etherchannel summary")
+    assert "Number of aggregators:           0" in out    # nothing bundled yet
+    assert "(I)" in out and "(P)" not in out              # stand-alone, not bundled
+
+
+def test_short_abbreviations_and_interface_jump():
+    con = Console(_switch_topo(), "SW1")
+    con.apply_config(["interface gi0/1", "switchport mode trunk", "exit"])
+    con.execute("enable")
+    # any unique prefix resolves, like real IOS
+    for cmd in ("sh ip o n", "sh int st", "sh vlan br", "sh ip r"):
+        assert "Invalid input" not in con.execute(cmd), cmd
+    con.execute("conf t")
+    con.execute("interface gi0/1")
+    assert con.execute("sw mo acc") == ""                        # switchport mode access
+    assert con.dev.get_if("Gi0/1", create=False).sw_mode == "access"
+    # jump straight to another interface from config-if (no `exit` needed)
+    assert con.execute("int gi0/2") == "" and con.prompt == "SW1(config-if)#"
+    con.execute("shutdown")
+    assert con.dev.get_if("Gi0/2", create=False).shutdown
 
 
 def test_ping_reachable_same_subnet():
