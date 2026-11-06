@@ -113,7 +113,122 @@ ENCOR = ExamBlueprint(
     ),
 )
 
-EXAMS: dict[str, ExamBlueprint] = {CCNA.code: CCNA, ENCOR.code: ENCOR}
+# --- CompTIA Security+ SY0-701 ----------------------------------------------
+SECPLUS = ExamBlueprint(
+    code="secplus",
+    name="Security+ SY0-701",
+    domains=(
+        Domain(
+            "general_security_concepts", "1.0 General Security Concepts", 0.12,
+            ("security_controls", "cia_aaa", "zero_trust", "physical_security",
+             "change_management", "cryptographic_solutions", "pki"),
+        ),
+        Domain(
+            "threats_vulns_mitigations", "2.0 Threats, Vulnerabilities & Mitigations", 0.22,
+            ("threat_actors", "threat_vectors", "social_engineering", "vulnerability_types",
+             "malware", "network_attacks", "application_attacks", "mitigation_techniques"),
+        ),
+        Domain(
+            "security_architecture", "3.0 Security Architecture", 0.18,
+            ("architecture_models", "cloud_virtualization_security", "secure_design",
+             "data_protection", "resilience_recovery"),
+        ),
+        Domain(
+            "security_operations", "4.0 Security Operations", 0.28,
+            ("secure_baselines_hardening", "asset_management", "vulnerability_management",
+             "security_monitoring", "identity_access_management", "automation_orchestration",
+             "incident_response", "digital_forensics"),
+        ),
+        Domain(
+            "security_program_mgmt", "5.0 Security Program Management & Oversight", 0.20,
+            ("security_governance", "risk_management", "third_party_risk",
+             "compliance_privacy", "audits_assessments", "security_awareness"),
+        ),
+    ),
+)
+
+# --- CompTIA Network+ N10-009 -----------------------------------------------
+NETPLUS = ExamBlueprint(
+    code="netplus",
+    name="Network+ N10-009",
+    domains=(
+        Domain(
+            "networking_concepts", "1.0 Networking Concepts", 0.23,
+            ("osi_model", "network_appliances", "cloud_concepts", "ports_protocols",
+             "traffic_types", "ipv4_subnetting_np", "ipv6_np", "network_topologies"),
+        ),
+        Domain(
+            "network_implementation", "2.0 Network Implementation", 0.20,
+            ("routing_technologies", "switching_technologies", "wireless_standards",
+             "physical_installations"),
+        ),
+        Domain(
+            "network_operations", "3.0 Network Operations", 0.19,
+            ("network_documentation", "network_monitoring", "disaster_recovery",
+             "dns_dhcp_services", "snmp_logging_np"),
+        ),
+        Domain(
+            "network_security", "4.0 Network Security", 0.14,
+            ("security_concepts_np", "network_hardening", "remote_access",
+             "physical_security_np"),
+        ),
+        Domain(
+            "network_troubleshooting", "5.0 Network Troubleshooting", 0.24,
+            ("troubleshooting_methodology", "cabling_issues", "connectivity_tools",
+             "network_service_issues", "performance_issues"),
+        ),
+    ),
+)
+
+# --- CompTIA A+ Core 1 (220-1101) -------------------------------------------
+APLUS1 = ExamBlueprint(
+    code="aplus1",
+    name="A+ Core 1 (220-1101)",
+    domains=(
+        Domain("mobile_devices", "1.0 Mobile Devices", 0.15,
+               ("laptop_hardware", "mobile_display", "mobile_ports_accessories",
+                "mobile_connectivity", "mobile_apps_sync")),
+        Domain("networking_a1", "2.0 Networking", 0.20,
+               ("ports_protocols_a1", "networking_hardware", "wireless_a1",
+                "network_services_a1", "internet_connection_types")),
+        Domain("hardware", "3.0 Hardware", 0.25,
+               ("cables_connectors", "memory_ram", "storage_devices",
+                "motherboards_cpu", "power_supplies", "peripherals", "printers")),
+        Domain("virtualization_cloud", "4.0 Virtualization & Cloud Computing", 0.11,
+               ("cloud_models", "client_side_virtualization")),
+        Domain("hw_net_troubleshooting", "5.0 Hardware & Network Troubleshooting", 0.29,
+               ("troubleshooting_methodology_a1", "hardware_troubleshooting",
+                "display_troubleshooting", "network_troubleshooting_a1", "printer_troubleshooting")),
+    ),
+)
+
+# --- CompTIA A+ Core 2 (220-1102) -------------------------------------------
+APLUS2 = ExamBlueprint(
+    code="aplus2",
+    name="A+ Core 2 (220-1102)",
+    domains=(
+        Domain("operating_systems", "1.0 Operating Systems", 0.31,
+               ("windows_editions", "windows_tools", "command_line", "os_features",
+                "os_installation", "networking_os", "macos_linux")),
+        Domain("security_a2", "2.0 Security", 0.25,
+               ("security_concepts_a2", "malware_a2", "social_engineering_a2",
+                "windows_security", "workstation_hardening", "data_destruction")),
+        Domain("software_troubleshooting", "3.0 Software Troubleshooting", 0.22,
+               ("windows_troubleshooting", "os_security_troubleshooting",
+                "mobile_os_troubleshooting")),
+        Domain("operational_procedures", "4.0 Operational Procedures", 0.22,
+               ("documentation_a2", "change_management_a2", "backup_recovery", "safety",
+                "incident_response_a2", "communication_professionalism", "scripting_basics")),
+    ),
+)
+
+EXAMS: dict[str, ExamBlueprint] = {
+    bp.code: bp for bp in (CCNA, ENCOR, SECPLUS, NETPLUS, APLUS1, APLUS2)
+}
+
+# Tracks that have a real question bank and are selectable in the UI. Blueprints
+# for the rest exist (objectives captured) but stay "coming soon" until built.
+LIVE_EXAMS: tuple[str, ...] = ("ccna", "encor", "secplus")
 
 
 def get_blueprint(code: str) -> ExamBlueprint:

@@ -30,6 +30,7 @@ from studyengine import (
     profile_level,
     score_session,
 )
+from studyengine.blueprints import EXAMS as _BLUEPRINTS, LIVE_EXAMS
 from studyengine.cli_sim import Console, topology_svg
 from studyengine.models import Question
 from studyengine.progress import BOX_WEIGHT, Profile
@@ -44,7 +45,9 @@ elif getattr(sys, "frozen", False):
     USERDATA = Path.home() / ".ciscostudy"
 else:
     USERDATA = ROOT / ".userdata"
-EXAMS = {"ccna": "CCNA 200-301", "encor": "CCNP ENCOR 350-401"}
+# Display names for the tracks that are live (have a question bank). Derived from
+# the blueprints so adding a track in one place lights it up across the UI.
+EXAMS = {code: _BLUEPRINTS[code].name for code in LIVE_EXAMS}
 
 # The certification catalog — the multi-track vision shown on the home landing.
 # Tracks with status "active" have real content (keys match EXAMS); "soon" tracks
@@ -55,9 +58,10 @@ CERT_CATALOG = [
         {"key": "encor", "name": "CCNP ENCOR 350-401", "status": "active"},
     ]},
     {"provider": "CompTIA", "blurb": "Vendor-neutral IT foundations", "certs": [
-        {"key": "aplus", "name": "A+", "status": "soon"},
-        {"key": "netplus", "name": "Network+", "status": "soon"},
-        {"key": "secplus", "name": "Security+", "status": "soon"},
+        {"key": "secplus", "name": "Security+ SY0-701", "status": "active"},
+        {"key": "netplus", "name": "Network+ N10-009", "status": "soon"},
+        {"key": "aplus1", "name": "A+ Core 1 (220-1101)", "status": "soon"},
+        {"key": "aplus2", "name": "A+ Core 2 (220-1102)", "status": "soon"},
     ]},
     {"provider": "AWS", "blurb": "Cloud fundamentals & architecture", "certs": [
         {"key": "clf", "name": "Cloud Practitioner", "status": "soon"},

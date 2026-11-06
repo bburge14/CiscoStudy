@@ -6,6 +6,7 @@ import streamlit as st
 from studyengine import lesson_markdown, lesson_quiz, milestone_exam
 from studyengine.cli_sim import get_scenario
 from ui_common import (
+    EXAMS,
     PASS_THRESHOLD,
     get_bank,
     get_curriculum,
@@ -28,6 +29,12 @@ units = cur.units_for(exam)
 page_header("book", "Structured Milestones")
 st.caption("Work each unit in order: read the lesson, pass the lesson quiz, then "
            "clear the cumulative milestone exam and PBQ to unlock the next unit.")
+
+if not units:
+    st.info(f"📚 Structured lessons for **{EXAMS[exam]}** are on the way. In the "
+            "meantime, use **Diagnostic**, **Endless Drill**, and **Exam Simulation** "
+            "(all fully stocked for this track) to study.")
+    st.stop()
 
 
 def unlocked(i: int) -> bool:
