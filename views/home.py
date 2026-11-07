@@ -96,8 +96,7 @@ st.caption("CertWize is growing into a full IT-cert trainer. Live tracks are rea
 
 
 def _switch(key: str) -> None:
-    st.session_state["exam"] = key
-    st.session_state["track_select"] = key   # keep the sidebar dropdown in sync
+    st.session_state["exam"] = key   # the sidebar picker reads session_state["exam"]
 
 
 for prov in CERT_CATALOG:
