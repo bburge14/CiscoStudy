@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<style>
+  :root { --accent:#4D8DFF; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; padding:0; background:transparent;
+    font-family:"Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    color:#E8ECF4; }
+  #root { padding:2px; }
+  .hint { color:#9AA4B2; font-size:.82rem; margin:0 0 .5rem; }
+  .tray { display:flex; flex-wrap:wrap; gap:.4rem; padding:.5rem;
+    border:1px dashed rgba(255,255,255,.18); border-radius:10px; min-height:44px;
+    background:rgba(255,255,255,.02); margin-bottom:.7rem; }
+  .tray.over { border-color:var(--accent); background:rgba(255,255,255,.05); }
+  .tray-label { width:100%; font-size:.7rem; letter-spacing:.06em; text-transform:uppercase;
+    color:#8A94A6; margin-bottom:.1rem; }
+  .chip { display:inline-flex; align-items:center; gap:.4rem; padding:.42rem .6rem;
+    background:#1b2435; border:1px solid rgba(255,255,255,.14); border-radius:8px;
+    cursor:grab; user-select:none; font-size:.9rem; line-height:1.15; }
+  .chip:active { cursor:grabbing; }
+  .chip.dragging { opacity:.4; }
+  .chip .grip { color:#6b7688; font-size:.8rem; }
+  .zones { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.6rem; }
+  .zone { border:1px solid rgba(255,255,255,.12); border-radius:10px; padding:.5rem;
+    background:rgba(255,255,255,.015); min-height:70px; }
+  .zone.over { border-color:var(--accent); background:rgba(77,141,255,.08); }
+  .zone h4 { margin:0 0 .4rem; font-size:.84rem; color:#cdd5e2; }
+  .zone .drop { display:flex; flex-direction:column; gap:.35rem; min-height:30px; }
+  .rows { display:flex; flex-direction:column; gap:.5rem; }
+  .matchrow { display:flex; align-items:center; gap:.6rem; }
+  .matchrow .lbl { flex:1 1 50%; font-size:.9rem; }
+  .slot { flex:1 1 50%; min-height:40px; border:1px dashed rgba(255,255,255,.18);
+    border-radius:8px; padding:.2rem; display:flex; align-items:center; }
+  .slot.over { border-color:var(--accent); background:rgba(77,141,255,.08); }
+  .slot .chip { width:100%; }
+  .orderlist { display:flex; flex-direction:column; gap:.4rem; counter-reset:step; }
+  .orderitem { display:flex; align-items:center; gap:.6rem; padding:.5rem .6rem;
+    background:#1b2435; border:1px solid rgba(255,255,255,.14); border-radius:9px;
+    cursor:grab; user-select:none; }
+  .orderitem.dragging { opacity:.4; }
+  .orderitem.over { border-color:var(--accent); }
+  .orderitem .num { flex:none; width:1.6rem; height:1.6rem; border-radius:50%;
+    background:var(--accent); color:#fff; font-weight:700; font-size:.82rem;
+    display:flex; align-items:center; justify-content:center; }
+  .orderitem .txt { flex:1; font-size:.92rem; }
+  .orderitem .grip { color:#6b7688; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+// ---- Streamlit component protocol (no external deps) ----------------------
+function send(type, extra){ window.parent.postMessage(Object.assign({isStreamlitMessage:true, type:type}, extra||{}), "*"); }
+function setValue(v){ send("streamlit:setComponentValue", {value:v, dataType:"json"}); }
+function setHeight(h){ send("streamlit:setFrameHeight", {height:h}); }
+function pushHeight(){ setHeight(document.body.scrollHeight + 6); }
+
+let ARGS = null;
+let dragged = null;   // the element currently being dragged
+
+window.addEventListener("message", (e) => {
+  if (!e.data || e.data.type !== "streamlit:render") return;
+  ARGS = e.data.args || {};
+  render();
+});
+send("streamlit:componentReady", {apiVersion: 1});
+
+// ---- helpers --------------------------------------------------------------
+function chip(text){
+  const c = document.createElement("div");
+  c.className = "chip"; c.draggable = true; c.dataset.text = text;
+  c.innerHTML = '<span class="grip">⠿</span><span></span>';
+  c.querySelector("span:last-child").textContent = text;
+  c.addEventListener("dragstart", ()=>{ dragged=c; c.classList.add("dragging"); });
+  c.addEventListener("dragend", ()=>{ c.classList.remove("dragging"); emit(); });
+  return c;
+}
+function dropTarget(el, onDrop){
+  el.addEventListener("dragover", (ev)=>{ ev.preventDefault(); el.classList.add("over"); });
+  el.addEventListener("dragleave", ()=> el.classList.remove("over"));
+  el.addEventListener("drop", (ev)=>{ ev.preventDefault(); el.classList.remove("over");
+    if (dragged) onDrop(dragged); emit(); });
+}
+
+// ---- render ---------------------------------------------------------------
+function render(){
+  const accent = (ARGS && ARGS.accent) || "#4D8DFF";
+  document.documentElement.style.setProperty("--accent", accent);
+  const root = document.getElementById("root");
+  root.innerHTML = "";
+  const kind = ARGS.kind;
+  if (kind === "categorize") renderCategorize(root);
+  else if (kind === "match") renderMatch(root);
+  else if (kind === "order") renderOrder(root);
+  pushHeight();
+}
+
+// ---- categorize: items -> buckets -----------------------------------------
+function renderCategorize(root){
+  const initial = ARGS.initial || {};
+  const tray = document.createElement("div");
+  tray.className = "tray";
+  tray.innerHTML = '<div class="tray-label">Unplaced</div>';
+  dropTarget(tray, (el)=> tray.appendChild(el));
+  root.appendChild(tray);
+
+  const zonesWrap = document.createElement("div");
+  zonesWrap.className = "zones";
+  const zoneDrops = {};
+  (ARGS.zones||[]).forEach(z=>{
+    const zone = document.createElement("div"); zone.className="zone";
+    const h = document.createElement("h4"); h.textContent = z; zone.appendChild(h);
+    const drop = document.createElement("div"); drop.className="drop"; zone.appendChild(drop);
+    dropTarget(zone, (el)=> drop.appendChild(el));
+    zoneDrops[z] = drop; zonesWrap.appendChild(zone);
+  });
+  root.appendChild(zonesWrap);
+
+  (ARGS.items||[]).forEach(it=>{
+    const c = chip(it);
+    const z = initial[it];
+    (z && zoneDrops[z] ? zoneDrops[z] : tray).appendChild(c);
+  });
+}
+
+// ---- match: drag a right chip into each left row's slot --------------------
+function renderMatch(root){
+  const initial = ARGS.initial || {};
+  const tray = document.createElement("div");
+  tray.className="tray";
+  tray.innerHTML = '<div class="tray-label">Options — drag one into each row</div>';
+  dropTarget(tray, (el)=> tray.appendChild(el));
+  root.appendChild(tray);
+
+  const rows = document.createElement("div"); rows.className="rows";
+  const slots = {};
+  (ARGS.lefts||[]).forEach(l=>{
+    const row = document.createElement("div"); row.className="matchrow";
+    const lbl = document.createElement("div"); lbl.className="lbl"; lbl.textContent=l;
+    const slot = document.createElement("div"); slot.className="slot"; slot.dataset.left=l;
+    dropTarget(slot, (el)=>{
+      const existing = slot.querySelector(".chip");
+      if (existing && existing !== el) tray.appendChild(existing);  // bump the old one back
+      slot.appendChild(el);
+    });
+    row.appendChild(lbl); row.appendChild(slot); rows.appendChild(row);
+    slots[l]=slot;
+  });
+  root.appendChild(rows);
+
+  const used = {};
+  (ARGS.lefts||[]).forEach(l=>{ if (initial[l]) used[initial[l]] = l; });
+  (ARGS.rights||[]).forEach(r=>{
+    const c = chip(r);
+    const l = used[r];
+    (l && slots[l] ? slots[l] : tray).appendChild(c);
+  });
+}
+
+// ---- order: reorder the step chips ----------------------------------------
+function renderOrder(root){
+  const initial = ARGS.initial || {};
+  let steps = ARGS.steps || [];
+  if (initial && Object.keys(initial).length){
+    const ordered = [];
+    for (let i=1;i<=steps.length;i++){ if (initial["pos"+i]) ordered.push(initial["pos"+i]); }
+    // keep any missing ones appended
+    steps.forEach(s=>{ if (!ordered.includes(s)) ordered.push(s); });
+    if (ordered.length===steps.length) steps = ordered;
+  }
+  const list = document.createElement("div"); list.className="orderlist";
+  steps.forEach(s=>{
+    const it = document.createElement("div"); it.className="orderitem"; it.draggable=true; it.dataset.text=s;
+    it.innerHTML = '<span class="num"></span><span class="txt"></span><span class="grip">⠿</span>';
+    it.querySelector(".txt").textContent = s;
+    it.addEventListener("dragstart", ()=>{ dragged=it; it.classList.add("dragging"); });
+    it.addEventListener("dragend", ()=>{ it.classList.remove("dragging"); renumber(list); emit(); });
+    it.addEventListener("dragover", (ev)=>{ ev.preventDefault();
+      if (!dragged || dragged===it) return;
+      const r = it.getBoundingClientRect();
+      const before = (ev.clientY - r.top) < r.height/2;
+      list.insertBefore(dragged, before ? it : it.nextSibling);
+    });
+    list.appendChild(it);
+  });
+  root.appendChild(list);
+  renumber(list);
+}
+function renumber(list){
+  [...list.children].forEach((it,i)=>{ const n=it.querySelector(".num"); if(n) n.textContent=i+1; });
+}
+
+// ---- compute + emit the response ------------------------------------------
+function emit(){
+  const kind = ARGS.kind; const response = {};
+  if (kind === "categorize"){
+    document.querySelectorAll(".zone").forEach(zone=>{
+      const name = zone.querySelector("h4").textContent;
+      zone.querySelectorAll(".chip").forEach(c=> response[c.dataset.text] = name);
+    });
+  } else if (kind === "match"){
+    document.querySelectorAll(".slot").forEach(slot=>{
+      const c = slot.querySelector(".chip");
+      if (c) response[slot.dataset.left] = c.dataset.text;
+    });
+  } else if (kind === "order"){
+    const items = document.querySelectorAll(".orderitem");
+    items.forEach((it,i)=> response["pos"+(i+1)] = it.dataset.text);
+  }
+  setValue({response: response, nonce: Date.now()});
+  pushHeight();
+}
+window.addEventListener("resize", pushHeight);
+</script>
+</body>
+</html>

@@ -43,6 +43,7 @@ datas += [
     ("ui_icons.py", "."),
     ("views", "views"),
     ("studyengine", "studyengine"),
+    ("components", "components"),
     ("data", "data"),
     (".streamlit", ".streamlit"),
 ]

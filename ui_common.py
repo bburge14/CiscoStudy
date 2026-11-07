@@ -637,32 +637,34 @@ def render_account_bar() -> None:
                 st.rerun()
 
 
+def set_track(exam: str) -> None:
+    """Switch the active cert track."""
+    st.session_state["exam"] = exam
+
+
 def _render_track_picker() -> None:
-    """The 'Active track' dropdown. Lists every known certification; tracks whose
-    content isn't built yet show as 'coming soon' and are non-selectable — picking
-    one snaps the dropdown back to your current track and explains why."""
+    """A click-only 'Active track' dropdown: a popover showing the current track,
+    opening to a button per track. Live tracks switch instantly; tracks whose
+    content isn't built yet are disabled (greyed) and labeled 'soon'. No typing —
+    it's a pick list, not a text box."""
     all_tracks = list(_BLUEPRINTS)          # ccna, encor, secplus, netplus, aplus1, aplus2
     live = set(LIVE_EXAMS)
-    st.session_state.setdefault("track_select", st.session_state.get("exam", "ccna"))
+    cur = st.session_state.get("exam", "ccna")
+    accent = current_accent()
 
-    def _label(k: str) -> str:
-        name = _BLUEPRINTS[k].name
-        return name if k in live else f"{name}   ·   coming soon"
-
-    def _on_change() -> None:
-        choice = st.session_state["track_select"]
-        if choice in live:
-            st.session_state["exam"] = choice
-        else:   # not built yet — revert the widget and flag a note
-            st.session_state["track_select"] = st.session_state.get("exam", "ccna")
-            st.session_state["_track_soon"] = _BLUEPRINTS[choice].name
-
-    st.selectbox("Active track", all_tracks, key="track_select",
-                 format_func=_label, on_change=_on_change)
-    soon = st.session_state.pop("_track_soon", None)
-    if soon:
-        st.caption(f"**{soon}** isn't ready yet — its question bank is still being built. "
-                   "Live tracks switch instantly.")
+    st.markdown("<div style='font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;"
+                "color:#8A94A6;margin:.1rem 0 .25rem'>Active track</div>", unsafe_allow_html=True)
+    with st.popover(f"{_BLUEPRINTS[cur].name}", width="stretch"):
+        st.caption("Choose a certification track")
+        for k in all_tracks:
+            name = _BLUEPRINTS[k].name
+            if k in live:
+                st.button(("● " if k == cur else "") + name, key=f"trk_{k}", width="stretch",
+                          type="primary" if k == cur else "secondary",
+                          on_click=set_track, args=(k,))
+            else:
+                st.button(f"{name}  ·  soon", key=f"trk_{k}", width="stretch", disabled=True,
+                          help="Content for this track is still being built.")
 
 
 def render_sidebar_chrome() -> None:
@@ -1026,47 +1028,67 @@ def run_quiz(exam: str, skey: str, question_ids: list[str], instant: bool = Fals
 
 
 # --- interactive CompTIA PBQ (categorize / match / order) -------------------
+def _show_perf_result(task, answer: dict, passed_flag: str) -> None:
+    """Grade an arrangement and render per-row custom-glyph feedback."""
+    checks = task.grade(answer or {})
+    st.markdown(
+        "".join(
+            f"<div style='display:flex;align-items:center;margin:.12rem 0'>"
+            f"{ui_icons.inline('check' if c.passed else 'cross', 16, '#22C58B' if c.passed else '#E06C6C')}"
+            f"<span>{html.escape(c.description)}</span></div>"
+            for c in checks),
+        unsafe_allow_html=True,
+    )
+    if checks and all(c.passed for c in checks):
+        st.session_state[passed_flag] = True
+        st.success(task.success)
+        st.balloons()
+    else:
+        n = sum(1 for c in checks if c.passed)
+        st.warning(f"{n}/{len(checks)} correct — rearrange the flagged rows and validate again.")
+        if task.explain:
+            with st.expander("Need a hint?"):
+                st.markdown(task.explain)
+
+
 def render_perf_task(task, skey_prefix: str) -> bool:
-    """Render a CompTIA performance task and grade it. Returns True once every
-    row is correct (also stores a cross-page flag pbq_passed_<id>)."""
+    """Render a CompTIA performance task and grade it. Defaults to real
+    drag-and-drop; a Dropdown-mode toggle gives a click-menu fallback (touch /
+    accessibility). Returns True once every row is correct."""
     import random as _random
     passed_flag = f"pbq_passed_{task.id}"
-    _KIND_HINT = {
-        "categorize": "Choose the category each item belongs in.",
-        "match": "Pick the correct match for each item.",
-        "order": "Choose which item belongs in each position.",
-    }
     st.markdown(task.prompt)
-    st.caption(_KIND_HINT.get(task.kind, ""))
-    rows = task.rows()
-    with st.form(f"{skey_prefix}_form"):
-        picks = {}
-        for key, label, choices, _correct in rows:
-            opts = list(choices)
-            _random.Random(f"{task.id}:{key}").shuffle(opts)   # no positional hint
-            picks[key] = st.selectbox(label, ["— choose —"] + opts, key=f"{skey_prefix}_{key}")
-        submitted = st.form_submit_button("Validate", type="primary")
-    if submitted:
-        answer = {k: (v if v != "— choose —" else None) for k, v in picks.items()}
-        checks = task.grade(answer)
-        st.markdown(
-            "".join(
-                f"<div style='display:flex;align-items:center;margin:.12rem 0'>"
-                f"{ui_icons.inline('check' if c.passed else 'cross', 16, '#22C58B' if c.passed else '#E06C6C')}"
-                f"<span>{html.escape(c.description)}</span></div>"
-                for c in checks),
-            unsafe_allow_html=True,
-        )
-        if all(c.passed for c in checks):
-            st.session_state[passed_flag] = True
-            st.success(task.success)
-            st.balloons()
-        else:
-            n = sum(1 for c in checks if c.passed)
-            st.warning(f"{n}/{len(checks)} correct — fix the flagged rows and validate again.")
-            if task.explain:
-                with st.expander("Need a hint?"):
-                    st.markdown(task.explain)
+
+    dropdown_mode = st.toggle(
+        "Dropdown mode", key=f"{skey_prefix}_mode", value=False,
+        help="Use click-menus instead of dragging — handy on touch screens.")
+
+    if not dropdown_mode:
+        st.caption({"categorize": "Drag each item into the correct category.",
+                    "match": "Drag an option onto each row.",
+                    "order": "Drag the steps into the correct order."}.get(task.kind, ""))
+        answer = {}
+        try:
+            from components.dragdrop import drag_arrange
+            answer = drag_arrange(task, accent=current_accent(), key=f"{skey_prefix}_drag") or {}
+        except Exception:
+            st.info("The drag canvas couldn't load here — switch on **Dropdown mode** above.")
+        if st.button("Validate", type="primary", key=f"{skey_prefix}_val"):
+            _show_perf_result(task, answer, passed_flag)
+    else:
+        st.caption({"categorize": "Choose the category each item belongs in.",
+                    "match": "Pick the correct match for each item.",
+                    "order": "Choose which item belongs in each position."}.get(task.kind, ""))
+        with st.form(f"{skey_prefix}_form"):
+            picks = {}
+            for key, label, choices, _correct in task.rows():
+                opts = list(choices)
+                _random.Random(f"{task.id}:{key}").shuffle(opts)   # no positional hint
+                picks[key] = st.selectbox(label, ["— choose —"] + opts, key=f"{skey_prefix}_{key}")
+            submitted = st.form_submit_button("Validate", type="primary")
+        if submitted:
+            answer = {k: (v if v != "— choose —" else None) for k, v in picks.items()}
+            _show_perf_result(task, answer, passed_flag)
     return st.session_state.get(passed_flag, False)
 
 
