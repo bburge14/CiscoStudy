@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import streamlit as st
 
-from studyengine import lesson_markdown, lesson_quiz, milestone_exam
+from studyengine import lesson_markdown, lesson_quiz, milestone_exam, score_session
 from ui_common import (
     EXAMS,
     PASS_THRESHOLD,
@@ -15,6 +15,7 @@ from ui_common import (
     render_any_pbq,
     render_quiz_review,
     reset_quiz,
+    run_exam,
     run_quiz,
     save_profile,
     section_header,
@@ -100,12 +101,21 @@ with tab_ms:
     skey = f"ms_{exam}_{u.id}"
     if ids_key not in st.session_state:
         st.session_state[ids_key] = [q.id for q in milestone_exam(bank, cur, u)]
-    st.markdown(f"**Cumulative milestone exam — {len(st.session_state[ids_key])} questions** "
-                "(drawn from this unit and all prior units; graded at the end).")
+    ms_ids = st.session_state[ids_key]
+    st.markdown(f"**Cumulative milestone exam — {len(ms_ids)} questions** "
+                "(drawn from this unit and all prior units; graded at the end). "
+                "Move back and forth, flag questions, and review before you submit.")
 
-    status, score = run_quiz(exam, skey, st.session_state[ids_key], instant=False)
+    phase, ms_state = run_exam(exam, skey, ms_ids)
     exam_passed = False
-    if status == "done":
+    if phase == "done":
+        answers = ms_state["answers"]
+        if not ms_state.get("recorded"):
+            for qid in ms_ids:
+                prof.record_study(bank.get(qid), bank.get(qid).check(answers.get(qid)))
+            ms_state["recorded"] = True
+            save_profile(exam)
+        score = score_session([(qid, bank.get(qid).check(answers.get(qid))) for qid in ms_ids], bank)
         st.subheader(f"Milestone exam: {score.correct}/{score.total} · {score.pct}%")
         exam_passed = score.passed(PASS_THRESHOLD)
         (st.success if exam_passed else st.error)(
@@ -113,7 +123,7 @@ with tab_ms:
             + f" (need ≥{int(PASS_THRESHOLD*100)}%)")
         # The milestone exam is graded at the end with no feedback as you go, so
         # offer a full review afterward (the lesson quiz already gives it inline).
-        render_quiz_review(exam, st.session_state[ids_key], st.session_state[skey]["answers"])
+        render_quiz_review(exam, ms_ids, answers)
         if st.button("Retake milestone exam", key=f"rm_{u.id}"):
             reset_quiz(skey)
             st.session_state.pop(ids_key, None)
