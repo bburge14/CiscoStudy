@@ -22,7 +22,7 @@ defaults anywhere in the app body — and recolors per track (see "per-track acc
 |------|--------|
 | Exam blueprints (domains + weights + sub-topics) | ✅ 6 live: CCNA, ENCOR, Security+, Network+, A+ Core 1, A+ Core 2 |
 | Question bank | ✅ 1,230 original items — every track at CCNA depth: CCNA 205, ENCOR 205, Security+ 205, Network+ 205, A+ Core 1 205, A+ Core 2 205 (~30–41/domain). Built as per-domain/round expansion pools (`content_<track>_*.py`, `-r2-` ID segments) auto-merged by the build glob |
-| Track picker | ✅ sidebar **dropdown** lists every track; unbuilt ones show "· coming soon" and are non-selectable (revert + notice) |
+| Track picker | ✅ sidebar **dropdown** lists every track; unbuilt ones show "· coming soon" and are non-selectable (revert + notice). **Locks during a timed Exam Simulation** (you can't switch tracks mid-exam); every other mode keeps its per-track progress across a switch, so the picker stays live there |
 | Per-track accent theme | ✅ each track has its own accent (Cisco blue/violet, Security+ green, Network+ teal, A+ amber/rose); header glyphs, level card, progress bars, primary buttons recolor to the active track (`TRACK_ACCENT` + `_theme_css`) |
 | Diagnostic baseline (5/domain → **20–30 Q by track**: 6-domain CCNA/ENCOR=30, 5-domain Sec+/Net+/A+1=25, 4-domain A+2=20) + focus recs | ✅ real-exam navigation (back/forward, flag-for-review, question map, review-before-submit) |
 | Endless Drill (adaptive, Leitner miss-boost, remediation mode) | ✅ + per-domain focus filter + Skip |
@@ -40,12 +40,12 @@ defaults anywhere in the app body — and recolors per track (see "per-track acc
 | Sidebar layout | ✅ brand wordmark + track dropdown + rank card pinned ABOVE the nav links (CSS `order` on `stSidebarContent`), then the custom-glyph nav |
 | Self-service account page | ✅ change your display name, login/username (keeps progress), and password; last-instructor guard |
 | Personalized study plan | ✅ weakest-first, enforced order, read→drill→unlock (studyplan.py) |
-| Exam simulation | ✅ timed (native per-second countdown, auto-submit at 0), domain-weighted, **real-exam navigation** (back/forward + flag + question map + review-before-submit), pass/fail report |
+| Exam simulation | ✅ timed (native per-second countdown, auto-submit at 0), domain-weighted, **real-exam navigation** (back/forward + flag + question map + review-before-submit), **track-switch locked while running**, pass/fail report |
 | Exam readiness estimate | ✅ weighted practice accuracy + coverage + verdict (on dashboard) |
 | XP / leveling | ✅ 9 ranks, event-based XP (Profile.record_study): rewards getting better (improving/mastering items) + streaks; penalizes misses with per-question escalation — missing the SAME item again and again costs more (−6 → −9 → −12 → −15 floor), a correct answer resets the chain; no credit for mere attempts; steep curve (Level 2 ≈ 30–50 correct answers). Benchmark excluded (study_overall). Home card, sidebar badge, +/−XP + streak chip on each answer |
 | Instructor view | ✅ first account = instructor; roster, per-learner drill-down, account management (create/edit name+login/reset password/role/delete), and reset a learner's status (benchmark only, or all progress); nav entry hidden from learners |
 | Launchers | ✅ `run.sh`, `run.bat`, `run-shared.bat` (LAN), exe |
-| Test suite | ✅ 1424 tests passing (incl. `test_exam_nav.py` — AppTest coverage of the navigable exam engine + per-track baseline sizes) |
+| Test suite | ✅ 1426 tests passing (incl. `test_exam_nav.py` — AppTest coverage of the navigable exam engine, per-track baseline sizes, and the timed-exam track-switch lock) |
 
 Run: `run.bat` (Windows) / `./run.sh` (macOS/Linux) / `streamlit run Home.py`.
 Test: `python -m pytest -q`.
@@ -102,7 +102,12 @@ L3 routed-port uplink (ENCOR).
   does not, so this only shows in a live app) and silently drop the flag — a button
   only mutates `flags` on an explicit click. Pages record into the profile **once**
   at submit (guarded by `state["recorded"]`), so recording semantics stay per-mode
-  (the Diagnostic still excludes itself from XP).
+  (the Diagnostic still excludes itself from XP). Because each attempt's state is
+  keyed by track (`exam_<exam>`, `dx_<exam>`, `ms_<exam>_<unit>`), **switching tracks
+  mid-attempt never loses progress** — you resume right where you left off. The one
+  exception is the **timed Exam Simulation**: while it's running the sidebar track
+  picker is **locked** (`active_exam_lock()` → `_exam_in_progress()`), since you
+  shouldn't be able to wander off mid-exam; finishing or ending it unlocks it.
 
 ## Possible next steps (not yet done)
 - Grow the item banks further (the architecture scales — just add to the `tools/`

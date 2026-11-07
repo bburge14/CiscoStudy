@@ -172,3 +172,33 @@ def test_milestone_exam_renders_through_engine():
         at = _run("milestones.py", exam)
         assert not at.exception, (exam, at.exception)
         assert any(k.startswith(f"ms_{exam}_") for k in at.session_state)
+
+
+# --- track-switch lock (only a live timed exam blocks switching) ------------
+def test_exam_in_progress_detection():
+    import time as _t
+    now = _t.time()
+    # a started, unsubmitted, still-timed exam -> locked
+    assert ui_common._exam_in_progress({"deadline": now + 100, "submitted": False}) is True
+    # submitted, or time expired -> not locked
+    assert ui_common._exam_in_progress({"deadline": now + 100, "submitted": True}) is False
+    assert ui_common._exam_in_progress({"deadline": now - 1, "submitted": False}) is False
+    # untimed modes (Diagnostic / Milestone have no deadline) never lock switching
+    assert ui_common._exam_in_progress({"submitted": False}) is False
+    assert ui_common._exam_in_progress({"idx": 3, "answers": {}}) is False
+    assert ui_common._exam_in_progress(None) is False
+
+
+def test_lock_trips_for_timed_exam_only():
+    # Exam Simulation: once started, its state trips the track-switch lock.
+    at = _run("exam_sim.py", "ccna")
+    at.radio[0].set_value("Quick (20)").run()
+    [b for b in at.button if b.label == "Start exam"][0].click()
+    at.run()
+    assert ui_common._exam_in_progress(at.session_state["exam_ccna"]) is True
+
+    # Diagnostic (untimed): an in-progress attempt does NOT lock switching.
+    at2 = _run("diagnostic.py", "ccna")
+    [b for b in at2.button if "baseline" in b.label.lower()][0].click()
+    at2.run()
+    assert ui_common._exam_in_progress(at2.session_state["dx_ccna"]) is False

@@ -642,18 +642,48 @@ def set_track(exam: str) -> None:
     st.session_state["exam"] = exam
 
 
+def _exam_in_progress(exam_state) -> bool:
+    """True while a *timed* Exam Simulation is live (started, not submitted, time
+    left). Only exam_sim stores a `deadline`, so this never trips on the untimed
+    Diagnostic / Milestone attempts — those stay freely switchable."""
+    return (isinstance(exam_state, dict) and not exam_state.get("submitted")
+            and bool(exam_state.get("deadline")) and time.time() < exam_state["deadline"])
+
+
+def active_exam_lock() -> bool:
+    """Whether the current track has a timed exam in progress (so track-switching
+    is blocked). Mid-exam switching stays allowed for every other mode, where the
+    per-track session state already preserves answers, flags and position."""
+    exam = st.session_state.get("exam", "ccna")
+    return _exam_in_progress(st.session_state.get(f"exam_{exam}"))
+
+
 def _render_track_picker() -> None:
     """A click-only 'Active track' dropdown: a popover showing the current track,
     opening to a button per track. Live tracks switch instantly; tracks whose
     content isn't built yet are disabled (greyed) and labeled 'soon'. No typing —
-    it's a pick list, not a text box."""
+    it's a pick list, not a text box.
+
+    While a timed exam is in progress the picker locks (you can't change tracks in
+    the middle of a mock exam) — finish or end the exam to switch. Every other mode
+    keeps its progress across a switch, so the picker stays live there."""
     all_tracks = list(_BLUEPRINTS)          # ccna, encor, secplus, netplus, aplus1, aplus2
     live = set(LIVE_EXAMS)
     cur = st.session_state.get("exam", "ccna")
-    accent = current_accent()
 
     st.markdown("<div style='font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;"
                 "color:#8A94A6;margin:.1rem 0 .25rem'>Active track</div>", unsafe_allow_html=True)
+
+    if active_exam_lock():
+        st.button(_BLUEPRINTS[cur].name, key="trk_locked", width="stretch", disabled=True,
+                  help="You're in a timed exam. Finish or end it to switch tracks.")
+        st.markdown(
+            f"<div style='font-size:.7rem;color:#8A94A6;margin:.15rem 0 0;display:flex;"
+            f"align-items:center'>{ui_icons.inline('lock', 12, '#8A94A6')}"
+            "Locked during your exam — finish or end it to switch tracks.</div>",
+            unsafe_allow_html=True)
+        return
+
     with st.popover(f"{_BLUEPRINTS[cur].name}", width="stretch"):
         st.caption("Choose a certification track")
         for k in all_tracks:
