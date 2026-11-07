@@ -1,6 +1,6 @@
 {
   "exam": "secplus",
-  "count": 158,
+  "count": 205,
   "questions": [
     {
       "id": "secplus-gsc-001",
@@ -5235,6 +5235,1894 @@
           "D": "Chain of custody documents evidence handling, not the organization-wide preservation order."
         },
         "exam_pattern": "Preserve data + suspend deletion for anticipated litigation = legal hold; then e-discovery produces it."
+      }
+    },
+    {
+      "id": "secplus-gsc-r2-001",
+      "exam": "secplus",
+      "domain": "general_security_concepts",
+      "subtopic": "security_controls",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Running the annual security-awareness training and performing employee background checks are examples of which control CATEGORY?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Technical"
+        },
+        {
+          "id": "B",
+          "text": "Managerial"
+        },
+        {
+          "id": "C",
+          "text": "Physical"
+        },
+        {
+          "id": "D",
+          "text": "Operational"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Operational controls are carried out primarily by PEOPLE as part of day-to-day operations — awareness training, background checks, and access reviews are operational.",
+        "distractors": {
+          "A": "Technical (logical) controls are implemented by technology (firewalls, encryption, MFA).",
+          "B": "Managerial (administrative) controls are strategic — risk assessments, policies, and security planning — not the hands-on execution.",
+          "C": "Physical controls are tangible barriers (locks, guards, fences, bollards).",
+          "D": ""
+        },
+        "exam_pattern": "Category = who/what implements it: managerial (policy/risk planning), operational (people doing day-to-day), technical (tech enforces), physical (tangible barrier)."
+      }
+    },
+    {
+      "id": "secplus-gsc-r2-002",
+      "exam": "secplus",
+      "domain": "general_security_concepts",
+      "subtopic": "security_controls",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A motion-activated camera records and sends the SOC an alert the moment someone enters a restricted area after hours. Which control TYPE is the camera acting as here?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Corrective"
+        },
+        {
+          "id": "B",
+          "text": "Preventive"
+        },
+        {
+          "id": "C",
+          "text": "Compensating"
+        },
+        {
+          "id": "D",
+          "text": "Detective"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Recording and alerting IDENTIFIES activity as it happens — a detective control. (The camera's visible presence can also deter, but the record-and-alert function is detection.)",
+        "distractors": {
+          "A": "Corrective controls act after an incident to restore/repair (e.g., restoring from backup).",
+          "B": "Preventive controls STOP an event before it happens (a locked door, a firewall rule); the camera does not block entry.",
+          "C": "Compensating controls are substitutes used when the primary control is not feasible.",
+          "D": ""
+        },
+        "exam_pattern": "Type = what it DOES vs the event: preventive/deterrent (before), detective (identifies during/after), corrective (fixes after), compensating (stand-in), directive (instructs)."
+      }
+    },
+    {
+      "id": "secplus-gsc-r2-003",
+      "exam": "secplus",
+      "domain": "general_security_concepts",
+      "subtopic": "cia_aaa",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An e-commerce site uses redundant servers and load balancing so it stays reachable even if one server crashes during a sale. Which part of the CIA triad does this protect?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Confidentiality"
+        },
+        {
+          "id": "B",
+          "text": "Availability"
+        },
+        {
+          "id": "C",
+          "text": "Integrity"
+        },
+        {
+          "id": "D",
+          "text": "Non-repudiation"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Availability ensures authorized users can reach systems/data when needed; redundancy, load balancing, and failover are classic availability controls.",
+        "distractors": {
+          "A": "Confidentiality keeps data secret from unauthorized parties (encryption, access control).",
+          "B": "",
+          "C": "Integrity ensures data is accurate and unaltered (hashing, digital signatures).",
+          "D": "Non-repudiation proves who performed an action and is not part of the CIA triad."
+        },
+        "exam_pattern": "CIA: Confidentiality (secrecy), Integrity (unaltered), Availability (accessible). Redundancy/backup/failover/load balancing → availability."
+      }
+    },
+    {
+      "id": "secplus-gsc-r2-004",
+      "exam": "secplus",
+      "domain": "general_security_concepts",
+      "subtopic": "cia_aaa",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A user types a username and then a password; the system confirms the password matches the stored credential for that account before any access is granted. Which step is the password check performing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Identification"
+        },
+        {
+          "id": "B",
+          "text": "Authentication"
+        },
+        {
+          "id": "C",
+          "text": "Accounting"
+        },
+        {
+          "id": "D",
+          "text": "Authorization"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Authentication is PROVING a claimed identity — verifying the password (something you know) matches the stored credential.",
+        "distractors": {
+          "A": "Identification is merely CLAIMING an identity (typing the username); it is not proof.",
+          "B": "",
+          "C": "Accounting records what the authenticated user did (an audit trail).",
+          "D": "Authorization happens AFTER authentication and decides what the user may access."
+        },
+        "exam_pattern": "Identify (claim) -> Authenticate (prove) -> Authorize (permit) -> Account (log). Verifying a credential = authentication."
+      }
+    },
+    {
+      "id": "secplus-gsc-r2-005",
+      "exam": "secplus",
+      "domain": "general_security_concepts",
+      "subtopic": "zero_trust",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In a Zero Trust architecture, a gateway sits in the traffic path to a protected resource and, acting on the decision relayed from the control plane, opens or drops each connection. Which component is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Policy Engine (PE)"
+        },
+        {
+          "id": "B",
+          "text": "Policy Administrator (PA)"
+        },
+        {
+          "id": "C",
+          "text": "Subject"
+        },
+        {
+          "id": "D",
+          "text": "Policy Enforcement Point (PEP)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The Policy Enforcement Point, in the DATA plane, allows, monitors, and terminates connections to the resource according to the control plane's decision.",
+        "distractors": {
+          "A": "The Policy Engine (control plane) MAKES the grant/deny decision; it does not sit in the traffic path.",
+          "B": "The Policy Administrator (control plane) relays the decision and sets up/tears down the session, but the PEP is the enforcement gateway.",
+          "C": "The Subject is the user/device requesting access, not an enforcement component.",
+          "D": ""
+        },
+        "exam_pattern": "Control plane = Policy Engine (decides) + Policy Administrator (relays/sets up); data plane = Policy Enforcement Point (allows/blocks/monitors the actual connection)."
+      }
+    },
+    {
+      "id": "secplus-gsc-r2-006",
+      "exam": "secplus",
+      "domain": "general_security_concepts",
+      "subtopic": "physical_security",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A warehouse needs a motion sensor that covers a large open area and can detect movement even through thin, non-metallic partitions by emitting radio energy and measuring the reflection. Which sensor fits BEST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ultrasonic sensor"
+        },
+        {
+          "id": "B",
+          "text": "Pressure sensor"
+        },
+        {
+          "id": "C",
+          "text": "Infrared (PIR) sensor"
+        },
+        {
+          "id": "D",
+          "text": "Microwave sensor"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Microwave sensors emit radio waves and detect motion from changes in the reflected signal; they cover large areas and can sense through thin non-metal materials.",
+        "distractors": {
+          "A": "An ultrasonic sensor uses high-frequency SOUND waves and is typically shorter-range and more affected by obstacles.",
+          "B": "A pressure sensor triggers on weight/force applied to a surface (e.g., a floor mat), not open-area motion.",
+          "C": "A passive infrared (PIR) sensor detects a moving body's HEAT within line of sight and cannot see through walls.",
+          "D": ""
+        },
+        "exam_pattern": "Sensors: infrared (body heat, line of sight), microwave (radio reflection, large area/thin walls), ultrasonic (sound), pressure (weight/force)."
+      }
+    },
+    {
+      "id": "secplus-gsc-r2-007",
+      "exam": "secplus",
+      "domain": "general_security_concepts",
+      "subtopic": "change_management",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A core-switch upgrade is scheduled for 2:00 a.m. Sunday, the period of lowest business activity, so any disruption affects the fewest users. What is this pre-approved period called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Maintenance window"
+        },
+        {
+          "id": "B",
+          "text": "Change freeze"
+        },
+        {
+          "id": "C",
+          "text": "Backout plan"
+        },
+        {
+          "id": "D",
+          "text": "Service-level agreement"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A maintenance window is a scheduled, approved time — usually during low activity — for performing changes so impact is minimized.",
+        "distractors": {
+          "A": "",
+          "B": "A change freeze is a period during which NO changes are allowed (e.g., end-of-quarter).",
+          "C": "A backout (rollback) plan is the documented way to UNDO the change if it fails, not the time it runs.",
+          "D": "An SLA defines service commitments between parties, not a change's scheduled time."
+        },
+        "exam_pattern": "Change-management terms: maintenance window (when), backout plan (how to undo), impact analysis (what could break), approval/CAB (who signs off)."
+      }
+    },
+    {
+      "id": "secplus-gsc-r2-008",
+      "exam": "secplus",
+      "domain": "general_security_concepts",
+      "subtopic": "cryptographic_solutions",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An enterprise needs a dedicated, tamper-resistant appliance to GENERATE, store, and manage cryptographic keys for many servers and to offload bulk encryption operations. Which solution is designed for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Trusted Platform Module (TPM)"
+        },
+        {
+          "id": "B",
+          "text": "Certificate Signing Request (CSR)"
+        },
+        {
+          "id": "C",
+          "text": "Hardware Security Module (HSM)"
+        },
+        {
+          "id": "D",
+          "text": "Key Distribution Center (KDC)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "An HSM is a dedicated, tamper-resistant device (appliance or card) for enterprise-scale key generation, storage, management, and crypto acceleration across many systems.",
+        "distractors": {
+          "A": "A TPM is a chip bound to a SINGLE host (e.g., for that machine's disk-encryption keys), not a multi-server enterprise key manager.",
+          "B": "A CSR is a request sent to a CA to obtain a certificate, not a key-management device.",
+          "C": "",
+          "D": "A KDC issues tickets in Kerberos authentication; it is not a key-storage appliance."
+        },
+        "exam_pattern": "TPM = per-device chip (one machine's keys); HSM = enterprise, tamper-resistant key manager/accelerator for many systems."
+      }
+    },
+    {
+      "id": "secplus-gsc-r2-009",
+      "exam": "secplus",
+      "domain": "general_security_concepts",
+      "subtopic": "cryptographic_solutions",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "To slow down offline brute-force cracking of stored password hashes, developers run each password through a deliberately slow, repeated hashing function such as bcrypt, PBKDF2, or Argon2. What is this technique called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Key stretching"
+        },
+        {
+          "id": "B",
+          "text": "Key escrow"
+        },
+        {
+          "id": "C",
+          "text": "Salting"
+        },
+        {
+          "id": "D",
+          "text": "Steganography"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Key stretching repeatedly hashes (and salts) a low-entropy secret with a purposely expensive function so each guess costs an attacker far more time — bcrypt/PBKDF2/Argon2 are built for it.",
+        "distractors": {
+          "A": "",
+          "B": "Key escrow stores a copy of keys with a third party for recovery.",
+          "C": "Salting adds a unique random value so identical passwords hash differently and defeats precomputed (rainbow-table) attacks; it is often combined with stretching but does not add CPU cost per guess.",
+          "D": "Steganography hides data inside other media (images, audio)."
+        },
+        "exam_pattern": "Salt (unique value -> stops precomputation) + key stretching (slow, repeated hashing -> raises per-guess cost). bcrypt/PBKDF2/Argon2 = key-stretching functions."
+      }
+    },
+    {
+      "id": "secplus-gsc-r2-010",
+      "exam": "secplus",
+      "domain": "general_security_concepts",
+      "subtopic": "pki",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company wants ONE certificate that secures its main domain and ANY current or future subdomain under it (shop.example.com, mail.example.com, vpn.example.com, ...) without reissuing. Which certificate type fits BEST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Self-signed certificate"
+        },
+        {
+          "id": "B",
+          "text": "Root CA certificate"
+        },
+        {
+          "id": "C",
+          "text": "Code-signing certificate"
+        },
+        {
+          "id": "D",
+          "text": "Wildcard certificate (*.example.com)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A wildcard certificate (CN/SAN of *.example.com) secures the domain and all first-level subdomains with a single cert, so new subdomains need no reissue.",
+        "distractors": {
+          "A": "A self-signed certificate is not issued by a trusted CA and browsers will not trust it by default.",
+          "B": "A root CA certificate is the trust anchor used to sign other certificates, not to secure a website's subdomains.",
+          "C": "A code-signing certificate signs software, not web hosts.",
+          "D": ""
+        },
+        "exam_pattern": "Wildcard (*.domain) = all first-level subdomains, one cert. SAN cert = several specific, possibly DIFFERENT names/domains listed explicitly."
+      }
+    },
+    {
+      "id": "secplus-gsc-r2-011",
+      "exam": "secplus",
+      "domain": "general_security_concepts",
+      "subtopic": "pki",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A certificate authority periodically publishes a digitally signed file listing the serial numbers of all certificates it has revoked before their expiration, which clients can download and cache. What is this mechanism?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Key escrow"
+        },
+        {
+          "id": "B",
+          "text": "Certificate Signing Request (CSR)"
+        },
+        {
+          "id": "C",
+          "text": "Online Certificate Status Protocol (OCSP)"
+        },
+        {
+          "id": "D",
+          "text": "Certificate Revocation List (CRL)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A CRL is a CA-signed, periodically published list of revoked certificate serial numbers; clients download it to check whether a certificate is still valid.",
+        "distractors": {
+          "A": "Key escrow stores keys for recovery; it has nothing to do with revocation status.",
+          "B": "A CSR requests a new certificate from a CA.",
+          "C": "OCSP checks the status of a SINGLE certificate in REAL TIME via a responder query, rather than downloading a whole list — lighter and more current than a CRL.",
+          "D": ""
+        },
+        "exam_pattern": "Revocation: CRL (full signed list, periodically downloaded, can be stale) vs OCSP (real-time, single-cert query); OCSP stapling has the server present a time-stamped status."
+      }
+    },
+    {
+      "id": "secplus-tvm-r2-001",
+      "exam": "secplus",
+      "domain": "threats_vulns_mitigations",
+      "subtopic": "threat_vectors",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Sales staff routinely connect their laptops to free, open (unencrypted) Wi-Fi at airports and cafes. An attacker on the same network captures their unencrypted traffic. Which THREAT VECTOR does this exploit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Supply chain"
+        },
+        {
+          "id": "B",
+          "text": "Removable media"
+        },
+        {
+          "id": "C",
+          "text": "Default credentials"
+        },
+        {
+          "id": "D",
+          "text": "Unsecure network"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Connecting over an open, unencrypted wireless network is an unsecure-network vector — nearby attackers can eavesdrop or run on-path attacks. Mitigate with a VPN and TLS everywhere.",
+        "distractors": {
+          "A": "A supply-chain vector is abuse via a trusted vendor/MSP or a tampered component, not public Wi-Fi.",
+          "B": "Removable media is a USB/external-drive vector.",
+          "C": "Default credentials is leaving vendor-set logins (e.g., admin/admin) in place.",
+          "D": ""
+        },
+        "exam_pattern": "Threat VECTOR = the path in. Open/rogue Wi-Fi = unsecure network -> VPN + TLS; USB drop = removable media; vendor compromise = supply chain."
+      }
+    },
+    {
+      "id": "secplus-tvm-r2-002",
+      "exam": "secplus",
+      "domain": "threats_vulns_mitigations",
+      "subtopic": "social_engineering",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An attacker crafts a highly tailored email aimed specifically at a company's CFO, referencing a genuine pending acquisition, to trick that executive into authorizing a wire transfer. Which social-engineering attack is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Smishing"
+        },
+        {
+          "id": "B",
+          "text": "Shoulder surfing"
+        },
+        {
+          "id": "C",
+          "text": "Whaling"
+        },
+        {
+          "id": "D",
+          "text": "Watering-hole attack"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Whaling is spear phishing aimed at a HIGH-VALUE executive ('big fish') such as a CEO or CFO, using tailored, credible details to exploit their authority.",
+        "distractors": {
+          "A": "Smishing is phishing delivered by SMS text message.",
+          "B": "Shoulder surfing is observing someone's screen/keypad to steal information.",
+          "C": "",
+          "D": "A watering-hole attack compromises a website the target group is known to visit."
+        },
+        "exam_pattern": "Phishing (broad) -> spear phishing (targeted) -> whaling (targeted at a senior executive). Channel variants: vishing (voice), smishing (SMS)."
+      }
+    },
+    {
+      "id": "secplus-tvm-r2-003",
+      "exam": "secplus",
+      "domain": "threats_vulns_mitigations",
+      "subtopic": "malware",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A disgruntled administrator inserts hidden code into a production server that will delete all payroll records automatically IF his own user account is ever disabled. Which type of malicious code is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ransomware"
+        },
+        {
+          "id": "B",
+          "text": "Logic bomb"
+        },
+        {
+          "id": "C",
+          "text": "Worm"
+        },
+        {
+          "id": "D",
+          "text": "Rootkit"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A logic bomb is dormant code that triggers a malicious payload when a specific CONDITION or time is met — here, the admin's account being disabled.",
+        "distractors": {
+          "A": "Ransomware encrypts data and demands payment.",
+          "B": "",
+          "C": "A worm self-propagates across hosts over a network; it is not a conditional trigger.",
+          "D": "A rootkit hides at a privileged level to maintain stealthy access."
+        },
+        "exam_pattern": "Condition/time trigger = logic bomb; self-spread = worm; encrypt+extort = ransomware; hide/privilege = rootkit; disguised installer = trojan."
+      }
+    },
+    {
+      "id": "secplus-tvm-r2-004",
+      "exam": "secplus",
+      "domain": "threats_vulns_mitigations",
+      "subtopic": "network_attacks",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In an airport, an attacker stands up a rogue Wi-Fi access point broadcasting the SAME SSID as the legitimate airport network, so victims associate to it and the attacker intercepts their traffic. Which attack is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SYN flood"
+        },
+        {
+          "id": "B",
+          "text": "Evil twin"
+        },
+        {
+          "id": "C",
+          "text": "DNS cache poisoning"
+        },
+        {
+          "id": "D",
+          "text": "ARP poisoning"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "An evil twin is a rogue access point impersonating a legitimate SSID to lure clients into connecting, enabling eavesdropping and on-path attacks. WPA3, validating networks, and VPN use mitigate it.",
+        "distractors": {
+          "A": "A SYN flood is a denial-of-service that exhausts half-open TCP connections.",
+          "B": "",
+          "C": "DNS cache poisoning injects false records into a resolver's cache.",
+          "D": "ARP poisoning forges ARP replies on a local LAN to redirect traffic — not a rogue wireless AP."
+        },
+        "exam_pattern": "Rogue AP with a spoofed/duplicate SSID = evil twin (wireless on-path). LAN redirect via forged ARP = ARP poisoning."
+      }
+    },
+    {
+      "id": "secplus-tvm-r2-005",
+      "exam": "secplus",
+      "domain": "threats_vulns_mitigations",
+      "subtopic": "application_attacks",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A web form passes a user-supplied value straight into an operating-system shell command. An attacker enters '; cat /etc/passwd' and the server runs it, returning the file. Which attack is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "OS command injection"
+        },
+        {
+          "id": "B",
+          "text": "SQL injection"
+        },
+        {
+          "id": "C",
+          "text": "Cross-site scripting (XSS)"
+        },
+        {
+          "id": "D",
+          "text": "Cross-site request forgery (CSRF)"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "OS command injection occurs when unsanitized input is passed to a system shell, letting the attacker run arbitrary OS commands. Fix with strict input validation/allow-listing and safe APIs (avoid shell calls).",
+        "distractors": {
+          "A": "",
+          "B": "SQL injection targets a DATABASE query (e.g., ' OR '1'='1), not the OS shell.",
+          "C": "XSS injects script that runs in other users' BROWSERS.",
+          "D": "CSRF tricks an authenticated user's browser into submitting an unwanted request; it does not run server-side OS commands."
+        },
+        "exam_pattern": "Input reaches a shell = command injection; a SQL query = SQLi; a victim's browser = XSS. Defense for all: validate/encode input, least privilege."
+      }
+    },
+    {
+      "id": "secplus-tvm-r2-006",
+      "exam": "secplus",
+      "domain": "threats_vulns_mitigations",
+      "subtopic": "vulnerability_types",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A review finds a public web server deployed with directory listing enabled, verbose error messages exposed, and the vendor's default admin account still active. Which category of vulnerability do these findings represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Misconfiguration"
+        },
+        {
+          "id": "B",
+          "text": "Buffer overflow"
+        },
+        {
+          "id": "C",
+          "text": "Zero-day vulnerability"
+        },
+        {
+          "id": "D",
+          "text": "Race condition"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "These are classic misconfigurations — insecure defaults and sloppy hardening that expose the system. Remediate with secure baselines/hardening and by disabling defaults.",
+        "distractors": {
+          "A": "",
+          "B": "A buffer overflow overwrites memory via oversized input to a fixed buffer.",
+          "C": "A zero-day is an unknown flaw with no patch available — these issues are known, avoidable settings.",
+          "D": "A race condition (e.g., TOCTOU) exploits timing between a check and a use."
+        },
+        "exam_pattern": "Default creds + unneeded features + exposed errors = misconfiguration -> apply a secure baseline/hardening checklist."
+      }
+    },
+    {
+      "id": "secplus-tvm-r2-007",
+      "exam": "secplus",
+      "domain": "threats_vulns_mitigations",
+      "subtopic": "mitigation_techniques",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "A company wants to limit the damage if a single user's password is phished. Which TWO mitigations MOST directly reduce the impact of one compromised credential? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Increase the password maximum age"
+        },
+        {
+          "id": "B",
+          "text": "Disable the host firewall"
+        },
+        {
+          "id": "C",
+          "text": "Enforce least-privilege access"
+        },
+        {
+          "id": "D",
+          "text": "Require multifactor authentication (MFA)"
+        }
+      ],
+      "correct": [
+        "C",
+        "D"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "MFA means a stolen password alone is not enough to log in (the attacker still lacks the second factor), and least privilege limits what any one compromised account can reach or do.",
+        "distractors": {
+          "A": "Increasing the maximum password AGE lets passwords live LONGER before rotation, which does not reduce the impact of a compromise.",
+          "B": "Disabling the host firewall removes a protection and widens exposure.",
+          "C": "",
+          "D": ""
+        },
+        "exam_pattern": "Contain a single-credential compromise with MFA (blocks reuse) + least privilege (limits blast radius). Segmentation and monitoring help too."
+      }
+    },
+    {
+      "id": "secplus-arch-r2-001",
+      "exam": "secplus",
+      "domain": "security_architecture",
+      "subtopic": "architecture_models",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A data-center network uses a central controller that computes forwarding decisions and pushes them to switches through APIs, separating the control plane from the data plane. Which architecture model is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Serverless computing"
+        },
+        {
+          "id": "B",
+          "text": "Microservices"
+        },
+        {
+          "id": "C",
+          "text": "Infrastructure as code (IaC)"
+        },
+        {
+          "id": "D",
+          "text": "Software-defined networking (SDN)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "SDN decouples the control plane (a centralized controller making forwarding decisions) from the data plane (switches forwarding traffic), programmed via APIs for agility and central policy.",
+        "distractors": {
+          "A": "Serverless runs event-driven functions without managing servers — a compute model, not network control.",
+          "B": "Microservices decompose an APPLICATION into small services.",
+          "C": "IaC provisions infrastructure from version-controlled files; it can configure SDN but is not the control/data-plane split itself.",
+          "D": ""
+        },
+        "exam_pattern": "SDN = centralized control plane + programmable data plane via APIs. Watch for 'controller' + 'separates control and data plane'."
+      }
+    },
+    {
+      "id": "secplus-arch-r2-002",
+      "exam": "secplus",
+      "domain": "security_architecture",
+      "subtopic": "architecture_models",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A smart-building controller is a system-on-chip device running a stripped-down real-time OS with limited memory; it cannot host an EDR agent and is difficult to patch. Which characteristic MOST increases its security risk?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Limited compute and patchability of an embedded system"
+        },
+        {
+          "id": "B",
+          "text": "It is a container"
+        },
+        {
+          "id": "C",
+          "text": "It is a serverless function"
+        },
+        {
+          "id": "D",
+          "text": "It is a Type 1 hypervisor"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Embedded/IoT devices (SoC, RTOS) have constrained compute, often cannot run endpoint protection, and are hard or slow to patch — so compensating controls (segmentation, network monitoring) are key.",
+        "distractors": {
+          "A": "",
+          "B": "A container packages an application to share a host OS kernel; it is not an embedded hardware device.",
+          "C": "A serverless function is cloud event-driven code, not a physical SoC device.",
+          "D": "A Type 1 hypervisor runs VMs on bare metal — not a resource-constrained embedded controller."
+        },
+        "exam_pattern": "Embedded/IoT/ICS = constrained, weak patch/monitoring story -> isolate on segmented networks + compensating controls."
+      }
+    },
+    {
+      "id": "secplus-arch-r2-003",
+      "exam": "secplus",
+      "domain": "security_architecture",
+      "subtopic": "cloud_virtualization_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company wants central visibility and policy enforcement (DLP, access rules, threat protection) between its users and the MANY SaaS applications they use. Which solution sits between users and cloud services to provide this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Host-based IDS"
+        },
+        {
+          "id": "B",
+          "text": "Cloud Access Security Broker (CASB)"
+        },
+        {
+          "id": "C",
+          "text": "Jump server"
+        },
+        {
+          "id": "D",
+          "text": "Local disk encryption"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A CASB sits between users and cloud/SaaS providers (inline or via API) to enforce visibility, access policy, DLP, and threat protection across cloud usage.",
+        "distractors": {
+          "A": "A host-based IDS monitors a single host's activity, not cloud-service usage broadly.",
+          "B": "",
+          "C": "A jump server is a hardened pivot host for administering internal systems.",
+          "D": "Local disk encryption protects data at rest on a device, not SaaS policy enforcement."
+        },
+        "exam_pattern": "'Policy/visibility between users and cloud/SaaS apps' = CASB. Often paired with SSO and DLP."
+      }
+    },
+    {
+      "id": "secplus-arch-r2-004",
+      "exam": "secplus",
+      "domain": "security_architecture",
+      "subtopic": "cloud_virtualization_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Under the shared responsibility model for a Software-as-a-Service (SaaS) application, which task remains the CUSTOMER's responsibility?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Securing the hypervisor and physical hosts"
+        },
+        {
+          "id": "B",
+          "text": "Maintaining the underlying operating system"
+        },
+        {
+          "id": "C",
+          "text": "Patching the application code"
+        },
+        {
+          "id": "D",
+          "text": "Managing user accounts, access, and data in the application"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "With SaaS, the provider runs the app, OS, and infrastructure; the customer still owns their DATA, user identities/access, and in-app configuration (plus their own endpoints).",
+        "distractors": {
+          "A": "The hypervisor and physical data center are always the provider's responsibility.",
+          "B": "The provider maintains the underlying OS in SaaS.",
+          "C": "Patching the application is the SaaS provider's job.",
+          "D": ""
+        },
+        "exam_pattern": "More 'as-a-service' = provider owns more. SaaS customer still owns data + identity/access + configuration; IaaS adds OS/app/runtime to the customer."
+      }
+    },
+    {
+      "id": "secplus-arch-r2-005",
+      "exam": "secplus",
+      "domain": "security_architecture",
+      "subtopic": "secure_design",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To protect a public web application specifically against layer-7 attacks such as SQL injection and cross-site scripting, a team deploys a device that inspects HTTP/HTTPS requests and blocks malicious payloads. Which control is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reverse proxy with no inspection"
+        },
+        {
+          "id": "B",
+          "text": "Network IPS at the perimeter"
+        },
+        {
+          "id": "C",
+          "text": "Traditional stateful network firewall"
+        },
+        {
+          "id": "D",
+          "text": "Web Application Firewall (WAF)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A WAF understands HTTP(S) and application-layer attacks (SQLi, XSS, etc.), filtering or blocking malicious requests to a web app — protection a generic firewall cannot provide.",
+        "distractors": {
+          "A": "A plain reverse proxy relays requests and may terminate TLS but, without inspection, does not block app-layer attacks.",
+          "B": "A network IPS inspects broadly for signatures but is not specialized for a web app's HTTP logic like a WAF.",
+          "C": "A stateful network firewall filters by IP/port/session at L3/L4 and does not parse application payloads for SQLi/XSS.",
+          "D": ""
+        },
+        "exam_pattern": "'Protect a web app from SQLi/XSS at layer 7' = WAF. Generic firewall = L3/L4 ports; IPS = network signatures."
+      }
+    },
+    {
+      "id": "secplus-arch-r2-006",
+      "exam": "secplus",
+      "domain": "security_architecture",
+      "subtopic": "secure_design",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An inline security appliance is configured so that if it loses power or crashes, network traffic continues to pass THROUGH uninterrupted. Which design is this, and its trade-off?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fail-closed — favors security over availability"
+        },
+        {
+          "id": "B",
+          "text": "Air gap"
+        },
+        {
+          "id": "C",
+          "text": "Fail-open — favors availability over security"
+        },
+        {
+          "id": "D",
+          "text": "Fault tolerance via clustering"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Fail-open means a failure lets traffic keep flowing — prioritizing AVAILABILITY, at the cost of security during the outage (traffic is uninspected/unfiltered).",
+        "distractors": {
+          "A": "Fail-closed (fail-secure) BLOCKS traffic on failure — prioritizing security over availability; the opposite of what is described.",
+          "B": "An air gap physically isolates a network; it is not a failure mode.",
+          "C": "",
+          "D": "Clustering adds redundant nodes for fault tolerance; it is not the behavior of a single device on failure."
+        },
+        "exam_pattern": "Fail-open = keep flowing (availability first); fail-closed/fail-secure = block (security first). Choose per the asset's priority."
+      }
+    },
+    {
+      "id": "secplus-arch-r2-007",
+      "exam": "secplus",
+      "domain": "security_architecture",
+      "subtopic": "secure_design",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Remote employees use an encrypted VPN to reach internal systems. Security wants ALL of their internet-bound traffic to also pass through the corporate gateway for inspection, not just traffic destined for internal resources. Which VPN configuration achieves this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Clientless reverse proxy"
+        },
+        {
+          "id": "B",
+          "text": "Full tunnel"
+        },
+        {
+          "id": "C",
+          "text": "Split tunnel"
+        },
+        {
+          "id": "D",
+          "text": "Site-to-site IPsec between two offices"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A full-tunnel VPN routes ALL client traffic (including internet-bound) through the corporate gateway, so everything can be inspected and policy-enforced — at the cost of more bandwidth/latency.",
+        "distractors": {
+          "A": "A clientless reverse proxy brokers specific web apps, not all of a client's traffic.",
+          "B": "",
+          "C": "A split tunnel sends only corporate-bound traffic through the VPN while internet traffic goes directly out — the opposite of the requirement.",
+          "D": "A site-to-site IPsec tunnel connects two networks/offices, not a roaming remote user's full traffic."
+        },
+        "exam_pattern": "Full tunnel = all traffic via gateway (max inspection). Split tunnel = only corp traffic via VPN (better performance, less visibility)."
+      }
+    },
+    {
+      "id": "secplus-arch-r2-008",
+      "exam": "secplus",
+      "domain": "security_architecture",
+      "subtopic": "data_protection",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "A security architect must protect sensitive data AT REST on servers and laptops. Which TWO technologies directly protect data at rest? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Full-disk encryption"
+        },
+        {
+          "id": "B",
+          "text": "IPsec VPN tunnel"
+        },
+        {
+          "id": "C",
+          "text": "Database (column-level) encryption"
+        },
+        {
+          "id": "D",
+          "text": "Transport Layer Security (TLS)"
+        }
+      ],
+      "correct": [
+        "A",
+        "C"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "Full-disk encryption protects everything stored on a drive, and database/column-level encryption protects specific stored fields — both secure data AT REST.",
+        "distractors": {
+          "A": "",
+          "B": "An IPsec VPN also protects data IN TRANSIT between endpoints, not at rest.",
+          "C": "",
+          "D": "TLS protects data IN TRANSIT across a network (HTTPS), not data sitting on disk."
+        },
+        "exam_pattern": "At rest = FDE, file/database/record-level encryption. In transit = TLS, IPsec/VPN. In use = secure enclave/memory encryption."
+      }
+    },
+    {
+      "id": "secplus-arch-r2-009",
+      "exam": "secplus",
+      "domain": "security_architecture",
+      "subtopic": "data_protection",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A hospital wants to release a dataset for public research. It PERMANENTLY strips and aggregates all direct and indirect identifiers so that no record can ever be traced back to an individual — with no key kept to reverse it. Which technique is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pseudonymization"
+        },
+        {
+          "id": "B",
+          "text": "Tokenization"
+        },
+        {
+          "id": "C",
+          "text": "Anonymization"
+        },
+        {
+          "id": "D",
+          "text": "Data masking"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Anonymization irreversibly removes/aggregates identifiers so individuals cannot be re-identified; because there is no reversing key, truly anonymized data falls outside most privacy-law scope.",
+        "distractors": {
+          "A": "Pseudonymization replaces identifiers with REVERSIBLE pseudonyms (a separate key can re-identify), so it is not irreversible.",
+          "B": "Tokenization swaps a value for a token with the mapping held in a vault — reversible by design.",
+          "C": "",
+          "D": "Data masking hides parts of a value for display (e.g., ****-4417) but the underlying data still exists."
+        },
+        "exam_pattern": "Irreversible, no key = anonymization. Reversible with a key/vault = pseudonymization/tokenization. Display-only hiding = masking."
+      }
+    },
+    {
+      "id": "secplus-arch-r2-010",
+      "exam": "secplus",
+      "domain": "security_architecture",
+      "subtopic": "resilience_recovery",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A full backup runs every Sunday. Each weeknight's job backs up everything changed SINCE SUNDAY'S full backup and does NOT clear the archive bit, so each nightly backup grows larger through the week. Which backup type is in use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Incremental"
+        },
+        {
+          "id": "B",
+          "text": "Full"
+        },
+        {
+          "id": "C",
+          "text": "Differential"
+        },
+        {
+          "id": "D",
+          "text": "Snapshot"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A differential backup copies all data changed since the last FULL backup and leaves the archive bit set, so it grows each day; restore needs only the full + the latest differential.",
+        "distractors": {
+          "A": "An incremental backup copies data changed since the last backup of ANY type and clears the archive bit, so each is small; restore needs the full + every incremental in order.",
+          "B": "A full backup copies everything every time.",
+          "C": "",
+          "D": "A snapshot is a point-in-time image (often of a VM/volume), not this rotating file-backup scheme."
+        },
+        "exam_pattern": "Differential = since last FULL (grows, archive bit kept; restore = full + last diff). Incremental = since last ANY (small, archive bit cleared; restore = full + all increments)."
+      }
+    },
+    {
+      "id": "secplus-arch-r2-011",
+      "exam": "secplus",
+      "domain": "security_architecture",
+      "subtopic": "resilience_recovery",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To minimize disaster-recovery cost, a company leases a backup facility that has space, power, and network drops but NO installed servers and NO current data; bringing it online would take days. Which recovery site type is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Failover cluster"
+        },
+        {
+          "id": "B",
+          "text": "Hot site"
+        },
+        {
+          "id": "C",
+          "text": "Warm site"
+        },
+        {
+          "id": "D",
+          "text": "Cold site"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A cold site provides only the basic facility (space/power/connectivity) with no ready hardware or data — cheapest to maintain but the slowest to recover (days).",
+        "distractors": {
+          "A": "A failover cluster is same-site/near-real-time redundancy, not an alternate DR facility class.",
+          "B": "A hot site is fully equipped with hardware AND near-real-time data, ready almost immediately (most expensive).",
+          "C": "A warm site has some hardware/connectivity but not current data, recovering in hours.",
+          "D": ""
+        },
+        "exam_pattern": "Cold (empty shell, cheap, days) < Warm (some kit, hours) < Hot (ready + data, minutes, costly). Cost and speed rise together."
+      }
+    },
+    {
+      "id": "secplus-ops-r2-001",
+      "exam": "secplus",
+      "domain": "security_operations",
+      "subtopic": "asset_management",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A security team argues that before any other control can be effective, the organization must first build and continuously maintain a complete, accurate record of every hardware device and software package it owns. Which asset-management practice is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Writing a data-classification policy"
+        },
+        {
+          "id": "B",
+          "text": "Performing a penetration test"
+        },
+        {
+          "id": "C",
+          "text": "Keeping a change log"
+        },
+        {
+          "id": "D",
+          "text": "Maintaining an asset inventory"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "An accurate, current asset inventory (enumeration) is foundational — you cannot patch, monitor, or protect what you do not know you have.",
+        "distractors": {
+          "A": "Data classification labels data by sensitivity — important, but not an inventory of hardware/software.",
+          "B": "A penetration test assesses exploitability; it presumes you already know your assets.",
+          "C": "A change log records modifications over time, not a complete catalog of owned assets.",
+          "D": ""
+        },
+        "exam_pattern": "'Can't protect what you can't see' -> asset inventory/enumeration first. Feeds vulnerability management, monitoring, and licensing."
+      }
+    },
+    {
+      "id": "secplus-ops-r2-002",
+      "exam": "secplus",
+      "domain": "security_operations",
+      "subtopic": "automation_orchestration",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "When HR marks a new hire active, a workflow automatically creates the user's accounts, assigns group memberships based on job role, and emails setup instructions — and on termination it automatically disables everything. Which automation use case does this BEST illustrate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dynamic vulnerability scanning"
+        },
+        {
+          "id": "B",
+          "text": "Security regression testing"
+        },
+        {
+          "id": "C",
+          "text": "Continuous integration/continuous deployment (CI/CD)"
+        },
+        {
+          "id": "D",
+          "text": "Automated user provisioning and deprovisioning"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Orchestrating account creation, role-based access, and timely deprovisioning is the user provisioning/deprovisioning use case — it enforces consistency and ensures access is revoked promptly on offboarding.",
+        "distractors": {
+          "A": "Vulnerability scanning finds flaws in systems; it is not account management.",
+          "B": "Security regression testing re-tests code for reintroduced flaws.",
+          "C": "CI/CD automates building, testing, and deploying SOFTWARE, not the user-account lifecycle.",
+          "D": ""
+        },
+        "exam_pattern": "Automation use cases: user/account provisioning + deprovisioning (consistency, fast offboarding), guard rails, ticket enrichment, resource provisioning, baseline enforcement."
+      }
+    },
+    {
+      "id": "secplus-ops-r2-003",
+      "exam": "secplus",
+      "domain": "security_operations",
+      "subtopic": "incident_response",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After eliminating the malware and closing the exploited vulnerability, the team rebuilds the affected server from a known-good image, restores its data, validates it, and returns it to production under heightened monitoring. Which incident-response phase is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Eradication"
+        },
+        {
+          "id": "B",
+          "text": "Lessons learned"
+        },
+        {
+          "id": "C",
+          "text": "Containment"
+        },
+        {
+          "id": "D",
+          "text": "Recovery"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Recovery restores systems to normal operation — rebuild/restore, validate, and monitor closely before and after return to service — following eradication.",
+        "distractors": {
+          "A": "Eradication is REMOVING the threat and root cause (the malware and the vulnerability) — already completed here.",
+          "B": "Lessons learned is the post-incident review conducted after recovery.",
+          "C": "Containment limits spread (e.g., isolating the host) and comes before eradication.",
+          "D": ""
+        },
+        "exam_pattern": "IR order: Preparation -> Detection/Analysis -> Containment -> Eradication -> Recovery -> Lessons Learned. Rebuild/restore/validate/monitor = recovery."
+      }
+    },
+    {
+      "id": "secplus-ops-r2-004",
+      "exam": "secplus",
+      "domain": "security_operations",
+      "subtopic": "digital_forensics",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "Responders arrive at a powered-ON, compromised workstation. Following the order of volatility, which TWO types of VOLATILE evidence should be captured BEFORE the machine is shut down? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Archived backups on tape"
+        },
+        {
+          "id": "B",
+          "text": "Contents of RAM (memory)"
+        },
+        {
+          "id": "C",
+          "text": "Active network connections and running processes"
+        },
+        {
+          "id": "D",
+          "text": "Files on the hard-disk drive"
+        }
+      ],
+      "correct": [
+        "B",
+        "C"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "RAM contents and live state (network connections, running processes, ARP/routing tables) are VOLATILE and lost at power-off, so they are collected first with proper tools.",
+        "distractors": {
+          "A": "Tape backups are among the LEAST volatile and are collected last (or already archived).",
+          "B": "",
+          "C": "",
+          "D": "Files on the hard drive are non-volatile and persist across a reboot, so they are imaged after volatile data."
+        },
+        "exam_pattern": "Order of volatility (most->least): CPU cache/registers -> RAM -> network/process state -> disk -> remote logs -> backups/archives. Capture live memory/connections before shutdown."
+      }
+    },
+    {
+      "id": "secplus-ops-r2-005",
+      "exam": "secplus",
+      "domain": "security_operations",
+      "subtopic": "identity_access_management",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In a hospital system, permissions are bundled into job functions — 'Nurse', 'Physician', 'Billing Clerk' — and each user simply inherits the permissions of the role they are assigned. Which access-control MODEL is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Attribute-Based Access Control (ABAC)"
+        },
+        {
+          "id": "B",
+          "text": "Role-Based Access Control (RBAC)"
+        },
+        {
+          "id": "C",
+          "text": "Mandatory Access Control (MAC)"
+        },
+        {
+          "id": "D",
+          "text": "Discretionary Access Control (DAC)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "RBAC grants permissions to ROLES that map to job functions; users get access by their role assignment, which simplifies administration and enforces least privilege consistently.",
+        "distractors": {
+          "A": "ABAC decides access dynamically from ATTRIBUTES/policies (user dept, device, time, location), not a fixed role.",
+          "B": "",
+          "C": "MAC enforces access via system-set security LABELS/clearances (e.g., Confidential/Secret) that users cannot change.",
+          "D": "DAC lets the data OWNER grant access at their discretion (e.g., file permissions)."
+        },
+        "exam_pattern": "RBAC = by job role; DAC = owner's discretion; MAC = labels/clearance (most rigid); ABAC = attribute/policy-driven (most granular)."
+      }
+    },
+    {
+      "id": "secplus-ops-r2-006",
+      "exam": "secplus",
+      "domain": "security_operations",
+      "subtopic": "security_monitoring",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Network devices are configured to immediately send an unsolicited alert to the management server the instant an interface goes down, instead of waiting to be polled. Which mechanism is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SNMP polling (GET)"
+        },
+        {
+          "id": "B",
+          "text": "SNMP trap"
+        },
+        {
+          "id": "C",
+          "text": "Syslog message"
+        },
+        {
+          "id": "D",
+          "text": "NetFlow"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "An SNMP trap is an unsolicited, event-driven notification sent by an agent to the SNMP manager when a defined condition (like a link failure) occurs — no poll required.",
+        "distractors": {
+          "A": "SNMP polling (GET) is the manager REQUESTING values on an interval — the device waits to be asked, which the scenario rules out.",
+          "B": "",
+          "C": "Syslog also forwards event messages, but the described SNMP agent-to-manager event notification driven by poll-vs-push is specifically a trap.",
+          "D": "NetFlow exports traffic-FLOW statistics (who talked to whom), not device event alerts."
+        },
+        "exam_pattern": "SNMP trap = device pushes an event alert (unsolicited). SNMP GET/poll = manager pulls values. NetFlow = flow stats. Syslog = log messages."
+      }
+    },
+    {
+      "id": "secplus-ops-r2-007",
+      "exam": "secplus",
+      "domain": "security_operations",
+      "subtopic": "vulnerability_management",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A tester runs an automated tool that sends crafted and malicious inputs to a RUNNING web application from the outside — with no access to the source code — to uncover flaws such as injection and authentication bypass. Which testing technique is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A credentialed network vulnerability scan"
+        },
+        {
+          "id": "B",
+          "text": "Dynamic application security testing (DAST)"
+        },
+        {
+          "id": "C",
+          "text": "Software composition analysis (SCA)"
+        },
+        {
+          "id": "D",
+          "text": "Static application security testing (SAST)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "DAST tests a running application from the outside (black-box), observing how it responds to malicious input — good at finding runtime, injection, and auth flaws without source code.",
+        "distractors": {
+          "A": "A credentialed vulnerability scan logs into hosts to check patch/config levels; it is not application-logic input testing of a running app.",
+          "B": "",
+          "C": "SCA inventories third-party/open-source COMPONENTS and their known CVEs, not live input testing.",
+          "D": "SAST analyzes SOURCE CODE (or binaries) BEFORE execution — the opposite approach."
+        },
+        "exam_pattern": "SAST = source, pre-run (white-box). DAST = running app, outside-in (black-box). SCA = dependency/known-CVE analysis."
+      }
+    },
+    {
+      "id": "secplus-mgmt-r2-001",
+      "exam": "secplus",
+      "domain": "security_program_mgmt",
+      "subtopic": "security_governance",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A business manager OWNS a customer dataset and sets its classification and handling rules. The database administration team then implements the backups, access permissions, and encryption that enforce those rules day to day. What is the DBA team's governance ROLE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data controller"
+        },
+        {
+          "id": "B",
+          "text": "Data custodian"
+        },
+        {
+          "id": "C",
+          "text": "Data owner"
+        },
+        {
+          "id": "D",
+          "text": "Data subject"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A data custodian/steward is responsible for the day-to-day technical protection of data — backups, access enforcement, encryption — per the owner's requirements.",
+        "distractors": {
+          "A": "A data controller (privacy-law term) determines the purposes and means of processing personal data.",
+          "B": "",
+          "C": "The data owner (the business manager here) is accountable for the data and sets its classification and rules — not the hands-on implementer.",
+          "D": "A data subject is the individual the personal data is about."
+        },
+        "exam_pattern": "Owner = accountable, sets classification; Custodian/steward = implements/maintains protection; Controller = decides processing (GDPR); Processor = processes on the controller's behalf."
+      }
+    },
+    {
+      "id": "secplus-mgmt-r2-002",
+      "exam": "secplus",
+      "domain": "security_program_mgmt",
+      "subtopic": "security_governance",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A document lists the exact, numbered steps a help-desk technician must follow to disable accounts, collect assets, and revoke access when an employee is terminated. Which governance document TYPE is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Procedure"
+        },
+        {
+          "id": "B",
+          "text": "Guideline"
+        },
+        {
+          "id": "C",
+          "text": "Standard"
+        },
+        {
+          "id": "D",
+          "text": "Policy"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A procedure is a detailed, step-by-step set of instructions for performing a specific task — here, the offboarding steps.",
+        "distractors": {
+          "A": "",
+          "B": "A guideline is a non-mandatory recommendation.",
+          "C": "A standard specifies mandatory specifics (e.g., required tools or settings), narrower than a policy but not a step list.",
+          "D": "A policy is the high-level, mandatory statement of intent ('accounts must be revoked promptly on termination'), not the steps."
+        },
+        "exam_pattern": "Policy (what/why, mandatory) -> Standard (specific requirements) -> Procedure (how, exact steps) -> Guideline (recommended best practice)."
+      }
+    },
+    {
+      "id": "secplus-mgmt-r2-003",
+      "exam": "secplus",
+      "domain": "security_program_mgmt",
+      "subtopic": "risk_management",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After a company applies all the controls it has chosen, some risk still remains. The leftover risk that management reviews and chooses to live with is BEST described as?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Transferred risk"
+        },
+        {
+          "id": "B",
+          "text": "Residual risk"
+        },
+        {
+          "id": "C",
+          "text": "Risk appetite"
+        },
+        {
+          "id": "D",
+          "text": "Inherent risk"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Residual risk is the risk that REMAINS after controls are applied; management must evaluate and formally accept it (or add further treatment).",
+        "distractors": {
+          "A": "Transferred risk is risk shifted to a third party (e.g., insurance), a treatment choice rather than the remaining risk.",
+          "B": "",
+          "C": "Risk appetite is the amount/type of risk an organization is WILLING to pursue — a threshold, not the leftover amount.",
+          "D": "Inherent risk is the risk BEFORE any controls are applied."
+        },
+        "exam_pattern": "Inherent (before controls) -> apply controls -> Residual (after controls); accept residual only if within risk appetite/tolerance."
+      }
+    },
+    {
+      "id": "secplus-mgmt-r2-004",
+      "exam": "secplus",
+      "domain": "security_program_mgmt",
+      "subtopic": "third_party_risk",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Under an existing master agreement with a consultancy, the two parties sign a document that lists the EXACT deliverables, milestones, timeline, and acceptance criteria for one specific security-assessment engagement. Which document is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Memorandum of Understanding (MOU)"
+        },
+        {
+          "id": "B",
+          "text": "Service-Level Agreement (SLA)"
+        },
+        {
+          "id": "C",
+          "text": "Statement of Work (SOW)"
+        },
+        {
+          "id": "D",
+          "text": "Master Service Agreement (MSA)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "An SOW defines the specific work for a given project — deliverables, milestones, schedule, acceptance criteria — typically executed under an overarching MSA.",
+        "distractors": {
+          "A": "An MOU is a non-binding statement of intent between parties.",
+          "B": "An SLA defines measurable service metrics (uptime/response) and penalties.",
+          "C": "",
+          "D": "The MSA is the overarching contract setting general legal/business terms that each SOW falls under — not the per-project specifics."
+        },
+        "exam_pattern": "MSA = master terms (once) -> SOW = specific project work/deliverables (per engagement). SLA = service metrics. MOU = intent."
+      }
+    },
+    {
+      "id": "secplus-mgmt-r2-005",
+      "exam": "secplus",
+      "domain": "security_program_mgmt",
+      "subtopic": "third_party_risk",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Two partner agencies sign a NON-BINDING document expressing their shared intentions and broad expectations to cooperate on a project, with no enforceable obligations, metrics, or penalties. Which document is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Service-Level Agreement (SLA)"
+        },
+        {
+          "id": "B",
+          "text": "Business Partners Agreement (BPA)"
+        },
+        {
+          "id": "C",
+          "text": "Non-Disclosure Agreement (NDA)"
+        },
+        {
+          "id": "D",
+          "text": "Memorandum of Understanding (MOU)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "An MOU (or MOA) is a generally non-binding document stating the parties' shared intent and expectations to work together, without the enforceable specifics of a contract.",
+        "distractors": {
+          "A": "An SLA is a binding, measurable commitment (uptime/response) with consequences for misses.",
+          "B": "A BPA defines the terms of a business partnership (roles, responsibilities, profit sharing).",
+          "C": "An NDA is a binding agreement protecting the confidentiality of shared information.",
+          "D": ""
+        },
+        "exam_pattern": "MOU/MOA = intent, usually non-binding. SLA = measurable metrics + penalties. BPA = partnership terms. NDA = confidentiality."
+      }
+    },
+    {
+      "id": "secplus-mgmt-r2-006",
+      "exam": "secplus",
+      "domain": "security_program_mgmt",
+      "subtopic": "compliance_privacy",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Under GDPR, a retailer decides what customer personal data to collect and why, then hires a cloud email-marketing company that stores and processes that data STRICTLY on the retailer's documented instructions. Which role does the cloud company play?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data owner"
+        },
+        {
+          "id": "B",
+          "text": "Data processor"
+        },
+        {
+          "id": "C",
+          "text": "Data controller"
+        },
+        {
+          "id": "D",
+          "text": "Supervisory authority"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A data processor processes personal data ON BEHALF of, and under the instructions of, the controller — exactly the cloud email provider's role here.",
+        "distractors": {
+          "A": "'Data owner' is an internal governance role, not the GDPR term for this relationship.",
+          "B": "",
+          "C": "The data controller (the retailer) determines the PURPOSES and MEANS of processing.",
+          "D": "A supervisory authority is the regulator that enforces GDPR, not a party processing the data."
+        },
+        "exam_pattern": "GDPR: Controller decides why/how (purposes/means); Processor acts on the controller's instructions. Both carry obligations."
+      }
+    },
+    {
+      "id": "secplus-mgmt-r2-007",
+      "exam": "secplus",
+      "domain": "security_program_mgmt",
+      "subtopic": "compliance_privacy",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A retailer that stores, processes, and transmits payment-card data must comply with a security standard created and enforced by the major card brands through contracts — NOT by a government statute. Which framework is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "GDPR"
+        },
+        {
+          "id": "B",
+          "text": "PCI DSS"
+        },
+        {
+          "id": "C",
+          "text": "HIPAA"
+        },
+        {
+          "id": "D",
+          "text": "SOX"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "PCI DSS (Payment Card Industry Data Security Standard) is a contractual, industry-mandated standard for organizations handling cardholder data; non-compliance brings fines or loss of card-processing privileges.",
+        "distractors": {
+          "A": "GDPR is an EU LAW protecting personal data/privacy.",
+          "B": "",
+          "C": "HIPAA is a U.S. LAW protecting health information.",
+          "D": "SOX is a U.S. LAW governing financial reporting and controls for public companies."
+        },
+        "exam_pattern": "PCI DSS = industry/contractual (cards). HIPAA (health), GDPR (EU privacy), SOX (financial reporting) = government laws/regulations."
+      }
+    },
+    {
+      "id": "secplus-mgmt-r2-008",
+      "exam": "secplus",
+      "domain": "security_program_mgmt",
+      "subtopic": "compliance_privacy",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "A privacy policy states that the company will collect ONLY the personal data it genuinely needs for a stated purpose and will DELETE it once that purpose is fulfilled. Which TWO privacy principles are being applied? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data minimization"
+        },
+        {
+          "id": "B",
+          "text": "Storage (retention) limitation"
+        },
+        {
+          "id": "C",
+          "text": "Non-repudiation"
+        },
+        {
+          "id": "D",
+          "text": "Data sovereignty"
+        }
+      ],
+      "correct": [
+        "A",
+        "B"
+      ],
+      "select_count": 2,
+      "explanation": {
+        "correct": "Collecting only what is necessary is data minimization; deleting data once its purpose is met is storage/retention limitation — both core data-privacy principles (e.g., under GDPR).",
+        "distractors": {
+          "A": "",
+          "B": "",
+          "C": "Non-repudiation is a security property (proof of an action's origin), unrelated to these privacy principles.",
+          "D": "Data sovereignty concerns the JURISDICTION/location where data is stored and whose laws apply, not how little is collected or how long it is kept."
+        },
+        "exam_pattern": "Privacy principles: minimization (collect the least needed), purpose limitation, storage/retention limitation (keep no longer than needed). Sovereignty = location/jurisdiction."
+      }
+    },
+    {
+      "id": "secplus-mgmt-r2-009",
+      "exam": "secplus",
+      "domain": "security_program_mgmt",
+      "subtopic": "audits_assessments",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "During an authorized penetration test, the tester directly interacts with the target — port-scanning its hosts and banner-grabbing running services to map the attack surface. Which reconnaissance type is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Active reconnaissance"
+        },
+        {
+          "id": "B",
+          "text": "Privilege escalation"
+        },
+        {
+          "id": "C",
+          "text": "Passive reconnaissance"
+        },
+        {
+          "id": "D",
+          "text": "Pivoting"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Active reconnaissance directly probes the target (scanning, enumeration, banner grabbing), which is more informative but more detectable than passive methods.",
+        "distractors": {
+          "A": "",
+          "B": "Privilege escalation gains higher rights after access, not information gathering.",
+          "C": "Passive reconnaissance gathers information WITHOUT touching the target (OSINT, public records, DNS/WHOIS) and is stealthier.",
+          "D": "Pivoting is using a compromised host to reach other systems — a post-exploitation move, not recon."
+        },
+        "exam_pattern": "Passive recon = no direct contact (OSINT, stealthy). Active recon = direct probing (scans/enumeration, detectable). Both precede exploitation."
+      }
+    },
+    {
+      "id": "secplus-mgmt-r2-010",
+      "exam": "secplus",
+      "domain": "security_program_mgmt",
+      "subtopic": "audits_assessments",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To give customers INDEPENDENT assurance over its controls, a SaaS provider hires an outside accounting firm to examine those controls and issue a formal attestation report (such as SOC 2). Which type of assessment is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Internal audit"
+        },
+        {
+          "id": "B",
+          "text": "Self-assessment"
+        },
+        {
+          "id": "C",
+          "text": "Tabletop exercise"
+        },
+        {
+          "id": "D",
+          "text": "External (independent third-party) audit"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "An external/third-party audit is performed by an independent outside party and yields an attestation (e.g., SOC 2) that customers and regulators can trust more than a self-review.",
+        "distractors": {
+          "A": "An internal audit is conducted by the organization's OWN staff for self-checking and readiness.",
+          "B": "A self-assessment is the organization grading itself (lowest independence).",
+          "C": "A tabletop exercise is a discussion-based incident-response drill, not a controls attestation.",
+          "D": ""
+        },
+        "exam_pattern": "Independence ladder: self-assessment < internal audit < external/third-party audit/attestation (SOC 2, ISO certification) — more independence = more trust."
+      }
+    },
+    {
+      "id": "secplus-mgmt-r2-011",
+      "exam": "secplus",
+      "domain": "security_program_mgmt",
+      "subtopic": "security_awareness",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An organization requires employees to lock their screens and to store all sensitive documents and removable media in locked drawers whenever they step away from their workstation. Which security-awareness practice is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Acceptable use policy"
+        },
+        {
+          "id": "B",
+          "text": "Separation of duties"
+        },
+        {
+          "id": "C",
+          "text": "Data-classification scheme"
+        },
+        {
+          "id": "D",
+          "text": "Clean desk policy"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A clean desk policy requires sensitive materials to be secured (and screens locked) when a workspace is unattended, reducing shoulder surfing, theft, and accidental exposure.",
+        "distractors": {
+          "A": "An acceptable use policy governs how employees may use company systems/resources, not desk tidiness.",
+          "B": "Separation of duties splits critical tasks among people to prevent fraud — unrelated to an unattended desk.",
+          "C": "Data classification labels data by sensitivity; it does not dictate securing a physical desk.",
+          "D": ""
+        },
+        "exam_pattern": "'Secure papers/media + lock screen when away' = clean desk policy (counters shoulder surfing and opportunistic data exposure)."
       }
     },
     {
