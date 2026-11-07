@@ -8,14 +8,16 @@ from studyengine import (
     milestone_exam,
 )
 from studyengine.cli_sim import SCENARIOS
+from studyengine.perf import is_perf_task
 
 BANK = load_bank()
 CUR = load_curriculum()
 
 
-def test_units_exist_for_both_exams():
-    assert len(CUR.units_for("ccna")) == 6
-    assert len(CUR.units_for("encor")) == 6
+def test_units_exist_for_each_track():
+    expected = {"ccna": 6, "encor": 6, "secplus": 5, "netplus": 5, "aplus1": 5, "aplus2": 4}
+    for exam, n in expected.items():
+        assert len(CUR.units_for(exam)) == n, exam
 
 
 def test_every_lesson_markdown_resolves():
@@ -29,7 +31,8 @@ def test_every_lesson_markdown_resolves():
 def test_unit_pbq_ids_reference_real_scenarios():
     for u in CUR.all():
         if u.pbq_id is not None:
-            assert u.pbq_id in SCENARIOS, f"{u.id} references unknown PBQ {u.pbq_id}"
+            assert u.pbq_id in SCENARIOS or is_perf_task(u.pbq_id), \
+                f"{u.id} references unknown PBQ {u.pbq_id}"
 
 
 def test_lesson_quiz_within_subtopics_and_size():

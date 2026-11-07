@@ -1,0 +1,182 @@
+{
+  "exam": "aplus1",
+  "units": [
+    {
+      "id": "aplus1-u1",
+      "order": 1,
+      "title": "Mobile Devices",
+      "summary": "Laptop internals, display types, ports and accessories, wireless connectivity, and app/data synchronization.",
+      "domains": [
+        "mobile_devices"
+      ],
+      "milestone_size": 22,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "aplus1-l-laptop",
+          "title": "Laptop Hardware & Displays",
+          "markdown_path": "aplus1/md-laptop-display.md",
+          "subtopics": [
+            "laptop_hardware",
+            "mobile_display"
+          ],
+          "quiz_size": 10
+        },
+        {
+          "id": "aplus1-l-mobile-conn",
+          "title": "Mobile Ports, Connectivity & Sync",
+          "markdown_path": "aplus1/md-ports-connectivity.md",
+          "subtopics": [
+            "mobile_ports_accessories",
+            "mobile_connectivity",
+            "mobile_apps_sync"
+          ],
+          "quiz_size": 10
+        }
+      ]
+    },
+    {
+      "id": "aplus1-u2",
+      "order": 2,
+      "title": "Networking",
+      "summary": "Common ports and protocols, networking hardware, 802.11 wireless, SOHO network services, and internet connection types.",
+      "domains": [
+        "networking_a1"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "aplus1-l-ports",
+          "title": "Ports, Protocols & Network Hardware",
+          "markdown_path": "aplus1/net-ports-hardware.md",
+          "subtopics": [
+            "ports_protocols_a1",
+            "networking_hardware"
+          ],
+          "quiz_size": 12
+        },
+        {
+          "id": "aplus1-l-wireless",
+          "title": "Wireless, Network Services & Internet Links",
+          "markdown_path": "aplus1/net-wireless-services.md",
+          "subtopics": [
+            "wireless_a1",
+            "network_services_a1",
+            "internet_connection_types"
+          ],
+          "quiz_size": 12
+        }
+      ]
+    },
+    {
+      "id": "aplus1-u3",
+      "order": 3,
+      "title": "Hardware",
+      "summary": "Cables and connectors, memory, mass storage and RAID, motherboards, CPUs and power, plus peripherals and printers.",
+      "domains": [
+        "hardware"
+      ],
+      "milestone_size": 28,
+      "pbq_id": "aplus1-pbq-raid",
+      "lessons": [
+        {
+          "id": "aplus1-l-cables-ram",
+          "title": "Cables, Connectors & Memory",
+          "markdown_path": "aplus1/hw-cables-ram.md",
+          "subtopics": [
+            "cables_connectors",
+            "memory_ram"
+          ],
+          "quiz_size": 10
+        },
+        {
+          "id": "aplus1-l-storage-mobo",
+          "title": "Storage, Motherboards, CPUs & Power",
+          "markdown_path": "aplus1/hw-storage-mobo-power.md",
+          "subtopics": [
+            "storage_devices",
+            "motherboards_cpu",
+            "power_supplies"
+          ],
+          "quiz_size": 12
+        },
+        {
+          "id": "aplus1-l-peripherals",
+          "title": "Peripherals & Printers",
+          "markdown_path": "aplus1/hw-peripherals-printers.md",
+          "subtopics": [
+            "peripherals",
+            "printers"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "aplus1-u4",
+      "order": 4,
+      "title": "Virtualization & Cloud Computing",
+      "summary": "Cloud service and deployment models and the hypervisors behind client-side virtualization.",
+      "domains": [
+        "virtualization_cloud"
+      ],
+      "milestone_size": 20,
+      "pbq_id": "aplus1-pbq-cloud",
+      "lessons": [
+        {
+          "id": "aplus1-l-cloud",
+          "title": "Cloud Computing Models",
+          "markdown_path": "aplus1/vc-cloud.md",
+          "subtopics": [
+            "cloud_models"
+          ],
+          "quiz_size": 10
+        },
+        {
+          "id": "aplus1-l-virt",
+          "title": "Client-Side Virtualization",
+          "markdown_path": "aplus1/vc-virtualization.md",
+          "subtopics": [
+            "client_side_virtualization"
+          ],
+          "quiz_size": 10
+        }
+      ]
+    },
+    {
+      "id": "aplus1-u5",
+      "order": 5,
+      "title": "Hardware & Network Troubleshooting",
+      "summary": "The CompTIA six-step method applied to hardware, displays, networks and printers.",
+      "domains": [
+        "hw_net_troubleshooting"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "aplus1-l-ts-hw",
+          "title": "The Troubleshooting Method, Hardware & Displays",
+          "markdown_path": "aplus1/ts-method-hardware.md",
+          "subtopics": [
+            "troubleshooting_methodology_a1",
+            "hardware_troubleshooting",
+            "display_troubleshooting"
+          ],
+          "quiz_size": 12
+        },
+        {
+          "id": "aplus1-l-ts-net",
+          "title": "Network & Printer Troubleshooting",
+          "markdown_path": "aplus1/ts-network-printer.md",
+          "subtopics": [
+            "network_troubleshooting_a1",
+            "printer_troubleshooting"
+          ],
+          "quiz_size": 10
+        }
+      ]
+    }
+  ]
+}

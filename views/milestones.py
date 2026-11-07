@@ -4,7 +4,6 @@ from __future__ import annotations
 import streamlit as st
 
 from studyengine import lesson_markdown, lesson_quiz, milestone_exam
-from studyengine.cli_sim import get_scenario
 from ui_common import (
     EXAMS,
     PASS_THRESHOLD,
@@ -13,7 +12,7 @@ from ui_common import (
     get_profile,
     page_header,
     page_setup,
-    render_pbq,
+    render_any_pbq,
     render_quiz_review,
     reset_quiz,
     run_quiz,
@@ -124,8 +123,7 @@ with tab_ms:
     if u.pbq_id:
         st.divider()
         section_header("terminal", "Performance-Based Question (required to unlock)", size=1.15)
-        scen = get_scenario(u.pbq_id)
-        pbq_ok = render_pbq(scen, skey_prefix=f"mspbq_{exam}_{u.id}")
+        pbq_ok = render_any_pbq(u.pbq_id, skey_prefix=f"mspbq_{exam}_{u.id}")
 
     if exam_passed and pbq_ok:
         if u.id not in prof.passed_milestones:

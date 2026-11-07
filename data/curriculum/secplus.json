@@ -1,0 +1,208 @@
+{
+  "exam": "secplus",
+  "units": [
+    {
+      "id": "secplus-u1",
+      "order": 1,
+      "title": "General Security Concepts",
+      "summary": "Control types, the CIA triad and AAA, zero trust, physical security, change management, and the cryptography and PKI building blocks.",
+      "domains": [
+        "general_security_concepts"
+      ],
+      "milestone_size": 24,
+      "pbq_id": "secplus-pbq-controls",
+      "lessons": [
+        {
+          "id": "secplus-l-controls",
+          "title": "Security Controls, the CIA Triad & AAA",
+          "markdown_path": "secplus/gsc-controls.md",
+          "subtopics": [
+            "security_controls",
+            "cia_aaa"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "secplus-l-concepts",
+          "title": "Zero Trust, Physical Security & Change Management",
+          "markdown_path": "secplus/gsc-concepts.md",
+          "subtopics": [
+            "zero_trust",
+            "physical_security",
+            "change_management"
+          ],
+          "quiz_size": 10
+        },
+        {
+          "id": "secplus-l-crypto",
+          "title": "Cryptographic Solutions & PKI",
+          "markdown_path": "secplus/gsc-crypto.md",
+          "subtopics": [
+            "cryptographic_solutions",
+            "pki"
+          ],
+          "quiz_size": 10
+        }
+      ]
+    },
+    {
+      "id": "secplus-u2",
+      "order": 2,
+      "title": "Threats, Vulnerabilities & Mitigations",
+      "summary": "Who attacks and how they get in, the vulnerabilities and malware they exploit, and the network and application attacks you must mitigate.",
+      "domains": [
+        "threats_vulns_mitigations"
+      ],
+      "milestone_size": 28,
+      "pbq_id": "secplus-pbq-mitigations",
+      "lessons": [
+        {
+          "id": "secplus-l-threats",
+          "title": "Threat Actors, Vectors & Social Engineering",
+          "markdown_path": "secplus/tvm-actors.md",
+          "subtopics": [
+            "threat_actors",
+            "threat_vectors",
+            "social_engineering"
+          ],
+          "quiz_size": 12
+        },
+        {
+          "id": "secplus-l-vulnmalware",
+          "title": "Vulnerabilities & Malware",
+          "markdown_path": "secplus/tvm-vulns-malware.md",
+          "subtopics": [
+            "vulnerability_types",
+            "malware"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "secplus-l-attacks",
+          "title": "Network & Application Attacks and Mitigations",
+          "markdown_path": "secplus/tvm-attacks.md",
+          "subtopics": [
+            "network_attacks",
+            "application_attacks",
+            "mitigation_techniques"
+          ],
+          "quiz_size": 12
+        }
+      ]
+    },
+    {
+      "id": "secplus-u3",
+      "order": 3,
+      "title": "Security Architecture",
+      "summary": "Architecture models and cloud/virtualization security, then secure design, data protection and resilience and recovery.",
+      "domains": [
+        "security_architecture"
+      ],
+      "milestone_size": 22,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "secplus-l-archmodels",
+          "title": "Architecture Models & Cloud Security",
+          "markdown_path": "secplus/arch-models-cloud.md",
+          "subtopics": [
+            "architecture_models",
+            "cloud_virtualization_security"
+          ],
+          "quiz_size": 10
+        },
+        {
+          "id": "secplus-l-securedesign",
+          "title": "Secure Design, Data Protection & Resilience",
+          "markdown_path": "secplus/arch-design-data.md",
+          "subtopics": [
+            "secure_design",
+            "data_protection",
+            "resilience_recovery"
+          ],
+          "quiz_size": 12
+        }
+      ]
+    },
+    {
+      "id": "secplus-u4",
+      "order": 4,
+      "title": "Security Operations",
+      "summary": "Hardening and asset management, vulnerability management and monitoring with automation, then identity and access, incident response and digital forensics.",
+      "domains": [
+        "security_operations"
+      ],
+      "milestone_size": 28,
+      "pbq_id": "secplus-pbq-ir",
+      "lessons": [
+        {
+          "id": "secplus-l-hardening",
+          "title": "Secure Baselines, Hardening & Asset Management",
+          "markdown_path": "secplus/ops-hardening.md",
+          "subtopics": [
+            "secure_baselines_hardening",
+            "asset_management"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "secplus-l-vulnmgmt",
+          "title": "Vulnerability Management, Monitoring & Automation",
+          "markdown_path": "secplus/ops-vulnmgmt-monitoring.md",
+          "subtopics": [
+            "vulnerability_management",
+            "security_monitoring",
+            "automation_orchestration"
+          ],
+          "quiz_size": 12
+        },
+        {
+          "id": "secplus-l-iamir",
+          "title": "Identity & Access, Incident Response & Forensics",
+          "markdown_path": "secplus/ops-iam-ir.md",
+          "subtopics": [
+            "identity_access_management",
+            "incident_response",
+            "digital_forensics"
+          ],
+          "quiz_size": 12
+        }
+      ]
+    },
+    {
+      "id": "secplus-u5",
+      "order": 5,
+      "title": "Security Program Management & Oversight",
+      "summary": "Governance, risk management and third-party risk, then compliance and privacy, audits and assessments, and security awareness.",
+      "domains": [
+        "security_program_mgmt"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "secplus-l-governance",
+          "title": "Governance, Risk & Third-Party Risk",
+          "markdown_path": "secplus/pgm-governance-risk.md",
+          "subtopics": [
+            "security_governance",
+            "risk_management",
+            "third_party_risk"
+          ],
+          "quiz_size": 12
+        },
+        {
+          "id": "secplus-l-compliance",
+          "title": "Compliance, Privacy, Audits & Awareness",
+          "markdown_path": "secplus/pgm-compliance-audit.md",
+          "subtopics": [
+            "compliance_privacy",
+            "audits_assessments",
+            "security_awareness"
+          ],
+          "quiz_size": 12
+        }
+      ]
+    }
+  ]
+}

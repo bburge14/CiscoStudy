@@ -18,6 +18,8 @@ sys.path.insert(0, str(ROOT))
 from studyengine.blueprints import get_blueprint  # noqa: E402
 from studyengine.models import Question  # noqa: E402
 
+import importlib  # noqa: E402
+
 import content_ccna  # noqa: E402
 import content_encor  # noqa: E402
 import content_secplus  # noqa: E402
@@ -25,24 +27,26 @@ import content_netplus  # noqa: E402
 import content_aplus1  # noqa: E402
 import content_aplus2  # noqa: E402
 
-
-def _extra(module_name: str) -> list[dict]:
-    """Optional expansion pool (content_<exam>_2.py); empty if absent."""
-    try:
-        mod = __import__(module_name)
-    except ModuleNotFoundError:
-        return []
-    return list(getattr(mod, "QUESTIONS", []))
-
-
-SOURCES = {
-    "ccna": content_ccna.QUESTIONS + _extra("content_ccna_2"),
-    "encor": content_encor.QUESTIONS + _extra("content_encor_2"),
-    "secplus": content_secplus.QUESTIONS + _extra("content_secplus_2"),
-    "netplus": content_netplus.QUESTIONS + _extra("content_netplus_2"),
-    "aplus1": content_aplus1.QUESTIONS + _extra("content_aplus1_2"),
-    "aplus2": content_aplus2.QUESTIONS + _extra("content_aplus2_2"),
+# Base item pool per track. Any number of expansion pools named
+# tools/content_<exam>_*.py (e.g. content_ccna_2.py, content_secplus_gsc.py) are
+# auto-discovered and merged, so a track's bank can be deepened by dropping in
+# more files without touching this script.
+BASE = {
+    "ccna": content_ccna, "encor": content_encor, "secplus": content_secplus,
+    "netplus": content_netplus, "aplus1": content_aplus1, "aplus2": content_aplus2,
 }
+
+
+def _expansions(exam: str) -> list[dict]:
+    """Every tools/content_<exam>_*.py expansion pool, concatenated (name-sorted)."""
+    out: list[dict] = []
+    for path in sorted((ROOT / "tools").glob(f"content_{exam}_*.py")):
+        mod = importlib.import_module(path.stem)
+        out += list(getattr(mod, "QUESTIONS", []))
+    return out
+
+
+SOURCES = {exam: list(mod.QUESTIONS) + _expansions(exam) for exam, mod in BASE.items()}
 
 
 def shuffle_options(item: dict) -> dict:

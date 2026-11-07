@@ -1,0 +1,168 @@
+{
+  "exam": "aplus2",
+  "units": [
+    {
+      "id": "aplus2-u1",
+      "order": 1,
+      "title": "Operating Systems",
+      "summary": "Windows editions and features, the built-in tools and command line, OS installation, networking and macOS/Linux.",
+      "domains": [
+        "operating_systems"
+      ],
+      "milestone_size": 28,
+      "pbq_id": "aplus2-pbq-cmd",
+      "lessons": [
+        {
+          "id": "aplus2-l-os-editions",
+          "title": "Windows Editions & Core Features",
+          "markdown_path": "aplus2/os-editions.md",
+          "subtopics": [
+            "windows_editions",
+            "os_features"
+          ],
+          "quiz_size": 10
+        },
+        {
+          "id": "aplus2-l-os-tools",
+          "title": "Windows Tools & the Command Line",
+          "markdown_path": "aplus2/os-tools-cli.md",
+          "subtopics": [
+            "windows_tools",
+            "command_line"
+          ],
+          "quiz_size": 10
+        },
+        {
+          "id": "aplus2-l-os-install",
+          "title": "OS Installation, Networking & macOS/Linux",
+          "markdown_path": "aplus2/os-install-net-nix.md",
+          "subtopics": [
+            "os_installation",
+            "networking_os",
+            "macos_linux"
+          ],
+          "quiz_size": 12
+        }
+      ]
+    },
+    {
+      "id": "aplus2-u2",
+      "order": 2,
+      "title": "Security",
+      "summary": "Malware and social engineering, authentication and Windows security, workstation hardening and data destruction.",
+      "domains": [
+        "security_a2"
+      ],
+      "milestone_size": 26,
+      "pbq_id": "aplus2-pbq-malware",
+      "lessons": [
+        {
+          "id": "aplus2-l-sec-malware",
+          "title": "Malware & Social Engineering",
+          "markdown_path": "aplus2/sec-malware.md",
+          "subtopics": [
+            "malware_a2",
+            "social_engineering_a2"
+          ],
+          "quiz_size": 10
+        },
+        {
+          "id": "aplus2-l-sec-concepts",
+          "title": "Security Concepts & Windows Security",
+          "markdown_path": "aplus2/sec-concepts-windows.md",
+          "subtopics": [
+            "security_concepts_a2",
+            "windows_security"
+          ],
+          "quiz_size": 10
+        },
+        {
+          "id": "aplus2-l-sec-hardening",
+          "title": "Workstation Hardening & Data Destruction",
+          "markdown_path": "aplus2/sec-hardening-destruction.md",
+          "subtopics": [
+            "workstation_hardening",
+            "data_destruction"
+          ],
+          "quiz_size": 10
+        }
+      ]
+    },
+    {
+      "id": "aplus2-u3",
+      "order": 3,
+      "title": "Software Troubleshooting",
+      "summary": "Diagnosing Windows boot and BSOD failures, cleaning up malware infections, and fixing mobile OS problems.",
+      "domains": [
+        "software_troubleshooting"
+      ],
+      "milestone_size": 22,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "aplus2-l-st-windows",
+          "title": "Troubleshooting Windows, Boot & Malware",
+          "markdown_path": "aplus2/st-windows-malware.md",
+          "subtopics": [
+            "windows_troubleshooting",
+            "os_security_troubleshooting"
+          ],
+          "quiz_size": 12
+        },
+        {
+          "id": "aplus2-l-st-mobile",
+          "title": "Mobile OS Troubleshooting",
+          "markdown_path": "aplus2/st-mobile.md",
+          "subtopics": [
+            "mobile_os_troubleshooting"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "aplus2-u4",
+      "order": 4,
+      "title": "Operational Procedures",
+      "summary": "Documentation, change management, backup and recovery, safety, incident response, professionalism and scripting.",
+      "domains": [
+        "operational_procedures"
+      ],
+      "milestone_size": 24,
+      "pbq_id": "aplus2-pbq-backup",
+      "lessons": [
+        {
+          "id": "aplus2-l-op-docs",
+          "title": "Documentation & Change Management",
+          "markdown_path": "aplus2/op-docs-change.md",
+          "subtopics": [
+            "documentation_a2",
+            "change_management_a2"
+          ],
+          "quiz_size": 9
+        },
+        {
+          "id": "aplus2-l-op-safety",
+          "title": "Backup & Recovery, Safety & Incident Response",
+          "markdown_path": "aplus2/op-backup-safety-ir.md",
+          "subtopics": [
+            "backup_recovery",
+            "safety",
+            "incident_response_a2"
+          ],
+          "quiz_size": 12
+        },
+        {
+          "id": "aplus2-l-op-prof",
+          "title": "Communication, Professionalism & Scripting",
+          "markdown_path": "aplus2/op-prof-scripting.md",
+          "subtopics": [
+            "communication_professionalism",
+            "scripting_basics"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}

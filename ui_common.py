@@ -34,6 +34,7 @@ from studyengine import (
 from studyengine.blueprints import EXAMS as _BLUEPRINTS, LIVE_EXAMS
 from studyengine.cli_sim import Console, topology_svg
 from studyengine.models import Question
+from studyengine.perf import get_perf_task, is_perf_task, perf_tasks_for  # noqa: F401
 from studyengine.progress import BOX_WEIGHT, Profile
 
 ROOT = Path(__file__).resolve().parent
@@ -1022,6 +1023,60 @@ def run_quiz(exam: str, skey: str, question_ids: list[str], instant: bool = Fals
             state["idx"] += 1
         st.rerun()
     return ("in_progress", None)
+
+
+# --- interactive CompTIA PBQ (categorize / match / order) -------------------
+def render_perf_task(task, skey_prefix: str) -> bool:
+    """Render a CompTIA performance task and grade it. Returns True once every
+    row is correct (also stores a cross-page flag pbq_passed_<id>)."""
+    import random as _random
+    passed_flag = f"pbq_passed_{task.id}"
+    _KIND_HINT = {
+        "categorize": "Choose the category each item belongs in.",
+        "match": "Pick the correct match for each item.",
+        "order": "Choose which item belongs in each position.",
+    }
+    st.markdown(task.prompt)
+    st.caption(_KIND_HINT.get(task.kind, ""))
+    rows = task.rows()
+    with st.form(f"{skey_prefix}_form"):
+        picks = {}
+        for key, label, choices, _correct in rows:
+            opts = list(choices)
+            _random.Random(f"{task.id}:{key}").shuffle(opts)   # no positional hint
+            picks[key] = st.selectbox(label, ["— choose —"] + opts, key=f"{skey_prefix}_{key}")
+        submitted = st.form_submit_button("Validate", type="primary")
+    if submitted:
+        answer = {k: (v if v != "— choose —" else None) for k, v in picks.items()}
+        checks = task.grade(answer)
+        st.markdown(
+            "".join(
+                f"<div style='display:flex;align-items:center;margin:.12rem 0'>"
+                f"{ui_icons.inline('check' if c.passed else 'cross', 16, '#22C58B' if c.passed else '#E06C6C')}"
+                f"<span>{html.escape(c.description)}</span></div>"
+                for c in checks),
+            unsafe_allow_html=True,
+        )
+        if all(c.passed for c in checks):
+            st.session_state[passed_flag] = True
+            st.success(task.success)
+            st.balloons()
+        else:
+            n = sum(1 for c in checks if c.passed)
+            st.warning(f"{n}/{len(checks)} correct — fix the flagged rows and validate again.")
+            if task.explain:
+                with st.expander("Need a hint?"):
+                    st.markdown(task.explain)
+    return st.session_state.get(passed_flag, False)
+
+
+def render_any_pbq(pbq_id: str, skey_prefix: str) -> bool:
+    """Dispatch a unit's pbq_id to the right renderer: an interactive CompTIA
+    performance task, or the Cisco CLI scenario."""
+    if is_perf_task(pbq_id):
+        return render_perf_task(get_perf_task(pbq_id), skey_prefix)
+    from studyengine.cli_sim import get_scenario
+    return render_pbq(get_scenario(pbq_id), skey_prefix)
 
 
 # --- reusable PBQ terminal --------------------------------------------------
