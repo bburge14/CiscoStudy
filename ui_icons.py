@@ -172,6 +172,11 @@ _GLYPHS: dict[str, str] = {
         '<path d="M12 10v4.4" stroke="CC" stroke-width="2" stroke-linecap="round"/>'
         '<circle cx="12" cy="17.4" r="1.1" fill="CC"/>'
     ),
+    "flag": (  # flag-for-review (exam navigation)
+        '<path d="M6 3.5v17" stroke="CC" stroke-width="2" fill="none" stroke-linecap="round"/>'
+        '<path d="M6 4.3h11l-2.4 3.5 2.4 3.5H6" stroke="CC" stroke-width="2" fill="none" '
+        'stroke-linejoin="round"/>'
+    ),
 }
 
 # Sidebar-nav + page-link href suffix -> glyph key.

@@ -1027,6 +1027,216 @@ def run_quiz(exam: str, skey: str, question_ids: list[str], instant: bool = Fals
     return ("in_progress", None)
 
 
+# --- navigable, graded-at-the-end exam engine (real-exam style) -------------
+# Free back/forward movement, per-question flag-for-review, a clickable question
+# map, and a final review screen before you submit — the way a real CCNA/CompTIA
+# testing engine works. Answers live in state["answers"] (our own dict), so they
+# survive navigation even when Streamlit garbage-collects an off-screen widget's
+# key; we restore a widget's shown value from there via index=/value=/default=,
+# and ONLY when the key is absent (passing a default while the key is already in
+# session_state raises a StreamlitAPIException).
+def init_exam_state(skey: str, *, deadline: float | None = None) -> None:
+    """Seed (or restart) a navigable-exam session under ``skey``."""
+    st.session_state[skey] = {
+        "idx": 0, "answers": {}, "flags": [], "view": "question",
+        "submitted": False, "started_at": time.time(), "deadline": deadline,
+        "recorded": False,
+    }
+
+
+def _is_blank(sel) -> bool:
+    return sel in (None, "", [], ())
+
+
+def _exam_answer_input(q: Question, key: str, saved):
+    """Answer input for the exam engine, pre-filled from the saved answer.
+
+    Passes a default (index/value/default) ONLY when the widget key is absent
+    from session_state — otherwise Streamlit raises when a default collides with
+    a key that already carries a value (e.g. after a trip to the review screen
+    garbage-collected, then re-created, the widget)."""
+    render_exhibit(q)
+    st.markdown(f"**{q.stem}**")
+    fresh = key not in st.session_state
+    if q.is_fill:
+        kw = {"value": (saved or "")} if fresh else {}
+        return st.text_input("Your answer", key=key, placeholder="type your answer…", **kw)
+    labels = {o.id: f"{o.id}.  {o.text}" for o in q.options}
+    opts = [o.id for o in q.options]
+    if q.type == "multi":
+        st.caption(f"Select {q.select_count}.")
+        kw = {"default": [o for o in (saved or []) if o in opts]} if fresh else {}
+        return st.multiselect("Choose all that apply", options=opts,
+                              format_func=lambda i: labels[i], key=key, **kw)
+    kw = {"index": (opts.index(saved) if saved in opts else None)} if fresh else {}
+    return st.radio("Choose one", options=opts, format_func=lambda i: labels[i], key=key, **kw)
+
+
+@st.fragment(run_every=1)
+def _exam_timer(skey: str) -> None:
+    """Self-refreshing countdown for a timed exam; auto-submits at zero."""
+    state = st.session_state.get(skey)
+    if not state or state.get("deadline") is None or state.get("submitted"):
+        return
+    remaining = int(state["deadline"] - time.time())
+    color = "#e06c6c" if remaining < 120 else "#E6EAF1"
+    mins, secs = max(0, remaining) // 60, max(0, remaining) % 60
+    st.markdown(
+        f"<div style='text-align:right;font-size:20px;font-weight:700;color:{color}'>"
+        f"{ui_icons.inline('stopwatch', 18, color)}{mins}:{secs:02d}</div>",
+        unsafe_allow_html=True)
+    if remaining <= 0:
+        state["submitted"] = True
+        st.rerun()
+
+
+def _exam_palette(skey: str, state: dict, question_ids: list[str], *, per_row: int = 6) -> None:
+    """A clickable question map — jump to any question; ✓ marks answered ones."""
+    answers = state["answers"]
+    flags = state["flags"]
+    total = len(question_ids)
+    st.caption("Question map — click any number to jump.  ✓ answered · ● flagged.")
+    for base in range(0, total, per_row):
+        cols = st.columns(per_row)
+        for c, n in zip(cols, range(base, min(base + per_row, total))):
+            qid = question_ids[n]
+            mark = ("✓" if not _is_blank(answers.get(qid)) else "") + ("●" if qid in flags else "")
+            mark = f"{mark} " if mark else ""
+            is_cur = n == state["idx"] and state["view"] == "question"
+            if c.button(f"{mark}{n + 1}", key=f"{skey}_jump_{n}",
+                        type="primary" if is_cur else "secondary", width="stretch"):
+                state["idx"] = n
+                state["view"] = "question"
+                st.rerun()
+
+
+def _exam_review_screen(exam: str, skey: str, state: dict, question_ids: list[str]) -> None:
+    answers, flags = state["answers"], state["flags"]
+    total = len(question_ids)
+    answered = sum(1 for qid in question_ids if not _is_blank(answers.get(qid)))
+    unanswered = [n for n, qid in enumerate(question_ids) if _is_blank(answers.get(qid))]
+
+    section_header("clipboard", "Review your answers", size=1.2)
+    st.markdown(
+        f"<div style='color:#9AA4B2;margin:-.2rem 0 .5rem'>Answered "
+        f"<b style='color:#E8ECF4'>{answered}</b> of <b>{total}</b>"
+        + (f"  ·  <b style='color:#E0A96C'>{len(flags)}</b> flagged for review" if flags else "")
+        + ". Jump back to change anything before you submit.</div>",
+        unsafe_allow_html=True)
+
+    _exam_palette(skey, state, question_ids)
+
+    if flags:
+        order = [n for n, qid in enumerate(question_ids) if qid in flags]
+        st.markdown(f"{glyph('flag', 16, '#E0A96C')}<b>Flagged</b> — re-check these:",
+                    unsafe_allow_html=True)
+        fcols = st.columns(6)
+        for i, n in enumerate(order):
+            if fcols[i % 6].button(f"Q{n + 1}", key=f"{skey}_fj_{n}", width="stretch"):
+                state["idx"] = n
+                state["view"] = "question"
+                st.rerun()
+
+    st.divider()
+    b = st.columns([1.4, 1.1, 2])
+    if b[0].button("◀ Back to questions", key=f"{skey}_backq", width="stretch"):
+        state["idx"] = unanswered[0] if unanswered else state["idx"]
+        state["view"] = "question"
+        st.rerun()
+    if unanswered:
+        st.warning(f"**{len(unanswered)}** question(s) still unanswered — they'll be "
+                   "marked incorrect if you submit now.")
+        submit = b[1].button("Submit anyway", key=f"{skey}_submit", type="primary", width="stretch")
+    else:
+        submit = b[1].button("Submit exam", key=f"{skey}_submit", type="primary", width="stretch")
+    if submit:
+        state["submitted"] = True
+        st.rerun()
+
+
+def run_exam(exam: str, skey: str, question_ids: list[str]):
+    """Drive a navigable, graded-at-the-end exam.
+
+    Returns ``(phase, state)``:
+      - ``("empty", None)``       — no questions for this selection;
+      - ``("running", None)``     — learner still working (UI rendered here);
+      - ``("done", state)``       — submitted (or time expired). The PAGE then
+        records answers into the profile and renders results exactly once
+        (guard with ``state["recorded"]``). ``state["answers"]`` holds every
+        selection; ``state["started_at"]`` the epoch start.
+
+    Seed the session first with :func:`init_exam_state` (pass ``deadline`` to
+    turn on a live countdown that auto-submits at zero)."""
+    bank = get_bank()
+    bp = get_blueprint(exam)
+    total = len(question_ids)
+    if total == 0:
+        st.info("No questions available for this selection yet.")
+        return ("empty", None)
+    state = st.session_state.get(skey)
+    if state is None:
+        init_exam_state(skey)
+        state = st.session_state[skey]
+
+    if state.get("submitted"):
+        return ("done", state)
+    deadline = state.get("deadline")
+    if deadline is not None and int(deadline - time.time()) <= 0:
+        state["submitted"] = True
+        return ("done", state)
+
+    if state["view"] == "review":
+        _exam_review_screen(exam, skey, state, question_ids)
+        return ("running", None)
+
+    idx = max(0, min(state["idx"], total - 1))
+    state["idx"] = idx
+    qid = question_ids[idx]
+    q = bank.get(qid)
+
+    top = st.columns([3, 1])
+    top[0].progress((idx + 1) / total, text=f"Question {idx + 1} of {total}")
+    if deadline is not None:
+        with top[1]:
+            _exam_timer(skey)
+    st.caption(f"Domain: {bp.domain(q.domain).name}  ·  {q.subtopic.replace('_', ' ')}")
+
+    sel = _exam_answer_input(q, f"{skey}_ans_{qid}", state["answers"].get(qid))
+    state["answers"][qid] = sel   # keep our own store in sync every run
+
+    # Flag is a BUTTON, not a toggle: state["flags"] is the single source of
+    # truth and only an explicit click changes it. (A st.toggle whose value we
+    # sync back can transiently read False on a re-render after navigation and
+    # silently drop the flag — the answer widget avoids this by restoring from
+    # our own store, and the flag must too.)
+    flags = state["flags"]
+    is_flagged = qid in flags
+    if st.button(("● Flagged for review — click to unflag" if is_flagged
+                  else "○ Flag this question to review before submitting"),
+                 key=f"{skey}_flag_{qid}",
+                 type="primary" if is_flagged else "secondary"):
+        flags.remove(qid) if is_flagged else flags.append(qid)
+        st.rerun()
+
+    nav = st.columns([1, 1, 1.5, 1.5])
+    if idx > 0 and nav[0].button("◀ Previous", key=f"{skey}_prev", width="stretch"):
+        state["idx"] -= 1
+        st.rerun()
+    if idx < total - 1 and nav[1].button("Next ▶", key=f"{skey}_next",
+                                         type="primary", width="stretch"):
+        state["idx"] += 1
+        st.rerun()
+    if nav[2].button("Review & submit", key=f"{skey}_toreview",
+                     type="primary" if idx == total - 1 else "secondary", width="stretch"):
+        state["view"] = "review"
+        st.rerun()
+
+    if total <= 60:
+        with st.expander("Jump to a question"):
+            _exam_palette(skey, state, question_ids)
+    return ("running", None)
+
+
 # --- interactive CompTIA PBQ (categorize / match / order) -------------------
 def _show_perf_result(task, answer: dict, passed_flag: str) -> None:
     """Grade an arrangement and render per-row custom-glyph feedback."""

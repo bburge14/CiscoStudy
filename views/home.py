@@ -11,6 +11,7 @@ from ui_common import (
     EXAMS,
     current_user,
     get_bank,
+    get_blueprint,
     get_profile,
     glyph,
     is_instructor,
@@ -47,7 +48,8 @@ if not prof.baseline:
     with st.container(border=True):
         st.markdown(f"{glyph('gauge', 20)} **Start with the Diagnostic Baseline**",
                     unsafe_allow_html=True)
-        st.caption("30 questions (5 per domain) map your weak spots and build a personalized plan.")
+        _nq = len(get_blueprint(exam).domains) * 5
+        st.caption(f"{_nq} questions (5 per domain) map your weak spots and build a personalized plan.")
         st.page_link("views/diagnostic.py", label="Take the diagnostic", icon=":material/fact_check:")
 else:
     with st.container(border=True):
