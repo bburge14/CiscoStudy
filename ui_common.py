@@ -70,7 +70,7 @@ CERT_CATALOG = [
         {"key": "cloudplus", "name": "Cloud+ CV0-004", "status": "soon"},
     ]},
     {"provider": "AWS", "blurb": "Cloud fundamentals & architecture", "certs": [
-        {"key": "clf", "name": "Cloud Practitioner (CLF-C02)", "status": "soon"},
+        {"key": "clf", "name": "Cloud Practitioner (CLF-C02)", "status": "active"},
         {"key": "saa", "name": "Solutions Architect Associate", "status": "soon"},
     ]},
     {"provider": "Microsoft Azure", "blurb": "Azure & Microsoft 365 cloud", "certs": [
@@ -93,6 +93,7 @@ TRACK_ACCENT = {
     "netplus": "#2BB6CC",   # CompTIA Network+ — teal
     "aplus1":  "#E8913A",   # CompTIA A+ Core 1 — amber
     "aplus2":  "#E86A8B",   # CompTIA A+ Core 2 — rose
+    "clf":     "#FF9900",   # AWS — orange
 }
 
 

@@ -222,13 +222,30 @@ APLUS2 = ExamBlueprint(
     ),
 )
 
+# --- AWS Certified Cloud Practitioner (CLF-C02) -----------------------------
+CLF = ExamBlueprint(
+    code="clf",
+    name="Cloud Practitioner (CLF-C02)",
+    domains=(
+        Domain("cloud_concepts", "1.0 Cloud Concepts", 0.24,
+               ("cloud_benefits", "well_architected", "migration_caf", "cloud_economics")),
+        Domain("security_compliance", "2.0 Security and Compliance", 0.30,
+               ("shared_responsibility", "compliance_governance", "iam", "security_services")),
+        Domain("cloud_technology", "3.0 Cloud Technology and Services", 0.34,
+               ("global_infrastructure", "compute_services", "storage_services",
+                "database_services", "networking_services", "deployment_access", "other_services")),
+        Domain("billing_support", "4.0 Billing, Pricing, and Support", 0.12,
+               ("pricing_models", "billing_cost_management", "support_plans", "technical_resources")),
+    ),
+)
+
 EXAMS: dict[str, ExamBlueprint] = {
-    bp.code: bp for bp in (CCNA, ENCOR, SECPLUS, NETPLUS, APLUS1, APLUS2)
+    bp.code: bp for bp in (CCNA, ENCOR, SECPLUS, NETPLUS, APLUS1, APLUS2, CLF)
 }
 
 # Tracks that have a real question bank and are selectable in the UI. Blueprints
 # for the rest exist (objectives captured) but stay "coming soon" until built.
-LIVE_EXAMS: tuple[str, ...] = ("ccna", "encor", "secplus", "netplus", "aplus1", "aplus2")
+LIVE_EXAMS: tuple[str, ...] = ("ccna", "encor", "secplus", "netplus", "aplus1", "aplus2", "clf")
 
 
 def get_blueprint(code: str) -> ExamBlueprint:
