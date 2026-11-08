@@ -26,6 +26,7 @@ import content_secplus  # noqa: E402
 import content_netplus  # noqa: E402
 import content_aplus1  # noqa: E402
 import content_aplus2  # noqa: E402
+import content_clf  # noqa: E402
 
 # Base item pool per track. Any number of expansion pools named
 # tools/content_<exam>_*.py (e.g. content_ccna_2.py, content_secplus_gsc.py) are
@@ -34,6 +35,7 @@ import content_aplus2  # noqa: E402
 BASE = {
     "ccna": content_ccna, "encor": content_encor, "secplus": content_secplus,
     "netplus": content_netplus, "aplus1": content_aplus1, "aplus2": content_aplus2,
+    "clf": content_clf,
 }
 
 
