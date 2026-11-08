@@ -1,8 +1,8 @@
 # -*- mode: python ; coding: utf-8 -*-
-"""PyInstaller spec that bundles CertStack (Streamlit app + engine + content)
-into a single self-contained Windows executable: dist/CertStack.exe.
+"""PyInstaller spec that bundles CertLab (Streamlit app + engine + content)
+into a single self-contained Windows executable: dist/CertLab.exe.
 
-Build (on Windows):   pyinstaller --noconfirm --clean CertStack.spec
+Build (on Windows):   pyinstaller --noconfirm --clean CertLab.spec
 """
 from PyInstaller.utils.hooks import collect_all, copy_metadata
 
@@ -68,7 +68,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name="CertStack",
+    name="CertLab",
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

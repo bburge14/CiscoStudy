@@ -1,1 +1,1 @@
-"""CertStack custom components."""
+"""CertLab custom components."""

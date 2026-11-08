@@ -1,11 +1,11 @@
 @echo off
 REM ===================================================================
-REM  CertStack launcher (Windows)
+REM  CertLab launcher (Windows)
 REM  Double-click this file to start the study platform in your browser.
 REM  Right-click -> Send to -> Desktop (create shortcut) for a desktop icon.
 REM ===================================================================
 setlocal
-title CertStack
+title CertLab
 cd /d "%~dp0"
 
 REM Prefer the Windows "py" launcher, fall back to "python".
@@ -23,7 +23,7 @@ if not %errorlevel%==0 (
   exit /b 1
 )
 
-echo Preparing CertStack...
+echo Preparing CertLab...
 REM (Re)generate the question bank from the authored source (quietly).
 %PY% tools\build_content.py >nul 2>&1
 
@@ -38,12 +38,12 @@ if not exist "%USERPROFILE%\.streamlit\credentials.toml" (
 )
 
 echo.
-echo Starting CertStack at http://localhost:8501
+echo Starting CertLab at http://localhost:8501
 echo (A browser tab should open automatically. Press Ctrl+C here to stop.)
 echo.
 %PY% -m streamlit run Home.py %*
 
 echo.
-echo CertStack has stopped.
+echo CertLab has stopped.
 pause
 endlocal

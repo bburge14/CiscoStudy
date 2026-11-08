@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Launch the CertStack platform locally.
+# Launch the CertLab platform locally.
 set -euo pipefail
 cd "$(dirname "$0")"
 

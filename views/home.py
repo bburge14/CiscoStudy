@@ -1,4 +1,4 @@
-"""CertStack home: a branded landing — current-track progress, quick-start cards,
+"""CertLab home: a branded landing — current-track progress, quick-start cards,
 and the multi-certification catalog (live tracks + coming-soon placeholders)."""
 from __future__ import annotations
 
@@ -93,7 +93,7 @@ if is_instructor(current_user()):
 # --- certification catalog --------------------------------------------------
 st.divider()
 st.markdown("### Explore certifications")
-st.caption("CertStack is growing into a full IT-cert trainer. Live tracks are ready now; "
+st.caption("CertLab is growing into a full IT-cert trainer. Live tracks are ready now; "
            "more are on the way.")
 
 
@@ -125,7 +125,7 @@ for prov in CERT_CATALOG:
             else:
                 st.button("Coming soon", key=f"soon_{cert['key']}", disabled=True, width="stretch")
 
-with st.expander("New here? How CertStack works"):
+with st.expander("New here? How CertLab works"):
     _rows = [
         ("gauge", "Diagnostic", "finds your weak spots (5 questions per official domain)."),
         ("route", "Study Plan", "walks those weak topics one at a time — read, drill, unlock the next."),
