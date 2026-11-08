@@ -45,6 +45,7 @@ datas += [
     ("studyengine", "studyengine"),
     ("components", "components"),
     ("data", "data"),
+    ("assets", "assets"),
     (".streamlit", ".streamlit"),
 ]
 

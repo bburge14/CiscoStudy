@@ -94,6 +94,24 @@ def current_accent() -> str:
     return accent_for(st.session_state.get("exam", "ccna"))
 
 
+# Brand logo (transparent-bg PNG under assets/) as a base64 data-URI, read once.
+# Embedded inline so it renders the same in the web app and the frozen .exe
+# (where assets/ is unpacked next to this module under sys._MEIPASS).
+try:
+    _LOGO_URI = ("data:image/png;base64,"
+                 + base64.b64encode((ROOT / "assets" / "logo.png").read_bytes()).decode("ascii"))
+except Exception:
+    _LOGO_URI = ""
+
+
+def logo_img(size: int = 76, *, style: str = "display:block;margin:0 auto") -> str:
+    """The CertLab mark as an <img> tag (empty string if the asset is missing)."""
+    if not _LOGO_URI:
+        return ""
+    return (f"<img src='{_LOGO_URI}' width='{size}' height='{size}' alt='CertLab logo' "
+            f"style='{style}'/>")
+
+
 def glyph(key: str, size: int = 18, color: str | None = None) -> str:
     """Inline custom-glyph markup, tinted to the current track accent by default."""
     return ui_icons.inline(key, size=size, color=color or current_accent())
@@ -534,7 +552,8 @@ def _render_login() -> None:
     )
     st.markdown(
         "<div style='text-align:center;margin:0.75rem 0 0.25rem'>"
-        "<div style='font-size:2.5rem;font-weight:800;letter-spacing:-0.02em;line-height:1'>"
+        + logo_img(84, style="display:block;margin:0 auto 0.55rem")
+        + "<div style='font-size:2.5rem;font-weight:800;letter-spacing:-0.02em;line-height:1'>"
         "Cert<span style='color:#4D8DFF'>Lab</span></div>"
         "<div style='color:#9AA4B2;font-size:0.98rem;margin-top:0.4rem'>"
         "Your IT certification trainer — practice, labs &amp; realistic exam sims</div></div>",
@@ -724,7 +743,9 @@ def render_sidebar_chrome() -> None:
     with st.sidebar:
         st.markdown(
             "<div style='font-size:1.5rem;font-weight:800;letter-spacing:-0.02em;"
-            "padding:0.05rem 0 0'>Cert<span style='color:#4D8DFF'>Lab</span></div>"
+            "padding:0.05rem 0 0;display:flex;align-items:center;gap:.4rem'>"
+            + logo_img(26, style="flex:none")
+            + "<span>Cert<span style='color:#4D8DFF'>Lab</span></span></div>"
             "<div style='color:#8A94A6;font-size:0.66rem;text-transform:uppercase;"
             "letter-spacing:0.12em;margin:0 0 0.6rem'>IT Certification Trainer</div>",
             unsafe_allow_html=True,

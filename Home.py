@@ -18,7 +18,20 @@ from ui_common import (
     render_sidebar_chrome,
 )
 
-st.set_page_config(page_title="CertLab", page_icon="🛜", layout="wide")
+def _page_icon():
+    """The CertLab mark as the browser-tab favicon (emoji fallback if missing)."""
+    try:
+        from pathlib import Path
+        from PIL import Image
+        p = Path(__file__).resolve().parent / "assets" / "logo.png"
+        if p.exists():
+            return Image.open(p)
+    except Exception:
+        pass
+    return "🛜"
+
+
+st.set_page_config(page_title="CertLab", page_icon=_page_icon(), layout="wide")
 
 # Login gate: renders the sign-in screen and stops if not authenticated.
 if not ensure_login():
