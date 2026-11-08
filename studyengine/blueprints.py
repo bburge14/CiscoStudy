@@ -271,14 +271,33 @@ CYSA = ExamBlueprint(
     ),
 )
 
+# --- CompTIA PenTest+ (PT0-003) ---------------------------------------------
+PENTEST = ExamBlueprint(
+    code="pentest",
+    name="PenTest+ PT0-003",
+    domains=(
+        Domain("pt_engagement", "1.0 Engagement Management", 0.13,
+               ("pt_scoping_roe", "pt_methodologies", "pt_grc_legal", "pt_reporting_comm")),
+        Domain("pt_recon", "2.0 Reconnaissance and Enumeration", 0.21,
+               ("pt_passive_recon", "pt_active_recon", "pt_enumeration", "pt_recon_tools")),
+        Domain("pt_vuln_discovery", "3.0 Vulnerability Discovery and Analysis", 0.17,
+               ("pt_vuln_scanning", "pt_vuln_analysis", "pt_vuln_types")),
+        Domain("pt_attacks", "4.0 Attacks and Exploits", 0.35,
+               ("pt_network_attacks", "pt_web_attacks", "pt_auth_attacks",
+                "pt_wireless_social", "pt_cloud_specialized")),
+        Domain("pt_post_exploit", "5.0 Post-exploitation and Lateral Movement", 0.14,
+               ("pt_post_access", "pt_lateral_movement", "pt_persistence_stealth", "pt_cleanup_exfil")),
+    ),
+)
+
 EXAMS: dict[str, ExamBlueprint] = {
-    bp.code: bp for bp in (CCNA, ENCOR, SECPLUS, NETPLUS, APLUS1, APLUS2, CLF, AZ900, CYSA)
+    bp.code: bp for bp in (CCNA, ENCOR, SECPLUS, NETPLUS, APLUS1, APLUS2, CLF, AZ900, CYSA, PENTEST)
 }
 
 # Tracks that have a real question bank and are selectable in the UI. Blueprints
 # for the rest exist (objectives captured) but stay "coming soon" until built.
 LIVE_EXAMS: tuple[str, ...] = (
-    "ccna", "encor", "secplus", "netplus", "aplus1", "aplus2", "clf", "az900", "cysa",
+    "ccna", "encor", "secplus", "netplus", "aplus1", "aplus2", "clf", "az900", "cysa", "pentest",
 )
 
 

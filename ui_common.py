@@ -66,7 +66,7 @@ CERT_CATALOG = [
         {"key": "netplus", "name": "Network+ N10-009", "status": "active"},
         {"key": "aplus1", "name": "A+ Core 1 (220-1101)", "status": "active"},
         {"key": "aplus2", "name": "A+ Core 2 (220-1102)", "status": "active"},
-        {"key": "pentest", "name": "PenTest+ PT0-003", "status": "soon"},
+        {"key": "pentest", "name": "PenTest+ PT0-003", "status": "active"},
         {"key": "securityx", "name": "SecurityX / CASP+ (CAS-005)", "status": "soon"},
         {"key": "linuxplus", "name": "Linux+ XK0-005", "status": "soon"},
         {"key": "cloudplus", "name": "Cloud+ CV0-004", "status": "soon"},
@@ -112,6 +112,7 @@ TRACK_ACCENT = {
     "clf":     "#FF9900",   # AWS — orange
     "az900":   "#0078D4",   # Microsoft Azure — blue
     "cysa":    "#6366F1",   # CompTIA CySA+ — indigo
+    "pentest": "#E5484D",   # CompTIA PenTest+ — offensive/red-team crimson
 }
 
 
