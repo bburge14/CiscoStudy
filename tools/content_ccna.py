@@ -56,8 +56,8 @@ QUESTIONS = [
     {
         "id": "ccna-nf-003", "exam": "ccna", "domain": "network_fundamentals",
         "subtopic": "ipv6_addressing", "difficulty": 2, "type": "mcq",
-        "stem": "Which statement about the IPv6 address 2001:0DB8:0000:0000:0000:00AB:0000:1234 "
-                "and its correct compressed form is true?",
+        "stem": "What is the correct compressed form of the IPv6 address "
+                "2001:0DB8:0000:0000:0000:00AB:0000:1234?",
         "options": [
             {"id": "A", "text": "2001:DB8::AB:0:1234"},
             {"id": "B", "text": "2001:DB8::AB::1234"},
@@ -1159,8 +1159,8 @@ QUESTIONS = [
     {
         "id": "ccna-se-007", "exam": "ccna", "domain": "security_fundamentals",
         "subtopic": "vpn_concepts", "difficulty": 1, "type": "mcq",
-        "stem": "Which pair of IPsec protocols/services provides BOTH confidentiality "
-                "(encryption) and data integrity for a site-to-site VPN?",
+        "stem": "Which IPsec protocol provides BOTH confidentiality (encryption) and "
+                "data integrity for a site-to-site VPN?",
         "options": [
             {"id": "A", "text": "ESP"},
             {"id": "B", "text": "AH only"},

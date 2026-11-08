@@ -943,7 +943,8 @@ QUESTIONS = [
         "subtopic": "security_concepts_np", "difficulty": 2, "type": "mcq",
         "stem": "An enterprise needs an AAA protocol to authenticate users connecting through "
                 "802.1X and VPNs. It wants an open, vendor-neutral standard that is widely "
-                "interoperable. Which protocol fits — and what is one of its characteristics?",
+                "interoperable. Which option names the protocol that fits and correctly "
+                "describes it?",
         "options": [
             {"id": "A", "text": "RADIUS — an open standard that uses UDP and encrypts only the password in the access-request"},
             {"id": "B", "text": "TACACS+ — an open standard that encrypts the entire packet"},

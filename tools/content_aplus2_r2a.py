@@ -47,7 +47,7 @@ QUESTIONS = [
         "id": "aplus2-os-r2-002", "exam": "aplus2", "domain": "operating_systems",
         "subtopic": "windows_editions", "difficulty": 2, "type": "mcq",
         "stem": "A video-editing workstation has 256 GB of RAM installed, but 64-bit Windows Home "
-                "reports it cannot use all of it. Which edition change lets Windows address far "
+                "cannot use all of it. Which edition change lets Windows address far "
                 "more memory (up to 2 TB)?",
         "options": [
             {"id": "A", "text": "Upgrade to Windows Pro"},
@@ -999,7 +999,7 @@ QUESTIONS = [
         "id": "aplus2-sec-r2-011", "exam": "aplus2", "domain": "security_a2",
         "subtopic": "social_engineering_a2", "difficulty": 2, "type": "mcq",
         "stem": "In a busy airport, an attacker stands close behind a traveler and watches them type "
-                "their laptop password and PIN. Which technique is this, and a simple "
+                "their laptop password and PIN. Which technique is this, and what is a simple "
                 "countermeasure?",
         "options": [
             {"id": "A", "text": "Shoulder surfing — use a privacy screen filter and shield entry"},

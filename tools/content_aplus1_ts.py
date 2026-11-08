@@ -466,8 +466,9 @@ QUESTIONS = [
     {
         "id": "aplus1-ts-120", "exam": "aplus1", "domain": "hw_net_troubleshooting",
         "subtopic": "network_troubleshooting_a1", "difficulty": 3, "type": "mcq",
-        "stem": "VoIP phone users complain of choppy audio and dropped words, although calls still connect "
-                "and stay up. A technician measures high latency and jitter on the network. What does this indicate?",
+        "stem": "VoIP phone users complain of choppy audio and dropped words, although calls "
+                "still connect and stay up. A technician measures high latency and jitter on the "
+                "network. What is the MOST likely cause of the choppy audio?",
         "options": [
             {"id": "A", "text": "Latency and jitter are degrading the real-time voice traffic"},
             {"id": "B", "text": "The DHCP server has run out of addresses to lease"},

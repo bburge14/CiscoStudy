@@ -462,8 +462,8 @@ QUESTIONS = [
     {
         "id": "aplus1-hw-120", "exam": "aplus1", "domain": "hardware",
         "subtopic": "power_supplies", "difficulty": 3, "type": "mcq",
-        "stem": "A PSU has a red slide switch marked '115/230.' What does setting this switch wrong for "
-                "the region's mains voltage risk?",
+        "stem": "A PSU has a red slide switch marked '115/230.' What is the risk of setting this "
+                "switch to the wrong value for the region's mains voltage?",
         "options": [
             {"id": "A", "text": "Component damage or a no-power condition, because it selects the AC input voltage range"},
             {"id": "B", "text": "Changing the 80 PLUS efficiency rating"},
