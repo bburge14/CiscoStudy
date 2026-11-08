@@ -517,8 +517,8 @@ QUESTIONS = [
         ],
         "correct": ["A"],
         "explanation": {
-            "correct": "Governance uses tools such as policies, blueprints, and templates to enforce "
-                       "corporate and regulatory standards and flag non-compliant resources.",
+            "correct": "Governance uses tools such as Azure Policy, resource locks, and templates to "
+                       "enforce corporate and regulatory standards and flag non-compliant resources.",
             "distractors": {
                 "B": "Elasticity is automatic scaling with demand, not enforcing standards.",
                 "C": "High availability is about uptime, not compliance with corporate standards.",
