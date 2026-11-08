@@ -1,4 +1,4 @@
-"""CertWize — a custom CCNA 200-301 & CCNP ENCOR 350-401 study platform.
+"""CertStack — a custom CCNA 200-301 & CCNP ENCOR 350-401 study platform.
 
 This is the app entry point / router. It renders the login gate, the account
 menu and the sidebar chrome once, then hands off to the selected page via
@@ -18,7 +18,7 @@ from ui_common import (
     render_sidebar_chrome,
 )
 
-st.set_page_config(page_title="CertWize", page_icon="🛜", layout="wide")
+st.set_page_config(page_title="CertStack", page_icon="🛜", layout="wide")
 
 # Login gate: renders the sign-in screen and stops if not authenticated.
 if not ensure_login():

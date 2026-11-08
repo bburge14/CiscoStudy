@@ -74,7 +74,7 @@ PASS_THRESHOLD = 0.8
 # --- per-track accent theming ----------------------------------------------
 # Every track gets its own accent so the whole app recolors to the cert you're
 # studying — primary buttons, progress bars, header glyphs and highlights all
-# follow the track. The CertWize wordmark keeps its brand blue; everything
+# follow the track. The CertStack wordmark keeps its brand blue; everything
 # contextual follows the selected certification.
 TRACK_ACCENT = {
     "ccna":    "#4D8DFF",   # Cisco — blue
@@ -535,7 +535,7 @@ def _render_login() -> None:
     st.markdown(
         "<div style='text-align:center;margin:0.75rem 0 0.25rem'>"
         "<div style='font-size:2.5rem;font-weight:800;letter-spacing:-0.02em;line-height:1'>"
-        "Cert<span style='color:#4D8DFF'>Wize</span></div>"
+        "Cert<span style='color:#4D8DFF'>Stack</span></div>"
         "<div style='color:#9AA4B2;font-size:0.98rem;margin-top:0.4rem'>"
         "Your IT certification trainer — practice, labs &amp; realistic exam sims</div></div>",
         unsafe_allow_html=True,
@@ -698,7 +698,7 @@ def _render_track_picker() -> None:
 
 
 def render_sidebar_chrome() -> None:
-    """Sidebar: CertWize brand + track dropdown on top, the nav links below, then a
+    """Sidebar: CertStack brand + track dropdown on top, the nav links below, then a
     compact rank card. Injects the custom-glyph nav icons, the per-track accent
     theme, and the centered content-width layout, and reorders the sidebar so the
     brand leads (Streamlit renders user content below the nav by default)."""
@@ -724,7 +724,7 @@ def render_sidebar_chrome() -> None:
     with st.sidebar:
         st.markdown(
             "<div style='font-size:1.5rem;font-weight:800;letter-spacing:-0.02em;"
-            "padding:0.05rem 0 0'>Cert<span style='color:#4D8DFF'>Wize</span></div>"
+            "padding:0.05rem 0 0'>Cert<span style='color:#4D8DFF'>Stack</span></div>"
             "<div style='color:#8A94A6;font-size:0.66rem;text-transform:uppercase;"
             "letter-spacing:0.12em;margin:0 0 0.6rem'>IT Certification Trainer</div>",
             unsafe_allow_html=True,

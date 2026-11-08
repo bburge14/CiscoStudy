@@ -19,7 +19,7 @@ REPO = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO))
 
 # Point persistence at a throwaway dir BEFORE ui_common computes USERDATA.
-_TMP = tempfile.mkdtemp(prefix="certwize-nav-test-")
+_TMP = tempfile.mkdtemp(prefix="certstack-nav-test-")
 os.environ["CISCOSTUDY_DATA"] = _TMP
 
 import ui_common  # noqa: E402

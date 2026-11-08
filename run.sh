@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Launch the CertWize platform locally.
+# Launch the CertStack platform locally.
 set -euo pipefail
 cd "$(dirname "$0")"
 

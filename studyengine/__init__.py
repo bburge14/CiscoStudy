@@ -1,4 +1,4 @@
-"""CertWize engine: question bank, adaptive scheduling, curriculum, CLI sim.
+"""CertStack engine: question bank, adaptive scheduling, curriculum, CLI sim.
 
 All exam content in this package is original, written to match the public Cisco
 200-301 / 350-401 exam blueprints and real IOS behaviour. It is study material,

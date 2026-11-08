@@ -15,7 +15,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 _DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "frontend")
-_impl = components.declare_component("certwize_dragdrop", path=_DIR)
+_impl = components.declare_component("certstack_dragdrop", path=_DIR)
 
 
 def drag_arrange(task, *, accent: str = "#4D8DFF", key: str) -> dict | None:
