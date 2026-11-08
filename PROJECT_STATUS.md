@@ -37,7 +37,8 @@ defaults anywhere in the app body — and recolors per track (see "per-track acc
 | Accounts & login | ✅ username/password, PBKDF2-salted-hashed, per-account storage |
 | Onboarding hub | ✅ login gate + "where to start?" Home with role-aware sidebar nav (`st.navigation` router) |
 | Custom icon set | ✅ original monochrome SVG glyph set (`ui_icons.py`) used EVERYWHERE — nav (CSS mask), page headers, card/section headers, status chips, XP badges — via `ui_icons.inline()` / `ui_common.glyph()` / `section_header()`. No emoji or Material defaults in the app body (only inline ✓/● text marks survive in dropdown/dataframe cells where SVG can't render) |
-| Sidebar layout | ✅ brand wordmark + track dropdown + rank card pinned ABOVE the nav links (CSS `order` on `stSidebarContent`), then the custom-glyph nav |
+| Sidebar layout | ✅ brand logo + wordmark + track dropdown + rank card pinned ABOVE the nav links (CSS `order` on `stSidebarContent`), then the custom-glyph nav |
+| Brand logo | ✅ hexagon mark (`assets/logo.png`, transparent bg) — the browser **favicon** (replaces the old emoji), the **login hero** above the wordmark, and inline in the **sidebar** brand. Embedded as a base64 data-URI (`logo_img()` / `_LOGO_URI`) so it renders in the web app and the frozen `.exe` (bundled via the spec's `assets` data entry) |
 | Self-service account page | ✅ change your display name, login/username (keeps progress), and password; last-instructor guard |
 | Personalized study plan | ✅ weakest-first, enforced order, read→drill→unlock (studyplan.py) |
 | Exam simulation | ✅ timed (native per-second countdown, auto-submit at 0), domain-weighted, **real-exam navigation** (back/forward + flag + question map + review-before-submit), **track-switch locked while running**, pass/fail report |
