@@ -64,9 +64,19 @@ CERT_CATALOG = [
         {"key": "netplus", "name": "Network+ N10-009", "status": "active"},
         {"key": "aplus1", "name": "A+ Core 1 (220-1101)", "status": "active"},
         {"key": "aplus2", "name": "A+ Core 2 (220-1102)", "status": "active"},
+        {"key": "cysa", "name": "CySA+ CS0-003", "status": "soon"},
+        {"key": "linuxplus", "name": "Linux+ XK0-005", "status": "soon"},
+        {"key": "pentest", "name": "PenTest+ PT0-003", "status": "soon"},
+        {"key": "cloudplus", "name": "Cloud+ CV0-004", "status": "soon"},
     ]},
     {"provider": "AWS", "blurb": "Cloud fundamentals & architecture", "certs": [
-        {"key": "clf", "name": "Cloud Practitioner", "status": "soon"},
+        {"key": "clf", "name": "Cloud Practitioner (CLF-C02)", "status": "soon"},
+        {"key": "saa", "name": "Solutions Architect Associate", "status": "soon"},
+    ]},
+    {"provider": "Microsoft Azure", "blurb": "Azure & Microsoft 365 cloud", "certs": [
+        {"key": "az900", "name": "Azure Fundamentals (AZ-900)", "status": "soon"},
+        {"key": "sc900", "name": "Security, Compliance & Identity (SC-900)", "status": "soon"},
+        {"key": "ms900", "name": "Microsoft 365 Fundamentals (MS-900)", "status": "soon"},
     ]},
 ]
 PASS_THRESHOLD = 0.8
