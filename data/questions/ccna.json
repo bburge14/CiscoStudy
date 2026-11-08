@@ -86,7 +86,7 @@
       "subtopic": "ipv6_addressing",
       "difficulty": 2,
       "type": "mcq",
-      "stem": "Which statement about the IPv6 address 2001:0DB8:0000:0000:0000:00AB:0000:1234 and its correct compressed form is true?",
+      "stem": "What is the correct compressed form of the IPv6 address 2001:0DB8:0000:0000:0000:00AB:0000:1234?",
       "options": [
         {
           "id": "A",
@@ -1978,7 +1978,7 @@
       "subtopic": "vpn_concepts",
       "difficulty": 1,
       "type": "mcq",
-      "stem": "Which pair of IPsec protocols/services provides BOTH confidentiality (encryption) and data integrity for a site-to-site VPN?",
+      "stem": "Which IPsec protocol provides BOTH confidentiality (encryption) and data integrity for a site-to-site VPN?",
       "options": [
         {
           "id": "A",
@@ -7143,7 +7143,7 @@
       "subtopic": "wildcard_masks",
       "difficulty": 2,
       "type": "mcq",
-      "stem": "Which wildcard mask in an ACL matches ALL odd-numbered hosts? (Trick: which matches only hosts where the last octet's low bit is set is NOT possible with a simple wildcard — so which statement is TRUE about wildcard masks?)",
+      "stem": "Which statement about wildcard masks is TRUE?",
       "options": [
         {
           "id": "A",

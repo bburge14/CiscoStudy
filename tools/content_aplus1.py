@@ -404,8 +404,9 @@ QUESTIONS = [
     {
         "id": "aplus1-hw-006", "exam": "aplus1", "domain": "hardware",
         "subtopic": "printers", "difficulty": 3, "type": "mcq",
-        "stem": "In the laser printer imaging process, which step comes IMMEDIATELY AFTER exposing, "
-                "the stage where the laser writes the latent image onto the photosensitive drum?",
+        "stem": "In the laser printer imaging process, the exposing stage is where the laser "
+                "writes the latent image onto the photosensitive drum. Which step comes "
+                "IMMEDIATELY AFTER exposing?",
         "options": [
             {"id": "A", "text": "Developing"},
             {"id": "B", "text": "Charging"},

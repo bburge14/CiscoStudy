@@ -2912,9 +2912,7 @@ QUESTIONS = [
     {
         "id": "ccna-ic-210", "exam": "ccna", "domain": "ip_connectivity",
         "subtopic": "wildcard_masks", "difficulty": 2, "type": "mcq",
-        "stem": "Which wildcard mask in an ACL matches ALL odd-numbered hosts? (Trick: which "
-                "matches only hosts where the last octet's low bit is set is NOT possible with "
-                "a simple wildcard — so which statement is TRUE about wildcard masks?)",
+        "stem": "Which statement about wildcard masks is TRUE?",
         "options": [
             {"id": "A", "text": "A wildcard bit of 1 means 'ignore'; a 0 means 'must match' — they need not be contiguous"},
             {"id": "B", "text": "Wildcard masks must be the exact inverse of a subnet mask"},

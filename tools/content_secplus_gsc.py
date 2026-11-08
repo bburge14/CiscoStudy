@@ -223,9 +223,10 @@ QUESTIONS = [
     {
         "id": "secplus-gsc-108", "exam": "secplus", "domain": "general_security_concepts",
         "subtopic": "zero_trust", "difficulty": 2, "type": "mcq",
-        "stem": "In the Zero Trust control plane, after a decision is made, which component actually "
-                "establishes and later tears down the communication path and generates any "
-                "session-specific credentials, then configures the enforcement point to allow it?",
+        "stem": "In the Zero Trust control plane, an access decision has been made and must "
+                "now be carried out. Which component establishes and later tears down the "
+                "communication path, generates any session-specific credentials, and "
+                "configures the enforcement point to allow the connection?",
         "options": [
             {"id": "A", "text": "Policy Administrator"},
             {"id": "B", "text": "Policy Engine"},

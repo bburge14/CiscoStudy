@@ -3103,7 +3103,7 @@
       "subtopic": "windows_editions",
       "difficulty": 2,
       "type": "mcq",
-      "stem": "A video-editing workstation has 256 GB of RAM installed, but 64-bit Windows Home reports it cannot use all of it. Which edition change lets Windows address far more memory (up to 2 TB)?",
+      "stem": "A video-editing workstation has 256 GB of RAM installed, but 64-bit Windows Home cannot use all of it. Which edition change lets Windows address far more memory (up to 2 TB)?",
       "options": [
         {
           "id": "A",
@@ -4631,7 +4631,7 @@
       "subtopic": "social_engineering_a2",
       "difficulty": 2,
       "type": "mcq",
-      "stem": "In a busy airport, an attacker stands close behind a traveler and watches them type their laptop password and PIN. Which technique is this, and a simple countermeasure?",
+      "stem": "In a busy airport, an attacker stands close behind a traveler and watches them type their laptop password and PIN. Which technique is this, and what is a simple countermeasure?",
       "options": [
         {
           "id": "A",
