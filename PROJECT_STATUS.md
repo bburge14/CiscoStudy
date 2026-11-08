@@ -3,7 +3,7 @@
 _Last updated: 2026-11-07_
 
 ## What this is
-**CertWize** — a Streamlit study & diagnostic platform for IT certifications. The
+**CertLab** — a Streamlit study & diagnostic platform for IT certifications. The
 engine is data-driven by exam blueprints, so adding a cert = a new blueprint + a
 question bank (no engine changes). Live tracks (all selectable in the picker):
 **CCNA 200-301**, **CCNP ENCOR 350-401**, **CompTIA Security+ SY0-701**, **Network+

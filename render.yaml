@@ -1,4 +1,4 @@
-# Render.com Blueprint — one-click deploy of the CertWize Streamlit app.
+# Render.com Blueprint — one-click deploy of the CertLab Streamlit app.
 # A persistent disk keeps per-account progress (.userdata) across restarts.
 # Note: a persistent disk requires a paid instance (free instances can't attach one).
 services:
