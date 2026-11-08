@@ -55,27 +55,43 @@ EXAMS = {code: _BLUEPRINTS[code].name for code in LIVE_EXAMS}
 # Tracks with status "active" have real content (keys match EXAMS); "soon" tracks
 # render as coming-soon placeholders until their content is built.
 CERT_CATALOG = [
-    {"provider": "Cisco", "blurb": "Routing, switching & enterprise networking", "certs": [
+    {"provider": "Cisco", "blurb": "Routing, switching, enterprise & security", "certs": [
         {"key": "ccna", "name": "CCNA 200-301", "status": "active"},
         {"key": "encor", "name": "CCNP ENCOR 350-401", "status": "active"},
+        {"key": "cbrops", "name": "CyberOps Associate (CBROPS)", "status": "soon"},
     ]},
-    {"provider": "CompTIA", "blurb": "Vendor-neutral IT foundations", "certs": [
+    {"provider": "CompTIA", "blurb": "Vendor-neutral IT & security", "certs": [
         {"key": "secplus", "name": "Security+ SY0-701", "status": "active"},
+        {"key": "cysa", "name": "CySA+ CS0-003", "status": "active"},
         {"key": "netplus", "name": "Network+ N10-009", "status": "active"},
         {"key": "aplus1", "name": "A+ Core 1 (220-1101)", "status": "active"},
         {"key": "aplus2", "name": "A+ Core 2 (220-1102)", "status": "active"},
-        {"key": "cysa", "name": "CySA+ CS0-003", "status": "active"},
-        {"key": "linuxplus", "name": "Linux+ XK0-005", "status": "soon"},
         {"key": "pentest", "name": "PenTest+ PT0-003", "status": "soon"},
+        {"key": "securityx", "name": "SecurityX / CASP+ (CAS-005)", "status": "soon"},
+        {"key": "linuxplus", "name": "Linux+ XK0-005", "status": "soon"},
         {"key": "cloudplus", "name": "Cloud+ CV0-004", "status": "soon"},
+    ]},
+    {"provider": "(ISC)²", "blurb": "Cybersecurity practitioner & leadership", "certs": [
+        {"key": "isc2cc", "name": "Certified in Cybersecurity (CC)", "status": "soon"},
+        {"key": "sscp", "name": "SSCP", "status": "soon"},
+        {"key": "cissp", "name": "CISSP", "status": "soon"},
+    ]},
+    {"provider": "ISACA", "blurb": "Security management, audit & risk", "certs": [
+        {"key": "cism", "name": "CISM", "status": "soon"},
+        {"key": "cisa", "name": "CISA", "status": "soon"},
+    ]},
+    {"provider": "EC-Council", "blurb": "Offensive security", "certs": [
+        {"key": "ceh", "name": "Certified Ethical Hacker (CEH)", "status": "soon"},
     ]},
     {"provider": "AWS", "blurb": "Cloud fundamentals & architecture", "certs": [
         {"key": "clf", "name": "Cloud Practitioner (CLF-C02)", "status": "active"},
         {"key": "saa", "name": "Solutions Architect Associate", "status": "soon"},
     ]},
-    {"provider": "Microsoft Azure", "blurb": "Azure & Microsoft 365 cloud", "certs": [
+    {"provider": "Microsoft Azure", "blurb": "Azure, security & Microsoft 365", "certs": [
         {"key": "az900", "name": "Azure Fundamentals (AZ-900)", "status": "active"},
         {"key": "sc900", "name": "Security, Compliance & Identity (SC-900)", "status": "soon"},
+        {"key": "sc200", "name": "Security Operations Analyst (SC-200)", "status": "soon"},
+        {"key": "az500", "name": "Azure Security Engineer (AZ-500)", "status": "soon"},
         {"key": "ms900", "name": "Microsoft 365 Fundamentals (MS-900)", "status": "soon"},
     ]},
 ]
