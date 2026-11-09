@@ -246,7 +246,7 @@ QUESTIONS = [
         "id": "saa-cost-010", "exam": "saa",
         "domain": "saa_cost", "subtopic": "saa_cost_storage",
         "difficulty": 2, "type": "mcq",
-        "stem": "A company keeps backups that are accessed only a few times a year but must be retrieved within "
+        "stem": "A company keeps data that is accessed about once a month but must be retrieved within "
                 "milliseconds when needed, and wants lower storage cost than S3 Standard. Which storage class fits BEST?",
         "options": [
             {"id": "A", "text": "S3 Standard-Infrequent Access (Standard-IA)"},
