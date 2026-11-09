@@ -543,10 +543,94 @@ SECURITYX = ExamBlueprint(
     ),
 )
 
+# --- AWS Certified Solutions Architect – Associate (SAA-C03) ----------------
+SAA = ExamBlueprint(
+    code="saa",
+    name="AWS Solutions Architect Associate (SAA-C03)",
+    domains=(
+        Domain("saa_secure", "1.0 Design Secure Architectures", 0.30,
+               ("saa_iam_access", "saa_data_protection", "saa_network_security",
+                "saa_secure_workloads")),
+        Domain("saa_resilient", "2.0 Design Resilient Architectures", 0.26,
+               ("saa_decoupling", "saa_ha_fault_tolerance", "saa_backup_dr",
+                "saa_storage_resilience")),
+        Domain("saa_performing", "3.0 Design High-Performing Architectures", 0.24,
+               ("saa_compute_perf", "saa_storage_perf", "saa_database_perf",
+                "saa_network_perf")),
+        Domain("saa_cost", "4.0 Design Cost-Optimized Architectures", 0.20,
+               ("saa_cost_compute", "saa_cost_storage", "saa_cost_management",
+                "saa_cost_network")),
+    ),
+)
+
+# --- CompTIA Cloud+ (CV0-004) -----------------------------------------------
+CLOUDPLUS = ExamBlueprint(
+    code="cloudplus",
+    name="CompTIA Cloud+ (CV0-004)",
+    domains=(
+        Domain("cloudp_architecture", "1.0 Cloud Architecture", 0.23,
+               ("cloudp_requirements", "cloudp_design_solutions",
+                "cloudp_capacity_scaling", "cloudp_integration_migration")),
+        Domain("cloudp_deployment", "2.0 Deployment", 0.19,
+               ("cloudp_provisioning", "cloudp_storage_deployment",
+                "cloudp_compute_deployment", "cloudp_networking_deployment")),
+        Domain("cloudp_operations", "3.0 Operations", 0.17,
+               ("cloudp_logging_monitoring", "cloudp_maintenance_automation",
+                "cloudp_backup_restore", "cloudp_optimization")),
+        Domain("cloudp_security", "4.0 Security", 0.19,
+               ("cloudp_identity_access", "cloudp_data_security",
+                "cloudp_network_security", "cloudp_compliance_hardening")),
+        Domain("cloudp_devops", "5.0 DevOps Fundamentals", 0.10,
+               ("cloudp_cicd", "cloudp_iac", "cloudp_automation_scripting")),
+        Domain("cloudp_troubleshooting", "6.0 Troubleshooting", 0.12,
+               ("cloudp_ts_methodology", "cloudp_ts_deployment",
+                "cloudp_ts_connectivity", "cloudp_ts_performance")),
+    ),
+)
+
+# --- CompTIA Linux+ (XK0-005) -----------------------------------------------
+LINUXPLUS = ExamBlueprint(
+    code="linuxplus",
+    name="CompTIA Linux+ (XK0-005)",
+    domains=(
+        Domain("linuxp_system_mgmt", "1.0 System Management", 0.32,
+               ("linuxp_filesystem", "linuxp_package_mgmt", "linuxp_processes_services",
+                "linuxp_users_groups", "linuxp_storage_lvm", "linuxp_networking_config",
+                "linuxp_boot_kernel")),
+        Domain("linuxp_security", "2.0 Security", 0.21,
+               ("linuxp_permissions_acl", "linuxp_access_control", "linuxp_firewall",
+                "linuxp_ssh_hardening", "linuxp_crypto_certs")),
+        Domain("linuxp_scripting", "3.0 Scripting, Containers, and Automation", 0.19,
+               ("linuxp_bash_scripting", "linuxp_git_version", "linuxp_containers",
+                "linuxp_automation")),
+        Domain("linuxp_troubleshooting", "4.0 Troubleshooting", 0.28,
+               ("linuxp_ts_storage", "linuxp_ts_network", "linuxp_ts_cpu_memory",
+                "linuxp_ts_users_access", "linuxp_ts_services", "linuxp_ts_tools")),
+    ),
+)
+
+# --- Microsoft 365 Fundamentals (MS-900) ------------------------------------
+MS900 = ExamBlueprint(
+    code="ms900",
+    name="Microsoft 365 Fundamentals (MS-900)",
+    domains=(
+        Domain("ms9_cloud_concepts", "1.0 Cloud Concepts", 0.10,
+               ("ms9_cloud_benefits", "ms9_m365_vs_office", "ms9_cloud_adoption")),
+        Domain("ms9_apps_services", "2.0 Microsoft 365 Apps and Services", 0.45,
+               ("ms9_productivity_apps", "ms9_teams_collaboration", "ms9_endpoint_intune",
+                "ms9_analytics_copilot", "ms9_deployment_options")),
+        Domain("ms9_security_compliance", "3.0 Security, Compliance, Privacy & Trust", 0.28,
+               ("ms9_identity_entra", "ms9_threat_protection", "ms9_compliance_purview",
+                "ms9_zero_trust_privacy")),
+        Domain("ms9_pricing_support", "4.0 Pricing, Licensing, and Support", 0.17,
+               ("ms9_licensing", "ms9_billing_cost", "ms9_support_sla", "ms9_lifecycle")),
+    ),
+)
+
 EXAMS: dict[str, ExamBlueprint] = {
     bp.code: bp for bp in (CCNA, ENCOR, SECPLUS, NETPLUS, APLUS1, APLUS2, CLF, AZ900, CYSA,
                            PENTEST, ISC2CC, CBROPS, SC900, CISSP, CISM, CISA, SSCP, CEH,
-                           SC200, AZ500, SECURITYX)
+                           SC200, AZ500, SECURITYX, SAA, CLOUDPLUS, LINUXPLUS, MS900)
 }
 
 # Tracks that have a real question bank and are selectable in the UI. Blueprints
@@ -555,6 +639,7 @@ LIVE_EXAMS: tuple[str, ...] = (
     "ccna", "encor", "secplus", "netplus", "aplus1", "aplus2", "clf", "az900", "cysa", "pentest",
     "isc2cc", "cbrops", "sc900", "cissp", "cism", "cisa", "sscp",
     "ceh", "sc200", "az500", "securityx",
+    "saa", "cloudplus", "linuxplus", "ms900",
 )
 
 
