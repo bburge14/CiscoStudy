@@ -87,7 +87,7 @@ CERT_CATALOG = [
         {"key": "clf", "name": "Cloud Practitioner (CLF-C02)", "status": "active"},
         {"key": "saa", "name": "Solutions Architect Associate", "status": "soon"},
     ]},
-    {"provider": "Microsoft Azure", "blurb": "Azure, security & Microsoft 365", "certs": [
+    {"provider": "Microsoft", "blurb": "Azure, security & Microsoft 365", "certs": [
         {"key": "az900", "name": "Azure Fundamentals (AZ-900)", "status": "active"},
         {"key": "sc900", "name": "Security, Compliance & Identity (SC-900)", "status": "active"},
         {"key": "sc200", "name": "Security Operations Analyst (SC-200)", "status": "active"},
@@ -124,6 +124,10 @@ TRACK_ACCENT = {
     "sc200":   "#7E57C2",   # Microsoft SC-200 — Defender purple
     "az500":   "#0E8A6B",   # Microsoft AZ-500 — Azure security green
     "securityx": "#A64D79", # CompTIA SecurityX — plum
+    "saa":     "#C8511B",   # AWS Solutions Architect — AWS deep orange
+    "cloudplus": "#5B9BD5", # CompTIA Cloud+ — cloud blue
+    "linuxplus": "#4E9A06", # CompTIA Linux+ — terminal green
+    "ms900":   "#D83B01",   # Microsoft 365 — Office orange-red
 }
 
 
@@ -727,7 +731,6 @@ def _render_track_picker() -> None:
     While a timed exam is in progress the picker locks (you can't change tracks in
     the middle of a mock exam) — finish or end the exam to switch. Every other mode
     keeps its progress across a switch, so the picker stays live there."""
-    all_tracks = list(_BLUEPRINTS)          # ccna, encor, secplus, netplus, aplus1, aplus2
     live = set(LIVE_EXAMS)
     cur = st.session_state.get("exam", "ccna")
 
@@ -745,16 +748,27 @@ def _render_track_picker() -> None:
         return
 
     with st.popover(f"{_BLUEPRINTS[cur].name}", width="stretch"):
-        st.caption("Choose a certification track")
-        for k in all_tracks:
-            name = _BLUEPRINTS[k].name
-            if k in live:
-                st.button(("● " if k == cur else "") + name, key=f"trk_{k}", width="stretch",
-                          type="primary" if k == cur else "secondary",
-                          on_click=set_track, args=(k,))
-            else:
-                st.button(f"{name}  ·  soon", key=f"trk_{k}", width="stretch", disabled=True,
-                          help="Content for this track is still being built.")
+        st.caption("Choose a certification track — grouped by issuing body")
+        # Grouped by provider (issuing agency), driven by CERT_CATALOG's order.
+        for prov in CERT_CATALOG:
+            certs = prov.get("certs", [])
+            if not certs:
+                continue
+            st.markdown(
+                "<div style='font-size:.66rem;font-weight:700;letter-spacing:.08em;"
+                "text-transform:uppercase;color:#8A94A6;margin:.55rem 0 .15rem;"
+                "border-top:1px solid rgba(255,255,255,.07);padding-top:.4rem'>"
+                f"{html.escape(prov['provider'])}</div>", unsafe_allow_html=True)
+            for c in certs:
+                k = c["key"]
+                name = _BLUEPRINTS[k].name if k in _BLUEPRINTS else c["name"]
+                if k in live:
+                    st.button(("● " if k == cur else "") + name, key=f"trk_{k}", width="stretch",
+                              type="primary" if k == cur else "secondary",
+                              on_click=set_track, args=(k,))
+                else:
+                    st.button(f"{name}  ·  soon", key=f"trk_{k}", width="stretch", disabled=True,
+                              help="Content for this track is still being built.")
 
 
 def render_sidebar_chrome() -> None:
