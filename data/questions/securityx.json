@@ -1,0 +1,3097 @@
+{
+  "exam": "securityx",
+  "count": 76,
+  "questions": [
+    {
+      "id": "securityx-arch-001",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_secure_architecture",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A security architect designs a system so that even if an attacker bypasses the perimeter firewall, they still face host hardening, network segmentation, least-privilege access, and monitoring before reaching sensitive data. Which design principle is MOST directly illustrated?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Implicit trust"
+        },
+        {
+          "id": "B",
+          "text": "Defense in depth (layered security)"
+        },
+        {
+          "id": "C",
+          "text": "A single point of failure"
+        },
+        {
+          "id": "D",
+          "text": "Security through obscurity"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Defense in depth layers independent controls so the failure or bypass of any one control does not compromise the whole system.",
+        "distractors": {
+          "A": "Implicit trust is what layered security (and zero trust) seek to remove, not a design goal here.",
+          "B": "",
+          "C": "A single point of failure is a weakness to avoid, the opposite of layered resilience.",
+          "D": "Security through obscurity relies on secrecy of design and is not a layered-control strategy."
+        },
+        "exam_pattern": "Multiple independent layers so one failure isn't fatal = defense in depth."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — Secure enterprise architecture (defense in depth)"
+      ]
+    },
+    {
+      "id": "securityx-arch-002",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_secure_architecture",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A product team is finalizing a new service and wants to minimize what an external attacker can reach or exploit. Disabling unused services and ports, removing default accounts, and exposing only required APIs most directly accomplishes which objective?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Achieving nonrepudiation"
+        },
+        {
+          "id": "B",
+          "text": "Increasing cyclomatic complexity"
+        },
+        {
+          "id": "C",
+          "text": "Improving mean time to detect (MTTD)"
+        },
+        {
+          "id": "D",
+          "text": "Reducing the attack surface"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Turning off unneeded services, ports, accounts, and interfaces reduces the number of exposed entry points - the attack surface - a core secure-by-design/secure-by-default practice.",
+        "distractors": {
+          "A": "Nonrepudiation ensures actions cannot be denied (via signing/logging), unrelated to removing exposed services.",
+          "B": "Cyclomatic complexity is a code-complexity metric; these hardening steps do not aim to change it.",
+          "C": "MTTD measures detection speed; reducing exposure is prevention, not detection timing.",
+          "D": ""
+        },
+        "exam_pattern": "Disable/remove what isn't needed = attack-surface reduction (secure by design/default)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — Secure architecture (attack surface reduction, secure by design)"
+      ]
+    },
+    {
+      "id": "securityx-arch-003",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_secure_architecture",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After a breach, investigators found that once inside, the attacker moved freely between the HR, finance, and OT networks because they shared one flat Layer 2 domain. Which architectural change BEST limits such lateral (east-west) movement in the future?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Implement network segmentation (and microsegmentation) to isolate zones"
+        },
+        {
+          "id": "B",
+          "text": "Deploy a single larger perimeter firewall only"
+        },
+        {
+          "id": "C",
+          "text": "Enable full-disk encryption on servers"
+        },
+        {
+          "id": "D",
+          "text": "Increase internet bandwidth to the sites"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Segmenting the network into isolated zones (and microsegmenting critical workloads) constrains east-west movement so a foothold in one zone does not grant free access to others.",
+        "distractors": {
+          "A": "",
+          "B": "A bigger perimeter firewall addresses north-south traffic but not east-west movement within a flat internal network.",
+          "C": "Full-disk encryption protects data at rest on stolen media; it does not stop an authenticated attacker pivoting across a flat network.",
+          "D": "More bandwidth has no bearing on containing lateral movement."
+        },
+        "exam_pattern": "Flat network enabling lateral movement -> segmentation/microsegmentation to contain east-west traffic."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — Secure architecture (segmentation, east-west traffic)"
+      ]
+    },
+    {
+      "id": "securityx-arch-004",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_zero_trust",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An enterprise adopts an architecture where no user or device is trusted by default based on network location, every request is authenticated and authorized continuously, and the design assumes the environment is already compromised. Which model is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Discretionary access control only"
+        },
+        {
+          "id": "B",
+          "text": "Air-gapped isolation"
+        },
+        {
+          "id": "C",
+          "text": "Classic castle-and-moat perimeter security"
+        },
+        {
+          "id": "D",
+          "text": "Zero trust (never trust, always verify; assume breach)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Zero trust removes implicit trust based on network location, verifies every request explicitly and continuously, enforces least privilege, and assumes breach.",
+        "distractors": {
+          "A": "DAC is an access-control model about owner-granted permissions, not an enterprise trust architecture.",
+          "B": "An air gap physically isolates a network; it is not the continuous-verification model described.",
+          "C": "Castle-and-moat trusts anything inside the perimeter - the very assumption zero trust rejects.",
+          "D": ""
+        },
+        "exam_pattern": "No location-based trust + verify every request + assume breach = zero trust."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — Zero trust architecture (NIST SP 800-207 principles)"
+      ]
+    },
+    {
+      "id": "securityx-arch-005",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_zero_trust",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In a NIST SP 800-207 zero trust architecture, one logical component evaluates policy and decides whether to grant access, while a separate component sits in the data path and actually enforces that decision for each connection. These are BEST described as the:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Intrusion detection system and the intrusion prevention system"
+        },
+        {
+          "id": "B",
+          "text": "Certificate authority and the registration authority"
+        },
+        {
+          "id": "C",
+          "text": "SIEM and the SOAR platform"
+        },
+        {
+          "id": "D",
+          "text": "Policy decision point (policy engine + policy administrator) and the policy enforcement point (PEP)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "In 800-207, the policy engine (PE) makes the grant/deny decision and the policy administrator (PA) executes it - together the policy decision point (PDP) - while the policy enforcement point (PEP) sits in the path and enforces access per request.",
+        "distractors": {
+          "A": "IDS/IPS detect or block known attack patterns; they are not the ZTA PDP/PEP policy components.",
+          "B": "CA/RA are PKI roles for issuing and registering certificates, not ZTA access-decision/enforcement components.",
+          "C": "SIEM/SOAR handle analytics and automated response, not the per-request access decision/enforcement split.",
+          "D": ""
+        },
+        "exam_pattern": "ZTA: policy engine + policy administrator = PDP (decides); PEP enforces in the data path."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — Zero trust (policy engine/administrator/PDP, PEP)"
+      ]
+    },
+    {
+      "id": "securityx-arch-006",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_zero_trust",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A zero-trust initiative needs to enforce identity-aware, per-workload policies between individual virtual machines in the same data-center subnet - including blocking east-west traffic that a traditional VLAN would permit. Which technique is MOST appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Adding more entries to the perimeter firewall ruleset"
+        },
+        {
+          "id": "B",
+          "text": "Enabling jumbo frames on the switches"
+        },
+        {
+          "id": "C",
+          "text": "Widening the subnet mask to merge VLANs"
+        },
+        {
+          "id": "D",
+          "text": "Microsegmentation (software-defined, per-workload policy)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Microsegmentation applies fine-grained, identity/workload-aware policy down to individual hosts or workloads, controlling east-west traffic that coarse VLAN/subnet boundaries would otherwise allow.",
+        "distractors": {
+          "A": "Perimeter firewall rules govern north-south traffic and cannot granularly control VM-to-VM traffic inside the same subnet.",
+          "B": "Jumbo frames affect packet size/throughput, not segmentation policy.",
+          "C": "Merging VLANs reduces isolation - the opposite of the goal.",
+          "D": ""
+        },
+        "exam_pattern": "Per-workload east-west control inside a subnet = microsegmentation, not VLANs/perimeter rules."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — Zero trust (microsegmentation)"
+      ]
+    },
+    {
+      "id": "securityx-arch-007",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_zero_trust",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A company with a fully remote workforce wants to retire its VPN concentrator and deliver security controls (secure web gateway, CASB, ZTNA, firewall-as-a-service) from a cloud-delivered service that converges networking and security at the edge, close to users. Which model BEST describes this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A site-to-site IPsec mesh"
+        },
+        {
+          "id": "B",
+          "text": "SASE (Secure Access Service Edge), whose security stack is the SSE component"
+        },
+        {
+          "id": "C",
+          "text": "A traditional DMZ"
+        },
+        {
+          "id": "D",
+          "text": "A host-based IDS deployment"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "SASE converges SD-WAN networking with cloud-delivered security (SWG, CASB, ZTNA, FWaaS) at the edge; the security portion alone (SWG, CASB, ZTNA, FWaaS, DLP) is Security Service Edge (SSE), and ZTNA replaces implicit-trust VPN access.",
+        "distractors": {
+          "A": "A site-to-site IPsec mesh connects sites but doesn't provide the converged, identity-aware cloud security stack or replace user VPN with ZTNA.",
+          "B": "",
+          "C": "A DMZ is a perimeter network segment, not a cloud-delivered converged networking+security service.",
+          "D": "A host-based IDS monitors a single host; it does not deliver converged edge security for a remote workforce."
+        },
+        "exam_pattern": "Cloud-delivered SWG+CASB+ZTNA+FWaaS converged with networking = SASE; the security-only slice = SSE; ZTNA supersedes VPN."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — Zero trust (SASE/SSE, ZTNA)"
+      ]
+    },
+    {
+      "id": "securityx-arch-008",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_cloud_hybrid_arch",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Security leadership wants visibility and policy enforcement over employees' use of sanctioned and unsanctioned SaaS apps - including detecting shadow IT, enforcing DLP, and controlling data sharing - as a control point between users and cloud services. Which technology fits BEST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A cloud access security broker (CASB)"
+        },
+        {
+          "id": "B",
+          "text": "A hardware security module (HSM)"
+        },
+        {
+          "id": "C",
+          "text": "A host-based firewall"
+        },
+        {
+          "id": "D",
+          "text": "A jump box (bastion host)"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A CASB sits between users and cloud services as a policy-enforcement point, providing visibility (including shadow-IT discovery), data security/DLP, compliance, and threat protection for SaaS usage.",
+        "distractors": {
+          "A": "",
+          "B": "An HSM safeguards cryptographic keys; it does not broker or monitor SaaS usage.",
+          "C": "A host-based firewall filters traffic on one host, not enterprise-wide SaaS governance.",
+          "D": "A jump box provides controlled administrative access to systems, not SaaS visibility/DLP."
+        },
+        "exam_pattern": "Visibility + DLP + shadow-IT control for SaaS = CASB (its four pillars: visibility, compliance, data security, threat protection)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — Cloud/hybrid architecture (CASB)"
+      ]
+    },
+    {
+      "id": "securityx-arch-009",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_cloud_hybrid_arch",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A multicloud enterprise wants one platform that unifies cloud security posture management, workload protection, and entitlement management across its providers - correlating misconfigurations, vulnerabilities, and identity risk into a single view. Which category BEST describes this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A WAF (web application firewall)"
+        },
+        {
+          "id": "B",
+          "text": "CWPP only (workload protection)"
+        },
+        {
+          "id": "C",
+          "text": "CSPM only (posture/misconfiguration management)"
+        },
+        {
+          "id": "D",
+          "text": "CNAPP (cloud-native application protection platform, converging CSPM, CWPP, CIEM, and more)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A CNAPP converges capabilities - CSPM (posture/misconfiguration), CWPP (workload protection), and CIEM (entitlements) - into one platform spanning development and runtime across clouds.",
+        "distractors": {
+          "A": "A WAF filters web application traffic; it is not a converged cloud-native protection platform.",
+          "B": "CWPP alone protects workloads (VMs, containers) but doesn't cover posture or identity entitlements across clouds.",
+          "C": "CSPM alone covers posture/misconfiguration but not workload protection or entitlement management.",
+          "D": ""
+        },
+        "exam_pattern": "Unified posture + workload + entitlement across clouds = CNAPP (umbrella over CSPM + CWPP + CIEM)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — Cloud/hybrid architecture (CNAPP, CSPM, CWPP, CIEM)"
+      ]
+    },
+    {
+      "id": "securityx-arch-010",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_cloud_hybrid_arch",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Under the cloud shared responsibility model, a team deploys applications on an IaaS virtual machine. Which task remains the CUSTOMER's responsibility under IaaS that would instead shift to the provider under SaaS?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Patching and hardening the guest operating system"
+        },
+        {
+          "id": "B",
+          "text": "Securing the physical data-center facility"
+        },
+        {
+          "id": "C",
+          "text": "Maintaining the hypervisor host hardware"
+        },
+        {
+          "id": "D",
+          "text": "Securing the underlying storage area network fabric"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "In IaaS the customer manages the guest OS (patching, hardening) and everything above it; under SaaS the provider manages the OS and application, so that responsibility shifts to the provider.",
+        "distractors": {
+          "A": "",
+          "B": "Physical facility security is always the provider's responsibility in IaaS, PaaS, and SaaS.",
+          "C": "The hypervisor host hardware is the provider's responsibility across cloud service models.",
+          "D": "The underlying storage fabric is provider-managed infrastructure, not a customer IaaS duty."
+        },
+        "exam_pattern": "IaaS: customer owns guest OS and up; moving toward SaaS shifts OS/app to the provider; physical/host/fabric always provider."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — Cloud/hybrid architecture (shared responsibility model)"
+      ]
+    },
+    {
+      "id": "securityx-arch-011",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_resilience_ha",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank with the three-letter acronym: The maximum tolerable amount of data loss, expressed as a period of time (e.g., 'up to 15 minutes of transactions'), is the recovery point objective, abbreviated ______.",
+      "correct": [
+        "rpo"
+      ],
+      "explanation": {
+        "correct": "RPO (recovery point objective) is the maximum tolerable data loss measured in time and drives backup/replication frequency; RTO is the maximum tolerable time to restore service.",
+        "distractors": {},
+        "exam_pattern": "RPO = how much data you can lose (points back in time -> backup frequency); RTO = how long to recover (downtime)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — Resilience/HA (RPO vs RTO)"
+      ]
+    },
+    {
+      "id": "securityx-arch-012",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_resilience_ha",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A ransomware tabletop exercise reveals that all backups are stored on a single NAS in the same building as production. To align with the widely recommended backup rule, which change should the team make?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Keep 3 copies of data on 2 different media types with 1 copy off-site (3-2-1), ideally adding an offline/immutable copy"
+        },
+        {
+          "id": "B",
+          "text": "Keep a single encrypted copy on the same NAS"
+        },
+        {
+          "id": "C",
+          "text": "Increase backup frequency on the existing NAS only"
+        },
+        {
+          "id": "D",
+          "text": "Replicate synchronously to a second LUN on the same NAS"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The 3-2-1 rule - three copies, on two different media, with one off-site (often extended with one offline/air-gapped or immutable copy) - protects against site loss and ransomware that targets reachable backups.",
+        "distractors": {
+          "A": "",
+          "B": "A single copy on the same device fails every part of 3-2-1 and is destroyed with the site or by ransomware reaching the NAS.",
+          "C": "More frequent backups to the same device add no media diversity and no off-site/offline copy.",
+          "D": "Replicating within the same NAS keeps all copies in one failure domain and still on-site."
+        },
+        "exam_pattern": "3-2-1: 3 copies, 2 media, 1 off-site (add 1 offline/immutable for ransomware resilience)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — Resilience/HA (backup strategy, 3-2-1)"
+      ]
+    },
+    {
+      "id": "securityx-arch-013",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_resilience_ha",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A payment platform has an extremely low RTO: it must resume processing within minutes of a regional outage. Cost is secondary to meeting this target. Which disaster-recovery approach BEST fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A cold site with backups shipped in after a disaster"
+        },
+        {
+          "id": "B",
+          "text": "A warm site with periodic data replication and partial equipment"
+        },
+        {
+          "id": "C",
+          "text": "A hot site (or active-active multi-region) with real-time replication and near-immediate failover"
+        },
+        {
+          "id": "D",
+          "text": "Restore from off-site tape to newly procured hardware after an event"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A hot site - or an active-active multi-region design - with real-time data replication supports near-immediate failover, meeting a very low RTO when cost is secondary.",
+        "distractors": {
+          "A": "A cold site has no ready systems or current data; recovery takes days, far exceeding a minutes-level RTO.",
+          "B": "A warm site shortens recovery versus cold, but its periodic replication and partial readiness can't meet a minutes-level RTO.",
+          "C": "",
+          "D": "Restoring from tape to new hardware is among the slowest options and cannot meet a minutes-level RTO."
+        },
+        "exam_pattern": "Lowest RTO, cost secondary -> hot site / active-active with real-time replication; cold = cheapest but slowest."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — Resilience/HA (DR site types, RTO)"
+      ]
+    },
+    {
+      "id": "securityx-arch-014",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_data_security_arch",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A retailer wants to remove stored credit-card numbers from its order-history database to shrink PCI DSS scope, while still letting staff reference a stand-in value that has no mathematical relationship to the original PAN and can be mapped back only through a separate secured vault. Which technique BEST fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hashing the PAN with unsalted MD5"
+        },
+        {
+          "id": "B",
+          "text": "Tokenization (replace the PAN with a non-sensitive token mapped in a secure vault)"
+        },
+        {
+          "id": "C",
+          "text": "Format-preserving encryption applied in place"
+        },
+        {
+          "id": "D",
+          "text": "Base64 encoding of the PAN"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Tokenization substitutes the sensitive value with a token that has no algorithmic relationship to the original; the mapping lives in a secured token vault, removing the real PAN from the database and reducing PCI scope.",
+        "distractors": {
+          "A": "Unsalted MD5 is a broken one-way hash, unsuitable for a value that must be referenced/mapped back and easily attacked.",
+          "B": "",
+          "C": "Encryption (even format-preserving) keeps a reversible ciphertext derived from the data and its keys in scope, rather than removing the value via a separate vault lookup.",
+          "D": "Base64 is reversible encoding, not protection - anyone can decode it."
+        },
+        "exam_pattern": "No mathematical relationship + vault lookup + reduce PCI scope = tokenization; encryption keeps reversible ciphertext in scope."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — Data security architecture (tokenization vs encryption)"
+      ]
+    },
+    {
+      "id": "securityx-arch-015",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_data_security_arch",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A research consortium must run analytics on highly sensitive data in an untrusted cloud without ever exposing the plaintext to the cloud provider - protecting the data even while it is being processed (data in use). Which approach MOST directly addresses protecting data in use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TLS 1.3 for all connections"
+        },
+        {
+          "id": "B",
+          "text": "AES-256 full-disk encryption on the storage volumes"
+        },
+        {
+          "id": "C",
+          "text": "A firewall rule restricting source IP addresses"
+        },
+        {
+          "id": "D",
+          "text": "Confidential computing (trusted execution environments / secure enclaves) and/or homomorphic encryption"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Protecting data in use requires computing on protected data - confidential computing with hardware trusted execution environments (secure enclaves) keeps data encrypted/isolated during processing, and homomorphic encryption allows computation directly on ciphertext.",
+        "distractors": {
+          "A": "TLS protects data in transit, not while it is being processed in memory.",
+          "B": "Full-disk encryption protects data at rest; the data is decrypted when processed.",
+          "C": "An IP firewall rule controls network access, not protection of data during computation.",
+          "D": ""
+        },
+        "exam_pattern": "Three states: at rest (disk/FDE), in transit (TLS), in use (confidential computing/enclaves, homomorphic)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — Data security architecture (encryption states; data in use)"
+      ]
+    },
+    {
+      "id": "securityx-arch-016",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_data_security_arch",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank with the acronym: A dedicated, tamper-resistant hardware appliance that generates, stores, and protects cryptographic keys and performs crypto operations - often validated to FIPS 140-2/140-3 - is a hardware security module, abbreviated ______.",
+      "correct": [
+        "hsm"
+      ],
+      "explanation": {
+        "correct": "An HSM is a hardened, tamper-resistant device for key generation, storage, and cryptographic operations, keeping keys out of general-purpose memory and commonly FIPS 140-2/140-3 validated.",
+        "distractors": {},
+        "exam_pattern": "Tamper-resistant key storage/crypto hardware, FIPS 140 validated = HSM (keys never leave in plaintext)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — Data security architecture (HSM, key protection)"
+      ]
+    },
+    {
+      "id": "securityx-arch-017",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_iam_architecture",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An architect is choosing identity protocols. They need (1) browser-based SSO to an enterprise SaaS app using XML assertions, and (2) a modern delegated-authorization protocol plus an identity layer on top of it for a mobile app's API access. Which pairing is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "(1) RADIUS; (2) Kerberos"
+        },
+        {
+          "id": "B",
+          "text": "(1) SAML; (2) OAuth 2.0 with OpenID Connect (OIDC)"
+        },
+        {
+          "id": "C",
+          "text": "(1) OpenID Connect; (2) SAML"
+        },
+        {
+          "id": "D",
+          "text": "(1) OAuth 2.0; (2) SAML with OpenID Connect"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "SAML uses XML assertions and is widely used for enterprise web SSO; OAuth 2.0 is a delegated-authorization framework, and OpenID Connect adds an identity (authentication) layer on top of OAuth 2.0 - ideal for mobile/API scenarios.",
+        "distractors": {
+          "A": "RADIUS and Kerberos are authentication protocols for network/enterprise access, not the XML-SSO and delegated-authorization roles described.",
+          "B": "",
+          "C": "OIDC is not XML-assertion SSO, and SAML is not a delegated-authorization framework with an identity layer added.",
+          "D": "This reverses the roles - OAuth 2.0 is not the XML-assertion web-SSO protocol, and SAML is not layered on OAuth."
+        },
+        "exam_pattern": "SAML = XML web SSO; OAuth 2.0 = authorization (delegated access); OIDC = authentication layer on OAuth 2.0."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — IAM architecture (SAML, OAuth 2.0, OIDC/federation)"
+      ]
+    },
+    {
+      "id": "securityx-arch-018",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_iam_architecture",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To reduce the risk of standing administrative access, an enterprise wants to vault privileged credentials, broker just-in-time elevation with approval, and record privileged sessions. Which solution category is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A consumer password manager for end users"
+        },
+        {
+          "id": "B",
+          "text": "Privileged access management (PAM)"
+        },
+        {
+          "id": "C",
+          "text": "A CASB"
+        },
+        {
+          "id": "D",
+          "text": "A SIEM"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "PAM secures privileged accounts via credential vaulting, just-in-time / least-privilege elevation with approvals, session brokering, and session recording - directly reducing standing-admin risk.",
+        "distractors": {
+          "A": "A consumer password manager stores personal passwords but lacks JIT elevation, approval workflows, and session recording.",
+          "B": "",
+          "C": "A CASB governs cloud/SaaS usage, not privileged-credential vaulting and JIT elevation.",
+          "D": "A SIEM aggregates and analyzes logs; it monitors but does not broker or vault privileged access."
+        },
+        "exam_pattern": "Vault + JIT elevation + session recording for admins = PAM (privileged access management)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — IAM architecture (PAM)"
+      ]
+    },
+    {
+      "id": "securityx-arch-019",
+      "exam": "securityx",
+      "domain": "scx_architecture",
+      "subtopic": "scx_iam_architecture",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "An organization implements federated identity so partners' users can access its applications using the partners' home identity providers. Which TWO statements accurately describe federation? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "It enables single sign-on across organizational boundaries via trust relationships and standards such as SAML or OIDC."
+        },
+        {
+          "id": "B",
+          "text": "It eliminates the need for any trust configuration between the parties."
+        },
+        {
+          "id": "C",
+          "text": "Authentication is performed by the user's home identity provider (IdP), and the relying party (service provider) trusts the resulting assertion/token."
+        },
+        {
+          "id": "D",
+          "text": "Each application must store and manage the partner users' passwords locally."
+        }
+      ],
+      "correct": [
+        "A",
+        "C"
+      ],
+      "explanation": {
+        "correct": "In federation the home IdP authenticates the user and issues an assertion/token the service provider trusts, enabling cross-domain SSO through standards like SAML or OIDC.",
+        "distractors": {
+          "A": "",
+          "B": "Federation fundamentally depends on an explicit, configured trust relationship between IdP and relying party; it does not remove that need.",
+          "C": "",
+          "D": "Federation's benefit is that the relying party does NOT store partner credentials - the home IdP holds them."
+        },
+        "exam_pattern": "Federation = home IdP authenticates, relying party trusts the token; enables cross-domain SSO; requires a configured trust."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 2 — IAM architecture (federation, SSO, SAML/OIDC)"
+      ]
+    },
+    {
+      "id": "securityx-eng-001",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_cryptography",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A developer must store user passwords so that a database breach does not reveal them and so that two users with the same password produce different stored values. Which approach is BEST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Store the passwords after Base64 encoding"
+        },
+        {
+          "id": "B",
+          "text": "Encrypt the passwords with AES-256 using a shared application key"
+        },
+        {
+          "id": "C",
+          "text": "Hash the passwords with a single round of unsalted SHA-1"
+        },
+        {
+          "id": "D",
+          "text": "Hash each password with a slow, salted algorithm such as bcrypt, scrypt, or Argon2 (unique salt per user)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Passwords should be stored using a slow, memory-hard, salted password-hashing function (bcrypt/scrypt/Argon2). A unique per-user salt makes identical passwords hash differently and defeats precomputed (rainbow-table) attacks; the work factor slows brute force.",
+        "distractors": {
+          "A": "Base64 is encoding, not protection - it is trivially reversed.",
+          "B": "Reversible encryption means anyone with the key recovers all passwords; passwords should be hashed, not encrypted.",
+          "C": "Unsalted single-round SHA-1 is fast and broken: identical passwords collide and it is highly vulnerable to brute-force and rainbow-table attacks.",
+          "D": ""
+        },
+        "exam_pattern": "Password storage = salted, slow hash (bcrypt/scrypt/Argon2), never reversible encryption or fast/unsalted hashes."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — Cryptography (hashing, salting, password storage)"
+      ]
+    },
+    {
+      "id": "securityx-eng-002",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_cryptography",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An IoT vendor needs public-key cryptography on battery-powered sensors with very limited CPU and memory, while keeping strong security. Which algorithm family BEST meets the constraint of strong security at the smallest key size and lowest compute cost?",
+      "options": [
+        {
+          "id": "A",
+          "text": "RSA with 3072-bit keys"
+        },
+        {
+          "id": "B",
+          "text": "Finite-field Diffie-Hellman with 4096-bit groups"
+        },
+        {
+          "id": "C",
+          "text": "Elliptic curve cryptography (ECC)"
+        },
+        {
+          "id": "D",
+          "text": "Triple DES (3DES)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "ECC provides equivalent security to RSA at far smaller key sizes (e.g., a 256-bit ECC key is comparable to a 3072-bit RSA key), reducing computation, memory, and power - ideal for constrained IoT devices.",
+        "distractors": {
+          "A": "RSA reaches comparable strength only with much larger keys, costing more compute/power than ECC on constrained hardware.",
+          "B": "4096-bit finite-field Diffie-Hellman is computationally heavy for tiny devices compared with elliptic-curve equivalents.",
+          "C": "",
+          "D": "3DES is a legacy symmetric cipher (deprecated), not public-key cryptography, and is slow and weak by modern standards."
+        },
+        "exam_pattern": "Strong asymmetric security + tiny keys / low power (IoT) = ECC (256-bit ECC approx. 3072-bit RSA)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — Cryptography (ECC, asymmetric key sizes)"
+      ]
+    },
+    {
+      "id": "securityx-eng-003",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_cryptography",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A security architect is worried about 'harvest-now, decrypt-later' attacks, in which adversaries capture today's encrypted traffic to decrypt once large-scale quantum computers exist. For data that must stay confidential for decades, which action BEST addresses this long-term threat?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Disable encryption to avoid the overhead"
+        },
+        {
+          "id": "B",
+          "text": "Switch all hashing to MD5 for speed"
+        },
+        {
+          "id": "C",
+          "text": "Increase AES symmetric keys from 128-bit to 256-bit only and take no other action"
+        },
+        {
+          "id": "D",
+          "text": "Begin migrating key establishment and signatures to NIST-standardized post-quantum algorithms (e.g., ML-KEM / FIPS 203, ML-DSA / FIPS 204), using crypto-agility and hybrid schemes"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The quantum threat most severely affects asymmetric algorithms (RSA/ECC, via Shor's algorithm). Migrating key establishment and signatures to NIST-standardized post-quantum algorithms - ML-KEM (FIPS 203) and ML-DSA (FIPS 204) - with crypto-agility and hybrid (classical + PQC) deployments addresses harvest-now-decrypt-later.",
+        "distractors": {
+          "A": "Disabling encryption removes all protection - the opposite of the goal.",
+          "B": "MD5 is a broken hash and irrelevant to the quantum key-exchange problem.",
+          "C": "Doubling the AES key length strengthens symmetric security against Grover's algorithm but does nothing for the vulnerable asymmetric key exchange that protects the session.",
+          "D": ""
+        },
+        "exam_pattern": "Harvest-now-decrypt-later targets asymmetric crypto -> migrate key exchange/signatures to PQC (ML-KEM/ML-DSA) with crypto-agility/hybrid."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — Cryptography / emerging tech (post-quantum: FIPS 203 ML-KEM, FIPS 204 ML-DSA)"
+      ]
+    },
+    {
+      "id": "securityx-eng-004",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_pki",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A high-traffic web platform wants clients to verify certificate revocation status with minimal latency, without each client generating heavy real-time load on the CA's responder, and without the privacy leak of clients contacting the CA for every visit. Which mechanism BEST meets these goals?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Disabling revocation checking entirely"
+        },
+        {
+          "id": "B",
+          "text": "Relying only on certificate expiration dates"
+        },
+        {
+          "id": "C",
+          "text": "OCSP stapling (the server attaches a time-stamped, CA-signed OCSP response to the TLS handshake)"
+        },
+        {
+          "id": "D",
+          "text": "Distributing a full certificate revocation list (CRL) to every client on each connection"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "OCSP stapling has the web server obtain and 'staple' a signed, time-stamped OCSP response during the TLS handshake, so clients get fresh revocation status without each contacting the CA - cutting latency, offloading the responder, and avoiding the client-privacy leak.",
+        "distractors": {
+          "A": "Disabling revocation checking leaves clients trusting revoked (possibly compromised) certificates.",
+          "B": "Expiration dates do not reflect early revocation of a compromised certificate.",
+          "C": "",
+          "D": "CRLs can be large and grow over time; downloading and parsing them per connection adds latency and bandwidth overhead."
+        },
+        "exam_pattern": "Fresh revocation, low latency, less CA load, better privacy = OCSP stapling (vs bulky CRLs or per-client OCSP)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — PKI (certificate revocation: OCSP, OCSP stapling, CRL)"
+      ]
+    },
+    {
+      "id": "securityx-eng-005",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_pki",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "When designing an internal PKI, a security engineer wants to minimize the impact if an issuing CA's signing key is compromised, while strongly protecting the trust anchor. Which design is BEST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A single online root CA that issues all end-entity certificates directly"
+        },
+        {
+          "id": "B",
+          "text": "Use self-signed certificates on every server with no CA"
+        },
+        {
+          "id": "C",
+          "text": "Issue all certificates from a shared public CA with no internal hierarchy"
+        },
+        {
+          "id": "D",
+          "text": "A tiered hierarchy: an offline root CA that signs one or more subordinate (issuing) CAs, which issue the end-entity certificates"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A tiered PKI keeps the root CA offline (air-gapped) as the protected trust anchor and uses subordinate/issuing CAs for day-to-day issuance. If an issuing CA is compromised, only its subtree must be revoked/replaced; the root remains safe.",
+        "distractors": {
+          "A": "A single online root that issues directly exposes the trust anchor to compromise, and a root compromise invalidates the entire PKI.",
+          "B": "Self-signed certificates everywhere provide no scalable trust, revocation, or containment.",
+          "C": "Using a public CA for everything doesn't address internal hierarchy/containment and may not suit internal naming or controls.",
+          "D": ""
+        },
+        "exam_pattern": "Offline root CA + subordinate issuing CAs = protect the trust anchor and contain an issuing-CA compromise."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — PKI (CA hierarchy, offline root, subordinate CAs)"
+      ]
+    },
+    {
+      "id": "securityx-eng-006",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_pki",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In a zero-trust microservices environment, each service must cryptographically authenticate BOTH ends of every connection using certificates, not just the server. Which mechanism provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "HTTP Basic authentication over plaintext"
+        },
+        {
+          "id": "B",
+          "text": "Standard one-way TLS, where only the server presents a certificate"
+        },
+        {
+          "id": "C",
+          "text": "Mutual TLS (mTLS), where client and server each present and validate certificates"
+        },
+        {
+          "id": "D",
+          "text": "A shared static API key in each request header"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Mutual TLS has both the client and the server present and validate X.509 certificates, giving strong bidirectional authentication for service-to-service communication - a common zero-trust pattern.",
+        "distractors": {
+          "A": "HTTP Basic over plaintext exposes credentials and provides no certificate-based mutual authentication.",
+          "B": "One-way TLS authenticates only the server; the client is not certificate-authenticated.",
+          "C": "",
+          "D": "A shared static API key is a bearer secret that can be stolen or replayed and does not cryptographically authenticate both endpoints."
+        },
+        "exam_pattern": "Both endpoints authenticate with certificates = mutual TLS (mTLS)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — PKI / secure integration (mTLS, certificate-based authentication)"
+      ]
+    },
+    {
+      "id": "securityx-eng-007",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_secure_integration",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A web app must let users grant a third-party analytics service limited, revocable access to specific data in the app's API - without ever sharing the users' passwords with the third party. Which framework is designed for this delegated authorization?",
+      "options": [
+        {
+          "id": "A",
+          "text": "OAuth 2.0 (issuing scoped, revocable access tokens to the third party)"
+        },
+        {
+          "id": "B",
+          "text": "SAML 2.0 used for web SSO"
+        },
+        {
+          "id": "C",
+          "text": "WPA3-Enterprise"
+        },
+        {
+          "id": "D",
+          "text": "LDAP bind authentication"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "OAuth 2.0 is a delegated-authorization framework: the user authorizes the third party, which receives a scoped, revocable access token to call the API - without the user's credentials being shared.",
+        "distractors": {
+          "A": "",
+          "B": "SAML handles federated authentication/SSO (who you are), not fine-grained delegated API authorization with scoped tokens.",
+          "C": "WPA3-Enterprise secures wireless network access, unrelated to API authorization delegation.",
+          "D": "LDAP bind authenticates a user against a directory; it is not a delegated third-party authorization framework."
+        },
+        "exam_pattern": "Delegated, scoped, revocable third-party API access without sharing passwords = OAuth 2.0 (authorization)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — Secure integration (OAuth 2.0, API authorization)"
+      ]
+    },
+    {
+      "id": "securityx-eng-008",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_secure_integration",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An enterprise exposes dozens of internal microservice APIs to partners. It wants ONE enforcement point for authentication, authorization, TLS termination, rate limiting/throttling, and request validation. Which component BEST provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An API gateway"
+        },
+        {
+          "id": "B",
+          "text": "A spreadsheet of allowed IP addresses"
+        },
+        {
+          "id": "C",
+          "text": "A client-side JavaScript SDK"
+        },
+        {
+          "id": "D",
+          "text": "A reverse-proxy cache with no security features"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "An API gateway is a centralized ingress control point that enforces authentication and authorization, terminates TLS, applies rate limiting/throttling and quotas, validates requests, and routes to backend services.",
+        "distractors": {
+          "A": "",
+          "B": "A static IP spreadsheet is neither automated nor capable of auth, throttling, or validation.",
+          "C": "A client-side SDK runs in the untrusted client and cannot be a trusted enforcement point.",
+          "D": "A plain cache improves performance but doesn't centrally enforce auth, throttling, and validation."
+        },
+        "exam_pattern": "Central API auth + rate limiting + validation/routing = API gateway."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — Secure integration (API gateway)"
+      ]
+    },
+    {
+      "id": "securityx-eng-009",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_secure_integration",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A compliance requirement states that if a server's long-term private key is ever compromised, previously recorded TLS sessions must NOT become decryptable. Which TLS configuration choice achieves this 'perfect forward secrecy'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Static RSA key exchange (the client encrypts the premaster secret to the server's RSA public key)"
+        },
+        {
+          "id": "B",
+          "text": "Reusing a single session key across all connections"
+        },
+        {
+          "id": "C",
+          "text": "Ephemeral key exchange such as ECDHE (Elliptic Curve Diffie-Hellman Ephemeral)"
+        },
+        {
+          "id": "D",
+          "text": "Disabling TLS and using a shared VPN tunnel password"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Ephemeral Diffie-Hellman (DHE/ECDHE) generates a unique, short-lived key per session that is not derived from the server's long-term private key, so compromising that key cannot decrypt past sessions - perfect forward secrecy.",
+        "distractors": {
+          "A": "With static RSA key exchange the session keys are protected by the server's long-term key; stealing it lets an attacker decrypt all previously captured sessions - no forward secrecy.",
+          "B": "Reusing one session key across connections is insecure and the opposite of forward secrecy.",
+          "C": "",
+          "D": "Abandoning TLS for a shared VPN password does not provide per-session forward secrecy and weakens security."
+        },
+        "exam_pattern": "Forward secrecy = ephemeral key exchange (DHE/ECDHE); static RSA key exchange has none."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — Cryptography / secure integration (forward secrecy, ECDHE, TLS)"
+      ]
+    },
+    {
+      "id": "securityx-eng-010",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_endpoint_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A SOC needs endpoint protection that goes beyond signature antivirus: continuous behavioral monitoring, detection of fileless / living-off-the-land techniques, and the ability to isolate a host and roll back changes during response. Which capability BEST fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A password vault"
+        },
+        {
+          "id": "B",
+          "text": "Endpoint detection and response (EDR), extensible to XDR"
+        },
+        {
+          "id": "C",
+          "text": "A network load balancer"
+        },
+        {
+          "id": "D",
+          "text": "Traditional signature-only antivirus"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "EDR continuously records and analyzes endpoint behavior, detects fileless / living-off-the-land activity that signatures miss, and supports response actions such as host isolation and remediation/rollback; XDR extends this correlation across endpoints, identity, email, and cloud.",
+        "distractors": {
+          "A": "A password vault protects credentials, not endpoint behavioral detection and response.",
+          "B": "",
+          "C": "A load balancer distributes traffic; it is not an endpoint threat-detection tool.",
+          "D": "Signature-only antivirus detects known malware by hashes/patterns and misses behavioral, fileless, and novel attacks."
+        },
+        "exam_pattern": "Behavioral detection + fileless coverage + host isolation/rollback = EDR (XDR correlates across domains)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — Endpoint security (EDR/XDR vs signature AV)"
+      ]
+    },
+    {
+      "id": "securityx-eng-011",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_endpoint_security",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "To stop unauthorized and unknown executables on hardened kiosks that run a fixed set of applications, which control provides the STRONGEST preventive posture?",
+      "options": [
+        {
+          "id": "A",
+          "text": "User training to avoid risky downloads"
+        },
+        {
+          "id": "B",
+          "text": "Application allowlisting (only explicitly approved applications may run; everything else is denied by default)"
+        },
+        {
+          "id": "C",
+          "text": "Scheduled signature antivirus scans only"
+        },
+        {
+          "id": "D",
+          "text": "A blocklist (denylist) of known-bad file hashes"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Application allowlisting enforces default-deny: only explicitly approved applications execute, which is ideal for fixed-purpose/kiosk systems and blocks unknown or novel malware that a blocklist would miss.",
+        "distractors": {
+          "A": "Training reduces risky behavior but does not technically prevent unauthorized code from running.",
+          "B": "",
+          "C": "Periodic AV scans are detective and signature-bound, not a strong preventive execution control.",
+          "D": "A blocklist only stops known-bad items and cannot block novel or unknown executables."
+        },
+        "exam_pattern": "Fixed-function host + strongest prevention = application allowlisting (default-deny), not blocklisting."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — Endpoint security (application allowlisting/hardening)"
+      ]
+    },
+    {
+      "id": "securityx-eng-012",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_endpoint_security",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank with the acronym: A dedicated secure cryptoprocessor on a device's motherboard that stores keys and platform-integrity measurements (used for full-disk-encryption key protection and measured boot) is a Trusted Platform Module, abbreviated ______.",
+      "correct": [
+        "tpm"
+      ],
+      "explanation": {
+        "correct": "A TPM is a hardware root of trust that stores cryptographic keys and platform configuration register (PCR) measurements, supporting full-disk-encryption key sealing, secure/measured boot attestation, and device integrity.",
+        "distractors": {},
+        "exam_pattern": "On-board secure cryptoprocessor storing keys + boot measurements = TPM (enables measured boot, FDE key sealing)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — Endpoint security (TPM, secure/measured boot, hardware root of trust)"
+      ]
+    },
+    {
+      "id": "securityx-eng-013",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_emerging_tech",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An enterprise deploys an LLM-based assistant that can call internal tools and read documents. A tester hides instructions inside a document that, when summarized, cause the model to exfiltrate data. Which attack is this, and which mitigation is MOST appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cross-site scripting; mitigate with output encoding in the browser"
+        },
+        {
+          "id": "B",
+          "text": "SQL injection; mitigate with parameterized queries"
+        },
+        {
+          "id": "C",
+          "text": "Prompt injection (indirect); mitigate by isolating/validating untrusted content, least-privilege tool access, output filtering, and human approval for sensitive actions"
+        },
+        {
+          "id": "D",
+          "text": "Buffer overflow; mitigate with stack canaries"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Malicious instructions embedded in content the model ingests is (indirect) prompt injection. Defenses include treating retrieved content as untrusted, constraining the model's tool permissions to least privilege, filtering/validating outputs, and requiring human approval for sensitive or destructive actions.",
+        "distractors": {
+          "A": "XSS is browser script injection; output encoding addresses web rendering, not an LLM following embedded instructions.",
+          "B": "SQL injection targets database query construction, not LLM prompt handling; parameterized queries don't address model instruction-following.",
+          "C": "",
+          "D": "Buffer overflows are memory-safety bugs; stack canaries are irrelevant to prompt manipulation."
+        },
+        "exam_pattern": "Embedded malicious instructions in model-ingested content = prompt injection; defend with untrusted-content isolation, least-privilege tools, output filtering, human-in-the-loop."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — Emerging technology (AI/ML security, prompt injection)"
+      ]
+    },
+    {
+      "id": "securityx-eng-014",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_emerging_tech",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An adversary submits carefully crafted training samples to a continuously retrained fraud-detection model so that, over time, the model learns to classify the attacker's fraudulent transactions as legitimate. Which AI/ML threat is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Prompt injection"
+        },
+        {
+          "id": "B",
+          "text": "Data (training) poisoning"
+        },
+        {
+          "id": "C",
+          "text": "Membership inference"
+        },
+        {
+          "id": "D",
+          "text": "Model inversion (reconstructing training data)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Injecting manipulated samples into the training data to corrupt what the model learns is data/training poisoning; defenses include training-data validation, provenance/integrity controls, input anomaly detection, and robust/aggregated learning.",
+        "distractors": {
+          "A": "Prompt injection manipulates an LLM's instruction-following at inference time, not the training set.",
+          "B": "",
+          "C": "Membership inference determines whether a record was in the training set; it does not alter model behavior.",
+          "D": "Model inversion tries to reconstruct sensitive training data from model outputs, not to corrupt training."
+        },
+        "exam_pattern": "Corrupting the training set to bias the model = data poisoning (an integrity attack on ML)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — Emerging technology (adversarial ML, data poisoning)"
+      ]
+    },
+    {
+      "id": "securityx-eng-015",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_emerging_tech",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Finance receives a video call that looks and sounds like the CFO authorizing an urgent $5M wire. The 'CFO' is an AI-generated deepfake. Which control set BEST reduces the risk of such deepfake-enabled fraud?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Out-of-band verification and multi-person approval using pre-established channels and code words for high-value transactions (process controls)"
+        },
+        {
+          "id": "B",
+          "text": "Relying on the employee's visual recognition of the executive on the call"
+        },
+        {
+          "id": "C",
+          "text": "Allowing single-approver wires if the caller sounds authoritative"
+        },
+        {
+          "id": "D",
+          "text": "Posting executives' travel schedules publicly to confirm availability"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Deepfakes defeat voice/video recognition, so controls must be process-based: out-of-band verification through a known channel, multi-person authorization, pre-agreed verification phrases, and callback procedures for high-value transfers.",
+        "distractors": {
+          "A": "",
+          "B": "Visual/audio recognition is exactly what a convincing deepfake defeats.",
+          "C": "Single-approver wires based on perceived authority is the weakness attackers exploit.",
+          "D": "Publicizing schedules aids attackers and does not verify the transaction request."
+        },
+        "exam_pattern": "Deepfake-enabled BEC -> defend with out-of-band, multi-party, pre-shared verification process controls, not sensory recognition."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — Emerging technology (deepfakes, social-engineering defenses)"
+      ]
+    },
+    {
+      "id": "securityx-eng-016",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_secure_coding",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A DevSecOps lead wants to catch vulnerabilities by analyzing source code WITHOUT executing it, early in development and integrated into the IDE and pull requests. Which testing type fits this requirement?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Penetration testing in production"
+        },
+        {
+          "id": "B",
+          "text": "Fuzzing a running binary"
+        },
+        {
+          "id": "C",
+          "text": "SAST (static application security testing)"
+        },
+        {
+          "id": "D",
+          "text": "DAST (dynamic application security testing)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "SAST analyzes source code, bytecode, or binaries without executing them (white-box), so it fits early-SDLC, IDE, and pull-request integration ('shift left').",
+        "distractors": {
+          "A": "Production penetration testing happens late and is not an automated, in-IDE source analysis.",
+          "B": "Fuzzing requires executing a running target with malformed inputs, not static source analysis.",
+          "C": "",
+          "D": "DAST tests a running application from the outside (black-box) and needs a deployed/running target, so it runs later."
+        },
+        "exam_pattern": "Analyze code without running it, shift-left/IDE = SAST (white-box); DAST = running app (black-box); IAST = instrumented during runtime tests."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — Secure coding (SAST vs DAST vs IAST)"
+      ]
+    },
+    {
+      "id": "securityx-eng-017",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_secure_coding",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A build pipeline pulls hundreds of open-source libraries. The team needs to automatically flag known-vulnerable (CVE) dependencies and risky licenses in those third-party components. Which tool category is designed for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Software composition analysis (SCA)"
+        },
+        {
+          "id": "B",
+          "text": "A web application firewall (WAF)"
+        },
+        {
+          "id": "C",
+          "text": "A load tester"
+        },
+        {
+          "id": "D",
+          "text": "A SIEM"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "SCA inventories third-party/open-source components and their versions, flags known vulnerabilities (CVEs) and license risks, and pairs well with an SBOM for supply-chain visibility.",
+        "distractors": {
+          "A": "",
+          "B": "A WAF filters malicious web traffic at runtime; it does not analyze your dependency tree for CVEs.",
+          "C": "A load tester measures performance under load, not component vulnerabilities.",
+          "D": "A SIEM correlates security events/logs; it is not a dependency-vulnerability scanner."
+        },
+        "exam_pattern": "Find vulnerable/risky open-source dependencies = software composition analysis (SCA) + SBOM."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — Secure coding (SCA, dependency/supply-chain security)"
+      ]
+    },
+    {
+      "id": "securityx-eng-018",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_secure_coding",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "A team is hardening its CI/CD pipeline against supply-chain compromise. Which TWO practices MOST directly reduce the risk of malicious code or secrets entering builds? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Grant every developer standing administrator access to the production pipeline"
+        },
+        {
+          "id": "B",
+          "text": "Store cloud credentials in plaintext environment files committed to the repository for convenience"
+        },
+        {
+          "id": "C",
+          "text": "Use short-lived, scoped pipeline credentials (secrets management) and enforce signed commits/artifacts with least-privilege pipeline permissions"
+        },
+        {
+          "id": "D",
+          "text": "Scan infrastructure-as-code and container images, and run SCA on dependencies, failing the build on critical findings"
+        }
+      ],
+      "correct": [
+        "C",
+        "D"
+      ],
+      "explanation": {
+        "correct": "Scanning IaC/images and dependencies (with gating) catches vulnerable or malicious components before release, and using short-lived, scoped secrets with signed commits/artifacts and least-privilege pipeline permissions limits credential theft and tampering.",
+        "distractors": {
+          "A": "Standing admin access for all developers violates least privilege and widens the blast radius of a compromise.",
+          "B": "Committing plaintext credentials exposes them to anyone with repo access - a top supply-chain risk, not a mitigation.",
+          "C": "",
+          "D": ""
+        },
+        "exam_pattern": "Pipeline security = shift-left scanning + gating, secrets management (short-lived/scoped), signing, and least privilege."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — Secure coding (CI/CD security, IaC scanning, secrets management)"
+      ]
+    },
+    {
+      "id": "securityx-eng-019",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_automation",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank with the acronym: A platform that integrates security tools and executes automated, repeatable response playbooks to accelerate incident handling - Security Orchestration, Automation, and Response - is abbreviated ______.",
+      "correct": [
+        "soar"
+      ],
+      "explanation": {
+        "correct": "SOAR integrates disparate tools and runs automated playbooks (enrichment, triage, containment) to reduce manual effort and shorten response times, often working alongside a SIEM.",
+        "distractors": {},
+        "exam_pattern": "Orchestrate tools + automated playbooks to speed response = SOAR (complements SIEM)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — Automation/orchestration (SOAR)"
+      ]
+    },
+    {
+      "id": "securityx-eng-020",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_automation",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization wants every cloud environment deployed identically with security baselines enforced, and any drift corrected automatically, by defining the environment declaratively in version-controlled templates. Which practice provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Infrastructure as Code (IaC) with policy as code and automated drift detection"
+        },
+        {
+          "id": "B",
+          "text": "Emailing configuration screenshots for review"
+        },
+        {
+          "id": "C",
+          "text": "Manual console configuration documented in a wiki"
+        },
+        {
+          "id": "D",
+          "text": "Ad hoc shell commands run by whoever is on call"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "IaC defines infrastructure declaratively in version-controlled templates, enabling consistent, repeatable, peer-reviewed deployments; policy as code enforces baselines and automated drift detection remediates deviations.",
+        "distractors": {
+          "A": "",
+          "B": "Emailing screenshots provides no automation, enforcement, or drift correction.",
+          "C": "Manual console changes are inconsistent, error-prone, and hard to audit or reproduce.",
+          "D": "Ad hoc commands produce configuration drift and lack review, versioning, and repeatability."
+        },
+        "exam_pattern": "Consistent, version-controlled, drift-corrected environments = IaC + policy as code."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — Automation/orchestration (IaC, policy as code)"
+      ]
+    },
+    {
+      "id": "securityx-eng-021",
+      "exam": "securityx",
+      "domain": "scx_engineering",
+      "subtopic": "scx_automation",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A SOC automates containment so a confirmed-malware alert can automatically isolate the host. Leadership worries that automation could mistakenly isolate critical servers. Which design BEST balances speed with safety?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Automate only after disabling logging to reduce noise"
+        },
+        {
+          "id": "B",
+          "text": "Use risk-tiered automation: auto-contain low-risk endpoints, but require human-in-the-loop approval for high-impact assets, with guardrails, allowlists, and rollback"
+        },
+        {
+          "id": "C",
+          "text": "Fully automate all response actions with no human review and no exceptions"
+        },
+        {
+          "id": "D",
+          "text": "Disable all automation and handle everything manually"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Mature SOAR design tiers actions by risk: low-risk, high-confidence responses run automatically, while high-impact actions (e.g., isolating critical servers) require human approval, backed by guardrails (allowlists of protected assets), testing, and rollback plans.",
+        "distractors": {
+          "A": "Disabling logging undermines detection, investigation, and accountability.",
+          "B": "",
+          "C": "Blanket automation with no review risks outages on critical systems - exactly leadership's concern.",
+          "D": "Disabling all automation sacrifices the speed needed to contain fast-moving threats."
+        },
+        "exam_pattern": "Balance speed vs safety with risk-tiered automation: auto for low-risk, human-in-the-loop + guardrails for high-impact."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 3 — Automation/orchestration (guardrails, human-in-the-loop)"
+      ]
+    },
+    {
+      "id": "securityx-grc-001",
+      "exam": "securityx",
+      "domain": "scx_grc",
+      "subtopic": "scx_risk_management",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A data center and its contents are valued at $2,000,000. A severe flood would destroy an estimated 25% of that value, and actuarial data indicates such a flood strikes roughly once every 20 years. Using quantitative risk analysis, what is the annualized loss expectancy (ALE)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$500,000"
+        },
+        {
+          "id": "B",
+          "text": "$100,000"
+        },
+        {
+          "id": "C",
+          "text": "$400,000"
+        },
+        {
+          "id": "D",
+          "text": "$25,000"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "SLE = asset value x exposure factor = $2,000,000 x 0.25 = $500,000. ARO = 1 / 20 years = 0.05. ALE = SLE x ARO = $500,000 x 0.05 = $25,000.",
+        "distractors": {
+          "A": "$500,000 is the single loss expectancy (AV x EF) - the loss from one event, not yet annualized by the ARO.",
+          "B": "$100,000 would require an ARO of 0.2 (once every 5 years), which the scenario does not state.",
+          "C": "$400,000 does not follow from SLE x ARO; it mis-multiplies the figures.",
+          "D": ""
+        },
+        "exam_pattern": "Work it in order: SLE = AV x EF, then ALE = SLE x ARO. The SLE is the classic distractor for the ALE."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 1 — Risk management (quantitative analysis: SLE, ARO, ALE)"
+      ]
+    },
+    {
+      "id": "securityx-grc-002",
+      "exam": "securityx",
+      "domain": "scx_grc",
+      "subtopic": "scx_risk_management",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An enterprise's board publishes a statement that the company is willing to accept a moderate amount of cybersecurity risk to pursue aggressive cloud-first growth. Separately, each system owner is given concrete, measurable thresholds - such as a maximum tolerable amount of unplanned downtime - that their system must never exceed. How are these two artifacts BEST characterized?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Both are expressions of residual risk."
+        },
+        {
+          "id": "B",
+          "text": "The board statement is risk appetite; the per-system thresholds are risk tolerance."
+        },
+        {
+          "id": "C",
+          "text": "Both are expressions of inherent risk."
+        },
+        {
+          "id": "D",
+          "text": "The board statement is risk tolerance; the per-system thresholds are risk appetite."
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Risk appetite is the broad, strategic amount of risk leadership will pursue; risk tolerance is the specific, measurable acceptable deviation for a given objective or system.",
+        "distractors": {
+          "A": "Residual risk is what remains after controls are applied; neither artifact describes leftover risk.",
+          "B": "",
+          "C": "Inherent risk is risk before any controls; these artifacts express willingness to accept risk, not a pre-control measurement.",
+          "D": "This reverses the terms - the broad strategic statement is appetite, and the concrete per-system thresholds are tolerance."
+        },
+        "exam_pattern": "Appetite = broad/strategic 'how much risk overall'; tolerance = narrow/measurable 'acceptable variance for this objective.'"
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 1 — Risk management (risk appetite vs risk tolerance)"
+      ]
+    },
+    {
+      "id": "securityx-grc-003",
+      "exam": "securityx",
+      "domain": "scx_grc",
+      "subtopic": "scx_risk_management",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After deploying all cost-justified controls, a company still faces residual risk of a costly business-interruption event. Leadership chooses to purchase a cyber-insurance policy to cover the potential financial loss. Which risk-treatment strategy is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Risk avoidance"
+        },
+        {
+          "id": "B",
+          "text": "Risk mitigation"
+        },
+        {
+          "id": "C",
+          "text": "Risk acceptance"
+        },
+        {
+          "id": "D",
+          "text": "Risk transference (sharing)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Buying insurance shifts the financial impact of the risk to a third party, which is risk transference (also called risk sharing).",
+        "distractors": {
+          "A": "Avoidance eliminates the risk by not performing the risky activity at all; the company continues operating.",
+          "B": "Mitigation reduces likelihood or impact with controls; insurance does not lower the chance or severity of the event itself.",
+          "C": "Acceptance means taking no further action and absorbing the loss; buying a policy is an action that offloads the loss.",
+          "D": ""
+        },
+        "exam_pattern": "Insurance/outsourcing the loss = transference; the four treatments are avoid, mitigate, transfer, accept."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 1 — Risk management (risk response/treatment strategies)"
+      ]
+    },
+    {
+      "id": "securityx-grc-004",
+      "exam": "securityx",
+      "domain": "scx_grc",
+      "subtopic": "scx_risk_management",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: The level of risk that remains after security controls and mitigations have been applied is known as ______ risk.",
+      "correct": [
+        "residual",
+        "residual risk"
+      ],
+      "explanation": {
+        "correct": "Residual risk is what is left after controls reduce the inherent risk; management must formally accept it or apply further treatment, comparing it against the risk appetite.",
+        "distractors": {},
+        "exam_pattern": "Inherent risk (before controls) reduced by controls = residual risk; compare to appetite to decide acceptance."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 1 — Risk management (inherent vs residual risk)"
+      ]
+    },
+    {
+      "id": "securityx-grc-005",
+      "exam": "securityx",
+      "domain": "scx_grc",
+      "subtopic": "scx_compliance_frameworks",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A multinational manufacturer wants a single, internationally recognized framework it can be formally certified against to establish, operate, and continually improve an information security management system (ISMS). Which framework BEST meets this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NIST Cybersecurity Framework (CSF)"
+        },
+        {
+          "id": "B",
+          "text": "ISO/IEC 27001"
+        },
+        {
+          "id": "C",
+          "text": "PCI DSS"
+        },
+        {
+          "id": "D",
+          "text": "SOC 2"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "ISO/IEC 27001 is the international standard for an ISMS and is certifiable by accredited bodies, with continual improvement (Plan-Do-Check-Act) built in.",
+        "distractors": {
+          "A": "The NIST CSF is a voluntary, outcome-based framework for managing risk; organizations align to it but are not formally 'certified' against it as with ISO 27001.",
+          "B": "",
+          "C": "PCI DSS is narrowly scoped to the protection of cardholder data, not a general enterprise ISMS.",
+          "D": "SOC 2 produces an independent attestation report for a service organization, not an ISMS certification."
+        },
+        "exam_pattern": "Certifiable international ISMS standard = ISO/IEC 27001; CSF = voluntary framework; SOC 2 = attestation; PCI DSS = cardholder data only."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 1 — Compliance frameworks (ISO/IEC 27001)"
+      ]
+    },
+    {
+      "id": "securityx-grc-006",
+      "exam": "securityx",
+      "domain": "scx_grc",
+      "subtopic": "scx_compliance_frameworks",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An enterprise evaluating a SaaS provider needs independent assurance that the provider's security, availability, and confidentiality controls were not just suitably designed but operated effectively throughout a 12-month period. Which report BEST provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SOC 3"
+        },
+        {
+          "id": "B",
+          "text": "SOC 1 Type II"
+        },
+        {
+          "id": "C",
+          "text": "SOC 2 Type I"
+        },
+        {
+          "id": "D",
+          "text": "SOC 2 Type II"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A SOC 2 Type II report evaluates both the design AND the operating effectiveness of controls (mapped to the Trust Services Criteria) over a period of time - exactly the assurance needed.",
+        "distractors": {
+          "A": "SOC 3 is a short, general-use public summary of a SOC 2 and lacks the detailed control testing the enterprise needs.",
+          "B": "SOC 1 addresses controls relevant to financial reporting (ICFR), not the security/availability/confidentiality criteria in question.",
+          "C": "A SOC 2 Type I attests only to the design of controls at a single point in time, not their operation over a period.",
+          "D": ""
+        },
+        "exam_pattern": "Type I = design at a point in time; Type II = design + operating effectiveness over a period. SOC 1 = financial; SOC 2 = TSC/security."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 1 — Compliance frameworks (SOC 2 Type I/II)"
+      ]
+    },
+    {
+      "id": "securityx-grc-007",
+      "exam": "securityx",
+      "domain": "scx_grc",
+      "subtopic": "scx_compliance_frameworks",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A cloud service provider wants to offer services to U.S. federal agencies and must obtain a standardized, government-wide authorization built on NIST SP 800-53 control baselines (Low/Moderate/High). Which program governs this authorization?",
+      "options": [
+        {
+          "id": "A",
+          "text": "GDPR"
+        },
+        {
+          "id": "B",
+          "text": "FedRAMP"
+        },
+        {
+          "id": "C",
+          "text": "HIPAA"
+        },
+        {
+          "id": "D",
+          "text": "PCI DSS"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "FedRAMP (Federal Risk and Authorization Management Program) standardizes security assessment and authorization for cloud products used by U.S. federal agencies, using NIST SP 800-53 baselines.",
+        "distractors": {
+          "A": "GDPR regulates personal data of EU data subjects, unrelated to U.S. federal cloud authorization.",
+          "B": "",
+          "C": "HIPAA governs protected health information in the U.S. healthcare sector, not federal cloud authorization.",
+          "D": "PCI DSS protects payment-card data and is enforced by the card brands, not U.S. federal agencies."
+        },
+        "exam_pattern": "U.S. federal cloud authorization on 800-53 baselines = FedRAMP."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 1 — Compliance frameworks (FedRAMP, NIST SP 800-53)"
+      ]
+    },
+    {
+      "id": "securityx-grc-008",
+      "exam": "securityx",
+      "domain": "scx_grc",
+      "subtopic": "scx_compliance_frameworks",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Under the EU GDPR, after becoming aware of a personal-data breach that poses a risk to individuals, a data controller must notify the relevant supervisory authority without undue delay and, where feasible, within what maximum time?",
+      "options": [
+        {
+          "id": "A",
+          "text": "24 hours"
+        },
+        {
+          "id": "B",
+          "text": "72 hours"
+        },
+        {
+          "id": "C",
+          "text": "30 days"
+        },
+        {
+          "id": "D",
+          "text": "1 week"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "GDPR Article 33 requires notification to the supervisory authority without undue delay and, where feasible, not later than 72 hours after the controller becomes aware of the breach.",
+        "distractors": {
+          "A": "24 hours is stricter than GDPR requires; some sector rules use it, but GDPR's outer limit is 72 hours.",
+          "B": "",
+          "C": "30 days is a common breach-notification window in some U.S. state laws, not GDPR's authority-notification limit.",
+          "D": "One week does not correspond to GDPR's 72-hour requirement."
+        },
+        "exam_pattern": "GDPR breach notice to the authority = 72 hours (where feasible); contrast with varied U.S. state timelines."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 1 — Compliance frameworks (GDPR breach notification)"
+      ]
+    },
+    {
+      "id": "securityx-grc-009",
+      "exam": "securityx",
+      "domain": "scx_grc",
+      "subtopic": "scx_governance_policies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A security team is organizing its documentation. They need to classify a mandatory, high-level management directive that states organizational intent - for example, 'all sensitive data must be encrypted' - without naming specific algorithms or steps. Which document type is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A guideline"
+        },
+        {
+          "id": "B",
+          "text": "A standard"
+        },
+        {
+          "id": "C",
+          "text": "A policy"
+        },
+        {
+          "id": "D",
+          "text": "A procedure"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A policy is a high-level, mandatory statement of management intent and direction; it says what must be achieved, not the technical specifics of how.",
+        "distractors": {
+          "A": "A guideline is a recommended, non-mandatory best practice, whereas the directive here is mandatory.",
+          "B": "A standard is a mandatory but specific requirement (e.g., 'use AES-256'); the statement given is broad intent, not a specific rule.",
+          "C": "",
+          "D": "A procedure is a detailed, step-by-step set of instructions to accomplish a task - far more granular than a high-level directive."
+        },
+        "exam_pattern": "Policy = mandatory intent (what/why); standard = mandatory specifics (which); procedure = steps (how); guideline = optional advice."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 1 — Governance (policies, standards, procedures, guidelines)"
+      ]
+    },
+    {
+      "id": "securityx-grc-010",
+      "exam": "securityx",
+      "domain": "scx_grc",
+      "subtopic": "scx_governance_policies",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In a small finance team, one analyst can currently both create a new vendor record and approve payments to that vendor, creating fraud exposure. The team is too small to fully split these duties. Which combination BEST addresses the governance concern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Apply least privilege and require MFA for the analyst's account."
+        },
+        {
+          "id": "B",
+          "text": "Rely on defense in depth by adding a network firewall rule."
+        },
+        {
+          "id": "C",
+          "text": "Implement job rotation and single sign-on across the finance apps."
+        },
+        {
+          "id": "D",
+          "text": "Enforce separation of duties where possible and add compensating controls such as dual control for approvals, mandatory vacations, and independent transaction review."
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The core principle is separation of duties; when staffing prevents a full split, compensating controls - dual control, mandatory vacations, and independent review/audit - reduce the fraud risk the conflict creates.",
+        "distractors": {
+          "A": "MFA and least privilege strengthen authentication and access scope but do not resolve one person performing two incompatible duties.",
+          "B": "A network firewall rule addresses perimeter traffic, not the business-process conflict of duties.",
+          "C": "Job rotation and SSO do not stop one person from performing both incompatible actions during their tenure; SSO can even broaden access.",
+          "D": ""
+        },
+        "exam_pattern": "Incompatible duties in one person -> separation of duties; if unachievable, layer compensating controls (dual control, mandatory vacation, independent review)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 1 — Governance (separation of duties, compensating controls)"
+      ]
+    },
+    {
+      "id": "securityx-grc-011",
+      "exam": "securityx",
+      "domain": "scx_grc",
+      "subtopic": "scx_governance_policies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "During an audit, the question arises of who is ultimately accountable for accepting enterprise information-security risk and owning the governance program. Which answer reflects sound security governance?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Individual system administrators, because they configure the systems."
+        },
+        {
+          "id": "B",
+          "text": "Senior leadership and the board are ultimately accountable, typically acting through a security steering committee, with the CISO advising and executing."
+        },
+        {
+          "id": "C",
+          "text": "The external auditor, because they assess the controls."
+        },
+        {
+          "id": "D",
+          "text": "The SOC analysts, because they see the alerts first."
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Governance and ultimate risk-acceptance accountability reside with senior leadership/the board; they often work through a steering committee, and the CISO advises and carries out the program.",
+        "distractors": {
+          "A": "System administrators implement configurations but are not accountable for enterprise-level risk decisions.",
+          "B": "",
+          "C": "External auditors provide independent assessment; owning or accepting the risk would impair their independence.",
+          "D": "SOC analysts operate detection and response; they do not own enterprise risk acceptance or governance."
+        },
+        "exam_pattern": "Accountability for risk acceptance and governance rolls up to senior management/the board; the CISO advises, not unilaterally owns the risk."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 1 — Governance (roles, accountability, steering committee)"
+      ]
+    },
+    {
+      "id": "securityx-grc-012",
+      "exam": "securityx",
+      "domain": "scx_grc",
+      "subtopic": "scx_third_party_risk",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Following a widespread open-source library vulnerability, a CISO wants the fastest reliable way to determine which of the company's purchased and in-house applications include the affected component and version. Which artifact BEST enables this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A service-level agreement (SLA)"
+        },
+        {
+          "id": "B",
+          "text": "A software bill of materials (SBOM)"
+        },
+        {
+          "id": "C",
+          "text": "A penetration-test report"
+        },
+        {
+          "id": "D",
+          "text": "A memorandum of understanding (MOU)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "An SBOM is a machine-readable inventory of all components and dependencies (names and versions) in a software product, enabling rapid identification of affected applications (e.g., via SPDX or CycloneDX formats).",
+        "distractors": {
+          "A": "An SLA defines service performance commitments, not a component inventory.",
+          "B": "",
+          "C": "A penetration-test report describes findings from point-in-time testing, not a complete dependency inventory.",
+          "D": "An MOU records a non-binding understanding between parties, unrelated to component inventories."
+        },
+        "exam_pattern": "Need to find which products contain a vulnerable component fast = SBOM (SPDX/CycloneDX)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 1 — Third-party/supply-chain risk (SBOM)"
+      ]
+    },
+    {
+      "id": "securityx-grc-013",
+      "exam": "securityx",
+      "domain": "scx_grc",
+      "subtopic": "scx_third_party_risk",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A critical SaaS vendor subcontracts part of its data processing to another company (a 'fourth party' from the enterprise's view). With a limited audit budget, the enterprise needs ongoing assurance covering both the vendor and its subprocessor. Which approach BEST balances assurance against cost?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Conduct a full on-site audit of the vendor and every subprocessor each quarter."
+        },
+        {
+          "id": "B",
+          "text": "Accept the risk, since the subprocessor is outside the direct contract."
+        },
+        {
+          "id": "C",
+          "text": "Rely only on the vendor's completed self-assessment questionnaire."
+        },
+        {
+          "id": "D",
+          "text": "Require the vendor's SOC 2 Type II report that covers subservice organizations, plus a contractual right-to-audit and continuous monitoring (e.g., security ratings)."
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A SOC 2 Type II that addresses subservice organizations (inclusive or carve-out method), combined with right-to-audit clauses and continuous monitoring, gives defensible ongoing assurance over the vendor and its subprocessor without the cost of constant on-site audits.",
+        "distractors": {
+          "A": "Quarterly on-site audits of every party exceed the limited budget and do not scale.",
+          "B": "Ignoring fourth-party risk leaves a material supply-chain exposure unmanaged.",
+          "C": "A self-assessment questionnaire is unverified self-attestation and is weak as sole assurance for a critical vendor.",
+          "D": ""
+        },
+        "exam_pattern": "Critical vendor + fourth-party risk + limited budget -> independent attestation (SOC 2 Type II covering subservice orgs) + right-to-audit + continuous monitoring."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 1 — Third-party risk (vendor/fourth-party assessment, continuous monitoring)"
+      ]
+    },
+    {
+      "id": "securityx-grc-014",
+      "exam": "securityx",
+      "domain": "scx_grc",
+      "subtopic": "scx_third_party_risk",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Legal and procurement are mapping vendor agreement types. Which agreement specifically defines measurable service commitments - such as 99.95% monthly availability - along with the remedies or penalties if those targets are missed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Service-level agreement (SLA)"
+        },
+        {
+          "id": "B",
+          "text": "Non-disclosure agreement (NDA)"
+        },
+        {
+          "id": "C",
+          "text": "Interconnection security agreement (ISA)"
+        },
+        {
+          "id": "D",
+          "text": "Memorandum of understanding (MOU)"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "An SLA defines specific, measurable service levels (e.g., uptime, response times) and the remedies/credits owed when they are not met.",
+        "distractors": {
+          "A": "",
+          "B": "An NDA protects confidential information; it does not define service performance levels.",
+          "C": "An ISA governs the technical security requirements for connecting two systems/networks, not service performance targets.",
+          "D": "An MOU expresses a broad, often non-binding understanding of intent, without enforceable performance metrics."
+        },
+        "exam_pattern": "Measurable performance + penalties = SLA; NDA = confidentiality; MOU = intent; ISA = secure interconnection."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 1 — Third-party risk (SLA and agreement types)"
+      ]
+    },
+    {
+      "id": "securityx-grc-015",
+      "exam": "securityx",
+      "domain": "scx_grc",
+      "subtopic": "scx_third_party_risk",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: Before signing a contract, the up-front investigation of a prospective vendor's financial stability, security posture, and reputation is called due ______.",
+      "correct": [
+        "diligence",
+        "due diligence"
+      ],
+      "explanation": {
+        "correct": "Due diligence is the investigative, pre-contract assessment of a vendor; due care is the ongoing, reasonable protection applied afterward.",
+        "distractors": {},
+        "exam_pattern": "Due diligence = investigate before (the homework); due care = act responsibly during/after (the ongoing effort)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 1 — Third-party risk (due diligence vs due care)"
+      ]
+    },
+    {
+      "id": "securityx-grc-016",
+      "exam": "securityx",
+      "domain": "scx_grc",
+      "subtopic": "scx_data_governance",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A global firm stores EU residents' personal data in a U.S. cloud region. Regulators insist the data remain subject to EU legal jurisdiction and, ideally, physically within the EU. Which concept primarily drives the requirement to keep data within a specific country's or region's legal boundaries?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data deduplication"
+        },
+        {
+          "id": "B",
+          "text": "Data masking"
+        },
+        {
+          "id": "C",
+          "text": "Data remanence"
+        },
+        {
+          "id": "D",
+          "text": "Data sovereignty (with data residency/localization)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Data sovereignty holds that data is subject to the laws of the jurisdiction in which it is located; related concepts of data residency/localization drive storing it within specific borders.",
+        "distractors": {
+          "A": "Data deduplication is a storage-efficiency technique, unrelated to legal boundaries.",
+          "B": "Data masking obfuscates values to protect sensitive fields; it does not address legal jurisdiction over location.",
+          "C": "Data remanence is residual data left on media after deletion - a sanitization concern, not jurisdiction.",
+          "D": ""
+        },
+        "exam_pattern": "Which country's laws apply / must stay in-region = data sovereignty & residency; don't confuse with remanence or masking."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 1 — Data governance (data sovereignty, residency)"
+      ]
+    },
+    {
+      "id": "securityx-grc-017",
+      "exam": "securityx",
+      "domain": "scx_grc",
+      "subtopic": "scx_data_governance",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An organization is assigning privacy roles for a new processing activity. Under GDPR terminology, the entity that determines the purposes and means of processing personal data, and the entity that processes the data on that entity's behalf, are respectively the:",
+      "options": [
+        {
+          "id": "A",
+          "text": "data steward; data subject"
+        },
+        {
+          "id": "B",
+          "text": "data controller; data processor"
+        },
+        {
+          "id": "C",
+          "text": "data processor; data controller"
+        },
+        {
+          "id": "D",
+          "text": "data custodian; data owner"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Under GDPR, the controller determines the purposes and means of processing; the processor processes personal data on the controller's behalf.",
+        "distractors": {
+          "A": "The data subject is the individual the data is about, and a steward manages data quality/use - neither fits 'determines purposes.'",
+          "B": "",
+          "C": "This reverses the two - the entity that determines purposes is the controller, not the processor.",
+          "D": "Owner/custodian are classic data-governance roles (accountable vs hands-on protection), not GDPR's controller/processor pairing."
+        },
+        "exam_pattern": "GDPR: controller decides why/how; processor acts on the controller's instructions. Subject = the person; owner/custodian = governance roles."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 1 — Data governance (data roles; GDPR controller vs processor)"
+      ]
+    },
+    {
+      "id": "securityx-grc-018",
+      "exam": "securityx",
+      "domain": "scx_grc",
+      "subtopic": "scx_data_governance",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "A privacy program deletes customer records once they are no longer needed for the business purpose for which they were collected. Which TWO privacy principles does this practice MOST directly support? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data minimization"
+        },
+        {
+          "id": "B",
+          "text": "Indefinite retention to preserve optionality"
+        },
+        {
+          "id": "C",
+          "text": "Data maximization for future analytics"
+        },
+        {
+          "id": "D",
+          "text": "Storage (retention) limitation"
+        }
+      ],
+      "correct": [
+        "A",
+        "D"
+      ],
+      "explanation": {
+        "correct": "Collecting and keeping only what is needed reflects data minimization, and deleting data once its purpose ends reflects storage (retention) limitation - both core privacy-by-design principles that also shrink breach impact.",
+        "distractors": {
+          "A": "",
+          "B": "Indefinite retention contradicts storage limitation and enlarges the attack surface and liability.",
+          "C": "Retaining data to maximize future analytics conflicts with minimization and increases risk.",
+          "D": ""
+        },
+        "exam_pattern": "Keep only what's needed, only as long as needed = data minimization + storage limitation."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 1 — Data governance (privacy principles, retention)"
+      ]
+    },
+    {
+      "id": "securityx-ops-001",
+      "exam": "securityx",
+      "domain": "scx_operations",
+      "subtopic": "scx_threat_hunting",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A mature SOC wants to proactively search for adversaries that have evaded existing alerts. An analyst forms the idea, 'If an attacker is using living-off-the-land binaries for persistence, I should see unusual scheduled-task creation by certain processes,' and then queries telemetry to prove or disprove it. Which approach is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Waiting for SIEM alerts to fire"
+        },
+        {
+          "id": "B",
+          "text": "Automated vulnerability scanning"
+        },
+        {
+          "id": "C",
+          "text": "Hypothesis-driven threat hunting"
+        },
+        {
+          "id": "D",
+          "text": "Signature-based alert triage"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Proactively forming a testable hypothesis about adversary behavior and querying telemetry to confirm or refute it is hypothesis-driven threat hunting - it assumes breach and looks for what alerts missed.",
+        "distractors": {
+          "A": "Waiting for alerts is reactive - the opposite of proactive hunting.",
+          "B": "Vulnerability scanning finds weaknesses, not active adversary behavior in telemetry.",
+          "C": "",
+          "D": "Alert triage reacts to signatures that already fired; hunting is proactive and not signature-bound."
+        },
+        "exam_pattern": "Proactive, testable 'if the attacker does X, I'll see Y' + query the data = hypothesis-driven hunting (assume breach)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 4 — Threat hunting (hypothesis-driven)"
+      ]
+    },
+    {
+      "id": "securityx-ops-002",
+      "exam": "securityx",
+      "domain": "scx_operations",
+      "subtopic": "scx_threat_hunting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A threat-hunting team wants a common, structured knowledge base of real-world adversary tactics (the 'why') and techniques (the 'how') to map detections and coverage gaps across the attack lifecycle. Which framework is designed for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "MITRE ATT&CK"
+        },
+        {
+          "id": "B",
+          "text": "A cloud pricing calculator"
+        },
+        {
+          "id": "C",
+          "text": "COBIT"
+        },
+        {
+          "id": "D",
+          "text": "The OWASP Top 10"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "MITRE ATT&CK is a curated knowledge base of adversary tactics (goals) and techniques/sub-techniques (methods) based on real-world observations, widely used to map detection coverage and hunt for TTPs.",
+        "distractors": {
+          "A": "",
+          "B": "A cloud pricing calculator is a cost tool, unrelated to adversary TTP mapping.",
+          "C": "COBIT is an IT governance/management framework, not an adversary-behavior knowledge base.",
+          "D": "The OWASP Top 10 ranks web application security risks, not the adversary tactic/technique matrix."
+        },
+        "exam_pattern": "Tactics (why) + techniques (how) knowledge base for mapping/hunting = MITRE ATT&CK."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 4 — Threat hunting (MITRE ATT&CK, TTPs)"
+      ]
+    },
+    {
+      "id": "securityx-ops-003",
+      "exam": "securityx",
+      "domain": "scx_operations",
+      "subtopic": "scx_threat_hunting",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "During hunting, Analyst A searches for a specific known-malicious file hash and C2 IP address, while Analyst B looks for the behavior of 'a process spawning a command shell that then encodes and beacons out.' How are these BEST categorized, respectively?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Both are indicators of compromise (IOCs)"
+        },
+        {
+          "id": "B",
+          "text": "Analyst A is using indicators of compromise (IOCs); Analyst B is using indicators of attack (IOAs/behaviors)"
+        },
+        {
+          "id": "C",
+          "text": "Analyst A is using IOAs; Analyst B is using IOCs"
+        },
+        {
+          "id": "D",
+          "text": "Both are indicators of attack (IOAs)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Static artifacts of a known-bad event (hashes, IPs, domains) are IOCs; focusing on adversary behavior/intent regardless of specific artifacts (process lineage, encoding, beaconing) is an IOA. IOAs are more durable because attackers can change hashes and IPs easily.",
+        "distractors": {
+          "A": "Analyst B's behavior-based hunt is an IOA, not an IOC, so 'both IOC' is wrong.",
+          "B": "",
+          "C": "This reverses the two - artifacts are IOCs and behaviors are IOAs.",
+          "D": "The hash/IP search is artifact-based (an IOC), not behavior-based, so 'both IOA' is wrong."
+        },
+        "exam_pattern": "IOC = static known-bad artifact (hash/IP/domain); IOA = behavior/intent (harder for the adversary to change)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 4 — Threat hunting (IOCs vs IOAs)"
+      ]
+    },
+    {
+      "id": "securityx-ops-004",
+      "exam": "securityx",
+      "domain": "scx_operations",
+      "subtopic": "scx_threat_hunting",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Using the Pyramid of Pain to prioritize detections, a team wants to build detections that are HARDEST for an adversary to change and therefore cause them the most difficulty. Which indicator type should they focus on?",
+      "options": [
+        {
+          "id": "A",
+          "text": "File hash values"
+        },
+        {
+          "id": "B",
+          "text": "Domain names"
+        },
+        {
+          "id": "C",
+          "text": "IP addresses"
+        },
+        {
+          "id": "D",
+          "text": "Tactics, techniques, and procedures (TTPs / behaviors)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "In the Pyramid of Pain, hashes/IPs/domains are trivial-to-moderate for adversaries to change, while TTPs sit at the top - detecting behaviors forces attackers to change how they operate, which is costly and 'painful.'",
+        "distractors": {
+          "A": "Hashes are trivial to change (recompile or repack), at the bottom of the pyramid.",
+          "B": "Domains are relatively easy to change - higher than IPs but still far below TTPs.",
+          "C": "IP addresses are easy to rotate, low on the pyramid.",
+          "D": ""
+        },
+        "exam_pattern": "Pyramid of Pain: detect TTPs/behaviors (top) for maximum adversary cost; hashes/IPs/domains are easily swapped."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 4 — Threat hunting (Pyramid of Pain, TTPs)"
+      ]
+    },
+    {
+      "id": "securityx-ops-005",
+      "exam": "securityx",
+      "domain": "scx_operations",
+      "subtopic": "scx_incident_response",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Per the NIST SP 800-61 incident-response lifecycle, which sequence of phases is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Containment -> Preparation -> Detection -> Lessons Learned"
+        },
+        {
+          "id": "B",
+          "text": "Detection -> Preparation -> Recovery -> Containment"
+        },
+        {
+          "id": "C",
+          "text": "Eradication -> Detection -> Preparation -> Recovery"
+        },
+        {
+          "id": "D",
+          "text": "Preparation -> Detection & Analysis -> Containment, Eradication & Recovery -> Post-Incident Activity"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "NIST SP 800-61 defines four phases: Preparation; Detection & Analysis; Containment, Eradication & Recovery; and Post-Incident Activity (lessons learned) - an iterative cycle.",
+        "distractors": {
+          "A": "You cannot contain before preparing and detecting; the order is wrong.",
+          "B": "Preparation must precede detection, and containment/recovery come after analysis - this order is scrambled.",
+          "C": "Eradication occurs after detection and containment, not first; this order is invalid.",
+          "D": ""
+        },
+        "exam_pattern": "NIST 800-61: Prep -> Detection & Analysis -> Containment/Eradication/Recovery -> Post-Incident (lessons learned)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 4 — Incident response (NIST SP 800-61 lifecycle)"
+      ]
+    },
+    {
+      "id": "securityx-ops-006",
+      "exam": "securityx",
+      "domain": "scx_operations",
+      "subtopic": "scx_incident_response",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "During an active ransomware outbreak spreading via SMB, the IR team must stop the spread immediately while preserving evidence for later analysis. Which action BEST reflects sound short-term containment?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Shut down the entire company network and all logging"
+        },
+        {
+          "id": "B",
+          "text": "Do nothing until the full root-cause analysis is complete"
+        },
+        {
+          "id": "C",
+          "text": "Immediately wipe and reimage every affected host to eradicate the malware"
+        },
+        {
+          "id": "D",
+          "text": "Isolate/segment affected hosts from the network (e.g., host isolation, blocking SMB) while preserving volatile evidence before eradication"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Short-term containment isolates affected systems to stop spread (host isolation, blocking the propagation vector) while preserving volatile evidence (memory, logs) for forensics, which precedes eradication and recovery.",
+        "distractors": {
+          "A": "Killing all logging destroys the evidence and visibility needed to manage the incident.",
+          "B": "Waiting for full root-cause analysis while ransomware spreads allows avoidable damage; containment must happen promptly.",
+          "C": "Immediately wiping hosts destroys forensic evidence and skips containment/analysis - eradication comes after containment and evidence preservation.",
+          "D": ""
+        },
+        "exam_pattern": "Contain first (isolate, stop spread) AND preserve volatile evidence before eradication; don't wipe prematurely."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 4 — Incident response (containment strategies, evidence preservation)"
+      ]
+    },
+    {
+      "id": "securityx-ops-007",
+      "exam": "securityx",
+      "domain": "scx_operations",
+      "subtopic": "scx_incident_response",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Two weeks after an incident is resolved, the team holds a blameless review to document root cause, what worked, and improvements to controls and playbooks. Which NIST SP 800-61 phase is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Post-Incident Activity (lessons learned)"
+        },
+        {
+          "id": "B",
+          "text": "Detection and Analysis"
+        },
+        {
+          "id": "C",
+          "text": "Containment"
+        },
+        {
+          "id": "D",
+          "text": "Preparation"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A post-resolution review capturing root cause, effectiveness, and improvements is Post-Incident Activity (lessons learned), which then feeds back into Preparation.",
+        "distractors": {
+          "A": "",
+          "B": "Detection and Analysis is about identifying and scoping the incident, not the after-action review.",
+          "C": "Containment limits damage during the incident, not reflection afterward.",
+          "D": "Preparation builds capabilities before incidents; the review informs it but is a distinct, later phase."
+        },
+        "exam_pattern": "After-action / root-cause / improvements = Post-Incident Activity (lessons learned) -> feeds Preparation."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 4 — Incident response (post-incident activity)"
+      ]
+    },
+    {
+      "id": "securityx-ops-008",
+      "exam": "securityx",
+      "domain": "scx_operations",
+      "subtopic": "scx_incident_response",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "An organization is maturing its incident-response preparation. Which TWO measures MOST improve readiness BEFORE an incident occurs? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Keep the only copy of the IR plan on a network share that ransomware could encrypt"
+        },
+        {
+          "id": "B",
+          "text": "Wait for a real incident to discover gaps in the process"
+        },
+        {
+          "id": "C",
+          "text": "Pre-establish roles, communication plans (including out-of-band channels), and retainer/legal/breach-notification contacts"
+        },
+        {
+          "id": "D",
+          "text": "Maintain tested IR playbooks and run regular tabletop/simulation exercises"
+        }
+      ],
+      "correct": [
+        "C",
+        "D"
+      ],
+      "explanation": {
+        "correct": "Readiness comes from tested playbooks plus exercises, and from pre-established roles, out-of-band communications, and pre-arranged legal / IR-retainer / notification contacts - so the team acts quickly and correctly under pressure.",
+        "distractors": {
+          "A": "Storing the only IR-plan copy where ransomware can encrypt it means it may be unavailable exactly when needed (keep offline copies).",
+          "B": "Waiting for a real incident to find gaps is reactive and increases damage - the opposite of preparation.",
+          "C": "",
+          "D": ""
+        },
+        "exam_pattern": "IR preparation = tested playbooks + exercises + defined roles/out-of-band comms + pre-arranged legal/notification contacts; keep offline copies."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 4 — Incident response (preparation, playbooks, communications)"
+      ]
+    },
+    {
+      "id": "securityx-ops-009",
+      "exam": "securityx",
+      "domain": "scx_operations",
+      "subtopic": "scx_vuln_management",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank with the acronym: The open framework that produces a standardized 0.0-10.0 severity score (using Base, Temporal/Threat, and Environmental metric groups) for a vulnerability is the Common Vulnerability Scoring System, abbreviated ______.",
+      "correct": [
+        "cvss"
+      ],
+      "explanation": {
+        "correct": "CVSS provides a standardized severity score from 0.0 to 10.0 using Base, Temporal/Threat, and Environmental metric groups; it measures severity but should be combined with exploitability and asset context for true prioritization.",
+        "distractors": {},
+        "exam_pattern": "Standardized 0-10 vulnerability severity = CVSS; severity alone is not risk - add exploitability + asset context."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 4 — Vulnerability management (CVSS)"
+      ]
+    },
+    {
+      "id": "securityx-ops-010",
+      "exam": "securityx",
+      "domain": "scx_operations",
+      "subtopic": "scx_vuln_management",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A scanner reports 4,000 vulnerabilities, far more than the team can patch at once. Several are CVSS 9.8 but on isolated test systems with no exploit seen in the wild, while one CVSS 7.5 is on an internet-facing crown-jewel app and appears on CISA's Known Exploited Vulnerabilities list. Which prioritization approach is BEST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Patch the oldest CVEs first regardless of context"
+        },
+        {
+          "id": "B",
+          "text": "Prioritize by risk: combine severity with real-world exploitability (e.g., EPSS, CISA KEV), asset exposure, and business criticality"
+        },
+        {
+          "id": "C",
+          "text": "Patch strictly in descending CVSS base-score order"
+        },
+        {
+          "id": "D",
+          "text": "Patch whatever is easiest to patch first"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Effective risk-based prioritization blends severity (CVSS) with exploitation likelihood (EPSS, CISA KEV / active exploitation), internet exposure, and business criticality - so the actively exploited, internet-facing crown-jewel issue outranks a high-CVSS flaw on an isolated test box.",
+        "distractors": {
+          "A": "The age of a CVE is not a sound risk signal by itself.",
+          "B": "",
+          "C": "CVSS base score alone ignores exploitability and asset context, misranking real risk.",
+          "D": "Ease of patching is operational convenience, not a measure of risk."
+        },
+        "exam_pattern": "Prioritize by risk = severity x exploitability (EPSS/KEV) x exposure x business impact, not CVSS alone."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 4 — Vulnerability management (risk-based prioritization, EPSS, CISA KEV)"
+      ]
+    },
+    {
+      "id": "securityx-ops-011",
+      "exam": "securityx",
+      "domain": "scx_operations",
+      "subtopic": "scx_vuln_management",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A team's unauthenticated network scans keep missing patches and producing uncertainresults, because they can only see services from outside the host. Which change will MOST improve scan accuracy and reduce false positives for host configuration and patch state?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only scan the perimeter firewall"
+        },
+        {
+          "id": "B",
+          "text": "Scan less frequently to reduce noise"
+        },
+        {
+          "id": "C",
+          "text": "Use authenticated (credentialed) scanning so the scanner can log in and inspect actual patch levels and configuration"
+        },
+        {
+          "id": "D",
+          "text": "Replace scanning with a one-time annual penetration test"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Credentialed (authenticated) scans log into hosts to read exact patch levels, configuration, and installed software, giving far more accurate results and fewer false positives than unauthenticated scans that only probe exposed services.",
+        "distractors": {
+          "A": "Scanning only the firewall ignores internal host state entirely.",
+          "B": "Scanning less often reduces visibility and timeliness; it doesn't improve per-scan accuracy.",
+          "C": "",
+          "D": "An annual pen test is point-in-time and doesn't replace continuous, accurate configuration/patch assessment."
+        },
+        "exam_pattern": "Accurate patch/config state + fewer false positives = authenticated (credentialed) scanning."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 4 — Vulnerability management (authenticated vs unauthenticated scanning)"
+      ]
+    },
+    {
+      "id": "securityx-ops-012",
+      "exam": "securityx",
+      "domain": "scx_operations",
+      "subtopic": "scx_vuln_management",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A critical vulnerability is found in a legacy medical device that the vendor cannot patch for 9 months and that cannot be taken offline. Which response BEST manages the risk in the interim?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Apply compensating controls: isolate/segment the device, restrict access with ACLs/firewalls, add virtual patching/IPS, and increase monitoring until a patch is available"
+        },
+        {
+          "id": "B",
+          "text": "Formally accept the risk and take no technical action"
+        },
+        {
+          "id": "C",
+          "text": "Ignore it until the vendor releases a patch"
+        },
+        {
+          "id": "D",
+          "text": "Immediately disconnect the device regardless of patient impact"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "When patching isn't feasible, compensating controls reduce exposure: network segmentation/isolation, strict access controls, virtual patching/IPS, and enhanced monitoring - managing the risk until the device can be remediated.",
+        "distractors": {
+          "A": "",
+          "B": "Formal acceptance with no mitigation leaves a known-critical risk unaddressed when controls are available.",
+          "C": "Ignoring a critical, exploitable flaw for months leaves it fully exposed.",
+          "D": "Disconnecting a device that cannot be taken offline may cause unacceptable safety/operational impact."
+        },
+        "exam_pattern": "Can't patch now -> compensating controls (segment, restrict, virtual-patch/IPS, monitor) until remediation."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 4 — Vulnerability management (compensating controls, risk mitigation)"
+      ]
+    },
+    {
+      "id": "securityx-ops-013",
+      "exam": "securityx",
+      "domain": "scx_operations",
+      "subtopic": "scx_monitoring_detection",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A security team wants to aggregate logs from firewalls, servers, endpoints, and cloud, then correlate events across them to detect multi-stage attacks and alert in near real time. Which platform is designed for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A password manager"
+        },
+        {
+          "id": "B",
+          "text": "A load balancer"
+        },
+        {
+          "id": "C",
+          "text": "A vulnerability scanner"
+        },
+        {
+          "id": "D",
+          "text": "A SIEM (security information and event management)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A SIEM centralizes and normalizes logs from many sources and applies correlation rules/analytics to detect multi-stage attacks and generate near-real-time alerts, serving as the SOC's analysis hub.",
+        "distractors": {
+          "A": "A password manager stores credentials, unrelated to event correlation.",
+          "B": "A load balancer distributes traffic and is not a log-correlation/detection platform.",
+          "C": "A vulnerability scanner finds weaknesses; it doesn't correlate live multi-source event logs.",
+          "D": ""
+        },
+        "exam_pattern": "Aggregate + normalize + correlate multi-source logs with alerting = SIEM."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 4 — Monitoring/detection (SIEM, correlation)"
+      ]
+    },
+    {
+      "id": "securityx-ops-014",
+      "exam": "securityx",
+      "domain": "scx_operations",
+      "subtopic": "scx_monitoring_detection",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A company wants to detect a compromised-but-valid account and a malicious insider by flagging deviations from each user's and device's normal behavior (e.g., unusual login times, data-access volumes, or locations), rather than by fixed signatures. Which capability BEST provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "User and entity behavior analytics (UEBA)"
+        },
+        {
+          "id": "B",
+          "text": "Signature-based IDS"
+        },
+        {
+          "id": "C",
+          "text": "A certificate revocation list (CRL)"
+        },
+        {
+          "id": "D",
+          "text": "A WAF"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "UEBA builds behavioral baselines for users and entities and uses analytics/ML to flag anomalies (odd times, volumes, locations), making it well suited to detecting account compromise and insider threats that signatures miss.",
+        "distractors": {
+          "A": "",
+          "B": "A signature-based IDS matches known patterns and won't flag novel anomalous behavior by a valid account.",
+          "C": "A CRL lists revoked certificates - unrelated to behavioral anomaly detection.",
+          "D": "A WAF filters web-application attacks, not user-behavior anomalies across the enterprise."
+        },
+        "exam_pattern": "Baseline normal + flag anomalies for insiders/compromised accounts = UEBA (behavioral analytics)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 4 — Monitoring/detection (UEBA, anomaly detection)"
+      ]
+    },
+    {
+      "id": "securityx-ops-015",
+      "exam": "securityx",
+      "domain": "scx_operations",
+      "subtopic": "scx_monitoring_detection",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An analyst correlating logs across firewalls, servers, and endpoints finds that timestamps disagree by minutes, making it impossible to reconstruct the true event sequence. Which foundational control MOST directly fixes this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reduce the number of log sources"
+        },
+        {
+          "id": "B",
+          "text": "Increase log retention to one year"
+        },
+        {
+          "id": "C",
+          "text": "Synchronize all systems to a common, reliable time source using NTP (with a consistent reference such as UTC)"
+        },
+        {
+          "id": "D",
+          "text": "Encrypt all log files at rest"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Accurate event correlation and timeline reconstruction require synchronized clocks; using NTP against a reliable source (and a consistent reference such as UTC) ensures timestamps line up across systems.",
+        "distractors": {
+          "A": "Fewer log sources reduces visibility and still wouldn't synchronize the remaining clocks.",
+          "B": "Longer retention keeps logs available but does not align mismatched timestamps.",
+          "C": "",
+          "D": "Encryption protects log confidentiality/integrity but does not synchronize clocks."
+        },
+        "exam_pattern": "Cross-source correlation/timelines depend on synchronized clocks = NTP (standardize on UTC)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 4 — Monitoring/detection (time synchronization, log correlation)"
+      ]
+    },
+    {
+      "id": "securityx-ops-016",
+      "exam": "securityx",
+      "domain": "scx_operations",
+      "subtopic": "scx_forensics",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: During evidence acquisition, the principle of collecting the most volatile data (such as CPU registers and RAM) before less volatile data (such as disk and archival media) is called the order of ______.",
+      "correct": [
+        "volatility",
+        "order of volatility"
+      ],
+      "explanation": {
+        "correct": "The order of volatility (per RFC 3227) directs responders to capture the most ephemeral data first - registers/cache, then RAM, network state, disk, and finally archival media - so fragile evidence isn't lost.",
+        "distractors": {},
+        "exam_pattern": "Collect most-ephemeral-first (registers/RAM -> disk -> archives) = order of volatility (RFC 3227)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 4 — Digital forensics (order of volatility)"
+      ]
+    },
+    {
+      "id": "securityx-ops-017",
+      "exam": "securityx",
+      "domain": "scx_operations",
+      "subtopic": "scx_forensics",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "For evidence to be admissible, an investigator must document every person who handled a piece of evidence, plus when and why, from collection all the way to court. Which concept is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Chain of custody"
+        },
+        {
+          "id": "B",
+          "text": "Order of volatility"
+        },
+        {
+          "id": "C",
+          "text": "Legal hold"
+        },
+        {
+          "id": "D",
+          "text": "Data remanence"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Chain of custody is the documented, unbroken record of who collected, handled, transferred, and stored evidence (and when and why), preserving its integrity and admissibility.",
+        "distractors": {
+          "A": "",
+          "B": "Order of volatility governs the sequence of data collection, not custody documentation.",
+          "C": "A legal hold preserves potentially relevant data from deletion; it isn't the handling record for a specific exhibit.",
+          "D": "Data remanence is residual data left after deletion, unrelated to custody tracking."
+        },
+        "exam_pattern": "Unbroken documented handling record for admissibility = chain of custody."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 4 — Digital forensics (chain of custody)"
+      ]
+    },
+    {
+      "id": "securityx-ops-018",
+      "exam": "securityx",
+      "domain": "scx_operations",
+      "subtopic": "scx_forensics",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An analyst must forensically acquire a running server suspected of hosting only in-memory (fileless) malware, then image its disk. Which approach BEST preserves evidence integrity?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reboot the server into the OS and run antivirus before imaging"
+        },
+        {
+          "id": "B",
+          "text": "Pull the power immediately, then image the disk, skipping memory"
+        },
+        {
+          "id": "C",
+          "text": "Capture volatile memory (RAM) from the live system first, then acquire a disk image using a write blocker and verify both with cryptographic hashes"
+        },
+        {
+          "id": "D",
+          "text": "Copy a few suspicious files out with normal OS tools and call it done"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Fileless malware lives in RAM, so capture volatile memory from the live system first; then image the disk through a write blocker and verify the images with cryptographic hashes to prove integrity. This respects the order of volatility and preserves admissibility.",
+        "distractors": {
+          "A": "Rebooting and running AV changes system state, destroys memory evidence, and can alter or delete artifacts.",
+          "B": "Pulling power destroys volatile RAM evidence - exactly where fileless malware resides.",
+          "C": "",
+          "D": "Copying a few files with OS tools alters metadata, misses memory-resident artifacts, and isn't a sound, verifiable acquisition."
+        },
+        "exam_pattern": "Live memory first (fileless), then write-blocked, hash-verified disk image = sound acquisition (order of volatility + integrity)."
+      },
+      "references": [
+        "CompTIA SecurityX CAS-005 Objectives: Domain 4 — Digital forensics (memory/disk acquisition, write blocker, hashing)"
+      ]
+    }
+  ]
+}

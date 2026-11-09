@@ -554,6 +554,7 @@ EXAMS: dict[str, ExamBlueprint] = {
 LIVE_EXAMS: tuple[str, ...] = (
     "ccna", "encor", "secplus", "netplus", "aplus1", "aplus2", "clf", "az900", "cysa", "pentest",
     "isc2cc", "cbrops", "sc900", "cissp", "cism", "cisa", "sscp",
+    "ceh", "sc200", "az500", "securityx",
 )
 
 
