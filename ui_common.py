@@ -58,7 +58,7 @@ CERT_CATALOG = [
     {"provider": "Cisco", "blurb": "Routing, switching, enterprise & security", "certs": [
         {"key": "ccna", "name": "CCNA 200-301", "status": "active"},
         {"key": "encor", "name": "CCNP ENCOR 350-401", "status": "active"},
-        {"key": "cbrops", "name": "CyberOps Associate (CBROPS)", "status": "soon"},
+        {"key": "cbrops", "name": "CyberOps Associate (CBROPS)", "status": "active"},
     ]},
     {"provider": "CompTIA", "blurb": "Vendor-neutral IT & security", "certs": [
         {"key": "secplus", "name": "Security+ SY0-701", "status": "active"},
@@ -72,7 +72,7 @@ CERT_CATALOG = [
         {"key": "cloudplus", "name": "Cloud+ CV0-004", "status": "soon"},
     ]},
     {"provider": "(ISC)²", "blurb": "Cybersecurity practitioner & leadership", "certs": [
-        {"key": "isc2cc", "name": "Certified in Cybersecurity (CC)", "status": "soon"},
+        {"key": "isc2cc", "name": "Certified in Cybersecurity (CC)", "status": "active"},
         {"key": "sscp", "name": "SSCP", "status": "soon"},
         {"key": "cissp", "name": "CISSP", "status": "soon"},
     ]},
@@ -89,7 +89,7 @@ CERT_CATALOG = [
     ]},
     {"provider": "Microsoft Azure", "blurb": "Azure, security & Microsoft 365", "certs": [
         {"key": "az900", "name": "Azure Fundamentals (AZ-900)", "status": "active"},
-        {"key": "sc900", "name": "Security, Compliance & Identity (SC-900)", "status": "soon"},
+        {"key": "sc900", "name": "Security, Compliance & Identity (SC-900)", "status": "active"},
         {"key": "sc200", "name": "Security Operations Analyst (SC-200)", "status": "soon"},
         {"key": "az500", "name": "Azure Security Engineer (AZ-500)", "status": "soon"},
         {"key": "ms900", "name": "Microsoft 365 Fundamentals (MS-900)", "status": "soon"},
@@ -113,6 +113,17 @@ TRACK_ACCENT = {
     "az900":   "#0078D4",   # Microsoft Azure — blue
     "cysa":    "#6366F1",   # CompTIA CySA+ — indigo
     "pentest": "#E5484D",   # CompTIA PenTest+ — offensive/red-team crimson
+    "isc2cc":  "#14B8A6",   # (ISC)² CC — teal
+    "cbrops":  "#00BCEB",   # Cisco CyberOps — Cisco cyan
+    "sc900":   "#3B9BE0",   # Microsoft SC-900 — sky blue
+    "cissp":   "#8E44AD",   # (ISC)² CISSP — purple
+    "cism":    "#2E86C1",   # ISACA CISM — blue
+    "cisa":    "#17A589",   # ISACA CISA — green-teal
+    "sscp":    "#27AE60",   # (ISC)² SSCP — green
+    "ceh":     "#CB4B16",   # EC-Council CEH — offensive burnt-orange
+    "sc200":   "#7E57C2",   # Microsoft SC-200 — Defender purple
+    "az500":   "#0E8A6B",   # Microsoft AZ-500 — Azure security green
+    "securityx": "#A64D79", # CompTIA SecurityX — plum
 }
 
 

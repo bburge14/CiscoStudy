@@ -1,0 +1,3629 @@
+{
+  "exam": "isc2cc",
+  "count": 90,
+  "questions": [
+    {
+      "id": "isc2cc-acc-001",
+      "exam": "isc2cc",
+      "domain": "cc_access_controls",
+      "subtopic": "cc_access_control_concepts",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A security baseline states that each employee should receive only the access rights needed to perform their specific job - nothing more. Which principle is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Implicit allow"
+        },
+        {
+          "id": "B",
+          "text": "Least privilege"
+        },
+        {
+          "id": "C",
+          "text": "Defense in depth"
+        },
+        {
+          "id": "D",
+          "text": "Separation of duties"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Least privilege gives each subject only the minimum access necessary to perform its function, limiting the damage from mistakes or compromise.",
+        "distractors": {
+          "A": "Implicit allow is the opposite of good practice; secure design uses implicit deny.",
+          "B": "",
+          "C": "Defense in depth layers multiple controls; it does not define how much access a user gets.",
+          "D": "Separation of duties splits a critical task across people; it is not about minimizing one person's rights."
+        },
+        "exam_pattern": "Give only the minimum access needed to do the job = least privilege."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 3 - Access control concepts (least privilege)"
+      ]
+    },
+    {
+      "id": "isc2cc-acc-002",
+      "exam": "isc2cc",
+      "domain": "cc_access_controls",
+      "subtopic": "cc_access_control_concepts",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To reduce fraud, a company requires one employee to submit a payment request and a different employee to approve it, so no single person can do both. This is:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Need to know"
+        },
+        {
+          "id": "B",
+          "text": "Separation (segregation) of duties"
+        },
+        {
+          "id": "C",
+          "text": "Least privilege"
+        },
+        {
+          "id": "D",
+          "text": "Single sign-on"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Separation of duties divides a critical task among multiple people so that no one individual can complete it alone, reducing fraud and error.",
+        "distractors": {
+          "A": "Need to know restricts access to specific information, not the division of a transaction's steps.",
+          "B": "",
+          "C": "Least privilege limits how much access one person has; it does not require splitting a task across people.",
+          "D": "Single sign-on is an authentication convenience, unrelated to splitting duties."
+        },
+        "exam_pattern": "Split a critical task so no one person controls it end to end = separation of duties."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 3 - Access control concepts (separation of duties)"
+      ]
+    },
+    {
+      "id": "isc2cc-acc-003",
+      "exam": "isc2cc",
+      "domain": "cc_access_controls",
+      "subtopic": "cc_access_control_concepts",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In access control terminology, when a user runs a program that opens a document file, which element is the SUBJECT?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The document file"
+        },
+        {
+          "id": "B",
+          "text": "The user (acting through the program)"
+        },
+        {
+          "id": "C",
+          "text": "The hard drive"
+        },
+        {
+          "id": "D",
+          "text": "The folder the file is stored in"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A subject is the active entity (a user or the process acting on their behalf) that requests access to a resource.",
+        "distractors": {
+          "A": "The document file is the object - the passive resource being acted upon.",
+          "B": "",
+          "C": "The hard drive is a storage object, not the active entity requesting access.",
+          "D": "The folder is also an object (a container resource), not the active requester."
+        },
+        "exam_pattern": "Active entity that acts = subject; passive resource acted upon = object."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 3 - Access control concepts (subjects and objects)"
+      ]
+    },
+    {
+      "id": "isc2cc-acc-004",
+      "exam": "isc2cc",
+      "domain": "cc_access_controls",
+      "subtopic": "cc_access_control_concepts",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An analyst holds a Secret clearance but is granted access only to the specific Secret case files for the project assigned to her - not every Secret file. Which principle most precisely governs this restriction?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Separation of duties"
+        },
+        {
+          "id": "B",
+          "text": "Need to know"
+        },
+        {
+          "id": "C",
+          "text": "Defense in depth"
+        },
+        {
+          "id": "D",
+          "text": "Non-repudiation"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Need to know restricts access to only the specific information required for a person's task, even when their clearance would technically permit more.",
+        "distractors": {
+          "A": "Separation of duties splits a task among people; it does not scope a single analyst's file access.",
+          "B": "",
+          "C": "Defense in depth is about layering controls, not limiting which specific files a cleared user may see.",
+          "D": "Non-repudiation proves who did an action; it is unrelated to limiting information access."
+        },
+        "exam_pattern": "Cleared but limited to only the info the task requires = need to know (narrower than least privilege)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 3 - Access control concepts (need to know)"
+      ]
+    },
+    {
+      "id": "isc2cc-acc-005",
+      "exam": "isc2cc",
+      "domain": "cc_access_controls",
+      "subtopic": "cc_access_control_concepts",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "A security design uses several independent layers of controls - a firewall, then network segmentation, then host hardening - so that if one layer fails, others still protect the asset. This strategy of layering controls is called ___.",
+      "correct": [
+        "defense in depth",
+        "defence in depth",
+        "layered security",
+        "layered defense",
+        "layering"
+      ],
+      "explanation": {
+        "correct": "Defense in depth layers multiple, independent safeguards so the failure of any single control does not expose the asset.",
+        "exam_pattern": "Multiple overlapping layers of controls = defense in depth."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 3 - Access control concepts (defense in depth)"
+      ]
+    },
+    {
+      "id": "isc2cc-acc-006",
+      "exam": "isc2cc",
+      "domain": "cc_access_controls",
+      "subtopic": "cc_physical_access",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To enter a secure area, a person steps into a small booth with two interlocking doors; the second door opens only after the first closes, admitting one person at a time. This control is a(n):",
+      "options": [
+        {
+          "id": "A",
+          "text": "Faraday cage"
+        },
+        {
+          "id": "B",
+          "text": "Honeypot"
+        },
+        {
+          "id": "C",
+          "text": "Access control vestibule (mantrap)"
+        },
+        {
+          "id": "D",
+          "text": "Bollard"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "An access control vestibule (mantrap) uses two interlocking doors to admit one person at a time, preventing an unauthorized person from slipping in behind another.",
+        "distractors": {
+          "A": "A Faraday cage blocks electromagnetic signals; it is not an entry-control booth.",
+          "B": "A honeypot is a decoy system to lure attackers, not a physical entry control.",
+          "C": "",
+          "D": "A bollard is a post that blocks vehicles; it does not control person-by-person entry."
+        },
+        "exam_pattern": "Two interlocking doors, one person at a time = access control vestibule / mantrap."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 3 - Physical access controls (vestibule/mantrap)"
+      ]
+    },
+    {
+      "id": "isc2cc-acc-007",
+      "exam": "isc2cc",
+      "domain": "cc_access_controls",
+      "subtopic": "cc_physical_access",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An unauthorized person closely follows an employee through a badge-controlled door before it closes, never presenting their own credential. This technique is called:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sniffing"
+        },
+        {
+          "id": "B",
+          "text": "Spoofing"
+        },
+        {
+          "id": "C",
+          "text": "Tailgating (piggybacking)"
+        },
+        {
+          "id": "D",
+          "text": "Phishing"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Tailgating (piggybacking) is following an authorized person through a controlled entry point to bypass physical access controls without valid credentials.",
+        "distractors": {
+          "A": "Sniffing is capturing network traffic, unrelated to walking through a door.",
+          "B": "Spoofing is falsifying an identity or address in communications, not a physical entry trick.",
+          "C": "",
+          "D": "Phishing is a deceptive electronic message, not physically following someone through a door."
+        },
+        "exam_pattern": "Slipping through a door behind an authorized person = tailgating/piggybacking."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 3 - Physical access controls (tailgating)"
+      ]
+    },
+    {
+      "id": "isc2cc-acc-008",
+      "exam": "isc2cc",
+      "domain": "cc_access_controls",
+      "subtopic": "cc_physical_access",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A building installs CCTV cameras that record everyone entering the lobby but do not physically stop anyone. By function, CCTV primarily acts as which kind of control?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A detective control"
+        },
+        {
+          "id": "B",
+          "text": "A corrective control"
+        },
+        {
+          "id": "C",
+          "text": "A preventive control"
+        },
+        {
+          "id": "D",
+          "text": "A compensating control"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "CCTV records activity so events can be identified and investigated, making it primarily a detective control (it also deters, but it does not prevent entry).",
+        "distractors": {
+          "A": "",
+          "B": "A corrective control fixes or restores after an incident; cameras do not remediate.",
+          "C": "A preventive control would stop entry; cameras only observe and record.",
+          "D": "A compensating control substitutes for another control; that is not CCTV's primary role here."
+        },
+        "exam_pattern": "Records/monitors to spot events after the fact = detective control."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 3 - Physical access controls (surveillance/CCTV)"
+      ]
+    },
+    {
+      "id": "isc2cc-acc-009",
+      "exam": "isc2cc",
+      "domain": "cc_access_controls",
+      "subtopic": "cc_physical_access",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A site wants a physical control that can verify visitor identities, exercise judgment about unusual situations, and actively respond to an intruder. Which control best provides this flexibility?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A security guard"
+        },
+        {
+          "id": "B",
+          "text": "A CCTV camera"
+        },
+        {
+          "id": "C",
+          "text": "A door lock"
+        },
+        {
+          "id": "D",
+          "text": "A bollard"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A security guard is a flexible physical control: a human can check identities, adapt to unexpected events, and intervene or respond to an intruder.",
+        "distractors": {
+          "A": "",
+          "B": "A CCTV camera records but cannot exercise judgment or physically intervene.",
+          "C": "A door lock only permits or denies based on a key/credential; it cannot assess a situation.",
+          "D": "A bollard is a fixed barrier that only blocks vehicles; it cannot verify identity or respond."
+        },
+        "exam_pattern": "Need human judgment and active response among physical controls = security guard."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 3 - Physical access controls (guards)"
+      ]
+    },
+    {
+      "id": "isc2cc-acc-010",
+      "exam": "isc2cc",
+      "domain": "cc_access_controls",
+      "subtopic": "cc_logical_access",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "When a worker is hired as an accountant, the system automatically grants them the permissions tied to the 'Accountant' job function. Which access control model is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Discretionary Access Control (DAC)"
+        },
+        {
+          "id": "B",
+          "text": "Attribute-Based Access Control (ABAC)"
+        },
+        {
+          "id": "C",
+          "text": "Mandatory Access Control (MAC)"
+        },
+        {
+          "id": "D",
+          "text": "Role-Based Access Control (RBAC)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "RBAC assigns permissions to roles that map to job functions; users gain access by being placed in the appropriate role, simplifying administration.",
+        "distractors": {
+          "A": "DAC lets the resource owner decide access case by case, not by predefined job roles.",
+          "B": "ABAC grants access by evaluating attributes/policies (user, resource, environment), not by role membership alone.",
+          "C": "MAC enforces access through system-assigned security labels and clearances, not job roles.",
+          "D": ""
+        },
+        "exam_pattern": "Access granted by job role/function = RBAC."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 3 - Logical access controls (RBAC)"
+      ]
+    },
+    {
+      "id": "isc2cc-acc-011",
+      "exam": "isc2cc",
+      "domain": "cc_access_controls",
+      "subtopic": "cc_logical_access",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On a file server, each file's owner personally decides which other users may read or edit that file by setting its permissions. Which access control model is in use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mandatory Access Control (MAC)"
+        },
+        {
+          "id": "B",
+          "text": "Role-Based Access Control (RBAC)"
+        },
+        {
+          "id": "C",
+          "text": "Rule-Based Access Control"
+        },
+        {
+          "id": "D",
+          "text": "Discretionary Access Control (DAC)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "DAC gives the owner of a resource discretion to grant or deny access to it, as with standard file permissions set by the file's owner.",
+        "distractors": {
+          "A": "MAC removes owner discretion; the system enforces access by labels and clearances.",
+          "B": "RBAC ties access to job roles, not to an owner's per-file choices.",
+          "C": "Rule-based control applies global rules (e.g., firewall rules) to everyone, not owner-set file permissions.",
+          "D": ""
+        },
+        "exam_pattern": "Resource owner decides who gets access = discretionary (DAC)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 3 - Logical access controls (DAC)"
+      ]
+    },
+    {
+      "id": "isc2cc-acc-012",
+      "exam": "isc2cc",
+      "domain": "cc_access_controls",
+      "subtopic": "cc_logical_access",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In a classified government system, every file carries a sensitivity label and every user a clearance; the operating system - not any user - decides access, and users cannot change these rules. Which model is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Discretionary Access Control (DAC)"
+        },
+        {
+          "id": "B",
+          "text": "Mandatory Access Control (MAC)"
+        },
+        {
+          "id": "C",
+          "text": "Attribute-Based Access Control (ABAC)"
+        },
+        {
+          "id": "D",
+          "text": "Role-Based Access Control (RBAC)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "MAC is system-enforced using security labels and clearances; users cannot alter access decisions, which is why it is the most restrictive model and common in military/government settings.",
+        "distractors": {
+          "A": "DAC lets owners set access at their discretion, the opposite of system-enforced labels.",
+          "B": "",
+          "C": "ABAC uses flexible attribute policies; MAC specifically enforces fixed labels/clearances the user cannot change.",
+          "D": "RBAC assigns access by job role, not by mandatory sensitivity labels and clearances."
+        },
+        "exam_pattern": "System-enforced labels/clearances, user cannot override, most restrictive = MAC."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 3 - Logical access controls (MAC)"
+      ]
+    },
+    {
+      "id": "isc2cc-acc-013",
+      "exam": "isc2cc",
+      "domain": "cc_access_controls",
+      "subtopic": "cc_logical_access",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An access system grants or denies a request by evaluating multiple attributes together - the user's department, the device's security posture, the time of day, and the resource's sensitivity. Which model offers this fine-grained, policy-driven control?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mandatory Access Control (MAC)"
+        },
+        {
+          "id": "B",
+          "text": "Role-Based Access Control (RBAC)"
+        },
+        {
+          "id": "C",
+          "text": "Attribute-Based Access Control (ABAC)"
+        },
+        {
+          "id": "D",
+          "text": "Discretionary Access Control (DAC)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "ABAC makes access decisions by evaluating attributes of the subject, object, and environment against policies, giving the most granular and dynamic control.",
+        "distractors": {
+          "A": "MAC uses fixed security labels and clearances, not a flexible blend of many attributes.",
+          "B": "RBAC decides access by role membership alone, not by device posture, time, or other attributes.",
+          "C": "",
+          "D": "DAC relies on the owner's discretion, not a combination of multiple attributes."
+        },
+        "exam_pattern": "Access from many attributes (user/device/time/resource) + policies = ABAC."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 3 - Logical access controls (ABAC)"
+      ]
+    },
+    {
+      "id": "isc2cc-acc-014",
+      "exam": "isc2cc",
+      "domain": "cc_access_controls",
+      "subtopic": "cc_logical_access",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A large enterprise with constant staff changes wants to simplify administration so that access automatically fits each person's job and updates when they change positions. Compared with DAC, why is RBAC better suited here?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Access requires no authentication at all"
+        },
+        {
+          "id": "B",
+          "text": "The system labels every object with a classification the user cannot change"
+        },
+        {
+          "id": "C",
+          "text": "Permissions are tied to roles, so changing a user's role updates their access consistently"
+        },
+        {
+          "id": "D",
+          "text": "Each resource owner can set permissions individually for every file"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "RBAC maps permissions to roles; moving a user between roles consistently grants and revokes the right access, which scales well in large, fast-changing organizations.",
+        "distractors": {
+          "A": "No model removes authentication; access control still requires verifying identity first.",
+          "B": "System-enforced classification labels describe MAC, not an advantage of RBAC over DAC.",
+          "C": "",
+          "D": "Owner-by-owner, file-by-file permission setting describes DAC, which is exactly the hard-to-manage approach being replaced."
+        },
+        "exam_pattern": "RBAC scales administration by job role; DAC's per-owner choices get unmanageable at scale."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 3 - Logical access controls (RBAC vs. DAC)"
+      ]
+    },
+    {
+      "id": "isc2cc-acc-015",
+      "exam": "isc2cc",
+      "domain": "cc_access_controls",
+      "subtopic": "cc_identity_management",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A user types a username to claim who they are, then enters a password. What is the step of PROVING the claimed identity called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Authentication"
+        },
+        {
+          "id": "B",
+          "text": "Accounting"
+        },
+        {
+          "id": "C",
+          "text": "Identification"
+        },
+        {
+          "id": "D",
+          "text": "Authorization"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Authentication verifies (proves) a claimed identity - for example, by checking the password that goes with the username.",
+        "distractors": {
+          "A": "",
+          "B": "Accounting records what the user does; it is not the step that proves identity.",
+          "C": "Identification is the claim of identity (typing the username), not the proof of it.",
+          "D": "Authorization decides what an authenticated user may do, which comes after proving identity."
+        },
+        "exam_pattern": "Claim identity = identification; prove it = authentication; then authorization."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 3 - Identity management (identification vs. authentication)"
+      ]
+    },
+    {
+      "id": "isc2cc-acc-016",
+      "exam": "isc2cc",
+      "domain": "cc_access_controls",
+      "subtopic": "cc_identity_management",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A user logs in by inserting a physical hardware security key (a USB token) they carry. Which authentication factor category does this token represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Something you know"
+        },
+        {
+          "id": "B",
+          "text": "Something you are"
+        },
+        {
+          "id": "C",
+          "text": "Somewhere you are"
+        },
+        {
+          "id": "D",
+          "text": "Something you have"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A hardware token/security key is a possession, so it is a 'something you have' authentication factor.",
+        "distractors": {
+          "A": "'Something you know' is knowledge like a password or PIN, not a physical object.",
+          "B": "'Something you are' is a biometric trait such as a fingerprint, not a carried device.",
+          "C": "'Somewhere you are' is a location-based factor, not the possession of a token.",
+          "D": ""
+        },
+        "exam_pattern": "Token/smart card/phone = something you have; password/PIN = know; biometric = are."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 3 - Identity management (authentication factors)"
+      ]
+    },
+    {
+      "id": "isc2cc-acc-017",
+      "exam": "isc2cc",
+      "domain": "cc_access_controls",
+      "subtopic": "cc_identity_management",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A bank requires customers to enter a password and then a one-time code from an authenticator app on their phone. Why does this qualify as multifactor authentication?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It uses two separate passwords"
+        },
+        {
+          "id": "B",
+          "text": "The password is long and complex"
+        },
+        {
+          "id": "C",
+          "text": "It combines two different factor types (something you know + something you have)"
+        },
+        {
+          "id": "D",
+          "text": "It logs the user's location"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Multifactor authentication requires two or more factors from DIFFERENT categories; a password (know) plus a one-time code from a phone (have) meets that bar.",
+        "distractors": {
+          "A": "Two passwords are both 'something you know,' the same factor type, so that is not multifactor.",
+          "B": "A strong password is still a single factor; complexity does not make it multifactor.",
+          "C": "",
+          "D": "Logging location is not the reason; MFA requires combining different factor types, which this does."
+        },
+        "exam_pattern": "MFA = two or more DIFFERENT factor types; two of the same type does not count."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 3 - Identity management (MFA)"
+      ]
+    },
+    {
+      "id": "isc2cc-acc-018",
+      "exam": "isc2cc",
+      "domain": "cc_access_controls",
+      "subtopic": "cc_identity_management",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "In the AAA framework (authentication, authorization, and ___), the third 'A' is the process of recording and logging what an authenticated user does, creating an audit trail. Name that third 'A'. (one word)",
+      "correct": [
+        "accounting",
+        "auditing",
+        "accountability"
+      ],
+      "explanation": {
+        "correct": "Accounting (also called auditing) tracks and logs a user's actions, supporting accountability and audit trails after identity and permissions are established.",
+        "exam_pattern": "AAA = Authentication, Authorization, Accounting (logging/auditing user activity)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 3 - Identity management (AAA/accounting)"
+      ]
+    },
+    {
+      "id": "isc2cc-bcdr-001",
+      "exam": "isc2cc",
+      "domain": "cc_bcdr_ir",
+      "subtopic": "cc_incident_response",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A monitoring tool logs an unremarkable user login - an observable occurrence with no harm. In incident-response terms, what is this best called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A disaster"
+        },
+        {
+          "id": "B",
+          "text": "An event"
+        },
+        {
+          "id": "C",
+          "text": "An incident"
+        },
+        {
+          "id": "D",
+          "text": "A breach"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "An event is any observable occurrence in a system or network; most events are routine and harmless, like a normal login.",
+        "distractors": {
+          "A": "A disaster is a large-scale disruptive event that invokes DR/BC plans, far beyond a single login.",
+          "B": "",
+          "C": "An incident is an event that actually or potentially harms the CIA of information; a normal login is not harmful.",
+          "D": "A breach specifically involves confirmed unauthorized access to or disclosure of data."
+        },
+        "exam_pattern": "Any observable occurrence = event; one that harms/threatens CIA = incident."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 2 - Incident terminology (event vs. incident)"
+      ]
+    },
+    {
+      "id": "isc2cc-bcdr-002",
+      "exam": "isc2cc",
+      "domain": "cc_bcdr_ir",
+      "subtopic": "cc_incident_response",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After confirming malware is spreading on a server, the response team's immediate goal is to stop it from reaching other systems. Which incident-response phase is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Recovery"
+        },
+        {
+          "id": "B",
+          "text": "Detection and analysis"
+        },
+        {
+          "id": "C",
+          "text": "Containment"
+        },
+        {
+          "id": "D",
+          "text": "Post-incident activity"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Containment limits the scope and spread of an incident - for example, isolating the infected server - so the damage does not expand.",
+        "distractors": {
+          "A": "Recovery restores systems to normal operation, which comes after the threat is contained and removed.",
+          "B": "Detection and analysis is where the incident is identified and confirmed, which already happened here.",
+          "C": "",
+          "D": "Post-incident activity captures lessons learned after the incident is resolved."
+        },
+        "exam_pattern": "Stop the spread / isolate affected systems = containment."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 2 - Incident response (containment)"
+      ]
+    },
+    {
+      "id": "isc2cc-bcdr-003",
+      "exam": "isc2cc",
+      "domain": "cc_bcdr_ir",
+      "subtopic": "cc_incident_response",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Once an infected host is isolated, the team deletes the malware and closes the vulnerability that let it in. Which incident-response phase does this describe?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Eradication"
+        },
+        {
+          "id": "B",
+          "text": "Detection"
+        },
+        {
+          "id": "C",
+          "text": "Containment"
+        },
+        {
+          "id": "D",
+          "text": "Preparation"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Eradication removes the cause of the incident - deleting the malware and fixing the exploited weakness - so it cannot recur from the same source.",
+        "distractors": {
+          "A": "",
+          "B": "Detection is identifying that an incident is occurring, not removing the threat.",
+          "C": "Containment only isolates/limits the incident; it does not remove the malware or fix the flaw.",
+          "D": "Preparation happens before incidents, building plans, tools, and training."
+        },
+        "exam_pattern": "Remove the malware / eliminate the root cause = eradication (before recovery)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 2 - Incident response (eradication)"
+      ]
+    },
+    {
+      "id": "isc2cc-bcdr-004",
+      "exam": "isc2cc",
+      "domain": "cc_bcdr_ir",
+      "subtopic": "cc_incident_response",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A company forms a dedicated group of trained staff responsible for detecting, responding to, and recovering from security incidents. This group is commonly called a:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Help desk"
+        },
+        {
+          "id": "B",
+          "text": "CSIRT (Computer Security Incident Response Team)"
+        },
+        {
+          "id": "C",
+          "text": "Steering committee"
+        },
+        {
+          "id": "D",
+          "text": "Change Advisory Board (CAB)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A CSIRT (also called CIRT or IRT) is the team specifically chartered to handle security incidents across their lifecycle.",
+        "distractors": {
+          "A": "A help desk handles general user support, not coordinated incident response.",
+          "B": "",
+          "C": "A steering committee sets strategy and priorities; it does not run incident response.",
+          "D": "A Change Advisory Board reviews and approves changes, not security incidents."
+        },
+        "exam_pattern": "Dedicated incident-handling team = CSIRT/CIRT/IRT."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 2 - Incident response team (CSIRT)"
+      ]
+    },
+    {
+      "id": "isc2cc-bcdr-005",
+      "exam": "isc2cc",
+      "domain": "cc_bcdr_ir",
+      "subtopic": "cc_incident_response",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Days after an incident is resolved, the team meets to review what happened and update procedures to prevent a repeat. Which incident-response phase is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Detection and analysis"
+        },
+        {
+          "id": "B",
+          "text": "Containment"
+        },
+        {
+          "id": "C",
+          "text": "Eradication"
+        },
+        {
+          "id": "D",
+          "text": "Post-incident activity (lessons learned)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Post-incident activity - the lessons-learned review - analyzes how the incident was handled and feeds improvements back into preparation.",
+        "distractors": {
+          "A": "Detection and analysis is the early phase of recognizing the incident.",
+          "B": "Containment happens during the active incident to limit spread, not afterward.",
+          "C": "Eradication removes the threat during response, before the review.",
+          "D": ""
+        },
+        "exam_pattern": "Review/lessons learned to improve for next time = post-incident activity."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 2 - Incident response (post-incident activity)"
+      ]
+    },
+    {
+      "id": "isc2cc-bcdr-006",
+      "exam": "isc2cc",
+      "domain": "cc_bcdr_ir",
+      "subtopic": "cc_incident_response",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "In the incident-response lifecycle, the phase done BEFORE any incident - creating the IR plan, assembling tools, and training the team - is called ___. (one word)",
+      "correct": [
+        "preparation",
+        "prepare"
+      ],
+      "explanation": {
+        "correct": "Preparation is the first phase: building the capability (plans, tools, training) so the organization can respond effectively when an incident occurs.",
+        "exam_pattern": "Readiness work done before incidents (plans/tools/training) = preparation."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 2 - Incident response (preparation)"
+      ]
+    },
+    {
+      "id": "isc2cc-bcdr-007",
+      "exam": "isc2cc",
+      "domain": "cc_bcdr_ir",
+      "subtopic": "cc_business_continuity",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "What is the primary purpose of business continuity (BC) planning?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To test employees with simulated phishing emails"
+        },
+        {
+          "id": "B",
+          "text": "To encrypt data while it travels across the internet"
+        },
+        {
+          "id": "C",
+          "text": "To delete malware from infected endpoints"
+        },
+        {
+          "id": "D",
+          "text": "To keep essential business functions operating during and after a disruption"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Business continuity focuses on maintaining the organization's critical/essential functions through a disruption so the business can keep operating.",
+        "distractors": {
+          "A": "Phishing simulations are security-awareness activities, not business continuity.",
+          "B": "Encrypting data in transit is a confidentiality control, not continuity planning.",
+          "C": "Removing malware is part of incident response, not business continuity.",
+          "D": ""
+        },
+        "exam_pattern": "Keep the business running through disruption = business continuity."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 2 - Business continuity (purpose)"
+      ]
+    },
+    {
+      "id": "isc2cc-bcdr-008",
+      "exam": "isc2cc",
+      "domain": "cc_bcdr_ir",
+      "subtopic": "cc_business_continuity",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Before writing its continuity plan, an organization studies which functions are most critical and the impact if each were lost. What is this analysis called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Root-cause analysis"
+        },
+        {
+          "id": "B",
+          "text": "Business impact analysis (BIA)"
+        },
+        {
+          "id": "C",
+          "text": "Vulnerability scan"
+        },
+        {
+          "id": "D",
+          "text": "Penetration test"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A business impact analysis (BIA) identifies critical business functions and the consequences of their disruption, driving recovery priorities and objectives.",
+        "distractors": {
+          "A": "Root-cause analysis finds why an incident happened, not which functions are most critical.",
+          "B": "",
+          "C": "A vulnerability scan finds technical flaws, not the business impact of losing functions.",
+          "D": "A penetration test probes for exploitable weaknesses; it does not rank business functions by impact."
+        },
+        "exam_pattern": "Identify critical functions + impact of their loss = BIA."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 2 - Business continuity (BIA)"
+      ]
+    },
+    {
+      "id": "isc2cc-bcdr-009",
+      "exam": "isc2cc",
+      "domain": "cc_bcdr_ir",
+      "subtopic": "cc_business_continuity",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "During a flood, leadership's first priority is keeping the order-processing function running from an alternate location - not yet rebuilding the damaged data center. Which discipline is being exercised?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Penetration testing"
+        },
+        {
+          "id": "B",
+          "text": "Digital forensics"
+        },
+        {
+          "id": "C",
+          "text": "Business continuity"
+        },
+        {
+          "id": "D",
+          "text": "Disaster recovery"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Keeping essential functions operating through the disruption is the heart of business continuity; disaster recovery is the related effort to restore the IT systems.",
+        "distractors": {
+          "A": "Penetration testing assesses security weaknesses; it is unrelated to continuity during a flood.",
+          "B": "Digital forensics investigates and preserves evidence; it does not keep operations running.",
+          "C": "",
+          "D": "Disaster recovery focuses on restoring/rebuilding IT systems after the disaster, not keeping functions running now."
+        },
+        "exam_pattern": "Keep operating during the event = BC; restore the systems afterward = DR."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 2 - BC vs. DR"
+      ]
+    },
+    {
+      "id": "isc2cc-bcdr-010",
+      "exam": "isc2cc",
+      "domain": "cc_bcdr_ir",
+      "subtopic": "cc_business_continuity",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "The document that lays out how an organization will keep its essential functions operating during and after a disruption is the business ___ plan. (one word)",
+      "correct": [
+        "continuity"
+      ],
+      "explanation": {
+        "correct": "The business continuity plan (BCP) documents the strategy and steps to sustain essential operations through a disruption.",
+        "exam_pattern": "Plan to keep operating through disruption = business continuity plan (BCP)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 2 - Business continuity (BCP)"
+      ]
+    },
+    {
+      "id": "isc2cc-bcdr-011",
+      "exam": "isc2cc",
+      "domain": "cc_bcdr_ir",
+      "subtopic": "cc_business_continuity",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A consultant stresses that a business continuity program is far more likely to succeed if one group visibly backs it and funds it. Who is that group?",
+      "options": [
+        {
+          "id": "A",
+          "text": "End users in general"
+        },
+        {
+          "id": "B",
+          "text": "The marketing department"
+        },
+        {
+          "id": "C",
+          "text": "Senior (executive) management"
+        },
+        {
+          "id": "D",
+          "text": "The external auditors"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Senior management's sponsorship, funding, and visible support are essential for a continuity program to be resourced and taken seriously across the organization.",
+        "distractors": {
+          "A": "General end users follow the plan but cannot authorize budget or enforce it enterprise-wide.",
+          "B": "Marketing is a business unit the plan protects, not the sponsor of the program.",
+          "C": "",
+          "D": "Auditors assess the program's effectiveness; they do not sponsor or fund it."
+        },
+        "exam_pattern": "Program success depends on senior/executive management support and funding."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 2 - Business continuity (management support)"
+      ]
+    },
+    {
+      "id": "isc2cc-bcdr-012",
+      "exam": "isc2cc",
+      "domain": "cc_bcdr_ir",
+      "subtopic": "cc_business_continuity",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A manufacturer keeps a fully staffed backup call center so customer support never stops, even if the primary site goes down. This is an example of:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Conducting a risk transference via insurance"
+        },
+        {
+          "id": "B",
+          "text": "Maintaining continuity of an essential business function"
+        },
+        {
+          "id": "C",
+          "text": "Hardening a server's configuration"
+        },
+        {
+          "id": "D",
+          "text": "Performing a forensic investigation"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "An alternate, ready-to-run call center keeps the essential customer-support function operating during a disruption - the goal of business continuity.",
+        "distractors": {
+          "A": "Risk transference shifts financial loss to an insurer; a staffed backup site is not insurance.",
+          "B": "",
+          "C": "Server hardening reduces attack surface; it is not about keeping a business function available.",
+          "D": "A forensic investigation gathers evidence after an incident; it does not keep support running."
+        },
+        "exam_pattern": "An alternate site/staff that keeps a function running = business continuity."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 2 - Business continuity (continuity of operations)"
+      ]
+    },
+    {
+      "id": "isc2cc-bcdr-013",
+      "exam": "isc2cc",
+      "domain": "cc_bcdr_ir",
+      "subtopic": "cc_disaster_recovery",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "What does disaster recovery (DR) primarily focus on?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Writing the organization's acceptable-use policy"
+        },
+        {
+          "id": "B",
+          "text": "Classifying data as public or confidential"
+        },
+        {
+          "id": "C",
+          "text": "Preventing phishing emails from reaching users"
+        },
+        {
+          "id": "D",
+          "text": "Restoring IT systems, data, and operations after a disruptive event"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Disaster recovery is the set of processes and tools used to restore IT systems, data, and operations after a disaster so normal service can resume.",
+        "distractors": {
+          "A": "Writing an acceptable-use policy is a governance task, not disaster recovery.",
+          "B": "Data classification is a data-security activity, unrelated to restoring systems after a disaster.",
+          "C": "Blocking phishing is an operational email-security control, not disaster recovery.",
+          "D": ""
+        },
+        "exam_pattern": "Restore IT systems/data/operations after a disaster = disaster recovery."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 2 - Disaster recovery (purpose)"
+      ]
+    },
+    {
+      "id": "isc2cc-bcdr-014",
+      "exam": "isc2cc",
+      "domain": "cc_bcdr_ir",
+      "subtopic": "cc_disaster_recovery",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization needs an alternate facility that is fully equipped with hardware, current data, and connectivity so it can take over almost immediately. This is a:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Warm site"
+        },
+        {
+          "id": "B",
+          "text": "Reciprocal site"
+        },
+        {
+          "id": "C",
+          "text": "Hot site"
+        },
+        {
+          "id": "D",
+          "text": "Cold site"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A hot site is a fully operational alternate location with hardware, up-to-date data, and connectivity, giving the fastest recovery (at the highest cost).",
+        "distractors": {
+          "A": "A warm site is partially equipped (some hardware, but data must be loaded), slower than a hot site.",
+          "B": "A reciprocal agreement shares another organization's facility; it is not a fully ready hot site.",
+          "C": "",
+          "D": "A cold site has only space, power, and cooling - no ready hardware or data - so it is slowest to activate."
+        },
+        "exam_pattern": "Fully equipped, ready now, costliest = hot site; empty shell, cheapest, slowest = cold site."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 2 - Disaster recovery (recovery sites)"
+      ]
+    },
+    {
+      "id": "isc2cc-bcdr-015",
+      "exam": "isc2cc",
+      "domain": "cc_bcdr_ir",
+      "subtopic": "cc_disaster_recovery",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A small company wants the cheapest alternate site and accepts that bringing it online will be slow because it has only space, power, and cooling - no installed equipment. Which site type fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cold site"
+        },
+        {
+          "id": "B",
+          "text": "Mirror site"
+        },
+        {
+          "id": "C",
+          "text": "Warm site"
+        },
+        {
+          "id": "D",
+          "text": "Hot site"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A cold site provides only the physical space and utilities; equipment and data must be brought in and set up, making it the cheapest but slowest option.",
+        "distractors": {
+          "A": "",
+          "B": "A mirror site is a real-time duplicate of production, the fastest and most expensive, not the cheapest.",
+          "C": "A warm site has some equipment already in place, so it is faster and costlier than a cold site.",
+          "D": "A hot site is fully equipped and ready immediately - the opposite of cheap and slow."
+        },
+        "exam_pattern": "Only space/power/cooling, cheapest, slowest to activate = cold site."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 2 - Disaster recovery (recovery sites)"
+      ]
+    },
+    {
+      "id": "isc2cc-bcdr-016",
+      "exam": "isc2cc",
+      "domain": "cc_bcdr_ir",
+      "subtopic": "cc_disaster_recovery",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A recovery plan states that after an outage the email system must be back up within 4 hours. Which metric does the '4 hours to restore' describe?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mean Time Between Failures (MTBF)"
+        },
+        {
+          "id": "B",
+          "text": "Recovery Time Objective (RTO)"
+        },
+        {
+          "id": "C",
+          "text": "Recovery Point Objective (RPO)"
+        },
+        {
+          "id": "D",
+          "text": "Annualized Loss Expectancy (ALE)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The Recovery Time Objective (RTO) is the target time within which a system or process must be restored after a disruption - here, 4 hours.",
+        "distractors": {
+          "A": "MTBF estimates average time between hardware failures, a reliability metric, not a recovery target.",
+          "B": "",
+          "C": "RPO measures how much data loss is acceptable (how far back to recover), not how long restoration takes.",
+          "D": "ALE is a yearly expected-loss figure from risk analysis, not a recovery-time target."
+        },
+        "exam_pattern": "'How fast must we be back up' = RTO (time); 'how much data can we lose' = RPO (data)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 2 - Disaster recovery (RTO vs. RPO)"
+      ]
+    },
+    {
+      "id": "isc2cc-bcdr-017",
+      "exam": "isc2cc",
+      "domain": "cc_bcdr_ir",
+      "subtopic": "cc_disaster_recovery",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A database team says it can tolerate losing at most 15 minutes of transactions if a crash occurs. Which recovery metric does the '15 minutes of data' describe?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Recovery Point Objective (RPO)"
+        },
+        {
+          "id": "B",
+          "text": "Maximum Tolerable Downtime (MTD)"
+        },
+        {
+          "id": "C",
+          "text": "Recovery Time Objective (RTO)"
+        },
+        {
+          "id": "D",
+          "text": "Service-Level Agreement (SLA)"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The Recovery Point Objective (RPO) is the maximum acceptable amount of data loss, expressed as a point in time - here, up to 15 minutes of transactions.",
+        "distractors": {
+          "A": "",
+          "B": "MTD is the total time a function can be down before unacceptable harm, not the data-loss limit.",
+          "C": "RTO is the time allowed to restore service, not the amount of data loss tolerated.",
+          "D": "An SLA is a service commitment between parties, not a specific data-loss metric."
+        },
+        "exam_pattern": "Acceptable data loss (point to recover to) = RPO; often set by backup frequency."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 2 - Disaster recovery (RTO vs. RPO)"
+      ]
+    },
+    {
+      "id": "isc2cc-bcdr-018",
+      "exam": "isc2cc",
+      "domain": "cc_bcdr_ir",
+      "subtopic": "cc_disaster_recovery",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A backup job copies only the files changed since the last FULL backup. Each night's backup grows larger, but a restore needs just the full backup plus the latest job. Which backup type is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Full backup"
+        },
+        {
+          "id": "B",
+          "text": "Snapshot"
+        },
+        {
+          "id": "C",
+          "text": "Differential backup"
+        },
+        {
+          "id": "D",
+          "text": "Incremental backup"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A differential backup captures everything changed since the last full backup, so it grows over time, and a restore requires only the full plus the most recent differential.",
+        "distractors": {
+          "A": "A full backup copies all selected data every time; it does not copy 'only changes since the last full.'",
+          "B": "A snapshot is a point-in-time image of a system/volume, not the described change-based file backup.",
+          "C": "",
+          "D": "An incremental backup copies changes since the last backup of any kind, so a restore needs the full plus every incremental in order."
+        },
+        "exam_pattern": "Changes since last FULL = differential (restore: full + last diff); changes since last ANY backup = incremental."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 2 - Disaster recovery (backup types)"
+      ]
+    },
+    {
+      "id": "isc2cc-net-001",
+      "exam": "isc2cc",
+      "domain": "cc_network_security",
+      "subtopic": "cc_network_concepts",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A router forwards packets between networks using IP addresses to decide the path. At which layer of the OSI model does this routing operate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Layer 3 - Network"
+        },
+        {
+          "id": "B",
+          "text": "Layer 2 - Data Link"
+        },
+        {
+          "id": "C",
+          "text": "Layer 7 - Application"
+        },
+        {
+          "id": "D",
+          "text": "Layer 4 - Transport"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The Network layer (Layer 3) handles logical addressing (IP) and routing of packets between different networks - the job of a router.",
+        "distractors": {
+          "A": "",
+          "B": "Layer 2 (Data Link) uses MAC addresses and is where switches forward frames within a network.",
+          "C": "Layer 7 (Application) is where user-facing protocols like HTTP operate, not IP routing.",
+          "D": "Layer 4 (Transport) manages end-to-end delivery with TCP/UDP, not packet routing between networks."
+        },
+        "exam_pattern": "IP addressing and routing = Layer 3 (Network); MAC/switching = Layer 2."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 4 - Network concepts (OSI model)"
+      ]
+    },
+    {
+      "id": "isc2cc-net-002",
+      "exam": "isc2cc",
+      "domain": "cc_network_security",
+      "subtopic": "cc_network_concepts",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An application needs reliable delivery with acknowledgments and will set up a connection before sending data. Which transport-layer protocol fits this requirement?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TCP"
+        },
+        {
+          "id": "B",
+          "text": "ARP"
+        },
+        {
+          "id": "C",
+          "text": "ICMP"
+        },
+        {
+          "id": "D",
+          "text": "UDP"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "TCP is connection-oriented and reliable: it establishes a connection and uses acknowledgments and retransmission to guarantee ordered delivery.",
+        "distractors": {
+          "A": "",
+          "B": "ARP maps IP addresses to MAC addresses on a local network; it does not transport application data.",
+          "C": "ICMP carries control/diagnostic messages (like ping); it is not a reliable data-transport protocol.",
+          "D": "UDP is connectionless and does not guarantee delivery; it trades reliability for speed."
+        },
+        "exam_pattern": "Reliable, connection-oriented, acknowledged = TCP; fast, connectionless = UDP."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 4 - Network concepts (TCP vs. UDP)"
+      ]
+    },
+    {
+      "id": "isc2cc-net-003",
+      "exam": "isc2cc",
+      "domain": "cc_network_security",
+      "subtopic": "cc_network_concepts",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A firewall administrator needs to allow secure, encrypted web (HTTPS) traffic to a server. Which well-known TCP port must be permitted?",
+      "options": [
+        {
+          "id": "A",
+          "text": "443"
+        },
+        {
+          "id": "B",
+          "text": "80"
+        },
+        {
+          "id": "C",
+          "text": "22"
+        },
+        {
+          "id": "D",
+          "text": "25"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "HTTPS (HTTP over TLS) uses well-known TCP port 443 for encrypted web traffic.",
+        "distractors": {
+          "A": "",
+          "B": "Port 80 is used by unencrypted HTTP, not HTTPS.",
+          "C": "Port 22 is used by SSH for secure remote administration, not web traffic.",
+          "D": "Port 25 is used by SMTP for sending email, not HTTPS."
+        },
+        "exam_pattern": "HTTPS = 443, HTTP = 80, SSH = 22, SMTP = 25."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 4 - Network concepts (ports/protocols)"
+      ]
+    },
+    {
+      "id": "isc2cc-net-004",
+      "exam": "isc2cc",
+      "domain": "cc_network_security",
+      "subtopic": "cc_network_concepts",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "How many bits are in a standard IPv4 address?",
+      "options": [
+        {
+          "id": "A",
+          "text": "128 bits"
+        },
+        {
+          "id": "B",
+          "text": "32 bits"
+        },
+        {
+          "id": "C",
+          "text": "64 bits"
+        },
+        {
+          "id": "D",
+          "text": "48 bits"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "An IPv4 address is 32 bits long, usually written as four decimal octets (e.g., 192.168.1.10).",
+        "distractors": {
+          "A": "128 bits is the length of an IPv6 address, not IPv4.",
+          "B": "",
+          "C": "64 bits is not the size of either common IP address version.",
+          "D": "48 bits is the length of a MAC (hardware) address, not an IPv4 address."
+        },
+        "exam_pattern": "IPv4 = 32 bits; IPv6 = 128 bits; MAC = 48 bits."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 4 - Network concepts (IPv4/IPv6 addressing)"
+      ]
+    },
+    {
+      "id": "isc2cc-net-005",
+      "exam": "isc2cc",
+      "domain": "cc_network_security",
+      "subtopic": "cc_network_concepts",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Before any data is exchanged, TCP establishes a connection by exchanging SYN, SYN-ACK, and ACK messages. This setup sequence is known as the three-way ___. (one word)",
+      "correct": [
+        "handshake",
+        "handshaking"
+      ],
+      "explanation": {
+        "correct": "The TCP three-way handshake (SYN, SYN-ACK, ACK) establishes a reliable connection between two hosts before data transfer begins.",
+        "exam_pattern": "SYN -> SYN-ACK -> ACK = the TCP three-way handshake (connection setup)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 4 - Network concepts (TCP handshake)"
+      ]
+    },
+    {
+      "id": "isc2cc-net-006",
+      "exam": "isc2cc",
+      "domain": "cc_network_security",
+      "subtopic": "cc_network_threats_attacks",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A piece of malware spreads by itself from computer to computer across the network, needing no host file and no user action to propagate. Which type of malware is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Virus"
+        },
+        {
+          "id": "B",
+          "text": "Trojan horse"
+        },
+        {
+          "id": "C",
+          "text": "Spyware"
+        },
+        {
+          "id": "D",
+          "text": "Worm"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A worm is self-replicating malware that spreads across networks on its own, without attaching to a host file or requiring the user to run it.",
+        "distractors": {
+          "A": "A virus attaches to a host file and typically needs user action (opening/running) to spread.",
+          "B": "A Trojan horse hides inside something that looks legitimate and relies on the user to run it; it does not self-propagate.",
+          "C": "Spyware secretly gathers information; its defining trait is surveillance, not self-propagation.",
+          "D": ""
+        },
+        "exam_pattern": "Self-spreading, no host/no user action = worm; needs a host + user action = virus."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 4 - Threats/attacks (malware types)"
+      ]
+    },
+    {
+      "id": "isc2cc-net-007",
+      "exam": "isc2cc",
+      "domain": "cc_network_security",
+      "subtopic": "cc_network_threats_attacks",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Malware encrypts all of a hospital's files and displays a message demanding payment in cryptocurrency for the decryption key. This is an example of:",
+      "options": [
+        {
+          "id": "A",
+          "text": "A rootkit"
+        },
+        {
+          "id": "B",
+          "text": "Ransomware"
+        },
+        {
+          "id": "C",
+          "text": "A logic bomb"
+        },
+        {
+          "id": "D",
+          "text": "Adware"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Ransomware encrypts or locks a victim's data and demands payment (ransom) in exchange for restoring access.",
+        "distractors": {
+          "A": "A rootkit hides an attacker's presence and maintains stealthy access; it is not defined by demanding ransom.",
+          "B": "",
+          "C": "A logic bomb triggers a malicious action when a condition is met; it is not specifically about ransom demands.",
+          "D": "Adware displays unwanted advertisements; it does not encrypt data for ransom."
+        },
+        "exam_pattern": "Encrypts data and demands payment to restore it = ransomware."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 4 - Threats/attacks (ransomware)"
+      ]
+    },
+    {
+      "id": "isc2cc-net-008",
+      "exam": "isc2cc",
+      "domain": "cc_network_security",
+      "subtopic": "cc_network_threats_attacks",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An attacker directs thousands of compromised devices to flood a company's web server with traffic until legitimate customers can no longer connect. This attack is a:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Man-in-the-middle attack"
+        },
+        {
+          "id": "B",
+          "text": "Phishing campaign"
+        },
+        {
+          "id": "C",
+          "text": "SQL injection"
+        },
+        {
+          "id": "D",
+          "text": "Distributed denial-of-service (DDoS) attack"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A DDoS attack uses many distributed, compromised devices (a botnet) to overwhelm a target with traffic, denying service to legitimate users - an attack on availability.",
+        "distractors": {
+          "A": "A man-in-the-middle attack intercepts communications between two parties; it does not flood a server offline.",
+          "B": "Phishing tricks users via deceptive messages; it does not overwhelm a server with traffic.",
+          "C": "SQL injection manipulates database queries through input fields; it is not a traffic flood.",
+          "D": ""
+        },
+        "exam_pattern": "Flood from many sources to knock a service offline = DDoS (availability attack)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 4 - Threats/attacks (DoS/DDoS)"
+      ]
+    },
+    {
+      "id": "isc2cc-net-009",
+      "exam": "isc2cc",
+      "domain": "cc_network_security",
+      "subtopic": "cc_network_threats_attacks",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Employees receive a deceptive email that appears to come from the IT department, urging them to click a link and 'verify' their login credentials. This social-engineering attack is called:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tailgating"
+        },
+        {
+          "id": "B",
+          "text": "Smishing"
+        },
+        {
+          "id": "C",
+          "text": "Vishing"
+        },
+        {
+          "id": "D",
+          "text": "Phishing"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Phishing uses fraudulent emails impersonating a trusted source to trick recipients into revealing credentials or clicking malicious links.",
+        "distractors": {
+          "A": "Tailgating is a physical attack - following someone through a secured door - not a deceptive email.",
+          "B": "Smishing is phishing carried out through SMS/text messages, not email.",
+          "C": "Vishing is voice phishing conducted over phone calls, not email.",
+          "D": ""
+        },
+        "exam_pattern": "Deceptive email for credentials = phishing; by phone = vishing; by text = smishing."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 4 - Threats/attacks (phishing)"
+      ]
+    },
+    {
+      "id": "isc2cc-net-010",
+      "exam": "isc2cc",
+      "domain": "cc_network_security",
+      "subtopic": "cc_network_threats_attacks",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "On an unsecured public Wi-Fi network, an attacker secretly positions themselves between a user and a banking website, silently reading and relaying the traffic between them. Which attack is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Man-in-the-middle (on-path) attack"
+        },
+        {
+          "id": "B",
+          "text": "Privilege escalation"
+        },
+        {
+          "id": "C",
+          "text": "Denial-of-service attack"
+        },
+        {
+          "id": "D",
+          "text": "Brute-force attack"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A man-in-the-middle (on-path) attack secretly intercepts and relays communication between two parties, letting the attacker read or alter the traffic.",
+        "distractors": {
+          "A": "",
+          "B": "Privilege escalation gains higher rights on a system already accessed; it is not traffic interception.",
+          "C": "A denial-of-service attack disrupts availability; it does not quietly intercept and relay traffic.",
+          "D": "A brute-force attack guesses credentials by trying many combinations, not intercepting a live session."
+        },
+        "exam_pattern": "Attacker secretly sits between two parties, reading/altering traffic = man-in-the-middle (on-path)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 4 - Threats/attacks (man-in-the-middle)"
+      ]
+    },
+    {
+      "id": "isc2cc-net-011",
+      "exam": "isc2cc",
+      "domain": "cc_network_security",
+      "subtopic": "cc_network_defense",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A device is placed at the boundary between a company's internal network and the internet to allow or block traffic according to a set of rules. This device is a:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Firewall"
+        },
+        {
+          "id": "B",
+          "text": "Network hub"
+        },
+        {
+          "id": "C",
+          "text": "Network switch"
+        },
+        {
+          "id": "D",
+          "text": "Load balancer"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A firewall enforces an access-control policy on network traffic, permitting or denying packets based on rules, typically at the network boundary.",
+        "distractors": {
+          "A": "",
+          "B": "A hub simply repeats traffic to all ports; it makes no filtering decisions.",
+          "C": "A switch forwards frames within a LAN based on MAC addresses; it does not filter by a security policy.",
+          "D": "A load balancer distributes traffic across servers for performance; it is not primarily a traffic-filtering control."
+        },
+        "exam_pattern": "Allows/blocks traffic by rules at a boundary = firewall."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 4 - Network defense (firewalls)"
+      ]
+    },
+    {
+      "id": "isc2cc-net-012",
+      "exam": "isc2cc",
+      "domain": "cc_network_security",
+      "subtopic": "cc_network_defense",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A security team wants a device that sits inline in the traffic path and can automatically BLOCK malicious packets in real time, not merely raise an alert. Which technology should they deploy?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Intrusion Prevention System (IPS)"
+        },
+        {
+          "id": "B",
+          "text": "Network tap"
+        },
+        {
+          "id": "C",
+          "text": "Intrusion Detection System (IDS)"
+        },
+        {
+          "id": "D",
+          "text": "Syslog server"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "An IPS sits inline and can actively block or drop malicious traffic as it passes, going beyond detection to prevention.",
+        "distractors": {
+          "A": "",
+          "B": "A network tap passively copies traffic for monitoring; it cannot block anything.",
+          "C": "An IDS only monitors and alerts on suspicious activity; it does not block traffic by itself.",
+          "D": "A syslog server collects and stores log messages; it does not inspect or block live traffic."
+        },
+        "exam_pattern": "Inline + automatically blocks = IPS; monitors + only alerts = IDS."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 4 - Network defense (IDS vs. IPS)"
+      ]
+    },
+    {
+      "id": "isc2cc-net-013",
+      "exam": "isc2cc",
+      "domain": "cc_network_security",
+      "subtopic": "cc_network_defense",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A remote employee needs to connect to the corporate network over the public internet with their traffic encrypted inside a secure tunnel. Which technology provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "VLAN (Virtual Local Area Network)"
+        },
+        {
+          "id": "B",
+          "text": "DNS (Domain Name System)"
+        },
+        {
+          "id": "C",
+          "text": "VPN (Virtual Private Network)"
+        },
+        {
+          "id": "D",
+          "text": "DHCP (Dynamic Host Configuration Protocol)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A VPN creates an encrypted tunnel across an untrusted network (the internet), protecting the confidentiality and integrity of the remote user's traffic.",
+        "distractors": {
+          "A": "A VLAN logically segments a LAN into broadcast domains; it does not encrypt traffic over the internet.",
+          "B": "DNS resolves domain names to IP addresses; it provides no encrypted tunnel.",
+          "C": "",
+          "D": "DHCP automatically assigns IP addresses to hosts; it does not secure remote connections."
+        },
+        "exam_pattern": "Encrypted tunnel over the internet for remote access = VPN."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 4 - Network defense (VPN)"
+      ]
+    },
+    {
+      "id": "isc2cc-net-014",
+      "exam": "isc2cc",
+      "domain": "cc_network_security",
+      "subtopic": "cc_network_defense",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Dividing a network into smaller, isolated zones - so that a compromise in one zone cannot easily spread to the others - is called network ___. (one word)",
+      "correct": [
+        "segmentation",
+        "segment",
+        "segmenting",
+        "segregation"
+      ],
+      "explanation": {
+        "correct": "Network segmentation separates a network into isolated zones (using VLANs, subnets, or firewalls), containing threats and limiting lateral movement.",
+        "exam_pattern": "Isolating network zones to contain threats = segmentation."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 4 - Network defense (segmentation)"
+      ]
+    },
+    {
+      "id": "isc2cc-net-015",
+      "exam": "isc2cc",
+      "domain": "cc_network_security",
+      "subtopic": "cc_network_defense",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A modern security model assumes no user or device is trustworthy by default - even inside the corporate network - and verifies every access request explicitly. This approach is known as:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Zero trust"
+        },
+        {
+          "id": "B",
+          "text": "Implicit trust"
+        },
+        {
+          "id": "C",
+          "text": "Perimeter-only security"
+        },
+        {
+          "id": "D",
+          "text": "Open access"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Zero trust operates on 'never trust, always verify': no user or device is trusted by default, and every request is authenticated and authorized, regardless of location.",
+        "distractors": {
+          "A": "",
+          "B": "Implicit trust is the opposite - trusting entities automatically once inside the network.",
+          "C": "Perimeter-only security trusts everything inside the boundary, which zero trust explicitly rejects.",
+          "D": "Open access applies no meaningful access restrictions at all."
+        },
+        "exam_pattern": "Never trust, always verify, no implicit trust inside the network = zero trust."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 4 - Network defense (zero trust)"
+      ]
+    },
+    {
+      "id": "isc2cc-net-016",
+      "exam": "isc2cc",
+      "domain": "cc_network_security",
+      "subtopic": "cc_secure_infrastructure",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A small business subscribes to a web-based email application that the provider fully manages; the business runs no servers and maintains no operating system. Which cloud service model is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Infrastructure as a Service (IaaS)"
+        },
+        {
+          "id": "B",
+          "text": "Software as a Service (SaaS)"
+        },
+        {
+          "id": "C",
+          "text": "Platform as a Service (PaaS)"
+        },
+        {
+          "id": "D",
+          "text": "On-premises hosting"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "SaaS delivers complete, provider-managed software over the internet; the customer just uses the application and manages only its data and accounts.",
+        "distractors": {
+          "A": "IaaS provides raw infrastructure (VMs, storage) that the customer must configure and manage.",
+          "B": "",
+          "C": "PaaS provides a managed platform for developers to build and deploy their own apps, not a finished email app.",
+          "D": "On-premises hosting means the business runs the servers and software itself, which it does not here."
+        },
+        "exam_pattern": "Ready-to-use, provider-managed application = SaaS."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 4 - Secure infrastructure (cloud service models)"
+      ]
+    },
+    {
+      "id": "isc2cc-net-017",
+      "exam": "isc2cc",
+      "domain": "cc_network_security",
+      "subtopic": "cc_secure_infrastructure",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A company must host a public-facing web server reachable from the internet while keeping the internal network isolated from that exposure. Where should the web server be placed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "On the database administrator's laptop"
+        },
+        {
+          "id": "B",
+          "text": "In a DMZ (screened subnet) between the internet and the internal network"
+        },
+        {
+          "id": "C",
+          "text": "Inside the internal finance VLAN"
+        },
+        {
+          "id": "D",
+          "text": "On the internal LAN alongside employee workstations"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A DMZ (screened subnet) is an isolated network segment for public-facing servers; internet users reach the server there without gaining a path into the internal network.",
+        "distractors": {
+          "A": "Hosting it on an administrator's laptop is insecure and inappropriate for a public server.",
+          "B": "",
+          "C": "Putting a public web server inside the internal finance VLAN exposes sensitive internal resources.",
+          "D": "Placing a public server on the internal LAN exposes internal systems to internet-facing risk."
+        },
+        "exam_pattern": "Public-facing servers belong in a DMZ/screened subnet, isolated from the internal network."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 4 - Secure infrastructure (DMZ/segmentation)"
+      ]
+    },
+    {
+      "id": "isc2cc-net-018",
+      "exam": "isc2cc",
+      "domain": "cc_network_security",
+      "subtopic": "cc_secure_infrastructure",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In planning a secure data center, which environmental control is essential for keeping equipment within safe temperature and humidity ranges to preserve availability?",
+      "options": [
+        {
+          "id": "A",
+          "text": "HVAC (heating, ventilation, and air conditioning)"
+        },
+        {
+          "id": "B",
+          "text": "A host-based firewall"
+        },
+        {
+          "id": "C",
+          "text": "A VPN concentrator"
+        },
+        {
+          "id": "D",
+          "text": "Antivirus software"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "HVAC systems regulate temperature and humidity so servers do not overheat or fail, directly supporting the availability of data-center infrastructure.",
+        "distractors": {
+          "A": "",
+          "B": "A host-based firewall filters network traffic; it does nothing for temperature or humidity.",
+          "C": "A VPN concentrator terminates encrypted tunnels; it is not an environmental control.",
+          "D": "Antivirus software detects malware; it has no role in cooling the data center."
+        },
+        "exam_pattern": "Data-center temperature/humidity control = HVAC (an environmental/availability control)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 4 - Secure infrastructure (data-center environmental controls)"
+      ]
+    },
+    {
+      "id": "isc2cc-prin-001",
+      "exam": "isc2cc",
+      "domain": "cc_security_principles",
+      "subtopic": "cc_cia_triad",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A security team's main goal for a file of customer records is to make sure only authorized people can view it. Which element of the CIA triad is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Non-repudiation"
+        },
+        {
+          "id": "B",
+          "text": "Integrity"
+        },
+        {
+          "id": "C",
+          "text": "Availability"
+        },
+        {
+          "id": "D",
+          "text": "Confidentiality"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Confidentiality is the assurance that information is not disclosed to unauthorized people, processes, or devices - exactly the goal of limiting who can view the records.",
+        "distractors": {
+          "A": "Non-repudiation proves who performed an action; it is not one of the three CIA elements.",
+          "B": "Integrity is about preventing unauthorized or improper changes, not about who can view data.",
+          "C": "Availability is about keeping data and systems reachable when needed, not restricting viewing.",
+          "D": ""
+        },
+        "exam_pattern": "Keep data secret / limit who can read it = confidentiality."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 1 - CIA triad (confidentiality)"
+      ]
+    },
+    {
+      "id": "isc2cc-prin-002",
+      "exam": "isc2cc",
+      "domain": "cc_security_principles",
+      "subtopic": "cc_cia_triad",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An attacker alters the dollar amounts in an accounting database without permission. Which element of the CIA triad has been violated?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Authentication"
+        },
+        {
+          "id": "B",
+          "text": "Availability"
+        },
+        {
+          "id": "C",
+          "text": "Integrity"
+        },
+        {
+          "id": "D",
+          "text": "Confidentiality"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Integrity is the assurance that data is accurate and has not been changed in an unauthorized way; altering the stored amounts is an integrity violation.",
+        "distractors": {
+          "A": "Authentication verifies identity; it is a mechanism, not one of the three CIA elements.",
+          "B": "Availability concerns whether data is accessible; here the data is reachable but wrong.",
+          "C": "",
+          "D": "Confidentiality is about disclosure; the problem is unauthorized change, not viewing."
+        },
+        "exam_pattern": "Unauthorized or improper modification of data = integrity loss."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 1 - CIA triad (integrity)"
+      ]
+    },
+    {
+      "id": "isc2cc-prin-003",
+      "exam": "isc2cc",
+      "domain": "cc_security_principles",
+      "subtopic": "cc_cia_triad",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A flood of bogus traffic knocks a company's public website offline so customers cannot reach it. Which element of the CIA triad is most directly affected?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Integrity"
+        },
+        {
+          "id": "B",
+          "text": "Confidentiality"
+        },
+        {
+          "id": "C",
+          "text": "Accountability"
+        },
+        {
+          "id": "D",
+          "text": "Availability"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Availability is the assurance that systems and data are accessible to authorized users when needed; a denial-of-service outage directly attacks availability.",
+        "distractors": {
+          "A": "Integrity is about accuracy; the data was not altered, just unreachable.",
+          "B": "Confidentiality is about disclosure; the data was not necessarily exposed.",
+          "C": "Accountability traces actions to a user; it is not one of the three CIA elements.",
+          "D": ""
+        },
+        "exam_pattern": "System/service made unreachable (e.g., DoS) = availability."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 1 - CIA triad (availability)"
+      ]
+    },
+    {
+      "id": "isc2cc-prin-004",
+      "exam": "isc2cc",
+      "domain": "cc_security_principles",
+      "subtopic": "cc_cia_triad",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Scrambling data with a cipher so that only authorized parties who hold the key can read it protects which single element of the CIA triad? (one word)",
+      "correct": [
+        "confidentiality",
+        "confidential"
+      ],
+      "explanation": {
+        "correct": "Encryption makes data unreadable to anyone without the key, which protects confidentiality - preventing unauthorized disclosure.",
+        "exam_pattern": "Encryption's primary CIA goal is confidentiality (secrecy)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 1 - CIA triad (confidentiality)"
+      ]
+    },
+    {
+      "id": "isc2cc-prin-005",
+      "exam": "isc2cc",
+      "domain": "cc_security_principles",
+      "subtopic": "cc_risk_management",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A scanner reports that a server is missing a critical patch, leaving a weakness an attacker could exploit. In risk terms, the missing patch is best described as a:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Safeguard"
+        },
+        {
+          "id": "B",
+          "text": "Threat"
+        },
+        {
+          "id": "C",
+          "text": "Risk"
+        },
+        {
+          "id": "D",
+          "text": "Vulnerability"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A vulnerability is a weakness or gap in a system or control that a threat could exploit; an unpatched flaw is a classic vulnerability.",
+        "distractors": {
+          "A": "A safeguard (control) reduces risk; a missing patch is the opposite of a safeguard.",
+          "B": "A threat is the potential cause of harm (such as the attacker), not the weakness itself.",
+          "C": "Risk is the combination of likelihood and impact if a threat exploits the weakness.",
+          "D": ""
+        },
+        "exam_pattern": "Weakness/gap that can be exploited = vulnerability."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 1 - Risk terms (vulnerability)"
+      ]
+    },
+    {
+      "id": "isc2cc-prin-006",
+      "exam": "isc2cc",
+      "domain": "cc_security_principles",
+      "subtopic": "cc_risk_management",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In a risk discussion, a manager asks for the term meaning 'any circumstance or event with the potential to cause harm,' such as a hacker, malware, or a flood. This is a:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vulnerability"
+        },
+        {
+          "id": "B",
+          "text": "Control"
+        },
+        {
+          "id": "C",
+          "text": "Threat"
+        },
+        {
+          "id": "D",
+          "text": "Residual risk"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A threat is any circumstance or event (natural or human) with the potential to cause harm by exploiting a vulnerability.",
+        "distractors": {
+          "A": "A vulnerability is the weakness the threat targets, not the source of harm.",
+          "B": "A control is a measure that reduces risk, not a source of potential harm.",
+          "C": "",
+          "D": "Residual risk is the risk left over after controls are applied, not the harm source."
+        },
+        "exam_pattern": "The potential source of harm (hacker, malware, flood) = threat; the weakness it targets = vulnerability."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 1 - Risk terms (threat)"
+      ]
+    },
+    {
+      "id": "isc2cc-prin-007",
+      "exam": "isc2cc",
+      "domain": "cc_security_principles",
+      "subtopic": "cc_risk_management",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To offset the financial impact of a possible ransomware attack, a company buys a cyber-insurance policy. Which risk-treatment option is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Risk mitigation"
+        },
+        {
+          "id": "B",
+          "text": "Risk avoidance"
+        },
+        {
+          "id": "C",
+          "text": "Risk acceptance"
+        },
+        {
+          "id": "D",
+          "text": "Risk transference"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Risk transference shifts the impact of a risk to a third party; buying insurance transfers the financial loss to the insurer.",
+        "distractors": {
+          "A": "Mitigation reduces likelihood or impact with controls; insurance does not reduce the chance of attack.",
+          "B": "Avoidance means stopping the risky activity entirely, which insurance does not do.",
+          "C": "Acceptance means taking no action and absorbing the risk, not paying a third party to carry it.",
+          "D": ""
+        },
+        "exam_pattern": "Insurance or outsourcing the loss to another party = risk transference."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 1 - Risk treatment (transference)"
+      ]
+    },
+    {
+      "id": "isc2cc-prin-008",
+      "exam": "isc2cc",
+      "domain": "cc_security_principles",
+      "subtopic": "cc_risk_management",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "A company decides the security risk of launching a new online feature is too high, so it cancels the feature entirely. Which risk-treatment option is this? Answer with one word.",
+      "correct": [
+        "avoidance",
+        "avoid",
+        "avoiding"
+      ],
+      "explanation": {
+        "correct": "Risk avoidance eliminates the risk by not engaging in the activity that creates it; cancelling the feature removes the exposure altogether.",
+        "exam_pattern": "Stop/cancel the activity so the risk cannot occur = risk avoidance."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 1 - Risk treatment (avoidance)"
+      ]
+    },
+    {
+      "id": "isc2cc-prin-009",
+      "exam": "isc2cc",
+      "domain": "cc_security_principles",
+      "subtopic": "cc_security_controls",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A firewall rule is configured to block malicious traffic before it can ever reach an internal server. By its function, this is best classified as which type of control?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Corrective control"
+        },
+        {
+          "id": "B",
+          "text": "Detective control"
+        },
+        {
+          "id": "C",
+          "text": "Preventive control"
+        },
+        {
+          "id": "D",
+          "text": "Recovery control"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A preventive control stops an unwanted event before it happens; blocking traffic at the firewall prevents the attack from reaching the server.",
+        "distractors": {
+          "A": "A corrective control fixes or restores things after an incident, not beforehand.",
+          "B": "A detective control identifies an event after it occurs (e.g., an alert), not before.",
+          "C": "",
+          "D": "A recovery control restores operations after damage; it does not block the event up front."
+        },
+        "exam_pattern": "Stops the bad thing before it happens = preventive."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 1 - Security controls (preventive)"
+      ]
+    },
+    {
+      "id": "isc2cc-prin-010",
+      "exam": "isc2cc",
+      "domain": "cc_security_principles",
+      "subtopic": "cc_security_controls",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An intrusion detection system does not stop attacks but raises an alert whenever it spots suspicious activity so staff can investigate. By function, this is a:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Preventive control"
+        },
+        {
+          "id": "B",
+          "text": "Detective control"
+        },
+        {
+          "id": "C",
+          "text": "Deterrent control"
+        },
+        {
+          "id": "D",
+          "text": "Directive control"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A detective control discovers and signals that an event has occurred; an IDS that alerts on suspicious activity is a textbook detective control.",
+        "distractors": {
+          "A": "A preventive control would block the activity, but an IDS only observes and alerts.",
+          "B": "",
+          "C": "A deterrent control discourages an attacker (e.g., a warning sign); an IDS does not warn off attackers.",
+          "D": "A directive control instructs behavior (e.g., a policy), not automated detection."
+        },
+        "exam_pattern": "Finds and alerts on events after they happen = detective."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 1 - Security controls (detective)"
+      ]
+    },
+    {
+      "id": "isc2cc-prin-011",
+      "exam": "isc2cc",
+      "domain": "cc_security_principles",
+      "subtopic": "cc_security_controls",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization writes an acceptable-use policy and mandatory security-awareness training for employees. By category, these are examples of which kind of control?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Technical (logical) controls"
+        },
+        {
+          "id": "B",
+          "text": "Compensating controls"
+        },
+        {
+          "id": "C",
+          "text": "Physical controls"
+        },
+        {
+          "id": "D",
+          "text": "Administrative (managerial) controls"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Administrative controls are policies, procedures, and training - management-driven measures that govern how people behave and how the program is run.",
+        "distractors": {
+          "A": "Technical controls are implemented in hardware/software (firewalls, encryption), not written rules.",
+          "B": "'Compensating' describes a control's role as a substitute, not the people/policy category.",
+          "C": "Physical controls are tangible barriers like locks, fences, and guards, not policies.",
+          "D": ""
+        },
+        "exam_pattern": "Policies, procedures, training = administrative (managerial) controls."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 1 - Security controls (administrative)"
+      ]
+    },
+    {
+      "id": "isc2cc-prin-012",
+      "exam": "isc2cc",
+      "domain": "cc_security_principles",
+      "subtopic": "cc_security_controls",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "A facilities manager lists safeguards for the building. Which TWO are PHYSICAL security controls? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "A host-based firewall on each laptop"
+        },
+        {
+          "id": "B",
+          "text": "A security guard at the lobby desk"
+        },
+        {
+          "id": "C",
+          "text": "A written password policy"
+        },
+        {
+          "id": "D",
+          "text": "Bollards in front of the entrance"
+        }
+      ],
+      "correct": [
+        "B",
+        "D"
+      ],
+      "explanation": {
+        "correct": "Bollards and security guards are tangible, physical controls that protect people, equipment, and facilities.",
+        "distractors": {
+          "A": "A host-based firewall is a technical (logical) control implemented in software.",
+          "B": "",
+          "C": "A password policy is an administrative control - a management rule, not a physical barrier.",
+          "D": ""
+        },
+        "exam_pattern": "Tangible barriers and guards = physical; software settings = technical; rules/policies = administrative."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 1 - Security controls (physical)"
+      ]
+    },
+    {
+      "id": "isc2cc-prin-013",
+      "exam": "isc2cc",
+      "domain": "cc_security_principles",
+      "subtopic": "cc_isc2_ethics",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A new member is studying the (ISC)² Code of Ethics. How many canons does the Code of Ethics contain?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Two"
+        },
+        {
+          "id": "B",
+          "text": "Ten"
+        },
+        {
+          "id": "C",
+          "text": "Four"
+        },
+        {
+          "id": "D",
+          "text": "Seven"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The (ISC)² Code of Ethics has a preamble plus four canons that every member agrees to uphold.",
+        "distractors": {
+          "A": "Two is too few; the Code has four canons.",
+          "B": "Ten is incorrect; the Code of Ethics defines four canons.",
+          "C": "",
+          "D": "Seven does not match the Code of Ethics; there are four canons."
+        },
+        "exam_pattern": "(ISC)² Code of Ethics = preamble + four canons."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 1 - (ISC)² Code of Ethics (canons)"
+      ]
+    },
+    {
+      "id": "isc2cc-prin-014",
+      "exam": "isc2cc",
+      "domain": "cc_security_principles",
+      "subtopic": "cc_isc2_ethics",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A security professional discovers a flaw in a water-treatment control system that could endanger the public. Which (ISC)² canon most directly guides them to act?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Provide diligent and competent service to principals"
+        },
+        {
+          "id": "B",
+          "text": "Advance and protect the profession"
+        },
+        {
+          "id": "C",
+          "text": "Act honorably, honestly, justly, responsibly, and legally"
+        },
+        {
+          "id": "D",
+          "text": "Protect society, the common good, necessary public trust and confidence, and the infrastructure"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The first canon - protect society, the common good, and the infrastructure - directly addresses safeguarding public safety and critical infrastructure.",
+        "distractors": {
+          "A": "Serving principals concerns duty to employers/clients, not the broader public interest.",
+          "B": "Advancing the profession is about the field's reputation, not protecting public safety.",
+          "C": "Acting honestly is about personal conduct and legality, not specifically protecting the public.",
+          "D": ""
+        },
+        "exam_pattern": "Public safety / infrastructure / common good = Canon I (protect society)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 1 - (ISC)² Code of Ethics (Canon I)"
+      ]
+    },
+    {
+      "id": "isc2cc-prin-015",
+      "exam": "isc2cc",
+      "domain": "cc_security_principles",
+      "subtopic": "cc_isc2_ethics",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An (ISC)² member is expected to perform competent, high-quality, and diligent work for the employers and clients they serve. Which canon addresses this duty?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Protect society, the common good, and the infrastructure"
+        },
+        {
+          "id": "B",
+          "text": "Provide diligent and competent service to principals"
+        },
+        {
+          "id": "C",
+          "text": "Act honorably, honestly, justly, responsibly, and legally"
+        },
+        {
+          "id": "D",
+          "text": "Advance and protect the profession"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The third canon requires diligent and competent service to principals - the employers and clients a professional works for.",
+        "distractors": {
+          "A": "Protecting society addresses the broad public, not specifically the member's employer or client.",
+          "B": "",
+          "C": "Acting honestly governs personal conduct, not the quality of service to principals.",
+          "D": "Advancing the profession concerns the field at large, not duty to one's employer or client."
+        },
+        "exam_pattern": "Duty/quality of work to employers and clients (principals) = Canon III."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 1 - (ISC)² Code of Ethics (Canon III)"
+      ]
+    },
+    {
+      "id": "isc2cc-prin-016",
+      "exam": "isc2cc",
+      "domain": "cc_security_principles",
+      "subtopic": "cc_governance_policies",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Senior management publishes a short, high-level document stating the organization's overall intent and expectations for protecting information. This document is a:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Guideline"
+        },
+        {
+          "id": "B",
+          "text": "Baseline"
+        },
+        {
+          "id": "C",
+          "text": "Procedure"
+        },
+        {
+          "id": "D",
+          "text": "Policy"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A policy is a high-level statement of management's intent and direction; it is mandatory but broad, setting the tone for more detailed documents.",
+        "distractors": {
+          "A": "A guideline offers recommended, non-mandatory advice, whereas a policy states required intent.",
+          "B": "A baseline defines a minimum security configuration level, not overall management intent.",
+          "C": "A procedure is a detailed, step-by-step set of instructions, not a high-level statement.",
+          "D": ""
+        },
+        "exam_pattern": "High-level statement of management intent = policy (top of the governance hierarchy)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 1 - Governance (policy)"
+      ]
+    },
+    {
+      "id": "isc2cc-prin-017",
+      "exam": "isc2cc",
+      "domain": "cc_security_principles",
+      "subtopic": "cc_governance_policies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A help-desk analyst follows a document that lists the exact, ordered steps for resetting a locked user account. Which type of governance document is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Guideline"
+        },
+        {
+          "id": "B",
+          "text": "Policy"
+        },
+        {
+          "id": "C",
+          "text": "Procedure"
+        },
+        {
+          "id": "D",
+          "text": "Regulation"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A procedure provides detailed, step-by-step instructions for carrying out a specific task, such as resetting an account.",
+        "distractors": {
+          "A": "A guideline is a recommendation, not a required ordered set of steps.",
+          "B": "A policy states high-level intent; it does not spell out individual task steps.",
+          "C": "",
+          "D": "A regulation is an externally imposed legal requirement, not an internal how-to document."
+        },
+        "exam_pattern": "Detailed step-by-step 'how to' = procedure."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 1 - Governance (procedure)"
+      ]
+    },
+    {
+      "id": "isc2cc-prin-018",
+      "exam": "isc2cc",
+      "domain": "cc_security_principles",
+      "subtopic": "cc_governance_policies",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "A mandatory document specifies that all company laptops must use AES-256 full-disk encryption. In the governance hierarchy, this specific, required rule is called a ___. (one word)",
+      "correct": [
+        "standard",
+        "standards"
+      ],
+      "explanation": {
+        "correct": "A standard is a mandatory rule that specifies the uniform use of a specific technology or configuration, supporting the broader policy.",
+        "exam_pattern": "Mandatory, specific requirement (exact tech/config) = standard; recommended = guideline."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 1 - Governance (standard)"
+      ]
+    },
+    {
+      "id": "isc2cc-ops-001",
+      "exam": "isc2cc",
+      "domain": "cc_security_operations",
+      "subtopic": "cc_data_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A file is being uploaded from an employee's laptop across the network to a cloud server. While it is moving over the network, the data is in which state?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data in use"
+        },
+        {
+          "id": "B",
+          "text": "Data at rest"
+        },
+        {
+          "id": "C",
+          "text": "Data archived"
+        },
+        {
+          "id": "D",
+          "text": "Data in transit (in motion)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Data in transit (in motion) is data actively moving across a network; it is typically protected with transport encryption such as TLS.",
+        "distractors": {
+          "A": "Data in use is data being actively processed in memory/CPU, not data traversing the network.",
+          "B": "Data at rest is stored data sitting on a disk or in a database, not data moving across the network.",
+          "C": "'Archived' is a storage situation (a form of at rest), not the in-motion state.",
+          "D": ""
+        },
+        "exam_pattern": "Moving over the network = in transit; stored = at rest; being processed = in use."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 5 - Data security (data states)"
+      ]
+    },
+    {
+      "id": "isc2cc-ops-002",
+      "exam": "isc2cc",
+      "domain": "cc_security_operations",
+      "subtopic": "cc_data_security",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An organization assigns labels such as 'Public,' 'Internal,' and 'Confidential' to its information so each category receives the appropriate level of protection. This practice is called:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data normalization"
+        },
+        {
+          "id": "B",
+          "text": "Data classification"
+        },
+        {
+          "id": "C",
+          "text": "Data mining"
+        },
+        {
+          "id": "D",
+          "text": "Data masking"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Data classification categorizes information by sensitivity so that handling, access, and protection requirements can be applied consistently to each level.",
+        "distractors": {
+          "A": "Data normalization organizes database structure to reduce redundancy, unrelated to sensitivity labeling.",
+          "B": "",
+          "C": "Data mining discovers patterns in large datasets; it does not assign sensitivity labels.",
+          "D": "Data masking hides portions of data (e.g., showing only the last 4 digits); it is a protection technique, not classification."
+        },
+        "exam_pattern": "Labeling data by sensitivity (Public/Internal/Confidential) = data classification."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 5 - Data security (classification)"
+      ]
+    },
+    {
+      "id": "isc2cc-ops-003",
+      "exam": "isc2cc",
+      "domain": "cc_security_operations",
+      "subtopic": "cc_data_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company wants to protect the confidentiality of sensitive files stored on laptops in case a device is lost or stolen. Which control best protects this data AT REST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A TLS/HTTPS certificate on the web server"
+        },
+        {
+          "id": "B",
+          "text": "A login warning banner"
+        },
+        {
+          "id": "C",
+          "text": "Full-disk encryption on the laptops"
+        },
+        {
+          "id": "D",
+          "text": "A network intrusion detection system"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Full-disk encryption renders stored data unreadable without the key, protecting the confidentiality of data at rest even if the laptop is physically stolen.",
+        "distractors": {
+          "A": "TLS/HTTPS protects data in transit over the network, not data sitting on a stolen disk.",
+          "B": "A warning banner is a deterrent/notice; it does not keep stored data confidential.",
+          "C": "",
+          "D": "An IDS detects network attacks; it does nothing to protect files on a lost laptop."
+        },
+        "exam_pattern": "Protect stored data on a device = encryption at rest (e.g., full-disk encryption)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 5 - Data security (protecting data at rest)"
+      ]
+    },
+    {
+      "id": "isc2cc-ops-004",
+      "exam": "isc2cc",
+      "domain": "cc_security_operations",
+      "subtopic": "cc_data_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Before disposing of old magnetic hard drives, a company wants to erase them by exposing them to a powerful magnetic field that scrambles the stored data. This method is:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Encrypting the drive"
+        },
+        {
+          "id": "B",
+          "text": "Defragmenting the drive"
+        },
+        {
+          "id": "C",
+          "text": "Reformatting the drive"
+        },
+        {
+          "id": "D",
+          "text": "Degaussing"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Degaussing uses a strong magnetic field to destroy the data on magnetic media such as hard drives and tapes, rendering it unrecoverable.",
+        "distractors": {
+          "A": "Encrypting protects data in use/storage but does not destroy it for disposal.",
+          "B": "Defragmenting reorganizes files for performance; it does not erase or destroy data.",
+          "C": "Reformatting does not truly erase data; much of it can be recovered with forensic tools.",
+          "D": ""
+        },
+        "exam_pattern": "Strong magnetic field to wipe magnetic media = degaussing (a sanitization/destruction method)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 5 - Data security (secure destruction)"
+      ]
+    },
+    {
+      "id": "isc2cc-ops-005",
+      "exam": "isc2cc",
+      "domain": "cc_security_operations",
+      "subtopic": "cc_system_hardening",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An administrator 'hardens' a new server before deployment. What is the primary goal of system hardening?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To install as many optional features as possible"
+        },
+        {
+          "id": "B",
+          "text": "To reduce the attack surface by removing unnecessary services, accounts, and software"
+        },
+        {
+          "id": "C",
+          "text": "To maximize the server's graphics performance"
+        },
+        {
+          "id": "D",
+          "text": "To make the server reachable from the public internet"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Hardening reduces the attack surface: disable unneeded services, remove default/unused accounts and software, close unused ports, and apply secure configurations.",
+        "distractors": {
+          "A": "Adding more features increases the attack surface - the opposite of hardening.",
+          "B": "",
+          "C": "Graphics performance is unrelated to security hardening.",
+          "D": "Needlessly exposing a server to the internet increases risk rather than reducing it."
+        },
+        "exam_pattern": "Hardening = shrink the attack surface (fewer services/accounts/ports, secure config, patches)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 5 - System hardening (attack surface)"
+      ]
+    },
+    {
+      "id": "isc2cc-ops-006",
+      "exam": "isc2cc",
+      "domain": "cc_security_operations",
+      "subtopic": "cc_system_hardening",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Regularly applying the vendor's software updates to fix known security vulnerabilities on systems is known as:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Patch management"
+        },
+        {
+          "id": "B",
+          "text": "Data classification"
+        },
+        {
+          "id": "C",
+          "text": "Penetration testing"
+        },
+        {
+          "id": "D",
+          "text": "Load balancing"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Patch management is the process of acquiring, testing, and applying updates to remediate known vulnerabilities and keep systems secure.",
+        "distractors": {
+          "A": "",
+          "B": "Data classification labels information by sensitivity; it does not apply software updates.",
+          "C": "Penetration testing finds weaknesses by simulating attacks; it does not itself apply the fixes.",
+          "D": "Load balancing distributes traffic across servers for performance/availability, not vulnerability fixes."
+        },
+        "exam_pattern": "Applying updates to close known vulnerabilities = patch management."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 5 - System hardening (patch management)"
+      ]
+    },
+    {
+      "id": "isc2cc-ops-007",
+      "exam": "isc2cc",
+      "domain": "cc_security_operations",
+      "subtopic": "cc_system_hardening",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A new network router ships with a widely published default administrator username and password. Which hardening step should be performed first?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Leave the defaults in place to save setup time"
+        },
+        {
+          "id": "B",
+          "text": "Share the default password with all staff for convenience"
+        },
+        {
+          "id": "C",
+          "text": "Write the default password on a label attached to the router"
+        },
+        {
+          "id": "D",
+          "text": "Change the default administrator credentials to a strong, unique password"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Default credentials are publicly known and are among the first things attackers try, so changing them to a strong, unique password is a critical hardening step.",
+        "distractors": {
+          "A": "Leaving defaults in place leaves a well-known, easily exploited entry point open.",
+          "B": "Sharing the password broadly destroys accountability and increases exposure.",
+          "C": "Labeling the device with its password exposes the credential to anyone nearby.",
+          "D": ""
+        },
+        "exam_pattern": "Always change well-known default credentials when hardening a new device."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 5 - System hardening (default credentials)"
+      ]
+    },
+    {
+      "id": "isc2cc-ops-008",
+      "exam": "isc2cc",
+      "domain": "cc_security_operations",
+      "subtopic": "cc_security_policies_ops",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which document defines the rules for how employees may use company computers, email, and internet access, and what uses are prohibited?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Incident Response Plan (IRP)"
+        },
+        {
+          "id": "B",
+          "text": "Acceptable Use Policy (AUP)"
+        },
+        {
+          "id": "C",
+          "text": "Business Continuity Plan (BCP)"
+        },
+        {
+          "id": "D",
+          "text": "Disaster Recovery Plan (DRP)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "An Acceptable Use Policy (AUP) defines the permitted and prohibited uses of an organization's systems and assets by employees.",
+        "distractors": {
+          "A": "An IRP defines how to respond to security incidents, not general computer-use rules.",
+          "B": "",
+          "C": "A BCP describes how to keep essential functions running during a disruption, not acceptable use.",
+          "D": "A DRP covers restoring IT systems after a disaster, not day-to-day acceptable use."
+        },
+        "exam_pattern": "Rules for how staff may use company IT and assets = Acceptable Use Policy (AUP)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 5 - Security policies (acceptable use policy)"
+      ]
+    },
+    {
+      "id": "isc2cc-ops-009",
+      "exam": "isc2cc",
+      "domain": "cc_security_operations",
+      "subtopic": "cc_security_policies_ops",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization uses a formal process to review, approve, test, and document any modification to its systems before it is implemented, reducing the risk of outages. This process is called:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Incident response"
+        },
+        {
+          "id": "B",
+          "text": "Change management"
+        },
+        {
+          "id": "C",
+          "text": "Risk acceptance"
+        },
+        {
+          "id": "D",
+          "text": "Data classification"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Change management is the formal process of requesting, reviewing, approving, testing, and documenting changes so modifications do not introduce unexpected risk.",
+        "distractors": {
+          "A": "Incident response handles security incidents after they occur, not planned system changes.",
+          "B": "",
+          "C": "Risk acceptance is a decision to tolerate a risk, not a process for controlling changes.",
+          "D": "Data classification labels information by sensitivity; it is unrelated to managing changes."
+        },
+        "exam_pattern": "Formal review/approve/test/document of system changes = change management."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 5 - Security policies (change management)"
+      ]
+    },
+    {
+      "id": "isc2cc-ops-010",
+      "exam": "isc2cc",
+      "domain": "cc_security_operations",
+      "subtopic": "cc_security_policies_ops",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which policy specifies requirements such as minimum length, required complexity, and how often users must change their account passwords?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Separation-of-duties policy"
+        },
+        {
+          "id": "B",
+          "text": "Password policy"
+        },
+        {
+          "id": "C",
+          "text": "Data retention policy"
+        },
+        {
+          "id": "D",
+          "text": "Acceptable Use Policy"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A password policy sets the rules for credentials - minimum length, complexity, expiration/change frequency, reuse limits - to strengthen authentication.",
+        "distractors": {
+          "A": "A separation-of-duties policy splits critical tasks among people; it is not about password rules.",
+          "B": "",
+          "C": "A data retention policy specifies how long records are kept, not password requirements.",
+          "D": "An AUP governs acceptable use of systems, not the specific rules for password construction."
+        },
+        "exam_pattern": "Rules for password length/complexity/expiration = password policy."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 5 - Security policies (password policy)"
+      ]
+    },
+    {
+      "id": "isc2cc-ops-011",
+      "exam": "isc2cc",
+      "domain": "cc_security_operations",
+      "subtopic": "cc_security_awareness",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "What is the primary purpose of a security-awareness program for employees?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To speed up the company's internet connection"
+        },
+        {
+          "id": "B",
+          "text": "To guarantee that no security incident will ever happen"
+        },
+        {
+          "id": "C",
+          "text": "To replace all technical security controls"
+        },
+        {
+          "id": "D",
+          "text": "To help employees recognize and respond appropriately to security threats, reducing human-related risk"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Security awareness aims to change behavior so employees can recognize and respond to threats (like phishing), reducing risk from the human element.",
+        "distractors": {
+          "A": "Awareness training has nothing to do with network speed.",
+          "B": "No program can guarantee zero incidents; awareness reduces, not eliminates, risk.",
+          "C": "Awareness complements technical controls; it does not replace firewalls, encryption, and the like.",
+          "D": ""
+        },
+        "exam_pattern": "Goal of awareness = change human behavior to recognize/resist threats (people are the weakest link)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 5 - Security awareness (purpose)"
+      ]
+    },
+    {
+      "id": "isc2cc-ops-012",
+      "exam": "isc2cc",
+      "domain": "cc_security_operations",
+      "subtopic": "cc_security_awareness",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization periodically sends its own staff realistic but fake 'phishing' emails and provides coaching to anyone who clicks. What is the main goal of this exercise?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To meet a marketing campaign quota"
+        },
+        {
+          "id": "B",
+          "text": "To punish and publicly shame employees who fail"
+        },
+        {
+          "id": "C",
+          "text": "To test whether the email server can handle load"
+        },
+        {
+          "id": "D",
+          "text": "To measure and improve employees' ability to recognize phishing"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Simulated phishing campaigns assess how well staff spot social-engineering attempts and reinforce training for those who need it, strengthening the human firewall.",
+        "distractors": {
+          "A": "Phishing simulations are a security-awareness activity, not a marketing effort.",
+          "B": "Effective programs coach rather than shame; punishment undermines a healthy security culture.",
+          "C": "The exercise targets human behavior, not email-server load testing.",
+          "D": ""
+        },
+        "exam_pattern": "Fake phishing emails + coaching = awareness training to build phishing resistance."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 5 - Security awareness (phishing simulations)"
+      ]
+    },
+    {
+      "id": "isc2cc-ops-013",
+      "exam": "isc2cc",
+      "domain": "cc_security_operations",
+      "subtopic": "cc_security_awareness",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An unknown caller claims to be from the IT help desk and asks an employee to read back their account password so IT can 'fix an issue.' What should a security-aware employee do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Email the password instead of saying it out loud"
+        },
+        {
+          "id": "B",
+          "text": "Refuse to share the password and verify the request through a known, official channel"
+        },
+        {
+          "id": "C",
+          "text": "Read the password aloud, since IT needs it to help"
+        },
+        {
+          "id": "D",
+          "text": "Provide a coworker's password rather than their own"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Legitimate IT staff never need your password; this is a social-engineering attempt, so the employee should refuse and verify through a trusted, official channel.",
+        "distractors": {
+          "A": "Emailing the password still discloses it to a potential attacker and leaves it exposed in transit/storage.",
+          "B": "",
+          "C": "Sharing a password - even with supposed IT - defeats authentication and accountability and is exactly what the attacker wants.",
+          "D": "Disclosing any password, including a coworker's, is a serious security violation."
+        },
+        "exam_pattern": "Never share passwords; verify unsolicited requests through official channels (resist social engineering)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 5 - Security awareness (social engineering)"
+      ]
+    },
+    {
+      "id": "isc2cc-ops-014",
+      "exam": "isc2cc",
+      "domain": "cc_security_operations",
+      "subtopic": "cc_security_awareness",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Because attackers so often target people rather than technology, employees are commonly described as the weakest ___ in the security chain. (one word)",
+      "correct": [
+        "link"
+      ],
+      "explanation": {
+        "correct": "People are frequently called the weakest link because human error and manipulation (e.g., falling for phishing) are leading causes of breaches - the reason awareness training matters.",
+        "exam_pattern": "Humans = the weakest link; awareness training targets this risk."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 5 - Security awareness (human risk)"
+      ]
+    },
+    {
+      "id": "isc2cc-ops-015",
+      "exam": "isc2cc",
+      "domain": "cc_security_operations",
+      "subtopic": "cc_encryption_basics",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An encryption scheme uses a single shared secret key to both encrypt and decrypt data, and is fast enough for large volumes. Which type of encryption is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Symmetric encryption"
+        },
+        {
+          "id": "B",
+          "text": "Hashing"
+        },
+        {
+          "id": "C",
+          "text": "Steganography"
+        },
+        {
+          "id": "D",
+          "text": "Asymmetric encryption"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Symmetric encryption uses the same secret key to encrypt and decrypt; it is fast and well suited to bulk data (e.g., AES, 3DES).",
+        "distractors": {
+          "A": "",
+          "B": "Hashing is a one-way function with no key and cannot be decrypted; it is not encryption.",
+          "C": "Steganography hides the existence of a message; it is not key-based encryption.",
+          "D": "Asymmetric encryption uses a public/private key pair, not a single shared key, and is slower."
+        },
+        "exam_pattern": "One shared key, fast, bulk data = symmetric; key pair = asymmetric."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 5 - Encryption basics (symmetric)"
+      ]
+    },
+    {
+      "id": "isc2cc-ops-016",
+      "exam": "isc2cc",
+      "domain": "cc_security_operations",
+      "subtopic": "cc_encryption_basics",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Using asymmetric (public-key) cryptography, which key do you publish so that others can encrypt a confidential message that only you are able to decrypt?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Your public key (you decrypt with your matching private key)"
+        },
+        {
+          "id": "B",
+          "text": "Your private key (you keep it secret but share it for this)"
+        },
+        {
+          "id": "C",
+          "text": "A one-way hash value"
+        },
+        {
+          "id": "D",
+          "text": "A single shared symmetric key"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "In public-key cryptography, senders encrypt with your freely published public key, and only your closely held private key can decrypt - providing confidentiality.",
+        "distractors": {
+          "A": "",
+          "B": "The private key must never be shared; sharing it defeats the entire scheme.",
+          "C": "A hash is one-way and cannot be used to decrypt a message; it is not an encryption key.",
+          "D": "A shared symmetric key is used in symmetric encryption, not asymmetric public-key encryption."
+        },
+        "exam_pattern": "Encrypt-to-you with your PUBLIC key; only your PRIVATE key decrypts (confidentiality)."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 5 - Encryption basics (asymmetric/public key)"
+      ]
+    },
+    {
+      "id": "isc2cc-ops-017",
+      "exam": "isc2cc",
+      "domain": "cc_security_operations",
+      "subtopic": "cc_encryption_basics",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A technique produces a fixed-length, irreversible 'fingerprint' of a file so that any later change to the file can be detected. It uses no key and cannot be reversed. What is it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Symmetric encryption"
+        },
+        {
+          "id": "B",
+          "text": "Asymmetric encryption"
+        },
+        {
+          "id": "C",
+          "text": "Hashing"
+        },
+        {
+          "id": "D",
+          "text": "Base64 encoding"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Hashing applies a one-way function (e.g., SHA-256) to produce a fixed-length digest; comparing hashes detects any change, which is how it verifies integrity.",
+        "distractors": {
+          "A": "Symmetric encryption is reversible with the key and is used for confidentiality, not a one-way fingerprint.",
+          "B": "Asymmetric encryption is reversible with the matching key; it is not a one-way, keyless digest.",
+          "C": "",
+          "D": "Base64 is reversible encoding for safe data transport, not a one-way integrity check."
+        },
+        "exam_pattern": "One-way, fixed-length, keyless fingerprint for integrity = hashing."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 5 - Encryption basics (hashing)"
+      ]
+    },
+    {
+      "id": "isc2cc-ops-018",
+      "exam": "isc2cc",
+      "domain": "cc_security_operations",
+      "subtopic": "cc_encryption_basics",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Encryption's primary security goal is to protect the ___ of data (keeping it secret from unauthorized parties), whereas hashing is used to protect integrity. Fill in the missing CIA element. (one word)",
+      "correct": [
+        "confidentiality",
+        "confidential"
+      ],
+      "explanation": {
+        "correct": "Encryption keeps data unreadable to unauthorized parties, so its primary goal is confidentiality; hashing, by contrast, is used to verify integrity.",
+        "exam_pattern": "Encryption -> confidentiality; hashing -> integrity."
+      },
+      "references": [
+        "(ISC)² CC Exam Outline: Domain 5 - Encryption basics (confidentiality vs. integrity)"
+      ]
+    }
+  ]
+}
