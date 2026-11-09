@@ -1,0 +1,3751 @@
+{
+  "exam": "cisa",
+  "count": 92,
+  "questions": [
+    {
+      "id": "cisa-acq-001",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_project_management",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "What is the PRIMARY purpose of a feasibility study conducted at the start of a system development project?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To migrate the production data"
+        },
+        {
+          "id": "B",
+          "text": "To train end users on the new system"
+        },
+        {
+          "id": "C",
+          "text": "To write the detailed program code"
+        },
+        {
+          "id": "D",
+          "text": "To determine whether the proposed solution is viable and worth pursuing"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A feasibility study evaluates whether the proposed project is technically, economically, and operationally viable before significant resources are committed.",
+        "distractors": {
+          "A": "Data migration is an implementation activity, not a feasibility purpose.",
+          "B": "User training occurs near implementation, not during feasibility.",
+          "C": "Coding happens later in the build phase, after the project is approved.",
+          "D": ""
+        },
+        "exam_pattern": "Feasibility study = is the project viable / worth doing, before committing resources?"
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Feasibility study"
+      ]
+    },
+    {
+      "id": "cisa-acq-002",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_project_management",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: In project network scheduling, the longest sequence of dependent activities, which determines the shortest possible project duration, is called the ______ path.",
+      "correct": [
+        "critical",
+        "critical path"
+      ],
+      "explanation": {
+        "correct": "The critical path is the longest path through the activity network; its activities have zero slack/float, so any delay to them delays the entire project.",
+        "distractors": {},
+        "exam_pattern": "Critical path = longest path, zero float; it sets the minimum project duration."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Critical path method (CPM)"
+      ]
+    },
+    {
+      "id": "cisa-acq-003",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_project_management",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which project estimation technique uses three time estimates - optimistic, most likely, and pessimistic - to account for uncertainty in activity durations?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Gantt charting"
+        },
+        {
+          "id": "B",
+          "text": "PERT (Program Evaluation and Review Technique)"
+        },
+        {
+          "id": "C",
+          "text": "Function point analysis"
+        },
+        {
+          "id": "D",
+          "text": "Rapid application development"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "PERT uses three time estimates (optimistic, most likely, pessimistic) per activity to model uncertainty and compute an expected duration.",
+        "distractors": {
+          "A": "A Gantt chart displays a schedule as bars; it does not use three-point estimates.",
+          "B": "",
+          "C": "Function point analysis estimates software size, not activity-duration uncertainty.",
+          "D": "RAD is a development approach, not an estimation technique."
+        },
+        "exam_pattern": "Three-point (optimistic/likely/pessimistic) duration estimates = PERT."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Project scheduling (PERT)"
+      ]
+    },
+    {
+      "id": "cisa-acq-004",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_project_management",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which technique estimates the size of a software project based on the functionality delivered from the user's perspective, independent of the technology used?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Critical path method"
+        },
+        {
+          "id": "B",
+          "text": "Lines-of-code counting after coding"
+        },
+        {
+          "id": "C",
+          "text": "Earned value analysis"
+        },
+        {
+          "id": "D",
+          "text": "Function point analysis"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Function point analysis sizes software by the functions delivered to the user (inputs, outputs, inquiries, files, interfaces), independent of the programming language or platform.",
+        "distractors": {
+          "A": "The critical path method schedules activities; it does not size software.",
+          "B": "Counting lines of code is language-dependent and only possible after coding, unlike up-front function points.",
+          "C": "Earned value measures project performance against plan, not functional size.",
+          "D": ""
+        },
+        "exam_pattern": "Size by delivered functionality, technology-independent = function points."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Software size estimation (function points)"
+      ]
+    },
+    {
+      "id": "cisa-acq-005",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_project_management",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "Which TWO are PRIMARY responsibilities of a project steering committee? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Approving the project plan, budget, and major changes"
+        },
+        {
+          "id": "B",
+          "text": "Writing the application's unit test scripts"
+        },
+        {
+          "id": "C",
+          "text": "Performing the daily data entry for the new system"
+        },
+        {
+          "id": "D",
+          "text": "Reviewing project progress against milestones and resolving escalated issues"
+        }
+      ],
+      "correct": [
+        "A",
+        "D"
+      ],
+      "explanation": {
+        "correct": "A steering committee provides project governance - approving plans, budgets, and major changes and reviewing progress against milestones while resolving escalated issues.",
+        "distractors": {
+          "A": "",
+          "B": "Writing unit tests is a developer/tester task, not a steering-committee responsibility.",
+          "C": "Daily data entry is an operational task, not project governance.",
+          "D": ""
+        },
+        "exam_pattern": "Steering committee governs the project (approve, monitor, resolve); it does not do the hands-on build work."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Project governance and steering committee"
+      ]
+    },
+    {
+      "id": "cisa-acq-006",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_sdlc",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In which SDLC phase is it generally LEAST costly to correct an error?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Requirements and design (the earliest phases)"
+        },
+        {
+          "id": "B",
+          "text": "Post-implementation / maintenance"
+        },
+        {
+          "id": "C",
+          "text": "Implementation"
+        },
+        {
+          "id": "D",
+          "text": "System testing"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Defects are cheapest to fix the earlier they are caught; an error in requirements or design costs far less to correct than the same error found in testing, implementation, or production.",
+        "distractors": {
+          "A": "",
+          "B": "Errors found in production/maintenance are the most expensive to correct.",
+          "C": "Fixing errors during implementation is more expensive than catching them in requirements/design.",
+          "D": "Errors found in system testing cost more than those caught in requirements/design."
+        },
+        "exam_pattern": "Cost to fix a defect rises sharply across the SDLC - cheapest at requirements/design."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — SDLC phases and defect cost"
+      ]
+    },
+    {
+      "id": "cisa-acq-007",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_sdlc",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the appropriate role of the IS auditor during a system development project?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To approve the project budget on behalf of the business"
+        },
+        {
+          "id": "B",
+          "text": "To write and sign off on the user acceptance test results"
+        },
+        {
+          "id": "C",
+          "text": "To review controls and risks at each phase in an advisory capacity, without assuming management responsibilities"
+        },
+        {
+          "id": "D",
+          "text": "To take over project management and make the design decisions"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The IS auditor should review the adequacy of controls and risk management at each SDLC phase in an advisory, independent capacity - participating without making the management decisions that would later impair independence.",
+        "distractors": {
+          "A": "Approving the budget is a management decision, not an audit role.",
+          "B": "Performing and signing off on UAT is the users' and management's responsibility.",
+          "C": "",
+          "D": "Taking over project management and design decisions would impair the auditor's independence."
+        },
+        "exam_pattern": "Auditor advises on controls at each phase but never takes management decisions (preserve independence)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Auditor's role in the SDLC"
+      ]
+    },
+    {
+      "id": "cisa-acq-008",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_sdlc",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which type of testing is performed by end users to confirm that the system meets business requirements before it goes live?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Integration testing"
+        },
+        {
+          "id": "B",
+          "text": "Unit testing"
+        },
+        {
+          "id": "C",
+          "text": "User acceptance testing (UAT)"
+        },
+        {
+          "id": "D",
+          "text": "Stress testing"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "User acceptance testing is performed by the end users/business to validate that the system satisfies the agreed business requirements before production go-live.",
+        "distractors": {
+          "A": "Integration testing verifies that modules work together, not business acceptance.",
+          "B": "Unit testing checks individual program modules, usually by developers.",
+          "C": "",
+          "D": "Stress testing evaluates performance under extreme load, not business-requirement acceptance."
+        },
+        "exam_pattern": "Users confirm business requirements are met = UAT (the final gate before go-live)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Testing types (UAT)"
+      ]
+    },
+    {
+      "id": "cisa-acq-009",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_sdlc",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which type of testing verifies that recent changes to a system have not adversely affected existing, previously working functionality?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Acceptance testing"
+        },
+        {
+          "id": "B",
+          "text": "Unit testing"
+        },
+        {
+          "id": "C",
+          "text": "Penetration testing"
+        },
+        {
+          "id": "D",
+          "text": "Regression testing"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Regression testing re-tests existing functionality after a change to confirm that the change did not break anything that previously worked.",
+        "distractors": {
+          "A": "Acceptance testing confirms the system meets business requirements, not specifically that changes left prior functions intact.",
+          "B": "Unit testing validates a single new or changed module in isolation, not the surrounding existing functionality.",
+          "C": "Penetration testing probes security weaknesses, not functional regressions.",
+          "D": ""
+        },
+        "exam_pattern": "Make sure a change didn't break what already worked = regression testing."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Testing types (regression)"
+      ]
+    },
+    {
+      "id": "cisa-acq-010",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_sdlc",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Inadequate involvement of users during the requirements-definition phase MOST likely results in:",
+      "options": [
+        {
+          "id": "A",
+          "text": "A system that does not meet business needs"
+        },
+        {
+          "id": "B",
+          "text": "Lower hardware costs"
+        },
+        {
+          "id": "C",
+          "text": "Faster regulatory approval"
+        },
+        {
+          "id": "D",
+          "text": "Stronger database encryption"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "If users are not adequately involved in defining requirements, the delivered system is likely to miss the actual business needs, leading to rework, low adoption, or outright failure.",
+        "distractors": {
+          "A": "",
+          "B": "User involvement has no direct relationship to lowering hardware cost.",
+          "C": "It does not speed regulatory approval.",
+          "D": "Encryption strength is a design/security decision unrelated to user involvement in requirements."
+        },
+        "exam_pattern": "Weak user involvement in requirements -> a system that fails to meet business needs."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Requirements definition and user involvement"
+      ]
+    },
+    {
+      "id": "cisa-acq-011",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_system_migration",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "During a data conversion from a legacy system to a new system, which control BEST ensures that all data was transferred completely and accurately?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Training the users on the new system"
+        },
+        {
+          "id": "B",
+          "text": "Encrypting the data while it is in transit"
+        },
+        {
+          "id": "C",
+          "text": "Reconciling record counts and control totals between the source and target systems"
+        },
+        {
+          "id": "D",
+          "text": "Scheduling the conversion for a weekend"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Reconciling record counts and control (hash/financial) totals between the old and new systems provides direct evidence that the data was converted completely and accurately.",
+        "distractors": {
+          "A": "User training does not verify the conversion.",
+          "B": "Encryption protects confidentiality in transit but does not prove completeness or accuracy of the conversion.",
+          "C": "",
+          "D": "Timing the cutover reduces disruption but does not confirm data integrity."
+        },
+        "exam_pattern": "Prove conversion completeness/accuracy by reconciling record counts and control totals (old vs. new)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Data conversion and migration controls"
+      ]
+    },
+    {
+      "id": "cisa-acq-012",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_system_migration",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which system conversion (changeover) approach provides the GREATEST assurance by running the old and new systems simultaneously and comparing their results?",
+      "options": [
+        {
+          "id": "A",
+          "text": "No changeover plan"
+        },
+        {
+          "id": "B",
+          "text": "Direct (big-bang) changeover"
+        },
+        {
+          "id": "C",
+          "text": "Pilot changeover in one location only"
+        },
+        {
+          "id": "D",
+          "text": "Parallel changeover"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "In a parallel changeover, the old and new systems run together and their outputs are compared, so errors in the new system can be caught before the old one is retired - the lowest-risk approach.",
+        "distractors": {
+          "A": "Having no changeover plan is not a controlled approach at all.",
+          "B": "Direct/big-bang switches everything at once with no fallback, the highest-risk approach.",
+          "C": "A pilot limits exposure to one site but does not run both systems in parallel across the organization for comparison.",
+          "D": ""
+        },
+        "exam_pattern": "Run old + new together and compare = parallel (safest, but costly)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Changeover (conversion) strategies"
+      ]
+    },
+    {
+      "id": "cisa-acq-013",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_system_migration",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization plans to retire its old system and switch entirely to the new one on a single date with no parallel-run fallback. Which conversion approach is this, and what is its key characteristic?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Phased conversion, which introduces modules gradually"
+        },
+        {
+          "id": "B",
+          "text": "Parallel conversion, which runs both systems together"
+        },
+        {
+          "id": "C",
+          "text": "Direct (big-bang) conversion, which carries the highest risk because there is no fallback"
+        },
+        {
+          "id": "D",
+          "text": "Pilot conversion, which limits exposure to one unit"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Switching entirely on one date with no parallel run is a direct/big-bang conversion; it is the highest-risk approach because there is no fallback if the new system fails.",
+        "distractors": {
+          "A": "Phased conversion introduces the system in increments, not all at once.",
+          "B": "Parallel conversion runs both systems together, the opposite of this scenario.",
+          "C": "",
+          "D": "Pilot conversion deploys to one unit first, not the whole organization at once."
+        },
+        "exam_pattern": "One-shot switch, no fallback = direct/big-bang = highest risk."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Changeover (conversion) strategies"
+      ]
+    },
+    {
+      "id": "cisa-acq-014",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_system_migration",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Before a critical system goes live using a direct cutover, what should be the IS auditor's PRIMARY concern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Whether a tested fallback (backout) plan exists in case the new system fails"
+        },
+        {
+          "id": "B",
+          "text": "Whether the project finished under budget"
+        },
+        {
+          "id": "C",
+          "text": "Whether the vendor's logo appears on the login screen"
+        },
+        {
+          "id": "D",
+          "text": "Whether the old system used the same programming language"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "With a direct cutover there is no parallel safety net, so the existence of a tested fallback/backout plan is the auditor's primary concern to avoid an unrecoverable failure.",
+        "distractors": {
+          "A": "",
+          "B": "Budget performance matters but is secondary to the ability to recover from a failed cutover.",
+          "C": "Branding is irrelevant to cutover risk.",
+          "D": "The old system's language does not address the risk of a failed go-live."
+        },
+        "exam_pattern": "Direct cutover's biggest risk is no fallback - look for a tested backout plan."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Fallback and go-live controls"
+      ]
+    },
+    {
+      "id": "cisa-acq-015",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_post_implementation",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the PRIMARY objective of a post-implementation review (PIR)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To write the system's requirements"
+        },
+        {
+          "id": "B",
+          "text": "To select the project manager"
+        },
+        {
+          "id": "C",
+          "text": "To determine whether the system met its objectives and delivered the expected benefits, and to capture lessons learned"
+        },
+        {
+          "id": "D",
+          "text": "To perform user acceptance testing"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A PIR evaluates whether the implemented system achieved its intended objectives and business benefits (including ROI) and identifies lessons learned for future projects.",
+        "distractors": {
+          "A": "Requirements are defined at the start of the project, not reviewed after go-live.",
+          "B": "Selecting the project manager happens at project initiation.",
+          "C": "",
+          "D": "UAT occurs before go-live, not as the purpose of a PIR."
+        },
+        "exam_pattern": "PIR = did the live system meet its objectives/benefits, and what did we learn?"
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Post-implementation review"
+      ]
+    },
+    {
+      "id": "cisa-acq-016",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_post_implementation",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "When should a post-implementation review normally be conducted?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Immediately after the feasibility study"
+        },
+        {
+          "id": "B",
+          "text": "During the coding phase"
+        },
+        {
+          "id": "C",
+          "text": "Before the requirements are finalized"
+        },
+        {
+          "id": "D",
+          "text": "After the system has been in production long enough for its benefits and performance to be assessed"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A PIR is conducted after the system has operated in production for a sufficient, representative period so that actual benefits, costs, and performance can be meaningfully assessed.",
+        "distractors": {
+          "A": "The feasibility study is at project start, long before implementation.",
+          "B": "During coding the system is not yet implemented.",
+          "C": "There is nothing implemented to review before requirements are finalized.",
+          "D": ""
+        },
+        "exam_pattern": "Run the PIR once the system has stabilized in production, so real benefits can be measured."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Post-implementation review timing"
+      ]
+    },
+    {
+      "id": "cisa-acq-017",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_post_implementation",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "To ensure objectivity, who is BEST positioned to conduct a post-implementation review?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The project manager who delivered the project"
+        },
+        {
+          "id": "B",
+          "text": "The vendor that sold the system"
+        },
+        {
+          "id": "C",
+          "text": "The lead developer who wrote most of the code"
+        },
+        {
+          "id": "D",
+          "text": "An independent party not involved in the system's development"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "An independent reviewer who was not involved in building the system provides the most objective assessment of whether objectives and benefits were achieved.",
+        "distractors": {
+          "A": "The project manager is invested in the project's apparent success, reducing objectivity.",
+          "B": "The vendor has a commercial interest in a favorable result.",
+          "C": "The lead developer has a self-review conflict and cannot objectively assess their own work.",
+          "D": ""
+        },
+        "exam_pattern": "For objectivity, the PIR should be done by someone independent of the development effort."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Post-implementation review independence"
+      ]
+    },
+    {
+      "id": "cisa-acq-018",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_post_implementation",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: Confirming that a completed project actually delivered the business benefits promised in its business case is known as benefits ______.",
+      "correct": [
+        "realization",
+        "realisation",
+        "benefits realization",
+        "benefits realisation"
+      ],
+      "explanation": {
+        "correct": "Benefits realization compares the actual outcomes against the benefits projected in the business case to confirm the investment delivered its expected value.",
+        "distractors": {},
+        "exam_pattern": "Did we actually get the benefits the business case promised? = benefits realization."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Benefits realization"
+      ]
+    },
+    {
+      "id": "cisa-aud-001",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_standards",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization is establishing a new IS audit function. What is the PRIMARY purpose of the audit charter?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To define the IS audit function's authority, responsibility, and accountability, approved by the board or audit committee"
+        },
+        {
+          "id": "B",
+          "text": "To list the specific IT systems that will be audited during the year"
+        },
+        {
+          "id": "C",
+          "text": "To document the detailed audit procedures the team follows on each engagement"
+        },
+        {
+          "id": "D",
+          "text": "To record the findings and recommendations from completed audits"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The audit charter is a high-level document, approved at the highest level (board or audit committee), that formally establishes the audit function's purpose, authority, responsibility, and accountability.",
+        "distractors": {
+          "A": "",
+          "B": "The systems to audit come from the risk-based annual audit plan, not the charter.",
+          "C": "Detailed procedures belong in the audit program/methodology, not the charter.",
+          "D": "Findings and recommendations are documented in audit reports, not the charter."
+        },
+        "exam_pattern": "Charter = the mandate/authority approved at the top; it is not the plan, program, or report."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Audit charter and the IS audit function"
+      ]
+    },
+    {
+      "id": "cisa-aud-002",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_standards",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IS auditor is assigned to audit an application that the same auditor helped design and implement last year. What should the auditor do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Proceed, because prior involvement gives the auditor useful system knowledge"
+        },
+        {
+          "id": "B",
+          "text": "Proceed only after obtaining written approval from the application's users"
+        },
+        {
+          "id": "C",
+          "text": "Inform audit management of the impairment to independence so the work can be reassigned"
+        },
+        {
+          "id": "D",
+          "text": "Perform the audit but omit the modules the auditor personally built"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Having designed and implemented the system creates a self-review threat that impairs independence and objectivity; the auditor must disclose it to audit management so the work is reassigned to an objective auditor.",
+        "distractors": {
+          "A": "Useful knowledge does not cure the self-review threat; independence is still impaired.",
+          "B": "User approval cannot restore the auditor's independence; only reassignment does.",
+          "C": "",
+          "D": "Omitting modules does not restore objectivity over a system the auditor built."
+        },
+        "exam_pattern": "Auditing your own prior work is a self-review threat - disclose and reassign, don't rationalize."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Independence and objectivity"
+      ]
+    },
+    {
+      "id": "cisa-aud-003",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_standards",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "How do ISACA's IS Audit and Assurance Standards differ from the related Guidelines?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Standards are mandatory; Guidelines provide guidance on how to apply the Standards"
+        },
+        {
+          "id": "B",
+          "text": "Both Standards and Guidelines are mandatory requirements"
+        },
+        {
+          "id": "C",
+          "text": "Both Standards and Guidelines are optional recommendations"
+        },
+        {
+          "id": "D",
+          "text": "Standards are optional; Guidelines are mandatory"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "ISACA IS Audit and Assurance Standards are mandatory for CISAs, while Guidelines provide non-mandatory guidance on how to meet the Standards.",
+        "distractors": {
+          "A": "",
+          "B": "Guidelines are guidance, not mandatory requirements.",
+          "C": "Standards are mandatory, not optional.",
+          "D": "Reversed - the Standards are the mandatory element, not the Guidelines."
+        },
+        "exam_pattern": "Standards = mandatory 'what'; Guidelines = non-mandatory 'how.'"
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — ISACA IS Audit and Assurance Standards and Guidelines"
+      ]
+    },
+    {
+      "id": "cisa-aud-004",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_standards",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "Which TWO situations would MOST likely impair an IS auditor's independence? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "A close family member of the auditor manages the department being audited"
+        },
+        {
+          "id": "B",
+          "text": "The auditor has no prior relationship with the audited department"
+        },
+        {
+          "id": "C",
+          "text": "The auditor developed the key control scripts for the system now under audit"
+        },
+        {
+          "id": "D",
+          "text": "The auditor uses generalized audit software provided by a third party"
+        }
+      ],
+      "correct": [
+        "A",
+        "C"
+      ],
+      "explanation": {
+        "correct": "Auditing a system one personally developed (self-review threat) and auditing a unit run by a close family member (personal/relationship threat) both impair independence and objectivity.",
+        "distractors": {
+          "A": "",
+          "B": "Having no prior relationship supports independence rather than impairing it.",
+          "C": "",
+          "D": "Using third-party audit software is a normal tool and does not impair independence."
+        },
+        "exam_pattern": "Self-review and personal relationships impair independence; neutral tools and no prior ties do not."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Independence and objectivity"
+      ]
+    },
+    {
+      "id": "cisa-aud-005",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_risk_based_audit",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the PRIMARY advantage of a risk-based approach to audit planning?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It removes the need for the auditor to document a conclusion"
+        },
+        {
+          "id": "B",
+          "text": "It guarantees that every system is audited with equal depth each year"
+        },
+        {
+          "id": "C",
+          "text": "It eliminates detection risk from the engagement"
+        },
+        {
+          "id": "D",
+          "text": "It directs limited audit resources toward the areas of greatest risk"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A risk-based approach focuses finite audit resources on the areas where risk to the organization is highest, improving the efficiency and relevance of the audit.",
+        "distractors": {
+          "A": "The auditor must still document a supported conclusion regardless of approach.",
+          "B": "A risk-based plan deliberately covers low-risk areas less often, not everything equally.",
+          "C": "Detection risk can be reduced but never fully eliminated.",
+          "D": ""
+        },
+        "exam_pattern": "Risk-based = aim scarce audit effort at the highest-risk areas."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Risk-based audit planning"
+      ]
+    },
+    {
+      "id": "cisa-aud-006",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_risk_based_audit",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "When determining materiality for an IS audit of a non-financial system, what should the IS auditor consider MOST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only the monetary value of the hardware involved"
+        },
+        {
+          "id": "B",
+          "text": "The criticality and sensitivity of the information assets and the impact of control failures"
+        },
+        {
+          "id": "C",
+          "text": "The number of programs written for the application"
+        },
+        {
+          "id": "D",
+          "text": "The personal preference of the lead auditor"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "In IS audit, materiality extends beyond monetary value to the criticality and sensitivity of the information assets and the potential impact of control weaknesses on the organization.",
+        "distractors": {
+          "A": "Hardware value alone ignores the sensitivity and criticality of the data and processes.",
+          "B": "",
+          "C": "The count of programs does not indicate how material a weakness is.",
+          "D": "Materiality is an objective judgment about impact, not personal preference."
+        },
+        "exam_pattern": "IS-audit materiality = criticality/sensitivity and impact of control failure, not just dollars."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Materiality"
+      ]
+    },
+    {
+      "id": "cisa-aud-007",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_risk_based_audit",
+      "difficulty": 3,
+      "type": "fill",
+      "stem": "Fill in the blank: The risk that an IS auditor's substantive testing fails to detect a material error that actually exists is called ______ risk.",
+      "correct": [
+        "detection",
+        "detection risk"
+      ],
+      "explanation": {
+        "correct": "Detection risk is the risk that the auditor's own procedures will not catch a material error; the auditor manages it by adjusting the nature, timing, and extent of testing.",
+        "distractors": {},
+        "exam_pattern": "Audit risk = inherent x control x detection; detection risk is the part the auditor directly controls."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Audit risk and materiality"
+      ]
+    },
+    {
+      "id": "cisa-aud-008",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_risk_based_audit",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "When beginning a risk-based audit of a new business application, what should the IS auditor do FIRST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Recommend specific control improvements to management"
+        },
+        {
+          "id": "B",
+          "text": "Select the sampling method for fieldwork"
+        },
+        {
+          "id": "C",
+          "text": "Obtain an understanding of the business process and its environment to identify risks"
+        },
+        {
+          "id": "D",
+          "text": "Draft the structure of the final audit report"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The auditor must first understand the business process, its objectives, and environment so that the relevant risks - which drive the rest of the audit - can be identified and assessed.",
+        "distractors": {
+          "A": "Recommendations come after testing reveals weaknesses, not first.",
+          "B": "Sampling is chosen during fieldwork planning, after the risks are understood.",
+          "C": "",
+          "D": "The report is drafted near the end, after fieldwork is complete."
+        },
+        "exam_pattern": "FIRST in any audit = understand the process/environment and assess risk before testing or reporting."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Risk-based audit planning"
+      ]
+    },
+    {
+      "id": "cisa-aud-009",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_execution",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In a control self-assessment (CSA) program, which statement BEST describes the IS auditor's role?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The auditor replaces management's responsibility for the control environment"
+        },
+        {
+          "id": "B",
+          "text": "The auditor performs all control testing on behalf of the business"
+        },
+        {
+          "id": "C",
+          "text": "The auditor acts as a facilitator while business process owners assess their own controls"
+        },
+        {
+          "id": "D",
+          "text": "The auditor assumes ownership of the business unit's controls"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "In CSA, the business process owners evaluate their own controls while the IS auditor typically facilitates the process - which also preserves the auditor's independence.",
+        "distractors": {
+          "A": "Management remains responsible for controls; CSA does not shift that to the auditor.",
+          "B": "In CSA the business, not the auditor, performs the self-assessment of its controls.",
+          "C": "",
+          "D": "Control ownership stays with management, never the auditor."
+        },
+        "exam_pattern": "CSA = owners assess their own controls; the auditor facilitates, it does not own them."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Control self-assessment (CSA)"
+      ]
+    },
+    {
+      "id": "cisa-aud-010",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_execution",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IS auditor wants to test every transaction in a large payment file rather than a sample. What is the PRIMARY benefit of using computer-assisted audit techniques (CAATs)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They transfer responsibility for the conclusion to the software vendor"
+        },
+        {
+          "id": "B",
+          "text": "They guarantee that no errors exist in the data"
+        },
+        {
+          "id": "C",
+          "text": "They allow the auditor to analyze entire populations of data efficiently"
+        },
+        {
+          "id": "D",
+          "text": "They remove the need to understand the application's controls"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "CAATs such as generalized audit software let the auditor independently examine large volumes or entire populations of data efficiently, improving coverage and the reliability of evidence.",
+        "distractors": {
+          "A": "The auditor retains responsibility for the audit conclusion.",
+          "B": "Testing can detect errors but cannot guarantee their absence.",
+          "C": "",
+          "D": "The auditor still needs to understand the controls to interpret the results."
+        },
+        "exam_pattern": "CAATs' value = efficient, independent analysis of full populations / large data sets."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Computer-assisted audit techniques (CAATs)"
+      ]
+    },
+    {
+      "id": "cisa-aud-011",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_execution",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An organization reconciles system audit logs each week to spot unauthorized changes after they occur. This is an example of which type of control?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Deterrent control"
+        },
+        {
+          "id": "B",
+          "text": "Corrective control"
+        },
+        {
+          "id": "C",
+          "text": "Detective control"
+        },
+        {
+          "id": "D",
+          "text": "Preventive control"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Reviewing logs to identify events that have already happened is a detective control - it discovers problems rather than stopping or fixing them.",
+        "distractors": {
+          "A": "A deterrent discourages the act (e.g., a warning banner) but does not detect it.",
+          "B": "A corrective control restores or remediates after an event, e.g., restoring from backup.",
+          "C": "",
+          "D": "A preventive control would stop the change before it occurs, e.g., an access restriction."
+        },
+        "exam_pattern": "Prevent = stop before; Detect = find after; Correct = fix after."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Types of controls"
+      ]
+    },
+    {
+      "id": "cisa-aud-012",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_evidence_sampling",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which of the following would provide the MOST reliable audit evidence?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An oral explanation given by the system administrator"
+        },
+        {
+          "id": "B",
+          "text": "A photocopy of a report supplied by the auditee"
+        },
+        {
+          "id": "C",
+          "text": "A screenshot emailed by the process owner"
+        },
+        {
+          "id": "D",
+          "text": "A confirmation obtained directly by the auditor from an independent external party"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Evidence is most reliable when it is obtained directly by the auditor and originates from an independent, external source; both factors strengthen reliability.",
+        "distractors": {
+          "A": "Oral evidence is among the least reliable and needs corroboration.",
+          "B": "A copy provided by the auditee is internal and not obtained directly by the auditor.",
+          "C": "A screenshot supplied by the auditee is internal and easily altered.",
+          "D": ""
+        },
+        "exam_pattern": "Reliability rises with auditor-obtained + independent/external + written/original evidence."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Audit evidence and its reliability"
+      ]
+    },
+    {
+      "id": "cisa-aud-013",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_evidence_sampling",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An IS auditor wants to estimate how often a required purchase-order approval control was actually performed. Which sampling method is MOST appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Variable (substantive) sampling"
+        },
+        {
+          "id": "B",
+          "text": "Attribute sampling"
+        },
+        {
+          "id": "C",
+          "text": "Monetary unit sampling"
+        },
+        {
+          "id": "D",
+          "text": "Stratified mean-per-unit sampling"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Attribute sampling measures the rate of occurrence (deviation rate) of a control attribute - whether the approval was present or not - making it the right choice for compliance testing of a control.",
+        "distractors": {
+          "A": "Variable sampling estimates monetary amounts or quantities, not how often a control operated.",
+          "B": "",
+          "C": "Monetary unit sampling targets dollar misstatement, not control-operation frequency.",
+          "D": "Stratified mean-per-unit is a variable technique for estimating values."
+        },
+        "exam_pattern": "Compliance test of a control's presence/absence = attribute sampling; estimate amounts = variable."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Audit sampling (attribute vs. variable)"
+      ]
+    },
+    {
+      "id": "cisa-aud-014",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_evidence_sampling",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: The risk that the auditor's conclusion drawn from a sample differs from the conclusion that testing the entire population would produce is called ______ risk.",
+      "correct": [
+        "sampling",
+        "sampling risk"
+      ],
+      "explanation": {
+        "correct": "Sampling risk arises because a sample may not perfectly represent the population; statistical sampling lets the auditor quantify and control it.",
+        "distractors": {},
+        "exam_pattern": "Sampling risk = the sample might not represent the whole population."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Audit sampling and sampling risk"
+      ]
+    },
+    {
+      "id": "cisa-aud-015",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_evidence_sampling",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the MAIN advantage of statistical sampling over non-statistical (judgmental) sampling?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It always requires a smaller sample than judgmental sampling"
+        },
+        {
+          "id": "B",
+          "text": "It removes the need for the auditor to use professional judgment at all"
+        },
+        {
+          "id": "C",
+          "text": "It guarantees the sample is free from error"
+        },
+        {
+          "id": "D",
+          "text": "It lets the auditor objectively quantify sampling risk and the confidence level"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Statistical sampling uses probability theory, so the auditor can objectively measure sampling risk and express the result with a defined confidence level.",
+        "distractors": {
+          "A": "Statistical sampling does not inherently produce smaller samples; size depends on the parameters.",
+          "B": "Judgment is still needed to design the test and evaluate the results.",
+          "C": "No sampling method can guarantee an error-free sample.",
+          "D": ""
+        },
+        "exam_pattern": "Statistical sampling's edge = objective, quantified sampling risk and confidence."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Statistical vs. non-statistical sampling"
+      ]
+    },
+    {
+      "id": "cisa-aud-016",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_reporting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Before finalizing and issuing the audit report, what should the IS auditor do with the findings?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Remove any finding that management disagrees with"
+        },
+        {
+          "id": "B",
+          "text": "Submit them directly to external regulators"
+        },
+        {
+          "id": "C",
+          "text": "Discuss them with the auditee to confirm factual accuracy and obtain management's response"
+        },
+        {
+          "id": "D",
+          "text": "Implement the corrective actions personally"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The auditor should review findings with the auditee (e.g., at a closing meeting) to validate the facts, correct any misunderstanding, and capture management's response before the report is finalized.",
+        "distractors": {
+          "A": "Findings are not deleted because of disagreement; management's view is documented instead.",
+          "B": "Reporting to regulators is management's decision and not the normal pre-issuance step.",
+          "C": "",
+          "D": "Implementing corrective actions would impair independence; remediation is management's job."
+        },
+        "exam_pattern": "Validate findings with the auditee first - don't fix, hide, or escalate them yourself."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Communicating audit results"
+      ]
+    },
+    {
+      "id": "cisa-aud-017",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_reporting",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "What is the PRIMARY purpose of audit follow-up activities?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To design the controls the auditee should implement"
+        },
+        {
+          "id": "B",
+          "text": "To assign blame for the original findings"
+        },
+        {
+          "id": "C",
+          "text": "To determine whether management has implemented the agreed corrective actions"
+        },
+        {
+          "id": "D",
+          "text": "To re-perform the entire original audit from the start"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Follow-up verifies whether management took the agreed corrective action within the committed timeframe and whether that action adequately addresses the reported risk.",
+        "distractors": {
+          "A": "Designing controls is management's responsibility, not the purpose of follow-up.",
+          "B": "Audit aims to improve controls, not to assign blame.",
+          "C": "",
+          "D": "Follow-up targets the agreed actions, not a full re-audit."
+        },
+        "exam_pattern": "Follow-up = did management act on the agreed remediation, and did it work?"
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Follow-up activities"
+      ]
+    },
+    {
+      "id": "cisa-aud-018",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_reporting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After an IS audit reports a significant control weakness, who is responsible for deciding whether to remediate it or formally accept the risk?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Management, as the business and risk owner"
+        },
+        {
+          "id": "B",
+          "text": "The IS auditor who identified the weakness"
+        },
+        {
+          "id": "C",
+          "text": "The audit committee's administrative secretary"
+        },
+        {
+          "id": "D",
+          "text": "The external regulator"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Management owns the risk and therefore decides whether to remediate or formally accept it; the auditor reports and recommends but does not make or own that decision.",
+        "distractors": {
+          "A": "",
+          "B": "The auditor recommends but cannot accept risk on the organization's behalf - that would impair independence.",
+          "C": "Administrative audit-committee staff do not own the business risk.",
+          "D": "Regulators may impose requirements but do not make this internal risk-acceptance decision."
+        },
+        "exam_pattern": "Auditor recommends; management decides and owns the risk acceptance."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Reporting and management's responsibility"
+      ]
+    },
+    {
+      "id": "cisa-gov-001",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_it_governance",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An IS auditor needs a widely accepted framework for assessing the governance and management of enterprise IT. Which framework is MOST appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "PRINCE2"
+        },
+        {
+          "id": "B",
+          "text": "ITIL"
+        },
+        {
+          "id": "C",
+          "text": "COBIT"
+        },
+        {
+          "id": "D",
+          "text": "TOGAF"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "COBIT is ISACA's framework for the governance and management of enterprise IT and is the standard reference for evaluating IT governance.",
+        "distractors": {
+          "A": "PRINCE2 is a project management methodology.",
+          "B": "ITIL is a framework for IT service management, not overall IT governance.",
+          "C": "",
+          "D": "TOGAF is an enterprise architecture framework."
+        },
+        "exam_pattern": "Governance of enterprise IT = COBIT; service mgmt = ITIL; architecture = TOGAF; projects = PRINCE2/PMBOK."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — IT governance frameworks (COBIT)"
+      ]
+    },
+    {
+      "id": "cisa-gov-002",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_it_governance",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the PRIMARY objective of IT governance?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To maximize the number of IT projects completed each year"
+        },
+        {
+          "id": "B",
+          "text": "To eliminate all IT-related risk"
+        },
+        {
+          "id": "C",
+          "text": "To ensure the IT department operates independently of the business"
+        },
+        {
+          "id": "D",
+          "text": "To ensure IT investments and activities are aligned with, and deliver value to, business objectives"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "IT governance exists to align IT with the organization's strategy and objectives so that IT delivers value and manages risk in support of the business.",
+        "distractors": {
+          "A": "The volume of projects is not the goal; alignment and value delivery are.",
+          "B": "Risk is managed to an acceptable level, never fully eliminated.",
+          "C": "IT should be integrated with the business, not isolated from it.",
+          "D": ""
+        },
+        "exam_pattern": "IT governance = align IT with business strategy and deliver value (not volume, isolation, or zero risk)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Purpose of IT governance"
+      ]
+    },
+    {
+      "id": "cisa-gov-003",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_it_governance",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Who holds ultimate responsibility for IT governance in an organization?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The external IS auditor"
+        },
+        {
+          "id": "B",
+          "text": "Individual system administrators"
+        },
+        {
+          "id": "C",
+          "text": "The board of directors and senior management"
+        },
+        {
+          "id": "D",
+          "text": "The IT help desk manager"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "IT governance is the responsibility of the board of directors and senior/executive management, as an integral part of enterprise governance.",
+        "distractors": {
+          "A": "The external auditor provides assurance but is not accountable for governance.",
+          "B": "Administrators operate systems; they do not own governance.",
+          "C": "",
+          "D": "The help desk manager handles operations, not governance accountability."
+        },
+        "exam_pattern": "Governance accountability sits with the board and executive management - the top, not operations or audit."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Governance roles and responsibilities"
+      ]
+    },
+    {
+      "id": "cisa-gov-004",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_it_governance",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "Which TWO are recognized focus areas (outcomes) of effective IT governance? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Strategic alignment of IT with business goals"
+        },
+        {
+          "id": "B",
+          "text": "Writing the application source code for each project"
+        },
+        {
+          "id": "C",
+          "text": "Value delivery and benefits realization from IT"
+        },
+        {
+          "id": "D",
+          "text": "Staffing the overnight computer-operations shift"
+        }
+      ],
+      "correct": [
+        "A",
+        "C"
+      ],
+      "explanation": {
+        "correct": "Strategic alignment and value delivery are two of the core IT governance focus areas, alongside risk management, resource management, and performance measurement.",
+        "distractors": {
+          "A": "",
+          "B": "Writing source code is a development activity, not a governance focus area.",
+          "C": "",
+          "D": "Staffing an operations shift is an operational task, not a governance outcome."
+        },
+        "exam_pattern": "IT governance focus areas = strategic alignment, value delivery, risk mgmt, resource mgmt, performance measurement."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — IT governance focus areas"
+      ]
+    },
+    {
+      "id": "cisa-gov-005",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_it_strategy_policies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which body is responsible for prioritizing IT projects, allocating resources, and monitoring project progress at the executive/management level?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The IT strategy committee"
+        },
+        {
+          "id": "B",
+          "text": "The IT steering committee"
+        },
+        {
+          "id": "C",
+          "text": "The external audit firm"
+        },
+        {
+          "id": "D",
+          "text": "The service desk"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The IT steering committee operates at the executive/management level and is responsible for prioritizing projects, allocating resources, and overseeing delivery.",
+        "distractors": {
+          "A": "The IT strategy committee operates at board level, advising on strategic direction, not day-to-day project prioritization.",
+          "B": "",
+          "C": "The external audit firm provides assurance, not project oversight.",
+          "D": "The service desk handles user support, not project prioritization."
+        },
+        "exam_pattern": "Steering committee = executive-level project prioritization/oversight; strategy committee = board-level direction."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — IT strategy and steering committees"
+      ]
+    },
+    {
+      "id": "cisa-gov-006",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_it_strategy_policies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "At what organizational level does an IT strategy committee typically operate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "At the operational / service-desk level"
+        },
+        {
+          "id": "B",
+          "text": "At the board level, advising on IT strategic direction"
+        },
+        {
+          "id": "C",
+          "text": "At the individual project-team level"
+        },
+        {
+          "id": "D",
+          "text": "At the vendor's level, outside the organization"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "An IT strategy committee operates at the board level, advising the board on IT strategic direction and its alignment with enterprise strategy.",
+        "distractors": {
+          "A": "Operational support is handled below the strategy committee's level.",
+          "B": "",
+          "C": "Project teams execute work; they do not set board-level strategy.",
+          "D": "The committee is part of the organization's own governance, not the vendor's."
+        },
+        "exam_pattern": "Strategy committee = board level (direction); steering committee = executive level (execution)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — IT strategy committee"
+      ]
+    },
+    {
+      "id": "cisa-gov-007",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_it_strategy_policies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In the hierarchy of security documents, which one expresses high-level management intent and serves as the foundation for standards and procedures?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Guideline"
+        },
+        {
+          "id": "B",
+          "text": "Work instruction"
+        },
+        {
+          "id": "C",
+          "text": "Procedure"
+        },
+        {
+          "id": "D",
+          "text": "Policy"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A policy is the high-level statement of management intent and direction, approved by senior management; standards, procedures, and guidelines are derived from it.",
+        "distractors": {
+          "A": "A guideline is a recommended, non-mandatory practice.",
+          "B": "A work instruction is an even more granular task-level detail, not high-level intent.",
+          "C": "A procedure gives detailed step-by-step instructions that implement a policy.",
+          "D": ""
+        },
+        "exam_pattern": "Policy (intent) -> Standard (mandatory rule) -> Procedure (steps) -> Guideline (recommended)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Policies, standards, and procedures"
+      ]
+    },
+    {
+      "id": "cisa-gov-008",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_org_structure",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "During an audit, the IS auditor finds that an application developer also has update access to the production environment. This is MOST likely a violation of:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data classification requirements"
+        },
+        {
+          "id": "B",
+          "text": "Segregation of duties"
+        },
+        {
+          "id": "C",
+          "text": "The principle of least privilege only"
+        },
+        {
+          "id": "D",
+          "text": "Capacity management"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A developer with update access to production can introduce and promote unauthorized or untested code, which breaks the segregation of duties between development and production.",
+        "distractors": {
+          "A": "Data classification concerns labeling sensitivity, not this access conflict.",
+          "B": "",
+          "C": "Least privilege is related, but the specific control broken here is segregation of development and production duties.",
+          "D": "Capacity management concerns resource sufficiency, not conflicting access."
+        },
+        "exam_pattern": "Developer + production update access = classic segregation-of-duties violation."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Segregation of duties"
+      ]
+    },
+    {
+      "id": "cisa-gov-009",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_org_structure",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In a small IT department, full segregation of duties is not practical. Which is the BEST compensating control?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Removing all logging to simplify operations"
+        },
+        {
+          "id": "B",
+          "text": "Giving every employee administrator rights for flexibility"
+        },
+        {
+          "id": "C",
+          "text": "Increased management supervision and independent review of activity logs"
+        },
+        {
+          "id": "D",
+          "text": "Hiring additional internal auditors"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "When duties cannot be fully segregated, stronger management supervision together with independent review of detailed activity logs is the recognized compensating control.",
+        "distractors": {
+          "A": "Removing logging destroys the evidence needed to detect problems.",
+          "B": "Broad admin rights worsen the control weakness rather than compensate for it.",
+          "C": "",
+          "D": "Adding auditors does not compensate for day-to-day control gaps in operations."
+        },
+        "exam_pattern": "When SoD is impractical, compensate with supervision + independent log review."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Compensating controls"
+      ]
+    },
+    {
+      "id": "cisa-gov-010",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_org_structure",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Who is PRIMARILY responsible for classifying data and authorizing which users may access it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The end user"
+        },
+        {
+          "id": "B",
+          "text": "The network engineer"
+        },
+        {
+          "id": "C",
+          "text": "The database administrator"
+        },
+        {
+          "id": "D",
+          "text": "The data owner"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The data owner (usually a senior business manager) is accountable for classifying the data and authorizing access; the custodian (e.g., IT) implements and maintains the controls.",
+        "distractors": {
+          "A": "End users consume data within the access the owner authorizes.",
+          "B": "The network engineer supports infrastructure, not data classification.",
+          "C": "The DBA is a custodian who maintains the data per the owner's direction, not the classifier.",
+          "D": ""
+        },
+        "exam_pattern": "Owner classifies and authorizes access; custodian safeguards/maintains; user operates within granted rights."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Data owner and custodian roles"
+      ]
+    },
+    {
+      "id": "cisa-gov-011",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_risk_management",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An organization purchases cyber insurance to cover potential losses from a data breach. Which risk response does this represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Risk transfer (sharing)"
+        },
+        {
+          "id": "B",
+          "text": "Risk acceptance"
+        },
+        {
+          "id": "C",
+          "text": "Risk elimination"
+        },
+        {
+          "id": "D",
+          "text": "Risk avoidance"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Buying insurance shifts the financial impact of the risk to a third party, which is risk transfer (sharing).",
+        "distractors": {
+          "A": "",
+          "B": "Acceptance means retaining the risk without a countermeasure.",
+          "C": "Risk cannot be fully eliminated; some residual risk always remains.",
+          "D": "Avoidance means not undertaking the risky activity at all."
+        },
+        "exam_pattern": "Insurance = transfer/share; stop the activity = avoid; do nothing = accept; reduce = mitigate."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Risk response options"
+      ]
+    },
+    {
+      "id": "cisa-gov-012",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_risk_management",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: The risk that remains after management has implemented controls and countermeasures is called ______ risk.",
+      "correct": [
+        "residual",
+        "residual risk"
+      ],
+      "explanation": {
+        "correct": "Residual risk is what is left after controls are applied; management must decide whether that residual risk is within the organization's risk appetite.",
+        "distractors": {},
+        "exam_pattern": "Inherent risk reduced by the effect of controls = residual risk."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Residual risk"
+      ]
+    },
+    {
+      "id": "cisa-gov-013",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_risk_management",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "When performing a risk assessment, which activity should be performed FIRST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Select and implement controls"
+        },
+        {
+          "id": "B",
+          "text": "Calculate the annual loss expectancy"
+        },
+        {
+          "id": "C",
+          "text": "Purchase insurance for the largest risks"
+        },
+        {
+          "id": "D",
+          "text": "Identify and determine the value of the information assets"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "You cannot assess risk to assets you have not identified; identifying and valuing the information assets is the first step, before threats, likelihood, impact, and controls are considered.",
+        "distractors": {
+          "A": "Controls are selected later, after risks are identified and assessed.",
+          "B": "Loss expectancy is computed after assets, threats, and impact are understood.",
+          "C": "Insurance is a response chosen after the assessment, not first.",
+          "D": ""
+        },
+        "exam_pattern": "Risk assessment starts by identifying/valuing assets - you can't protect what you haven't identified."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Risk management process"
+      ]
+    },
+    {
+      "id": "cisa-gov-014",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_risk_management",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Who should determine the level of risk that is acceptable for the organization (its risk appetite)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The IS auditor"
+        },
+        {
+          "id": "B",
+          "text": "The software vendor"
+        },
+        {
+          "id": "C",
+          "text": "The firewall administrator"
+        },
+        {
+          "id": "D",
+          "text": "Senior management and the business owners"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Setting risk appetite and accepting risk is a business decision owned by senior management and the business owners, not by IT staff or the auditor.",
+        "distractors": {
+          "A": "The auditor evaluates and reports on risk but does not set the organization's risk appetite.",
+          "B": "The vendor supplies products; it does not set the customer's risk tolerance.",
+          "C": "The firewall administrator implements technical controls, not risk appetite.",
+          "D": ""
+        },
+        "exam_pattern": "Risk appetite and risk acceptance are senior-management business decisions."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Risk appetite and ownership"
+      ]
+    },
+    {
+      "id": "cisa-gov-015",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_bcp",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the PRIMARY purpose of a business impact analysis (BIA)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To test the disaster recovery plan"
+        },
+        {
+          "id": "B",
+          "text": "To select the vendor for the recovery site"
+        },
+        {
+          "id": "C",
+          "text": "To identify critical processes and the impact of their disruption, and to set recovery priorities and objectives"
+        },
+        {
+          "id": "D",
+          "text": "To encrypt the backup media"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A BIA identifies critical business processes, assesses the impact of their disruption over time, and establishes recovery priorities and objectives (such as RTO and RPO) that drive the continuity and recovery strategy.",
+        "distractors": {
+          "A": "Testing the plan comes after the plan is built from the BIA.",
+          "B": "Site selection is a later strategy decision informed by the BIA, not its purpose.",
+          "C": "",
+          "D": "Encrypting media is an operational control, not the purpose of a BIA."
+        },
+        "exam_pattern": "BIA = identify critical processes + impact of disruption -> recovery priorities, RTO/RPO."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Business impact analysis (BIA)"
+      ]
+    },
+    {
+      "id": "cisa-gov-016",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_bcp",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Fill in the blank: The maximum acceptable length of time to restore a business process after a disruption is known as the recovery ______ objective.",
+      "correct": [
+        "time",
+        "recovery time objective",
+        "rto"
+      ],
+      "explanation": {
+        "correct": "The recovery time objective (RTO) is the target maximum time to restore a process or system after a disruption; it drives the choice of recovery strategy and site.",
+        "distractors": {},
+        "exam_pattern": "RTO = how fast you must be back (time); RPO = how much data you can afford to lose (data)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — RTO and RPO"
+      ]
+    },
+    {
+      "id": "cisa-gov-017",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_bcp",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A critical transaction system is assigned a recovery point objective (RPO) of nearly zero. What does this imply?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The organization can tolerate almost no data loss, so near-continuous replication/mirroring is required"
+        },
+        {
+          "id": "B",
+          "text": "The system can be restored slowly over several days"
+        },
+        {
+          "id": "C",
+          "text": "The system is not important to the business"
+        },
+        {
+          "id": "D",
+          "text": "Backups are no longer necessary"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "An RPO near zero means almost no data loss is acceptable, which requires near-real-time data protection such as synchronous replication or mirroring.",
+        "distractors": {
+          "A": "",
+          "B": "A slow restore window describes a long recovery time objective (RTO), not an RPO near zero.",
+          "C": "A near-zero RPO signals the system is highly critical, not unimportant.",
+          "D": "A near-zero RPO demands more frequent data protection, not less."
+        },
+        "exam_pattern": "Lower RPO = less tolerable data loss = more frequent/continuous replication."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — RTO and RPO"
+      ]
+    },
+    {
+      "id": "cisa-gov-018",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_bcp",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization outsources its payroll processing to a third-party service provider. Who retains ultimate accountability for the risks associated with the outsourced process?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The service provider alone"
+        },
+        {
+          "id": "B",
+          "text": "No one, because the risk has been fully transferred"
+        },
+        {
+          "id": "C",
+          "text": "The organization that outsourced the process"
+        },
+        {
+          "id": "D",
+          "text": "The regulator"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Outsourcing can transfer the activity, but accountability for the risk, data, and compliance remains with the organization that owns the process - which is why strong SLA and oversight controls are needed.",
+        "distractors": {
+          "A": "The provider is responsible for delivering the service, but the outsourcing organization stays accountable for the risk.",
+          "B": "Accountability cannot be fully outsourced, even when the work is.",
+          "C": "",
+          "D": "Regulators set requirements but do not assume the organization's accountability."
+        },
+        "exam_pattern": "You can outsource the function, but not the accountability - govern it with SLAs and monitoring."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Outsourcing and SLA governance"
+      ]
+    },
+    {
+      "id": "cisa-ops-001",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_it_operations",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IS auditor is reviewing change management. For emergency changes applied directly to production, the MINIMUM acceptable control is that they are:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Never allowed under any circumstances"
+        },
+        {
+          "id": "B",
+          "text": "Left undocumented to save time during the emergency"
+        },
+        {
+          "id": "C",
+          "text": "Applied by the developer without any record"
+        },
+        {
+          "id": "D",
+          "text": "Documented and reviewed/approved after the fact (retroactively authorized)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Emergency changes are sometimes unavoidable, but at minimum they must be logged and subsequently reviewed and formally approved (retroactive authorization) so the change stays controlled and traceable.",
+        "distractors": {
+          "A": "An absolute ban is impractical; emergencies occur and the process must handle them with controls.",
+          "B": "Leaving changes undocumented defeats change control entirely.",
+          "C": "Applying changes with no record removes all traceability and accountability.",
+          "D": ""
+        },
+        "exam_pattern": "Emergency changes are permitted but must be logged and retroactively reviewed/approved."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Change and release management"
+      ]
+    },
+    {
+      "id": "cisa-ops-002",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_it_operations",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which IT operations process ensures that computing resources are sufficient to meet current and anticipated future business demand?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Problem management"
+        },
+        {
+          "id": "B",
+          "text": "Change management"
+        },
+        {
+          "id": "C",
+          "text": "Capacity management"
+        },
+        {
+          "id": "D",
+          "text": "Incident management"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Capacity management monitors and plans resource utilization (CPU, storage, bandwidth) so capacity meets current and future demand cost-effectively.",
+        "distractors": {
+          "A": "Problem management addresses the root cause of incidents, not capacity planning.",
+          "B": "Change management controls modifications, not resource sufficiency.",
+          "C": "",
+          "D": "Incident management restores service after disruptions; it does not plan capacity."
+        },
+        "exam_pattern": "Match resources to current/future demand = capacity management."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Capacity and performance management"
+      ]
+    },
+    {
+      "id": "cisa-ops-003",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_it_operations",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the PRIMARY reason an IS auditor reviews computer operator console logs?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To calculate software license fees"
+        },
+        {
+          "id": "B",
+          "text": "To measure network bandwidth usage"
+        },
+        {
+          "id": "C",
+          "text": "To improve application screen design"
+        },
+        {
+          "id": "D",
+          "text": "To detect unauthorized or unusual operator actions and interventions"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Operator console logs record operator actions; reviewing them is a detective control to identify unauthorized, unusual, or inappropriate interventions.",
+        "distractors": {
+          "A": "License fees are not derived from console logs.",
+          "B": "Bandwidth is monitored by network tools, not operator console logs.",
+          "C": "Screen design is a development concern, not what console logs reveal.",
+          "D": ""
+        },
+        "exam_pattern": "Console-log review = detect unauthorized/unusual operator activity (a detective control)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — IT operations monitoring"
+      ]
+    },
+    {
+      "id": "cisa-ops-004",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_system_interfaces",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Two applications exchange transactions automatically through an interface. Which control BEST ensures that all transactions sent by the source system are received and processed by the target system?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Encrypting the interface traffic"
+        },
+        {
+          "id": "B",
+          "text": "Restricting physical access to the server room"
+        },
+        {
+          "id": "C",
+          "text": "Reconciliation of transaction counts and control totals between the two systems"
+        },
+        {
+          "id": "D",
+          "text": "Requiring strong passwords for end users"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Reconciling record/transaction counts and control totals between the sending and receiving systems directly confirms that data passed completely and accurately across the interface.",
+        "distractors": {
+          "A": "Encryption protects confidentiality in transit but does not confirm completeness of processing.",
+          "B": "Physical access control protects the facility, not interface completeness.",
+          "C": "",
+          "D": "Password strength addresses access control, not interface data integrity."
+        },
+        "exam_pattern": "Confirm complete/accurate transfer between systems by reconciling counts and control totals."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — System interface controls"
+      ]
+    },
+    {
+      "id": "cisa-ops-005",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_system_interfaces",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "When reviewing an automated interface that passes data between two applications, which risk should MOST concern the IS auditor?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The two systems were built by different vendors"
+        },
+        {
+          "id": "B",
+          "text": "The interface uses a modern file format"
+        },
+        {
+          "id": "C",
+          "text": "The interface runs during business hours"
+        },
+        {
+          "id": "D",
+          "text": "Data may be transferred incompletely or inaccurately, compromising integrity"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The core risk of a data interface is loss of integrity - incomplete, duplicated, or inaccurate transfer - which is why reconciliation and error-handling controls are essential.",
+        "distractors": {
+          "A": "Different vendors is common and not itself the primary risk when interfaces are controlled.",
+          "B": "A modern file format is not inherently a risk.",
+          "C": "Running during business hours is a scheduling choice, not the main integrity risk.",
+          "D": ""
+        },
+        "exam_pattern": "The primary interface risk is incomplete/inaccurate data transfer (integrity)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — System interface risk"
+      ]
+    },
+    {
+      "id": "cisa-ops-006",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_system_interfaces",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Transactions that fail an interface's edit/validation checks should be:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Written to a suspense/error file and followed up for correction and reprocessing"
+        },
+        {
+          "id": "B",
+          "text": "Automatically deleted so they do not clutter the system"
+        },
+        {
+          "id": "C",
+          "text": "Ignored, because the sending system already validated them"
+        },
+        {
+          "id": "D",
+          "text": "Forced through so that no transaction is ever lost"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Rejected transactions should be captured in a suspense/error file and monitored so they are investigated, corrected, and reprocessed - ensuring no valid transaction is lost and no invalid one is accepted.",
+        "distractors": {
+          "A": "",
+          "B": "Deleting rejected transactions loses data and destroys the audit trail.",
+          "C": "Assuming the sending system validated them removes an essential independent control.",
+          "D": "Forcing invalid transactions through defeats the edit checks and corrupts data."
+        },
+        "exam_pattern": "Rejected items go to a suspense file for follow-up/reprocessing - never deleted or forced through."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Interface error handling"
+      ]
+    },
+    {
+      "id": "cisa-ops-007",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_data_backup_recovery",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Fill in the blank: The backup media rotation scheme that keeps daily (son), weekly (father), and monthly (grandfather) backup sets is known as the ______-father-son scheme.",
+      "correct": [
+        "grandfather",
+        "grandfather-father-son",
+        "gfs"
+      ],
+      "explanation": {
+        "correct": "The grandfather-father-son (GFS) scheme rotates daily, weekly, and monthly backup generations, balancing recovery granularity against media cost and retention.",
+        "distractors": {},
+        "exam_pattern": "Daily/weekly/monthly generations = grandfather-father-son (GFS) rotation."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Backup schemes"
+      ]
+    },
+    {
+      "id": "cisa-ops-008",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_data_backup_recovery",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which backup type copies only the data that has changed since the last FULL backup?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Incremental backup"
+        },
+        {
+          "id": "B",
+          "text": "Full backup"
+        },
+        {
+          "id": "C",
+          "text": "Mirror backup"
+        },
+        {
+          "id": "D",
+          "text": "Differential backup"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A differential backup copies everything changed since the last full backup; restoration needs only the last full plus the most recent differential.",
+        "distractors": {
+          "A": "An incremental backup copies data changed since the last backup of any type, not since the last full.",
+          "B": "A full backup copies all data, not only what changed.",
+          "C": "A mirror is a complete real-time copy, not a 'since last full' delta.",
+          "D": ""
+        },
+        "exam_pattern": "Differential = changes since last FULL; incremental = changes since last ANY backup."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Backup types"
+      ]
+    },
+    {
+      "id": "cisa-ops-009",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_data_backup_recovery",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "When reviewing an organization's backup program, which finding should concern the IS auditor MOST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Backups are scheduled to run nightly"
+        },
+        {
+          "id": "B",
+          "text": "The restoration of backups has never been tested"
+        },
+        {
+          "id": "C",
+          "text": "Backups are encrypted"
+        },
+        {
+          "id": "D",
+          "text": "A copy of backups is stored offsite"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Untested backups may be unusable when needed; the ability to actually restore is what matters, so never having tested restoration is the most serious concern.",
+        "distractors": {
+          "A": "Nightly backups are a sound practice.",
+          "B": "",
+          "C": "Encrypting backups is a good control, not a concern.",
+          "D": "Offsite storage is a recommended control, not a concern."
+        },
+        "exam_pattern": "A backup you cannot restore is worthless - test restoration, don't just take backups."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Backup and restoration testing"
+      ]
+    },
+    {
+      "id": "cisa-ops-010",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_disaster_recovery",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A critical system has a recovery time objective (RTO) of two hours. Which type of recovery site is MOST appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "No alternate site"
+        },
+        {
+          "id": "B",
+          "text": "Hot site"
+        },
+        {
+          "id": "C",
+          "text": "Reciprocal agreement with another company"
+        },
+        {
+          "id": "D",
+          "text": "Cold site"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A hot site is fully equipped and kept current, enabling recovery within hours - the only option that reliably meets a very short RTO such as two hours.",
+        "distractors": {
+          "A": "No alternate site cannot meet any recovery objective.",
+          "B": "",
+          "C": "A reciprocal agreement offers uncertain capacity and readiness, unsuitable for a tight RTO.",
+          "D": "A cold site provides only space and utilities and takes days or weeks to make operational."
+        },
+        "exam_pattern": "Very short RTO demands a hot site (ready to run); longer RTOs can tolerate warm/cold."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Recovery sites and RTO"
+      ]
+    },
+    {
+      "id": "cisa-ops-011",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_disaster_recovery",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A recovery site that provides environmental infrastructure such as space, power, and HVAC but contains no installed computing equipment is a:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cold site"
+        },
+        {
+          "id": "B",
+          "text": "Mobile site"
+        },
+        {
+          "id": "C",
+          "text": "Hot site"
+        },
+        {
+          "id": "D",
+          "text": "Warm site"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A cold site provides only the facility and utilities; hardware, software, and data must be brought in and installed, making it the cheapest but slowest option.",
+        "distractors": {
+          "A": "",
+          "B": "A mobile site is a transportable, pre-configured unit, not merely empty conditioned space.",
+          "C": "A hot site is fully equipped and nearly current, ready in hours.",
+          "D": "A warm site has some hardware/connectivity in place but not fully current data."
+        },
+        "exam_pattern": "Cold = space/power only (cheapest, slowest); warm = partial; hot = full/ready."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Types of recovery sites"
+      ]
+    },
+    {
+      "id": "cisa-ops-012",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_disaster_recovery",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "What is the MAIN disadvantage of relying on a reciprocal agreement between two organizations for disaster recovery?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It eliminates the need to maintain a recovery plan"
+        },
+        {
+          "id": "B",
+          "text": "The partner may lack capacity or a compatible configuration when a disaster occurs, and the arrangement is hard to enforce"
+        },
+        {
+          "id": "C",
+          "text": "It provides a fully equipped, dedicated recovery site"
+        },
+        {
+          "id": "D",
+          "text": "It is always the most expensive recovery option"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Reciprocal (mutual-aid) agreements are inexpensive but risky: the partner's capacity, configuration, and availability may be inadequate at the moment of need, and such agreements are difficult to enforce.",
+        "distractors": {
+          "A": "A recovery plan is still required regardless of the agreement.",
+          "B": "",
+          "C": "They do not provide a dedicated, fully equipped site - that describes a hot site.",
+          "D": "Reciprocal agreements are typically the cheapest option, not the most expensive."
+        },
+        "exam_pattern": "Reciprocal agreement = cheap but unreliable (capacity/compatibility/enforceability doubts)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Reciprocal agreements"
+      ]
+    },
+    {
+      "id": "cisa-ops-013",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_disaster_recovery",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "Which TWO disaster recovery test types validate recovery by actually processing real workloads (not just discussion or review)? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Structured walkthrough (paper) test"
+        },
+        {
+          "id": "B",
+          "text": "Parallel test"
+        },
+        {
+          "id": "C",
+          "text": "Full-interruption test"
+        },
+        {
+          "id": "D",
+          "text": "Tabletop discussion exercise"
+        }
+      ],
+      "correct": [
+        "B",
+        "C"
+      ],
+      "explanation": {
+        "correct": "A parallel test processes real workloads at the alternate site alongside production, and a full-interruption test shifts live processing to the alternate site - both exercise actual recovery.",
+        "distractors": {
+          "A": "A structured walkthrough reviews the plan on paper without processing real transactions.",
+          "B": "",
+          "C": "",
+          "D": "A tabletop exercise is a discussion-based scenario walkthrough, with no live processing."
+        },
+        "exam_pattern": "Parallel and full-interruption tests exercise real recovery; walkthrough/tabletop are discussion-only."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — DR testing methods"
+      ]
+    },
+    {
+      "id": "cisa-ops-014",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_incident_problem_mgmt",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "In IT service management (ITIL) practice, what is the PRIMARY objective of incident management?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To identify and permanently eliminate the root cause of incidents"
+        },
+        {
+          "id": "B",
+          "text": "To authorize and schedule changes to the environment"
+        },
+        {
+          "id": "C",
+          "text": "To restore normal service operation as quickly as possible and minimize business impact"
+        },
+        {
+          "id": "D",
+          "text": "To plan long-term capacity"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Incident management aims to restore normal service as quickly as possible to limit business impact; finding the underlying root cause is the job of problem management.",
+        "distractors": {
+          "A": "Eliminating root cause is problem management, not incident management.",
+          "B": "Authorizing and scheduling changes is change management.",
+          "C": "",
+          "D": "Capacity planning is capacity management."
+        },
+        "exam_pattern": "Incident = restore service fast; Problem = fix root cause; Change = control modifications."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Incident vs. problem management"
+      ]
+    },
+    {
+      "id": "cisa-ops-015",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_incident_problem_mgmt",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: The IT service management process whose goal is to identify and remove the underlying root cause of recurring incidents is called ______ management.",
+      "correct": [
+        "problem",
+        "problem management"
+      ],
+      "explanation": {
+        "correct": "Problem management investigates the root cause of incidents and drives permanent fixes so the incidents stop recurring, complementing incident management's focus on fast restoration.",
+        "distractors": {},
+        "exam_pattern": "Root-cause elimination of recurring incidents = problem management."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Problem management"
+      ]
+    },
+    {
+      "id": "cisa-ops-016",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_incident_problem_mgmt",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IS auditor reviewing the incident-management process would be MOST concerned if:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Incident reports are reviewed by management"
+        },
+        {
+          "id": "B",
+          "text": "Incidents are not recorded/logged, so there is no tracking or trend analysis"
+        },
+        {
+          "id": "C",
+          "text": "Incidents are assigned a severity level"
+        },
+        {
+          "id": "D",
+          "text": "Incidents are escalated to senior staff when needed"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "If incidents are not logged, the organization cannot track, prioritize, analyze trends, or demonstrate resolution - undermining the entire incident-management and monitoring process.",
+        "distractors": {
+          "A": "Management review of incidents is a sound control.",
+          "B": "",
+          "C": "Assigning severity is a good practice, not a concern.",
+          "D": "Escalation when needed is appropriate."
+        },
+        "exam_pattern": "No incident logging = no tracking, no trends, no accountability - the auditor's biggest concern."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Incident recording and escalation"
+      ]
+    },
+    {
+      "id": "cisa-ops-017",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_database_mgmt",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which database control ensures that a foreign key value in one table always corresponds to an existing primary key in the related table, preventing orphan records?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Concurrency control"
+        },
+        {
+          "id": "B",
+          "text": "Data encryption"
+        },
+        {
+          "id": "C",
+          "text": "Referential integrity"
+        },
+        {
+          "id": "D",
+          "text": "Normalization"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Referential integrity enforces that every foreign key matches a valid primary key in the referenced table, preventing orphaned records and preserving relational consistency.",
+        "distractors": {
+          "A": "Concurrency control manages simultaneous access, not key relationships.",
+          "B": "Encryption protects confidentiality, not relational consistency.",
+          "C": "",
+          "D": "Normalization organizes tables to reduce redundancy; it does not by itself enforce key relationships at runtime."
+        },
+        "exam_pattern": "Foreign key must point to a valid primary key = referential integrity (no orphans)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Database integrity controls"
+      ]
+    },
+    {
+      "id": "cisa-ops-018",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_database_mgmt",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the PRIMARY purpose of normalizing a relational database?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To reduce data redundancy and improve data integrity"
+        },
+        {
+          "id": "B",
+          "text": "To encrypt sensitive fields"
+        },
+        {
+          "id": "C",
+          "text": "To increase the number of duplicate records for backup"
+        },
+        {
+          "id": "D",
+          "text": "To speed up the physical network"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Normalization organizes data into related tables to minimize redundancy and the update anomalies it causes, improving data integrity.",
+        "distractors": {
+          "A": "",
+          "B": "Encryption, not normalization, protects confidentiality.",
+          "C": "Normalization reduces duplication; it does not create duplicates.",
+          "D": "Network speed is unrelated to logical data normalization."
+        },
+        "exam_pattern": "Normalization = reduce redundancy and the anomalies that threaten integrity."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Database normalization"
+      ]
+    },
+    {
+      "id": "cisa-ops-019",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_database_mgmt",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Because a database administrator (DBA) holds powerful, privileged access that can bypass application controls, which is the BEST control over DBA activity?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Letting the DBA review their own activity logs"
+        },
+        {
+          "id": "B",
+          "text": "Removing the DBA role entirely"
+        },
+        {
+          "id": "C",
+          "text": "Logging DBA activities and having them independently reviewed by someone outside the DBA function"
+        },
+        {
+          "id": "D",
+          "text": "Giving all developers the same DBA access for balance"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Because a DBA can bypass normal controls, the key compensating control is to log all privileged DBA actions and have those logs reviewed independently by someone outside the DBA function.",
+        "distractors": {
+          "A": "Self-review of one's own logs is not an independent control.",
+          "B": "The DBA role is necessary; removing it is impractical.",
+          "C": "",
+          "D": "Granting more people privileged access widens the risk rather than controlling it."
+        },
+        "exam_pattern": "Powerful privileged accounts (DBA) need logging + independent review of that log."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Privileged access and the DBA"
+      ]
+    },
+    {
+      "id": "cisa-prot-001",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_access_controls",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Fill in the blank: In access control, the process of verifying that a user is who they claim to be - for example by checking a password or biometric - is called ______.",
+      "correct": [
+        "authentication"
+      ],
+      "explanation": {
+        "correct": "Authentication verifies a claimed identity (something you know, have, or are); it follows identification and precedes authorization and accountability.",
+        "distractors": {},
+        "exam_pattern": "Identify (claim) -> Authenticate (prove) -> Authorize (permit) -> Account (log)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Identification and authentication (IAAA)"
+      ]
+    },
+    {
+      "id": "cisa-prot-002",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_access_controls",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A policy states that each user should be granted only the access rights strictly necessary to perform their job duties. This BEST describes which principle?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Implicit allow"
+        },
+        {
+          "id": "B",
+          "text": "Least privilege"
+        },
+        {
+          "id": "C",
+          "text": "Separation of duties"
+        },
+        {
+          "id": "D",
+          "text": "Defense in depth"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Least privilege grants users only the minimum access needed for their job, limiting the damage from error, misuse, or compromise.",
+        "distractors": {
+          "A": "Implicit allow (permitting anything not explicitly denied) is the opposite of least privilege.",
+          "B": "",
+          "C": "Separation of duties splits a task among people to prevent fraud - related but different.",
+          "D": "Defense in depth layers multiple controls; it is not about minimal rights per user."
+        },
+        "exam_pattern": "Minimum access needed to do the job = least privilege."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Least privilege and need-to-know"
+      ]
+    },
+    {
+      "id": "cisa-prot-003",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_access_controls",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IS auditor finds that user access rights are never reviewed after they are first granted. What is the GREATEST risk?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Backups will fail"
+        },
+        {
+          "id": "B",
+          "text": "Users accumulate excessive or inappropriate access over time (privilege creep), including access from former roles"
+        },
+        {
+          "id": "C",
+          "text": "Users will forget their passwords"
+        },
+        {
+          "id": "D",
+          "text": "The network will run more slowly"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Without periodic access reviews/recertification, users keep access from prior roles and transfers, accumulating excessive privileges (privilege creep), and terminated users' access may never be removed.",
+        "distractors": {
+          "A": "Backup success is unrelated to access recertification.",
+          "B": "",
+          "C": "Forgotten passwords are a help-desk matter unrelated to access reviews.",
+          "D": "Access reviews do not affect network speed."
+        },
+        "exam_pattern": "No periodic access review -> privilege creep and lingering access (terminated/transferred users)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Access provisioning and review"
+      ]
+    },
+    {
+      "id": "cisa-prot-004",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_access_controls",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "Multi-factor authentication requires two or more factors from DIFFERENT categories. Which TWO combinations qualify as true multi-factor authentication? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Two different passwords"
+        },
+        {
+          "id": "B",
+          "text": "A password and a one-time code from a hardware token"
+        },
+        {
+          "id": "C",
+          "text": "A password and the answer to a security question"
+        },
+        {
+          "id": "D",
+          "text": "A PIN and a fingerprint scan"
+        }
+      ],
+      "correct": [
+        "B",
+        "D"
+      ],
+      "explanation": {
+        "correct": "Multi-factor requires factors from different categories: a password (knowledge) plus a hardware token (possession), and a PIN (knowledge) plus a fingerprint (inherence), each combine two distinct factors.",
+        "distractors": {
+          "A": "Two passwords are both knowledge factors, still a single factor.",
+          "B": "",
+          "C": "A password and a security-question answer are both 'something you know' - a single factor used twice.",
+          "D": ""
+        },
+        "exam_pattern": "MFA needs different categories (know/have/are); two of the same category is still single-factor."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Authentication factors"
+      ]
+    },
+    {
+      "id": "cisa-prot-005",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_network_security",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which type of firewall makes filtering decisions based on the state and context of a connection rather than inspecting each packet in isolation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A patch panel"
+        },
+        {
+          "id": "B",
+          "text": "A simple network hub"
+        },
+        {
+          "id": "C",
+          "text": "Stateful inspection firewall"
+        },
+        {
+          "id": "D",
+          "text": "Static packet-filtering firewall"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A stateful inspection firewall tracks the state of active connections and permits packets that belong to an established, legitimate session, offering stronger control than stateless filtering.",
+        "distractors": {
+          "A": "A patch panel is a passive cabling device, not a firewall.",
+          "B": "A hub is a basic repeater with no filtering capability.",
+          "C": "",
+          "D": "A static packet filter examines each packet against rules without tracking connection state."
+        },
+        "exam_pattern": "Tracks connection state/context = stateful inspection firewall."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Firewall types"
+      ]
+    },
+    {
+      "id": "cisa-prot-006",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_network_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which device sits inline in the traffic path and can automatically block malicious traffic in real time, rather than only alerting on it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Passive intrusion detection system (IDS)"
+        },
+        {
+          "id": "B",
+          "text": "A network tap used only for monitoring"
+        },
+        {
+          "id": "C",
+          "text": "Intrusion prevention system (IPS)"
+        },
+        {
+          "id": "D",
+          "text": "A syslog server"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "An IPS is placed inline and can actively block or drop malicious traffic as it passes, whereas an IDS passively detects and alerts without stopping the traffic.",
+        "distractors": {
+          "A": "An IDS detects and alerts but does not block traffic.",
+          "B": "A passive tap only copies traffic for monitoring and cannot block it.",
+          "C": "",
+          "D": "A syslog server collects log data; it does not block traffic."
+        },
+        "exam_pattern": "IPS = inline, blocks (prevention); IDS = passive, alerts (detection)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — IDS and IPS"
+      ]
+    },
+    {
+      "id": "cisa-prot-007",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_network_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To protect the confidentiality and integrity of data transmitted between two offices over the public internet, which solution is MOST appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A VPN using IPsec"
+        },
+        {
+          "id": "B",
+          "text": "Disabling the firewall to improve speed"
+        },
+        {
+          "id": "C",
+          "text": "Sending the data as plaintext email"
+        },
+        {
+          "id": "D",
+          "text": "Publishing the data on a public web server"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A VPN using IPsec creates an encrypted, authenticated tunnel over the public internet, protecting the confidentiality and integrity of data in transit between sites.",
+        "distractors": {
+          "A": "",
+          "B": "Disabling the firewall weakens security and does nothing to protect data in transit.",
+          "C": "Plaintext email exposes the data to interception.",
+          "D": "Publishing on a public server exposes the data to anyone."
+        },
+        "exam_pattern": "Protect site-to-site traffic over the internet = encrypted VPN tunnel (IPsec)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — VPNs and secure transmission"
+      ]
+    },
+    {
+      "id": "cisa-prot-008",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_data_classification",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the PRIMARY purpose of a data classification scheme?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To speed up database queries"
+        },
+        {
+          "id": "B",
+          "text": "To make all data publicly available"
+        },
+        {
+          "id": "C",
+          "text": "To ensure data receives a level of protection appropriate to its sensitivity and value"
+        },
+        {
+          "id": "D",
+          "text": "To delete old data automatically"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Classification assigns data to sensitivity levels so that protection controls (access, encryption, handling) are applied commensurate with the data's value and risk, avoiding both under- and over-protection.",
+        "distractors": {
+          "A": "Query performance is a database-design matter, not the purpose of classification.",
+          "B": "Classification restricts access appropriately; it does not make everything public.",
+          "C": "",
+          "D": "Retention/disposal is a related but separate process from classifying sensitivity."
+        },
+        "exam_pattern": "Classify data so that the strength of protection matches its sensitivity/value."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Data classification"
+      ]
+    },
+    {
+      "id": "cisa-prot-009",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_data_classification",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Who is PRIMARILY responsible for assigning the classification level to a set of data?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The help desk technician"
+        },
+        {
+          "id": "B",
+          "text": "The data owner"
+        },
+        {
+          "id": "C",
+          "text": "The IS auditor"
+        },
+        {
+          "id": "D",
+          "text": "The backup operator"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The data owner, who understands the data's business value and sensitivity, is responsible for assigning its classification; custodians then apply the matching controls.",
+        "distractors": {
+          "A": "The help desk provides support, not data classification.",
+          "B": "",
+          "C": "The auditor evaluates whether classification is done appropriately but does not assign it.",
+          "D": "The backup operator is a custodian who safeguards data per the owner's direction."
+        },
+        "exam_pattern": "The data owner classifies; custodians protect according to that classification."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Data ownership and classification"
+      ]
+    },
+    {
+      "id": "cisa-prot-010",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_data_classification",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An IS auditor finds that highly sensitive customer data is stored without encryption while publicly available marketing data is heavily encrypted. This BEST indicates that:",
+      "options": [
+        {
+          "id": "A",
+          "text": "The marketing team is the data owner of the customer data"
+        },
+        {
+          "id": "B",
+          "text": "No further action is ever needed"
+        },
+        {
+          "id": "C",
+          "text": "Protection controls are not aligned with the data classification"
+        },
+        {
+          "id": "D",
+          "text": "The encryption algorithm is too strong"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Protection should be proportional to classification; encrypting low-sensitivity data while leaving highly sensitive data exposed shows controls are misaligned with the data's classification and risk.",
+        "distractors": {
+          "A": "The storage pattern says nothing about who owns the customer data.",
+          "B": "Unprotected sensitive data clearly requires corrective action.",
+          "C": "",
+          "D": "Strong encryption on public data is wasteful, but the core finding is the unprotected sensitive data."
+        },
+        "exam_pattern": "Controls must track classification - sensitive data left under-protected is the red flag."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Aligning controls to classification"
+      ]
+    },
+    {
+      "id": "cisa-prot-011",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_encryption_pki",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which type of cryptography uses the SAME single shared key to both encrypt and decrypt data?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Asymmetric (public-key) cryptography"
+        },
+        {
+          "id": "B",
+          "text": "A digital certificate"
+        },
+        {
+          "id": "C",
+          "text": "A cryptographic hash function"
+        },
+        {
+          "id": "D",
+          "text": "Symmetric cryptography"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Symmetric cryptography uses one shared secret key for both encryption and decryption; it is fast but requires secure key distribution.",
+        "distractors": {
+          "A": "Asymmetric cryptography uses a key pair (public and private), not one shared key.",
+          "B": "A digital certificate binds a public key to an identity; it is not an encryption method itself.",
+          "C": "A hash function is one-way and does not decrypt anything.",
+          "D": ""
+        },
+        "exam_pattern": "One shared key for encrypt+decrypt = symmetric (fast, but key distribution is the challenge)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Symmetric vs. asymmetric encryption"
+      ]
+    },
+    {
+      "id": "cisa-prot-012",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_encryption_pki",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "To create a digital signature, the sender encrypts the message's hash (digest) with which key?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The recipient's public key"
+        },
+        {
+          "id": "B",
+          "text": "The recipient's private key"
+        },
+        {
+          "id": "C",
+          "text": "A shared symmetric key"
+        },
+        {
+          "id": "D",
+          "text": "The sender's private key"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A digital signature is formed by encrypting the message digest with the sender's private key; anyone can verify it with the sender's public key, providing authentication, integrity, and non-repudiation.",
+        "distractors": {
+          "A": "Encrypting with the recipient's public key provides confidentiality, not a signature.",
+          "B": "The sender does not possess the recipient's private key.",
+          "C": "A shared symmetric key cannot provide non-repudiation, since both parties hold it.",
+          "D": ""
+        },
+        "exam_pattern": "Sign with the sender's PRIVATE key (verify with the public key) -> integrity + authentication + non-repudiation."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Digital signatures"
+      ]
+    },
+    {
+      "id": "cisa-prot-013",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_encryption_pki",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: In a public key infrastructure (PKI), the trusted entity that issues, signs, and revokes digital certificates binding a public key to an identity is the certificate ______.",
+      "correct": [
+        "authority",
+        "certificate authority",
+        "ca"
+      ],
+      "explanation": {
+        "correct": "The certificate authority (CA) is the trusted third party that issues and digitally signs certificates (and manages revocation), establishing trust in the binding between a public key and an identity.",
+        "distractors": {},
+        "exam_pattern": "The trusted issuer/signer of certificates in a PKI = certificate authority (CA)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — PKI and certificate authorities"
+      ]
+    },
+    {
+      "id": "cisa-prot-014",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_security_monitoring",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Before relying on system audit logs as evidence of user activity, what must the IS auditor FIRST be satisfied of?",
+      "options": [
+        {
+          "id": "A",
+          "text": "That the logs are stored on the fastest available disk"
+        },
+        {
+          "id": "B",
+          "text": "That the logs are printed on paper"
+        },
+        {
+          "id": "C",
+          "text": "That the logs are deleted every day"
+        },
+        {
+          "id": "D",
+          "text": "That the logs are protected from unauthorized modification so their integrity can be trusted"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Logs are reliable evidence only if their integrity is assured; the auditor must confirm that logs are protected from unauthorized alteration or deletion before relying on them.",
+        "distractors": {
+          "A": "Storage speed is irrelevant to the reliability of log content.",
+          "B": "The medium (paper vs. electronic) does not establish integrity.",
+          "C": "Deleting logs daily would destroy the very evidence needed.",
+          "D": ""
+        },
+        "exam_pattern": "Logs are evidence only if protected from tampering - verify integrity before relying on them."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Log integrity and security monitoring"
+      ]
+    },
+    {
+      "id": "cisa-prot-015",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_security_monitoring",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which technology centrally collects, aggregates, and correlates security event data from many sources to support monitoring and alerting?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A single-host antivirus scanner"
+        },
+        {
+          "id": "B",
+          "text": "A spreadsheet of passwords"
+        },
+        {
+          "id": "C",
+          "text": "Security information and event management (SIEM)"
+        },
+        {
+          "id": "D",
+          "text": "An uninterruptible power supply (UPS)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A SIEM aggregates and correlates logs and events from across the environment, enabling centralized monitoring, alerting, and investigation of security incidents.",
+        "distractors": {
+          "A": "Host antivirus protects one endpoint; it does not centrally correlate events across sources.",
+          "B": "A password spreadsheet is a security risk, not a monitoring technology.",
+          "C": "",
+          "D": "A UPS provides backup power, unrelated to event correlation."
+        },
+        "exam_pattern": "Central collection + correlation of security events = SIEM."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Security monitoring and SIEM"
+      ]
+    },
+    {
+      "id": "cisa-prot-016",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_security_monitoring",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Continuous review of security monitoring alerts and system logs to identify security events functions PRIMARILY as which type of control?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Deterrent control"
+        },
+        {
+          "id": "B",
+          "text": "Detective control"
+        },
+        {
+          "id": "C",
+          "text": "Compensating control"
+        },
+        {
+          "id": "D",
+          "text": "Preventive control"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Monitoring and log review discover security events that have occurred or are occurring, which makes them detective controls.",
+        "distractors": {
+          "A": "A deterrent discourages action but does not identify events.",
+          "B": "",
+          "C": "A compensating control substitutes for a missing primary control; monitoring here is primarily detective.",
+          "D": "A preventive control stops an event before it happens (e.g., access restriction), unlike monitoring."
+        },
+        "exam_pattern": "Monitoring/log review finds events as/after they occur = detective control."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Monitoring as a detective control"
+      ]
+    },
+    {
+      "id": "cisa-prot-017",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_physical_environmental",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which fire-suppression approach is MOST appropriate for a computer room to extinguish fire while minimizing damage to the electronic equipment?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An open bucket of water in each corner"
+        },
+        {
+          "id": "B",
+          "text": "A wet-pipe sprinkler aimed directly at the servers"
+        },
+        {
+          "id": "C",
+          "text": "No suppression, relying on staff to unplug equipment"
+        },
+        {
+          "id": "D",
+          "text": "A clean-agent (inert gas) suppression system"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A clean-agent / inert-gas suppression system extinguishes fire without leaving water or residue, protecting electronic equipment - the preferred approach for computer-room areas.",
+        "distractors": {
+          "A": "Buckets of water are ineffective, and water damages electronics and poses a shock hazard.",
+          "B": "A wet-pipe sprinkler discharging water onto servers can destroy the equipment it is meant to coexist with.",
+          "C": "No suppression leaves the facility exposed to catastrophic fire loss.",
+          "D": ""
+        },
+        "exam_pattern": "Protect electronics from fire with clean-agent/inert-gas suppression (avoid water damage)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Fire suppression"
+      ]
+    },
+    {
+      "id": "cisa-prot-018",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_physical_environmental",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "What is the PRIMARY purpose of an uninterruptible power supply (UPS) in a data center?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To back up data to tape"
+        },
+        {
+          "id": "B",
+          "text": "To cool the servers"
+        },
+        {
+          "id": "C",
+          "text": "To provide continuous short-term power during brief outages and allow an orderly shutdown or transfer to a generator"
+        },
+        {
+          "id": "D",
+          "text": "To filter network traffic"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A UPS supplies immediate battery power during short outages or dips, keeping systems running long enough for a graceful shutdown or for a generator to take over - protecting availability and preventing data loss/corruption.",
+        "distractors": {
+          "A": "Data backup is handled by backup systems, not a UPS.",
+          "B": "Cooling is provided by HVAC, not a UPS.",
+          "C": "",
+          "D": "Filtering traffic is a firewall function."
+        },
+        "exam_pattern": "UPS = bridge power for short outages + orderly shutdown / transfer to generator."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Environmental and power controls"
+      ]
+    },
+    {
+      "id": "cisa-prot-019",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_physical_environmental",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A physical access-control vestibule ('mantrap') with two interlocking doors is designed PRIMARILY to prevent:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Power surges to the equipment"
+        },
+        {
+          "id": "B",
+          "text": "SQL injection attacks"
+        },
+        {
+          "id": "C",
+          "text": "Email phishing"
+        },
+        {
+          "id": "D",
+          "text": "Tailgating/piggybacking (an unauthorized person following an authorized one through a door)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A mantrap / access-control vestibule allows only one person through at a time via interlocking doors, preventing tailgating or piggybacking into a secure area.",
+        "distractors": {
+          "A": "Power surges are handled by electrical protection, not a mantrap.",
+          "B": "SQL injection is an application-layer attack unrelated to physical entry.",
+          "C": "Phishing is a social-engineering email threat, not a physical access control.",
+          "D": ""
+        },
+        "exam_pattern": "Mantrap/vestibule stops tailgating/piggybacking into secure areas (one person at a time)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Physical access controls"
+      ]
+    }
+  ]
+}

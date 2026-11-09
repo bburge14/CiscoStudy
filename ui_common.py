@@ -73,12 +73,12 @@ CERT_CATALOG = [
     ]},
     {"provider": "(ISC)²", "blurb": "Cybersecurity practitioner & leadership", "certs": [
         {"key": "isc2cc", "name": "Certified in Cybersecurity (CC)", "status": "active"},
-        {"key": "sscp", "name": "SSCP", "status": "soon"},
-        {"key": "cissp", "name": "CISSP", "status": "soon"},
+        {"key": "sscp", "name": "SSCP", "status": "active"},
+        {"key": "cissp", "name": "CISSP", "status": "active"},
     ]},
     {"provider": "ISACA", "blurb": "Security management, audit & risk", "certs": [
-        {"key": "cism", "name": "CISM", "status": "soon"},
-        {"key": "cisa", "name": "CISA", "status": "soon"},
+        {"key": "cism", "name": "CISM", "status": "active"},
+        {"key": "cisa", "name": "CISA", "status": "active"},
     ]},
     {"provider": "EC-Council", "blurb": "Offensive security", "certs": [
         {"key": "ceh", "name": "Certified Ethical Hacker (CEH)", "status": "soon"},

@@ -33,6 +33,10 @@ import content_pentest  # noqa: E402
 import content_isc2cc  # noqa: E402
 import content_cbrops  # noqa: E402
 import content_sc900  # noqa: E402
+import content_cissp  # noqa: E402
+import content_cism  # noqa: E402
+import content_cisa  # noqa: E402
+import content_sscp  # noqa: E402
 
 # Base item pool per track. Any number of expansion pools named
 # tools/content_<exam>_*.py (e.g. content_ccna_2.py, content_secplus_gsc.py) are
@@ -43,7 +47,8 @@ BASE = {
     "netplus": content_netplus, "aplus1": content_aplus1, "aplus2": content_aplus2,
     "clf": content_clf, "az900": content_az900, "cysa": content_cysa,
     "pentest": content_pentest, "isc2cc": content_isc2cc, "cbrops": content_cbrops,
-    "sc900": content_sc900,
+    "sc900": content_sc900, "cissp": content_cissp, "cism": content_cism,
+    "cisa": content_cisa, "sscp": content_sscp,
 }
 
 
