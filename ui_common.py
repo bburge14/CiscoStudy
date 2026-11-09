@@ -67,7 +67,7 @@ CERT_CATALOG = [
         {"key": "aplus1", "name": "A+ Core 1 (220-1101)", "status": "active"},
         {"key": "aplus2", "name": "A+ Core 2 (220-1102)", "status": "active"},
         {"key": "pentest", "name": "PenTest+ PT0-003", "status": "active"},
-        {"key": "securityx", "name": "SecurityX / CASP+ (CAS-005)", "status": "soon"},
+        {"key": "securityx", "name": "SecurityX / CASP+ (CAS-005)", "status": "active"},
         {"key": "linuxplus", "name": "Linux+ XK0-005", "status": "soon"},
         {"key": "cloudplus", "name": "Cloud+ CV0-004", "status": "soon"},
     ]},
@@ -81,7 +81,7 @@ CERT_CATALOG = [
         {"key": "cisa", "name": "CISA", "status": "active"},
     ]},
     {"provider": "EC-Council", "blurb": "Offensive security", "certs": [
-        {"key": "ceh", "name": "Certified Ethical Hacker (CEH)", "status": "soon"},
+        {"key": "ceh", "name": "Certified Ethical Hacker (CEH)", "status": "active"},
     ]},
     {"provider": "AWS", "blurb": "Cloud fundamentals & architecture", "certs": [
         {"key": "clf", "name": "Cloud Practitioner (CLF-C02)", "status": "active"},
@@ -90,8 +90,8 @@ CERT_CATALOG = [
     {"provider": "Microsoft Azure", "blurb": "Azure, security & Microsoft 365", "certs": [
         {"key": "az900", "name": "Azure Fundamentals (AZ-900)", "status": "active"},
         {"key": "sc900", "name": "Security, Compliance & Identity (SC-900)", "status": "active"},
-        {"key": "sc200", "name": "Security Operations Analyst (SC-200)", "status": "soon"},
-        {"key": "az500", "name": "Azure Security Engineer (AZ-500)", "status": "soon"},
+        {"key": "sc200", "name": "Security Operations Analyst (SC-200)", "status": "active"},
+        {"key": "az500", "name": "Azure Security Engineer (AZ-500)", "status": "active"},
         {"key": "ms900", "name": "Microsoft 365 Fundamentals (MS-900)", "status": "soon"},
     ]},
 ]

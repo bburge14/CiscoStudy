@@ -1,0 +1,3430 @@
+{
+  "exam": "az500",
+  "count": 84,
+  "questions": [
+    {
+      "id": "az500-comp-001",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_compute_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You must encrypt the OS and data disk volumes of existing Azure VMs using BitLocker on Windows and dm-crypt on Linux, with the encryption keys stored in Azure Key Vault. Which capability provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Azure Disk Encryption (ADE)"
+        },
+        {
+          "id": "B",
+          "text": "Platform storage service encryption (SSE) for managed disks only"
+        },
+        {
+          "id": "C",
+          "text": "Always Encrypted"
+        },
+        {
+          "id": "D",
+          "text": "Transparent Data Encryption (TDE)"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Azure Disk Encryption uses BitLocker (Windows) or dm-crypt (Linux) inside the guest to encrypt OS and data volumes, with the encryption keys and secrets stored in Azure Key Vault.",
+        "distractors": {
+          "A": "",
+          "B": "Platform SSE automatically encrypts managed disks at rest with platform-managed keys, but it is not in-guest BitLocker/dm-crypt volume encryption with keys you control in Key Vault.",
+          "C": "Always Encrypted protects sensitive database columns from the database engine, not VM disk volumes.",
+          "D": "TDE encrypts databases (such as Azure SQL) at rest, not VM OS/data volumes."
+        },
+        "exam_pattern": "Guest volume encryption with BitLocker/dm-crypt + keys in Key Vault = Azure Disk Encryption (ADE)."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Disk Encryption for virtual machines"
+      ]
+    },
+    {
+      "id": "az500-comp-002",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_compute_security",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "You want VM temp disks, OS/data disk caches, and disk data encrypted at the Azure host itself (end to end, before data leaves the host) without running an in-guest encryption agent. Which feature should you enable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Just-in-time VM access"
+        },
+        {
+          "id": "B",
+          "text": "A customer-managed key on a storage account firewall"
+        },
+        {
+          "id": "C",
+          "text": "Azure Disk Encryption (ADE)"
+        },
+        {
+          "id": "D",
+          "text": "Encryption at host"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Encryption at host encrypts the VM's temp disk, disk caches, and data flows at the host, with no in-guest agent, providing end-to-end encryption before data leaves the host.",
+        "distractors": {
+          "A": "JIT controls management-port exposure; it is not disk encryption.",
+          "B": "Storage account firewalls/CMKs do not encrypt VM host caches or temp disks.",
+          "C": "ADE encrypts volumes inside the guest OS with BitLocker/dm-crypt (an in-guest agent), not at the host.",
+          "D": ""
+        },
+        "exam_pattern": "Host-level, agentless end-to-end disk/cache/temp encryption = encryption at host; in-guest BitLocker/dm-crypt = Azure Disk Encryption."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Encryption at host vs Azure Disk Encryption"
+      ]
+    },
+    {
+      "id": "az500-comp-003",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_compute_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You enable Microsoft Defender for Servers to get endpoint detection and response on your VMs, plus file integrity monitoring and just-in-time VM access. These capabilities beyond core EDR are provided by which plan?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Defender for Servers Plan 2"
+        },
+        {
+          "id": "B",
+          "text": "The free foundational CSPM tier"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Entra ID P2"
+        },
+        {
+          "id": "D",
+          "text": "Defender for Servers Plan 1 only"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Defender for Servers Plan 2 provides everything in Plan 1 plus file integrity monitoring, just-in-time VM access, agentless scanning, OS configuration assessment, and more.",
+        "distractors": {
+          "A": "",
+          "B": "Foundational CSPM is free posture management; it does not provide server EDR, FIM, or JIT.",
+          "C": "Entra ID P2 covers identity features (PIM, ID Protection), not server workload protection.",
+          "D": "Plan 1 focuses on EDR via the Defender for Endpoint integration; FIM and JIT are Plan 2 features."
+        },
+        "exam_pattern": "Defender for Servers Plan 1 = EDR (Defender for Endpoint integration); Plan 2 adds JIT, file integrity monitoring, agentless scanning, and OS config assessment."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Select a Defender for Servers plan"
+      ]
+    },
+    {
+      "id": "az500-comp-004",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_compute_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Before images are deployed to Azure Kubernetes Service, you must scan images in Azure Container Registry for known vulnerabilities and detect runtime threats in the cluster. Which Defender for Cloud plan provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Defender for Servers"
+        },
+        {
+          "id": "B",
+          "text": "Defender for Key Vault"
+        },
+        {
+          "id": "C",
+          "text": "Defender for Storage"
+        },
+        {
+          "id": "D",
+          "text": "Defender for Containers"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Microsoft Defender for Containers scans container registry images for vulnerabilities and provides runtime threat detection for Kubernetes clusters such as AKS.",
+        "distractors": {
+          "A": "Defender for Servers protects VM-based workloads, not container registry images or AKS runtime.",
+          "B": "Defender for Key Vault detects anomalous vault access, not container vulnerabilities.",
+          "C": "Defender for Storage detects threats to storage accounts, not container images.",
+          "D": ""
+        },
+        "exam_pattern": "Container registry image scanning + Kubernetes runtime threat detection = Microsoft Defender for Containers."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Microsoft Defender for Containers"
+      ]
+    },
+    {
+      "id": "az500-comp-005",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_compute_security",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Fill in the blank: Azure Disk ________ uses BitLocker on Windows and dm-crypt on Linux to encrypt the operating-system and data disk volumes of a virtual machine, with its keys held in Azure Key Vault.",
+      "correct": [
+        "encryption"
+      ],
+      "explanation": {
+        "correct": "Azure Disk Encryption (ADE) encrypts VM OS and data volumes using BitLocker (Windows) or dm-crypt (Linux), storing the keys and secrets in Azure Key Vault.",
+        "exam_pattern": "ADE = Azure Disk Encryption; in-guest BitLocker/dm-crypt with keys in Key Vault."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Disk Encryption for virtual machines"
+      ]
+    },
+    {
+      "id": "az500-comp-006",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_storage_security",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "You must issue a time-limited SAS for a blob container and want it signed with Microsoft Entra credentials rather than the storage account key, so it can be revoked by revoking the identity and does not depend on the account key. Which SAS type should you use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A user delegation SAS"
+        },
+        {
+          "id": "B",
+          "text": "A service SAS"
+        },
+        {
+          "id": "C",
+          "text": "An account SAS"
+        },
+        {
+          "id": "D",
+          "text": "A stored access policy on the account key"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A user delegation SAS is signed with a key obtained from Microsoft Entra credentials (not the account key), is the most secure SAS type, and has a maximum 7-day lifetime tied to that delegation key.",
+        "distractors": {
+          "A": "",
+          "B": "A service SAS is also signed with the account key and limited to one service; it is not Entra-secured.",
+          "C": "An account SAS is signed with the storage account key and can span services; it is not secured with Entra credentials.",
+          "D": "A stored access policy constrains a service SAS but is still account-key based, not Entra-signed."
+        },
+        "exam_pattern": "Most secure SAS = user delegation SAS (signed with Entra credentials, max 7 days); account and service SAS are signed with the account key."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Grant limited access with SAS - user delegation SAS"
+      ]
+    },
+    {
+      "id": "az500-comp-007",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_storage_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which statement correctly distinguishes an account SAS from a service SAS in Azure Storage?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An account SAS can delegate access to multiple services (such as Blob and Queue) and to service-level operations, while a service SAS is limited to a single service"
+        },
+        {
+          "id": "B",
+          "text": "A service SAS can span multiple services, while an account SAS is limited to one"
+        },
+        {
+          "id": "C",
+          "text": "Neither type can be time-limited"
+        },
+        {
+          "id": "D",
+          "text": "Both are signed with Microsoft Entra credentials"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The account SAS is the broader token: it can cover multiple services and service-level operations, whereas a service SAS is scoped to one service. Both are signed with the account key.",
+        "distractors": {
+          "A": "",
+          "B": "This is reversed; the account SAS is the broader of the two.",
+          "C": "Both SAS types are time-limited via their start/expiry parameters.",
+          "D": "Both the account and service SAS are signed with the storage account key, not Entra credentials (that is the user delegation SAS)."
+        },
+        "exam_pattern": "Account SAS = multiple services + service-level ops (account-key signed); service SAS = one service (account-key signed); user delegation SAS = Entra-signed."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Types of shared access signatures"
+      ]
+    },
+    {
+      "id": "az500-comp-008",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_storage_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Instead of distributing storage account keys, you want an application's managed identity to read and write blobs, authorized by Microsoft Entra ID with least privilege. Which assignment accomplishes this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Assign the built-in Storage Blob Data Contributor role to the identity at the container or account scope"
+        },
+        {
+          "id": "B",
+          "text": "Share the account key (key1) with the application"
+        },
+        {
+          "id": "C",
+          "text": "Grant the identity the Owner role on the subscription"
+        },
+        {
+          "id": "D",
+          "text": "Create a service SAS and embed it in the app"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Storage Blob Data Contributor is the Entra data-plane role that grants read/write to blob data; assigning it to the managed identity at the needed scope gives least-privilege Entra-authorized access.",
+        "distractors": {
+          "A": "",
+          "B": "Sharing the account key is exactly the practice you are trying to avoid, and it grants full access.",
+          "C": "Subscription Owner is massive over-privilege and is not the data-plane role for blob access.",
+          "D": "A service SAS is account-key based, not Entra authorization, and is not least-privilege role-based access."
+        },
+        "exam_pattern": "Entra-authorized blob data access = assign a Storage Blob Data role (Reader/Contributor/Owner) to the identity; avoid account keys."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Authorize access to blobs using Microsoft Entra ID"
+      ]
+    },
+    {
+      "id": "az500-comp-009",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_storage_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You must ensure a storage account accepts connections only from a specific virtual network and a short list of corporate public IP ranges, denying all other networks. Which storage feature enforces this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Transparent Data Encryption"
+        },
+        {
+          "id": "B",
+          "text": "Blob soft delete"
+        },
+        {
+          "id": "C",
+          "text": "A stored access policy"
+        },
+        {
+          "id": "D",
+          "text": "The storage account firewall (allow selected networks/IP ranges, default deny)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The storage account firewall restricts access to selected virtual networks and IP ranges with a default-deny posture (and can be combined with private endpoints).",
+        "distractors": {
+          "A": "TDE is a database encryption feature, not a storage network control.",
+          "B": "Soft delete recovers deleted data; it does not restrict source networks.",
+          "C": "A stored access policy manages SAS constraints, not account-level network filtering.",
+          "D": ""
+        },
+        "exam_pattern": "Restrict a storage account to selected VNets/IP ranges with default-deny = the storage account firewall (plus private endpoints)."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Configure Azure Storage firewalls and virtual networks"
+      ]
+    },
+    {
+      "id": "az500-comp-010",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_storage_security",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "To protect blobs from accidental or malicious deletion and overwrite, which TWO storage capabilities should you enable? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Immutable storage with a time-based retention policy (WORM)"
+        },
+        {
+          "id": "B",
+          "text": "A user-defined route"
+        },
+        {
+          "id": "C",
+          "text": "Blob soft delete (and container soft delete)"
+        },
+        {
+          "id": "D",
+          "text": "Dynamic Data Masking"
+        }
+      ],
+      "correct": [
+        "A",
+        "C"
+      ],
+      "explanation": {
+        "correct": "Soft delete lets you recover deleted blobs/containers within a retention window, and immutable storage (WORM) with time-based retention or legal hold prevents data from being modified or deleted.",
+        "distractors": {
+          "A": "",
+          "B": "A user-defined route controls network next-hops, not data protection.",
+          "C": "",
+          "D": "Dynamic Data Masking obscures sensitive data in SQL query results; it has nothing to do with blob retention."
+        },
+        "exam_pattern": "Guard blobs from deletion/overwrite with soft delete, versioning, and immutable (WORM) retention/legal hold."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Data protection for Azure Blob Storage (soft delete, immutable storage)"
+      ]
+    },
+    {
+      "id": "az500-comp-011",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_storage_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Your security baseline mandates that applications authenticate to storage with Microsoft Entra ID and that storage account key access be eliminated wherever possible. Which setting enforces that the account keys can no longer be used for authorization?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Enable blob soft delete"
+        },
+        {
+          "id": "B",
+          "text": "Set 'Allow storage account key access' to Disabled (disallow Shared Key authorization)"
+        },
+        {
+          "id": "C",
+          "text": "Rotate the account keys daily"
+        },
+        {
+          "id": "D",
+          "text": "Add a CanNotDelete lock to the account"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Disallowing Shared Key authorization (setting account key access to Disabled) forces all requests to use Microsoft Entra authorization, eliminating key-based access.",
+        "distractors": {
+          "A": "Soft delete protects data from deletion; it does not disable key-based authentication.",
+          "B": "",
+          "C": "Rotating keys keeps key authorization in use; it does not eliminate it.",
+          "D": "A resource lock prevents deletion/modification of the resource; it does not block Shared Key authorization."
+        },
+        "exam_pattern": "Enforce Entra-only data access by disallowing Shared Key authorization on the storage account."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Prevent Shared Key authorization for Azure Storage"
+      ]
+    },
+    {
+      "id": "az500-comp-012",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_database_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An Azure SQL Database must have its data files, log files, and backups encrypted at rest, transparently to applications and with no code changes. Which feature provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Transparent Data Encryption (TDE)"
+        },
+        {
+          "id": "B",
+          "text": "Dynamic Data Masking"
+        },
+        {
+          "id": "C",
+          "text": "Always Encrypted"
+        },
+        {
+          "id": "D",
+          "text": "A network security group"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "TDE encrypts the database data, log files, and backups at rest transparently to the application, using a service-managed or customer-managed (BYOK) key.",
+        "distractors": {
+          "A": "",
+          "B": "Dynamic Data Masking only obfuscates data in query results; it does not encrypt data at rest.",
+          "C": "Always Encrypted protects specific sensitive columns from the engine and needs client-side keys/driver changes; it is not whole-database at-rest encryption.",
+          "D": "An NSG filters network traffic; it does not encrypt database storage."
+        },
+        "exam_pattern": "Whole-database encryption at rest, transparent to the app = TDE (service-managed or customer-managed/BYOK key)."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Transparent Data Encryption for Azure SQL"
+      ]
+    },
+    {
+      "id": "az500-comp-013",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_database_security",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Regulations require that certain columns (such as national ID numbers) never appear in plaintext to the Azure SQL database engine or to database administrators, and are decrypted only inside the client application. Which feature meets this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dynamic Data Masking"
+        },
+        {
+          "id": "B",
+          "text": "Auditing"
+        },
+        {
+          "id": "C",
+          "text": "Transparent Data Encryption (TDE)"
+        },
+        {
+          "id": "D",
+          "text": "Always Encrypted"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Always Encrypted keeps designated columns encrypted on the server and decrypts them only in the client driver with keys the database engine never sees, so the engine and DBAs cannot read plaintext.",
+        "distractors": {
+          "A": "Dynamic Data Masking only masks data in result sets; the underlying data stays visible to privileged users and the engine.",
+          "B": "Auditing records access; it does not keep data encrypted from the engine or DBAs.",
+          "C": "TDE encrypts at rest, but the engine processes plaintext in memory, so DBAs and the engine can see the data.",
+          "D": ""
+        },
+        "exam_pattern": "Keep sensitive columns encrypted from the engine/DBAs and decrypt only client-side (data in use) = Always Encrypted (client holds the keys)."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Always Encrypted for Azure SQL"
+      ]
+    },
+    {
+      "id": "az500-comp-014",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_database_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Support staff should see only the last four digits of credit-card numbers in query results, but the stored data must remain unchanged and privileged users should still see full values. Which Azure SQL feature fits, and what is its key limitation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dynamic Data Masking; it obfuscates data in the result set only and is not a substitute for encryption or access control"
+        },
+        {
+          "id": "B",
+          "text": "Always Encrypted; it encrypts the column so no one can read it"
+        },
+        {
+          "id": "C",
+          "text": "Transparent Data Encryption; it hides specific columns at rest"
+        },
+        {
+          "id": "D",
+          "text": "Auditing; it masks values in the audit log"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Dynamic Data Masking masks data in query results for unprivileged users while leaving stored data unchanged, but it is a presentation-layer control only - not encryption or real access control.",
+        "distractors": {
+          "A": "",
+          "B": "Always Encrypted encrypts the column end to end; it does not provide role-based partial masking in results.",
+          "C": "TDE encrypts the whole database at rest and does not mask specific fields in results.",
+          "D": "Auditing records events; it does not mask returned query data."
+        },
+        "exam_pattern": "Dynamic Data Masking = presentation-layer obfuscation in results only; it is not encryption, and privileged users/queries can still reveal data."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Dynamic Data Masking for Azure SQL"
+      ]
+    },
+    {
+      "id": "az500-comp-015",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_database_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You want to eliminate SQL logins with passwords on an Azure SQL Database and instead let administrators and apps authenticate with centrally governed, MFA-capable identities. Which approach should you configure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Enable TDE with a customer-managed key"
+        },
+        {
+          "id": "B",
+          "text": "Configure Microsoft Entra authentication (set an Entra admin) and use Entra identities and managed identities"
+        },
+        {
+          "id": "C",
+          "text": "Use the sa account for all access"
+        },
+        {
+          "id": "D",
+          "text": "Issue a service SAS to each user"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Setting a Microsoft Entra admin and using Entra users, groups, and managed identities lets you authenticate with centrally governed identities that can require MFA and Conditional Access, replacing SQL passwords.",
+        "distractors": {
+          "A": "TDE encrypts data at rest; it is unrelated to how users authenticate.",
+          "B": "",
+          "C": "Relying on a shared high-privilege account is an anti-pattern and is not centrally governed or MFA-capable.",
+          "D": "SAS tokens are a storage concept and do not apply to Azure SQL authentication."
+        },
+        "exam_pattern": "Centralized, MFA-capable DB sign-in = Microsoft Entra authentication for Azure SQL (set the Entra admin; use Entra users/groups/managed identities)."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Microsoft Entra authentication for Azure SQL"
+      ]
+    },
+    {
+      "id": "az500-comp-016",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_database_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You need vulnerability assessment scans and alerts for anomalous activities such as potential SQL injection and access from unusual locations on your Azure SQL databases. Which capability provides both?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft Defender for SQL"
+        },
+        {
+          "id": "B",
+          "text": "Transparent Data Encryption"
+        },
+        {
+          "id": "C",
+          "text": "Dynamic Data Masking"
+        },
+        {
+          "id": "D",
+          "text": "A resource lock"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Microsoft Defender for SQL bundles a vulnerability assessment and advanced threat protection that alerts on anomalous activities such as potential SQL injection and access from unusual locations.",
+        "distractors": {
+          "A": "",
+          "B": "TDE encrypts at rest; it provides no vulnerability assessment or threat alerts.",
+          "C": "Dynamic Data Masking obfuscates result data; it does not scan for vulnerabilities or detect threats.",
+          "D": "A resource lock prevents deletion/modification; it does not detect threats."
+        },
+        "exam_pattern": "Vulnerability assessment + advanced threat protection (SQLi, anomalous access) for databases = Microsoft Defender for SQL."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Microsoft Defender for SQL"
+      ]
+    },
+    {
+      "id": "az500-comp-017",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_key_vault",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "You are standardizing how permissions to an Azure Key Vault's secrets and keys are granted and want to manage vault data-plane access the same way as other Azure resources - with role assignments that can be scoped and inherited. Which permission model should you choose?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Shared Key authorization"
+        },
+        {
+          "id": "B",
+          "text": "A service SAS on the vault"
+        },
+        {
+          "id": "C",
+          "text": "The legacy vault access policy model"
+        },
+        {
+          "id": "D",
+          "text": "The Azure RBAC permission model for Key Vault"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The Azure RBAC permission model lets you grant Key Vault data-plane access with role assignments (for example, Key Vault Secrets User) that honor Azure scope and inheritance; Microsoft recommends it over access policies.",
+        "distractors": {
+          "A": "Shared Key authorization is a storage-account concept, not a Key Vault model.",
+          "B": "SAS tokens are a storage feature; Key Vault does not use SAS for access.",
+          "C": "The access policy model grants permissions per vault and is not integrated with Azure RBAC scoping/inheritance.",
+          "D": ""
+        },
+        "exam_pattern": "Key Vault has two permission models - legacy vault access policies and Azure RBAC; RBAC (roles like Key Vault Secrets User) is the recommended, scope/inheritance-aware model."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Key Vault access policies vs Azure RBAC"
+      ]
+    },
+    {
+      "id": "az500-comp-018",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_key_vault",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To prevent an administrator - or an attacker who gains rights - from permanently and immediately destroying keys in a Key Vault, you must ensure deleted objects are recoverable for a retention period and cannot be purged early. Which settings achieve this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Disable soft delete and add a resource lock"
+        },
+        {
+          "id": "B",
+          "text": "Enable soft delete and purge protection"
+        },
+        {
+          "id": "C",
+          "text": "Rotate the keys more frequently"
+        },
+        {
+          "id": "D",
+          "text": "Enable soft delete only"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Soft delete makes deleted vaults/objects recoverable within the retention period, and purge protection blocks early permanent deletion (purge) until that period elapses; together they stop immediate destruction.",
+        "distractors": {
+          "A": "Disabling soft delete removes recoverability entirely, the opposite of the goal.",
+          "B": "",
+          "C": "Rotation changes key material on a schedule; it does not prevent permanent deletion.",
+          "D": "Soft delete alone still allows a privileged user to purge within the retention window; purge protection is needed to block early purge."
+        },
+        "exam_pattern": "Soft delete = recover deleted vault/objects within retention; purge protection = block permanent deletion until retention elapses."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Key Vault soft delete and purge protection"
+      ]
+    },
+    {
+      "id": "az500-comp-019",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_key_vault",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A compliance mandate requires cryptographic keys to be protected by single-tenant, FIPS 140-2 Level 3 validated hardware security modules that your organization fully controls. Which Azure option meets this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Azure Key Vault Managed HSM"
+        },
+        {
+          "id": "B",
+          "text": "The Key Vault Standard tier with software-protected keys"
+        },
+        {
+          "id": "C",
+          "text": "Storage account customer-managed keys stored in a Standard vault"
+        },
+        {
+          "id": "D",
+          "text": "Dynamic Data Masking"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Azure Key Vault Managed HSM is a fully managed, single-tenant, highly available service that protects keys with FIPS 140-2 Level 3 validated HSMs under the customer's control.",
+        "distractors": {
+          "A": "",
+          "B": "The Standard tier uses software-protected keys and does not meet single-tenant Level 3 HSM requirements.",
+          "C": "Where the key is referenced does not change that a Standard vault is not a single-tenant Level 3 HSM.",
+          "D": "Dynamic Data Masking is a database feature unrelated to key-protection hardware."
+        },
+        "exam_pattern": "Single-tenant, fully controlled FIPS 140-2 Level 3 HSM = Azure Key Vault Managed HSM; Premium vaults offer multi-tenant HSM-backed keys."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Key Vault Managed HSM"
+      ]
+    },
+    {
+      "id": "az500-comp-020",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_key_vault",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An application needs to retrieve a database connection string and a TLS certificate at runtime without storing either in its code. Which Azure service should hold these, and how should the app authenticate to it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An NSG accessed by IP allowlist"
+        },
+        {
+          "id": "B",
+          "text": "Azure Key Vault, accessed using the app's managed identity with a least-privilege role"
+        },
+        {
+          "id": "C",
+          "text": "A storage account accessed with the account key"
+        },
+        {
+          "id": "D",
+          "text": "A SQL table protected by Dynamic Data Masking"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Azure Key Vault centrally stores secrets, keys, and certificates; the app should read them using its managed identity granted a least-privilege Key Vault role (for example, Key Vault Secrets User).",
+        "distractors": {
+          "A": "An NSG is a network filter; it does not store secrets or certificates.",
+          "B": "",
+          "C": "Storage accounts are not the secret-management service, and account keys are exactly the kind of secret you should avoid embedding.",
+          "D": "A SQL table with masking is not a secret store and does not provide certificate management."
+        },
+        "exam_pattern": "Centralize secrets/keys/certificates in Key Vault; let apps fetch them via a managed identity with a least-privilege Key Vault role."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Key Vault - secrets, keys, and certificates"
+      ]
+    },
+    {
+      "id": "az500-comp-021",
+      "exam": "az500",
+      "domain": "az500_compute_storage_db",
+      "subtopic": "az500_key_vault",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Fill in the blank: Azure Key Vault is a centralized service for safeguarding three kinds of objects: secrets (such as passwords and connection strings), cryptographic keys, and ________ (such as TLS/SSL items it can also provision and auto-renew).",
+      "correct": [
+        "certificates",
+        "certificate"
+      ],
+      "explanation": {
+        "correct": "Key Vault manages secrets, keys, and certificates; for certificates it can store, provision, manage, and auto-renew TLS/SSL certificates in integration with certificate authorities.",
+        "exam_pattern": "Key Vault safeguards secrets, keys, and certificates - one service for all three object types."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Key Vault - secrets, keys, and certificates"
+      ]
+    },
+    {
+      "id": "az500-id-001",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_entra_identities",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A partner firm's engineers need to collaborate on a shared Azure resource using their own existing work accounts, without your organization creating or managing passwords for them. Which Microsoft Entra capability should you use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Invite them as Microsoft Entra B2B collaboration (guest) users"
+        },
+        {
+          "id": "B",
+          "text": "Share one service account across the whole partner team"
+        },
+        {
+          "id": "C",
+          "text": "Deploy Microsoft Entra Domain Services"
+        },
+        {
+          "id": "D",
+          "text": "Create member user accounts for each engineer in your tenant"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Microsoft Entra B2B collaboration invites external users as guests who sign in with their own home-tenant credentials, so you never create or manage their passwords.",
+        "distractors": {
+          "A": "",
+          "B": "A shared account destroys individual accountability and auditing and is a security anti-pattern.",
+          "C": "Entra Domain Services provides managed domain services (LDAP/Kerberos/NTLM) for legacy workloads, not external partner collaboration.",
+          "D": "Creating member accounts means you own their credentials and lifecycle - the opposite of the requirement and far more administrative overhead."
+        },
+        "exam_pattern": "External collaborators who bring their own identity = Entra B2B guest invite, not new member accounts or shared accounts."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Microsoft Entra External ID - B2B collaboration"
+      ]
+    },
+    {
+      "id": "az500-id-002",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_entra_identities",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You want group membership to update automatically as a user's department attribute changes, so license and access assignments always track the department with no manual upkeep. Which configuration meets this best?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An administrative unit that contains the department's users"
+        },
+        {
+          "id": "B",
+          "text": "A dynamic security group with a membership rule on the department attribute"
+        },
+        {
+          "id": "C",
+          "text": "An assigned security group whose members are added manually"
+        },
+        {
+          "id": "D",
+          "text": "A Microsoft 365 group whose owner reviews membership each month"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A dynamic membership group evaluates an attribute-based rule and automatically adds or removes members as their attributes change, so membership self-maintains.",
+        "distractors": {
+          "A": "An administrative unit scopes delegated administration over a set of objects; it does not auto-populate membership for licensing or access.",
+          "B": "",
+          "C": "Assigned groups require manual membership edits, so they drift out of sync as attributes change.",
+          "D": "Owner-reviewed membership is still manual and periodic, not automatic and attribute-driven."
+        },
+        "exam_pattern": "Automatic, attribute-driven membership = dynamic group with a membership rule (needs Entra ID P1)."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Microsoft Entra dynamic membership groups"
+      ]
+    },
+    {
+      "id": "az500-id-003",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_entra_identities",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A regional helpdesk should be able to reset passwords only for users in the Finance business unit, not for the entire directory. Which Microsoft Entra feature scopes their administrative role to just those users?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Administrative units"
+        },
+        {
+          "id": "B",
+          "text": "Dynamic groups"
+        },
+        {
+          "id": "C",
+          "text": "Conditional Access"
+        },
+        {
+          "id": "D",
+          "text": "Azure management groups"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Administrative units let you scope a Microsoft Entra directory role (such as Password Administrator) to a subset of the directory, so the helpdesk acts only on Finance users.",
+        "distractors": {
+          "A": "",
+          "B": "Dynamic groups automate membership but do not restrict the scope of an admin role.",
+          "C": "Conditional Access governs sign-in conditions, not the scope of delegated administration.",
+          "D": "Azure management groups organize Azure subscriptions for governance, not Entra directory-role scope."
+        },
+        "exam_pattern": "Scope a directory role to a subset of users/devices/groups = administrative units."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Microsoft Entra administrative units"
+      ]
+    },
+    {
+      "id": "az500-id-004",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_entra_identities",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Your company is building a public retail app and needs millions of consumers to sign up and sign in with social or local accounts, fully branded as your app. Which identity solution is designed for this customer-facing scenario?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft Entra Privileged Identity Management"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft Entra Domain Services"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Entra B2B collaboration"
+        },
+        {
+          "id": "D",
+          "text": "Microsoft Entra External ID for customers (Azure AD B2C)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Entra External ID for customers (the evolution of Azure AD B2C) is the customer identity and access management (CIAM) solution for consumer sign-up/sign-in with social or local accounts and full app branding.",
+        "distractors": {
+          "A": "PIM manages just-in-time privileged access for administrators, unrelated to consumer identity.",
+          "B": "Entra Domain Services provides managed domain services for legacy workloads, not consumer identity.",
+          "C": "B2B collaboration invites business partners into your tenant; it is not for mass consumer sign-up.",
+          "D": ""
+        },
+        "exam_pattern": "Consumer/customer-facing sign-up (CIAM) = External ID for customers / B2C; partner collaboration = B2B."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Microsoft Entra External ID - B2B vs customer (B2C) identities"
+      ]
+    },
+    {
+      "id": "az500-id-005",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_entra_identities",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Fill in the blank: A Microsoft Entra group whose membership is recalculated automatically from a rule evaluated against user or device attributes (such as department or country), rather than edited by hand, is called a ________ membership group.",
+      "correct": [
+        "dynamic"
+      ],
+      "explanation": {
+        "correct": "Dynamic membership groups use an attribute-based rule; Entra automatically adds or removes members as their attributes change, unlike assigned (static) groups that are edited manually.",
+        "exam_pattern": "Attribute-rule, auto-updating membership = dynamic group; manual membership = assigned group."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Microsoft Entra dynamic membership groups"
+      ]
+    },
+    {
+      "id": "az500-id-006",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_entra_authn_authz",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Policy requires multifactor authentication only when users reach the finance app from outside the corporate network, while in-office access stays seamless. Which control implements this location-aware requirement?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A self-service password reset (SSPR) policy"
+        },
+        {
+          "id": "B",
+          "text": "A Conditional Access policy targeting the app with a named-location condition and a grant control requiring MFA"
+        },
+        {
+          "id": "C",
+          "text": "Legacy per-user MFA enabled for every user"
+        },
+        {
+          "id": "D",
+          "text": "Enable security defaults on the tenant"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Conditional Access evaluates signals (here, named location and target app) and applies a grant control; requiring MFA only from outside the trusted location meets the requirement.",
+        "distractors": {
+          "A": "SSPR lets users reset their own passwords; it does not enforce MFA on app access.",
+          "B": "",
+          "C": "Legacy per-user MFA always prompts regardless of location, so in-office access would not stay seamless.",
+          "D": "Security defaults apply one baseline MFA behavior to everyone and cannot be tailored by app or location."
+        },
+        "exam_pattern": "Conditional, signal-based access (location/app/risk) = Conditional Access (needs Entra ID P1); security defaults are all-or-nothing."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Conditional Access policies and conditions"
+      ]
+    },
+    {
+      "id": "az500-id-007",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_entra_authn_authz",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You must remove passwords for a group of administrators by issuing phishing-resistant hardware keys they tap to sign in. Which authentication method should you deploy?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SMS text-message codes"
+        },
+        {
+          "id": "B",
+          "text": "A Temporary Access Pass as the permanent sign-in method"
+        },
+        {
+          "id": "C",
+          "text": "Security questions"
+        },
+        {
+          "id": "D",
+          "text": "FIDO2 security keys"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "FIDO2 security keys are a phishing-resistant, passwordless method; the user proves possession of the hardware key instead of entering a password.",
+        "distractors": {
+          "A": "SMS is a weak second factor vulnerable to SIM-swap and interception, and it is not passwordless.",
+          "B": "A Temporary Access Pass is a time-limited onboarding/recovery credential, not a permanent method.",
+          "C": "Security questions are knowledge-based secrets (the weakest factor) and are not passwordless.",
+          "D": ""
+        },
+        "exam_pattern": "Phishing-resistant passwordless = FIDO2 security keys, Windows Hello for Business, or Microsoft Authenticator passwordless sign-in."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Passwordless authentication options for Microsoft Entra ID"
+      ]
+    },
+    {
+      "id": "az500-id-008",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_entra_authn_authz",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "The helpdesk is overwhelmed by password-reset calls. Which Microsoft Entra feature lets users securely reset or unlock their own accounts after verifying registered authentication methods?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft Entra Connect"
+        },
+        {
+          "id": "B",
+          "text": "Conditional Access"
+        },
+        {
+          "id": "C",
+          "text": "Privileged Identity Management (PIM)"
+        },
+        {
+          "id": "D",
+          "text": "Self-service password reset (SSPR)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "SSPR lets users reset or unlock their own accounts after passing registered authentication methods, cutting helpdesk password calls.",
+        "distractors": {
+          "A": "Entra Connect synchronizes on-premises AD to Entra ID (and enables password writeback that supports SSPR); it is not itself the self-service reset portal.",
+          "B": "Conditional Access evaluates sign-in conditions; it does not reset passwords.",
+          "C": "PIM manages time-bound privileged role activation, not end-user password resets.",
+          "D": ""
+        },
+        "exam_pattern": "Users reset their own passwords after proving identity = SSPR (with writeback for hybrid)."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Self-service password reset"
+      ]
+    },
+    {
+      "id": "az500-id-009",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_entra_authn_authz",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "You want sign-ins that Microsoft Entra flags as high risk (for example, from anonymous IP addresses or atypical travel) to automatically force the user to complete MFA. Which capability provides this risk signal and automated response?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A network security group rule"
+        },
+        {
+          "id": "B",
+          "text": "An Azure Policy with a DeployIfNotExists effect"
+        },
+        {
+          "id": "C",
+          "text": "A Microsoft Entra ID Protection sign-in risk policy enforced through Conditional Access"
+        },
+        {
+          "id": "D",
+          "text": "Microsoft Defender for Cloud Secure Score"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Microsoft Entra ID Protection detects sign-in and user risk and, through a risk-based Conditional Access policy, can automatically require MFA or a secure password change.",
+        "distractors": {
+          "A": "NSG rules filter network traffic by IP/port; they do not evaluate identity risk.",
+          "B": "Azure Policy governs Azure resource configuration, not identity sign-in risk.",
+          "C": "",
+          "D": "Secure Score measures resource security posture; it does not score or remediate user sign-in risk."
+        },
+        "exam_pattern": "Detect risky sign-ins/users and auto-remediate (MFA / password change) = Entra ID Protection risk policies (needs Entra ID P2), enforced via Conditional Access."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Microsoft Entra ID Protection risk-based policies"
+      ]
+    },
+    {
+      "id": "az500-id-010",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_entra_authn_authz",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "In a Conditional Access policy, which TWO of the following are valid grant controls you can require before access is allowed? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Apply a CanNotDelete resource lock"
+        },
+        {
+          "id": "B",
+          "text": "Encrypt the virtual machine's OS disk"
+        },
+        {
+          "id": "C",
+          "text": "Require multifactor authentication"
+        },
+        {
+          "id": "D",
+          "text": "Require the device to be marked compliant or Microsoft Entra hybrid joined"
+        }
+      ],
+      "correct": [
+        "C",
+        "D"
+      ],
+      "explanation": {
+        "correct": "Conditional Access grant controls include requiring MFA and requiring a compliant or Entra hybrid joined device (among others such as approved client app or password change).",
+        "distractors": {
+          "A": "Resource locks prevent accidental deletion/modification of Azure resources; they are unrelated to sign-in grant controls.",
+          "B": "Disk encryption protects VM data at rest; it is not a Conditional Access grant control.",
+          "C": "",
+          "D": ""
+        },
+        "exam_pattern": "CA grant controls = require MFA, compliant/hybrid-joined device, approved client app, password change, terms of use, or block access."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Conditional Access grant controls"
+      ]
+    },
+    {
+      "id": "az500-id-011",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_entra_authn_authz",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To reduce MFA-fatigue attacks in which users accidentally approve fraudulent push prompts, which Microsoft Authenticator control - managed centrally in the authentication methods policy - should you enforce?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Disable MFA from trusted locations"
+        },
+        {
+          "id": "B",
+          "text": "Allow SMS as the only second factor"
+        },
+        {
+          "id": "C",
+          "text": "Add security questions on top of the push"
+        },
+        {
+          "id": "D",
+          "text": "Number matching, where the user types a displayed number to approve"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Number matching forces the user to enter a number shown on the sign-in screen into the Authenticator prompt, so a blind 'Approve' tap cannot satisfy a fraudulent request.",
+        "distractors": {
+          "A": "Disabling MFA increases risk and does nothing to stop fraudulent approvals.",
+          "B": "Falling back to SMS weakens security and does not address accidental push approvals.",
+          "C": "Security questions are weak knowledge factors and do not prevent blind push approval.",
+          "D": ""
+        },
+        "exam_pattern": "Number matching (plus additional context) in the authentication methods policy counters MFA-fatigue / push-bombing."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Microsoft Authenticator number matching / authentication methods policy"
+      ]
+    },
+    {
+      "id": "az500-id-012",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_rbac_pim",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A user with the Contributor role on a resource group tries to grant a colleague access to a VM and is denied. Which role lets them manage access (assign roles) without giving them full ownership of the resources?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A second Contributor assignment at subscription scope"
+        },
+        {
+          "id": "B",
+          "text": "User Access Administrator"
+        },
+        {
+          "id": "C",
+          "text": "Reader"
+        },
+        {
+          "id": "D",
+          "text": "Owner"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "User Access Administrator grants exactly the ability to manage user access (assign Azure roles) without granting full control over the resources themselves.",
+        "distractors": {
+          "A": "Contributor at any scope can manage resources but explicitly cannot assign roles (manage access).",
+          "B": "",
+          "C": "Reader is view-only and cannot assign access at all.",
+          "D": "Owner can manage access but also grants full control of the resources - more than the stated need."
+        },
+        "exam_pattern": "Manage access without full control = User Access Administrator; Contributor does everything except assign roles."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure built-in roles - Owner, Contributor, User Access Administrator"
+      ]
+    },
+    {
+      "id": "az500-id-013",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_rbac_pim",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You assign the Reader role to a group at the subscription scope. How does this affect resource groups and resources inside that subscription?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is inherited by all resource groups and resources in the subscription"
+        },
+        {
+          "id": "B",
+          "text": "It must be reassigned individually on every resource group"
+        },
+        {
+          "id": "C",
+          "text": "It applies only to the subscription object and to no child resources"
+        },
+        {
+          "id": "D",
+          "text": "It overrides any more privileged role assigned at a narrower scope"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Azure RBAC assignments are inherited downward, so a role granted at the subscription scope applies to every resource group and resource beneath it.",
+        "distractors": {
+          "A": "",
+          "B": "Inheritance makes per-resource-group reassignment unnecessary for the inherited permissions.",
+          "C": "RBAC flows downward; a subscription-level assignment reaches child resource groups and resources.",
+          "D": "Azure RBAC is additive; a broader assignment never strips a more privileged role granted at a narrower scope."
+        },
+        "exam_pattern": "RBAC scopes nest (management group > subscription > resource group > resource); permissions are inherited downward and are additive."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure RBAC scope and inheritance"
+      ]
+    },
+    {
+      "id": "az500-id-014",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_rbac_pim",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An engineer holds the Microsoft Entra User Administrator directory role but has no Azure RBAC assignment on any subscription. What can they do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Assign Azure RBAC roles at the subscription scope"
+        },
+        {
+          "id": "B",
+          "text": "Nothing, because Entra roles and Azure RBAC roles are the same system"
+        },
+        {
+          "id": "C",
+          "text": "Manage virtual machines and storage accounts in the subscription"
+        },
+        {
+          "id": "D",
+          "text": "Manage users and some directory objects in Microsoft Entra ID, but not Azure resources"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Entra directory roles such as User Administrator govern the directory/tenant (managing users, groups, etc.), but grant no access to Azure resources, which require a separate Azure RBAC assignment.",
+        "distractors": {
+          "A": "Assigning Azure roles requires Owner or User Access Administrator in Azure RBAC, not an Entra role.",
+          "B": "Entra (directory) roles and Azure RBAC are separate systems with separate scopes, not the same.",
+          "C": "Managing Azure resources requires an Azure RBAC role on the resource/scope, which they lack.",
+          "D": ""
+        },
+        "exam_pattern": "Entra roles govern the directory/tenant; Azure RBAC governs Azure resources - distinct, granted separately."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Microsoft Entra roles vs Azure RBAC roles"
+      ]
+    },
+    {
+      "id": "az500-id-015",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_rbac_pim",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To enforce least privilege, administrators should hold no standing Owner access and instead request it only when needed, for a limited time with justification. How should you configure their assignment in Privileged Identity Management?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Make them eligible for the role, activated on demand, rather than permanently active"
+        },
+        {
+          "id": "B",
+          "text": "Add them to Owner directly in Azure RBAC with no PIM involvement"
+        },
+        {
+          "id": "C",
+          "text": "Assign the Owner role as a permanently active assignment"
+        },
+        {
+          "id": "D",
+          "text": "Grant them the Reader role instead"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "An eligible PIM assignment grants no standing access; the user activates it just-in-time for a bounded period with justification (and optionally MFA/approval), which is least privilege.",
+        "distractors": {
+          "A": "",
+          "B": "A direct, always-on RBAC assignment bypasses PIM's time-bound activation and approval.",
+          "C": "A permanently active assignment is standing access - the opposite of just-in-time least privilege.",
+          "D": "Reader cannot perform Owner tasks, so it fails the operational requirement."
+        },
+        "exam_pattern": "Just-in-time privileged access = PIM eligible assignment the user activates; active = standing access."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): PIM eligible vs active assignments"
+      ]
+    },
+    {
+      "id": "az500-id-016",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_rbac_pim",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "For a privileged PIM role you want every activation to be time-limited and to require the requester to supply a justification, pass MFA, and get an approver's sign-off. Which configuration achieves this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace PIM with a standing Owner assignment plus an alert"
+        },
+        {
+          "id": "B",
+          "text": "On the eligible assignment, require MFA, require justification, require approval, and set a maximum activation duration"
+        },
+        {
+          "id": "C",
+          "text": "Disable MFA on activation to speed access"
+        },
+        {
+          "id": "D",
+          "text": "Convert the assignment to active with no expiration"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "PIM role settings let you require MFA, justification, and approval on activation and cap the activation duration, enforcing time-bound, accountable privilege.",
+        "distractors": {
+          "A": "A standing Owner assignment defeats just-in-time access; an alert does not enforce approval or time limits.",
+          "B": "",
+          "C": "Disabling MFA weakens the activation control the requirement explicitly asks for.",
+          "D": "An active, non-expiring assignment removes the time limit and approval entirely."
+        },
+        "exam_pattern": "PIM activation controls = require MFA + justification + approval, with a maximum duration (and optional ticket info)."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Configure PIM role activation settings"
+      ]
+    },
+    {
+      "id": "az500-id-017",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_rbac_pim",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Auditors require periodic confirmation that privileged role holders still need their access, with recertification by the user or their manager. Which Microsoft Entra capability automates this recurring recertification?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Resource locks"
+        },
+        {
+          "id": "B",
+          "text": "Conditional Access"
+        },
+        {
+          "id": "C",
+          "text": "Access reviews"
+        },
+        {
+          "id": "D",
+          "text": "Azure Policy"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Access reviews schedule recurring attestation of group membership, app access, or role assignments, with reviewers (self, manager, or designated) approving or removing access.",
+        "distractors": {
+          "A": "Resource locks prevent deletion/modification of resources; they do not review access.",
+          "B": "Conditional Access governs sign-in conditions, not periodic recertification of role membership.",
+          "C": "",
+          "D": "Azure Policy governs resource configuration, not attestation of user access."
+        },
+        "exam_pattern": "Recurring recertification/attestation of access = Entra access reviews (ID Governance / PIM)."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Microsoft Entra access reviews"
+      ]
+    },
+    {
+      "id": "az500-id-018",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_rbac_pim",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Fill in the blank: In Microsoft Entra Privileged Identity Management, a role assignment that a user must activate (with justification, and often MFA or approval) before it can be used - rather than one that is always on - is called an ________ assignment.",
+      "correct": [
+        "eligible"
+      ],
+      "explanation": {
+        "correct": "An eligible assignment grants no standing access; the user activates it just-in-time for a limited period. An active assignment, by contrast, is always on.",
+        "exam_pattern": "PIM: eligible = activate on demand (JIT); active = standing access."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): PIM eligible vs active assignments"
+      ]
+    },
+    {
+      "id": "az500-id-019",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_app_identity",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A single managed identity must be shared by three virtual machines so they all reach the same storage account under one set of role assignments, and it must survive if any one VM is deleted. Which identity type fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The VM's local administrator account"
+        },
+        {
+          "id": "B",
+          "text": "A service principal with a client secret embedded in code"
+        },
+        {
+          "id": "C",
+          "text": "One user-assigned managed identity attached to all three VMs"
+        },
+        {
+          "id": "D",
+          "text": "A system-assigned managed identity on each VM"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A user-assigned managed identity is a standalone resource that can be attached to many resources and has its own lifecycle, so it is shared across the VMs and survives any single VM's deletion.",
+        "distractors": {
+          "A": "A local admin account is not an Entra identity and cannot be granted Azure RBAC to storage.",
+          "B": "Embedding a secret in code is a credential-management risk and defeats the purpose of managed identities.",
+          "C": "",
+          "D": "System-assigned identities are 1:1 with a resource and deleted with it, so they cannot be shared or outlive the VM."
+        },
+        "exam_pattern": "Shared/reusable, lifecycle-independent identity = user-assigned managed identity; system-assigned = 1:1, tied to one resource's lifecycle."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Managed identities - system-assigned vs user-assigned"
+      ]
+    },
+    {
+      "id": "az500-id-020",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_app_identity",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "What is the primary security benefit of using a managed identity for an Azure web app that needs to read secrets from Azure Key Vault?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It grants the app Owner rights on the subscription"
+        },
+        {
+          "id": "B",
+          "text": "No credentials are stored in code or configuration; Azure issues and rotates them automatically"
+        },
+        {
+          "id": "C",
+          "text": "It disables all network access to the Key Vault"
+        },
+        {
+          "id": "D",
+          "text": "It encrypts the Key Vault contents with a customer-managed key"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A managed identity lets the app authenticate to Entra ID and Key Vault with no secret stored anywhere; Azure manages and rotates the underlying credential.",
+        "distractors": {
+          "A": "You grant a managed identity least-privilege access (for example, Key Vault Secrets User), not subscription Owner.",
+          "B": "",
+          "C": "A managed identity authenticates the app; it does not configure the Key Vault's networking.",
+          "D": "Managed identities handle authentication, not the vault's encryption-key configuration."
+        },
+        "exam_pattern": "Managed identity = no secrets in code; Azure handles credential issuance/rotation. Pair with least-privilege RBAC."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): What are managed identities for Azure resources"
+      ]
+    },
+    {
+      "id": "az500-id-021",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_app_identity",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "You register a new application in Microsoft Entra ID. Which statement correctly describes the objects created and their relationship?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only a service principal is created; there is no application object"
+        },
+        {
+          "id": "B",
+          "text": "App registrations and enterprise applications are unrelated and never linked"
+        },
+        {
+          "id": "C",
+          "text": "A single application (registration) object defines the app globally, and a service principal is created in each tenant to represent it locally for sign-in and permissions"
+        },
+        {
+          "id": "D",
+          "text": "An application object is created in every tenant that uses the app, with no service principal"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The app registration creates one global application object (the blueprint) in the home tenant; a service principal (the enterprise application) is created in each tenant where the app is used to hold its local identity, sign-in, and permission grants.",
+        "distractors": {
+          "A": "Registration creates both an application object and a service principal, not a service principal alone.",
+          "B": "The enterprise application is the service principal (local instance) of the registration; they are linked.",
+          "C": "",
+          "D": "The application object is a single global definition in the home tenant; it is not duplicated per tenant."
+        },
+        "exam_pattern": "App registration = global application object (blueprint); service principal / enterprise application = the local tenant instance that gets permissions and sign-in."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Application and service principal objects in Microsoft Entra ID"
+      ]
+    },
+    {
+      "id": "az500-id-022",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_app_identity",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A third-party app requests Microsoft Graph permissions that would read data for all users in the tenant. You must stop individual users from approving such tenant-wide access themselves. Which approach enforces this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Add the app to a dynamic group"
+        },
+        {
+          "id": "B",
+          "text": "Restrict user consent and require admin consent (with the admin consent workflow) for high-privilege or unverified apps"
+        },
+        {
+          "id": "C",
+          "text": "Give every user the Global Administrator role"
+        },
+        {
+          "id": "D",
+          "text": "Delete the app registration after each use"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Configuring user consent settings to restrict or disable user consent, and routing requests through the admin consent workflow, ensures only an administrator can grant privileged or tenant-wide permissions.",
+        "distractors": {
+          "A": "Dynamic groups automate membership; they do not govern application consent.",
+          "B": "",
+          "C": "Granting everyone Global Administrator is severe over-privilege and would let anyone consent to anything.",
+          "D": "Deleting registrations is not a consent control and is impractical for governing third-party apps."
+        },
+        "exam_pattern": "Restrict user consent + require admin consent (and use the admin consent workflow) to limit illicit-consent/OAuth attacks."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Configure user and admin consent / consent framework"
+      ]
+    },
+    {
+      "id": "az500-id-023",
+      "exam": "az500",
+      "domain": "az500_identity_access",
+      "subtopic": "az500_app_identity",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An automation service principal currently authenticates with a long-lived client secret kept in a pipeline variable. Which change most improves its credential security?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Replace the client secret with a certificate credential (or a managed identity where supported) and rotate it regularly"
+        },
+        {
+          "id": "B",
+          "text": "Extend the client secret's expiration to several years to avoid rotation"
+        },
+        {
+          "id": "C",
+          "text": "Grant the service principal Owner so it never fails on permissions"
+        },
+        {
+          "id": "D",
+          "text": "Reuse the same secret across all automation accounts for consistency"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Certificate credentials are stronger than shared client secrets, and a managed identity removes the stored credential entirely where it can be used; both, with rotation, reduce exposure.",
+        "distractors": {
+          "A": "",
+          "B": "Lengthening the secret's lifetime increases exposure if it leaks; it does not improve security.",
+          "C": "Over-privileging to Owner violates least privilege and is unrelated to credential strength.",
+          "D": "Reusing one secret widens the blast radius and breaks isolation if it is compromised."
+        },
+        "exam_pattern": "Prefer managed identities; otherwise use certificate credentials over client secrets, keep least privilege, and rotate."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Secure service principals and application credentials"
+      ]
+    },
+    {
+      "id": "az500-net-001",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_network_security",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "You must allow inbound HTTPS (TCP 443) to a subnet of web servers while blocking all other inbound traffic from the internet. Which Azure control filters this by source, destination, port, and protocol at the subnet level, at no additional cost?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A user-defined route (UDR)"
+        },
+        {
+          "id": "B",
+          "text": "Azure Firewall"
+        },
+        {
+          "id": "C",
+          "text": "Azure Front Door"
+        },
+        {
+          "id": "D",
+          "text": "A network security group (NSG)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A network security group filters traffic with 5-tuple allow/deny rules (source, source port, destination, destination port, protocol) and can be associated to a subnet at no extra charge.",
+        "distractors": {
+          "A": "A user-defined route controls next-hop routing, not traffic allow/deny.",
+          "B": "Azure Firewall is a chargeable managed firewall for centralized filtering; a simple per-subnet allow/deny is met by an NSG at no cost.",
+          "C": "Front Door is a global HTTP(S) entry/CDN service, not a subnet-level packet filter.",
+          "D": ""
+        },
+        "exam_pattern": "Basic L3-L4 allow/deny by 5-tuple on a subnet or NIC = NSG (free)."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Network security groups"
+      ]
+    },
+    {
+      "id": "az500-net-002",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_network_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An NSG has an allow rule for TCP 3389 at priority 200 and a deny rule for TCP 3389 at priority 300. What happens to inbound RDP traffic?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is allowed, because the lower priority number (200) is processed first and matches"
+        },
+        {
+          "id": "B",
+          "text": "It is denied, because deny rules always win regardless of priority"
+        },
+        {
+          "id": "C",
+          "text": "Both rules are ignored because they conflict"
+        },
+        {
+          "id": "D",
+          "text": "It is allowed only if Azure Firewall also permits it"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "NSG rules are processed in priority order from lowest number to highest, and the first rule that matches is applied. The allow at 200 matches before the deny at 300, so RDP is allowed.",
+        "distractors": {
+          "A": "",
+          "B": "NSG evaluation is by priority order, not deny-always; the first matching rule (lowest number) wins.",
+          "C": "Conflicting rules are resolved by priority, not discarded.",
+          "D": "NSG evaluation is independent of whether an Azure Firewall exists."
+        },
+        "exam_pattern": "NSG rules process by priority (100-4096); lowest number first, first match wins."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): How network security group rules are evaluated"
+      ]
+    },
+    {
+      "id": "az500-net-003",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_network_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You want NSG rules that reference logical workload groups (for example, 'web' and 'db' servers) instead of hard-coded IP addresses, so the rules stay correct as VMs scale in and out. Which feature enables this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "User-defined routes"
+        },
+        {
+          "id": "B",
+          "text": "Private endpoints"
+        },
+        {
+          "id": "C",
+          "text": "Service tags"
+        },
+        {
+          "id": "D",
+          "text": "Application security groups (ASGs)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Application security groups let you group VM NICs by workload and reference the group as the source or destination in NSG rules, so membership (not static IPs) drives the rule.",
+        "distractors": {
+          "A": "User-defined routes control next-hop routing, not NSG rule membership.",
+          "B": "Private endpoints give a service a private IP; they do not group your VMs for NSG rules.",
+          "C": "Service tags represent Azure service IP ranges (for example, Storage), not your own workload-grouped VMs.",
+          "D": ""
+        },
+        "exam_pattern": "Group your own VMs by workload for NSG rules = application security groups; service tags = Azure service ranges."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Application security groups"
+      ]
+    },
+    {
+      "id": "az500-net-004",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_network_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An NSG is associated with both a subnet and the NIC of a VM in that subnet. For inbound traffic to the VM, how are the rules applied?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only the NIC NSG is evaluated"
+        },
+        {
+          "id": "B",
+          "text": "The two NSGs are merged into one combined rule set"
+        },
+        {
+          "id": "C",
+          "text": "The subnet NSG is evaluated first, then the NIC NSG; traffic must be allowed by both"
+        },
+        {
+          "id": "D",
+          "text": "Only the subnet NSG is evaluated"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "For inbound traffic Azure evaluates the subnet NSG first, then the NIC NSG (the reverse for outbound); the traffic must be allowed by both to reach the VM.",
+        "distractors": {
+          "A": "Both NSGs apply to inbound traffic, not the NIC alone.",
+          "B": "They are evaluated in sequence, not merged; each must allow the traffic.",
+          "C": "",
+          "D": "Both NSGs apply; the subnet NSG does not override the NIC NSG."
+        },
+        "exam_pattern": "Inbound: subnet NSG then NIC NSG (outbound is reversed); traffic must pass both."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): NSG association to subnets and network interfaces"
+      ]
+    },
+    {
+      "id": "az500-net-005",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_network_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Across many spoke VNets you must centrally control outbound traffic and permit connections only to a set of fully qualified domain names (FQDNs), with built-in threat-intelligence filtering. Which service is designed for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A load balancer health probe"
+        },
+        {
+          "id": "B",
+          "text": "Network security groups on each subnet"
+        },
+        {
+          "id": "C",
+          "text": "Application security groups"
+        },
+        {
+          "id": "D",
+          "text": "Azure Firewall with application rules"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Azure Firewall is a managed, stateful, cloud-native firewall that supports FQDN-based application rules and threat-intelligence-based filtering, and can be centralized for many VNets.",
+        "distractors": {
+          "A": "A load balancer distributes traffic; it is not a filtering firewall.",
+          "B": "NSGs filter by IP/port 5-tuple and cannot allow by FQDN or provide centralized threat intelligence.",
+          "C": "ASGs only group VMs for NSG rules; they do not filter outbound FQDN traffic.",
+          "D": ""
+        },
+        "exam_pattern": "Centralized, stateful, FQDN/threat-intel filtering across VNets = Azure Firewall; NSG = basic per-subnet 5-tuple."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Firewall features and rules"
+      ]
+    },
+    {
+      "id": "az500-net-006",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_network_security",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In an Azure Firewall Policy you must allow VMs to reach https://updates.contoso.com by name, and also allow a specific TCP port to a partner IP range. Which rule types do you use, respectively?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An application rule for the FQDN and a network rule for the IP/port"
+        },
+        {
+          "id": "B",
+          "text": "A network rule for the FQDN and an application rule for the IP/port"
+        },
+        {
+          "id": "C",
+          "text": "An NSG rule for both"
+        },
+        {
+          "id": "D",
+          "text": "A DNAT rule for both"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Azure Firewall application rules filter by FQDN/HTTP(S)/web category, while network rules filter by IP address, port, and protocol - so FQDN goes in an application rule and IP/port in a network rule.",
+        "distractors": {
+          "A": "",
+          "B": "This reverses them; FQDN/HTTP(S) filtering is an application rule and IP/port filtering is a network rule.",
+          "C": "NSGs cannot filter by FQDN and are not Azure Firewall Policy rules.",
+          "D": "DNAT rules translate inbound traffic to internal resources; they are not for outbound allow-by-name or IP/port."
+        },
+        "exam_pattern": "Azure Firewall: application rules = FQDN/HTTP(S)/web categories; network rules = IP/port/protocol; DNAT = inbound translation."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Firewall rule types - application, network, NAT"
+      ]
+    },
+    {
+      "id": "az500-net-007",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_network_security",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: An ________ security group (ASG) lets you group virtual machines by workload and use that group as the source or destination in network security group rules, instead of listing individual IP addresses.",
+      "correct": [
+        "application"
+      ],
+      "explanation": {
+        "correct": "An application security group (ASG) is a logical grouping of VM network interfaces by workload; NSG rules reference the ASG as source or destination, so rules track membership as VMs scale.",
+        "exam_pattern": "ASG = application security group; it groups your VMs for use inside NSG rules."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Application security groups"
+      ]
+    },
+    {
+      "id": "az500-net-008",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_private_connectivity",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You must let VMs in a VNet reach an Azure Storage account over a private IP address drawn from your own address space, with the account reachable only through that private path. Which feature provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A public IP on the storage account protected by an NSG"
+        },
+        {
+          "id": "B",
+          "text": "A private endpoint (Azure Private Link) for the storage account"
+        },
+        {
+          "id": "C",
+          "text": "A service endpoint for Microsoft.Storage on the subnet"
+        },
+        {
+          "id": "D",
+          "text": "A user-defined route to the internet"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A private endpoint projects the storage account into your VNet as a network interface with a private IP from your address space (via Azure Private Link), and public access can then be disabled.",
+        "distractors": {
+          "A": "A public IP with an NSG does not create a private path; the service remains internet-facing.",
+          "B": "",
+          "C": "A service endpoint keeps traffic on the Azure backbone, but the storage account still exposes a public endpoint and gets no private IP in your VNet.",
+          "D": "A UDR changes routing; it does not give the service a private IP in your VNet."
+        },
+        "exam_pattern": "Private IP in your VNet mapped to a specific PaaS resource = private endpoint (Private Link); service endpoint = backbone path, still a public endpoint."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Private Link / private endpoints vs service endpoints"
+      ]
+    },
+    {
+      "id": "az500-net-009",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_private_connectivity",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After enabling a virtual network service endpoint for Azure Storage on a subnet and restricting the storage firewall to that subnet, how does traffic to the storage account behave?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The storage account receives a private IP address inside your VNet"
+        },
+        {
+          "id": "B",
+          "text": "Traffic stays on the Azure backbone sourced from the subnet's private IPs, which the storage firewall now allows"
+        },
+        {
+          "id": "C",
+          "text": "All access becomes impossible, even from the service-endpoint subnet"
+        },
+        {
+          "id": "D",
+          "text": "Traffic traverses the public internet to reach storage"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A service endpoint keeps the subnet's traffic on Microsoft's backbone and lets the storage firewall recognize and allow that subnet; the service keeps its public endpoint but is restricted to the subnet.",
+        "distractors": {
+          "A": "Service endpoints do not assign the service a private IP; that is a private endpoint.",
+          "B": "",
+          "C": "The service-endpoint subnet is exactly what the storage firewall is configured to allow.",
+          "D": "The point of a service endpoint is to keep traffic on Microsoft's backbone, not the public internet."
+        },
+        "exam_pattern": "Service endpoint = optimized backbone path + subnet identity for the service firewall; the service keeps its public endpoint."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Virtual network service endpoints"
+      ]
+    },
+    {
+      "id": "az500-net-010",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_private_connectivity",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "You need to let admins RDP and SSH to VMs without exposing a public IP on the VMs or opening 3389/22 to the internet, connecting instead through the Azure portal over TLS. Which service provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Azure Bastion"
+        },
+        {
+          "id": "B",
+          "text": "Azure Front Door"
+        },
+        {
+          "id": "C",
+          "text": "A point-to-site VPN terminated on each VM"
+        },
+        {
+          "id": "D",
+          "text": "A public load balancer"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Azure Bastion is a managed PaaS jump host that brokers RDP/SSH over TLS from the portal, so VMs need no public IP and management ports need not be exposed to the internet.",
+        "distractors": {
+          "A": "",
+          "B": "Front Door is a global HTTP(S) entry service, not an RDP/SSH broker.",
+          "C": "A point-to-site VPN connects clients to the VNet but does not provide Bastion's browser-based, public-IP-free RDP/SSH.",
+          "D": "A public load balancer exposes endpoints; it does not provide secure management access."
+        },
+        "exam_pattern": "Browser/portal RDP/SSH over TLS with no public IP on the VM = Azure Bastion."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Bastion"
+      ]
+    },
+    {
+      "id": "az500-net-011",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_private_connectivity",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "After creating a private endpoint for an Azure SQL database, clients in the VNet still resolve the database's name to its public IP and bypass the private path. What is the correct fix?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Configure DNS - an Azure Private DNS zone linked to the VNet - so the FQDN resolves to the private endpoint's private IP"
+        },
+        {
+          "id": "B",
+          "text": "Open port 1433 to the internet on the SQL firewall"
+        },
+        {
+          "id": "C",
+          "text": "Add a public IP to the private endpoint"
+        },
+        {
+          "id": "D",
+          "text": "Delete the private endpoint and use a service endpoint instead"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Private endpoints require DNS integration: linking a private DNS zone (for example, privatelink.database.windows.net) to the VNet makes the database FQDN resolve to the private IP.",
+        "distractors": {
+          "A": "",
+          "B": "Opening the public port is the opposite of restricting traffic to the private path.",
+          "C": "Private endpoints use a private IP; adding a public IP contradicts the design and does not fix resolution.",
+          "D": "Service endpoints do not provide a private IP and would not solve private name resolution."
+        },
+        "exam_pattern": "Private endpoints need DNS integration (private DNS zone) so the FQDN resolves to the private IP, or clients keep hitting the public endpoint."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Private endpoint DNS configuration"
+      ]
+    },
+    {
+      "id": "az500-net-012",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_private_connectivity",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Compliance requires that a storage account be reachable only from within the corporate network over Private Link, with no public access at all. Which combination meets this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Leave public network access enabled and rely on SAS tokens"
+        },
+        {
+          "id": "B",
+          "text": "Create a private endpoint for the storage account and set Public network access to Disabled"
+        },
+        {
+          "id": "C",
+          "text": "Add a service endpoint and keep public access enabled"
+        },
+        {
+          "id": "D",
+          "text": "Rotate the account keys weekly"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A private endpoint provides the private path, and setting Public network access to Disabled on the account removes the internet-facing endpoint, so access is private-only.",
+        "distractors": {
+          "A": "SAS tokens limit what a caller can do but do not remove the public network surface.",
+          "B": "",
+          "C": "A service endpoint still leaves the storage account's public endpoint reachable.",
+          "D": "Key rotation is good hygiene but does not restrict network exposure."
+        },
+        "exam_pattern": "'Private only' = private endpoint + set Public network access to Disabled on the resource."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Restrict storage to private endpoints / disable public network access"
+      ]
+    },
+    {
+      "id": "az500-net-013",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_private_connectivity",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In a hub-and-spoke topology you must force all outbound internet traffic from the spoke VNets through the Azure Firewall in the hub for inspection. Which configuration accomplishes this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A user-defined route on spoke subnets with 0.0.0.0/0 next hop set to the hub firewall's private IP"
+        },
+        {
+          "id": "B",
+          "text": "A service endpoint on each spoke subnet"
+        },
+        {
+          "id": "C",
+          "text": "An NSG rule on each spoke that allows internet traffic"
+        },
+        {
+          "id": "D",
+          "text": "A private endpoint in each spoke"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A user-defined route with a default route (0.0.0.0/0) whose next hop is the firewall's private IP forces spoke egress through the hub firewall for inspection.",
+        "distractors": {
+          "A": "",
+          "B": "Service endpoints optimize paths to Azure PaaS; they do not force internet egress through a firewall.",
+          "C": "NSGs allow or deny traffic but do not redirect its next hop through the firewall.",
+          "D": "Private endpoints provide private access to a PaaS resource, not egress inspection."
+        },
+        "exam_pattern": "Force egress through a firewall = UDR with default route (0.0.0.0/0) next hop = firewall private IP."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Route traffic through Azure Firewall with UDRs (hub-and-spoke)"
+      ]
+    },
+    {
+      "id": "az500-net-014",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_edge_protection",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A web application hosted in a single Azure region needs protection against SQL injection and cross-site scripting at the HTTP layer, delivered by a regional reverse proxy. Which service provides a WAF for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Azure Bastion"
+        },
+        {
+          "id": "B",
+          "text": "Web Application Firewall on Azure Application Gateway"
+        },
+        {
+          "id": "C",
+          "text": "Azure DDoS infrastructure protection"
+        },
+        {
+          "id": "D",
+          "text": "A network security group"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A WAF on Azure Application Gateway inspects HTTP(S) requests with the OWASP Core Rule Set at a regional reverse proxy, blocking SQL injection and XSS.",
+        "distractors": {
+          "A": "Bastion provides secure RDP/SSH management access, not web application protection.",
+          "B": "",
+          "C": "DDoS protection mitigates volumetric network attacks, not application-layer injection.",
+          "D": "NSGs operate at L3-L4 on IP/port; they do not inspect HTTP for SQLi/XSS."
+        },
+        "exam_pattern": "L7 web protection (OWASP SQLi/XSS) regionally = WAF on Application Gateway; globally = WAF on Front Door."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Web Application Firewall on Application Gateway"
+      ]
+    },
+    {
+      "id": "az500-net-015",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_edge_protection",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which statement best describes how the Azure Web Application Firewall detects common attacks out of the box?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It requires MFA for every web request"
+        },
+        {
+          "id": "B",
+          "text": "It encrypts the web app's database at rest"
+        },
+        {
+          "id": "C",
+          "text": "It applies managed rule sets based on the OWASP Core Rule Set to inspect HTTP requests for patterns such as SQL injection and XSS"
+        },
+        {
+          "id": "D",
+          "text": "It blocks traffic purely by source-IP geography and nothing else"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Azure WAF ships managed rule sets based on the OWASP Core Rule Set that inspect request content for known attack patterns; you can add custom rules (rate limiting, geo-match, bot protection) on top.",
+        "distractors": {
+          "A": "WAF inspects request content; it does not perform user MFA.",
+          "B": "Database encryption at rest (for example, TDE) is unrelated to WAF request inspection.",
+          "C": "",
+          "D": "Geo-filtering is an optional custom rule, not the primary managed-rule detection mechanism."
+        },
+        "exam_pattern": "WAF = managed OWASP Core Rule Set inspection, plus custom rules such as rate limiting, geo-match, and bot protection."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure WAF managed rule sets (OWASP CRS)"
+      ]
+    },
+    {
+      "id": "az500-net-016",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_edge_protection",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "You need deep inspection of encrypted outbound traffic, including TLS inspection and a signature-based intrusion detection and prevention system (IDPS). Which option provides these?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Azure Front Door Standard"
+        },
+        {
+          "id": "B",
+          "text": "A network security group with service tags"
+        },
+        {
+          "id": "C",
+          "text": "Azure Firewall Premium"
+        },
+        {
+          "id": "D",
+          "text": "Azure Firewall Standard"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Azure Firewall Premium adds TLS inspection, an IDPS signature engine, URL filtering, and web categories beyond what the Standard tier offers.",
+        "distractors": {
+          "A": "Front Door is an application-delivery/WAF service, not a TLS-inspecting network IDPS.",
+          "B": "NSGs cannot perform TLS inspection or signature-based intrusion prevention.",
+          "C": "",
+          "D": "Azure Firewall Standard provides FQDN and network filtering but not TLS inspection or IDPS."
+        },
+        "exam_pattern": "TLS inspection + IDPS + URL filtering + web categories = Azure Firewall Premium (Standard lacks these)."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Firewall Premium features (TLS inspection, IDPS)"
+      ]
+    },
+    {
+      "id": "az500-net-017",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_edge_protection",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An internet-facing application needs DDoS mitigation tuned to its normal traffic, with attack telemetry, alerting, and access to a rapid-response team beyond the always-on platform defense. Which option should you enable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Transparent Data Encryption"
+        },
+        {
+          "id": "B",
+          "text": "Azure Bastion"
+        },
+        {
+          "id": "C",
+          "text": "Azure DDoS Network Protection on the virtual network"
+        },
+        {
+          "id": "D",
+          "text": "A network security group deny-all rule"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Azure DDoS Network Protection adds adaptive tuning, attack metrics and telemetry, alerting, an SLA, and rapid-response support on top of the free, always-on infrastructure protection.",
+        "distractors": {
+          "A": "TDE encrypts database data at rest and is unrelated to DDoS.",
+          "B": "Bastion provides secure management access, not DDoS mitigation.",
+          "C": "",
+          "D": "An NSG cannot absorb or adaptively mitigate a volumetric DDoS attack, nor provide telemetry/alerting."
+        },
+        "exam_pattern": "Tuned, telemetry-rich, SLA-backed DDoS mitigation = DDoS Network Protection (or IP Protection per-IP); basic infrastructure protection is always on, free, and untuned."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure DDoS Protection tiers"
+      ]
+    },
+    {
+      "id": "az500-net-018",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_edge_protection",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To shrink exposure of VM management ports you want RDP/SSH blocked by default and opened only on request, to a specific source, for a limited time, with the change audited. Which Microsoft Defender for Cloud feature provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Adaptive application controls"
+        },
+        {
+          "id": "B",
+          "text": "Azure Bastion"
+        },
+        {
+          "id": "C",
+          "text": "Secure Score"
+        },
+        {
+          "id": "D",
+          "text": "Just-in-time (JIT) VM access"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Just-in-time VM access in Defender for Cloud keeps management ports closed in the NSG/firewall and opens them on approved request, to a specified source, for a limited window, with the action logged.",
+        "distractors": {
+          "A": "Adaptive application controls allowlist which applications may run; they do not open/close management ports.",
+          "B": "Bastion brokers RDP/SSH but does not itself time-box NSG port openings the way JIT does; the two are complementary.",
+          "C": "Secure Score measures posture; it does not gate port access.",
+          "D": ""
+        },
+        "exam_pattern": "On-demand, time-boxed, audited opening of management ports via NSG/firewall = Defender for Cloud JIT VM access."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Just-in-time virtual machine access in Defender for Cloud"
+      ]
+    },
+    {
+      "id": "az500-net-019",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_edge_protection",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A globally distributed web app needs a single entry point that provides global HTTP(S) load balancing, TLS offload, and an integrated WAF at the network edge. Which service fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Azure Front Door with Web Application Firewall"
+        },
+        {
+          "id": "B",
+          "text": "Azure Application Gateway (regional)"
+        },
+        {
+          "id": "C",
+          "text": "Azure Firewall Standard"
+        },
+        {
+          "id": "D",
+          "text": "A regional internal load balancer"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Azure Front Door is a global, edge-based HTTP(S) load balancer and CDN with an integrated WAF, giving a single global entry point with TLS offload and L7 protection.",
+        "distractors": {
+          "A": "",
+          "B": "Application Gateway is a regional L7 load balancer/WAF, not a global edge service.",
+          "C": "Azure Firewall is a network firewall, not a global HTTP(S) delivery and WAF service.",
+          "D": "An internal load balancer is private and regional, not a global edge entry point."
+        },
+        "exam_pattern": "Global edge L7 + WAF = Azure Front Door; regional L7 + WAF = Application Gateway."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Front Door and Web Application Firewall"
+      ]
+    },
+    {
+      "id": "az500-net-020",
+      "exam": "az500",
+      "domain": "az500_networking",
+      "subtopic": "az500_edge_protection",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Fill in the blank: A Web Application ________ (WAF) protects web applications at the HTTP layer from common exploits such as SQL injection and cross-site scripting, and can run on Azure Application Gateway or Azure Front Door.",
+      "correct": [
+        "firewall"
+      ],
+      "explanation": {
+        "correct": "A Web Application Firewall (WAF) inspects HTTP(S) requests against managed rule sets (OWASP CRS) and custom rules to block web exploits; it runs on Application Gateway (regional) or Front Door (global).",
+        "exam_pattern": "WAF = Web Application Firewall; L7 protection on App Gateway (regional) or Front Door (global)."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Web Application Firewall overview"
+      ]
+    },
+    {
+      "id": "az500-ops-001",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_defender_for_cloud",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Leadership wants a single percentage that reflects the current security posture of your Azure subscriptions and rises as your team remediates recommendations. Which Microsoft Defender for Cloud feature provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Secure Score"
+        },
+        {
+          "id": "B",
+          "text": "A resource lock"
+        },
+        {
+          "id": "C",
+          "text": "Workbooks"
+        },
+        {
+          "id": "D",
+          "text": "Just-in-time VM access"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Secure Score aggregates your remediation of security recommendations into a single percentage that measures and tracks posture over time.",
+        "distractors": {
+          "A": "",
+          "B": "A resource lock prevents deletion/modification; it does not measure posture.",
+          "C": "Workbooks visualize data but are not the built-in posture percentage.",
+          "D": "JIT reduces management-port exposure; it is not a posture score."
+        },
+        "exam_pattern": "Single posture percentage that rises as you remediate recommendations = Defender for Cloud Secure Score."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Secure Score in Microsoft Defender for Cloud"
+      ]
+    },
+    {
+      "id": "az500-ops-002",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_defender_for_cloud",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "You already get asset inventory, Secure Score, security recommendations, and Microsoft Cloud Security Benchmark assessments at no cost. Now you need attack path analysis and the cloud security explorer to reason about risk across resources. What must you enable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Log Analytics workspace"
+        },
+        {
+          "id": "B",
+          "text": "The Defender CSPM plan"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Sentinel"
+        },
+        {
+          "id": "D",
+          "text": "Nothing; attack path analysis is included in the free tier"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Attack path analysis and the cloud security explorer are capabilities of the paid Defender CSPM plan; the free foundational CSPM tier does not include them.",
+        "distractors": {
+          "A": "A Log Analytics workspace stores logs; it does not by itself enable Defender CSPM features.",
+          "B": "",
+          "C": "Sentinel is a SIEM/SOAR; it does not provide Defender for Cloud attack path analysis.",
+          "D": "These are paid Defender CSPM capabilities, not part of free foundational CSPM."
+        },
+        "exam_pattern": "Free foundational CSPM = inventory, Secure Score, recommendations, MCSB; paid Defender CSPM adds attack path analysis, cloud security explorer, and agentless scanning."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Cloud security posture management - foundational vs Defender CSPM"
+      ]
+    },
+    {
+      "id": "az500-ops-003",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_defender_for_cloud",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You must enable threat protection specifically for your Azure Storage accounts, including detection of malware uploads and unusual access patterns. Which plan do you turn on?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Defender for Resource Manager"
+        },
+        {
+          "id": "B",
+          "text": "Defender for Servers"
+        },
+        {
+          "id": "C",
+          "text": "Defender for Storage"
+        },
+        {
+          "id": "D",
+          "text": "Defender for Key Vault"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Microsoft Defender for Storage provides threat detection for storage accounts, including malware scanning of uploads and alerts on unusual access patterns.",
+        "distractors": {
+          "A": "Defender for Resource Manager monitors the ARM control/management layer, not storage data threats.",
+          "B": "Defender for Servers protects VMs/servers, not storage accounts.",
+          "C": "",
+          "D": "Defender for Key Vault detects anomalous vault access, not storage account threats."
+        },
+        "exam_pattern": "Match the plan to the resource - Defender for Storage protects storage accounts; each Defender plan is scoped to its resource type."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Microsoft Defender for Storage"
+      ]
+    },
+    {
+      "id": "az500-ops-004",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_defender_for_cloud",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An auditor asks you to show how your Azure environment maps to PCI DSS and ISO 27001 controls and where it falls short. Which Microsoft Defender for Cloud capability presents this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Secure Score history only"
+        },
+        {
+          "id": "B",
+          "text": "The regulatory compliance dashboard"
+        },
+        {
+          "id": "C",
+          "text": "Azure Bastion"
+        },
+        {
+          "id": "D",
+          "text": "Network security groups"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The regulatory compliance dashboard maps your posture to compliance standards such as PCI DSS and ISO 27001 (the Microsoft Cloud Security Benchmark is applied by default; you add other standards).",
+        "distractors": {
+          "A": "Secure Score reflects general posture, not control-by-control mapping to a specific standard.",
+          "B": "",
+          "C": "Bastion provides secure VM access; it has no compliance mapping.",
+          "D": "NSGs filter traffic; they do not report regulatory compliance."
+        },
+        "exam_pattern": "Map posture to standards (PCI DSS, ISO 27001, etc.) = the Defender for Cloud regulatory compliance dashboard; MCSB is the default applied standard."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Regulatory compliance in Microsoft Defender for Cloud"
+      ]
+    },
+    {
+      "id": "az500-ops-005",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_defender_for_cloud",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Fill in the blank: Microsoft Defender for Cloud expresses your overall security posture as a ________ Score, a percentage that increases as you remediate its security recommendations.",
+      "correct": [
+        "secure"
+      ],
+      "explanation": {
+        "correct": "Secure Score aggregates how many recommendations you have remediated into a single percentage, giving a measurable, improvable view of posture.",
+        "exam_pattern": "Defender for Cloud posture metric = Secure Score (remediate recommendations to raise it)."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Secure Score in Microsoft Defender for Cloud"
+      ]
+    },
+    {
+      "id": "az500-ops-006",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_sentinel_ops",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You are deploying Microsoft Sentinel and need to bring in sign-in and audit logs from Microsoft Entra ID plus events from Azure activity logs. On what is Sentinel built, and how do you ingest these sources?",
+      "options": [
+        {
+          "id": "A",
+          "text": "On a Log Analytics workspace, ingested via data connectors"
+        },
+        {
+          "id": "B",
+          "text": "On Key Vault, ingested via access policies"
+        },
+        {
+          "id": "C",
+          "text": "On an NSG, ingested via flow logs only"
+        },
+        {
+          "id": "D",
+          "text": "On a storage account, ingested via SAS tokens"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Microsoft Sentinel runs on top of a Log Analytics workspace and uses data connectors to ingest sources such as Entra ID logs and Azure activity logs.",
+        "distractors": {
+          "A": "",
+          "B": "Key Vault stores secrets; it is not the Sentinel platform or its ingestion method.",
+          "C": "Sentinel is not built on an NSG; data connectors (not NSG flow logs alone) bring in the sources.",
+          "D": "Sentinel is not built on a storage account, and SAS tokens are not how it ingests sources."
+        },
+        "exam_pattern": "Microsoft Sentinel is built on a Log Analytics workspace and ingests sources through data connectors."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Connect data sources to Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "az500-ops-007",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_sentinel_ops",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In Microsoft Sentinel, which component continuously evaluates ingested data against detection logic and generates alerts that are grouped into incidents for investigation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Analytics rules"
+        },
+        {
+          "id": "B",
+          "text": "Playbooks"
+        },
+        {
+          "id": "C",
+          "text": "Workbooks"
+        },
+        {
+          "id": "D",
+          "text": "Data connectors"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Analytics rules (for example, scheduled or near-real-time) run detection logic over the data and generate alerts, which Sentinel groups into incidents.",
+        "distractors": {
+          "A": "",
+          "B": "Playbooks are automated response workflows (Logic Apps), not the detection logic that raises alerts.",
+          "C": "Workbooks are interactive dashboards for visualization, not detections.",
+          "D": "Data connectors bring data in; they do not evaluate detection logic."
+        },
+        "exam_pattern": "Sentinel detections = analytics rules (create alerts/incidents); playbooks respond; workbooks visualize."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Microsoft Sentinel analytics rules"
+      ]
+    },
+    {
+      "id": "az500-ops-008",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_sentinel_ops",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "When a specific Sentinel incident type is created, you want to automatically disable the affected user and post to a Teams channel, with no analyst action. Which combination implements this SOAR response?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A diagnostic setting routed to a storage account"
+        },
+        {
+          "id": "B",
+          "text": "A workbook triggered by a KQL query"
+        },
+        {
+          "id": "C",
+          "text": "An automation rule that triggers a playbook (an Azure Logic Apps workflow)"
+        },
+        {
+          "id": "D",
+          "text": "A network security group rule"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Automation rules react to incident creation and can trigger playbooks (Logic Apps workflows) that take actions such as disabling a user and posting to Teams - Sentinel's SOAR capability.",
+        "distractors": {
+          "A": "Diagnostic settings route logs; they do not perform automated incident response.",
+          "B": "Workbooks visualize data; they do not execute response actions.",
+          "C": "",
+          "D": "An NSG rule filters network traffic; it cannot disable a user or post to Teams."
+        },
+        "exam_pattern": "Sentinel SOAR = automation rules trigger playbooks (Logic Apps) to respond to incidents automatically."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Automate threat response with playbooks and automation rules"
+      ]
+    },
+    {
+      "id": "az500-ops-009",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_sentinel_ops",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An analyst needs a single view in Microsoft Sentinel that aggregates related alerts and entities for a security case, tracks status and severity, and supports assignment and investigation. Which object is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An incident"
+        },
+        {
+          "id": "B",
+          "text": "A data connector"
+        },
+        {
+          "id": "C",
+          "text": "A hunting query"
+        },
+        {
+          "id": "D",
+          "text": "A workbook"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "An incident groups related alerts and entities into a trackable case with status, severity, and ownership, and is the unit analysts investigate.",
+        "distractors": {
+          "A": "",
+          "B": "A data connector ingests sources; it is not a case-management object.",
+          "C": "A hunting query proactively searches data; it is not the case object that groups alerts.",
+          "D": "A workbook is a dashboard, not a tracked case with status/severity/owner."
+        },
+        "exam_pattern": "Sentinel case object grouping alerts/entities with status, severity, and ownership = an incident."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Investigate incidents in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "az500-ops-010",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_sentinel_ops",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "Which TWO Microsoft Sentinel components work together to orchestrate and automate incident response (SOAR)? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Playbooks (Azure Logic Apps workflows)"
+        },
+        {
+          "id": "B",
+          "text": "Transparent Data Encryption"
+        },
+        {
+          "id": "C",
+          "text": "Automation rules"
+        },
+        {
+          "id": "D",
+          "text": "Data connectors"
+        }
+      ],
+      "correct": [
+        "A",
+        "C"
+      ],
+      "explanation": {
+        "correct": "Automation rules define when and under what conditions to respond, and playbooks (Logic Apps) carry out the response actions - together they provide Sentinel's SOAR.",
+        "distractors": {
+          "A": "",
+          "B": "TDE encrypts databases at rest and is unrelated to Sentinel SOAR.",
+          "C": "",
+          "D": "Data connectors ingest data into Sentinel; they are not response-orchestration components."
+        },
+        "exam_pattern": "Sentinel SOAR = automation rules (when/conditions) + playbooks (Logic Apps actions)."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Security orchestration, automation, and response (SOAR) in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "az500-ops-011",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_monitoring_logging",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You must send a Key Vault's resource (data-plane) logs to a Log Analytics workspace for 90-day analysis and alerting. Which configuration routes these platform logs there?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A diagnostic setting on the Key Vault"
+        },
+        {
+          "id": "B",
+          "text": "A user-defined route"
+        },
+        {
+          "id": "C",
+          "text": "A stored access policy"
+        },
+        {
+          "id": "D",
+          "text": "An NSG flow log"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A diagnostic setting on the resource routes its platform/resource logs and metrics to a Log Analytics workspace (and/or storage account or event hub) for retention and analysis.",
+        "distractors": {
+          "A": "",
+          "B": "A UDR controls routing of network traffic, not log export.",
+          "C": "A stored access policy manages storage SAS constraints, not log routing.",
+          "D": "NSG flow logs capture network traffic, not Key Vault resource logs."
+        },
+        "exam_pattern": "Route a resource's platform/resource logs to Log Analytics/Storage/Event Hub = diagnostic settings on that resource."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Diagnostic settings in Azure Monitor"
+      ]
+    },
+    {
+      "id": "az500-ops-012",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_monitoring_logging",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You need to see who deleted a virtual machine and when, at the subscription management (control-plane) level. Which log records these subscription-level operations?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The guest OS event log"
+        },
+        {
+          "id": "B",
+          "text": "The NSG flow log"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Entra ID sign-in logs"
+        },
+        {
+          "id": "D",
+          "text": "The Azure activity log"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The Azure activity log records subscription-level control-plane operations - who performed a create/update/delete on a resource, and when.",
+        "distractors": {
+          "A": "Guest OS event logs are inside the VM and cannot record the VM's own deletion at the control plane.",
+          "B": "NSG flow logs record network traffic flows, not resource management operations.",
+          "C": "Entra sign-in logs record authentication events, not who deleted an Azure resource.",
+          "D": ""
+        },
+        "exam_pattern": "Subscription-level control-plane operations (who/what/when for create/update/delete) = the Azure activity log."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Monitor activity log"
+      ]
+    },
+    {
+      "id": "az500-ops-013",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_monitoring_logging",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Having centralized logs from many resources into one Log Analytics workspace, which language do you use to write queries, detections, and alerts over that data?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Kusto Query Language (KQL)"
+        },
+        {
+          "id": "B",
+          "text": "T-SQL"
+        },
+        {
+          "id": "C",
+          "text": "PowerShell DSC"
+        },
+        {
+          "id": "D",
+          "text": "Bicep"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Kusto Query Language (KQL) is the query language for Azure Monitor Logs / Log Analytics (and Microsoft Sentinel), used for queries, detections, and log-based alerts.",
+        "distractors": {
+          "A": "",
+          "B": "T-SQL queries relational databases, not Log Analytics / Azure Monitor Logs.",
+          "C": "PowerShell DSC is a configuration-management technology, not a log query language.",
+          "D": "Bicep is an infrastructure-as-code language for deployments, not log querying."
+        },
+        "exam_pattern": "Query Azure Monitor Logs / Log Analytics (and Sentinel) with Kusto Query Language (KQL)."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Log queries with Kusto Query Language (KQL)"
+      ]
+    },
+    {
+      "id": "az500-ops-014",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_monitoring_logging",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You want to be notified and trigger an action automatically whenever a particular high-risk operation is recorded in the activity log. Which Azure Monitor capability do you configure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A workbook"
+        },
+        {
+          "id": "B",
+          "text": "A resource lock"
+        },
+        {
+          "id": "C",
+          "text": "A diagnostic setting alone"
+        },
+        {
+          "id": "D",
+          "text": "An alert rule with an action group"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "An Azure Monitor alert rule evaluates a condition (here on the activity log) and, when it fires, an action group sends notifications and triggers automated actions.",
+        "distractors": {
+          "A": "Workbooks visualize data; they do not notify or trigger actions.",
+          "B": "A resource lock prevents changes; it does not alert on activity.",
+          "C": "A diagnostic setting routes logs but does not itself notify or act; you still need an alert rule.",
+          "D": ""
+        },
+        "exam_pattern": "Notify/act on a condition in metrics or logs = an Azure Monitor alert rule firing an action group."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Monitor alerts and action groups"
+      ]
+    },
+    {
+      "id": "az500-ops-015",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_monitoring_logging",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Fill in the blank: Logs collected in an Azure Monitor Log Analytics workspace (and in Microsoft Sentinel) are queried with the ________ Query Language, abbreviated KQL.",
+      "correct": [
+        "kusto"
+      ],
+      "explanation": {
+        "correct": "Kusto Query Language (KQL) is the read-only query language for Azure Monitor Logs, Log Analytics, and Microsoft Sentinel.",
+        "exam_pattern": "KQL = Kusto Query Language, used across Log Analytics and Sentinel."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Kusto Query Language (KQL) overview"
+      ]
+    },
+    {
+      "id": "az500-ops-016",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_governance_policy",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To stop anyone from creating storage accounts that allow public blob access, you want noncompliant resource creations blocked at deployment time. Which Azure Policy effect achieves this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DeployIfNotExists"
+        },
+        {
+          "id": "B",
+          "text": "Audit"
+        },
+        {
+          "id": "C",
+          "text": "Append"
+        },
+        {
+          "id": "D",
+          "text": "Deny"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The Deny effect blocks creation or update of resources that do not satisfy the policy, stopping the noncompliant deployment before it happens.",
+        "distractors": {
+          "A": "DeployIfNotExists deploys a related resource after creation; it does not block the initial deployment.",
+          "B": "Audit only flags noncompliant resources; it does not block their creation.",
+          "C": "Append adds fields to a resource; it does not block a noncompliant deployment.",
+          "D": ""
+        },
+        "exam_pattern": "Block noncompliant deployments = the Deny effect; Audit only records; DeployIfNotExists/Modify remediate."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Policy effects (Deny, Audit, DeployIfNotExists, Modify)"
+      ]
+    },
+    {
+      "id": "az500-ops-017",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_governance_policy",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You want to assign a whole group of related Azure Policy definitions (for example, all controls for a compliance standard) as a single unit with one assignment. What do you create?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An action group"
+        },
+        {
+          "id": "B",
+          "text": "A resource lock"
+        },
+        {
+          "id": "C",
+          "text": "A policy initiative (policy set definition)"
+        },
+        {
+          "id": "D",
+          "text": "A management group"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A policy initiative (policy set definition) bundles many policy definitions so they can be assigned and managed together as one unit.",
+        "distractors": {
+          "A": "An action group defines alert notifications/actions, not a set of policies.",
+          "B": "A resource lock prevents deletion/modification; it does not bundle policies.",
+          "C": "",
+          "D": "A management group organizes subscriptions; it is not a bundle of policy definitions."
+        },
+        "exam_pattern": "Bundle many policy definitions into one assignable unit = an initiative (policy set definition)."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Azure Policy initiatives (policy set definitions)"
+      ]
+    },
+    {
+      "id": "az500-ops-018",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_governance_policy",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Your organization has dozens of subscriptions and wants to apply a baseline set of RBAC assignments and policy initiatives once, inherited by all current and future subscriptions. Which Azure governance construct enables this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Network security groups"
+        },
+        {
+          "id": "B",
+          "text": "Availability zones"
+        },
+        {
+          "id": "C",
+          "text": "Management groups"
+        },
+        {
+          "id": "D",
+          "text": "Resource groups"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Management groups sit above subscriptions in the hierarchy, so policy and RBAC assigned at a management group are inherited by all subscriptions beneath it, now and in the future.",
+        "distractors": {
+          "A": "NSGs filter network traffic; they are unrelated to subscription governance.",
+          "B": "Availability zones provide datacenter-level resiliency, not governance inheritance.",
+          "C": "",
+          "D": "A resource group contains resources within one subscription; it cannot span or govern many subscriptions."
+        },
+        "exam_pattern": "Apply policy/RBAC across many subscriptions with inheritance = management groups (above subscriptions in the hierarchy)."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Organize resources with management groups"
+      ]
+    },
+    {
+      "id": "az500-ops-019",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_governance_policy",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To protect a production virtual network from accidental deletion while still allowing configuration changes, which control should you apply?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An Azure Policy Audit effect"
+        },
+        {
+          "id": "B",
+          "text": "A CanNotDelete resource lock"
+        },
+        {
+          "id": "C",
+          "text": "A network security group"
+        },
+        {
+          "id": "D",
+          "text": "A ReadOnly resource lock"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A CanNotDelete lock prevents deletion of the resource while still permitting read and configuration changes, exactly matching the requirement.",
+        "distractors": {
+          "A": "An Audit policy only reports noncompliance; it does not prevent deletion.",
+          "B": "",
+          "C": "An NSG filters traffic; it does not prevent resource deletion.",
+          "D": "A ReadOnly lock would also block the allowed configuration changes, which is too restrictive here."
+        },
+        "exam_pattern": "Prevent deletion but allow changes = CanNotDelete lock; block all changes = ReadOnly lock."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Lock resources to prevent changes (CanNotDelete, ReadOnly)"
+      ]
+    },
+    {
+      "id": "az500-ops-020",
+      "exam": "az500",
+      "domain": "az500_security_operations",
+      "subtopic": "az500_governance_policy",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Your team previously planned to package policies, role assignments, and ARM templates as a repeatable environment using Azure Blueprints, which is now on a retirement path. Which current Azure capabilities are recommended to achieve the same governed, repeatable deployments?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dynamic Data Masking and Always Encrypted"
+        },
+        {
+          "id": "B",
+          "text": "Network security groups and application security groups"
+        },
+        {
+          "id": "C",
+          "text": "Azure Policy (and initiatives) together with template specs and deployment stacks"
+        },
+        {
+          "id": "D",
+          "text": "Azure Bastion and just-in-time VM access"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "With Azure Blueprints retiring, Microsoft recommends Azure Policy and initiatives for guardrails, plus template specs (to store/version templates) and deployment stacks (to deploy and lifecycle-manage resources) for repeatable, governed environments.",
+        "distractors": {
+          "A": "These are database data-protection features, unrelated to deploying governed environments.",
+          "B": "NSGs/ASGs are network traffic controls, not a governance/deployment packaging solution.",
+          "C": "",
+          "D": "Bastion and JIT are access controls, not repeatable environment governance."
+        },
+        "exam_pattern": "Blueprints is retiring - use Azure Policy/initiatives for guardrails plus template specs and deployment stacks for repeatable, governed deployments."
+      },
+      "references": [
+        "Microsoft Learn (AZ-500): Govern with Azure Policy; Azure Blueprints retirement guidance"
+      ]
+    }
+  ]
+}

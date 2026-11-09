@@ -267,7 +267,7 @@ QUESTIONS = [
     {
         "id": "securityx-ops-011", "exam": "securityx", "domain": "scx_operations",
         "subtopic": "scx_vuln_management", "difficulty": 2, "type": "mcq",
-        "stem": "A team's unauthenticated network scans keep missing missing patches and producing uncertain "
+        "stem": "A team's unauthenticated network scans keep missing patches and producing uncertain"
                 "results, because they can only see services from outside the host. Which change will MOST improve "
                 "scan accuracy and reduce false positives for host configuration and patch state?",
         "options": [

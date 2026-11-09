@@ -1,0 +1,3915 @@
+{
+  "exam": "ceh",
+  "count": 97,
+  "questions": [
+    {
+      "id": "ceh-cc-001",
+      "exam": "ceh",
+      "domain": "ceh_cloud_crypto",
+      "subtopic": "ceh_cloud_computing",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "In the cloud shared responsibility model, which element is always the customer's responsibility regardless of the service model (IaaS, PaaS, or SaaS)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The data the customer stores and its classification"
+        },
+        {
+          "id": "B",
+          "text": "The hypervisor"
+        },
+        {
+          "id": "C",
+          "text": "The physical network fabric"
+        },
+        {
+          "id": "D",
+          "text": "The physical datacenter hardware"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Customers always remain responsible for their own data (and their identities/access), in every cloud service model.",
+        "distractors": {
+          "A": "",
+          "B": "The hypervisor is managed and secured by the cloud provider.",
+          "C": "The physical network fabric is the provider's responsibility.",
+          "D": "Physical datacenter hardware is always the provider's responsibility."
+        },
+        "exam_pattern": "Customer always owns data and identities; provider always owns the physical layer and hypervisor."
+      },
+      "references": [
+        "CEH v13 Module 19: Cloud Computing"
+      ]
+    },
+    {
+      "id": "ceh-cc-002",
+      "exam": "ceh",
+      "domain": "ceh_cloud_crypto",
+      "subtopic": "ceh_cloud_computing",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company exposes sensitive files because a cloud object-storage bucket was left publicly readable. This is an example of which issue?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rainbow table attack"
+        },
+        {
+          "id": "B",
+          "text": "ARP poisoning"
+        },
+        {
+          "id": "C",
+          "text": "Cloud storage misconfiguration (excessive public access)"
+        },
+        {
+          "id": "D",
+          "text": "SQL injection"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A publicly readable storage bucket is a misconfiguration; applying least privilege and 'block public access' settings prevents this common cloud exposure.",
+        "distractors": {
+          "A": "A rainbow table attack cracks password hashes, unrelated to bucket permissions.",
+          "B": "ARP poisoning is a local-network man-in-the-middle technique, not cloud storage.",
+          "C": "",
+          "D": "SQL injection manipulates database queries; it is not a storage-permission mistake."
+        },
+        "exam_pattern": "Publicly readable storage bucket exposing data = misconfiguration (block public access / least privilege)."
+      },
+      "references": [
+        "CEH v13 Module 19: Cloud Computing"
+      ]
+    },
+    {
+      "id": "ceh-cc-003",
+      "exam": "ceh",
+      "domain": "ceh_cloud_crypto",
+      "subtopic": "ceh_cloud_computing",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To limit the blast radius if cloud credentials are stolen, which principle should govern the permissions assigned to each identity and role?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Defense evasion"
+        },
+        {
+          "id": "B",
+          "text": "Least privilege"
+        },
+        {
+          "id": "C",
+          "text": "Fail-open access"
+        },
+        {
+          "id": "D",
+          "text": "Security through obscurity"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Least privilege grants each identity only the permissions it needs, so stolen credentials unlock as little as possible.",
+        "distractors": {
+          "A": "Defense evasion is an attacker tactic, not a permissions principle.",
+          "B": "",
+          "C": "Fail-open grants access when a check fails, which is unsafe.",
+          "D": "Security through obscurity hides details; it is not an access-control principle."
+        },
+        "exam_pattern": "Grant only the permissions needed = least privilege (core IAM control)."
+      },
+      "references": [
+        "CEH v13 Module 19: Cloud Computing"
+      ]
+    },
+    {
+      "id": "ceh-cc-004",
+      "exam": "ceh",
+      "domain": "ceh_cloud_crypto",
+      "subtopic": "ceh_cloud_computing",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which cloud computing model runs event-driven functions where the provider fully manages the underlying servers and the customer never patches an operating system?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Serverless (Function as a Service)"
+        },
+        {
+          "id": "B",
+          "text": "Infrastructure as a Service (IaaS)"
+        },
+        {
+          "id": "C",
+          "text": "Colocation"
+        },
+        {
+          "id": "D",
+          "text": "On-premises virtualization"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Serverless/FaaS runs event-driven functions on infrastructure the provider fully manages, so the customer never patches or scales servers.",
+        "distractors": {
+          "A": "",
+          "B": "IaaS still requires the customer to manage and patch the guest operating system.",
+          "C": "Colocation rents datacenter space for the customer's own hardware.",
+          "D": "On-premises virtualization is entirely customer-managed."
+        },
+        "exam_pattern": "Event-driven functions, no servers to manage/patch = serverless (FaaS)."
+      },
+      "references": [
+        "CEH v13 Module 19: Cloud Computing"
+      ]
+    },
+    {
+      "id": "ceh-cc-005",
+      "exam": "ceh",
+      "domain": "ceh_cloud_crypto",
+      "subtopic": "ceh_cloud_computing",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which technology packages an application with its dependencies into a lightweight, portable unit that shares the host operating system's kernel rather than running a full guest OS?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rainbow tables"
+        },
+        {
+          "id": "B",
+          "text": "Type-1 hypervisor virtual machines"
+        },
+        {
+          "id": "C",
+          "text": "Honeypots"
+        },
+        {
+          "id": "D",
+          "text": "Containers"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Containers bundle an app and its dependencies and share the host kernel, making them lighter and faster to start than full virtual machines.",
+        "distractors": {
+          "A": "Rainbow tables are a password-cracking data structure, not a packaging technology.",
+          "B": "Each hypervisor VM runs a full guest OS, which is heavier than a container.",
+          "C": "Honeypots are decoy systems, unrelated to application packaging.",
+          "D": ""
+        },
+        "exam_pattern": "Shares host kernel, packages app plus dependencies, lightweight = container (vs full VM)."
+      },
+      "references": [
+        "CEH v13 Module 19: Cloud Computing"
+      ]
+    },
+    {
+      "id": "ceh-cc-006",
+      "exam": "ceh",
+      "domain": "ceh_cloud_crypto",
+      "subtopic": "ceh_cloud_computing",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which security solution sits between users and cloud services to enforce policy, provide visibility into cloud usage, and help detect unsanctioned 'shadow IT'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A rainbow table"
+        },
+        {
+          "id": "B",
+          "text": "A deauthentication tool"
+        },
+        {
+          "id": "C",
+          "text": "A cloud access security broker (CASB)"
+        },
+        {
+          "id": "D",
+          "text": "A web application firewall (WAF)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A CASB brokers traffic between users and cloud services to enforce policy, give usage visibility, and surface shadow IT.",
+        "distractors": {
+          "A": "A rainbow table is a cracking data structure, not a cloud security control.",
+          "B": "A deauthentication tool is a wireless attack utility, unrelated to cloud policy.",
+          "C": "",
+          "D": "A WAF filters web-application attacks; it does not broker cloud-service usage policy and visibility."
+        },
+        "exam_pattern": "Policy plus visibility between users and cloud services, finds shadow IT = CASB."
+      },
+      "references": [
+        "CEH v13 Module 19: Cloud Computing"
+      ]
+    },
+    {
+      "id": "ceh-cc-007",
+      "exam": "ceh",
+      "domain": "ceh_cloud_crypto",
+      "subtopic": "ceh_cloud_computing",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: In the cloud shared ______ model, the provider secures the cloud infrastructure while the customer secures their own data, identities, and configurations.",
+      "correct": [
+        "responsibility"
+      ],
+      "explanation": {
+        "correct": "The shared responsibility model divides duties between the provider (security OF the cloud) and the customer (security IN the cloud); misreading it is a frequent cause of cloud breaches.",
+        "distractors": {},
+        "exam_pattern": "Provider secures the cloud, customer secures what's in it = shared responsibility model."
+      },
+      "references": [
+        "CEH v13 Module 19: Cloud Computing"
+      ]
+    },
+    {
+      "id": "ceh-cc-008",
+      "exam": "ceh",
+      "domain": "ceh_cloud_crypto",
+      "subtopic": "ceh_cloud_computing",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "Which TWO are common contributors to cloud data breaches that defenders should prioritize fixing? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Enabling provider-side encryption at rest"
+        },
+        {
+          "id": "B",
+          "text": "Requiring multi-factor authentication on administrative accounts"
+        },
+        {
+          "id": "C",
+          "text": "Misconfigured storage and overly permissive IAM policies"
+        },
+        {
+          "id": "D",
+          "text": "Leaked or hard-coded access keys committed to code repositories"
+        }
+      ],
+      "correct": [
+        "C",
+        "D"
+      ],
+      "explanation": {
+        "correct": "Storage/IAM misconfiguration and exposed access keys are leading causes of cloud breaches, so they are priority fixes.",
+        "distractors": {
+          "A": "Encryption at rest is a protective control, not a breach contributor.",
+          "B": "Requiring MFA is a defense that reduces breaches, not a cause of them.",
+          "C": "",
+          "D": ""
+        },
+        "exam_pattern": "Top cloud breach causes: misconfiguration, excessive IAM permissions, and exposed keys."
+      },
+      "references": [
+        "CEH v13 Module 19: Cloud Computing"
+      ]
+    },
+    {
+      "id": "ceh-cc-009",
+      "exam": "ceh",
+      "domain": "ceh_cloud_crypto",
+      "subtopic": "ceh_cryptography",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which statement correctly describes symmetric encryption such as AES?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is used only to create digital signatures"
+        },
+        {
+          "id": "B",
+          "text": "The same secret key is used to encrypt and to decrypt"
+        },
+        {
+          "id": "C",
+          "text": "It requires no key at all"
+        },
+        {
+          "id": "D",
+          "text": "A public key encrypts and a separate private key decrypts"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Symmetric encryption uses one shared secret key for both encryption and decryption, which makes it fast but requires secure key distribution.",
+        "distractors": {
+          "A": "Digital signatures rely on asymmetric keys, not symmetric encryption.",
+          "B": "",
+          "C": "Encryption always requires a key.",
+          "D": "Using a public/private key pair describes asymmetric encryption."
+        },
+        "exam_pattern": "One shared secret key for both directions = symmetric (AES); a key pair = asymmetric (RSA/ECC)."
+      },
+      "references": [
+        "CEH v13 Module 20: Cryptography"
+      ]
+    },
+    {
+      "id": "ceh-cc-010",
+      "exam": "ceh",
+      "domain": "ceh_cloud_crypto",
+      "subtopic": "ceh_cryptography",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Using asymmetric cryptography to send a confidential message that only the intended recipient can read, the sender encrypts the message with which key?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A shared symmetric key sent in the clear"
+        },
+        {
+          "id": "B",
+          "text": "The recipient's public key"
+        },
+        {
+          "id": "C",
+          "text": "A hash of the message"
+        },
+        {
+          "id": "D",
+          "text": "The sender's private key"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Encrypting with the recipient's public key means only the recipient's matching private key can decrypt it, providing confidentiality.",
+        "distractors": {
+          "A": "Sending a key in the clear exposes it and defeats confidentiality.",
+          "B": "",
+          "C": "A hash is one-way and cannot be decrypted back into the message.",
+          "D": "Encrypting with the sender's private key provides a signature, not confidentiality."
+        },
+        "exam_pattern": "Confidentiality: encrypt with the recipient's public key (only their private key decrypts)."
+      },
+      "references": [
+        "CEH v13 Module 20: Cryptography"
+      ]
+    },
+    {
+      "id": "ceh-cc-011",
+      "exam": "ceh",
+      "domain": "ceh_cloud_crypto",
+      "subtopic": "ceh_cryptography",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which property best characterizes a cryptographic hash function such as SHA-256?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It compresses files to save storage space"
+        },
+        {
+          "id": "B",
+          "text": "It encrypts data to provide confidentiality"
+        },
+        {
+          "id": "C",
+          "text": "It is a one-way function producing a fixed-length digest"
+        },
+        {
+          "id": "D",
+          "text": "It is reversible when you have the right key"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A cryptographic hash is a one-way function that maps any input to a fixed-length digest, used for integrity checking rather than reversible encryption.",
+        "distractors": {
+          "A": "Hashing is not a storage-compression technique.",
+          "B": "Hashing provides integrity, not confidentiality; it does not encrypt.",
+          "C": "",
+          "D": "Hashes are one-way and are not reversible with a key."
+        },
+        "exam_pattern": "One-way, fixed-length digest for integrity = cryptographic hash (SHA-256)."
+      },
+      "references": [
+        "CEH v13 Module 20: Cryptography"
+      ]
+    },
+    {
+      "id": "ceh-cc-012",
+      "exam": "ceh",
+      "domain": "ceh_cloud_crypto",
+      "subtopic": "ceh_cryptography",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A sender signs a document by encrypting its hash with their private key. Verifying the signature with the sender's public key primarily assures the recipient of what?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Confidentiality of the document's contents"
+        },
+        {
+          "id": "B",
+          "text": "Faster transmission of the document"
+        },
+        {
+          "id": "C",
+          "text": "That the file was compressed correctly"
+        },
+        {
+          "id": "D",
+          "text": "Integrity of the message and authenticity of the sender (non-repudiation)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A digital signature lets the recipient confirm the message was not altered (integrity) and came from the holder of the private key (authenticity/non-repudiation).",
+        "distractors": {
+          "A": "Signing does not hide the contents; confidentiality requires encrypting the message itself.",
+          "B": "Signatures do not speed up transmission.",
+          "C": "Signatures say nothing about compression.",
+          "D": ""
+        },
+        "exam_pattern": "Sign hash with private key, verify with public key = integrity + authenticity (non-repudiation), not confidentiality."
+      },
+      "references": [
+        "CEH v13 Module 20: Cryptography"
+      ]
+    },
+    {
+      "id": "ceh-cc-013",
+      "exam": "ceh",
+      "domain": "ceh_cloud_crypto",
+      "subtopic": "ceh_cryptography",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "In a public key infrastructure (PKI), which entity issues and digitally signs the certificates that bind a public key to a verified identity?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Certificate authority (CA)"
+        },
+        {
+          "id": "B",
+          "text": "Botnet controller"
+        },
+        {
+          "id": "C",
+          "text": "Honeypot"
+        },
+        {
+          "id": "D",
+          "text": "Packet sniffer"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A certificate authority issues and signs digital certificates, vouching that a public key belongs to the named identity - the trust anchor of PKI.",
+        "distractors": {
+          "A": "",
+          "B": "A botnet controller commands compromised hosts; it has no PKI role.",
+          "C": "A honeypot is a decoy system, not a certificate issuer.",
+          "D": "A packet sniffer captures traffic; it does not issue certificates."
+        },
+        "exam_pattern": "Issues/signs certificates binding key to identity = certificate authority (CA)."
+      },
+      "references": [
+        "CEH v13 Module 20: Cryptography"
+      ]
+    },
+    {
+      "id": "ceh-cc-014",
+      "exam": "ceh",
+      "domain": "ceh_cloud_crypto",
+      "subtopic": "ceh_cryptography",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which protocol secures data in transit for HTTPS, providing encryption, integrity, and server authentication between a browser and a web server?",
+      "options": [
+        {
+          "id": "A",
+          "text": "TLS (Transport Layer Security)"
+        },
+        {
+          "id": "B",
+          "text": "Telnet"
+        },
+        {
+          "id": "C",
+          "text": "FTP"
+        },
+        {
+          "id": "D",
+          "text": "SNMP"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "TLS, the successor to SSL, encrypts and authenticates web traffic in transit, which is what makes HTTP into HTTPS.",
+        "distractors": {
+          "A": "",
+          "B": "Telnet provides remote access in clear text, the opposite of secure transport.",
+          "C": "FTP transfers files without encryption by default.",
+          "D": "SNMP manages network devices; it does not secure web traffic."
+        },
+        "exam_pattern": "Encrypts/authenticates web traffic in transit = TLS (successor to SSL)."
+      },
+      "references": [
+        "CEH v13 Module 20: Cryptography"
+      ]
+    },
+    {
+      "id": "ceh-cc-015",
+      "exam": "ceh",
+      "domain": "ceh_cloud_crypto",
+      "subtopic": "ceh_cryptography",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: Whereas cryptography scrambles a message so it cannot be read, ______ hides the very existence of the message inside a carrier such as an image or audio file.",
+      "correct": [
+        "steganography"
+      ],
+      "explanation": {
+        "correct": "Cryptography protects confidentiality by making data unreadable; steganography conceals that a message exists at all by embedding it in a carrier file. The two can be combined.",
+        "distractors": {},
+        "exam_pattern": "Hide that a message exists = steganography; make it unreadable = cryptography."
+      },
+      "references": [
+        "CEH v13 Module 20: Cryptography"
+      ]
+    },
+    {
+      "id": "ceh-cc-016",
+      "exam": "ceh",
+      "domain": "ceh_cloud_crypto",
+      "subtopic": "ceh_cryptography",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An attacker searches for two different inputs that produce the same hash value, exploiting the mathematics behind the birthday paradox. Which attack is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SYN flood"
+        },
+        {
+          "id": "B",
+          "text": "Brute-force key search"
+        },
+        {
+          "id": "C",
+          "text": "Phishing"
+        },
+        {
+          "id": "D",
+          "text": "Collision (birthday) attack"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Finding two inputs with the same hash is a collision attack; the birthday paradox makes collisions far easier than intuition suggests, which is why MD5 and SHA-1 are deprecated.",
+        "distractors": {
+          "A": "A SYN flood is a denial-of-service attack, unrelated to hashing.",
+          "B": "Brute-force key search tries keys against ciphertext; it does not seek hash collisions.",
+          "C": "Phishing is social engineering, not a cryptanalytic attack.",
+          "D": ""
+        },
+        "exam_pattern": "Two inputs, same hash via birthday math = collision attack (why MD5/SHA-1 are deprecated)."
+      },
+      "references": [
+        "CEH v13 Module 20: Cryptography"
+      ]
+    },
+    {
+      "id": "ceh-net-001",
+      "exam": "ceh",
+      "domain": "ceh_network_perimeter",
+      "subtopic": "ceh_sniffing",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On a switched network, an attacker must manipulate the switch's behavior to see traffic not destined for their own port. This makes sniffing on switches primarily which kind?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Encrypted sniffing"
+        },
+        {
+          "id": "B",
+          "text": "Out-of-band sniffing"
+        },
+        {
+          "id": "C",
+          "text": "Active sniffing"
+        },
+        {
+          "id": "D",
+          "text": "Passive sniffing"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Switches forward frames only to the destination port, so an attacker must actively inject traffic (ARP poisoning, MAC flooding) to capture other hosts' data - active sniffing.",
+        "distractors": {
+          "A": "Encryption protects traffic from being read; it is not a mode of sniffing.",
+          "B": "'Out-of-band sniffing' is not a standard CEH sniffing category.",
+          "C": "",
+          "D": "Passive sniffing works on hubs, where every frame is already broadcast to all ports."
+        },
+        "exam_pattern": "Hubs = passive (traffic already shared); switches = active (must poison/flood)."
+      },
+      "references": [
+        "CEH v13 Module 08: Sniffing"
+      ]
+    },
+    {
+      "id": "ceh-net-002",
+      "exam": "ceh",
+      "domain": "ceh_network_perimeter",
+      "subtopic": "ceh_sniffing",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An attacker sends forged ARP replies so victims associate the attacker's MAC address with the default gateway's IP, placing the attacker in the traffic path. Which attack is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ARP poisoning (ARP spoofing)"
+        },
+        {
+          "id": "B",
+          "text": "Cross-site scripting"
+        },
+        {
+          "id": "C",
+          "text": "DNS amplification"
+        },
+        {
+          "id": "D",
+          "text": "SYN flood"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "ARP poisoning sends forged ARP replies that bind the attacker's MAC to another host's IP (often the gateway), enabling a man-in-the-middle position on the LAN.",
+        "distractors": {
+          "A": "",
+          "B": "Cross-site scripting injects script into web pages; it is unrelated to ARP.",
+          "C": "DNS amplification is a reflection-based DDoS technique, not LAN traffic redirection.",
+          "D": "A SYN flood exhausts a server's connection table; it does not redirect LAN traffic."
+        },
+        "exam_pattern": "Forged ARP replies to redirect LAN traffic = ARP poisoning (enables MITM)."
+      },
+      "references": [
+        "CEH v13 Module 08: Sniffing"
+      ]
+    },
+    {
+      "id": "ceh-net-003",
+      "exam": "ceh",
+      "domain": "ceh_network_perimeter",
+      "subtopic": "ceh_sniffing",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An attacker floods a switch with a huge number of bogus source MAC addresses to overflow its CAM table, forcing it to broadcast frames out all ports. Which attack is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "MAC flooding"
+        },
+        {
+          "id": "B",
+          "text": "Smurf attack"
+        },
+        {
+          "id": "C",
+          "text": "Session fixation"
+        },
+        {
+          "id": "D",
+          "text": "Evil twin"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "MAC flooding overruns the switch's CAM/MAC address table; when it fails open, the switch behaves like a hub and broadcasts frames, letting the attacker sniff them.",
+        "distractors": {
+          "A": "",
+          "B": "A Smurf attack is an ICMP amplification denial-of-service, not CAM-table abuse.",
+          "C": "Session fixation is a web session attack, unrelated to switch CAM tables.",
+          "D": "An evil twin is a rogue wireless access point, not a switch attack."
+        },
+        "exam_pattern": "Overflow the switch CAM table to force fail-open flooding = MAC flooding."
+      },
+      "references": [
+        "CEH v13 Module 08: Sniffing"
+      ]
+    },
+    {
+      "id": "ceh-net-004",
+      "exam": "ceh",
+      "domain": "ceh_network_perimeter",
+      "subtopic": "ceh_sniffing",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which tool captures and inspects packets frame-by-frame and is commonly used to analyze traffic that a sniffer has collected?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Wireshark"
+        },
+        {
+          "id": "B",
+          "text": "Hydra"
+        },
+        {
+          "id": "C",
+          "text": "Aircrack-ng"
+        },
+        {
+          "id": "D",
+          "text": "Nikto"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Wireshark is the standard packet analyzer, decoding captured frames protocol-by-protocol for inspection.",
+        "distractors": {
+          "A": "",
+          "B": "Hydra is an online password-guessing tool, not a packet analyzer.",
+          "C": "Aircrack-ng cracks wireless encryption keys; it is not a general packet analyzer.",
+          "D": "Nikto scans web servers for known issues; it does not analyze packets."
+        },
+        "exam_pattern": "Frame-level packet capture/analysis = Wireshark; encrypting traffic (TLS) defends against sniffing."
+      },
+      "references": [
+        "CEH v13 Module 08: Sniffing"
+      ]
+    },
+    {
+      "id": "ceh-net-005",
+      "exam": "ceh",
+      "domain": "ceh_network_perimeter",
+      "subtopic": "ceh_social_engineering",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Employees receive an email that appears to come from IT urging them to click a link and 'verify' their password on a lookalike site. Which social-engineering attack is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Shoulder surfing"
+        },
+        {
+          "id": "B",
+          "text": "Phishing"
+        },
+        {
+          "id": "C",
+          "text": "Dumpster diving"
+        },
+        {
+          "id": "D",
+          "text": "Tailgating"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Phishing uses a deceptive email and a lookalike site to trick users into revealing credentials or clicking malicious links.",
+        "distractors": {
+          "A": "Shoulder surfing is watching a victim's screen or keyboard to capture data.",
+          "B": "",
+          "C": "Dumpster diving searches discarded materials for useful information.",
+          "D": "Tailgating is physically following someone through a secure door, not an email lure."
+        },
+        "exam_pattern": "Deceptive email plus lookalike site to harvest credentials = phishing."
+      },
+      "references": [
+        "CEH v13 Module 09: Social Engineering"
+      ]
+    },
+    {
+      "id": "ceh-net-006",
+      "exam": "ceh",
+      "domain": "ceh_network_perimeter",
+      "subtopic": "ceh_social_engineering",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An attacker phones the help desk posing as a senior executive and invents an urgent story to pressure staff into resetting an account. Which technique is primarily at work?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SQL injection"
+        },
+        {
+          "id": "B",
+          "text": "Vishing with pretexting"
+        },
+        {
+          "id": "C",
+          "text": "Watering hole attack"
+        },
+        {
+          "id": "D",
+          "text": "Smishing"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Voice-based deception is vishing, and the invented backstory used to justify the request is pretexting; together they pressure the help desk into acting.",
+        "distractors": {
+          "A": "SQL injection is a database attack, not social engineering.",
+          "B": "",
+          "C": "A watering hole compromises a website the target is known to visit, not a phone call.",
+          "D": "Smishing delivers the lure by SMS text message, not a phone call."
+        },
+        "exam_pattern": "Phone-based deception = vishing; the invented backstory = pretexting."
+      },
+      "references": [
+        "CEH v13 Module 09: Social Engineering"
+      ]
+    },
+    {
+      "id": "ceh-net-007",
+      "exam": "ceh",
+      "domain": "ceh_network_perimeter",
+      "subtopic": "ceh_social_engineering",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An unauthorized person slips through a badge-controlled door by closely following an employee who just badged in. Which physical social-engineering technique is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tailgating (piggybacking)"
+        },
+        {
+          "id": "B",
+          "text": "Email impersonation"
+        },
+        {
+          "id": "C",
+          "text": "Phishing"
+        },
+        {
+          "id": "D",
+          "text": "Credential stuffing"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Following an authorized person through a secure door without badging is tailgating (piggybacking); mantraps and security awareness are common defenses.",
+        "distractors": {
+          "A": "",
+          "B": "Email impersonation is remote deception, not walking through a door.",
+          "C": "Phishing is an electronic lure, not physical entry.",
+          "D": "Credential stuffing replays leaked credentials online; it is not physical entry."
+        },
+        "exam_pattern": "Follow someone through a secure door = tailgating/piggybacking (mantraps defend)."
+      },
+      "references": [
+        "CEH v13 Module 09: Social Engineering"
+      ]
+    },
+    {
+      "id": "ceh-net-008",
+      "exam": "ceh",
+      "domain": "ceh_network_perimeter",
+      "subtopic": "ceh_dos_ddos",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An attacker sends a flood of TCP SYN packets with spoofed sources and never completes the handshakes, exhausting the server's half-open connection table. Which attack is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SYN flood"
+        },
+        {
+          "id": "B",
+          "text": "ARP poisoning"
+        },
+        {
+          "id": "C",
+          "text": "Cross-site request forgery"
+        },
+        {
+          "id": "D",
+          "text": "DNS zone transfer"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A SYN flood leaves many half-open connections that consume the server's connection table, denying service to legitimate clients; SYN cookies are a standard defense.",
+        "distractors": {
+          "A": "",
+          "B": "ARP poisoning redirects LAN traffic for interception, not connection-table exhaustion.",
+          "C": "CSRF abuses a logged-in user's session on a web app; it is not a flooding DoS.",
+          "D": "A DNS zone transfer copies DNS records; it is an enumeration issue, not a flood."
+        },
+        "exam_pattern": "Half-open connection exhaustion via SYN packets = SYN flood (SYN cookies defend)."
+      },
+      "references": [
+        "CEH v13 Module 10: Denial-of-Service"
+      ]
+    },
+    {
+      "id": "ceh-net-009",
+      "exam": "ceh",
+      "domain": "ceh_network_perimeter",
+      "subtopic": "ceh_dos_ddos",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An attacker sends small DNS or NTP queries with the victim's IP spoofed as the source, so servers send much larger replies to the victim. Which DDoS technique is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Amplification (reflection) attack"
+        },
+        {
+          "id": "B",
+          "text": "Phishing"
+        },
+        {
+          "id": "C",
+          "text": "Rainbow table attack"
+        },
+        {
+          "id": "D",
+          "text": "Session hijacking"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "An amplification/reflection attack spoofs the victim's source address so intermediary servers reflect large responses to the victim, multiplying the attacker's bandwidth.",
+        "distractors": {
+          "A": "",
+          "B": "Phishing is social engineering, not a reflected-traffic flood.",
+          "C": "A rainbow table attack cracks password hashes, unrelated to DDoS.",
+          "D": "Session hijacking takes over an authenticated session; it is not a bandwidth flood."
+        },
+        "exam_pattern": "Spoofed source plus large reflected replies = amplification/reflection DDoS (DNS, NTP, memcached)."
+      },
+      "references": [
+        "CEH v13 Module 10: Denial-of-Service"
+      ]
+    },
+    {
+      "id": "ceh-net-010",
+      "exam": "ceh",
+      "domain": "ceh_network_perimeter",
+      "subtopic": "ceh_dos_ddos",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "What primarily distinguishes a distributed denial-of-service (DDoS) attack from a basic denial-of-service (DoS) attack?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DDoS targets only web applications"
+        },
+        {
+          "id": "B",
+          "text": "DDoS never uses spoofed addresses"
+        },
+        {
+          "id": "C",
+          "text": "DDoS only affects wireless networks"
+        },
+        {
+          "id": "D",
+          "text": "DDoS uses many distributed sources (often a botnet) instead of one"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A DDoS attack originates from many distributed systems (commonly a botnet), which makes it harder to block and far higher in volume than a single-source DoS.",
+        "distractors": {
+          "A": "DDoS can target any service or protocol, not only web applications.",
+          "B": "DDoS attacks frequently rely on spoofed source addresses.",
+          "C": "DDoS is not limited to wireless networks.",
+          "D": ""
+        },
+        "exam_pattern": "Many distributed attacking sources (botnet) = DDoS; single source = DoS."
+      },
+      "references": [
+        "CEH v13 Module 10: Denial-of-Service"
+      ]
+    },
+    {
+      "id": "ceh-net-011",
+      "exam": "ceh",
+      "domain": "ceh_network_perimeter",
+      "subtopic": "ceh_session_hijacking",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An attacker steals a valid session token after a user has logged in and uses it to take over the authenticated session without knowing the password. What is this called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Password spraying"
+        },
+        {
+          "id": "B",
+          "text": "Privilege escalation"
+        },
+        {
+          "id": "C",
+          "text": "Session hijacking"
+        },
+        {
+          "id": "D",
+          "text": "Banner grabbing"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Session hijacking takes over an already-authenticated session by capturing or predicting its token, so the attacker need not know the credentials.",
+        "distractors": {
+          "A": "Password spraying guesses common passwords against many accounts.",
+          "B": "Privilege escalation raises an account's rights; it does not seize an existing session.",
+          "C": "",
+          "D": "Banner grabbing reads a service's version; it does not take over sessions."
+        },
+        "exam_pattern": "Take over an active authenticated session via its token = session hijacking."
+      },
+      "references": [
+        "CEH v13 Module 11: Session Hijacking"
+      ]
+    },
+    {
+      "id": "ceh-net-012",
+      "exam": "ceh",
+      "domain": "ceh_network_perimeter",
+      "subtopic": "ceh_session_hijacking",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which control most directly reduces network-based session hijacking by preventing an attacker from reading session tokens as they travel the network?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Disabling ICMP echo replies"
+        },
+        {
+          "id": "B",
+          "text": "Enabling more verbose logging"
+        },
+        {
+          "id": "C",
+          "text": "Encrypting the session with TLS/HTTPS"
+        },
+        {
+          "id": "D",
+          "text": "Increasing the minimum password length"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Encrypting the session end-to-end with TLS keeps the token unreadable in transit, so a sniffer cannot capture and reuse it.",
+        "distractors": {
+          "A": "Disabling ICMP does nothing to protect session tokens.",
+          "B": "Verbose logging may aid detection but does not prevent token interception.",
+          "C": "",
+          "D": "Longer passwords do not help once a session token has been issued and is being stolen."
+        },
+        "exam_pattern": "Encrypt the channel (TLS) so tokens can't be sniffed = core anti-hijacking defense."
+      },
+      "references": [
+        "CEH v13 Module 11: Session Hijacking"
+      ]
+    },
+    {
+      "id": "ceh-net-013",
+      "exam": "ceh",
+      "domain": "ceh_network_perimeter",
+      "subtopic": "ceh_session_hijacking",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: Web session hijacking typically targets the session ______ - the token a server issues after login to recognize the authenticated user on later requests.",
+      "correct": [
+        "cookie",
+        "id",
+        "identifier",
+        "token"
+      ],
+      "explanation": {
+        "correct": "The session identifier (session cookie/token) is what the server trusts to recognize a logged-in user; stealing it enables impersonation. Protect it with TLS and the HttpOnly/Secure flags.",
+        "distractors": {},
+        "exam_pattern": "Stolen session ID / cookie = hijacked session."
+      },
+      "references": [
+        "CEH v13 Module 11: Session Hijacking"
+      ]
+    },
+    {
+      "id": "ceh-net-014",
+      "exam": "ceh",
+      "domain": "ceh_network_perimeter",
+      "subtopic": "ceh_evading_ids_fw",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An attacker splits attack traffic into many tiny IP fragments, hoping the IDS fails to reassemble and inspect them while the target still reassembles the full payload. Which evasion is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fragmentation (IDS evasion)"
+        },
+        {
+          "id": "B",
+          "text": "Salting"
+        },
+        {
+          "id": "C",
+          "text": "MAC flooding"
+        },
+        {
+          "id": "D",
+          "text": "Pass-the-hash"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Fragmentation evasion breaks the payload into small IP fragments so a sensor that does not reassemble them the same way as the target misses the signature.",
+        "distractors": {
+          "A": "",
+          "B": "Salting protects stored password hashes; it is not an IDS evasion.",
+          "C": "MAC flooding overflows a switch table; it is not fragmentation-based evasion.",
+          "D": "Pass-the-hash reuses a hash to authenticate; it does not evade signature inspection."
+        },
+        "exam_pattern": "Tiny fragments to defeat inspection/reassembly = fragmentation evasion."
+      },
+      "references": [
+        "CEH v13 Module 12: Evading IDS, Firewalls, and Honeypots"
+      ]
+    },
+    {
+      "id": "ceh-net-015",
+      "exam": "ceh",
+      "domain": "ceh_network_perimeter",
+      "subtopic": "ceh_evading_ids_fw",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: A ______ is a decoy system deliberately exposed to attract and study attackers and to detect malicious activity, while holding no real production data.",
+      "correct": [
+        "honeypot"
+      ],
+      "explanation": {
+        "correct": "A honeypot is an intentionally enticing decoy with no production value, so any interaction with it is inherently suspicious - useful for detection and research. Many linked together form a honeynet.",
+        "distractors": {},
+        "exam_pattern": "Decoy to lure and observe attackers = honeypot (many = honeynet)."
+      },
+      "references": [
+        "CEH v13 Module 12: Evading IDS, Firewalls, and Honeypots"
+      ]
+    },
+    {
+      "id": "ceh-net-016",
+      "exam": "ceh",
+      "domain": "ceh_network_perimeter",
+      "subtopic": "ceh_evading_ids_fw",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "Which TWO techniques do attackers use to evade intrusion detection systems and firewalls while delivering a payload? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Publicly announcing the attack in advance"
+        },
+        {
+          "id": "B",
+          "text": "Submitting the payload to the IDS vendor for a new signature"
+        },
+        {
+          "id": "C",
+          "text": "Encoding or obfuscating the payload to avoid signature matches"
+        },
+        {
+          "id": "D",
+          "text": "Tunneling the traffic inside an allowed protocol such as HTTPS or DNS"
+        }
+      ],
+      "correct": [
+        "C",
+        "D"
+      ],
+      "explanation": {
+        "correct": "Encoding/obfuscation defeats signature matching, and tunneling inside an allowed protocol (HTTPS, DNS) hides the traffic from perimeter controls - both are classic evasion techniques.",
+        "distractors": {
+          "A": "Announcing the attack would alert defenders rather than evade them.",
+          "B": "Submitting the payload for a signature would help the IDS detect it, the opposite of evasion.",
+          "C": "",
+          "D": ""
+        },
+        "exam_pattern": "Encoding/obfuscation and protocol tunneling (HTTPS/DNS) = common IDS/firewall evasion."
+      },
+      "references": [
+        "CEH v13 Module 12: Evading IDS, Firewalls, and Honeypots"
+      ]
+    },
+    {
+      "id": "ceh-recon-001",
+      "exam": "ceh",
+      "domain": "ceh_intro_recon",
+      "subtopic": "ceh_ethics_overview",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "In the five-phase ethical hacking methodology, which phase comes first - gathering information about the target before any active probing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reconnaissance"
+        },
+        {
+          "id": "B",
+          "text": "Scanning"
+        },
+        {
+          "id": "C",
+          "text": "Clearing tracks"
+        },
+        {
+          "id": "D",
+          "text": "Gaining access"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Reconnaissance (information gathering) is the first phase; the tester collects data about the target before scanning or attempting access.",
+        "distractors": {
+          "A": "",
+          "B": "Scanning is the second phase, performed after reconnaissance gathers initial information.",
+          "C": "Clearing tracks is the final phase, performed after access is gained and maintained.",
+          "D": "Gaining access is the third phase, after the target has been scanned."
+        },
+        "exam_pattern": "Order: reconnaissance -> scanning -> gaining access -> maintaining access -> clearing tracks."
+      },
+      "references": [
+        "CEH v13 Module 01: Introduction to Ethical Hacking"
+      ]
+    },
+    {
+      "id": "ceh-recon-002",
+      "exam": "ceh",
+      "domain": "ceh_intro_recon",
+      "subtopic": "ceh_ethics_overview",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A professional is hired under a signed contract to find security weaknesses in a company's systems and report them so they can be fixed. Which category best describes this person?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Script kiddie"
+        },
+        {
+          "id": "B",
+          "text": "White hat hacker (ethical hacker)"
+        },
+        {
+          "id": "C",
+          "text": "Black hat hacker"
+        },
+        {
+          "id": "D",
+          "text": "Hacktivist"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A white hat (ethical) hacker tests systems with explicit authorization and reports findings so they can be remediated.",
+        "distractors": {
+          "A": "A script kiddie runs others' tools with little skill and typically without authorization.",
+          "B": "",
+          "C": "A black hat acts maliciously and without authorization, the opposite of this scenario.",
+          "D": "A hacktivist attacks to promote a political or social cause, not under a client contract."
+        },
+        "exam_pattern": "Authorized plus reports findings = white hat; malicious plus unauthorized = black hat."
+      },
+      "references": [
+        "CEH v13 Module 01: Introduction to Ethical Hacking"
+      ]
+    },
+    {
+      "id": "ceh-recon-003",
+      "exam": "ceh",
+      "domain": "ceh_intro_recon",
+      "subtopic": "ceh_ethics_overview",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: The fifth and final phase of the hacking methodology, in which the attacker deletes logs and hides evidence to avoid detection, is called ______.",
+      "correct": [
+        "clearing tracks",
+        "covering tracks"
+      ],
+      "explanation": {
+        "correct": "Clearing tracks (also called covering tracks) is the last phase, where the attacker removes or alters logs and artifacts to evade detection and preserve deniability.",
+        "distractors": {},
+        "exam_pattern": "Deleting logs / hiding evidence as the last step = clearing (covering) tracks."
+      },
+      "references": [
+        "CEH v13 Module 01: Introduction to Ethical Hacking"
+      ]
+    },
+    {
+      "id": "ceh-recon-004",
+      "exam": "ceh",
+      "domain": "ceh_intro_recon",
+      "subtopic": "ceh_ethics_overview",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Before an authorized penetration test begins, which document most directly defines which targets are in scope and the limits the testers must observe?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The CVSS scoring guide"
+        },
+        {
+          "id": "B",
+          "text": "The scope and rules of engagement (RoE)"
+        },
+        {
+          "id": "C",
+          "text": "The exploit module source code"
+        },
+        {
+          "id": "D",
+          "text": "The final vulnerability report"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Scope and the rules of engagement define authorized targets, permitted techniques, timing, and limits, keeping the assessment legal and bounded.",
+        "distractors": {
+          "A": "CVSS scores the severity of findings; it does not define the engagement's scope.",
+          "B": "",
+          "C": "Exploit source code is a tool, not the authorization that bounds the test.",
+          "D": "The final report documents results after testing; it does not set boundaries beforehand."
+        },
+        "exam_pattern": "Authorized targets plus limits agreed up front = scope / rules of engagement."
+      },
+      "references": [
+        "CEH v13 Module 01: Introduction to Ethical Hacking"
+      ]
+    },
+    {
+      "id": "ceh-recon-005",
+      "exam": "ceh",
+      "domain": "ceh_intro_recon",
+      "subtopic": "ceh_footprinting",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A tester needs a target domain's registrar, creation and expiry dates, and authoritative name servers without sending traffic to the organization's own hosts. Which lookup fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reverse ARP request"
+        },
+        {
+          "id": "B",
+          "text": "Nmap -O OS scan"
+        },
+        {
+          "id": "C",
+          "text": "SNMP walk"
+        },
+        {
+          "id": "D",
+          "text": "WHOIS query"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "WHOIS queries registry/registrar databases and returns the registrar, registration dates, and name servers, so it never touches the target's own systems.",
+        "distractors": {
+          "A": "ARP maps IP to MAC on the local link; it does not return domain registration data.",
+          "B": "An Nmap OS scan actively probes a live host, which is not passive footprinting.",
+          "C": "SNMP walk actively queries a device's management data and needs a community string.",
+          "D": ""
+        },
+        "exam_pattern": "Registrar / dates / name servers with no target interaction = WHOIS."
+      },
+      "references": [
+        "CEH v13 Module 02: Footprinting and Reconnaissance"
+      ]
+    },
+    {
+      "id": "ceh-recon-006",
+      "exam": "ceh",
+      "domain": "ceh_intro_recon",
+      "subtopic": "ceh_footprinting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "During footprinting, which tool is built to collect email addresses, employee names, and subdomains for a target by querying public search engines and data sources?",
+      "options": [
+        {
+          "id": "A",
+          "text": "theHarvester"
+        },
+        {
+          "id": "B",
+          "text": "Aircrack-ng"
+        },
+        {
+          "id": "C",
+          "text": "John the Ripper"
+        },
+        {
+          "id": "D",
+          "text": "Responder"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "theHarvester automates OSINT collection of emails, names, subdomains, and hosts from public search engines and databases.",
+        "distractors": {
+          "A": "",
+          "B": "Aircrack-ng cracks WEP/WPA wireless keys; it is not an OSINT collector.",
+          "C": "John the Ripper is an offline password cracker, not a footprinting tool.",
+          "D": "Responder poisons LLMNR/NBT-NS on a local network to capture hashes, not public OSINT."
+        },
+        "exam_pattern": "Harvest emails / subdomains / names from public sources = theHarvester."
+      },
+      "references": [
+        "CEH v13 Module 02: Footprinting and Reconnaissance"
+      ]
+    },
+    {
+      "id": "ceh-recon-007",
+      "exam": "ceh",
+      "domain": "ceh_intro_recon",
+      "subtopic": "ceh_footprinting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An assessor wants to find Internet-exposed devices such as routers, cameras, and industrial controllers by their service banners, without scanning them directly. Which resource fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hydra"
+        },
+        {
+          "id": "B",
+          "text": "Hashcat"
+        },
+        {
+          "id": "C",
+          "text": "Wireshark"
+        },
+        {
+          "id": "D",
+          "text": "Shodan"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Shodan continuously indexes Internet-connected devices and their banners, letting a tester discover exposed systems passively.",
+        "distractors": {
+          "A": "Hydra performs online password guessing against services, not device discovery.",
+          "B": "Hashcat cracks password hashes offline; it is unrelated to device discovery.",
+          "C": "Wireshark captures and analyzes traffic you can already see; it does not index the Internet.",
+          "D": ""
+        },
+        "exam_pattern": "Search Internet-connected devices by banner = Shodan (Censys is similar)."
+      },
+      "references": [
+        "CEH v13 Module 02: Footprinting and Reconnaissance"
+      ]
+    },
+    {
+      "id": "ceh-recon-008",
+      "exam": "ceh",
+      "domain": "ceh_intro_recon",
+      "subtopic": "ceh_scanning",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which Nmap scan sends a SYN, waits for SYN/ACK, then replies with RST instead of completing the three-way handshake, making it the default stealthy 'half-open' scan?",
+      "options": [
+        {
+          "id": "A",
+          "text": "-sU (UDP scan)"
+        },
+        {
+          "id": "B",
+          "text": "-sn (host discovery)"
+        },
+        {
+          "id": "C",
+          "text": "-sS (TCP SYN scan)"
+        },
+        {
+          "id": "D",
+          "text": "-sT (TCP connect scan)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The SYN (half-open) scan never finishes the handshake, so it is faster and less likely to be logged than a full connect scan.",
+        "distractors": {
+          "A": "-sU scans UDP ports and does not use the TCP handshake at all.",
+          "B": "-sn only discovers live hosts and scans no ports.",
+          "C": "",
+          "D": "-sT completes the full TCP handshake, which is more likely to be logged by the target."
+        },
+        "exam_pattern": "Half-open SYN then RST = -sS; full handshake = -sT."
+      },
+      "references": [
+        "CEH v13 Module 03: Scanning Networks"
+      ]
+    },
+    {
+      "id": "ceh-recon-009",
+      "exam": "ceh",
+      "domain": "ceh_intro_recon",
+      "subtopic": "ceh_scanning",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A tester wants to learn which hosts in a /24 are alive but deliberately scans no ports. Which Nmap option performs this host-discovery-only sweep?",
+      "options": [
+        {
+          "id": "A",
+          "text": "-sS"
+        },
+        {
+          "id": "B",
+          "text": "-sn"
+        },
+        {
+          "id": "C",
+          "text": "-sV"
+        },
+        {
+          "id": "D",
+          "text": "-O"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "-sn (formerly -sP) performs host discovery only, reporting which hosts respond without scanning their ports.",
+        "distractors": {
+          "A": "-sS scans TCP ports via half-open SYN probes, not a discovery-only sweep.",
+          "B": "",
+          "C": "-sV probes open ports to detect service versions, which requires port scanning.",
+          "D": "-O fingerprints the operating system of a host and does scan it."
+        },
+        "exam_pattern": "Find live hosts, scan no ports = -sn ping sweep."
+      },
+      "references": [
+        "CEH v13 Module 03: Scanning Networks"
+      ]
+    },
+    {
+      "id": "ceh-recon-010",
+      "exam": "ceh",
+      "domain": "ceh_intro_recon",
+      "subtopic": "ceh_scanning",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A stateless firewall only drops inbound TCP packets that have the SYN flag set. Which scan sets the FIN, PSH, and URG flags so its probes can slip past that rule?",
+      "options": [
+        {
+          "id": "A",
+          "text": "UDP scan (-sU)"
+        },
+        {
+          "id": "B",
+          "text": "Xmas scan (-sX)"
+        },
+        {
+          "id": "C",
+          "text": "SYN scan (-sS)"
+        },
+        {
+          "id": "D",
+          "text": "TCP connect scan (-sT)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The Xmas scan lights the FIN, PSH, and URG flags; with no SYN set, it can pass a stateless filter that only blocks SYN packets.",
+        "distractors": {
+          "A": "A UDP scan tests UDP ports and does not manipulate TCP flags.",
+          "B": "",
+          "C": "A SYN scan also sets the SYN flag, so the rule drops it.",
+          "D": "A connect scan uses SYN to open a full handshake, exactly what the firewall blocks."
+        },
+        "exam_pattern": "FIN+PSH+URG set = Xmas (-sX); no flags = NULL (-sN); FIN only = FIN (-sF)."
+      },
+      "references": [
+        "CEH v13 Module 03: Scanning Networks"
+      ]
+    },
+    {
+      "id": "ceh-recon-011",
+      "exam": "ceh",
+      "domain": "ceh_intro_recon",
+      "subtopic": "ceh_scanning",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: The Nmap option ______ performs service and version detection, probing open ports to identify the application and version behind each one.",
+      "correct": [
+        "-sv",
+        "sv"
+      ],
+      "explanation": {
+        "correct": "-sV (service/version detection) sends probes to open ports and matches the responses against a database to report each service's name and version.",
+        "distractors": {},
+        "exam_pattern": "Identify service and version on open ports = Nmap -sV."
+      },
+      "references": [
+        "CEH v13 Module 03: Scanning Networks"
+      ]
+    },
+    {
+      "id": "ceh-recon-012",
+      "exam": "ceh",
+      "domain": "ceh_intro_recon",
+      "subtopic": "ceh_enumeration",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An attacker reads a device's full configuration and interface list by querying it with the default read community string 'public'. Which protocol is being abused for enumeration?",
+      "options": [
+        {
+          "id": "A",
+          "text": "HTTP"
+        },
+        {
+          "id": "B",
+          "text": "SNMP"
+        },
+        {
+          "id": "C",
+          "text": "NTP"
+        },
+        {
+          "id": "D",
+          "text": "SMTP"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "SNMP enumeration abuses default or guessable community strings (like 'public') to read a device's management information base (MIB).",
+        "distractors": {
+          "A": "HTTP serves web content and does not use SNMP community strings.",
+          "B": "",
+          "C": "NTP synchronizes time; it is not queried with community strings for configuration.",
+          "D": "SMTP moves email; its VRFY/EXPN commands enumerate users, not device configs via community strings."
+        },
+        "exam_pattern": "Community strings (public/private) = SNMP enumeration."
+      },
+      "references": [
+        "CEH v13 Module 04: Enumeration"
+      ]
+    },
+    {
+      "id": "ceh-recon-013",
+      "exam": "ceh",
+      "domain": "ceh_intro_recon",
+      "subtopic": "ceh_enumeration",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A tester uses enum4linux to list Windows shares, users, and groups over SMB. Which TCP port is most associated with this SMB enumeration on modern Windows?",
+      "options": [
+        {
+          "id": "A",
+          "text": "25"
+        },
+        {
+          "id": "B",
+          "text": "445"
+        },
+        {
+          "id": "C",
+          "text": "389"
+        },
+        {
+          "id": "D",
+          "text": "161"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "SMB on modern Windows uses TCP 445 (direct host), the port enum4linux and similar tools target for share, user, and group enumeration.",
+        "distractors": {
+          "A": "TCP 25 is SMTP for email, unrelated to SMB.",
+          "B": "",
+          "C": "TCP 389 is LDAP, used for directory enumeration, not SMB shares.",
+          "D": "UDP 161 is SNMP, not SMB."
+        },
+        "exam_pattern": "SMB share/user enumeration = TCP 445 (legacy NetBIOS 137-139)."
+      },
+      "references": [
+        "CEH v13 Module 04: Enumeration"
+      ]
+    },
+    {
+      "id": "ceh-recon-014",
+      "exam": "ceh",
+      "domain": "ceh_intro_recon",
+      "subtopic": "ceh_enumeration",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Connecting to an open port (for example with Netcat or Telnet) and reading the service's reply to identify its software and version is called what?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ARP spoofing"
+        },
+        {
+          "id": "B",
+          "text": "Pass-the-hash"
+        },
+        {
+          "id": "C",
+          "text": "Banner grabbing"
+        },
+        {
+          "id": "D",
+          "text": "Session fixation"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Banner grabbing reads a service's self-identifying response to determine the product and version running on a port.",
+        "distractors": {
+          "A": "ARP spoofing poisons the local ARP cache to intercept traffic; it does not read banners.",
+          "B": "Pass-the-hash reuses captured password hashes to authenticate; it is not port identification.",
+          "C": "",
+          "D": "Session fixation forces a known session ID on a victim; it is a web attack, not banner reading."
+        },
+        "exam_pattern": "Read a service's version reply from an open port = banner grabbing."
+      },
+      "references": [
+        "CEH v13 Module 04: Enumeration"
+      ]
+    },
+    {
+      "id": "ceh-recon-015",
+      "exam": "ceh",
+      "domain": "ceh_intro_recon",
+      "subtopic": "ceh_vuln_analysis",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which tool scans hosts against a database of known flaws and outputs a prioritized findings report, but is not itself an exploitation framework?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hydra"
+        },
+        {
+          "id": "B",
+          "text": "Metasploit"
+        },
+        {
+          "id": "C",
+          "text": "Netcat"
+        },
+        {
+          "id": "D",
+          "text": "Nessus"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Nessus is a vulnerability scanner: it checks systems against known-flaw signatures and reports prioritized findings, without exploiting them.",
+        "distractors": {
+          "A": "Hydra is an online password-guessing tool, not a vulnerability scanner.",
+          "B": "Metasploit is an exploitation framework used to launch and manage exploits, not a scanner.",
+          "C": "Netcat is a general-purpose networking utility, not a vulnerability scanner.",
+          "D": ""
+        },
+        "exam_pattern": "Scan-and-report known flaws = vulnerability scanner (Nessus, OpenVAS/GVM)."
+      },
+      "references": [
+        "CEH v13 Module 05: Vulnerability Analysis"
+      ]
+    },
+    {
+      "id": "ceh-recon-016",
+      "exam": "ceh",
+      "domain": "ceh_intro_recon",
+      "subtopic": "ceh_vuln_analysis",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which framework produces a 0.0 to 10.0 numeric severity rating to help teams prioritize which vulnerabilities to remediate first?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CVE"
+        },
+        {
+          "id": "B",
+          "text": "CWE"
+        },
+        {
+          "id": "C",
+          "text": "CVSS"
+        },
+        {
+          "id": "D",
+          "text": "CPE"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "CVSS (Common Vulnerability Scoring System) yields a 0.0-10.0 severity score reflecting exploitability and impact, used to prioritize remediation.",
+        "distractors": {
+          "A": "CVE is a unique identifier for a specific vulnerability, not a severity score.",
+          "B": "CWE is a catalog of weakness types (e.g., buffer overflow), not a numeric severity rating.",
+          "C": "",
+          "D": "CPE is a structured naming scheme for platforms and products, not a score."
+        },
+        "exam_pattern": "0-10 severity number = CVSS; unique vuln ID = CVE."
+      },
+      "references": [
+        "CEH v13 Module 05: Vulnerability Analysis"
+      ]
+    },
+    {
+      "id": "ceh-recon-017",
+      "exam": "ceh",
+      "domain": "ceh_intro_recon",
+      "subtopic": "ceh_vuln_analysis",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "Which TWO statements correctly distinguish a CVE identifier from a CVSS score? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "A CVE is a unique identifier for a specific, publicly disclosed vulnerability"
+        },
+        {
+          "id": "B",
+          "text": "A CVSS string is the unique catalog ID assigned to each disclosed vulnerability"
+        },
+        {
+          "id": "C",
+          "text": "A CVE is itself the numeric severity rating from 0.0 to 10.0"
+        },
+        {
+          "id": "D",
+          "text": "A CVSS score rates a vulnerability's severity on a 0.0-10.0 scale"
+        }
+      ],
+      "correct": [
+        "A",
+        "D"
+      ],
+      "explanation": {
+        "correct": "CVE uniquely names a specific vulnerability; CVSS separately expresses its severity as a 0.0-10.0 score. They answer 'which vuln' and 'how severe.'",
+        "distractors": {
+          "A": "",
+          "B": "This also swaps them: the unique per-vulnerability identifier is CVE, not CVSS.",
+          "C": "This swaps the terms: the 0.0-10.0 severity number is CVSS, not CVE.",
+          "D": ""
+        },
+        "exam_pattern": "CVE = identity (which vuln); CVSS = severity (how bad)."
+      },
+      "references": [
+        "CEH v13 Module 05: Vulnerability Analysis"
+      ]
+    },
+    {
+      "id": "ceh-sys-001",
+      "exam": "ceh",
+      "domain": "ceh_system_malware",
+      "subtopic": "ceh_system_hacking",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An attacker tries every entry from a prepared list of likely passwords against a login prompt. Which password attack is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rainbow table attack"
+        },
+        {
+          "id": "B",
+          "text": "Dictionary attack"
+        },
+        {
+          "id": "C",
+          "text": "Brute-force attack"
+        },
+        {
+          "id": "D",
+          "text": "Pass-the-hash"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A dictionary attack tries candidates from a curated wordlist of likely passwords, making it faster than exhausting every combination.",
+        "distractors": {
+          "A": "A rainbow table attack reverses captured hashes using precomputed tables, not live guessing.",
+          "B": "",
+          "C": "A brute-force attack systematically tries all possible character combinations, not a wordlist.",
+          "D": "Pass-the-hash reuses a stolen hash to authenticate; it does not guess plaintext passwords."
+        },
+        "exam_pattern": "Curated wordlist of likely passwords = dictionary attack."
+      },
+      "references": [
+        "CEH v13 Module 06: System Hacking"
+      ]
+    },
+    {
+      "id": "ceh-sys-002",
+      "exam": "ceh",
+      "domain": "ceh_system_malware",
+      "subtopic": "ceh_system_hacking",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which password-cracking method relies on large precomputed tables that map hashes back to their plaintext, trading disk space for cracking speed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dictionary attack"
+        },
+        {
+          "id": "B",
+          "text": "Online brute-force"
+        },
+        {
+          "id": "C",
+          "text": "Rainbow table attack"
+        },
+        {
+          "id": "D",
+          "text": "Password spraying"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A rainbow table attack uses precomputed hash-to-plaintext chains, so cracking a captured hash becomes a fast lookup instead of hashing candidates at attack time.",
+        "distractors": {
+          "A": "A dictionary attack hashes each wordlist candidate during the attack; it stores no precomputed tables.",
+          "B": "Online brute-force guesses against the live service and is slow and noisy.",
+          "C": "",
+          "D": "Password spraying tries a few common passwords across many accounts to avoid lockout."
+        },
+        "exam_pattern": "Precomputed hash-to-plaintext tables = rainbow tables (salting defeats them)."
+      },
+      "references": [
+        "CEH v13 Module 06: System Hacking"
+      ]
+    },
+    {
+      "id": "ceh-sys-003",
+      "exam": "ceh",
+      "domain": "ceh_system_malware",
+      "subtopic": "ceh_system_hacking",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which defensive technique adds a unique random value to each password before hashing, most directly defeating precomputed rainbow-table attacks?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Account lockout threshold"
+        },
+        {
+          "id": "B",
+          "text": "A minimum password-length policy"
+        },
+        {
+          "id": "C",
+          "text": "Salting"
+        },
+        {
+          "id": "D",
+          "text": "Single sign-on"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Salting adds a unique random value per password, so identical passwords hash differently and a single precomputed table cannot be reused - defeating rainbow tables.",
+        "distractors": {
+          "A": "Lockout slows online guessing but does nothing against offline precomputed-table lookups.",
+          "B": "Length raises brute-force cost but does not stop a precomputed table from matching a given hash.",
+          "C": "",
+          "D": "Single sign-on centralizes authentication; it does not protect stored hashes from rainbow tables."
+        },
+        "exam_pattern": "Unique random value per password that breaks precomputed tables = salting."
+      },
+      "references": [
+        "CEH v13 Module 06: System Hacking"
+      ]
+    },
+    {
+      "id": "ceh-sys-004",
+      "exam": "ceh",
+      "domain": "ceh_system_malware",
+      "subtopic": "ceh_system_hacking",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An attacker captures an NTLM password hash and authenticates to other systems using the hash itself, without ever cracking the plaintext password. What is this technique?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Credential stuffing"
+        },
+        {
+          "id": "B",
+          "text": "Password spraying"
+        },
+        {
+          "id": "C",
+          "text": "Kerberoasting"
+        },
+        {
+          "id": "D",
+          "text": "Pass-the-hash"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Pass-the-hash reuses a captured NTLM hash directly to authenticate, so the attacker never needs the cleartext password.",
+        "distractors": {
+          "A": "Credential stuffing replays leaked username/password pairs, not hashes, against logins.",
+          "B": "Password spraying guesses a few common passwords across many accounts.",
+          "C": "Kerberoasting requests service tickets to crack service-account passwords offline, a different flow.",
+          "D": ""
+        },
+        "exam_pattern": "Authenticate with the hash itself, no cracking = pass-the-hash."
+      },
+      "references": [
+        "CEH v13 Module 06: System Hacking"
+      ]
+    },
+    {
+      "id": "ceh-sys-005",
+      "exam": "ceh",
+      "domain": "ceh_system_malware",
+      "subtopic": "ceh_system_hacking",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After gaining a standard-user shell, an attacker exploits a misconfiguration to obtain SYSTEM/root-level rights on the same host. What is this step called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Footprinting"
+        },
+        {
+          "id": "B",
+          "text": "Privilege escalation"
+        },
+        {
+          "id": "C",
+          "text": "Banner grabbing"
+        },
+        {
+          "id": "D",
+          "text": "Lateral movement"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Raising one's rights from a limited account to administrative/root level is privilege escalation (vertical escalation).",
+        "distractors": {
+          "A": "Footprinting is early information gathering, not gaining higher rights.",
+          "B": "",
+          "C": "Banner grabbing reads service versions; it does not elevate privileges.",
+          "D": "Lateral movement spreads to other hosts at a similar privilege, not higher rights on the same host."
+        },
+        "exam_pattern": "Higher rights on the same host = (vertical) privilege escalation; other hosts = lateral movement."
+      },
+      "references": [
+        "CEH v13 Module 06: System Hacking"
+      ]
+    },
+    {
+      "id": "ceh-sys-006",
+      "exam": "ceh",
+      "domain": "ceh_system_malware",
+      "subtopic": "ceh_system_hacking",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An insider hides a confidential spreadsheet inside an ordinary-looking JPEG image so the data can leave the network without drawing attention. Which technique is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hashing"
+        },
+        {
+          "id": "B",
+          "text": "Tokenization"
+        },
+        {
+          "id": "C",
+          "text": "Symmetric encryption"
+        },
+        {
+          "id": "D",
+          "text": "Steganography"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Steganography conceals the existence of data by embedding it inside a carrier file such as an image, so the hidden content is not obvious.",
+        "distractors": {
+          "A": "Hashing is a one-way digest; it cannot hide and later recover a file inside another.",
+          "B": "Tokenization substitutes a surrogate value for sensitive data; it does not hide a file in a carrier.",
+          "C": "Encryption scrambles data but produces visible ciphertext, revealing that something is protected.",
+          "D": ""
+        },
+        "exam_pattern": "Hide data's existence inside a carrier (image/audio) = steganography; scramble it = cryptography."
+      },
+      "references": [
+        "CEH v13 Module 06: System Hacking"
+      ]
+    },
+    {
+      "id": "ceh-sys-007",
+      "exam": "ceh",
+      "domain": "ceh_system_malware",
+      "subtopic": "ceh_system_hacking",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Fill in the blank: Deleting or altering a system's security and event ______ is a common way attackers cover their tracks and hide evidence of an intrusion.",
+      "correct": [
+        "logs",
+        "log",
+        "event logs"
+      ],
+      "explanation": {
+        "correct": "Clearing or tampering with logs removes the record of attacker activity; forwarding logs to a secured, centralized server defends against this covering-tracks technique.",
+        "distractors": {},
+        "exam_pattern": "Hide intrusion evidence by clearing/altering logs = covering tracks."
+      },
+      "references": [
+        "CEH v13 Module 06: System Hacking"
+      ]
+    },
+    {
+      "id": "ceh-sys-008",
+      "exam": "ceh",
+      "domain": "ceh_system_malware",
+      "subtopic": "ceh_system_hacking",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "Which TWO tools are primarily offline password-hash crackers used after the hashes have already been obtained? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hashcat"
+        },
+        {
+          "id": "B",
+          "text": "Wireshark"
+        },
+        {
+          "id": "C",
+          "text": "John the Ripper"
+        },
+        {
+          "id": "D",
+          "text": "Nikto"
+        }
+      ],
+      "correct": [
+        "A",
+        "C"
+      ],
+      "explanation": {
+        "correct": "Hashcat and John the Ripper both crack captured password hashes offline using dictionary, brute-force, and rule-based attacks.",
+        "distractors": {
+          "A": "",
+          "B": "Wireshark is a packet capture and analysis tool, not a hash cracker.",
+          "C": "",
+          "D": "Nikto is a web-server vulnerability scanner, not a password cracker."
+        },
+        "exam_pattern": "Crack captured hashes offline = Hashcat / John the Ripper."
+      },
+      "references": [
+        "CEH v13 Module 06: System Hacking"
+      ]
+    },
+    {
+      "id": "ceh-sys-009",
+      "exam": "ceh",
+      "domain": "ceh_system_malware",
+      "subtopic": "ceh_malware_threats",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which type of malware self-replicates and spreads across networks on its own, without attaching to a host file or requiring a user to run it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Virus"
+        },
+        {
+          "id": "B",
+          "text": "Worm"
+        },
+        {
+          "id": "C",
+          "text": "Trojan"
+        },
+        {
+          "id": "D",
+          "text": "Rootkit"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A worm is self-replicating and self-propagating; it spreads across networks without a host file or user action.",
+        "distractors": {
+          "A": "A virus attaches to a host file and needs that file to be executed to spread.",
+          "B": "",
+          "C": "A Trojan masquerades as legitimate software and does not self-replicate.",
+          "D": "A rootkit hides presence on a system; it does not self-propagate across a network."
+        },
+        "exam_pattern": "Self-spreading with no host file/user action = worm; needs a host file = virus."
+      },
+      "references": [
+        "CEH v13 Module 07: Malware Threats"
+      ]
+    },
+    {
+      "id": "ceh-sys-010",
+      "exam": "ceh",
+      "domain": "ceh_system_malware",
+      "subtopic": "ceh_malware_threats",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A user installs a 'free game' that secretly opens a backdoor giving an attacker remote control of the machine. Which malware category best fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ransomware"
+        },
+        {
+          "id": "B",
+          "text": "Worm"
+        },
+        {
+          "id": "C",
+          "text": "Trojan (a remote access Trojan, RAT)"
+        },
+        {
+          "id": "D",
+          "text": "Adware"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Software disguised as something desirable that hides a malicious payload is a Trojan; one that grants remote control is a RAT.",
+        "distractors": {
+          "A": "Ransomware encrypts files and demands payment; it is not primarily a hidden remote-control tool.",
+          "B": "A worm self-propagates and is not disguised as a wanted application.",
+          "C": "",
+          "D": "Adware displays unwanted advertisements rather than granting remote control."
+        },
+        "exam_pattern": "Disguised-as-legit plus hidden payload = Trojan; remote-control backdoor = RAT."
+      },
+      "references": [
+        "CEH v13 Module 07: Malware Threats"
+      ]
+    },
+    {
+      "id": "ceh-sys-011",
+      "exam": "ceh",
+      "domain": "ceh_system_malware",
+      "subtopic": "ceh_malware_threats",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which malware is specifically designed to conceal its own presence and that of other malicious components, often by subverting the operating-system kernel?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rootkit"
+        },
+        {
+          "id": "B",
+          "text": "Keylogger"
+        },
+        {
+          "id": "C",
+          "text": "Worm"
+        },
+        {
+          "id": "D",
+          "text": "Ransomware"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A rootkit hides files, processes, and itself (sometimes at kernel level) to maintain stealthy, privileged access.",
+        "distractors": {
+          "A": "",
+          "B": "A keylogger records keystrokes; concealment is not its defining purpose.",
+          "C": "A worm spreads to other hosts rather than hiding on one.",
+          "D": "Ransomware announces itself by encrypting files and demanding payment, the opposite of hiding."
+        },
+        "exam_pattern": "Stealth and self-concealment, often kernel-level = rootkit."
+      },
+      "references": [
+        "CEH v13 Module 07: Malware Threats"
+      ]
+    },
+    {
+      "id": "ceh-sys-012",
+      "exam": "ceh",
+      "domain": "ceh_system_malware",
+      "subtopic": "ceh_malware_threats",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Malware encrypts a victim's files and demands payment in exchange for the decryption key. Which category is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Logic bomb"
+        },
+        {
+          "id": "B",
+          "text": "Spyware"
+        },
+        {
+          "id": "C",
+          "text": "Rootkit"
+        },
+        {
+          "id": "D",
+          "text": "Ransomware"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Ransomware encrypts data and extorts the victim for the key; offline, tested backups are the primary defense.",
+        "distractors": {
+          "A": "A logic bomb triggers a payload when a condition is met; encryption-for-ransom is not its definition.",
+          "B": "Spyware covertly collects information rather than encrypting data for ransom.",
+          "C": "A rootkit hides presence; it does not encrypt files for extortion.",
+          "D": ""
+        },
+        "exam_pattern": "Encrypt files and demand payment = ransomware."
+      },
+      "references": [
+        "CEH v13 Module 07: Malware Threats"
+      ]
+    },
+    {
+      "id": "ceh-sys-013",
+      "exam": "ceh",
+      "domain": "ceh_system_malware",
+      "subtopic": "ceh_malware_threats",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A well-resourced group quietly maintains long-term access to a target network to steal data over many months while avoiding detection. This is best described as a(n)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Advanced persistent threat (APT)"
+        },
+        {
+          "id": "B",
+          "text": "Opportunistic worm outbreak"
+        },
+        {
+          "id": "C",
+          "text": "Script kiddie attack"
+        },
+        {
+          "id": "D",
+          "text": "Drive-by download"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "An APT is a stealthy, well-resourced actor that maintains long-term, persistent access to exfiltrate data over an extended period.",
+        "distractors": {
+          "A": "",
+          "B": "A worm outbreak is noisy and automated, not quiet long-term access.",
+          "C": "Script kiddies lack the sophistication and sustained persistence described.",
+          "D": "A drive-by download is a single infection vector, not a months-long campaign."
+        },
+        "exam_pattern": "Stealthy, well-funded, long-term persistent access = APT."
+      },
+      "references": [
+        "CEH v13 Module 07: Malware Threats"
+      ]
+    },
+    {
+      "id": "ceh-sys-014",
+      "exam": "ceh",
+      "domain": "ceh_system_malware",
+      "subtopic": "ceh_malware_threats",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An analyst runs a suspicious binary inside an isolated sandbox and observes the files, registry keys, and network connections it creates. Which malware-analysis approach is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Static analysis"
+        },
+        {
+          "id": "B",
+          "text": "Dynamic (behavioral) analysis"
+        },
+        {
+          "id": "C",
+          "text": "Differential cryptanalysis"
+        },
+        {
+          "id": "D",
+          "text": "Steganalysis"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Dynamic analysis executes the sample in a controlled sandbox and observes its runtime behavior - file, registry, and network activity.",
+        "distractors": {
+          "A": "Static analysis inspects the file without executing it (strings, headers, disassembly).",
+          "B": "",
+          "C": "Differential cryptanalysis attacks ciphers, not the behavior of a program.",
+          "D": "Steganalysis detects data hidden inside carrier files; it is not malware behavior analysis."
+        },
+        "exam_pattern": "Run it and observe behavior = dynamic; inspect without running = static."
+      },
+      "references": [
+        "CEH v13 Module 07: Malware Threats"
+      ]
+    },
+    {
+      "id": "ceh-sys-015",
+      "exam": "ceh",
+      "domain": "ceh_system_malware",
+      "subtopic": "ceh_malware_threats",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: Examining a malware sample's strings, headers, imports, and disassembly without executing it is called ______ analysis.",
+      "correct": [
+        "static"
+      ],
+      "explanation": {
+        "correct": "Static analysis inspects the file's contents without running it, so the code never executes and the examination carries no risk of infection.",
+        "distractors": {},
+        "exam_pattern": "Inspect the sample without executing it = static analysis."
+      },
+      "references": [
+        "CEH v13 Module 07: Malware Threats"
+      ]
+    },
+    {
+      "id": "ceh-sys-016",
+      "exam": "ceh",
+      "domain": "ceh_system_malware",
+      "subtopic": "ceh_malware_threats",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Thousands of compromised 'zombie' hosts take orders from a command-and-control server to launch attacks on demand. This network of bots is called a?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Faraday cage"
+        },
+        {
+          "id": "B",
+          "text": "Botnet"
+        },
+        {
+          "id": "C",
+          "text": "Honeynet"
+        },
+        {
+          "id": "D",
+          "text": "Rainbow table"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A botnet is a network of compromised hosts (bots/zombies) controlled through a command-and-control channel to carry out coordinated attacks such as DDoS or spam.",
+        "distractors": {
+          "A": "A Faraday cage blocks radio signals; it is unrelated to compromised hosts.",
+          "B": "",
+          "C": "A honeynet is a decoy network set up by defenders to study attackers.",
+          "D": "A rainbow table is a password-cracking data structure, not a network of hosts."
+        },
+        "exam_pattern": "Zombies plus command-and-control = botnet."
+      },
+      "references": [
+        "CEH v13 Module 07: Malware Threats"
+      ]
+    },
+    {
+      "id": "ceh-web-001",
+      "exam": "ceh",
+      "domain": "ceh_web_hacking",
+      "subtopic": "ceh_web_servers",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which tool is purpose-built to scan web servers for thousands of known dangerous files, outdated server versions, and common misconfigurations?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Aircrack-ng"
+        },
+        {
+          "id": "B",
+          "text": "Responder"
+        },
+        {
+          "id": "C",
+          "text": "Nikto"
+        },
+        {
+          "id": "D",
+          "text": "John the Ripper"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Nikto is a web-server scanner that checks for thousands of risky files/CGIs, outdated software, and server misconfigurations.",
+        "distractors": {
+          "A": "Aircrack-ng cracks wireless encryption keys; it does not scan web servers.",
+          "B": "Responder poisons LLMNR/NBT-NS to capture hashes; it is not a web-server scanner.",
+          "C": "",
+          "D": "John the Ripper is an offline password cracker, not a web-server scanner."
+        },
+        "exam_pattern": "Scan a web server for known bad files/versions/misconfigs = Nikto."
+      },
+      "references": [
+        "CEH v13 Module 13: Hacking Web Servers"
+      ]
+    },
+    {
+      "id": "ceh-web-002",
+      "exam": "ceh",
+      "domain": "ceh_web_hacking",
+      "subtopic": "ceh_web_servers",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "By requesting a URL that contains sequences like ../../ an attacker reads files outside the web root, such as the system password file. Which web-server attack is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ARP poisoning"
+        },
+        {
+          "id": "B",
+          "text": "Deauthentication attack"
+        },
+        {
+          "id": "C",
+          "text": "Directory (path) traversal"
+        },
+        {
+          "id": "D",
+          "text": "SYN flood"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Directory (path) traversal uses ../ sequences to escape the web root and access files the server should not expose.",
+        "distractors": {
+          "A": "ARP poisoning redirects LAN traffic; it does not read server files via a URL.",
+          "B": "A deauthentication attack disconnects Wi-Fi clients; it is unrelated to web paths.",
+          "C": "",
+          "D": "A SYN flood is a denial-of-service technique, not file access via path manipulation."
+        },
+        "exam_pattern": "../ sequences to escape the web root and read arbitrary files = directory/path traversal."
+      },
+      "references": [
+        "CEH v13 Module 13: Hacking Web Servers"
+      ]
+    },
+    {
+      "id": "ceh-web-003",
+      "exam": "ceh",
+      "domain": "ceh_web_hacking",
+      "subtopic": "ceh_web_servers",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization keeps getting compromised through publicly known vulnerabilities in its outdated web-server software. Which practice most directly addresses this root cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Disabling ICMP echo"
+        },
+        {
+          "id": "B",
+          "text": "Timely patch and update management"
+        },
+        {
+          "id": "C",
+          "text": "Requiring longer user passwords"
+        },
+        {
+          "id": "D",
+          "text": "Adding more server RAM"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Known vulnerabilities in outdated software are closed by applying vendor patches promptly, so disciplined patch management is the direct remedy.",
+        "distractors": {
+          "A": "Disabling ICMP neither patches nor mitigates the underlying software flaw.",
+          "B": "",
+          "C": "Longer passwords do not fix a code vulnerability in the server software.",
+          "D": "Adding RAM is a performance measure, not a vulnerability remediation."
+        },
+        "exam_pattern": "Repeated compromise via known flaws in old software = fix with patch/update management."
+      },
+      "references": [
+        "CEH v13 Module 13: Hacking Web Servers"
+      ]
+    },
+    {
+      "id": "ceh-web-004",
+      "exam": "ceh",
+      "domain": "ceh_web_hacking",
+      "subtopic": "ceh_web_servers",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "During hardening, which misconfiguration should be addressed first because attackers routinely try it against newly exposed web servers and admin consoles?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Serving the site over HTTPS"
+        },
+        {
+          "id": "B",
+          "text": "Minified JavaScript"
+        },
+        {
+          "id": "C",
+          "text": "Verbose comments left in HTML"
+        },
+        {
+          "id": "D",
+          "text": "Default or unchanged administrative credentials"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Default/unchanged admin credentials are trivially guessed and widely documented, so they are a top-priority hardening fix.",
+        "distractors": {
+          "A": "Serving over HTTPS is a good practice, not a misconfiguration to fix.",
+          "B": "Minified JavaScript is a normal optimization, not a security misconfiguration.",
+          "C": "HTML comments can leak minor information but are far lower risk than default admin logins.",
+          "D": ""
+        },
+        "exam_pattern": "Change default/admin credentials first - they are attackers' easiest win."
+      },
+      "references": [
+        "CEH v13 Module 13: Hacking Web Servers"
+      ]
+    },
+    {
+      "id": "ceh-web-005",
+      "exam": "ceh",
+      "domain": "ceh_web_hacking",
+      "subtopic": "ceh_web_servers",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: Configuring a web server to suppress its detailed product and version in the HTTP Server response ______ reduces the information an attacker gains from banner grabbing.",
+      "correct": [
+        "header",
+        "headers"
+      ],
+      "explanation": {
+        "correct": "The Server response header can reveal the exact web-server product and version; suppressing or genericizing it limits footprinting (defense in depth, not a fix for any underlying flaw).",
+        "distractors": {},
+        "exam_pattern": "Hide the web-server version in the Server header to reduce footprinting."
+      },
+      "references": [
+        "CEH v13 Module 13: Hacking Web Servers"
+      ]
+    },
+    {
+      "id": "ceh-web-006",
+      "exam": "ceh",
+      "domain": "ceh_web_hacking",
+      "subtopic": "ceh_web_apps",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An attacker submits a comment containing a script; every visitor who later views that comment has the script run in their browser. Which attack and variant is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stored (persistent) cross-site scripting (XSS)"
+        },
+        {
+          "id": "B",
+          "text": "SQL injection"
+        },
+        {
+          "id": "C",
+          "text": "Cross-site request forgery"
+        },
+        {
+          "id": "D",
+          "text": "Reflected XSS"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The script is saved on the server and served to every viewer, which is stored (persistent) XSS.",
+        "distractors": {
+          "A": "",
+          "B": "SQL injection targets the database, not script execution in each visitor's browser.",
+          "C": "CSRF forces a state-changing action using the victim's session; it does not plant a persistent script.",
+          "D": "Reflected XSS runs from a crafted request/link and is not stored server-side for all users."
+        },
+        "exam_pattern": "Script saved server-side and served to all viewers = stored XSS; echoed from a request = reflected."
+      },
+      "references": [
+        "CEH v13 Module 14: Hacking Web Applications"
+      ]
+    },
+    {
+      "id": "ceh-web-007",
+      "exam": "ceh",
+      "domain": "ceh_web_hacking",
+      "subtopic": "ceh_web_apps",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A search page echoes the user's query straight back into the HTML. An attacker emails a crafted link that runs script in the victim's browser only when the victim clicks it. Which variant is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Clickjacking"
+        },
+        {
+          "id": "B",
+          "text": "Reflected XSS"
+        },
+        {
+          "id": "C",
+          "text": "DOM-based SQL injection"
+        },
+        {
+          "id": "D",
+          "text": "Stored XSS"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The payload is reflected back from the request and executes when the victim follows the crafted link, which is reflected XSS.",
+        "distractors": {
+          "A": "Clickjacking tricks a user into clicking a hidden element; it does not echo script from a request.",
+          "B": "",
+          "C": "'DOM-based SQL injection' is not a real category; it mixes unrelated terms.",
+          "D": "Stored XSS persists on the server and affects all viewers, not only one who clicks a link."
+        },
+        "exam_pattern": "Payload echoed from the request (crafted link) = reflected XSS; persisted server-side = stored."
+      },
+      "references": [
+        "CEH v13 Module 14: Hacking Web Applications"
+      ]
+    },
+    {
+      "id": "ceh-web-008",
+      "exam": "ceh",
+      "domain": "ceh_web_hacking",
+      "subtopic": "ceh_web_apps",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A logged-in user visits a malicious page that silently submits a form to their bank's 'transfer funds' endpoint, abusing the user's existing authenticated session. Which attack is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cross-site request forgery (CSRF)"
+        },
+        {
+          "id": "B",
+          "text": "Brute-force login"
+        },
+        {
+          "id": "C",
+          "text": "Reflected XSS"
+        },
+        {
+          "id": "D",
+          "text": "Directory traversal"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "CSRF rides the victim's existing authenticated session to force a state-changing request the user did not intend; anti-CSRF tokens are the standard defense.",
+        "distractors": {
+          "A": "",
+          "B": "Brute-force login guesses credentials; the user here is already authenticated.",
+          "C": "Reflected XSS executes script; here the attack forces a request using the user's session.",
+          "D": "Directory traversal reads files on the server, not forged user actions."
+        },
+        "exam_pattern": "Force a state-changing request using the victim's active session = CSRF (anti-CSRF tokens defend)."
+      },
+      "references": [
+        "CEH v13 Module 14: Hacking Web Applications"
+      ]
+    },
+    {
+      "id": "ceh-web-009",
+      "exam": "ceh",
+      "domain": "ceh_web_hacking",
+      "subtopic": "ceh_web_apps",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which tool acts as an intercepting proxy, letting a tester view and modify HTTP requests between the browser and a web application?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Nmap"
+        },
+        {
+          "id": "B",
+          "text": "Burp Suite"
+        },
+        {
+          "id": "C",
+          "text": "Hashcat"
+        },
+        {
+          "id": "D",
+          "text": "Wireshark"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Burp Suite (like OWASP ZAP) sits between the browser and the app as an intercepting proxy, so requests and responses can be inspected and tampered with.",
+        "distractors": {
+          "A": "Nmap scans ports and services; it is not a web proxy.",
+          "B": "",
+          "C": "Hashcat cracks password hashes; it does not proxy HTTP.",
+          "D": "Wireshark passively captures packets but is not an inline HTTP proxy for editing requests."
+        },
+        "exam_pattern": "Intercept and modify HTTP requests to a web app = Burp Suite (or OWASP ZAP)."
+      },
+      "references": [
+        "CEH v13 Module 14: Hacking Web Applications"
+      ]
+    },
+    {
+      "id": "ceh-web-010",
+      "exam": "ceh",
+      "domain": "ceh_web_hacking",
+      "subtopic": "ceh_web_apps",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "By changing an 'account_id' value in a URL, a user views another customer's records because the app never checks ownership. Which OWASP Top 10 category does this fall under?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Security misconfiguration"
+        },
+        {
+          "id": "B",
+          "text": "Cryptographic failures"
+        },
+        {
+          "id": "C",
+          "text": "Broken access control (IDOR)"
+        },
+        {
+          "id": "D",
+          "text": "Vulnerable and outdated components"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Reaching another user's data by tampering with an object reference and no ownership check is an insecure direct object reference (IDOR), a form of broken access control.",
+        "distractors": {
+          "A": "Security misconfiguration is about insecure settings/defaults, not a missing authorization check.",
+          "B": "Cryptographic failures involve weak or missing encryption, not access-control gaps.",
+          "C": "",
+          "D": "Vulnerable and outdated components concern unpatched libraries, not this ownership-check flaw."
+        },
+        "exam_pattern": "Change an object reference to reach data you shouldn't = IDOR, under broken access control."
+      },
+      "references": [
+        "CEH v13 Module 14: Hacking Web Applications"
+      ]
+    },
+    {
+      "id": "ceh-web-011",
+      "exam": "ceh",
+      "domain": "ceh_web_hacking",
+      "subtopic": "ceh_web_apps",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which community-maintained awareness document ranks the ten most critical web application security risks and is widely used to prioritize testing and remediation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "OWASP Top 10"
+        },
+        {
+          "id": "B",
+          "text": "The CVE list"
+        },
+        {
+          "id": "C",
+          "text": "The CIS cloud benchmark"
+        },
+        {
+          "id": "D",
+          "text": "NIST SP 800-53 control catalog"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The OWASP Top 10 is a community awareness document ranking the ten most critical web application security risks, guiding testing priorities.",
+        "distractors": {
+          "A": "",
+          "B": "The CVE list enumerates specific disclosed vulnerabilities; it is not a ranked web-risk document.",
+          "C": "CIS benchmarks are configuration baselines, not a ranked list of web application risks.",
+          "D": "NIST SP 800-53 is a broad security and privacy control catalog, not a web-app top ten."
+        },
+        "exam_pattern": "Ten most critical web app risks = OWASP Top 10."
+      },
+      "references": [
+        "CEH v13 Module 14: Hacking Web Applications"
+      ]
+    },
+    {
+      "id": "ceh-web-012",
+      "exam": "ceh",
+      "domain": "ceh_web_hacking",
+      "subtopic": "ceh_sql_injection",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An attacker enters ' OR '1'='1 into a login field and the application concatenates it directly into a database query, changing the query's logic. Which vulnerability class is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Clickjacking"
+        },
+        {
+          "id": "B",
+          "text": "Session fixation"
+        },
+        {
+          "id": "C",
+          "text": "SQL injection"
+        },
+        {
+          "id": "D",
+          "text": "Cross-site scripting"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Untrusted input altering the structure of a SQL query is SQL injection, which can bypass authentication or expose data.",
+        "distractors": {
+          "A": "Clickjacking overlays UI to hijack clicks; it does not alter database queries.",
+          "B": "Session fixation forces a known session ID; it is unrelated to query manipulation.",
+          "C": "",
+          "D": "XSS injects script that runs in the browser, not SQL that runs in the database."
+        },
+        "exam_pattern": "Untrusted input altering a SQL query = SQL injection."
+      },
+      "references": [
+        "CEH v13 Module 15: SQL Injection"
+      ]
+    },
+    {
+      "id": "ceh-web-013",
+      "exam": "ceh",
+      "domain": "ceh_web_hacking",
+      "subtopic": "ceh_sql_injection",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "Which TWO are forms of SQL injection in which the attacker infers data indirectly rather than seeing it returned directly in the response? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Time-based blind SQL injection"
+        },
+        {
+          "id": "B",
+          "text": "UNION-based SQL injection"
+        },
+        {
+          "id": "C",
+          "text": "Error-based SQL injection"
+        },
+        {
+          "id": "D",
+          "text": "Boolean-based blind SQL injection"
+        }
+      ],
+      "correct": [
+        "A",
+        "D"
+      ],
+      "explanation": {
+        "correct": "Blind SQL injection infers data indirectly: boolean-based reads true/false differences in responses, and time-based reads deliberate response delays.",
+        "distractors": {
+          "A": "",
+          "B": "UNION-based injection returns data directly in the application's output (in-band).",
+          "C": "Error-based injection reveals data through returned database error messages (in-band).",
+          "D": ""
+        },
+        "exam_pattern": "Inferential/blind SQLi = boolean-based and time-based; in-band = UNION-based and error-based."
+      },
+      "references": [
+        "CEH v13 Module 15: SQL Injection"
+      ]
+    },
+    {
+      "id": "ceh-web-014",
+      "exam": "ceh",
+      "domain": "ceh_web_hacking",
+      "subtopic": "ceh_sql_injection",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An attacker appends a UNION SELECT to a vulnerable query to pull columns from another table into the application's normal results. Which type of SQL injection is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Boolean-based blind SQL injection"
+        },
+        {
+          "id": "B",
+          "text": "Reflected XSS"
+        },
+        {
+          "id": "C",
+          "text": "UNION-based (in-band) SQL injection"
+        },
+        {
+          "id": "D",
+          "text": "DOM-based XSS"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Using UNION SELECT to merge another table's data into the displayed results is UNION-based, an in-band technique because the data appears directly in the response.",
+        "distractors": {
+          "A": "Boolean-based blind injection infers data from true/false behavior, not from merged visible output.",
+          "B": "Reflected XSS executes script in the browser; it is not SQL injection.",
+          "C": "",
+          "D": "DOM-based XSS is a client-side script flaw, not a SQL technique."
+        },
+        "exam_pattern": "UNION SELECT to merge another table into visible output = UNION-based (in-band) SQLi."
+      },
+      "references": [
+        "CEH v13 Module 15: SQL Injection"
+      ]
+    },
+    {
+      "id": "ceh-web-015",
+      "exam": "ceh",
+      "domain": "ceh_web_hacking",
+      "subtopic": "ceh_sql_injection",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which coding practice most effectively prevents SQL injection by separating code from data so user input is never interpreted as part of the SQL command?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Base64-encoding the input"
+        },
+        {
+          "id": "B",
+          "text": "Parameterized queries (prepared statements)"
+        },
+        {
+          "id": "C",
+          "text": "Hiding the database version banner"
+        },
+        {
+          "id": "D",
+          "text": "Client-side input length limits"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Parameterized queries/prepared statements bind user input as data, so it can never change the query structure - the primary SQL injection defense (with input validation).",
+        "distractors": {
+          "A": "Encoding input does not prevent injection and can be decoded before the query runs.",
+          "B": "",
+          "C": "Hiding the version banner is obscurity; it does not stop injection.",
+          "D": "Client-side limits are trivially bypassed by sending requests directly to the server."
+        },
+        "exam_pattern": "Prepared statements / parameterized queries (plus input validation) = primary SQLi defense."
+      },
+      "references": [
+        "CEH v13 Module 15: SQL Injection"
+      ]
+    },
+    {
+      "id": "ceh-web-016",
+      "exam": "ceh",
+      "domain": "ceh_web_hacking",
+      "subtopic": "ceh_sql_injection",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: The open-source tool ______ automates the detection and exploitation of SQL injection flaws and the extraction of database contents during authorized testing.",
+      "correct": [
+        "sqlmap"
+      ],
+      "explanation": {
+        "correct": "sqlmap automates discovering and leveraging SQL injection points and dumping database data; in a CEH context it is used only under explicit authorization.",
+        "distractors": {},
+        "exam_pattern": "Automated SQL injection detection/extraction tool = sqlmap."
+      },
+      "references": [
+        "CEH v13 Module 15: SQL Injection"
+      ]
+    },
+    {
+      "id": "ceh-wifi-001",
+      "exam": "ceh",
+      "domain": "ceh_wireless_mobile",
+      "subtopic": "ceh_wireless",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which legacy wireless security protocol is considered broken because its use of RC4 with weak initialization vectors lets an attacker recover the key after capturing enough traffic?",
+      "options": [
+        {
+          "id": "A",
+          "text": "EAP-TLS"
+        },
+        {
+          "id": "B",
+          "text": "WEP"
+        },
+        {
+          "id": "C",
+          "text": "WPA2"
+        },
+        {
+          "id": "D",
+          "text": "WPA3"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "WEP's RC4 stream cipher with short, reused initialization vectors leaks key material, so captured traffic allows key recovery - WEP is deprecated.",
+        "distractors": {
+          "A": "EAP-TLS is an enterprise authentication method, not the broken legacy encryption protocol.",
+          "B": "",
+          "C": "WPA2 uses AES-CCMP and is far stronger than WEP.",
+          "D": "WPA3 is the newest and strongest Wi-Fi security standard."
+        },
+        "exam_pattern": "RC4 plus weak IVs, recoverable key = WEP (deprecated)."
+      },
+      "references": [
+        "CEH v13 Module 16: Hacking Wireless Networks"
+      ]
+    },
+    {
+      "id": "ceh-wifi-002",
+      "exam": "ceh",
+      "domain": "ceh_wireless_mobile",
+      "subtopic": "ceh_wireless",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which Wi-Fi security standard replaces the WPA2 pre-shared-key handshake with Simultaneous Authentication of Equals (SAE) to resist offline dictionary attacks?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An open (no-authentication) network"
+        },
+        {
+          "id": "B",
+          "text": "WEP"
+        },
+        {
+          "id": "C",
+          "text": "WPA with TKIP"
+        },
+        {
+          "id": "D",
+          "text": "WPA3"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "WPA3 introduces SAE (the dragonfly handshake), which resists offline dictionary attacks against the captured handshake, unlike WPA2's PSK exchange.",
+        "distractors": {
+          "A": "An open network provides no authentication or encryption at all.",
+          "B": "WEP has no such handshake and is fundamentally broken.",
+          "C": "WPA with TKIP predates SAE and is also deprecated.",
+          "D": ""
+        },
+        "exam_pattern": "SAE (dragonfly) handshake resisting offline cracking = WPA3."
+      },
+      "references": [
+        "CEH v13 Module 16: Hacking Wireless Networks"
+      ]
+    },
+    {
+      "id": "ceh-wifi-003",
+      "exam": "ceh",
+      "domain": "ceh_wireless_mobile",
+      "subtopic": "ceh_wireless",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which tool suite is commonly used to capture wireless frames and crack WEP/WPA pre-shared keys during authorized wireless assessments?",
+      "options": [
+        {
+          "id": "A",
+          "text": "sqlmap"
+        },
+        {
+          "id": "B",
+          "text": "Aircrack-ng"
+        },
+        {
+          "id": "C",
+          "text": "Nikto"
+        },
+        {
+          "id": "D",
+          "text": "Burp Suite"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Aircrack-ng captures 802.11 frames and performs WEP/WPA key cracking, the standard suite for authorized Wi-Fi testing.",
+        "distractors": {
+          "A": "sqlmap targets SQL injection in web apps.",
+          "B": "",
+          "C": "Nikto scans web servers, not wireless networks.",
+          "D": "Burp Suite is a web intercepting proxy, not a wireless cracking suite."
+        },
+        "exam_pattern": "Capture Wi-Fi frames and crack WEP/WPA keys = Aircrack-ng."
+      },
+      "references": [
+        "CEH v13 Module 16: Hacking Wireless Networks"
+      ]
+    },
+    {
+      "id": "ceh-wifi-004",
+      "exam": "ceh",
+      "domain": "ceh_wireless_mobile",
+      "subtopic": "ceh_wireless",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An attacker sets up a rogue access point broadcasting the same SSID as a legitimate corporate network to lure clients into connecting through the attacker. Which attack is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SQL injection"
+        },
+        {
+          "id": "B",
+          "text": "Smurf attack"
+        },
+        {
+          "id": "C",
+          "text": "Evil twin"
+        },
+        {
+          "id": "D",
+          "text": "MAC flooding"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "An evil twin is a rogue AP impersonating a legitimate SSID so victims associate with it, enabling interception of their traffic.",
+        "distractors": {
+          "A": "SQL injection is a web/database attack, unrelated to wireless association.",
+          "B": "A Smurf attack is an ICMP amplification denial-of-service.",
+          "C": "",
+          "D": "MAC flooding overflows a switch's CAM table on a wired LAN, not a rogue Wi-Fi AP."
+        },
+        "exam_pattern": "Rogue AP cloning a legitimate SSID to intercept clients = evil twin."
+      },
+      "references": [
+        "CEH v13 Module 16: Hacking Wireless Networks"
+      ]
+    },
+    {
+      "id": "ceh-wifi-005",
+      "exam": "ceh",
+      "domain": "ceh_wireless_mobile",
+      "subtopic": "ceh_wireless",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To force a client off the network so it reconnects - letting the attacker capture the WPA2 four-way handshake - an attacker floods it with spoofed 802.11 management frames. Which attack is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rainbow table attack"
+        },
+        {
+          "id": "B",
+          "text": "ARP poisoning"
+        },
+        {
+          "id": "C",
+          "text": "Deauthentication attack"
+        },
+        {
+          "id": "D",
+          "text": "Phishing"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A deauthentication attack sends spoofed 802.11 deauth management frames to disconnect clients; the forced reconnection lets the attacker capture the handshake for offline cracking.",
+        "distractors": {
+          "A": "A rainbow table attack cracks hashes offline; it does not disconnect clients.",
+          "B": "ARP poisoning is a wired-LAN man-in-the-middle technique, not an 802.11 frame attack.",
+          "C": "",
+          "D": "Phishing is social engineering, not a wireless frame flood."
+        },
+        "exam_pattern": "Spoofed 802.11 deauth frames to knock clients off / capture the handshake = deauthentication attack."
+      },
+      "references": [
+        "CEH v13 Module 16: Hacking Wireless Networks"
+      ]
+    },
+    {
+      "id": "ceh-wifi-006",
+      "exam": "ceh",
+      "domain": "ceh_wireless_mobile",
+      "subtopic": "ceh_wireless",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: Wi-Fi Protected Setup (______) is often disabled on access points because its 8-digit PIN can be brute-forced to recover the wireless passphrase.",
+      "correct": [
+        "wps"
+      ],
+      "explanation": {
+        "correct": "WPS was meant to simplify connecting devices, but its PIN is validated in two weak halves and can be brute-forced, so disabling WPS is a common hardening step.",
+        "distractors": {},
+        "exam_pattern": "8-digit PIN brute-forceable - disable it = WPS weakness."
+      },
+      "references": [
+        "CEH v13 Module 16: Hacking Wireless Networks"
+      ]
+    },
+    {
+      "id": "ceh-wifi-007",
+      "exam": "ceh",
+      "domain": "ceh_wireless_mobile",
+      "subtopic": "ceh_mobile_platforms",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Removing the manufacturer's built-in restrictions on a mobile device to gain privileged (root/administrator) control is called jailbreaking on iOS and what on Android?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rooting"
+        },
+        {
+          "id": "B",
+          "text": "Tethering"
+        },
+        {
+          "id": "C",
+          "text": "Provisioning"
+        },
+        {
+          "id": "D",
+          "text": "Sideloading"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Gaining privileged control by stripping vendor restrictions is rooting on Android (jailbreaking on iOS); it weakens the device's security model.",
+        "distractors": {
+          "A": "",
+          "B": "Tethering shares the device's connection with other devices.",
+          "C": "Provisioning configures a device for enterprise management.",
+          "D": "Sideloading installs apps from outside the official store - related risk, but a different action."
+        },
+        "exam_pattern": "Remove vendor restrictions for privileged control: jailbreak (iOS) / root (Android)."
+      },
+      "references": [
+        "CEH v13 Module 17: Hacking Mobile Platforms"
+      ]
+    },
+    {
+      "id": "ceh-wifi-008",
+      "exam": "ceh",
+      "domain": "ceh_wireless_mobile",
+      "subtopic": "ceh_mobile_platforms",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which solution lets an enterprise enforce passcodes, push configuration profiles, and remotely wipe lost or stolen smartphones across its fleet?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A SIEM correlation rule"
+        },
+        {
+          "id": "B",
+          "text": "A rainbow table"
+        },
+        {
+          "id": "C",
+          "text": "Mobile device management (MDM)"
+        },
+        {
+          "id": "D",
+          "text": "A honeypot"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "MDM (part of broader MDM/UEM) centrally enforces device policy, pushes configuration, and supports remote lock/wipe of managed devices.",
+        "distractors": {
+          "A": "A SIEM rule detects and correlates events but cannot enforce device policy or wipe a phone.",
+          "B": "A rainbow table is a password-cracking data structure, not a management platform.",
+          "C": "",
+          "D": "A honeypot is a decoy system, not a device-management tool."
+        },
+        "exam_pattern": "Enforce policy / remote-wipe a device fleet = MDM."
+      },
+      "references": [
+        "CEH v13 Module 17: Hacking Mobile Platforms"
+      ]
+    },
+    {
+      "id": "ceh-wifi-009",
+      "exam": "ceh",
+      "domain": "ceh_wireless_mobile",
+      "subtopic": "ceh_mobile_platforms",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A user installs an app from an untrusted third-party source instead of the official app store, bypassing the store's vetting. Which practice (and risk) is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Containerization"
+        },
+        {
+          "id": "B",
+          "text": "Sideloading"
+        },
+        {
+          "id": "C",
+          "text": "Tethering"
+        },
+        {
+          "id": "D",
+          "text": "Rooting"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Installing apps from outside the official store is sideloading, which skips store vetting and raises the chance of installing malware.",
+        "distractors": {
+          "A": "Containerization separates work and personal data - a defensive control, not this risk.",
+          "B": "",
+          "C": "Tethering shares connectivity, not app installation.",
+          "D": "Rooting removes OS restrictions; it is a different action from installing an outside app."
+        },
+        "exam_pattern": "Install apps outside the official store = sideloading (raises malware risk)."
+      },
+      "references": [
+        "CEH v13 Module 17: Hacking Mobile Platforms"
+      ]
+    },
+    {
+      "id": "ceh-wifi-010",
+      "exam": "ceh",
+      "domain": "ceh_wireless_mobile",
+      "subtopic": "ceh_mobile_platforms",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A mobile app stores authentication tokens in clear text in a world-readable file on the device. Which OWASP Mobile risk category does this best illustrate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SQL injection"
+        },
+        {
+          "id": "B",
+          "text": "Insecure data storage"
+        },
+        {
+          "id": "C",
+          "text": "Reflected XSS"
+        },
+        {
+          "id": "D",
+          "text": "Weak wireless encryption"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Saving sensitive data unprotected on the device is insecure data storage, a core OWASP Mobile risk; secrets should use the platform keystore/keychain.",
+        "distractors": {
+          "A": "SQL injection targets server-side databases via untrusted input.",
+          "B": "",
+          "C": "Reflected XSS is a web-application attack, not on-device storage.",
+          "D": "Weak wireless encryption concerns the network link, not local file storage."
+        },
+        "exam_pattern": "Sensitive data saved unprotected on the device = insecure data storage (OWASP Mobile)."
+      },
+      "references": [
+        "CEH v13 Module 17: Hacking Mobile Platforms"
+      ]
+    },
+    {
+      "id": "ceh-wifi-011",
+      "exam": "ceh",
+      "domain": "ceh_wireless_mobile",
+      "subtopic": "ceh_mobile_platforms",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: Mobile operating systems isolate each app and its data from other apps using an application ______, limiting the damage a malicious app can do.",
+      "correct": [
+        "sandbox"
+      ],
+      "explanation": {
+        "correct": "The application sandbox confines each app to its own resources and data, so a compromised or malicious app cannot freely reach other apps' data - a core mobile security control.",
+        "distractors": {},
+        "exam_pattern": "Per-app isolation of code and data = application sandbox."
+      },
+      "references": [
+        "CEH v13 Module 17: Hacking Mobile Platforms"
+      ]
+    },
+    {
+      "id": "ceh-wifi-012",
+      "exam": "ceh",
+      "domain": "ceh_wireless_mobile",
+      "subtopic": "ceh_iot_ot",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An assessor wants to locate Internet-exposed IoT devices and industrial systems by their service banners without scanning them directly. Which resource is most associated with this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Shodan"
+        },
+        {
+          "id": "B",
+          "text": "Responder"
+        },
+        {
+          "id": "C",
+          "text": "Aircrack-ng"
+        },
+        {
+          "id": "D",
+          "text": "John the Ripper"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Shodan indexes Internet-connected devices - including IoT and ICS/SCADA systems - so a tester can find exposed devices passively by banner.",
+        "distractors": {
+          "A": "",
+          "B": "Responder poisons LLMNR/NBT-NS on a local network; it does not discover Internet-exposed devices.",
+          "C": "Aircrack-ng is a wireless cracking suite, not an Internet device index.",
+          "D": "John the Ripper is an offline password cracker, not a device search engine."
+        },
+        "exam_pattern": "Find exposed IoT/ICS devices by banner = Shodan."
+      },
+      "references": [
+        "CEH v13 Module 18: IoT and OT Hacking"
+      ]
+    },
+    {
+      "id": "ceh-wifi-013",
+      "exam": "ceh",
+      "domain": "ceh_wireless_mobile",
+      "subtopic": "ceh_iot_ot",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In operational technology (OT) environments, which legacy industrial protocol is known for lacking built-in authentication and encryption, making network segmentation essential?",
+      "options": [
+        {
+          "id": "A",
+          "text": "HTTPS"
+        },
+        {
+          "id": "B",
+          "text": "Modbus"
+        },
+        {
+          "id": "C",
+          "text": "TLS 1.3"
+        },
+        {
+          "id": "D",
+          "text": "SSH"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Modbus is a widely deployed ICS protocol that was designed without authentication or encryption, so isolating it with segmentation is a primary compensating control.",
+        "distractors": {
+          "A": "HTTPS provides encrypted, authenticated web transport - the opposite of the stated weakness.",
+          "B": "",
+          "C": "TLS 1.3 is a modern secure transport protocol.",
+          "D": "SSH provides authenticated, encrypted remote sessions."
+        },
+        "exam_pattern": "Legacy ICS protocol with no auth/encryption = Modbus (segment the OT network)."
+      },
+      "references": [
+        "CEH v13 Module 18: IoT and OT Hacking"
+      ]
+    },
+    {
+      "id": "ceh-wifi-014",
+      "exam": "ceh",
+      "domain": "ceh_wireless_mobile",
+      "subtopic": "ceh_iot_ot",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which lightweight publish/subscribe messaging protocol is widely used by IoT devices and, if its broker is left unauthenticated, can expose device data to anyone who connects?",
+      "options": [
+        {
+          "id": "A",
+          "text": "LDAP"
+        },
+        {
+          "id": "B",
+          "text": "MQTT"
+        },
+        {
+          "id": "C",
+          "text": "NTP"
+        },
+        {
+          "id": "D",
+          "text": "SMTP"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "MQTT is a lightweight publish/subscribe protocol common in IoT; an unauthenticated or unencrypted broker can leak device data, so TLS and authentication are needed.",
+        "distractors": {
+          "A": "LDAP is a directory-access protocol.",
+          "B": "",
+          "C": "NTP is a time-synchronization protocol.",
+          "D": "SMTP is an email transport protocol, not an IoT pub/sub protocol."
+        },
+        "exam_pattern": "Lightweight IoT pub/sub protocol = MQTT (secure the broker with TLS and auth)."
+      },
+      "references": [
+        "CEH v13 Module 18: IoT and OT Hacking"
+      ]
+    },
+    {
+      "id": "ceh-wifi-015",
+      "exam": "ceh",
+      "domain": "ceh_wireless_mobile",
+      "subtopic": "ceh_iot_ot",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Large IoT botnets have historically spread by logging into devices with well-known factory default usernames and passwords. Which single hardening step most directly stops this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Shorten the DHCP lease time"
+        },
+        {
+          "id": "B",
+          "text": "Change the default device credentials"
+        },
+        {
+          "id": "C",
+          "text": "Increase the Wi-Fi channel width"
+        },
+        {
+          "id": "D",
+          "text": "Enable UPnP"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "IoT botnets like those that abused default logins are stopped at the source by replacing factory default credentials with strong, unique ones.",
+        "distractors": {
+          "A": "DHCP lease time has no bearing on default-credential abuse.",
+          "B": "",
+          "C": "Channel width is a performance setting and does not affect default logins.",
+          "D": "Enabling UPnP can increase exposure, not reduce it."
+        },
+        "exam_pattern": "IoT compromise via factory default logins = fix by changing default credentials."
+      },
+      "references": [
+        "CEH v13 Module 18: IoT and OT Hacking"
+      ]
+    },
+    {
+      "id": "ceh-wifi-016",
+      "exam": "ceh",
+      "domain": "ceh_wireless_mobile",
+      "subtopic": "ceh_iot_ot",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "Which TWO controls most directly reduce risk in an environment full of hard-to-patch IoT and OT devices? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Exposing device management interfaces directly to the Internet"
+        },
+        {
+          "id": "B",
+          "text": "Network segmentation that isolates IoT/OT from general IT"
+        },
+        {
+          "id": "C",
+          "text": "Disabling all logging on the devices"
+        },
+        {
+          "id": "D",
+          "text": "Changing default credentials and disabling unused services"
+        }
+      ],
+      "correct": [
+        "B",
+        "D"
+      ],
+      "explanation": {
+        "correct": "Segmenting IoT/OT away from IT limits lateral movement, and removing default credentials plus unused services shrinks the attack surface - both are core mitigations when patching is hard.",
+        "distractors": {
+          "A": "Exposing management interfaces to the Internet greatly increases risk.",
+          "B": "",
+          "C": "Disabling logging removes the visibility needed to detect attacks, helping attackers.",
+          "D": ""
+        },
+        "exam_pattern": "Segment IoT/OT and remove default creds/unused services = core IoT/OT hardening."
+      },
+      "references": [
+        "CEH v13 Module 18: IoT and OT Hacking"
+      ]
+    }
+  ]
+}
