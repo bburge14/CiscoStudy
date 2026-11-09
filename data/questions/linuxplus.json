@@ -1,0 +1,3031 @@
+{
+  "exam": "linuxplus",
+  "count": 78,
+  "questions": [
+    {
+      "id": "linuxplus-scr-001",
+      "exam": "linuxplus",
+      "domain": "linuxp_scripting",
+      "subtopic": "linuxp_bash_scripting",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "What is the correct first line (the shebang) of a shell script to ensure it is executed by the Bash interpreter?",
+      "options": [
+        {
+          "id": "A",
+          "text": "#/bin/bash"
+        },
+        {
+          "id": "B",
+          "text": "#!/bin/bash"
+        },
+        {
+          "id": "C",
+          "text": "!#/bin/bash"
+        },
+        {
+          "id": "D",
+          "text": "# !/bin/bash"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The shebang is the two characters '#!' immediately followed by the interpreter path: #!/bin/bash on the very first line.",
+        "distractors": {
+          "A": "#/bin/bash is just a comment; without the '!' the kernel ignores it as an interpreter directive.",
+          "B": "",
+          "C": "!#/bin/bash reverses the characters and is not a valid shebang.",
+          "D": "A space after '#' makes '# !/bin/bash' an ordinary comment, not a shebang."
+        },
+        "exam_pattern": "Shebang = '#!' + interpreter path on line 1 (e.g., #!/bin/bash, #!/usr/bin/env python3)."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Shell scripting (shebang)"
+      ]
+    },
+    {
+      "id": "linuxplus-scr-002",
+      "exam": "linuxplus",
+      "domain": "linuxp_scripting",
+      "subtopic": "linuxp_bash_scripting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In a Bash script, which special parameter holds the exit status of the most recently executed command (0 on success, non-zero on failure)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$?"
+        },
+        {
+          "id": "B",
+          "text": "$#"
+        },
+        {
+          "id": "C",
+          "text": "$$"
+        },
+        {
+          "id": "D",
+          "text": "$!"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "$? expands to the exit status of the last command, the standard way to test whether a command succeeded.",
+        "distractors": {
+          "A": "",
+          "B": "$# is the number of positional parameters passed to the script or function.",
+          "C": "$$ is the process ID of the current shell.",
+          "D": "$! is the PID of the most recent background (asynchronous) command."
+        },
+        "exam_pattern": "$?=last exit code, $#=arg count, $$=shell PID, $!=last background PID, $0=script name."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Exit codes ($?)"
+      ]
+    },
+    {
+      "id": "linuxplus-scr-003",
+      "exam": "linuxplus",
+      "domain": "linuxp_scripting",
+      "subtopic": "linuxp_bash_scripting",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which test expression correctly checks whether the value in variable COUNT is numerically greater than 10 inside a Bash 'if' statement?",
+      "options": [
+        {
+          "id": "A",
+          "text": "[ \"$COUNT\" -lt 10 ]"
+        },
+        {
+          "id": "B",
+          "text": "( \"$COUNT\" -gt 10 )"
+        },
+        {
+          "id": "C",
+          "text": "[ \"$COUNT\" -gt 10 ]"
+        },
+        {
+          "id": "D",
+          "text": "[ \"$COUNT\" > 10 ]"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "-gt is the NUMERIC greater-than operator for the test/[ ] builtin: [ \"$COUNT\" -gt 10 ].",
+        "distractors": {
+          "A": "-lt is numeric LESS-than, the opposite comparison.",
+          "B": "( ... ) starts a subshell; it is not a valid test condition.",
+          "C": "",
+          "D": "Inside single-bracket [ ], '>' is treated as output redirection (or a string compare), not numeric greater-than."
+        },
+        "exam_pattern": "Numeric tests: -eq -ne -lt -le -gt -ge. String tests: = != < > (the latter need [[ ]])."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Conditionals (test operators)"
+      ]
+    },
+    {
+      "id": "linuxplus-scr-004",
+      "exam": "linuxplus",
+      "domain": "linuxp_scripting",
+      "subtopic": "linuxp_bash_scripting",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which Bash construct iterates once over every file ending in .log in the current directory, assigning each name to the variable f?",
+      "options": [
+        {
+          "id": "A",
+          "text": "for f in $(ls *.log); do echo \"$f\"; done"
+        },
+        {
+          "id": "B",
+          "text": "while *.log; do echo \"$f\"; done"
+        },
+        {
+          "id": "C",
+          "text": "for f in *.log; do echo \"$f\"; done"
+        },
+        {
+          "id": "D",
+          "text": "foreach f (*.log); echo $f; end"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "for f in *.log lets the shell glob-expand the pattern to the matching filenames, handling names safely without parsing ls output.",
+        "distractors": {
+          "A": "Looping over $(ls *.log) parses command output and breaks on filenames with spaces or special characters.",
+          "B": "while expects a condition/command, and '*.log' alone is not a loop condition.",
+          "C": "",
+          "D": "foreach ... end is C-shell (csh/tcsh) syntax, not Bash."
+        },
+        "exam_pattern": "Iterate files with a glob (for f in *.ext), never by parsing 'ls'."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Loops and globbing (for)"
+      ]
+    },
+    {
+      "id": "linuxplus-scr-005",
+      "exam": "linuxplus",
+      "domain": "linuxp_scripting",
+      "subtopic": "linuxp_bash_scripting",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Which Bash keyword begins a multi-branch construct that matches a value against several patterns (a cleaner alternative to a long if/elif chain), and is closed with 'esac'? (keyword only)",
+      "correct": [
+        "case"
+      ],
+      "explanation": {
+        "correct": "The case statement matches a value against patterns ( case \"$x\" in pattern) ... ;; esac ), ideal when one variable has many possible values.",
+        "distractors": {},
+        "exam_pattern": "case ... in ... ) ... ;; esac — note it is terminated by 'esac' (case reversed)."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Control flow (case)"
+      ]
+    },
+    {
+      "id": "linuxplus-scr-006",
+      "exam": "linuxplus",
+      "domain": "linuxp_scripting",
+      "subtopic": "linuxp_git_version",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which Git command creates a complete local copy of a remote repository, including its full commit history and a working tree?",
+      "options": [
+        {
+          "id": "A",
+          "text": "git clone https://example.com/app.git"
+        },
+        {
+          "id": "B",
+          "text": "git init https://example.com/app.git"
+        },
+        {
+          "id": "C",
+          "text": "git pull https://example.com/app.git"
+        },
+        {
+          "id": "D",
+          "text": "git checkout https://example.com/app.git"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "git clone <url> downloads the entire repository (history and branches) and checks out a working copy, setting the remote 'origin' automatically.",
+        "distractors": {
+          "A": "",
+          "B": "git init creates a brand-new empty repository locally; it does not take a URL to copy from.",
+          "C": "git pull fetches and merges into an EXISTING repository; it is not how you first obtain one.",
+          "D": "git checkout switches branches or restores files within a repo; it does not clone remotes."
+        },
+        "exam_pattern": "clone = first copy of a remote; init = new empty repo; pull = update an existing repo."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Version control (git clone)"
+      ]
+    },
+    {
+      "id": "linuxplus-scr-007",
+      "exam": "linuxplus",
+      "domain": "linuxp_scripting",
+      "subtopic": "linuxp_git_version",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You have modified and created several files in a Git working tree. Which command sequence stages ALL of those changes and records them as a commit with a message?",
+      "options": [
+        {
+          "id": "A",
+          "text": "git stash && git commit -m \"update\""
+        },
+        {
+          "id": "B",
+          "text": "git add -A && git commit -m \"update\""
+        },
+        {
+          "id": "C",
+          "text": "git push -m \"update\""
+        },
+        {
+          "id": "D",
+          "text": "git commit -m \"update\""
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "git add -A stages all modifications, additions, and deletions; git commit -m then records them with the given message.",
+        "distractors": {
+          "A": "git stash shelves the changes away, leaving nothing staged for the following commit.",
+          "B": "",
+          "C": "git push uploads existing commits to a remote and has no -m option to create a commit.",
+          "D": "git commit alone commits only ALREADY-staged changes; newly created/unstaged files would be left out."
+        },
+        "exam_pattern": "Typical flow: git add (stage) -> git commit -m (record) -> git push (publish)."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Version control (git add/commit)"
+      ]
+    },
+    {
+      "id": "linuxplus-scr-008",
+      "exam": "linuxplus",
+      "domain": "linuxp_scripting",
+      "subtopic": "linuxp_git_version",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "While on the main branch, which command integrates the commits from a branch named 'feature' into your current branch?",
+      "options": [
+        {
+          "id": "A",
+          "text": "git clone feature"
+        },
+        {
+          "id": "B",
+          "text": "git branch feature"
+        },
+        {
+          "id": "C",
+          "text": "git merge feature"
+        },
+        {
+          "id": "D",
+          "text": "git checkout feature"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "git merge feature joins the feature branch's history into the branch you currently have checked out, creating a merge (or fast-forward) commit.",
+        "distractors": {
+          "A": "git clone copies a whole remote repository; it is not used to combine local branches.",
+          "B": "git branch feature only CREATES (or lists) the branch; it does not combine histories.",
+          "C": "",
+          "D": "git checkout feature SWITCHES your working tree to that branch instead of merging it in."
+        },
+        "exam_pattern": "Checkout the target branch, then 'git merge <source>' to bring the source's work in."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Branching (git merge)"
+      ]
+    },
+    {
+      "id": "linuxplus-scr-009",
+      "exam": "linuxplus",
+      "domain": "linuxp_scripting",
+      "subtopic": "linuxp_git_version",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Which Git subcommand shows the state of the working tree — which files are staged, modified but unstaged, or untracked? (subcommand word only)",
+      "correct": [
+        "status",
+        "git status"
+      ],
+      "explanation": {
+        "correct": "git status summarizes the current branch, staged changes, unstaged modifications, and untracked files — the go-to command before committing.",
+        "distractors": {},
+        "exam_pattern": "git status (current state) vs git log (commit history) vs git diff (line-level changes)."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Version control (git status)"
+      ]
+    },
+    {
+      "id": "linuxplus-scr-010",
+      "exam": "linuxplus",
+      "domain": "linuxp_scripting",
+      "subtopic": "linuxp_containers",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which command starts a new container from the nginx image in the background (detached) and maps host port 8080 to container port 80?",
+      "options": [
+        {
+          "id": "A",
+          "text": "docker exec -d -p 8080:80 nginx"
+        },
+        {
+          "id": "B",
+          "text": "docker run -d -p 80:8080 nginx"
+        },
+        {
+          "id": "C",
+          "text": "docker build -t nginx ."
+        },
+        {
+          "id": "D",
+          "text": "docker run -d -p 8080:80 nginx"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "docker run -d runs detached; -p 8080:80 maps HOST:CONTAINER, so host 8080 forwards to the container's port 80. (podman run uses the same syntax.)",
+        "distractors": {
+          "A": "docker exec runs a command in an ALREADY-RUNNING container and does not publish ports.",
+          "B": "-p 80:8080 reverses the mapping (host 80 to container 8080), which is not what nginx listens on.",
+          "C": "docker build creates an IMAGE from a Dockerfile; it does not start a container.",
+          "D": ""
+        },
+        "exam_pattern": "-p HOST:CONTAINER (host port first); -d detaches; run starts a new container."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Containers (docker/podman run)"
+      ]
+    },
+    {
+      "id": "linuxplus-scr-011",
+      "exam": "linuxplus",
+      "domain": "linuxp_scripting",
+      "subtopic": "linuxp_containers",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which command lists the containers that are currently running (and only those)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "docker ls"
+        },
+        {
+          "id": "B",
+          "text": "docker images"
+        },
+        {
+          "id": "C",
+          "text": "docker ps"
+        },
+        {
+          "id": "D",
+          "text": "docker start"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "docker ps (equivalently 'docker container ls', or 'podman ps') lists running containers; add -a to include stopped ones.",
+        "distractors": {
+          "A": "docker ls is not a valid command (the long form is 'docker container ls').",
+          "B": "docker images lists downloaded IMAGES, not running containers.",
+          "C": "",
+          "D": "docker start launches a stopped container by name/ID; it does not list anything."
+        },
+        "exam_pattern": "ps = running containers (-a for all); images = image list."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Containers (docker ps)"
+      ]
+    },
+    {
+      "id": "linuxplus-scr-012",
+      "exam": "linuxplus",
+      "domain": "linuxp_scripting",
+      "subtopic": "linuxp_containers",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In a Dockerfile, which instruction specifies the base image the new image is built from and normally appears as the first instruction?",
+      "options": [
+        {
+          "id": "A",
+          "text": "FROM"
+        },
+        {
+          "id": "B",
+          "text": "CMD"
+        },
+        {
+          "id": "C",
+          "text": "COPY"
+        },
+        {
+          "id": "D",
+          "text": "RUN"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "FROM <image> sets the base image and must be the first instruction (after any optional ARG) in a Dockerfile.",
+        "distractors": {
+          "A": "",
+          "B": "CMD sets the default command/arguments run when a container starts, not the base image.",
+          "C": "COPY copies files from the build context into the image; it does not define the base.",
+          "D": "RUN executes a command during the build, creating a new image layer."
+        },
+        "exam_pattern": "Dockerfile essentials: FROM (base) -> RUN (build steps) -> COPY/ADD -> CMD/ENTRYPOINT (default process)."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Containers (Dockerfile FROM)"
+      ]
+    },
+    {
+      "id": "linuxplus-scr-013",
+      "exam": "linuxplus",
+      "domain": "linuxp_scripting",
+      "subtopic": "linuxp_containers",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Which 'docker run' / 'podman run' flag (give the short single-letter form) mounts a host directory or named volume into a container so its data persists beyond the container's life?",
+      "correct": [
+        "-v",
+        "--volume"
+      ],
+      "explanation": {
+        "correct": "-v (long form --volume) bind-mounts a host path or attaches a named volume, e.g. '-v /data:/app/data' or '-v mydata:/app/data', keeping data after the container is removed.",
+        "distractors": {},
+        "exam_pattern": "Persistence: -v/--volume (or --mount). Without it, a container's writable layer is lost on removal."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Containers (volumes)"
+      ]
+    },
+    {
+      "id": "linuxplus-scr-014",
+      "exam": "linuxplus",
+      "domain": "linuxp_scripting",
+      "subtopic": "linuxp_automation",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An Ansible playbook is run twice against the same hosts. The second run reports no changes because the systems already match the desired state. Which property does this demonstrate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Idempotency"
+        },
+        {
+          "id": "B",
+          "text": "Inventory"
+        },
+        {
+          "id": "C",
+          "text": "A rolling update"
+        },
+        {
+          "id": "D",
+          "text": "Privilege escalation"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Idempotency means applying the same configuration repeatedly yields the same end state and makes changes only when something differs — a core Ansible design goal.",
+        "distractors": {
+          "A": "",
+          "B": "The inventory is the list of managed hosts/groups, not the no-change behavior.",
+          "C": "A rolling update is a deployment strategy that updates hosts in batches, a different concept.",
+          "D": "Privilege escalation (become) is about running tasks as another user like root."
+        },
+        "exam_pattern": "Repeatable automation converges to desired state and only changes what is needed = idempotent."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Automation (idempotency)"
+      ]
+    },
+    {
+      "id": "linuxplus-scr-015",
+      "exam": "linuxplus",
+      "domain": "linuxp_scripting",
+      "subtopic": "linuxp_automation",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In Ansible, which component defines the set of managed hosts and groups that a playbook runs against?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The playbook"
+        },
+        {
+          "id": "B",
+          "text": "A module"
+        },
+        {
+          "id": "C",
+          "text": "The inventory"
+        },
+        {
+          "id": "D",
+          "text": "A handler"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The inventory (a static file such as /etc/ansible/hosts, an INI/YAML file, or a dynamic source) lists the hosts and groups targeted by plays.",
+        "distractors": {
+          "A": "A playbook defines the tasks/plays to run; it references hosts but does not itself define the host list.",
+          "B": "A module is a reusable unit of work (e.g., 'yum', 'copy') executed on the hosts.",
+          "C": "",
+          "D": "A handler is a task triggered by 'notify', typically to restart a service after a change."
+        },
+        "exam_pattern": "Ansible pieces: inventory (hosts) + playbook (plays/tasks) + modules (actions) + handlers (notified tasks)."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Automation (Ansible inventory)"
+      ]
+    },
+    {
+      "id": "linuxplus-scr-016",
+      "exam": "linuxplus",
+      "domain": "linuxp_scripting",
+      "subtopic": "linuxp_automation",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In a standard crontab entry, the five time-and-date fields appear in order as minute, hour, day-of-month, month, and which fifth field?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Day of week"
+        },
+        {
+          "id": "B",
+          "text": "Second"
+        },
+        {
+          "id": "C",
+          "text": "Year"
+        },
+        {
+          "id": "D",
+          "text": "Day of year"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The five cron fields are minute, hour, day of month, month, and day of week (0-7, where 0 and 7 both mean Sunday).",
+        "distractors": {
+          "A": "",
+          "B": "Standard cron has no seconds field; its finest granularity is one minute.",
+          "C": "There is no year field in a standard crontab.",
+          "D": "Cron uses day of week and day of month, not a day-of-year field."
+        },
+        "exam_pattern": "cron order: min hour dom month dow <command>. '*' = every value."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Scheduling (cron fields)"
+      ]
+    },
+    {
+      "id": "linuxplus-scr-017",
+      "exam": "linuxplus",
+      "domain": "linuxp_scripting",
+      "subtopic": "linuxp_automation",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Which command opens the current user's personal crontab in an editor so scheduled jobs can be added or changed (rather than editing a system file directly)? (command and flag)",
+      "correct": [
+        "crontab -e"
+      ],
+      "explanation": {
+        "correct": "crontab -e opens the invoking user's crontab in the default editor and installs it safely on save. Use 'crontab -l' to list and 'crontab -r' to remove it.",
+        "distractors": {},
+        "exam_pattern": "crontab -e edit, -l list, -r remove; '-u user' targets another user's crontab (as root)."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Scheduling (crontab)"
+      ]
+    },
+    {
+      "id": "linuxplus-sec-001",
+      "exam": "linuxplus",
+      "domain": "linuxp_security",
+      "subtopic": "linuxp_permissions_acl",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which command sets a file's permissions to read/write/execute for the owner and read/execute for both the group and others (rwxr-xr-x)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "chmod 755 script.sh"
+        },
+        {
+          "id": "B",
+          "text": "chmod 644 script.sh"
+        },
+        {
+          "id": "C",
+          "text": "chmod 775 script.sh"
+        },
+        {
+          "id": "D",
+          "text": "chmod 750 script.sh"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Octal 755 = owner rwx (7), group r-x (5), others r-x (5), exactly rwxr-xr-x.",
+        "distractors": {
+          "A": "",
+          "B": "644 is rw-r--r-- (no execute for anyone) — wrong for an executable script.",
+          "C": "775 is rwxrwxr-x, which grants the group write access too.",
+          "D": "750 is rwxr-x--- , which denies 'others' any access."
+        },
+        "exam_pattern": "Octal: r=4, w=2, x=1 per digit (owner/group/other). 7=rwx, 5=r-x, 6=rw-, 4=r--."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — File permissions (chmod octal)"
+      ]
+    },
+    {
+      "id": "linuxplus-sec-002",
+      "exam": "linuxplus",
+      "domain": "linuxp_security",
+      "subtopic": "linuxp_permissions_acl",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Using symbolic mode, which command adds execute permission for the file's OWNER only, leaving the group and other bits unchanged?",
+      "options": [
+        {
+          "id": "A",
+          "text": "chmod o+x file"
+        },
+        {
+          "id": "B",
+          "text": "chmod u+x file"
+        },
+        {
+          "id": "C",
+          "text": "chmod +x file"
+        },
+        {
+          "id": "D",
+          "text": "chmod u-x file"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "u+x adds (+) the execute (x) bit for the user/owner (u) class only, without touching group or other.",
+        "distractors": {
+          "A": "o+x adds execute for OTHERS, not the owner.",
+          "B": "",
+          "C": "+x (equivalent to a+x) adds execute for all classes (owner, group, other), subject to umask.",
+          "D": "u-x REMOVES the owner's execute bit, the opposite action."
+        },
+        "exam_pattern": "Symbolic classes: u=user/owner, g=group, o=others, a=all; +add, -remove, =set."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — File permissions (chmod symbolic)"
+      ]
+    },
+    {
+      "id": "linuxplus-sec-003",
+      "exam": "linuxplus",
+      "domain": "linuxp_security",
+      "subtopic": "linuxp_permissions_acl",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A long listing of /tmp shows permissions drwxrwxrwt. What does the trailing 't' in the 'others' execute position indicate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The SGID bit is set, so new files inherit the directory's group"
+        },
+        {
+          "id": "B",
+          "text": "The SUID bit is set, so programs run as the file owner"
+        },
+        {
+          "id": "C",
+          "text": "The sticky bit is set, so a user may delete or rename only files they own within the directory"
+        },
+        {
+          "id": "D",
+          "text": "The directory is actually a symbolic link"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A trailing 't' marks the sticky bit on a directory. On a world-writable directory like /tmp it restricts deletion/renaming so users can only remove their own files.",
+        "distractors": {
+          "A": "SGID appears as 's' in the GROUP execute position; it is what makes new files inherit the group.",
+          "B": "SUID appears as 's' in the OWNER execute position and applies to executables, not this directory bit.",
+          "C": "",
+          "D": "A symbolic link is shown by a leading 'l' in the type field, not a trailing 't'."
+        },
+        "exam_pattern": "Special bits in the x column: SUID=s (owner), SGID=s (group), sticky=t (other)."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Special permissions (sticky bit)"
+      ]
+    },
+    {
+      "id": "linuxplus-sec-004",
+      "exam": "linuxplus",
+      "domain": "linuxp_security",
+      "subtopic": "linuxp_permissions_acl",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Beyond the standard owner/group/other bits, you must grant user 'alice' read and write access to report.txt via an access control list. Which command does this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "getfacl report.txt"
+        },
+        {
+          "id": "B",
+          "text": "setfacl -m u:alice:rw report.txt"
+        },
+        {
+          "id": "C",
+          "text": "setfacl -x u:alice report.txt"
+        },
+        {
+          "id": "D",
+          "text": "chmod u+rw report.txt"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "setfacl -m modifies/adds an ACL entry; u:alice:rw grants alice read+write independently of the file's owner, group, or other bits.",
+        "distractors": {
+          "A": "getfacl only DISPLAYS existing ACL entries; it changes nothing.",
+          "B": "",
+          "C": "setfacl -x REMOVES alice's ACL entry rather than granting access.",
+          "D": "chmod u+rw changes the OWNER's bits, which affects whoever owns the file, not alice specifically."
+        },
+        "exam_pattern": "setfacl -m to add/modify, -x to remove, -b to clear all; getfacl to view."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Access control lists (setfacl)"
+      ]
+    },
+    {
+      "id": "linuxplus-sec-005",
+      "exam": "linuxplus",
+      "domain": "linuxp_security",
+      "subtopic": "linuxp_permissions_acl",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Which command changes special file attributes on ext4/xfs filesystems — for example, setting the immutable (+i) attribute so a file cannot be modified or deleted even by root? (command name only)",
+      "correct": [
+        "chattr",
+        "/usr/bin/chattr"
+      ],
+      "explanation": {
+        "correct": "chattr changes file attributes; 'chattr +i file' makes a file immutable (no modify, delete, rename, or link) until removed with 'chattr -i'. View attributes with lsattr.",
+        "distractors": {},
+        "exam_pattern": "chattr sets attributes (+i immutable, +a append-only); lsattr lists them."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — File attributes (chattr)"
+      ]
+    },
+    {
+      "id": "linuxplus-sec-006",
+      "exam": "linuxplus",
+      "domain": "linuxp_security",
+      "subtopic": "linuxp_access_control",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which command should be used to edit the /etc/sudoers file safely, because it locks the file and validates syntax before saving?",
+      "options": [
+        {
+          "id": "A",
+          "text": "vi /etc/sudoers"
+        },
+        {
+          "id": "B",
+          "text": "sudo -l"
+        },
+        {
+          "id": "C",
+          "text": "visudo"
+        },
+        {
+          "id": "D",
+          "text": "usermod -aG sudo bob"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "visudo opens /etc/sudoers with a lock and runs a syntax check on save, preventing a broken file that could lock everyone out of sudo.",
+        "distractors": {
+          "A": "Editing /etc/sudoers directly with vi skips the syntax check and risks a parse error that disables sudo.",
+          "B": "sudo -l lists the current user's allowed sudo commands; it does not edit the file.",
+          "C": "",
+          "D": "usermod -aG sudo adds a user to the sudo group but does not edit sudoers rules."
+        },
+        "exam_pattern": "Always edit sudoers with visudo (or files in /etc/sudoers.d/ via visudo -f)."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Privilege escalation (visudo/sudoers)"
+      ]
+    },
+    {
+      "id": "linuxplus-sec-007",
+      "exam": "linuxplus",
+      "domain": "linuxp_security",
+      "subtopic": "linuxp_access_control",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On a RHEL system you suspect SELinux is involved in a failure. Which command reports the current SELinux mode (Enforcing, Permissive, or Disabled)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "getenforce"
+        },
+        {
+          "id": "B",
+          "text": "semodule -l"
+        },
+        {
+          "id": "C",
+          "text": "restorecon -R /var/www"
+        },
+        {
+          "id": "D",
+          "text": "setenforce 1"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "getenforce prints the current mode: Enforcing, Permissive, or Disabled. (sestatus gives the same plus more detail.)",
+        "distractors": {
+          "A": "",
+          "B": "semodule -l lists installed SELinux policy modules, not the mode.",
+          "C": "restorecon resets file security contexts; it does not show the mode.",
+          "D": "setenforce 1 CHANGES the running mode to Enforcing; it does not report it."
+        },
+        "exam_pattern": "getenforce reads mode; setenforce 0|1 toggles Permissive/Enforcing at runtime; persist in /etc/selinux/config."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — SELinux modes (getenforce)"
+      ]
+    },
+    {
+      "id": "linuxplus-sec-008",
+      "exam": "linuxplus",
+      "domain": "linuxp_security",
+      "subtopic": "linuxp_access_control",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "After restoring files into /var/www/html from a backup, Apache returns 403 errors and SELinux is Enforcing. The DAC permissions look correct. Which command fixes the most likely cause by resetting the files to their default SELinux contexts?",
+      "options": [
+        {
+          "id": "A",
+          "text": "chmod -R 755 /var/www/html"
+        },
+        {
+          "id": "B",
+          "text": "setenforce 0"
+        },
+        {
+          "id": "C",
+          "text": "restorecon -Rv /var/www/html"
+        },
+        {
+          "id": "D",
+          "text": "chown -R apache:apache /var/www/html"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Restored files often carry the wrong SELinux type. restorecon -Rv recursively relabels them to the default context defined for that path, which Apache can serve.",
+        "distractors": {
+          "A": "chmod changes standard (DAC) permissions, which the scenario says are already correct.",
+          "B": "setenforce 0 only disables enforcement, masking the problem instead of fixing the labels (and is poor practice).",
+          "C": "",
+          "D": "chown fixes ownership, not the SELinux security context causing the denial."
+        },
+        "exam_pattern": "403/AVC denials after moving files usually mean wrong SELinux context — fix with restorecon."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — SELinux contexts (restorecon)"
+      ]
+    },
+    {
+      "id": "linuxplus-sec-009",
+      "exam": "linuxplus",
+      "domain": "linuxp_security",
+      "subtopic": "linuxp_access_control",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On an Ubuntu host that uses AppArmor for mandatory access control, which command reports which profiles are loaded and whether each is in enforce or complain mode?",
+      "options": [
+        {
+          "id": "A",
+          "text": "setenforce 0"
+        },
+        {
+          "id": "B",
+          "text": "aa-complain /etc/apparmor.d/usr.sbin.nginx"
+        },
+        {
+          "id": "C",
+          "text": "aa-status"
+        },
+        {
+          "id": "D",
+          "text": "getenforce"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "aa-status (also called apparmor_status) lists loaded AppArmor profiles and counts those in enforce versus complain mode.",
+        "distractors": {
+          "A": "setenforce is an SELinux command and has no effect on AppArmor.",
+          "B": "aa-complain switches a single profile INTO complain mode; it does not report overall status.",
+          "C": "",
+          "D": "getenforce is an SELinux tool; AppArmor and SELinux are different MAC systems."
+        },
+        "exam_pattern": "AppArmor (Debian/Ubuntu default) uses aa-status / aa-enforce / aa-complain; SELinux (RHEL default) uses getenforce / setenforce."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Mandatory access control (AppArmor)"
+      ]
+    },
+    {
+      "id": "linuxplus-sec-010",
+      "exam": "linuxplus",
+      "domain": "linuxp_security",
+      "subtopic": "linuxp_firewall",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On a RHEL server running firewalld, which command permanently allows HTTPS traffic in the default zone (persisting across reloads and reboots)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "firewall-cmd --permanent --add-service=https"
+        },
+        {
+          "id": "B",
+          "text": "firewall-cmd --permanent --remove-service=https"
+        },
+        {
+          "id": "C",
+          "text": "ufw allow https"
+        },
+        {
+          "id": "D",
+          "text": "firewall-cmd --add-service=https"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "firewall-cmd --permanent --add-service=https writes the rule to the permanent configuration; follow with 'firewall-cmd --reload' to apply it to the running firewall.",
+        "distractors": {
+          "A": "",
+          "B": "--remove-service REMOVES the HTTPS allowance instead of adding it.",
+          "C": "ufw is the Ubuntu firewall front end, not used to manage firewalld on RHEL.",
+          "D": "Without --permanent the rule is runtime-only and is lost on reload or reboot."
+        },
+        "exam_pattern": "firewalld changes are runtime-only unless --permanent; then --reload to activate."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Host firewall (firewalld)"
+      ]
+    },
+    {
+      "id": "linuxplus-sec-011",
+      "exam": "linuxplus",
+      "domain": "linuxp_security",
+      "subtopic": "linuxp_firewall",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On Ubuntu, which command uses the Uncomplicated Firewall (ufw) to allow incoming SSH connections?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ufw allow 22/tcp"
+        },
+        {
+          "id": "B",
+          "text": "iptables -F"
+        },
+        {
+          "id": "C",
+          "text": "firewall-cmd --add-port=22/tcp"
+        },
+        {
+          "id": "D",
+          "text": "ufw deny 22/tcp"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "ufw allow 22/tcp (equivalently 'ufw allow ssh') permits inbound TCP port 22 through the firewall.",
+        "distractors": {
+          "A": "",
+          "B": "iptables -F FLUSHES all rules, removing protections rather than allowing SSH specifically.",
+          "C": "firewall-cmd manages firewalld (RHEL), not ufw.",
+          "D": "ufw deny 22/tcp BLOCKS SSH, the opposite of the goal."
+        },
+        "exam_pattern": "ufw allow/deny <port>/<proto> or a service name; enable with 'ufw enable'."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Host firewall (ufw)"
+      ]
+    },
+    {
+      "id": "linuxplus-sec-012",
+      "exam": "linuxplus",
+      "domain": "linuxp_security",
+      "subtopic": "linuxp_firewall",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Which packet-filtering framework is the modern successor to iptables in the Linux kernel and is managed with the 'nft' command? (framework name)",
+      "correct": [
+        "nftables",
+        "nft"
+      ],
+      "explanation": {
+        "correct": "nftables replaces the iptables/ip6tables/arptables/ebtables family with a single framework and the 'nft' tool. firewalld and ufw can both use it as their back end.",
+        "distractors": {},
+        "exam_pattern": "iptables -> nftables (nft); higher-level managers firewalld/ufw sit on top."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Packet filtering (nftables)"
+      ]
+    },
+    {
+      "id": "linuxplus-sec-013",
+      "exam": "linuxplus",
+      "domain": "linuxp_security",
+      "subtopic": "linuxp_ssh_hardening",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "To harden SSH, an administrator wants to stop the root account from logging in directly over SSH. Which sshd_config directive accomplishes this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "RootLogin deny"
+        },
+        {
+          "id": "B",
+          "text": "PermitRootLogin no"
+        },
+        {
+          "id": "C",
+          "text": "AllowRootLogin no"
+        },
+        {
+          "id": "D",
+          "text": "PermitRootLogin yes"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "PermitRootLogin no in /etc/ssh/sshd_config blocks direct root SSH logins; restart sshd for it to take effect. Admins then log in as a normal user and escalate with sudo.",
+        "distractors": {
+          "A": "RootLogin deny is not a real directive and would be ignored or cause an error.",
+          "B": "",
+          "C": "AllowRootLogin is not a valid sshd_config directive.",
+          "D": "PermitRootLogin yes explicitly ALLOWS root login, the opposite of hardening."
+        },
+        "exam_pattern": "Key sshd_config hardening: PermitRootLogin no, PasswordAuthentication no, use keys."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — SSH hardening (sshd_config)"
+      ]
+    },
+    {
+      "id": "linuxplus-sec-014",
+      "exam": "linuxplus",
+      "domain": "linuxp_security",
+      "subtopic": "linuxp_ssh_hardening",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which command installs your SSH public key into a remote server's ~/.ssh/authorized_keys file so you can use key-based authentication?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ssh-copy-id user@server"
+        },
+        {
+          "id": "B",
+          "text": "scp ~/.ssh/id_ed25519 user@server:"
+        },
+        {
+          "id": "C",
+          "text": "ssh-add ~/.ssh/id_ed25519"
+        },
+        {
+          "id": "D",
+          "text": "ssh-keygen -t ed25519"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "ssh-copy-id appends your PUBLIC key to the remote account's authorized_keys with correct permissions, enabling passwordless key-based login.",
+        "distractors": {
+          "A": "",
+          "B": "This copies your PRIVATE key (id_ed25519) to the server — insecure and not how key auth works.",
+          "C": "ssh-add loads a private key into the local ssh-agent; it does not touch the server.",
+          "D": "ssh-keygen GENERATES a local key pair; it does not copy anything to the server."
+        },
+        "exam_pattern": "Key auth flow: ssh-keygen (create) -> ssh-copy-id (publish public key) -> ssh in."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Key-based auth (ssh-copy-id)"
+      ]
+    },
+    {
+      "id": "linuxplus-sec-015",
+      "exam": "linuxplus",
+      "domain": "linuxp_security",
+      "subtopic": "linuxp_ssh_hardening",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Which file holds the configuration for the OpenSSH server daemon — the file where directives such as PermitRootLogin and PasswordAuthentication are set? (full path)",
+      "correct": [
+        "/etc/ssh/sshd_config",
+        "etc/ssh/sshd_config"
+      ],
+      "explanation": {
+        "correct": "/etc/ssh/sshd_config configures the SSH server (sshd). Do not confuse it with /etc/ssh/ssh_config, which configures the SSH CLIENT.",
+        "distractors": {},
+        "exam_pattern": "Server = sshd_config (with the 'd'); client = ssh_config. Restart sshd after edits."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — SSH server config (sshd_config)"
+      ]
+    },
+    {
+      "id": "linuxplus-sec-016",
+      "exam": "linuxplus",
+      "domain": "linuxp_security",
+      "subtopic": "linuxp_crypto_certs",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A LUKS-encrypted block device /dev/sdb1 must be unlocked and exposed as /dev/mapper/secure so it can be mounted. Which command does this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "cryptsetup luksOpen /dev/sdb1 secure"
+        },
+        {
+          "id": "B",
+          "text": "mount /dev/sdb1 /mnt/secure"
+        },
+        {
+          "id": "C",
+          "text": "cryptsetup luksFormat /dev/sdb1"
+        },
+        {
+          "id": "D",
+          "text": "gpg --decrypt /dev/sdb1"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "cryptsetup luksOpen /dev/sdb1 secure (also 'cryptsetup open') prompts for the passphrase and creates the decrypted mapping /dev/mapper/secure, which you then mount.",
+        "distractors": {
+          "A": "",
+          "B": "You cannot mount a LUKS device directly; it must be unlocked first.",
+          "C": "luksFormat INITIALIZES a new LUKS header on the device, destroying any existing data.",
+          "D": "gpg encrypts/decrypts files, not LUKS block devices."
+        },
+        "exam_pattern": "LUKS flow: luksFormat (once) -> luksOpen (unlock to /dev/mapper) -> mount; luksClose to lock."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Disk encryption (LUKS/cryptsetup)"
+      ]
+    },
+    {
+      "id": "linuxplus-sec-017",
+      "exam": "linuxplus",
+      "domain": "linuxp_security",
+      "subtopic": "linuxp_crypto_certs",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which command uses GnuPG to encrypt report.pdf with public-key cryptography so that only the recipient alice@example.com can decrypt it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "openssl enc -aes-256-cbc -in report.pdf -out report.enc"
+        },
+        {
+          "id": "B",
+          "text": "gpg --decrypt report.pdf"
+        },
+        {
+          "id": "C",
+          "text": "gpg --encrypt --recipient alice@example.com report.pdf"
+        },
+        {
+          "id": "D",
+          "text": "gpg --symmetric report.pdf"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "gpg --encrypt --recipient alice@example.com (short: gpg -e -r) encrypts to alice's PUBLIC key, so only her matching private key can decrypt it.",
+        "distractors": {
+          "A": "openssl enc performs passphrase-based SYMMETRIC encryption, not recipient public-key encryption.",
+          "B": "gpg --decrypt reverses encryption; it does not protect the file.",
+          "C": "",
+          "D": "gpg --symmetric uses a shared passphrase, not the recipient's public key."
+        },
+        "exam_pattern": "gpg -e -r <recipient> = asymmetric (public key); gpg -c / openssl enc = symmetric (passphrase)."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Encryption tools (GnuPG)"
+      ]
+    },
+    {
+      "id": "linuxplus-sec-018",
+      "exam": "linuxplus",
+      "domain": "linuxp_security",
+      "subtopic": "linuxp_crypto_certs",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An administrator needs to inspect the subject, issuer, and validity dates of an X.509 certificate stored in server.crt. Which OpenSSL command displays those details?",
+      "options": [
+        {
+          "id": "A",
+          "text": "openssl genrsa -out server.key 2048"
+        },
+        {
+          "id": "B",
+          "text": "openssl req -in server.crt -noout -text"
+        },
+        {
+          "id": "C",
+          "text": "openssl x509 -in server.crt -noout -text"
+        },
+        {
+          "id": "D",
+          "text": "openssl s_client -connect server.crt:443"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "openssl x509 parses an X.509 certificate; -in names the file, -text prints the human-readable fields (subject, issuer, validity, SAN), and -noout suppresses the raw PEM.",
+        "distractors": {
+          "A": "openssl genrsa GENERATES a private key; it does not read a certificate.",
+          "B": "openssl req parses a certificate signing request (CSR), not a finished certificate.",
+          "C": "",
+          "D": "openssl s_client connects to a live TLS server host:port; server.crt is a file, not a host."
+        },
+        "exam_pattern": "Inspect a cert file: openssl x509 -in <file> -noout -text; a CSR: openssl req ..."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Certificates (OpenSSL x509)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-001",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_filesystem",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "According to the Filesystem Hierarchy Standard (FHS), which single top-level directory is the standard location for host-specific, system-wide configuration files such as fstab and passwd? (full path)",
+      "correct": [
+        "/etc",
+        "etc"
+      ],
+      "explanation": {
+        "correct": "/etc holds host-specific, system-wide configuration files (for example /etc/fstab, /etc/passwd, /etc/ssh/sshd_config). Per the FHS it must contain no binaries.",
+        "distractors": {},
+        "exam_pattern": "System-wide config = /etc; variable data = /var; kernel/process view = /proc."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Filesystem Hierarchy Standard"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-002",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_filesystem",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An administrator must list every file under /home that was modified within the last 24 hours (less than one day ago). Which command does this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "find /home -atime -1"
+        },
+        {
+          "id": "B",
+          "text": "find /home -ctime 1"
+        },
+        {
+          "id": "C",
+          "text": "find /home -mtime -1"
+        },
+        {
+          "id": "D",
+          "text": "find /home -mtime +1"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "-mtime -1 matches files whose data was last modified less than 1 day (24 hours) ago. The leading minus means 'less than'.",
+        "distractors": {
+          "A": "-atime refers to last access time, not modification time.",
+          "B": "-ctime 1 matches inode-change time exactly between 24 and 48 hours ago, not the last day.",
+          "C": "",
+          "D": "-mtime +1 matches files modified MORE than one day ago, the opposite window."
+        },
+        "exam_pattern": "find time tests: -mtime=modified, -atime=accessed, -ctime=inode change; -N = within N days, +N = more than N days."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Manage files and directories (find)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-003",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_filesystem",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "You need a quick, human-readable summary of how much space is used and still free on each mounted filesystem. Which command is best suited?",
+      "options": [
+        {
+          "id": "A",
+          "text": "lsblk -f"
+        },
+        {
+          "id": "B",
+          "text": "df -h"
+        },
+        {
+          "id": "C",
+          "text": "df -i"
+        },
+        {
+          "id": "D",
+          "text": "du -sh /"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "df reports per-filesystem disk space; -h prints sizes in human-readable units (G/M/K) and shows used, available, and use% for each mount point.",
+        "distractors": {
+          "A": "lsblk -f shows filesystem type, label, UUID, and mountpoint but not used/free capacity.",
+          "B": "",
+          "C": "df -i reports inode counts, not space used/free in bytes.",
+          "D": "du -sh / sums the size of files under a path (slow on /) and does not report free space per filesystem."
+        },
+        "exam_pattern": "df = free space per filesystem; du = size consumed by files/dirs."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Monitor storage (df/du)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-004",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_package_mgmt",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "On an Ubuntu server, which command installs the nginx package from the configured repositories, automatically resolving and installing its dependencies?",
+      "options": [
+        {
+          "id": "A",
+          "text": "dpkg -i nginx"
+        },
+        {
+          "id": "B",
+          "text": "apt install nginx"
+        },
+        {
+          "id": "C",
+          "text": "yum install nginx"
+        },
+        {
+          "id": "D",
+          "text": "rpm -i nginx"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "apt (and apt-get) is the high-level Debian/Ubuntu package manager: it pulls the package from configured repos and resolves dependencies automatically.",
+        "distractors": {
+          "A": "dpkg installs a local .deb file and does NOT resolve repository dependencies (and nginx here is a repo name, not a file).",
+          "B": "",
+          "C": "yum is the RHEL/CentOS package manager, not available on Ubuntu by default.",
+          "D": "rpm is the RHEL-family low-level tool and is not used on Debian/Ubuntu."
+        },
+        "exam_pattern": "Debian/Ubuntu: apt/apt-get/dpkg. RHEL/Fedora: dnf/yum/rpm."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Software management (apt)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-005",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_package_mgmt",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On a RHEL 9 host, which command queries the local RPM database to confirm whether the httpd package is installed and, if so, its version?",
+      "options": [
+        {
+          "id": "A",
+          "text": "rpm -q httpd"
+        },
+        {
+          "id": "B",
+          "text": "dpkg -l httpd"
+        },
+        {
+          "id": "C",
+          "text": "apt list httpd"
+        },
+        {
+          "id": "D",
+          "text": "yum repoquery httpd"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "rpm -q httpd queries the installed RPM database and prints the installed package-version-release, or reports 'package httpd is not installed'.",
+        "distractors": {
+          "A": "",
+          "B": "dpkg is a Debian tool and its database does not exist on RHEL.",
+          "C": "apt is a Debian/Ubuntu tool, not present on RHEL by default.",
+          "D": "repoquery inspects what is AVAILABLE in repositories, not specifically what is installed locally."
+        },
+        "exam_pattern": "rpm -q = query installed; -qa lists all; -ql lists a package's files; -qf finds the owning package."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Software management (rpm)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-006",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_package_mgmt",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On a Debian system, which command lists every file that the already-installed coreutils package placed on the filesystem?",
+      "options": [
+        {
+          "id": "A",
+          "text": "dpkg -S coreutils"
+        },
+        {
+          "id": "B",
+          "text": "dpkg -L coreutils"
+        },
+        {
+          "id": "C",
+          "text": "apt-cache show coreutils"
+        },
+        {
+          "id": "D",
+          "text": "dpkg -l coreutils"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "dpkg -L <package> lists the files installed by that package (its file manifest).",
+        "distractors": {
+          "A": "dpkg -S searches for the package that OWNS a given file path, the reverse lookup.",
+          "B": "",
+          "C": "apt-cache show prints package metadata (description, dependencies), not the installed file list.",
+          "D": "dpkg -l (lowercase L) lists package status/version, not the installed files."
+        },
+        "exam_pattern": "dpkg -L = list files of a package; dpkg -S = which package owns a file."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Software management (dpkg)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-007",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_processes_services",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "You need the sshd service to start automatically on every boot, but you do not need to start it in this moment. Which systemd command accomplishes exactly that?",
+      "options": [
+        {
+          "id": "A",
+          "text": "systemctl enable sshd"
+        },
+        {
+          "id": "B",
+          "text": "systemctl mask sshd"
+        },
+        {
+          "id": "C",
+          "text": "systemctl start sshd"
+        },
+        {
+          "id": "D",
+          "text": "systemctl status sshd"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "systemctl enable sshd creates the boot-time symlinks so the unit starts on every boot; it does not start the service now (use enable --now to do both).",
+        "distractors": {
+          "A": "",
+          "B": "systemctl mask sshd makes the unit impossible to start by linking it to /dev/null.",
+          "C": "systemctl start sshd starts it immediately but does NOT persist across reboots.",
+          "D": "systemctl status sshd only reports the current state; it changes nothing."
+        },
+        "exam_pattern": "enable = start at boot; start = start now; enable --now = both; mask = block entirely."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Manage services (systemctl)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-008",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_processes_services",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which command displays only the journal log entries produced by the nginx.service systemd unit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "journalctl -k"
+        },
+        {
+          "id": "B",
+          "text": "journalctl -u nginx.service"
+        },
+        {
+          "id": "C",
+          "text": "journalctl -b"
+        },
+        {
+          "id": "D",
+          "text": "tail -f /var/log/nginx.service"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "journalctl -u nginx.service filters the systemd journal to messages from that specific unit; add -f to follow in real time.",
+        "distractors": {
+          "A": "journalctl -k shows only kernel ring-buffer messages.",
+          "B": "",
+          "C": "journalctl -b shows all messages from the current boot, not one unit.",
+          "D": "/var/log/nginx.service is not a real log file; journald stores unit logs, not a file by that name."
+        },
+        "exam_pattern": "journalctl -u <unit> filters by unit; -b by boot; -k kernel; -f to follow."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Service logs (journalctl)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-009",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_processes_services",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A running process with PID 1450 is monopolizing the CPU. Which command lowers its scheduling priority (makes it 'nicer') while it continues to run?",
+      "options": [
+        {
+          "id": "A",
+          "text": "renice -n -10 -p 1450"
+        },
+        {
+          "id": "B",
+          "text": "renice -n 10 -p 1450"
+        },
+        {
+          "id": "C",
+          "text": "kill -STOP 1450"
+        },
+        {
+          "id": "D",
+          "text": "nice -n 10 -p 1450"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "renice changes the niceness of an EXISTING process. -n 10 raises the nice value to 10 (a higher nice value means lower priority), and -p 1450 targets that PID.",
+        "distractors": {
+          "A": "A negative nice value (-10) RAISES priority (needs root), the opposite of 'nicer'.",
+          "B": "",
+          "C": "kill -STOP suspends the process entirely rather than merely lowering its priority.",
+          "D": "nice launches a NEW command with a niceness; it does not accept a -p PID to adjust a running process."
+        },
+        "exam_pattern": "nice starts a process with a priority; renice changes a running one. Higher nice = lower priority."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Process priority (nice/renice)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-010",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_processes_services",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Which command, present on virtually every Linux distribution by default, shows a real-time, continuously updating list of running processes with their CPU and memory usage? (command name only)",
+      "correct": [
+        "top",
+        "/usr/bin/top"
+      ],
+      "explanation": {
+        "correct": "top provides a live, self-refreshing view of processes sorted by resource use and is installed by default nearly everywhere. (htop is similar but often must be installed.)",
+        "distractors": {},
+        "exam_pattern": "top = built-in live process monitor; htop = enhanced but usually not preinstalled."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Monitor processes (top)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-011",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_users_groups",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which command creates a new user named 'deploy', creates its home directory, and sets its login shell to /bin/bash?",
+      "options": [
+        {
+          "id": "A",
+          "text": "groupadd -m deploy"
+        },
+        {
+          "id": "B",
+          "text": "useradd -M -s /bin/bash deploy"
+        },
+        {
+          "id": "C",
+          "text": "usermod -m -s /bin/bash deploy"
+        },
+        {
+          "id": "D",
+          "text": "useradd -m -s /bin/bash deploy"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "useradd -m creates the home directory and -s sets the login shell; this both creates the account and configures its shell in one command.",
+        "distractors": {
+          "A": "groupadd creates a group, not a user account.",
+          "B": "-M (uppercase) explicitly tells useradd NOT to create the home directory.",
+          "C": "usermod modifies an EXISTING user; it cannot create one, and -m there means move an existing home.",
+          "D": ""
+        },
+        "exam_pattern": "useradd -m creates home; -s sets shell; -M suppresses home creation."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Manage users (useradd)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-012",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_users_groups",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "In which file does a Linux system store users' hashed passwords and password-aging data, readable only by root?",
+      "options": [
+        {
+          "id": "A",
+          "text": "/etc/shadow"
+        },
+        {
+          "id": "B",
+          "text": "/etc/passwd"
+        },
+        {
+          "id": "C",
+          "text": "/etc/group"
+        },
+        {
+          "id": "D",
+          "text": "/etc/gshadow"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "/etc/shadow stores each account's hashed password and aging fields (last change, min/max age, expiration) and is readable only by root.",
+        "distractors": {
+          "A": "",
+          "B": "/etc/passwd holds account attributes (UID, GID, home, shell) and shows 'x' where the hash used to be.",
+          "C": "/etc/group defines groups and their members, not password hashes.",
+          "D": "/etc/gshadow stores GROUP passwords and admins, not individual user password hashes."
+        },
+        "exam_pattern": "passwd = account info (world-readable); shadow = hashes + aging (root-only)."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Account databases (/etc/shadow)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-013",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_users_groups",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "User 'maria' already exists and belongs to several groups. Which command adds her to the supplementary group 'docker' WITHOUT removing her from any of her current groups?",
+      "options": [
+        {
+          "id": "A",
+          "text": "gpasswd -d maria docker"
+        },
+        {
+          "id": "B",
+          "text": "useradd -G docker maria"
+        },
+        {
+          "id": "C",
+          "text": "usermod -aG docker maria"
+        },
+        {
+          "id": "D",
+          "text": "usermod -G docker maria"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "usermod -aG appends (-a) the user to the listed supplementary group(s) (-G), preserving existing memberships.",
+        "distractors": {
+          "A": "gpasswd -d REMOVES maria from the docker group, the opposite of the goal.",
+          "B": "useradd tries to CREATE a new account and fails because maria already exists.",
+          "C": "",
+          "D": "usermod -G WITHOUT -a REPLACES all of maria's supplementary groups with just 'docker' — a classic trap."
+        },
+        "exam_pattern": "Always use -aG together to add a user to a group; -G alone overwrites group membership."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Manage groups (usermod)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-014",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_storage_lvm",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An LVM logical volume /dev/vg0/data needs to grow by 5 GB using free space already in its volume group. Which command extends the logical volume itself?",
+      "options": [
+        {
+          "id": "A",
+          "text": "lvextend -L +5G /dev/vg0/data"
+        },
+        {
+          "id": "B",
+          "text": "resize2fs /dev/vg0/data 5G"
+        },
+        {
+          "id": "C",
+          "text": "lvcreate -L 5G vg0"
+        },
+        {
+          "id": "D",
+          "text": "vgextend vg0 /dev/sdb1"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "lvextend -L +5G adds 5 GB to the logical volume from free extents in the volume group. Add -r (or follow with resize2fs/xfs_growfs) to grow the filesystem too.",
+        "distractors": {
+          "A": "",
+          "B": "resize2fs resizes the FILESYSTEM, and '5G' here would shrink it to 5 GB total, not add 5 GB.",
+          "C": "lvcreate makes a NEW logical volume rather than extending the existing one.",
+          "D": "vgextend adds a new physical volume to a volume group; it does not resize a logical volume."
+        },
+        "exam_pattern": "LVM growth: lvextend -L +SIZE, then grow the filesystem (lvextend -r does both)."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Logical Volume Manager (lvextend)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-015",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_storage_lvm",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "A new disk /dev/sdc will host an LVM logical volume. Which THREE commands, run in order, build the LVM stack from the raw disk up to a usable logical volume? (Choose three.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "pvcreate /dev/sdc"
+        },
+        {
+          "id": "B",
+          "text": "mkfs.ext4 /dev/sdc"
+        },
+        {
+          "id": "C",
+          "text": "lvcreate -n lv1 -L 10G vg1"
+        },
+        {
+          "id": "D",
+          "text": "vgcreate vg1 /dev/sdc"
+        }
+      ],
+      "correct": [
+        "A",
+        "C",
+        "D"
+      ],
+      "explanation": {
+        "correct": "LVM is layered: pvcreate initializes the disk as a physical volume, vgcreate groups it into a volume group, and lvcreate carves a logical volume out of that group.",
+        "distractors": {
+          "A": "",
+          "B": "Running mkfs.ext4 directly on /dev/sdc formats the RAW disk and bypasses LVM entirely; you instead format the resulting logical volume (e.g., /dev/vg1/lv1).",
+          "C": "",
+          "D": ""
+        },
+        "exam_pattern": "LVM build order: pvcreate -> vgcreate -> lvcreate -> mkfs on the LV."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — LVM provisioning (pvcreate/vgcreate/lvcreate)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-016",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_storage_lvm",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Which configuration file does the system read at boot to determine which filesystems to mount, where, and with which options? (full path)",
+      "correct": [
+        "/etc/fstab",
+        "etc/fstab"
+      ],
+      "explanation": {
+        "correct": "/etc/fstab lists filesystems (by device, UUID, or label), their mount points, filesystem type, options, and dump/fsck order used at boot and by 'mount -a'.",
+        "distractors": {},
+        "exam_pattern": "Persistent mounts live in /etc/fstab; prefer UUID= or LABEL= over device names."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Filesystem mounting (/etc/fstab)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-017",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_networking_config",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Using the modern iproute2 suite, which command displays the IP addresses assigned to all network interfaces?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ss -tln"
+        },
+        {
+          "id": "B",
+          "text": "ifconfig -a"
+        },
+        {
+          "id": "C",
+          "text": "ip addr show"
+        },
+        {
+          "id": "D",
+          "text": "nmcli radio wifi"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "ip addr show (iproute2; abbreviated 'ip a') lists every interface with its IPv4 and IPv6 addresses, state, and MAC.",
+        "distractors": {
+          "A": "ss -tln lists listening TCP sockets, not interface addresses.",
+          "B": "ifconfig is the deprecated net-tools command and may be absent on modern systems.",
+          "C": "",
+          "D": "nmcli radio wifi only reports the Wi-Fi radio on/off state."
+        },
+        "exam_pattern": "iproute2 replaces net-tools: ip addr (ifconfig), ip route (route), ss (netstat)."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Network configuration (ip)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-018",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_networking_config",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which command shows all listening TCP sockets together with the processes that own them, serving as the modern replacement for netstat?",
+      "options": [
+        {
+          "id": "A",
+          "text": "netstat -r"
+        },
+        {
+          "id": "B",
+          "text": "ping -c 4 localhost"
+        },
+        {
+          "id": "C",
+          "text": "ss -tlnp"
+        },
+        {
+          "id": "D",
+          "text": "ip route show"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "ss -tlnp shows TCP (-t) listening (-l) sockets with numeric (-n) ports and the owning process (-p); ss is the iproute2 successor to netstat.",
+        "distractors": {
+          "A": "netstat -r prints the routing table (and netstat is the older, deprecated tool).",
+          "B": "ping tests reachability; it does not list listening sockets.",
+          "C": "",
+          "D": "ip route show prints the routing table, not open sockets."
+        },
+        "exam_pattern": "ss flags: -t TCP, -u UDP, -l listening, -n numeric, -p process."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Network sockets (ss)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-019",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_networking_config",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Which file traditionally lists the DNS nameserver IP addresses that a Linux host uses to resolve hostnames? (full path)",
+      "correct": [
+        "/etc/resolv.conf",
+        "etc/resolv.conf"
+      ],
+      "explanation": {
+        "correct": "/etc/resolv.conf contains 'nameserver' entries (and search/domain lines) the resolver uses. On systemd-resolved or NetworkManager hosts it is often generated/managed automatically.",
+        "distractors": {},
+        "exam_pattern": "DNS servers -> /etc/resolv.conf; static name-to-IP overrides -> /etc/hosts."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Name resolution (/etc/resolv.conf)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-020",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_boot_kernel",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which command loads a kernel module AND automatically resolves and loads any modules it depends on?",
+      "options": [
+        {
+          "id": "A",
+          "text": "insmod"
+        },
+        {
+          "id": "B",
+          "text": "lsmod"
+        },
+        {
+          "id": "C",
+          "text": "modprobe"
+        },
+        {
+          "id": "D",
+          "text": "rmmod"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "modprobe loads a module by name and pulls in its dependencies using modules.dep, making it the preferred loader.",
+        "distractors": {
+          "A": "insmod loads a single .ko file directly and does NOT resolve dependencies.",
+          "B": "lsmod only lists modules that are already loaded.",
+          "C": "",
+          "D": "rmmod UNLOADS a module and does not handle dependencies."
+        },
+        "exam_pattern": "modprobe = dependency-aware load/unload; insmod/rmmod = raw single-module ops; lsmod = list."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Kernel modules (modprobe)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-021",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_boot_kernel",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An administrator must enable IP forwarding at runtime by setting the kernel parameter net.ipv4.ip_forward, which lives under /proc/sys. Which command reads and sets such kernel parameters?",
+      "options": [
+        {
+          "id": "A",
+          "text": "dmesg"
+        },
+        {
+          "id": "B",
+          "text": "modinfo"
+        },
+        {
+          "id": "C",
+          "text": "sysctl"
+        },
+        {
+          "id": "D",
+          "text": "lsmod"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "sysctl reads and modifies kernel parameters exposed under /proc/sys; e.g., 'sysctl -w net.ipv4.ip_forward=1' sets it now, and /etc/sysctl.conf (or /etc/sysctl.d/) persists it.",
+        "distractors": {
+          "A": "dmesg prints the kernel ring-buffer messages; it does not change tunables.",
+          "B": "modinfo displays information about a kernel module, not sysctl parameters.",
+          "C": "",
+          "D": "lsmod lists loaded modules and sets nothing."
+        },
+        "exam_pattern": "Runtime kernel tunables: sysctl -w (now) + /etc/sysctl.d/*.conf (persistent)."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Kernel parameters (sysctl)"
+      ]
+    },
+    {
+      "id": "linuxplus-sys-022",
+      "exam": "linuxplus",
+      "domain": "linuxp_system_mgmt",
+      "subtopic": "linuxp_boot_kernel",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "On a RHEL/Fedora system using GRUB2, after editing /etc/default/grub you must rebuild the bootloader configuration. Which command regenerates it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "systemctl daemon-reload"
+        },
+        {
+          "id": "B",
+          "text": "grub2-install /dev/sda"
+        },
+        {
+          "id": "C",
+          "text": "update-grub"
+        },
+        {
+          "id": "D",
+          "text": "grub2-mkconfig -o /boot/grub2/grub.cfg"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "On RHEL/Fedora, grub2-mkconfig regenerates the GRUB2 config; -o writes it to /boot/grub2/grub.cfg (BIOS) so the edits in /etc/default/grub take effect.",
+        "distractors": {
+          "A": "systemctl daemon-reload reloads systemd unit files, unrelated to GRUB.",
+          "B": "grub2-install writes the bootloader to a device's boot sector; it does not regenerate grub.cfg.",
+          "C": "update-grub is the Debian/Ubuntu wrapper and is normally absent on RHEL/Fedora.",
+          "D": ""
+        },
+        "exam_pattern": "RHEL: grub2-mkconfig -o /boot/grub2/grub.cfg. Debian: update-grub (wraps grub-mkconfig)."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Boot process (GRUB2)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-001",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_storage",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A process fails with 'No space left on device', yet 'df -h' shows the filesystem has plenty of free space. Which command checks the most likely cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "free -h"
+        },
+        {
+          "id": "B",
+          "text": "lsblk"
+        },
+        {
+          "id": "C",
+          "text": "du -h"
+        },
+        {
+          "id": "D",
+          "text": "df -i"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "When bytes are free but writes still fail with ENOSPC, the filesystem has likely run out of inodes. df -i shows inode totals, used, and free per filesystem.",
+        "distractors": {
+          "A": "free -h reports RAM and swap, not filesystem inodes.",
+          "B": "lsblk lists block devices and mounts but not inode usage.",
+          "C": "du -h sums file sizes in bytes; it does not reveal inode exhaustion (millions of tiny files).",
+          "D": ""
+        },
+        "exam_pattern": "'No space' but df -h shows free space => check df -i for inode exhaustion."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Storage troubleshooting (inodes)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-002",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_storage",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "The / filesystem is nearly full. Which command best pinpoints which top-level directories under /var are consuming the most space?",
+      "options": [
+        {
+          "id": "A",
+          "text": "cat /proc/meminfo"
+        },
+        {
+          "id": "B",
+          "text": "df -h /var"
+        },
+        {
+          "id": "C",
+          "text": "ls -l /var"
+        },
+        {
+          "id": "D",
+          "text": "du -h --max-depth=1 /var | sort -h"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "du -h --max-depth=1 /var reports the size of each immediate subdirectory, and 'sort -h' orders them by human-readable size so the biggest stands out.",
+        "distractors": {
+          "A": "/proc/meminfo reports memory, which is unrelated to disk usage.",
+          "B": "df -h /var confirms the filesystem is full but does not break usage down by directory.",
+          "C": "ls -l shows entry sizes, not the recursive space consumed by each directory tree.",
+          "D": ""
+        },
+        "exam_pattern": "Find space hogs with du (per-directory totals); confirm fullness with df."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Storage troubleshooting (du)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-003",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_storage",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A secondary data filesystem on /dev/sdb1 reports corruption. What is the correct, safe way to check and repair it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Run 'mkfs.ext4 /dev/sdb1' to rebuild it"
+        },
+        {
+          "id": "B",
+          "text": "Run 'fdisk /dev/sdb1' to repair the filesystem"
+        },
+        {
+          "id": "C",
+          "text": "Unmount /dev/sdb1 first, then run 'fsck /dev/sdb1'"
+        },
+        {
+          "id": "D",
+          "text": "Run 'fsck /dev/sdb1' while it is mounted read-write"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "fsck must run on an unmounted (or read-only) filesystem; checking a mounted, actively-written filesystem can worsen corruption. Unmount, then fsck.",
+        "distractors": {
+          "A": "mkfs.ext4 creates a NEW filesystem, erasing all data rather than repairing it.",
+          "B": "fdisk edits the PARTITION TABLE; it does not check or repair filesystem structures.",
+          "C": "",
+          "D": "Running fsck on a mounted read-write filesystem risks further corruption and is unsafe."
+        },
+        "exam_pattern": "fsck only on unmounted/read-only filesystems; the root fs is checked at boot."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Filesystem repair (fsck)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-004",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_storage",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Which command from the sysstat package reports CPU usage together with per-device disk I/O statistics (tps, kB_read/s, kB_wrtn/s), useful for spotting a disk I/O bottleneck? (command name only)",
+      "correct": [
+        "iostat",
+        "/usr/bin/iostat"
+      ],
+      "explanation": {
+        "correct": "iostat (from sysstat) shows CPU utilization and per-device I/O throughput and transfers per second; high %iowait plus busy devices points to an I/O bottleneck.",
+        "distractors": {},
+        "exam_pattern": "Disk I/O load: iostat (and iotop for per-process I/O); high %iowait = waiting on storage."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — I/O performance (iostat)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-005",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_network",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A server reaches 8.8.8.8 by IP but cannot open http://example.com, failing to resolve the name. Which command best confirms the DNS resolution problem?",
+      "options": [
+        {
+          "id": "A",
+          "text": "dig example.com"
+        },
+        {
+          "id": "B",
+          "text": "ping 8.8.8.8"
+        },
+        {
+          "id": "C",
+          "text": "ip addr show"
+        },
+        {
+          "id": "D",
+          "text": "traceroute 8.8.8.8"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "dig example.com queries DNS directly and shows whether the name resolves and which server answered; a failure here confirms a DNS problem (nslookup works similarly).",
+        "distractors": {
+          "A": "",
+          "B": "ping 8.8.8.8 tests IP reachability, which the scenario already says works.",
+          "C": "ip addr show lists local interface addresses, not name resolution.",
+          "D": "traceroute to an IP maps the path but does not test hostname resolution."
+        },
+        "exam_pattern": "Works by IP but not by name => DNS issue. Test with dig/nslookup; check /etc/resolv.conf."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Network troubleshooting (DNS/dig)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-006",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_network",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After starting a web service you must confirm that something is actually listening on TCP port 443. Which command shows the listening sockets and their ports?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ss -tlnp"
+        },
+        {
+          "id": "B",
+          "text": "ping localhost"
+        },
+        {
+          "id": "C",
+          "text": "dig localhost"
+        },
+        {
+          "id": "D",
+          "text": "ip route"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "ss -tlnp lists listening (-l) TCP (-t) sockets with numeric (-n) ports and the owning process (-p); look for :443 to confirm the service is bound.",
+        "distractors": {
+          "A": "",
+          "B": "ping tests ICMP reachability to a host, not whether a port is open.",
+          "C": "dig performs DNS lookups; it says nothing about listening ports.",
+          "D": "ip route shows the routing table, unrelated to open sockets."
+        },
+        "exam_pattern": "Confirm a service is bound/listening with ss -tlnp (modern netstat replacement)."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Network troubleshooting (ss)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-007",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_network",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Traffic to a remote network fails somewhere in transit. Which command shows the hop-by-hop path packets take toward the destination to locate where it breaks?",
+      "options": [
+        {
+          "id": "A",
+          "text": "nmcli general status"
+        },
+        {
+          "id": "B",
+          "text": "traceroute 203.0.113.10"
+        },
+        {
+          "id": "C",
+          "text": "arp -a"
+        },
+        {
+          "id": "D",
+          "text": "ss -s"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "traceroute (or tracepath) lists each router hop toward the destination and the latency to it, revealing where the path stops responding.",
+        "distractors": {
+          "A": "nmcli general status reports NetworkManager's overall state, not a hop-by-hop path.",
+          "B": "",
+          "C": "arp -a shows the local ARP cache (layer-2 neighbors), not the route to a remote host.",
+          "D": "ss -s prints socket summary statistics, not a network path."
+        },
+        "exam_pattern": "Locate where routing/connectivity breaks along a path with traceroute/tracepath/mtr."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Network troubleshooting (traceroute)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-008",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_network",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Which command-line tool captures live network packets on an interface (for example '<tool> -i eth0 port 443') so traffic can be inspected during troubleshooting? (command name only)",
+      "correct": [
+        "tcpdump",
+        "/usr/sbin/tcpdump"
+      ],
+      "explanation": {
+        "correct": "tcpdump captures and displays packets on a chosen interface with optional filters (host, port, protocol), making it the standard CLI packet analyzer.",
+        "distractors": {},
+        "exam_pattern": "Packet capture: tcpdump (CLI) or Wireshark/tshark (GUI); filter with BPF expressions."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Network troubleshooting (tcpdump)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-009",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_cpu_memory",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which command displays total, used, and available RAM and swap in human-readable units for a quick memory check?",
+      "options": [
+        {
+          "id": "A",
+          "text": "df -h"
+        },
+        {
+          "id": "B",
+          "text": "free -h"
+        },
+        {
+          "id": "C",
+          "text": "lscpu"
+        },
+        {
+          "id": "D",
+          "text": "uptime"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "free -h summarizes physical memory and swap (total/used/free/available) in human-readable units.",
+        "distractors": {
+          "A": "df -h reports disk space, not memory.",
+          "B": "",
+          "C": "lscpu prints CPU architecture details, not memory usage.",
+          "D": "uptime shows load averages and how long the system has run, not memory figures."
+        },
+        "exam_pattern": "Memory snapshot: free -h; watch the 'available' column, not just 'free'."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Memory troubleshooting (free)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-010",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_cpu_memory",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A critical daemon was killed abruptly when the system ran out of memory. Where is the most direct evidence that the kernel's OOM killer terminated it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The crontab of the process owner"
+        },
+        {
+          "id": "B",
+          "text": "The kernel log, via 'dmesg' or 'journalctl -k' (look for 'Out of memory: Killed process')"
+        },
+        {
+          "id": "C",
+          "text": "/etc/passwd"
+        },
+        {
+          "id": "D",
+          "text": "The output of 'df -i'"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The OOM killer logs to the kernel ring buffer. dmesg or 'journalctl -k' shows lines such as 'Out of memory: Killed process <pid> (<name>)' with a memory summary.",
+        "distractors": {
+          "A": "A crontab holds scheduled jobs, not kernel OOM records.",
+          "B": "",
+          "C": "/etc/passwd lists user accounts and has nothing to do with OOM events.",
+          "D": "df -i shows inode usage, unrelated to memory-driven process kills."
+        },
+        "exam_pattern": "Process vanished + low memory => check dmesg/journalctl -k for OOM-killer messages."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Memory troubleshooting (OOM killer)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-011",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_cpu_memory",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which command samples and reports system activity (processes, memory, paging, block I/O, and CPU) repeatedly at a set interval, e.g. every 2 seconds?",
+      "options": [
+        {
+          "id": "A",
+          "text": "vmstat 2"
+        },
+        {
+          "id": "B",
+          "text": "nproc"
+        },
+        {
+          "id": "C",
+          "text": "uptime"
+        },
+        {
+          "id": "D",
+          "text": "ps aux"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "vmstat 2 prints a new line every 2 seconds covering run queue, memory, swap in/out, block I/O, and CPU split (us/sy/id/wa), good for spotting swapping or CPU pressure.",
+        "distractors": {
+          "A": "",
+          "B": "nproc just prints the number of processing units available.",
+          "C": "uptime gives a one-time load-average snapshot, not interval sampling of these metrics.",
+          "D": "ps aux is a single-moment process listing, not a repeating system-activity report."
+        },
+        "exam_pattern": "vmstat <interval> for ongoing CPU/memory/paging trends; high 'wa' = I/O wait, high 'si/so' = swapping."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Performance troubleshooting (vmstat)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-012",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_users_access",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A user reports 'Permission denied' when opening /data/report.txt. Which command should you run FIRST to diagnose the cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "chmod 777 /data/report.txt"
+        },
+        {
+          "id": "B",
+          "text": "ls -l /data/report.txt"
+        },
+        {
+          "id": "C",
+          "text": "whoami"
+        },
+        {
+          "id": "D",
+          "text": "cat /data/report.txt"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "ls -l shows the file's permission bits, owner, and group, letting you compare them against the user's identity to find why access is denied before changing anything.",
+        "distractors": {
+          "A": "chmod 777 recklessly opens the file to everyone before you understand the problem — a security risk.",
+          "B": "",
+          "C": "whoami shows YOUR username but not the file's permissions or ownership.",
+          "D": "cat just reproduces the same 'Permission denied' error without diagnosing it."
+        },
+        "exam_pattern": "Diagnose access issues with ls -l (perms/owner) and id (user's UID/groups) before editing perms."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Access troubleshooting (permissions)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-013",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_users_access",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An account cannot log in and you suspect its password is locked. Which command displays the password/lock status of user 'jdoe'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "passwd jdoe"
+        },
+        {
+          "id": "B",
+          "text": "passwd -S jdoe"
+        },
+        {
+          "id": "C",
+          "text": "usermod -L jdoe"
+        },
+        {
+          "id": "D",
+          "text": "id jdoe"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "passwd -S jdoe reports the account's status, including whether the password is Locked (L), usable/Password set (P), or there is No Password (NP).",
+        "distractors": {
+          "A": "passwd jdoe starts CHANGING the user's password rather than reporting its status.",
+          "B": "",
+          "C": "usermod -L LOCKS the account; it does not display status.",
+          "D": "id jdoe shows UID, GID, and groups but nothing about the password lock state."
+        },
+        "exam_pattern": "Check lock status with 'passwd -S' (or 'chage -l' for aging); lock/unlock with usermod -L/-U."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Account troubleshooting (passwd -S)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-014",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_users_access",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "When an access problem may stem from group membership, which command displays a user's UID, primary GID, and all supplementary groups? (command name only)",
+      "correct": [
+        "id",
+        "/usr/bin/id"
+      ],
+      "explanation": {
+        "correct": "id prints the user's UID, primary group, and every supplementary group; a missing group here often explains why a user cannot access group-restricted resources.",
+        "distractors": {},
+        "exam_pattern": "Verify effective identity and groups with id; 'groups' lists just the group names."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Access troubleshooting (id/groups)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-015",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_services",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A service will not come up. Which command shows whether its systemd unit is active or failed, along with its main PID and the most recent log lines?",
+      "options": [
+        {
+          "id": "A",
+          "text": "systemctl status nginx"
+        },
+        {
+          "id": "B",
+          "text": "systemctl list-unit-files"
+        },
+        {
+          "id": "C",
+          "text": "systemctl isolate multi-user.target"
+        },
+        {
+          "id": "D",
+          "text": "systemctl daemon-reload"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "systemctl status <unit> reports the active/failed state, whether it is enabled, the main PID, and a tail of the unit's recent journal entries — the first stop in diagnosis.",
+        "distractors": {
+          "A": "",
+          "B": "list-unit-files lists all units and their enablement state, not one unit's live status/logs.",
+          "C": "isolate switches the system to a different target; it does not diagnose a unit.",
+          "D": "daemon-reload re-reads unit files after edits; it does not report a service's state."
+        },
+        "exam_pattern": "First step for a failing service: systemctl status <unit>, then journalctl -u <unit> for detail."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Service troubleshooting (systemctl status)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-016",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_services",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To read only the detailed log messages produced by the failing unit 'myapp.service', including errors from its last start attempt, which command is best?",
+      "options": [
+        {
+          "id": "A",
+          "text": "tail /var/log/syslog"
+        },
+        {
+          "id": "B",
+          "text": "dmesg"
+        },
+        {
+          "id": "C",
+          "text": "journalctl -k"
+        },
+        {
+          "id": "D",
+          "text": "journalctl -u myapp.service"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "journalctl -u myapp.service filters the journal to that unit's messages; add -e to jump to the end or -f to follow new output as you reproduce the failure.",
+        "distractors": {
+          "A": "tail /var/log/syslog shows mixed system messages, not an easily unit-filtered view.",
+          "B": "dmesg prints the kernel ring buffer, which rarely contains an application service's errors.",
+          "C": "journalctl -k shows only KERNEL messages, not a service unit's logs.",
+          "D": ""
+        },
+        "exam_pattern": "journalctl -u <unit> isolates a service's logs; combine with --since / -b for time/boot scoping."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Service troubleshooting (journalctl -u)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-017",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_services",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After a problematic update, you want a concise list of every systemd unit currently in the failed state. Which command produces it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "systemctl isolate rescue.target"
+        },
+        {
+          "id": "B",
+          "text": "systemctl reboot"
+        },
+        {
+          "id": "C",
+          "text": "systemctl --all"
+        },
+        {
+          "id": "D",
+          "text": "systemctl --failed"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "systemctl --failed (equivalently 'systemctl list-units --failed') lists only the units that have entered the failed state, narrowing the investigation quickly.",
+        "distractors": {
+          "A": "isolate rescue.target switches to single-user rescue mode; it does not list failed units.",
+          "B": "systemctl reboot restarts the machine rather than reporting failures.",
+          "C": "systemctl --all lists every unit regardless of state, burying the failed ones.",
+          "D": ""
+        },
+        "exam_pattern": "Quickly surface problems with systemctl --failed before drilling in with status/journalctl."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Service troubleshooting (failed units)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-018",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_tools",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On a Debian/Ubuntu system, which file is the traditional destination for general system log messages when reviewing recent events during troubleshooting?",
+      "options": [
+        {
+          "id": "A",
+          "text": "/etc/rsyslog.conf"
+        },
+        {
+          "id": "B",
+          "text": "/var/log/btmp"
+        },
+        {
+          "id": "C",
+          "text": "/var/log/messages"
+        },
+        {
+          "id": "D",
+          "text": "/var/log/syslog"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "On Debian/Ubuntu, general system messages are written to /var/log/syslog; it is the primary catch-all text log to review for recent events.",
+        "distractors": {
+          "A": "/etc/rsyslog.conf is the logging CONFIGURATION, not a log file of events.",
+          "B": "/var/log/btmp records failed login attempts in binary form (read with lastb), not general messages.",
+          "C": "/var/log/messages is the RHEL/CentOS equivalent and is not the default on Debian/Ubuntu.",
+          "D": ""
+        },
+        "exam_pattern": "General log: Debian /var/log/syslog, RHEL /var/log/messages; auth: auth.log vs secure."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Log analysis (/var/log)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-019",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_tools",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A program exits silently and you need to see which system calls it makes and exactly where it fails (for example, which file it cannot open). Which tool traces its system calls?",
+      "options": [
+        {
+          "id": "A",
+          "text": "nohup ./program"
+        },
+        {
+          "id": "B",
+          "text": "chmod +x ./program"
+        },
+        {
+          "id": "C",
+          "text": "strace ./program"
+        },
+        {
+          "id": "D",
+          "text": "top"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "strace runs the program and prints each system call with its arguments and return value, so you can see the exact call that fails (e.g., openat returning ENOENT or EACCES).",
+        "distractors": {
+          "A": "nohup just detaches the program from hangup signals; it provides no tracing.",
+          "B": "chmod +x makes a file executable and reveals nothing about runtime behavior.",
+          "C": "",
+          "D": "top is a live resource monitor; it does not trace system calls."
+        },
+        "exam_pattern": "Trace syscalls with strace (and library calls with ltrace) to find where a program fails."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Diagnostic tools (strace)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-020",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_tools",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An attempt to unmount /mnt/data fails with 'target is busy'. Which command identifies the processes holding files open on that filesystem?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ps aux"
+        },
+        {
+          "id": "B",
+          "text": "df -h /mnt/data"
+        },
+        {
+          "id": "C",
+          "text": "ls -a /mnt/data"
+        },
+        {
+          "id": "D",
+          "text": "lsof +D /mnt/data"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "lsof lists open files and the processes using them; 'lsof +D /mnt/data' (or 'fuser -m /mnt/data') reveals what is keeping the filesystem busy so it can be unmounted.",
+        "distractors": {
+          "A": "ps aux lists processes generally but does not tie them to open files on that mount.",
+          "B": "df -h reports space usage, not open file handles.",
+          "C": "ls -a just lists directory contents; it does not show which processes have files open.",
+          "D": ""
+        },
+        "exam_pattern": "'Device is busy' on umount => find holders with lsof or fuser, then stop/kill them."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Diagnostic tools (lsof)"
+      ]
+    },
+    {
+      "id": "linuxplus-ts-021",
+      "exam": "linuxplus",
+      "domain": "linuxp_troubleshooting",
+      "subtopic": "linuxp_ts_tools",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Which command queries and displays the logs collected by the systemd journal, and is commonly used with options such as -u (unit), -b (boot), -k (kernel), and -f (follow)? (command name only)",
+      "correct": [
+        "journalctl",
+        "/usr/bin/journalctl",
+        "/bin/journalctl"
+      ],
+      "explanation": {
+        "correct": "journalctl reads the systemd journal and filters it by unit, boot, priority, time, or kernel, and can follow entries live with -f — the central log tool on systemd systems.",
+        "distractors": {},
+        "exam_pattern": "On systemd hosts, journalctl centralizes logs (-u/-b/-k/-p/--since); text logs still live in /var/log."
+      },
+      "references": [
+        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Log analysis (journalctl)"
+      ]
+    }
+  ]
+}

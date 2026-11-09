@@ -1,0 +1,3876 @@
+{
+  "exam": "cloudplus",
+  "count": 96,
+  "questions": [
+    {
+      "id": "cloudplus-arch-001",
+      "exam": "cloudplus",
+      "domain": "cloudp_architecture",
+      "subtopic": "cloudp_requirements",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "During discovery for a new platform, an architect records that the system must sustain 10,000 concurrent users, respond in under 500 ms, and stay available 99.95% of the time. How are these statements best classified?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Non-functional requirements, because they define quality attributes such as performance and availability"
+        },
+        {
+          "id": "B",
+          "text": "Acceptance test scripts, because they run after go-live"
+        },
+        {
+          "id": "C",
+          "text": "Functional requirements, because they describe features users interact with"
+        },
+        {
+          "id": "D",
+          "text": "A business case, because it justifies the project budget"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Performance, capacity, and availability targets are non-functional (quality-of-service) requirements: they constrain how well the system must behave rather than naming a specific feature.",
+        "distractors": {
+          "A": "",
+          "B": "Acceptance scripts are test procedures derived from requirements, not the requirements themselves.",
+          "C": "Functional requirements describe specific behaviors or features (e.g., 'a user can reset a password'), not latency or uptime targets.",
+          "D": "A business case justifies the investment; it is not a measurable system constraint."
+        },
+        "exam_pattern": "Latency, throughput, uptime, scalability = non-functional (quality) requirements; specific features = functional."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 1 — Requirements analysis (functional vs non-functional)"
+      ]
+    },
+    {
+      "id": "cloudplus-arch-002",
+      "exam": "cloudplus",
+      "domain": "cloudp_architecture",
+      "subtopic": "cloudp_requirements",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A customer and provider sign a contract guaranteeing 99.9% monthly uptime and specifying service credits if the target is missed. Which document defines this commitment?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An SOP (standard operating procedure)"
+        },
+        {
+          "id": "B",
+          "text": "An SLO (service-level objective)"
+        },
+        {
+          "id": "C",
+          "text": "An SLA (service-level agreement)"
+        },
+        {
+          "id": "D",
+          "text": "An RFC (request for change)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "An SLA is the contract between provider and customer that states the measurable commitment (e.g., 99.9% uptime) and the remedies, such as service credits, when it is not met.",
+        "distractors": {
+          "A": "An SOP documents how to perform a routine task; it is not a service commitment.",
+          "B": "An SLO is the internal target that supports an SLA, but it is not the customer-facing contract or its penalties.",
+          "C": "",
+          "D": "An RFC proposes a change to a system; it does not define an uptime guarantee."
+        },
+        "exam_pattern": "SLA = the contract and its penalties; SLO = the target that rolls up into it."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 1 — Requirements (SLAs/SLOs)"
+      ]
+    },
+    {
+      "id": "cloudplus-arch-003",
+      "exam": "cloudplus",
+      "domain": "cloudp_architecture",
+      "subtopic": "cloudp_requirements",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A regulation requires that a European bank's customer records are stored and processed only within the EU. Which requirement most directly drives the cloud design to use EU regions?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Loose coupling"
+        },
+        {
+          "id": "B",
+          "text": "Horizontal scalability"
+        },
+        {
+          "id": "C",
+          "text": "Data sovereignty / residency"
+        },
+        {
+          "id": "D",
+          "text": "Thin provisioning"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Data sovereignty (residency) requires data to remain within a defined legal or geographic boundary, so the architect must select regions and services that keep data in the EU.",
+        "distractors": {
+          "A": "Loose coupling is a design pattern for component independence, unrelated to data location.",
+          "B": "Horizontal scalability concerns adding instances for load, not where data legally resides.",
+          "C": "",
+          "D": "Thin provisioning is a storage-allocation technique, not a geographic constraint."
+        },
+        "exam_pattern": "'Data must stay in region/country' = data sovereignty / residency requirement."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 1 — Requirements (data sovereignty/residency)"
+      ]
+    },
+    {
+      "id": "cloudplus-arch-004",
+      "exam": "cloudplus",
+      "domain": "cloudp_architecture",
+      "subtopic": "cloudp_requirements",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "An architect is separating non-functional requirements from functional ones in a workshop. Which TWO of the following are non-functional requirements? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "The platform must recover from a zone failure within 5 minutes"
+        },
+        {
+          "id": "B",
+          "text": "All data in transit must be encrypted with TLS 1.2 or higher"
+        },
+        {
+          "id": "C",
+          "text": "An administrator can export a report to CSV"
+        },
+        {
+          "id": "D",
+          "text": "A user can upload a profile photo"
+        }
+      ],
+      "correct": [
+        "A",
+        "B"
+      ],
+      "explanation": {
+        "correct": "Recovery-time and encryption-strength targets are quality/constraint (non-functional) requirements that govern how the system must perform and be secured, independent of any one feature.",
+        "distractors": {
+          "A": "",
+          "B": "",
+          "C": "Exporting a report is a discrete feature/behavior — a functional requirement.",
+          "D": "Uploading a profile photo is a specific feature a user performs — a functional requirement."
+        },
+        "exam_pattern": "Non-functional = the '-ilities' and constraints (recovery, security, performance); functional = specific user actions."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 1 — Requirements analysis"
+      ]
+    },
+    {
+      "id": "cloudplus-arch-005",
+      "exam": "cloudplus",
+      "domain": "cloudp_architecture",
+      "subtopic": "cloudp_design_solutions",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To keep a web tier available even if an entire data-center building fails, an architect spreads identical instances across multiple availability zones behind a load balancer. Which design principle is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vendor lock-in"
+        },
+        {
+          "id": "B",
+          "text": "Vertical scaling"
+        },
+        {
+          "id": "C",
+          "text": "Thick provisioning"
+        },
+        {
+          "id": "D",
+          "text": "Eliminating single points of failure (high-availability redundancy)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Distributing redundant instances across independent availability zones removes any single point of failure, so the loss of one zone does not take the service down — the core of high-availability design.",
+        "distractors": {
+          "A": "Vendor lock-in is a risk to avoid, not a resilience design principle.",
+          "B": "Vertical scaling resizes one instance; it does nothing to survive the loss of an entire zone.",
+          "C": "Thick provisioning is a storage allocation method, unrelated to availability zones.",
+          "D": ""
+        },
+        "exam_pattern": "Spread redundant components across fault domains/AZs = remove single points of failure (HA)."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 1 — High-availability and resilient design"
+      ]
+    },
+    {
+      "id": "cloudplus-arch-006",
+      "exam": "cloudplus",
+      "domain": "cloudp_architecture",
+      "subtopic": "cloudp_design_solutions",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Several regional hospitals that share the same regulatory and privacy requirements jointly fund and use one cloud environment restricted to their group. Which deployment model is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Private cloud"
+        },
+        {
+          "id": "B",
+          "text": "Community cloud"
+        },
+        {
+          "id": "C",
+          "text": "Public cloud"
+        },
+        {
+          "id": "D",
+          "text": "Multi-cloud"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A community cloud is shared by several organizations with common concerns (compliance, mission, or security needs) and is not open to the general public.",
+        "distractors": {
+          "A": "A private cloud serves a single organization exclusively, not a consortium of several.",
+          "B": "",
+          "C": "A public cloud is open to any customer over the internet, not limited to a specific group of organizations.",
+          "D": "Multi-cloud means one organization using more than one public provider, not several organizations sharing one environment."
+        },
+        "exam_pattern": "Several orgs with shared requirements sharing one environment = community cloud."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 1 — Cloud deployment models"
+      ]
+    },
+    {
+      "id": "cloudplus-arch-007",
+      "exam": "cloudplus",
+      "domain": "cloudp_architecture",
+      "subtopic": "cloudp_design_solutions",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A development team wants to deploy application code onto a managed runtime and database without provisioning or patching the underlying operating systems. Which service model best fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "On-premises colocation"
+        },
+        {
+          "id": "B",
+          "text": "SaaS (Software as a Service)"
+        },
+        {
+          "id": "C",
+          "text": "IaaS (Infrastructure as a Service)"
+        },
+        {
+          "id": "D",
+          "text": "PaaS (Platform as a Service)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "PaaS provides a managed platform (runtime, OS, scaling, patching) so developers deploy code and data while the provider operates everything underneath.",
+        "distractors": {
+          "A": "Colocation means hosting your own hardware in a rented facility — the opposite of a managed platform.",
+          "B": "SaaS delivers finished applications to end users, not a platform to deploy custom code on.",
+          "C": "IaaS still requires the team to manage and patch the guest operating systems.",
+          "D": ""
+        },
+        "exam_pattern": "Deploy your code, provider manages the OS/runtime = PaaS."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 1 — Cloud service models (IaaS/PaaS/SaaS/XaaS)"
+      ]
+    },
+    {
+      "id": "cloudplus-arch-008",
+      "exam": "cloudplus",
+      "domain": "cloudp_architecture",
+      "subtopic": "cloudp_design_solutions",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the term: A resilient design duplicates critical components — power, network paths, and servers — so the failure of any one does not stop the service. This duplication of components is called ____ (one word).",
+      "correct": [
+        "redundancy",
+        "redundant"
+      ],
+      "explanation": {
+        "correct": "Redundancy is the duplication of critical components (often expressed as N+1 or 2N) so a single failure does not cause an outage; it is the foundation of high-availability design.",
+        "distractors": {},
+        "exam_pattern": "Duplicate components so one failure doesn't cause downtime = redundancy (N+1, 2N)."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 1 — Redundancy and high availability"
+      ]
+    },
+    {
+      "id": "cloudplus-arch-009",
+      "exam": "cloudplus",
+      "domain": "cloudp_architecture",
+      "subtopic": "cloudp_capacity_scaling",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "As demand grows, an operations team keeps the instance size fixed but adds more identical application servers behind a load balancer. Which scaling approach is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Geo-replication"
+        },
+        {
+          "id": "B",
+          "text": "Horizontal scaling (scaling out)"
+        },
+        {
+          "id": "C",
+          "text": "Vertical scaling (scaling up)"
+        },
+        {
+          "id": "D",
+          "text": "Scaling in"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Horizontal scaling (scaling out) adds more instances to share the load; combined with a load balancer it increases capacity without resizing any single server.",
+        "distractors": {
+          "A": "Geo-replication copies data across regions for resilience; it is not a method of adding compute capacity for load.",
+          "B": "",
+          "C": "Vertical scaling increases the resources of a single instance, which the team specifically avoided.",
+          "D": "Scaling in removes instances to shed capacity — the opposite of what is happening as demand grows."
+        },
+        "exam_pattern": "Add/remove instances = horizontal (out/in); resize one instance = vertical (up/down)."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 1 — Scalability (horizontal vs vertical)"
+      ]
+    },
+    {
+      "id": "cloudplus-arch-010",
+      "exam": "cloudplus",
+      "domain": "cloudp_architecture",
+      "subtopic": "cloudp_capacity_scaling",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A legacy database cannot be split across multiple nodes, but it needs more processing power. The team increases the CPU and memory of the single database server. Which scaling approach is this, and what is its main limitation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vertical scaling; limited by the maximum size of a single machine"
+        },
+        {
+          "id": "B",
+          "text": "Elastic scaling; limited by the number of availability zones"
+        },
+        {
+          "id": "C",
+          "text": "Geographic scaling; limited by DNS propagation"
+        },
+        {
+          "id": "D",
+          "text": "Horizontal scaling; limited by load-balancer throughput"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Increasing CPU/memory of one instance is vertical scaling (scaling up). Its ceiling is the largest instance available, and resizing often requires downtime, which is why it suits workloads that cannot scale out.",
+        "distractors": {
+          "A": "",
+          "B": "'Elastic scaling' describes automation of scaling, not enlarging one server, and AZ count is not its limit.",
+          "C": "'Geographic scaling' is not the technique here, and DNS propagation is unrelated to resizing a server.",
+          "D": "Horizontal scaling adds instances; the scenario resizes a single server instead."
+        },
+        "exam_pattern": "Vertical = bigger single box, capped by max machine size and usually needs a reboot."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 1 — Scalability (vertical scaling limits)"
+      ]
+    },
+    {
+      "id": "cloudplus-arch-011",
+      "exam": "cloudplus",
+      "domain": "cloudp_architecture",
+      "subtopic": "cloudp_capacity_scaling",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An auto-scaling group adds instances when average CPU exceeds 70% for five minutes and removes them when CPU falls below 30%. This automatic matching of capacity to real-time demand is best described as:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Elasticity"
+        },
+        {
+          "id": "B",
+          "text": "Over-provisioning"
+        },
+        {
+          "id": "C",
+          "text": "Fault tolerance"
+        },
+        {
+          "id": "D",
+          "text": "Vendor lock-in"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Elasticity is the automatic expansion and contraction of resources to match current demand; metric-driven auto-scaling policies are how it is implemented.",
+        "distractors": {
+          "A": "",
+          "B": "Over-provisioning means permanently allocating excess capacity — the opposite of elastically scaling to demand.",
+          "C": "Fault tolerance keeps a system running through component failures; it is not about matching capacity to load.",
+          "D": "Vendor lock-in is a dependency risk, not a scaling behavior."
+        },
+        "exam_pattern": "Automatic scale-out/scale-in to track demand = elasticity (via auto-scaling policies)."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 1 — Elasticity and auto-scaling"
+      ]
+    },
+    {
+      "id": "cloudplus-arch-012",
+      "exam": "cloudplus",
+      "domain": "cloudp_architecture",
+      "subtopic": "cloudp_capacity_scaling",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the term: The ongoing practice of forecasting future compute, storage, and network needs from growth trends so the environment is neither over- nor under-provisioned is called ____ ____ (two words).",
+      "correct": [
+        "capacity planning",
+        "capacity-planning"
+      ],
+      "explanation": {
+        "correct": "Capacity planning forecasts future resource demand (from trends, baselines, and business projections) so resources are provisioned ahead of need without wasteful over-provisioning.",
+        "distractors": {},
+        "exam_pattern": "Forecast future resource needs from trends/baselines = capacity planning."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 1 — Capacity planning"
+      ]
+    },
+    {
+      "id": "cloudplus-arch-013",
+      "exam": "cloudplus",
+      "domain": "cloudp_architecture",
+      "subtopic": "cloudp_integration_migration",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An organization moves its existing virtual machines to a provider's IaaS with no changes to the applications or operating systems, aiming to migrate quickly. Which migration strategy is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rehost (lift-and-shift)"
+        },
+        {
+          "id": "B",
+          "text": "Retire"
+        },
+        {
+          "id": "C",
+          "text": "Refactor (re-architect)"
+        },
+        {
+          "id": "D",
+          "text": "Replatform"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Rehosting, or lift-and-shift, moves workloads to the cloud essentially unchanged. It is the fastest strategy and a common first step, though it may not exploit cloud-native efficiencies.",
+        "distractors": {
+          "A": "",
+          "B": "Retiring decommissions a workload rather than migrating it.",
+          "C": "Refactoring rewrites the application for cloud-native services — far more than a no-change move.",
+          "D": "Replatforming makes targeted optimizations (e.g., swapping in a managed database); the scenario changes nothing."
+        },
+        "exam_pattern": "Move as-is, no code changes, fastest = rehost / lift-and-shift."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 1 — Migration strategies (rehost/replatform/refactor)"
+      ]
+    },
+    {
+      "id": "cloudplus-arch-014",
+      "exam": "cloudplus",
+      "domain": "cloudp_architecture",
+      "subtopic": "cloudp_integration_migration",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To take full advantage of cloud-native scaling, a team rewrites a monolithic application into containerized microservices that use managed queues and databases. Which migration strategy is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Retain (revisit later)"
+        },
+        {
+          "id": "B",
+          "text": "Refactor (re-architect)"
+        },
+        {
+          "id": "C",
+          "text": "Repurchase (move to SaaS)"
+        },
+        {
+          "id": "D",
+          "text": "Rehost (lift-and-shift)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Refactoring (re-architecting) significantly changes the application's design to use cloud-native patterns such as microservices and managed services. It is the most effort but yields the greatest cloud benefits.",
+        "distractors": {
+          "A": "Retain leaves a workload where it is; nothing is rewritten.",
+          "B": "",
+          "C": "Repurchase swaps the app for a SaaS product rather than re-architecting your own code.",
+          "D": "Lift-and-shift moves the app unchanged; the scenario rewrites it substantially."
+        },
+        "exam_pattern": "Rewrite into cloud-native (microservices/managed services) = refactor / re-architect."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 1 — Migration strategies (refactor)"
+      ]
+    },
+    {
+      "id": "cloudplus-arch-015",
+      "exam": "cloudplus",
+      "domain": "cloudp_architecture",
+      "subtopic": "cloudp_integration_migration",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A risk-averse enterprise migrates workloads to the cloud in small, sequential waves, validating each wave before moving the next, instead of cutting everything over on one weekend. Which approach is this, and what is its chief advantage?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Phased migration; it limits blast radius and allows rollback per wave"
+        },
+        {
+          "id": "B",
+          "text": "Big-bang migration; it minimizes total project duration"
+        },
+        {
+          "id": "C",
+          "text": "Big-bang migration; it reduces the need for coexistence/integration"
+        },
+        {
+          "id": "D",
+          "text": "Phased migration; it guarantees zero data-transfer costs"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A phased (staged) migration moves workloads in increments, so problems affect only the current wave and can be rolled back, reducing risk — at the cost of a longer period of running hybrid/coexisting systems.",
+        "distractors": {
+          "A": "",
+          "B": "Big-bang does shorten the timeline but moves everything at once, raising risk; the scenario describes waves.",
+          "C": "Big-bang avoids prolonged coexistence, but the scenario is clearly phased, not big-bang.",
+          "D": "Phased migration reduces risk but does not eliminate data-transfer costs; that claim is incorrect."
+        },
+        "exam_pattern": "Waves with validation/rollback = phased (lower risk, longer coexistence); one cutover = big-bang (faster, riskier)."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 1 — Migration approaches (phased vs big-bang)"
+      ]
+    },
+    {
+      "id": "cloudplus-arch-016",
+      "exam": "cloudplus",
+      "domain": "cloudp_architecture",
+      "subtopic": "cloudp_integration_migration",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "During a migration, a team replaces its self-managed SQL database with the provider's managed database service but leaves the application code largely unchanged. Which migration strategy best describes this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rehost (lift-and-shift)"
+        },
+        {
+          "id": "B",
+          "text": "Refactor (re-architect)"
+        },
+        {
+          "id": "C",
+          "text": "Retire"
+        },
+        {
+          "id": "D",
+          "text": "Replatform (lift-tinker-and-shift)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Replatforming makes a few targeted optimizations during the move — such as swapping a self-managed database for a managed service — without rewriting the application. It sits between rehosting and refactoring.",
+        "distractors": {
+          "A": "Pure rehosting changes nothing; here the database layer is deliberately swapped for a managed service.",
+          "B": "Refactoring would substantially rewrite the application, which the team avoided.",
+          "C": "Retiring decommissions a workload; this one is being migrated and improved.",
+          "D": ""
+        },
+        "exam_pattern": "Small optimizations during move (e.g., managed DB) with no app rewrite = replatform."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 1 — Migration strategies (replatform)"
+      ]
+    },
+    {
+      "id": "cloudplus-dep-001",
+      "exam": "cloudplus",
+      "domain": "cloudp_deployment",
+      "subtopic": "cloudp_provisioning",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An operations team maintains one hardened, fully patched, pre-configured base VM image and clones every new server from it. What is this base image commonly called, and why is it used?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A container layer; it is used only by container runtimes"
+        },
+        {
+          "id": "B",
+          "text": "A thin clone; it saves storage by sharing blocks"
+        },
+        {
+          "id": "C",
+          "text": "A snapshot; it is used only to roll a VM back in time"
+        },
+        {
+          "id": "D",
+          "text": "A golden image (master image); it ensures every instance starts from a consistent, known-good baseline"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A golden (master) image is a standardized, hardened, pre-patched template used to provision new instances so they all begin from an identical, known-good configuration, improving consistency and speed.",
+        "distractors": {
+          "A": "A container layer is part of a container image; the scenario describes a full VM base image.",
+          "B": "A thin clone is a storage-efficiency technique, not the standardized build artifact described.",
+          "C": "A snapshot captures a point-in-time state for rollback/backup; a golden image is a reusable deployment baseline.",
+          "D": ""
+        },
+        "exam_pattern": "Standardized, hardened base build cloned for all new instances = golden/master image."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 2 — Provisioning (images/golden images)"
+      ]
+    },
+    {
+      "id": "cloudplus-dep-002",
+      "exam": "cloudplus",
+      "domain": "cloudp_deployment",
+      "subtopic": "cloudp_provisioning",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To make environment builds repeatable and auditable, a team defines all required resources in a declarative template file and has the orchestration engine create them identically every time. What is the primary benefit of this template-based provisioning?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It removes the need for any network connectivity"
+        },
+        {
+          "id": "B",
+          "text": "It guarantees that no resource ever needs patching"
+        },
+        {
+          "id": "C",
+          "text": "It eliminates all licensing costs"
+        },
+        {
+          "id": "D",
+          "text": "Consistent, repeatable deployments with less manual configuration drift"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Template-based (declarative) provisioning produces the same resources every run, reducing manual error and configuration drift and making deployments repeatable and auditable.",
+        "distractors": {
+          "A": "Provisioning still requires network connectivity to reach the cloud control plane.",
+          "B": "Templates automate creation but do not exempt the resulting systems from patching.",
+          "C": "Templates do not change licensing costs for the resources they create.",
+          "D": ""
+        },
+        "exam_pattern": "Declarative templates = repeatable, drift-free, auditable provisioning."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 2 — Provisioning (templates/orchestration)"
+      ]
+    },
+    {
+      "id": "cloudplus-dep-003",
+      "exam": "cloudplus",
+      "domain": "cloudp_deployment",
+      "subtopic": "cloudp_provisioning",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After a new instance boots from a base image, a startup script automatically installs the latest application version and registers the node with the cluster. What is this first-boot configuration step called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Thick provisioning"
+        },
+        {
+          "id": "B",
+          "text": "Deduplication"
+        },
+        {
+          "id": "C",
+          "text": "Bootstrapping (instance initialization)"
+        },
+        {
+          "id": "D",
+          "text": "Snapshotting"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Bootstrapping runs initialization logic (e.g., cloud-init/user-data scripts) at first boot to finish configuring an instance — installing software, applying settings, and joining it to a cluster.",
+        "distractors": {
+          "A": "Thick provisioning pre-allocates storage; it is unrelated to first-boot configuration.",
+          "B": "Deduplication removes redundant data blocks; it has nothing to do with instance startup.",
+          "C": "",
+          "D": "Snapshotting captures a point-in-time image; it does not configure a booting instance."
+        },
+        "exam_pattern": "First-boot script that finishes configuring an instance = bootstrapping (cloud-init/user-data)."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 2 — Provisioning (bootstrapping)"
+      ]
+    },
+    {
+      "id": "cloudplus-dep-004",
+      "exam": "cloudplus",
+      "domain": "cloudp_deployment",
+      "subtopic": "cloudp_provisioning",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "An organization standardizes all deployments on a single golden image. Which TWO are genuine advantages of this approach? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Consistency and easier compliance because every instance starts identical"
+        },
+        {
+          "id": "B",
+          "text": "It makes each instance automatically unique and individually tuned"
+        },
+        {
+          "id": "C",
+          "text": "It removes the need to ever update or re-bake the image"
+        },
+        {
+          "id": "D",
+          "text": "Faster provisioning because the base is already configured and patched"
+        }
+      ],
+      "correct": [
+        "A",
+        "D"
+      ],
+      "explanation": {
+        "correct": "A golden image speeds provisioning (the base is pre-built and patched) and enforces consistency, which simplifies compliance and troubleshooting because every instance starts from the same baseline.",
+        "distractors": {
+          "A": "",
+          "B": "The point of a golden image is uniformity, not making each instance unique — that would defeat the purpose.",
+          "C": "Golden images must be periodically re-baked (re-patched); they do not eliminate maintenance.",
+          "D": ""
+        },
+        "exam_pattern": "Golden image wins = speed + consistency/compliance; it still needs periodic re-baking."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 2 — Provisioning (golden images)"
+      ]
+    },
+    {
+      "id": "cloudplus-dep-005",
+      "exam": "cloudplus",
+      "domain": "cloudp_deployment",
+      "subtopic": "cloudp_storage_deployment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A database server needs a low-latency volume it can format with its own file system and use as a raw disk. Which cloud storage type is the best fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Archive/cold storage"
+        },
+        {
+          "id": "B",
+          "text": "Object storage"
+        },
+        {
+          "id": "C",
+          "text": "Block storage"
+        },
+        {
+          "id": "D",
+          "text": "File storage (shared NFS/SMB)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Block storage presents raw volumes that the OS formats and mounts like a local disk, offering the low latency and random I/O that databases and boot volumes require.",
+        "distractors": {
+          "A": "Archive/cold storage is optimized for cheap, rarely accessed data with slow retrieval, unsuitable for an active database.",
+          "B": "Object storage is accessed over HTTP APIs with a flat namespace and higher latency — poor for a database's block-level I/O.",
+          "C": "",
+          "D": "File storage offers a shared file system over NFS/SMB; it is convenient for shared files but not the raw block device a database wants."
+        },
+        "exam_pattern": "Raw low-latency volume for DB/boot = block; shared file system = file; HTTP/flat objects = object."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 2 — Storage types (block/file/object)"
+      ]
+    },
+    {
+      "id": "cloudplus-dep-006",
+      "exam": "cloudplus",
+      "domain": "cloudp_deployment",
+      "subtopic": "cloudp_storage_deployment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An application stores millions of images and retrieves them by a unique key through an HTTP API, with virtually unlimited scale and rich metadata per item. Which storage type is designed for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "File storage"
+        },
+        {
+          "id": "B",
+          "text": "Local instance (ephemeral) storage"
+        },
+        {
+          "id": "C",
+          "text": "Block storage"
+        },
+        {
+          "id": "D",
+          "text": "Object storage"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Object storage keeps data as objects (data + metadata + unique key) in a flat namespace accessed over HTTP(S). It scales massively and suits unstructured data like images, backups, and static assets.",
+        "distractors": {
+          "A": "File storage provides a hierarchical shared file system, not key-addressable objects with per-object metadata at massive scale.",
+          "B": "Ephemeral instance storage is temporary local disk tied to an instance's life — not a durable, scalable object store.",
+          "C": "Block storage exposes raw volumes to a single instance; it is not an HTTP, infinitely scalable key-addressable store.",
+          "D": ""
+        },
+        "exam_pattern": "Key-addressable, HTTP API, metadata, massive scale, unstructured = object storage."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 2 — Storage types (object storage)"
+      ]
+    },
+    {
+      "id": "cloudplus-dep-007",
+      "exam": "cloudplus",
+      "domain": "cloudp_deployment",
+      "subtopic": "cloudp_storage_deployment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A storage administrator configures a volume so that data is striped across disks with distributed parity, letting the array survive the loss of any single disk while keeping most capacity usable. Which RAID level is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "RAID 10"
+        },
+        {
+          "id": "B",
+          "text": "RAID 1"
+        },
+        {
+          "id": "C",
+          "text": "RAID 5"
+        },
+        {
+          "id": "D",
+          "text": "RAID 0"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "RAID 5 stripes data with distributed parity across at least three disks, tolerating a single disk failure while using only one disk's worth of capacity for parity — a balance of capacity and protection.",
+        "distractors": {
+          "A": "RAID 10 combines mirroring and striping for performance and redundancy but uses 50% of capacity, not single-parity striping.",
+          "B": "RAID 1 mirrors disks and uses 50% of capacity for the mirror, not distributed parity across a stripe.",
+          "C": "",
+          "D": "RAID 0 stripes with no parity or mirroring; it has zero fault tolerance and loses all data if any disk fails."
+        },
+        "exam_pattern": "Striping + distributed parity, survives 1 disk, 3+ disks = RAID 5; double parity (4+ disks, survives 2) = RAID 6."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 2 — Storage (RAID levels)"
+      ]
+    },
+    {
+      "id": "cloudplus-dep-008",
+      "exam": "cloudplus",
+      "domain": "cloudp_deployment",
+      "subtopic": "cloudp_storage_deployment",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the term: Moving infrequently accessed data to cheaper, slower classes (such as cool or archive) while keeping active data on fast storage to control cost is called storage ____ (one word).",
+      "correct": [
+        "tiering",
+        "storage tiering"
+      ],
+      "explanation": {
+        "correct": "Storage tiering assigns data to performance/cost classes (hot, cool, archive) based on access frequency, reducing cost for cold data while keeping active data fast.",
+        "distractors": {},
+        "exam_pattern": "Match data to hot/cool/archive classes by access frequency = storage tiering."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 2 — Storage (tiers)"
+      ]
+    },
+    {
+      "id": "cloudplus-dep-009",
+      "exam": "cloudplus",
+      "domain": "cloudp_deployment",
+      "subtopic": "cloudp_compute_deployment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A team wants to package an application with its dependencies into a lightweight, portable unit that shares the host OS kernel and starts in seconds. Which compute technology fits best?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Containers"
+        },
+        {
+          "id": "B",
+          "text": "Dedicated hardware appliances"
+        },
+        {
+          "id": "C",
+          "text": "Full virtual machines with separate guest operating systems"
+        },
+        {
+          "id": "D",
+          "text": "Bare-metal servers"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Containers package an app with its dependencies and share the host OS kernel, so they are lightweight and start quickly compared with VMs that each run a full guest OS.",
+        "distractors": {
+          "A": "",
+          "B": "Dedicated hardware appliances are purpose-built devices, not a portable application packaging model.",
+          "C": "Each VM runs its own guest OS, making it heavier and slower to start than a container.",
+          "D": "Bare-metal servers run directly on hardware with no packaging/portability benefit described here."
+        },
+        "exam_pattern": "Share host kernel, lightweight, fast start, dependency packaging = containers."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 2 — Compute (containers vs VMs)"
+      ]
+    },
+    {
+      "id": "cloudplus-dep-010",
+      "exam": "cloudplus",
+      "domain": "cloudp_deployment",
+      "subtopic": "cloudp_compute_deployment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A developer wants to run event-driven functions without provisioning or managing any servers, paying only for execution time. Which compute model is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Infrastructure as a Service (VMs)"
+        },
+        {
+          "id": "B",
+          "text": "Serverless (Function as a Service)"
+        },
+        {
+          "id": "C",
+          "text": "Bare-metal hosting"
+        },
+        {
+          "id": "D",
+          "text": "A dedicated host"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Serverless / FaaS runs code in response to events with no server management by the customer and bills only for actual execution (compute time/invocations), scaling automatically to zero when idle.",
+        "distractors": {
+          "A": "IaaS VMs require the customer to provision and manage servers — the opposite of serverless.",
+          "B": "",
+          "C": "Bare-metal hosting gives dedicated physical servers to manage, not an abstracted function runtime.",
+          "D": "A dedicated host is isolated physical capacity you manage, not an event-driven, pay-per-execution model."
+        },
+        "exam_pattern": "No servers to manage, event-driven, pay-per-execution, scales to zero = serverless/FaaS."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 2 — Compute (serverless)"
+      ]
+    },
+    {
+      "id": "cloudplus-dep-011",
+      "exam": "cloudplus",
+      "domain": "cloudp_deployment",
+      "subtopic": "cloudp_compute_deployment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company must run a specialized OS kernel module that requires full control of the guest operating system, but still wants provider-managed hardware. Which compute option is most appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A virtual machine (IaaS instance)"
+        },
+        {
+          "id": "B",
+          "text": "A serverless function"
+        },
+        {
+          "id": "C",
+          "text": "A SaaS application"
+        },
+        {
+          "id": "D",
+          "text": "A managed container platform with no host OS access"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A virtual machine (IaaS) gives full guest-OS control — including kernel modules and custom configuration — while the provider still operates the underlying physical hardware.",
+        "distractors": {
+          "A": "",
+          "B": "Serverless functions expose no OS to configure, so a custom kernel module is impossible.",
+          "C": "SaaS provides a finished application with no OS access at all.",
+          "D": "A managed container platform that hides the host OS would not allow installing a custom kernel module."
+        },
+        "exam_pattern": "Need full guest-OS/kernel control on provider hardware = IaaS virtual machine."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 2 — Compute (virtual machines)"
+      ]
+    },
+    {
+      "id": "cloudplus-dep-012",
+      "exam": "cloudplus",
+      "domain": "cloudp_deployment",
+      "subtopic": "cloudp_compute_deployment",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the term: The software layer that creates and runs virtual machines by abstracting and allocating the physical CPU, memory, and I/O to each guest is called a ____ (one word).",
+      "correct": [
+        "hypervisor"
+      ],
+      "explanation": {
+        "correct": "A hypervisor (virtual machine monitor) abstracts physical hardware and allocates it to multiple guest VMs. Type 1 runs directly on hardware (bare-metal); Type 2 runs on top of a host OS.",
+        "distractors": {},
+        "exam_pattern": "Software that creates/runs VMs by partitioning hardware = hypervisor (Type 1 bare-metal, Type 2 hosted)."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 2 — Compute virtualization (hypervisors)"
+      ]
+    },
+    {
+      "id": "cloudplus-dep-013",
+      "exam": "cloudplus",
+      "domain": "cloudp_deployment",
+      "subtopic": "cloudp_networking_deployment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An architect carves a cloud virtual network into separate subnets: a public subnet for internet-facing load balancers and a private subnet for databases with no direct internet route. What is the main security benefit of this subnetting?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It increases the MTU on all interfaces automatically"
+        },
+        {
+          "id": "B",
+          "text": "Network segmentation that isolates tiers and limits exposure of the database"
+        },
+        {
+          "id": "C",
+          "text": "It guarantees higher bandwidth to the database"
+        },
+        {
+          "id": "D",
+          "text": "It removes the need for any security groups or firewalls"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Placing tiers in separate subnets segments the network so the database has no direct inbound internet path, shrinking the attack surface and enforcing tier isolation.",
+        "distractors": {
+          "A": "Subnetting defines address ranges and routing; it does not change MTU.",
+          "B": "",
+          "C": "Subnet placement does not by itself guarantee more bandwidth to a resource.",
+          "D": "Segmentation complements, but does not replace, security groups/firewalls — you still need them."
+        },
+        "exam_pattern": "Public vs private subnets = segmentation that isolates tiers and limits exposure."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 2 — Networking (VPC/subnets/segmentation)"
+      ]
+    },
+    {
+      "id": "cloudplus-dep-014",
+      "exam": "cloudplus",
+      "domain": "cloudp_deployment",
+      "subtopic": "cloudp_networking_deployment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A global website wants users to download images and videos from a nearby edge location to cut latency and offload the origin servers. Which service provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A VPN gateway"
+        },
+        {
+          "id": "B",
+          "text": "A NAT gateway"
+        },
+        {
+          "id": "C",
+          "text": "A content delivery network (CDN)"
+        },
+        {
+          "id": "D",
+          "text": "A DNS resolver"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A CDN caches content at geographically distributed edge/points-of-presence so users retrieve it from a nearby location, reducing latency and offloading the origin.",
+        "distractors": {
+          "A": "A VPN gateway provides encrypted connectivity between networks, not edge caching of content.",
+          "B": "A NAT gateway lets private hosts reach the internet for outbound traffic; it does not cache or distribute content.",
+          "C": "",
+          "D": "A DNS resolver translates names to addresses; it does not cache and serve the actual content."
+        },
+        "exam_pattern": "Cache content at edge POPs near users to cut latency/offload origin = CDN."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 2 — Networking (CDN)"
+      ]
+    },
+    {
+      "id": "cloudplus-dep-015",
+      "exam": "cloudplus",
+      "domain": "cloudp_deployment",
+      "subtopic": "cloudp_networking_deployment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Incoming web traffic must be spread across several identical application servers, and unhealthy servers should automatically stop receiving requests. Which component provides this, and at which layer does an application (L7) load balancer operate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A CDN; it operates at Layer 3"
+        },
+        {
+          "id": "B",
+          "text": "A DNS server; it operates at Layer 4"
+        },
+        {
+          "id": "C",
+          "text": "A load balancer; an L7 load balancer operates at the application layer and can route by URL/host"
+        },
+        {
+          "id": "D",
+          "text": "A VPN concentrator; it operates at Layer 2"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A load balancer distributes traffic across healthy backends using health checks. A Layer 7 (application) load balancer understands HTTP, so it can route by URL path, host header, or cookies, whereas an L4 load balancer routes by IP/port.",
+        "distractors": {
+          "A": "A CDN caches content at the edge; it is not the component health-checking a backend pool, and L3 is the network layer.",
+          "B": "DNS can do basic round-robin but does not health-check per request or route by URL, and name resolution is not Layer 4 load balancing.",
+          "C": "",
+          "D": "A VPN concentrator terminates VPN tunnels; it does not load-balance application traffic, and this is not a Layer 2 function."
+        },
+        "exam_pattern": "Distribute with health checks = load balancer; L7 routes by HTTP (URL/host), L4 by IP/port."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 2 — Networking (load balancers, L4 vs L7)"
+      ]
+    },
+    {
+      "id": "cloudplus-dep-016",
+      "exam": "cloudplus",
+      "domain": "cloudp_deployment",
+      "subtopic": "cloudp_networking_deployment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An enterprise needs an encrypted, always-on connection between its on-premises data center and its cloud virtual network over the public internet. Which technology is the standard choice?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A public object-storage endpoint"
+        },
+        {
+          "id": "B",
+          "text": "A load balancer"
+        },
+        {
+          "id": "C",
+          "text": "A content delivery network"
+        },
+        {
+          "id": "D",
+          "text": "A site-to-site VPN (IPsec tunnel)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A site-to-site VPN builds an encrypted IPsec tunnel between the on-premises network and the cloud VPC/VNet over the internet, extending private connectivity securely.",
+        "distractors": {
+          "A": "A public object-storage endpoint is for storing/retrieving objects, not for site-to-site network connectivity.",
+          "B": "A load balancer distributes traffic among servers; it does not create an encrypted inter-site tunnel.",
+          "C": "A CDN distributes cached content to users; it does not connect a data center to a VPC.",
+          "D": ""
+        },
+        "exam_pattern": "Encrypted tunnel between on-prem and cloud over the internet = site-to-site IPsec VPN."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 2 — Networking (VPN connectivity)"
+      ]
+    },
+    {
+      "id": "cloudplus-dev-001",
+      "exam": "cloudplus",
+      "domain": "cloudp_devops",
+      "subtopic": "cloudp_cicd",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Developers merge code to a shared repository several times a day, and each merge automatically triggers a build and automated test run to catch integration problems early. Which practice is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Continuous integration (CI)"
+        },
+        {
+          "id": "B",
+          "text": "Infrastructure as code"
+        },
+        {
+          "id": "C",
+          "text": "Manual quarterly releases"
+        },
+        {
+          "id": "D",
+          "text": "Continuous deployment to production"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Continuous integration has developers merge frequently, with each change automatically built and tested so integration defects are caught quickly.",
+        "distractors": {
+          "A": "",
+          "B": "Infrastructure as code manages infrastructure via definition files; it is not the merge/build/test loop.",
+          "C": "Quarterly manual releases are the opposite of the frequent, automated integration described.",
+          "D": "Continuous deployment automatically releases to production; the scenario describes build/test on merge, which is CI."
+        },
+        "exam_pattern": "Frequent merges + automated build/test on each = continuous integration."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 5 — CI/CD (continuous integration)"
+      ]
+    },
+    {
+      "id": "cloudplus-dev-002",
+      "exam": "cloudplus",
+      "domain": "cloudp_devops",
+      "subtopic": "cloudp_cicd",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After automated tests pass, a pipeline automatically releases every successful build straight to production with no human approval step. Which practice is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Continuous integration"
+        },
+        {
+          "id": "B",
+          "text": "Continuous deployment"
+        },
+        {
+          "id": "C",
+          "text": "Continuous delivery"
+        },
+        {
+          "id": "D",
+          "text": "Manual change-advisory-board approval"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Continuous deployment automatically pushes every build that passes the pipeline all the way to production without manual gating. (Continuous delivery stops just short, keeping a manual release decision.)",
+        "distractors": {
+          "A": "Continuous integration covers building and testing merges, not releasing to production.",
+          "B": "",
+          "C": "Continuous delivery automates up to a release-ready artifact but keeps a human approval before production — the scenario has none.",
+          "D": "A manual CAB approval is exactly the human gate that continuous deployment removes."
+        },
+        "exam_pattern": "Auto-release every passing build to prod, no human gate = continuous deployment; a manual gate = continuous delivery."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 5 — CI/CD (deployment vs delivery)"
+      ]
+    },
+    {
+      "id": "cloudplus-dev-003",
+      "exam": "cloudplus",
+      "domain": "cloudp_devops",
+      "subtopic": "cloudp_cicd",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To release a new version with near-zero downtime and fast rollback, a team runs the new version ('green') alongside the current one ('blue') and switches all traffic to green once it is verified, keeping blue ready to revert. Which deployment strategy is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rolling restart only"
+        },
+        {
+          "id": "B",
+          "text": "Canary deployment"
+        },
+        {
+          "id": "C",
+          "text": "Big-bang in place"
+        },
+        {
+          "id": "D",
+          "text": "Blue-green deployment"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Blue-green keeps two production environments; traffic cuts over to the new (green) once verified, and rollback is immediate by switching back to blue, minimizing downtime and risk.",
+        "distractors": {
+          "A": "A rolling restart updates instances in place in batches; it is not the two-environment cutover described.",
+          "B": "A canary releases to a small subset first and gradually increases, rather than switching all traffic between two full environments.",
+          "C": "A big-bang in-place upgrade replaces everything at once with no easy rollback — the opposite of this strategy.",
+          "D": ""
+        },
+        "exam_pattern": "Two full environments, cut traffic over, instant rollback = blue-green; small gradual subset = canary."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 5 — CI/CD (deployment strategies)"
+      ]
+    },
+    {
+      "id": "cloudplus-dev-004",
+      "exam": "cloudplus",
+      "domain": "cloudp_devops",
+      "subtopic": "cloudp_cicd",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A team releases a change to only 5% of users first, watches error and performance metrics, and expands to 100% only if the metrics stay healthy. Which deployment strategy is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rollback"
+        },
+        {
+          "id": "B",
+          "text": "Canary deployment"
+        },
+        {
+          "id": "C",
+          "text": "Blue-green deployment"
+        },
+        {
+          "id": "D",
+          "text": "Big-bang deployment"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A canary deployment exposes the change to a small percentage of users/traffic first and gradually ramps up as metrics confirm health, limiting the blast radius of a bad release.",
+        "distractors": {
+          "A": "Rollback is reverting a release, not a progressive rollout strategy.",
+          "B": "",
+          "C": "Blue-green switches all traffic between two full environments at once, not a gradual percentage ramp.",
+          "D": "Big-bang releases to everyone simultaneously, the opposite of a small initial subset."
+        },
+        "exam_pattern": "Small % first, ramp up on good metrics = canary."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 5 — CI/CD (canary)"
+      ]
+    },
+    {
+      "id": "cloudplus-dev-005",
+      "exam": "cloudplus",
+      "domain": "cloudp_devops",
+      "subtopic": "cloudp_cicd",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Fill in the term: The category of tools (such as Git) that records the full history of code changes and enables branching and merging — the foundation that CI/CD pipelines build on — is called ____ ____ (two words).",
+      "correct": [
+        "version control",
+        "source control",
+        "version control system"
+      ],
+      "explanation": {
+        "correct": "Version control (source control) systems track the complete history of changes to code and support branching/merging; pipelines trigger from them, making them the backbone of CI/CD.",
+        "distractors": {},
+        "exam_pattern": "Tool category tracking code history/branching = version control (e.g., Git)."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 5 — DevOps (version control)"
+      ]
+    },
+    {
+      "id": "cloudplus-dev-006",
+      "exam": "cloudplus",
+      "domain": "cloudp_devops",
+      "subtopic": "cloudp_cicd",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A team keeps the desired state of both application and infrastructure in a Git repository; an automated agent continuously reconciles the live environment to match whatever is committed, and all changes are made through pull requests. What is this practice called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Snowflake server administration"
+        },
+        {
+          "id": "B",
+          "text": "GitOps"
+        },
+        {
+          "id": "C",
+          "text": "ClickOps (manual console changes)"
+        },
+        {
+          "id": "D",
+          "text": "Shadow IT"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "GitOps uses Git as the single source of truth for declarative infrastructure and apps; an automated reconciler continuously drives the live state to match the repo, with changes delivered via pull requests for review and auditability.",
+        "distractors": {
+          "A": "Snowflake servers are hand-tuned, non-reproducible systems GitOps specifically avoids.",
+          "B": "",
+          "C": "ClickOps is manual change-making in a console — the opposite of Git-driven reconciliation.",
+          "D": "Shadow IT is unsanctioned technology use, unrelated to this operating model."
+        },
+        "exam_pattern": "Git as source of truth + automatic reconciliation + PR-driven changes = GitOps."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 5 — DevOps (GitOps)"
+      ]
+    },
+    {
+      "id": "cloudplus-dev-007",
+      "exam": "cloudplus",
+      "domain": "cloudp_devops",
+      "subtopic": "cloudp_iac",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Instead of clicking through a console, a team defines all its cloud resources in version-controlled configuration files that a tool uses to create and update the environment. What is this practice called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Shadow IT"
+        },
+        {
+          "id": "B",
+          "text": "Penetration testing"
+        },
+        {
+          "id": "C",
+          "text": "Infrastructure as Code (IaC)"
+        },
+        {
+          "id": "D",
+          "text": "Manual provisioning"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Infrastructure as Code defines and manages infrastructure through machine-readable, version-controlled files, making provisioning repeatable, reviewable, and automatable.",
+        "distractors": {
+          "A": "Shadow IT is unsanctioned tech use, not managed, version-controlled provisioning.",
+          "B": "Penetration testing assesses security; it is not a provisioning method.",
+          "C": "",
+          "D": "Manual provisioning via a console is exactly what IaC replaces."
+        },
+        "exam_pattern": "Define infrastructure in version-controlled files = Infrastructure as Code."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 5 — IaC (concept)"
+      ]
+    },
+    {
+      "id": "cloudplus-dev-008",
+      "exam": "cloudplus",
+      "domain": "cloudp_devops",
+      "subtopic": "cloudp_iac",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A team describes the desired end state of their infrastructure (e.g., 'three web servers behind a load balancer') and lets the tool figure out the steps to reach it, rather than scripting each command. Which IaC approach is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Imperative (procedural)"
+        },
+        {
+          "id": "B",
+          "text": "Interpreted"
+        },
+        {
+          "id": "C",
+          "text": "Manual"
+        },
+        {
+          "id": "D",
+          "text": "Declarative"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A declarative approach specifies the desired end state and lets the tool determine how to achieve it (e.g., Terraform, CloudFormation). An imperative approach specifies the explicit sequence of steps.",
+        "distractors": {
+          "A": "Imperative/procedural defines the step-by-step commands to run, not just the desired end state.",
+          "B": "'Interpreted' refers to how code is executed, not to the declarative-vs-imperative distinction.",
+          "C": "Manual provisioning is not an IaC approach at all.",
+          "D": ""
+        },
+        "exam_pattern": "Describe the end state, tool figures out steps = declarative; script each step = imperative."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 5 — IaC (declarative vs imperative)"
+      ]
+    },
+    {
+      "id": "cloudplus-dev-009",
+      "exam": "cloudplus",
+      "domain": "cloudp_devops",
+      "subtopic": "cloudp_iac",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An IaC team values that running the same configuration repeatedly always converges to the same end state, so re-applying it causes no unintended changes. Which property are they relying on?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Concurrency"
+        },
+        {
+          "id": "B",
+          "text": "Polymorphism"
+        },
+        {
+          "id": "C",
+          "text": "Statefulness"
+        },
+        {
+          "id": "D",
+          "text": "Idempotency"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Idempotency means applying the same declarative configuration repeatedly yields the same result; already-correct resources are left unchanged, so re-runs are safe.",
+        "distractors": {
+          "A": "Concurrency is about simultaneous execution, not repeatable convergence to one state.",
+          "B": "Polymorphism is an object-oriented programming concept, unrelated to IaC convergence.",
+          "C": "Statefulness describes retaining data between operations, not the safe-to-reapply property.",
+          "D": ""
+        },
+        "exam_pattern": "Re-applying the same config changes nothing already correct = idempotency."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 5 — IaC (idempotency)"
+      ]
+    },
+    {
+      "id": "cloudplus-dev-010",
+      "exam": "cloudplus",
+      "domain": "cloudp_devops",
+      "subtopic": "cloudp_iac",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Tools such as Ansible, Puppet, and Chef are primarily used to:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Encrypt data at rest in object storage"
+        },
+        {
+          "id": "B",
+          "text": "Automate the configuration and desired state of servers and applications (configuration management)"
+        },
+        {
+          "id": "C",
+          "text": "Serve as the organization's SIEM"
+        },
+        {
+          "id": "D",
+          "text": "Provide Layer 7 load balancing"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Configuration management tools (Ansible, Puppet, Chef) automate installing software and enforcing a consistent, declared configuration across many systems, reducing drift.",
+        "distractors": {
+          "A": "Encryption at rest is a storage/KMS function, not what these tools exist to do.",
+          "B": "",
+          "C": "A SIEM correlates security events; configuration management tools do not fill that role.",
+          "D": "Load balancing is handled by load balancers, not configuration management tools."
+        },
+        "exam_pattern": "Ansible/Puppet/Chef = configuration management (enforce consistent server/app state)."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 5 — IaC/configuration management"
+      ]
+    },
+    {
+      "id": "cloudplus-dev-011",
+      "exam": "cloudplus",
+      "domain": "cloudp_devops",
+      "subtopic": "cloudp_iac",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the term: When servers gradually diverge from their defined baseline because of ad-hoc manual changes over time, the resulting inconsistency is called configuration ____ (one word).",
+      "correct": [
+        "drift",
+        "configuration drift"
+      ],
+      "explanation": {
+        "correct": "Configuration drift is the gradual divergence of systems from their intended baseline due to undocumented manual changes; IaC and configuration management detect and correct it by reasserting the declared state.",
+        "distractors": {},
+        "exam_pattern": "Systems drifting from baseline via manual changes = configuration drift (fixed by IaC/config mgmt)."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 5 — IaC (configuration drift)"
+      ]
+    },
+    {
+      "id": "cloudplus-dev-012",
+      "exam": "cloudplus",
+      "domain": "cloudp_devops",
+      "subtopic": "cloudp_automation_scripting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A cloud engineer wants to programmatically create and manage resources by sending structured requests (often JSON over HTTPS) to the provider. Which interface is designed for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A RAID controller"
+        },
+        {
+          "id": "B",
+          "text": "RDP to each server"
+        },
+        {
+          "id": "C",
+          "text": "The physical console port"
+        },
+        {
+          "id": "D",
+          "text": "A REST API"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Cloud providers expose REST APIs that accept structured requests (commonly JSON over HTTPS) so resources can be created and managed programmatically, which underpins SDKs, CLIs, and automation.",
+        "distractors": {
+          "A": "A RAID controller manages disks; it is not a cloud management interface.",
+          "B": "RDP gives interactive desktop access to a single server, not programmatic resource management.",
+          "C": "A physical console port is for local hardware access, not programmatic cloud control.",
+          "D": ""
+        },
+        "exam_pattern": "Programmatic resource management via structured JSON/HTTPS calls = REST API."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 5 — Automation (APIs)"
+      ]
+    },
+    {
+      "id": "cloudplus-dev-013",
+      "exam": "cloudplus",
+      "domain": "cloudp_devops",
+      "subtopic": "cloudp_automation_scripting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which data format is commonly used for both configuration files and API payloads in cloud automation because it is human-readable and maps cleanly to key-value structures?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A RAID stripe set"
+        },
+        {
+          "id": "B",
+          "text": "An ISO disk image"
+        },
+        {
+          "id": "C",
+          "text": "JSON (or YAML)"
+        },
+        {
+          "id": "D",
+          "text": "A compiled binary blob"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "JSON and YAML are the dominant human-readable, structured formats for cloud configuration and API payloads, representing nested key-value data that tools and humans can both parse.",
+        "distractors": {
+          "A": "A RAID stripe set is a storage construct, not a data-serialization format.",
+          "B": "An ISO image is a disk-image format, not a configuration/data-exchange format.",
+          "C": "",
+          "D": "A compiled binary blob is not human-readable and is not the standard for config/API payloads."
+        },
+        "exam_pattern": "Human-readable structured config/API data = JSON/YAML."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 5 — Automation/scripting (data formats)"
+      ]
+    },
+    {
+      "id": "cloudplus-dev-014",
+      "exam": "cloudplus",
+      "domain": "cloudp_devops",
+      "subtopic": "cloudp_automation_scripting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A pipeline should start automatically the moment code is pushed to the repository. Which mechanism lets the repository notify the pipeline of the event in real time?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A RAID rebuild"
+        },
+        {
+          "id": "B",
+          "text": "A webhook (event-driven HTTP callback)"
+        },
+        {
+          "id": "C",
+          "text": "A nightly cron job that polls for changes"
+        },
+        {
+          "id": "D",
+          "text": "A manual email to the build team"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A webhook is an event-driven HTTP callback: the repository POSTs to the pipeline's URL the instant a push occurs, triggering the build immediately without polling.",
+        "distractors": {
+          "A": "A RAID rebuild is a storage recovery operation, unrelated to pipeline triggering.",
+          "B": "",
+          "C": "A nightly polling cron job reacts on a schedule, not in real time at the moment of the push.",
+          "D": "A manual email is not an automated, real-time trigger."
+        },
+        "exam_pattern": "Real-time event notification to trigger automation = webhook (vs scheduled polling)."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 5 — Automation (event-driven triggers/webhooks)"
+      ]
+    },
+    {
+      "id": "cloudplus-dev-015",
+      "exam": "cloudplus",
+      "domain": "cloudp_devops",
+      "subtopic": "cloudp_automation_scripting",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An administrator writes a short shell/PowerShell script to automate a repetitive task such as rotating logs nightly. The chief benefit of scripting routine tasks is:",
+      "options": [
+        {
+          "id": "A",
+          "text": "It guarantees the task never needs testing"
+        },
+        {
+          "id": "B",
+          "text": "It makes the task slower but more secure"
+        },
+        {
+          "id": "C",
+          "text": "Consistency and reduced human error for repetitive work"
+        },
+        {
+          "id": "D",
+          "text": "It removes the need for any access controls"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Scripting repetitive tasks yields consistent, repeatable execution and reduces human error and toil compared with performing the steps manually each time.",
+        "distractors": {
+          "A": "Scripts still require testing; automation does not remove that need.",
+          "B": "Automation generally speeds tasks up; 'slower but more secure' is not its benefit.",
+          "C": "",
+          "D": "Scripts must still run under proper access controls; automation does not eliminate them."
+        },
+        "exam_pattern": "Automate repetitive work for consistency and fewer human errors."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 5 — Automation/scripting (benefits)"
+      ]
+    },
+    {
+      "id": "cloudplus-dev-016",
+      "exam": "cloudplus",
+      "domain": "cloudp_devops",
+      "subtopic": "cloudp_automation_scripting",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "A team is deciding what to automate first. Which TWO tasks are the best candidates for scripting/automation? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Nightly database backups and log rotation"
+        },
+        {
+          "id": "B",
+          "text": "Making a one-time, never-repeated judgment call about vendor selection"
+        },
+        {
+          "id": "C",
+          "text": "A unique architectural design decision requiring human trade-off analysis"
+        },
+        {
+          "id": "D",
+          "text": "Provisioning identical test environments on demand"
+        }
+      ],
+      "correct": [
+        "A",
+        "D"
+      ],
+      "explanation": {
+        "correct": "Repetitive, well-defined, frequently performed tasks — spinning up standard environments and nightly backups/log rotation — are ideal automation targets, delivering consistency and time savings.",
+        "distractors": {
+          "A": "",
+          "B": "A one-time, non-repeating judgment call gains little from automation and needs human reasoning.",
+          "C": "A unique design decision requiring human trade-off analysis is not a repeatable task to script.",
+          "D": ""
+        },
+        "exam_pattern": "Automate repetitive, well-defined, frequent tasks; leave one-off judgment to humans."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 5 — Automation (what to automate)"
+      ]
+    },
+    {
+      "id": "cloudplus-ops-001",
+      "exam": "cloudplus",
+      "domain": "cloudp_operations",
+      "subtopic": "cloudp_logging_monitoring",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An operations team wants to be automatically notified when a service's error rate crosses a defined threshold so they can react before users complain. What must they configure on their monitoring metrics?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A golden image"
+        },
+        {
+          "id": "B",
+          "text": "A snapshot schedule"
+        },
+        {
+          "id": "C",
+          "text": "An alert (threshold-based alarm) on the metric"
+        },
+        {
+          "id": "D",
+          "text": "A new subnet"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Alerting evaluates metrics against thresholds (static or dynamic) and notifies responders or triggers automation when breached, enabling proactive response.",
+        "distractors": {
+          "A": "A golden image is a deployment baseline, unrelated to monitoring notifications.",
+          "B": "A snapshot schedule captures data backups; it does not notify on metric thresholds.",
+          "C": "",
+          "D": "A subnet is a network segment; it has nothing to do with metric alerting."
+        },
+        "exam_pattern": "Notify when a metric crosses a threshold = configure an alert/alarm."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 3 — Monitoring and alerting"
+      ]
+    },
+    {
+      "id": "cloudplus-ops-002",
+      "exam": "cloudplus",
+      "domain": "cloudp_operations",
+      "subtopic": "cloudp_logging_monitoring",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A security team wants one platform that collects logs from servers, firewalls, and applications, then correlates events to detect and alert on suspicious activity. Which type of system is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SIEM (Security Information and Event Management)"
+        },
+        {
+          "id": "B",
+          "text": "CMDB (Configuration Management Database)"
+        },
+        {
+          "id": "C",
+          "text": "Load balancer"
+        },
+        {
+          "id": "D",
+          "text": "CDN (Content Delivery Network)"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A SIEM aggregates and normalizes logs/events from many sources and correlates them to detect threats, raise alerts, and support investigations and compliance.",
+        "distractors": {
+          "A": "",
+          "B": "A CMDB inventories configuration items and relationships; it is not an event-correlation/alerting engine.",
+          "C": "A load balancer distributes traffic; it has no security-event correlation role.",
+          "D": "A CDN caches and delivers content; it does not correlate security events."
+        },
+        "exam_pattern": "Aggregate + correlate logs to detect/alert on threats = SIEM."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 3 — Logging/monitoring (SIEM)"
+      ]
+    },
+    {
+      "id": "cloudplus-ops-003",
+      "exam": "cloudplus",
+      "domain": "cloudp_operations",
+      "subtopic": "cloudp_logging_monitoring",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Developers need visibility into application response times, transaction traces, and where latency is introduced across microservices. Which class of tool best provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A RAID controller"
+        },
+        {
+          "id": "B",
+          "text": "A DNS analyzer"
+        },
+        {
+          "id": "C",
+          "text": "A SIEM"
+        },
+        {
+          "id": "D",
+          "text": "APM (Application Performance Monitoring)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "APM tools instrument applications to measure response times, throughput, and errors and to trace requests across services, pinpointing where latency or failures occur.",
+        "distractors": {
+          "A": "A RAID controller manages disk arrays; it is unrelated to application tracing.",
+          "B": "A DNS analyzer inspects name resolution, not application transaction performance.",
+          "C": "A SIEM focuses on security-event correlation, not detailed application performance traces.",
+          "D": ""
+        },
+        "exam_pattern": "Transaction traces, response times across services = APM."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 3 — Monitoring (APM)"
+      ]
+    },
+    {
+      "id": "cloudplus-ops-004",
+      "exam": "cloudplus",
+      "domain": "cloudp_operations",
+      "subtopic": "cloudp_logging_monitoring",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Across dozens of ephemeral instances that come and go, troubleshooting is hard because logs disappear with the instances. What practice solves this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Taking a VM snapshot once per month"
+        },
+        {
+          "id": "B",
+          "text": "Centralized log aggregation to a durable, external log store"
+        },
+        {
+          "id": "C",
+          "text": "Disabling logging to save space"
+        },
+        {
+          "id": "D",
+          "text": "Storing logs only on each local instance disk"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Shipping logs to a centralized, durable aggregation platform preserves them independently of the short-lived instances, enabling search, correlation, and retention.",
+        "distractors": {
+          "A": "A monthly VM snapshot does not continuously capture per-request logs from transient instances.",
+          "B": "",
+          "C": "Disabling logging removes the evidence needed to troubleshoot and audit.",
+          "D": "Local-only logs vanish when ephemeral instances are terminated — exactly the problem."
+        },
+        "exam_pattern": "Ephemeral instances -> ship logs to centralized durable aggregation."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 3 — Logging (centralized aggregation)"
+      ]
+    },
+    {
+      "id": "cloudplus-ops-005",
+      "exam": "cloudplus",
+      "domain": "cloudp_operations",
+      "subtopic": "cloudp_maintenance_automation",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To apply operating-system security updates across hundreds of servers consistently and on a schedule, with minimal manual effort, an operations team should use:",
+      "options": [
+        {
+          "id": "A",
+          "text": "A content delivery network"
+        },
+        {
+          "id": "B",
+          "text": "A load-balancer health check"
+        },
+        {
+          "id": "C",
+          "text": "Manual updates one server at a time"
+        },
+        {
+          "id": "D",
+          "text": "An automated patch-management system"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Automated patch management deploys, tracks, and reports updates across many systems on a schedule, ensuring consistency and reducing the risk and labor of manual patching.",
+        "distractors": {
+          "A": "A CDN distributes content; it does not patch operating systems.",
+          "B": "A load-balancer health check routes traffic away from unhealthy nodes; it does not install patches.",
+          "C": "Manual, per-server patching does not scale to hundreds of systems and invites inconsistency and missed hosts.",
+          "D": ""
+        },
+        "exam_pattern": "Consistent, scheduled updates at scale = automated patch management."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 3 — Maintenance (patch automation)"
+      ]
+    },
+    {
+      "id": "cloudplus-ops-006",
+      "exam": "cloudplus",
+      "domain": "cloudp_operations",
+      "subtopic": "cloudp_maintenance_automation",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A team schedules disruptive maintenance (reboots, upgrades) for a fixed, communicated period of low usage to limit user impact. What is this period called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A maintenance window"
+        },
+        {
+          "id": "B",
+          "text": "A sprint"
+        },
+        {
+          "id": "C",
+          "text": "A recovery point"
+        },
+        {
+          "id": "D",
+          "text": "A blast radius"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A maintenance window is a pre-approved, communicated time period for performing disruptive changes when impact to users is lowest.",
+        "distractors": {
+          "A": "",
+          "B": "A sprint is an agile development iteration, not a change/maintenance window.",
+          "C": "A recovery point relates to how much data loss is acceptable (RPO), not a maintenance schedule.",
+          "D": "Blast radius describes how far a failure or change could spread, not a scheduled time period."
+        },
+        "exam_pattern": "Pre-approved low-impact time slot for disruptive changes = maintenance window."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 3 — Maintenance windows"
+      ]
+    },
+    {
+      "id": "cloudplus-ops-007",
+      "exam": "cloudplus",
+      "domain": "cloudp_operations",
+      "subtopic": "cloudp_maintenance_automation",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Rather than manually creating and configuring resources, a team uses a tool to coordinate multi-step workflows that provision, configure, and connect many resources automatically. This coordination of automated tasks is best called:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Orchestration"
+        },
+        {
+          "id": "B",
+          "text": "Striping"
+        },
+        {
+          "id": "C",
+          "text": "Deduplication"
+        },
+        {
+          "id": "D",
+          "text": "Tokenization"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Orchestration coordinates multiple automated tasks into an ordered end-to-end workflow (provision, configure, integrate), going beyond single-task automation.",
+        "distractors": {
+          "A": "",
+          "B": "Striping spreads data across disks for performance; it is a storage concept.",
+          "C": "Deduplication eliminates redundant data copies; it is unrelated to workflow coordination.",
+          "D": "Tokenization replaces sensitive data with tokens; it is a data-security technique, not workflow coordination."
+        },
+        "exam_pattern": "Coordinate many automated tasks into one workflow = orchestration."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 3 — Automation and orchestration"
+      ]
+    },
+    {
+      "id": "cloudplus-ops-008",
+      "exam": "cloudplus",
+      "domain": "cloudp_operations",
+      "subtopic": "cloudp_maintenance_automation",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "An organization wants to reduce manual effort and human error in routine operations. Which TWO are appropriate automation use cases? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Emailing engineers to remind them to log in and patch manually"
+        },
+        {
+          "id": "B",
+          "text": "Hand-editing production server configs during peak hours"
+        },
+        {
+          "id": "C",
+          "text": "Scheduled, automated patching and configuration enforcement"
+        },
+        {
+          "id": "D",
+          "text": "Automatically scaling instances based on demand metrics"
+        }
+      ],
+      "correct": [
+        "C",
+        "D"
+      ],
+      "explanation": {
+        "correct": "Auto-scaling on metrics and scheduled automated patching/configuration enforcement are classic automation use cases that cut manual toil and drift while improving consistency.",
+        "distractors": {
+          "A": "Relying on email reminders for manual patching is still a manual, error-prone process.",
+          "B": "Hand-editing production configs during peak hours is manual, risky, and the opposite of automation.",
+          "C": "",
+          "D": ""
+        },
+        "exam_pattern": "Automate repetitive, error-prone ops (scaling, patching, config enforcement)."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 3 — Maintenance automation"
+      ]
+    },
+    {
+      "id": "cloudplus-ops-009",
+      "exam": "cloudplus",
+      "domain": "cloudp_operations",
+      "subtopic": "cloudp_backup_restore",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A backup job copies only the data that changed since the most recent backup of any type, resetting the archive marker each time. Backups are fast, but a restore may require the last full backup plus every one of these jobs in order. Which backup type is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Incremental backup"
+        },
+        {
+          "id": "B",
+          "text": "Snapshot"
+        },
+        {
+          "id": "C",
+          "text": "Full backup"
+        },
+        {
+          "id": "D",
+          "text": "Differential backup"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Incremental backups copy only changes since the last backup (full or incremental), so they are small and fast, but restoring requires the last full plus every subsequent incremental in sequence.",
+        "distractors": {
+          "A": "",
+          "B": "A snapshot captures a point-in-time image of a volume/VM; it is not the archive-bit-based incremental scheme described.",
+          "C": "A full backup copies everything every time; it is large and slow, not 'changes since the last backup.'",
+          "D": "A differential copies changes since the last full backup and does not reset the archive marker, so differentials grow and a restore needs only full + last differential."
+        },
+        "exam_pattern": "Incremental = since last backup, small, restore needs full + ALL increments; differential = since last full, restore needs full + LAST diff."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 3 — Backup types (incremental)"
+      ]
+    },
+    {
+      "id": "cloudplus-ops-010",
+      "exam": "cloudplus",
+      "domain": "cloudp_operations",
+      "subtopic": "cloudp_backup_restore",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After an outage, management asks: 'How much data, measured in time, can we afford to lose?' Which metric answers this question?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SLA (Service-Level Agreement)"
+        },
+        {
+          "id": "B",
+          "text": "RTO (Recovery Time Objective)"
+        },
+        {
+          "id": "C",
+          "text": "RPO (Recovery Point Objective)"
+        },
+        {
+          "id": "D",
+          "text": "MTBF (Mean Time Between Failures)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "RPO defines the maximum acceptable amount of data loss expressed as time (e.g., 15 minutes), which dictates how frequently backups/replication must occur.",
+        "distractors": {
+          "A": "An SLA is a service-commitment contract; it is not specifically the data-loss metric.",
+          "B": "RTO is the maximum acceptable time to restore service (downtime), not the amount of data loss.",
+          "C": "",
+          "D": "MTBF estimates average time between failures of a component; it is a reliability metric, not data-loss tolerance."
+        },
+        "exam_pattern": "RPO = how much data (time) you can lose -> backup frequency; RTO = how long to recover."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 3 — Backup/DR (RPO vs RTO)"
+      ]
+    },
+    {
+      "id": "cloudplus-ops-011",
+      "exam": "cloudplus",
+      "domain": "cloudp_operations",
+      "subtopic": "cloudp_backup_restore",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company follows the 3-2-1 backup rule. Which statement correctly describes it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Keep 3 copies of data, on 2 different media types, with 1 copy off-site"
+        },
+        {
+          "id": "B",
+          "text": "Keep 3 backups per day, for 2 weeks, deleting after 1 month"
+        },
+        {
+          "id": "C",
+          "text": "Use 3 providers, 2 regions, and 1 encryption key"
+        },
+        {
+          "id": "D",
+          "text": "Run 3 full, 2 differential, and 1 incremental backup each cycle"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The 3-2-1 rule: maintain at least three copies of data, store them on two different media/storage types, and keep one copy off-site (ideally offline/immutable) to survive site-wide loss.",
+        "distractors": {
+          "A": "",
+          "B": "This invents a retention schedule unrelated to the 3-2-1 rule's copies/media/off-site structure.",
+          "C": "Providers/regions/keys are not what 3-2-1 specifies; it is about copies, media diversity, and off-site.",
+          "D": "Mixing backup-type counts is not the definition of 3-2-1."
+        },
+        "exam_pattern": "3-2-1 = 3 copies, 2 media types, 1 off-site."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 3 — Backup strategy (3-2-1 rule)"
+      ]
+    },
+    {
+      "id": "cloudplus-ops-012",
+      "exam": "cloudplus",
+      "domain": "cloudp_operations",
+      "subtopic": "cloudp_backup_restore",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the term: A point-in-time copy of a volume or virtual machine's state, often used for quick rollback and captured near-instantly by recording block changes, is called a ____ (one word).",
+      "correct": [
+        "snapshot"
+      ],
+      "explanation": {
+        "correct": "A snapshot records the state of a volume/VM at a moment in time, enabling fast rollback. Many implementations are copy-on-write, so snapshots are quick and space-efficient but depend on the source volume.",
+        "distractors": {},
+        "exam_pattern": "Point-in-time, fast-rollback copy of a volume/VM = snapshot (often copy-on-write)."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 3 — Backup (snapshots)"
+      ]
+    },
+    {
+      "id": "cloudplus-ops-013",
+      "exam": "cloudplus",
+      "domain": "cloudp_operations",
+      "subtopic": "cloudp_optimization",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A monthly review finds many instances running at 5-10% CPU with large amounts of idle memory. Which optimization directly addresses this waste?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Scaling out by adding more identical instances"
+        },
+        {
+          "id": "B",
+          "text": "Enabling a CDN for the database"
+        },
+        {
+          "id": "C",
+          "text": "Increasing the backup frequency"
+        },
+        {
+          "id": "D",
+          "text": "Rightsizing the instances to smaller types that match actual usage"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Rightsizing matches instance size to measured utilization; moving chronically underused instances to smaller types cuts cost without harming performance.",
+        "distractors": {
+          "A": "Adding more instances increases cost and capacity — the wrong move for resources already underutilized.",
+          "B": "A CDN caches web content; it does not fix oversized, underused compute instances.",
+          "C": "More frequent backups improve RPO but do nothing about wasted compute capacity.",
+          "D": ""
+        },
+        "exam_pattern": "Underused instances -> rightsize to smaller types to cut cost."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 3 — Optimization (rightsizing)"
+      ]
+    },
+    {
+      "id": "cloudplus-ops-014",
+      "exam": "cloudplus",
+      "domain": "cloudp_operations",
+      "subtopic": "cloudp_optimization",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A workload runs 24/7 and is highly predictable for the next three years. To lower cost versus on-demand pricing, which purchasing option is most appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Spot/preemptible instances for the production database"
+        },
+        {
+          "id": "B",
+          "text": "Reserved capacity (committed-use) for a 1- or 3-year term"
+        },
+        {
+          "id": "C",
+          "text": "On-demand only"
+        },
+        {
+          "id": "D",
+          "text": "Scaling the instance up every night"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Reserved/committed-use pricing offers a significant discount over on-demand in exchange for a 1- or 3-year commitment — ideal for steady, predictable, always-on workloads.",
+        "distractors": {
+          "A": "Spot/preemptible capacity can be reclaimed at short notice, which is risky for an always-on production database.",
+          "B": "",
+          "C": "On-demand is the most expensive option for steady workloads; a commitment would save money here.",
+          "D": "Scaling up nightly does not reduce cost for a constant workload and adds operational complexity."
+        },
+        "exam_pattern": "Steady, predictable, long-term workload -> reserved/committed-use; bursty/fault-tolerant -> spot."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 3 — Optimization (reserved capacity)"
+      ]
+    },
+    {
+      "id": "cloudplus-ops-015",
+      "exam": "cloudplus",
+      "domain": "cloudp_operations",
+      "subtopic": "cloudp_optimization",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A finance team wants to attribute cloud spend to specific projects and departments for showback/chargeback. Which practice most directly enables this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Disabling monitoring to reduce overhead"
+        },
+        {
+          "id": "B",
+          "text": "Using a single shared account with no metadata"
+        },
+        {
+          "id": "C",
+          "text": "Tagging resources with consistent cost-allocation labels"
+        },
+        {
+          "id": "D",
+          "text": "Deleting all snapshots weekly"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Consistent resource tagging (cost-allocation tags) attributes spend to projects, teams, or environments, enabling accurate showback/chargeback and targeted optimization.",
+        "distractors": {
+          "A": "Disabling monitoring removes the visibility needed to manage and optimize cost.",
+          "B": "A single untagged shared account makes cost attribution nearly impossible — the opposite of the goal.",
+          "C": "",
+          "D": "Deleting snapshots may trim some storage cost but does not attribute spend to departments."
+        },
+        "exam_pattern": "Attribute spend to teams/projects = consistent cost-allocation tagging."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 3 — Optimization (tagging/chargeback)"
+      ]
+    },
+    {
+      "id": "cloudplus-ops-016",
+      "exam": "cloudplus",
+      "domain": "cloudp_operations",
+      "subtopic": "cloudp_optimization",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the term: Configuring the platform to automatically add instances during demand spikes and remove them when idle — so you pay only for needed capacity — is known as ____ (one word or hyphenated).",
+      "correct": [
+        "autoscaling",
+        "auto-scaling",
+        "auto scaling"
+      ],
+      "explanation": {
+        "correct": "Auto-scaling adds and removes capacity automatically against demand metrics or schedules, improving both performance (enough capacity under load) and cost (no idle over-provisioning).",
+        "distractors": {},
+        "exam_pattern": "Automatically add/remove capacity to match demand = auto-scaling (cost + performance)."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 3 — Optimization (auto-scaling for cost)"
+      ]
+    },
+    {
+      "id": "cloudplus-sec-001",
+      "exam": "cloudplus",
+      "domain": "cloudp_security",
+      "subtopic": "cloudp_identity_access",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A policy grants each user only the permissions required to do their job and nothing more. Which security principle is being applied?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Security through obscurity"
+        },
+        {
+          "id": "B",
+          "text": "Separation of media"
+        },
+        {
+          "id": "C",
+          "text": "Least privilege"
+        },
+        {
+          "id": "D",
+          "text": "Defense in depth"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Least privilege grants the minimum permissions necessary for a role or task, limiting the damage from compromised or misused accounts.",
+        "distractors": {
+          "A": "Security through obscurity relies on secrecy of design and is not the principle described.",
+          "B": "'Separation of media' is not a standard access-control principle.",
+          "C": "",
+          "D": "Defense in depth layers multiple controls; it is a broader strategy, not specifically minimal permissions."
+        },
+        "exam_pattern": "Minimum permissions needed for the job = least privilege."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 4 — Identity and access (least privilege)"
+      ]
+    },
+    {
+      "id": "cloudplus-sec-002",
+      "exam": "cloudplus",
+      "domain": "cloudp_security",
+      "subtopic": "cloudp_identity_access",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Instead of assigning permissions to each user individually, administrators grant permissions to roles such as 'billing-admin' or 'read-only-auditor' and then assign users to those roles. Which access-control model is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Discretionary access control (DAC)"
+        },
+        {
+          "id": "B",
+          "text": "Role-based access control (RBAC)"
+        },
+        {
+          "id": "C",
+          "text": "Rule-based packet filtering"
+        },
+        {
+          "id": "D",
+          "text": "Mandatory access control (MAC)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "RBAC assigns permissions to roles and then places users into roles, simplifying administration and consistently enforcing least privilege at scale.",
+        "distractors": {
+          "A": "DAC lets resource owners grant access at their discretion; it is not the role-to-permission model described.",
+          "B": "",
+          "C": "Rule-based packet filtering is a firewall concept, not an identity access-control model.",
+          "D": "MAC enforces access via system-wide labels/clearances set by policy, not job-function roles administrators define."
+        },
+        "exam_pattern": "Permissions attached to roles, users placed in roles = RBAC."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 4 — Identity and access (RBAC)"
+      ]
+    },
+    {
+      "id": "cloudplus-sec-003",
+      "exam": "cloudplus",
+      "domain": "cloudp_security",
+      "subtopic": "cloudp_identity_access",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To strengthen sign-in, a provider requires a password plus a one-time code from the user's phone app. Which control is this, and which principle does it embody?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tokenization; it substitutes sensitive data with tokens"
+        },
+        {
+          "id": "B",
+          "text": "Federation; it trusts an external identity provider"
+        },
+        {
+          "id": "C",
+          "text": "Single sign-on; it reduces the number of credentials"
+        },
+        {
+          "id": "D",
+          "text": "Multi-factor authentication; it combines something you know with something you have"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Requiring two different factor types — a password (something you know) plus a phone-generated code (something you have) — is multi-factor authentication, which greatly reduces the risk from stolen passwords.",
+        "distractors": {
+          "A": "Tokenization is a data-protection method, not an authentication-factor scheme.",
+          "B": "Federation establishes trust with an external identity provider; it is not inherently two-factor.",
+          "C": "Single sign-on lets one authentication cover many apps; it is not the use of two factors.",
+          "D": ""
+        },
+        "exam_pattern": "Two different factor types (know/have/are) = MFA."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 4 — Identity and access (MFA)"
+      ]
+    },
+    {
+      "id": "cloudplus-sec-004",
+      "exam": "cloudplus",
+      "domain": "cloudp_security",
+      "subtopic": "cloudp_identity_access",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "A company lets employees authenticate once at the corporate identity provider and then reach many external SaaS apps without re-entering credentials, using SAML/OIDC assertions the apps trust. Which TWO capabilities make this possible? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "RAID mirroring"
+        },
+        {
+          "id": "B",
+          "text": "Single sign-on (SSO)"
+        },
+        {
+          "id": "C",
+          "text": "Federated identity (trust via SAML/OIDC)"
+        },
+        {
+          "id": "D",
+          "text": "Network address translation (NAT)"
+        }
+      ],
+      "correct": [
+        "B",
+        "C"
+      ],
+      "explanation": {
+        "correct": "SSO lets one authentication cover many applications; federated identity extends that trust to external organizations/apps using standards like SAML or OIDC, so they accept the home IdP's assertions.",
+        "distractors": {
+          "A": "RAID mirroring is disk redundancy, unrelated to identity federation.",
+          "B": "",
+          "C": "",
+          "D": "NAT translates network addresses; it has nothing to do with authenticating across apps."
+        },
+        "exam_pattern": "One login across many apps = SSO; trust across orgs via SAML/OIDC = federation."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 4 — Identity and access (SSO/federation)"
+      ]
+    },
+    {
+      "id": "cloudplus-sec-005",
+      "exam": "cloudplus",
+      "domain": "cloudp_security",
+      "subtopic": "cloudp_data_security",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Fill in the acronym: Data in transit between a browser and a web application is most commonly protected by the ____ protocol, the successor to SSL (provide the three-letter acronym).",
+      "correct": [
+        "tls",
+        "transport layer security"
+      ],
+      "explanation": {
+        "correct": "TLS (Transport Layer Security), the successor to SSL, encrypts data in transit between endpoints, providing confidentiality and integrity for network traffic such as HTTPS.",
+        "distractors": {},
+        "exam_pattern": "Encrypt data in transit on the web = TLS (HTTPS); SSL is its deprecated predecessor."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 4 — Data security (encryption in transit/TLS)"
+      ]
+    },
+    {
+      "id": "cloudplus-sec-006",
+      "exam": "cloudplus",
+      "domain": "cloudp_security",
+      "subtopic": "cloudp_data_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A compliance rule requires that stored database files be unreadable if someone steals the physical disks or copies the raw volume. Which control satisfies this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A load balancer"
+        },
+        {
+          "id": "B",
+          "text": "A CDN"
+        },
+        {
+          "id": "C",
+          "text": "Horizontal scaling"
+        },
+        {
+          "id": "D",
+          "text": "Encryption at rest"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Encryption at rest encrypts stored data so that raw disks, volumes, or backup files are unreadable without the keys, protecting against theft of the underlying media.",
+        "distractors": {
+          "A": "A load balancer distributes traffic and has no role in protecting stored data.",
+          "B": "A CDN caches content near users; it does not encrypt the database's stored files.",
+          "C": "Horizontal scaling adds capacity; it does not render stored data unreadable.",
+          "D": ""
+        },
+        "exam_pattern": "Make stored data unreadable without keys = encryption at rest."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 4 — Data security (encryption at rest)"
+      ]
+    },
+    {
+      "id": "cloudplus-sec-007",
+      "exam": "cloudplus",
+      "domain": "cloudp_security",
+      "subtopic": "cloudp_data_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization wants centralized creation, rotation, storage, and access control of its encryption keys, ideally backed by hardware security modules. Which service provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A key management service (KMS)"
+        },
+        {
+          "id": "B",
+          "text": "A WAF"
+        },
+        {
+          "id": "C",
+          "text": "A SIEM"
+        },
+        {
+          "id": "D",
+          "text": "A reverse proxy"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A key management service centrally generates, stores, rotates, and controls access to cryptographic keys — often HSM-backed — so applications encrypt/decrypt without exposing raw key material.",
+        "distractors": {
+          "A": "",
+          "B": "A WAF filters web application attacks; it does not manage encryption keys.",
+          "C": "A SIEM correlates security events; it is not a key-lifecycle manager.",
+          "D": "A reverse proxy forwards client requests to backends; it is not a key management system."
+        },
+        "exam_pattern": "Central key generation/rotation/storage/access, HSM-backed = KMS."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 4 — Data security (key management)"
+      ]
+    },
+    {
+      "id": "cloudplus-sec-008",
+      "exam": "cloudplus",
+      "domain": "cloudp_security",
+      "subtopic": "cloudp_data_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A payment system replaces each credit-card number with a non-sensitive surrogate value that has no mathematical relationship to the original, so the real number is never stored in the application database. Which technique is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Load balancing"
+        },
+        {
+          "id": "B",
+          "text": "Striping"
+        },
+        {
+          "id": "C",
+          "text": "Tokenization"
+        },
+        {
+          "id": "D",
+          "text": "Compression"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Tokenization substitutes sensitive data with a non-sensitive token that maps back to the original only inside a secure token vault, keeping real card data out of the application and reducing compliance scope.",
+        "distractors": {
+          "A": "Load balancing distributes traffic; it is unrelated to protecting card numbers.",
+          "B": "Striping spreads data across disks for performance; it is not a data-protection substitution method.",
+          "C": "",
+          "D": "Compression reduces data size; it does not protect or substitute sensitive values."
+        },
+        "exam_pattern": "Replace a sensitive value with an unrelated surrogate held in a vault = tokenization."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 4 — Data security (tokenization)"
+      ]
+    },
+    {
+      "id": "cloudplus-sec-009",
+      "exam": "cloudplus",
+      "domain": "cloudp_security",
+      "subtopic": "cloudp_network_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A web application is being hit with SQL injection and cross-site scripting attempts. Which control is specifically designed to inspect HTTP requests and block these application-layer attacks?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A load-balancer health check"
+        },
+        {
+          "id": "B",
+          "text": "A network ACL at Layer 3"
+        },
+        {
+          "id": "C",
+          "text": "A NAT gateway"
+        },
+        {
+          "id": "D",
+          "text": "A Web Application Firewall (WAF)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A WAF inspects Layer 7 HTTP/S traffic and blocks application-layer attacks such as SQL injection and XSS using signatures and rules, protecting the app where a network firewall cannot see.",
+        "distractors": {
+          "A": "A health check tests backend availability; it does not inspect request content for attacks.",
+          "B": "A Layer 3 network ACL filters by IP/port and cannot parse HTTP payloads to catch SQL injection or XSS.",
+          "C": "A NAT gateway translates addresses for outbound traffic; it provides no application-layer filtering.",
+          "D": ""
+        },
+        "exam_pattern": "Block SQLi/XSS by inspecting HTTP = WAF (Layer 7)."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 4 — Network security (WAF)"
+      ]
+    },
+    {
+      "id": "cloudplus-sec-010",
+      "exam": "cloudplus",
+      "domain": "cloudp_security",
+      "subtopic": "cloudp_network_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A security model assumes no user or device is trusted by default — even inside the network — and verifies identity and device posture on every request. What is this model called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Perimeter-only (castle-and-moat) security"
+        },
+        {
+          "id": "B",
+          "text": "Open trust"
+        },
+        {
+          "id": "C",
+          "text": "Security through obscurity"
+        },
+        {
+          "id": "D",
+          "text": "Zero trust"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Zero trust removes implicit trust based on network location and continuously authenticates and authorizes every request ('never trust, always verify'), using identity, device posture, and least privilege.",
+        "distractors": {
+          "A": "Castle-and-moat trusts whatever is inside the perimeter — the exact assumption zero trust rejects.",
+          "B": "'Open trust' is not a recognized model and contradicts the scenario.",
+          "C": "Security through obscurity hides design details; it is not the continuous-verification model described.",
+          "D": ""
+        },
+        "exam_pattern": "Never trust, always verify; no implicit trust by location = zero trust."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 4 — Network security (zero trust)"
+      ]
+    },
+    {
+      "id": "cloudplus-sec-011",
+      "exam": "cloudplus",
+      "domain": "cloudp_security",
+      "subtopic": "cloudp_network_security",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In a virtualized data center, an administrator applies fine-grained security policies between individual workloads — even those on the same subnet — so a compromised VM cannot freely talk to its neighbors. What is this called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Network address translation"
+        },
+        {
+          "id": "B",
+          "text": "Micro-segmentation"
+        },
+        {
+          "id": "C",
+          "text": "Perimeter firewalling"
+        },
+        {
+          "id": "D",
+          "text": "Port mirroring"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Micro-segmentation enforces granular, workload-to-workload policies (often identity- or tag-based) inside the data center, limiting east-west/lateral movement even within the same subnet.",
+        "distractors": {
+          "A": "NAT rewrites addresses; it does not enforce per-workload security policy.",
+          "B": "",
+          "C": "A perimeter firewall controls north-south traffic at the edge, not fine-grained traffic between peers on the same subnet.",
+          "D": "Port mirroring copies traffic for monitoring; it does not restrict workload-to-workload communication."
+        },
+        "exam_pattern": "Granular per-workload policy limiting east-west/lateral movement = micro-segmentation."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 4 — Network security (micro-segmentation)"
+      ]
+    },
+    {
+      "id": "cloudplus-sec-012",
+      "exam": "cloudplus",
+      "domain": "cloudp_security",
+      "subtopic": "cloudp_network_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In an IaaS deployment, which construct acts as a stateful virtual firewall attached to instances, allowing only specified inbound/outbound traffic by port, protocol, and source?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A CDN edge node"
+        },
+        {
+          "id": "B",
+          "text": "A security group"
+        },
+        {
+          "id": "C",
+          "text": "A golden image"
+        },
+        {
+          "id": "D",
+          "text": "A snapshot policy"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A security group is a stateful, instance-level virtual firewall that permits only the inbound/outbound traffic you define (by port, protocol, and source/destination); return traffic is automatically allowed.",
+        "distractors": {
+          "A": "A CDN edge node caches content; it is not an instance firewall.",
+          "B": "",
+          "C": "A golden image is a deployment baseline, not a traffic filter.",
+          "D": "A snapshot policy schedules point-in-time backups; it has no traffic-filtering role."
+        },
+        "exam_pattern": "Stateful instance-level virtual firewall by port/protocol/source = security group."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 4 — Network security (security groups/firewalls)"
+      ]
+    },
+    {
+      "id": "cloudplus-sec-013",
+      "exam": "cloudplus",
+      "domain": "cloudp_security",
+      "subtopic": "cloudp_compliance_hardening",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Before deploying servers, a team applies a widely recognized set of prescriptive configuration recommendations to reduce attack surface by disabling unneeded services and enforcing secure settings. Which resource are they most likely following?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A RAID configuration guide"
+        },
+        {
+          "id": "B",
+          "text": "A load-balancing algorithm"
+        },
+        {
+          "id": "C",
+          "text": "An RFC 1918 address plan"
+        },
+        {
+          "id": "D",
+          "text": "CIS Benchmarks"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "CIS Benchmarks are consensus-based, prescriptive hardening guides for operating systems, cloud services, and applications that reduce attack surface via secure baseline settings.",
+        "distractors": {
+          "A": "A RAID guide concerns disk redundancy, not secure configuration baselines.",
+          "B": "A load-balancing algorithm distributes traffic; it is unrelated to OS hardening.",
+          "C": "RFC 1918 defines private IP ranges; it is not a security hardening standard.",
+          "D": ""
+        },
+        "exam_pattern": "Prescriptive secure-configuration baselines to harden systems = CIS Benchmarks."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 4 — Hardening (CIS Benchmarks)"
+      ]
+    },
+    {
+      "id": "cloudplus-sec-014",
+      "exam": "cloudplus",
+      "domain": "cloudp_security",
+      "subtopic": "cloudp_compliance_hardening",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A team regularly scans its cloud systems for known weaknesses, ranks the findings by severity (e.g., CVSS), and schedules remediation. This ongoing cycle is best described as:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tokenization"
+        },
+        {
+          "id": "B",
+          "text": "Vulnerability management"
+        },
+        {
+          "id": "C",
+          "text": "Penetration testing"
+        },
+        {
+          "id": "D",
+          "text": "Load testing"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Vulnerability management is the continuous cycle of discovering, assessing/prioritizing (often by CVSS), remediating, and verifying weaknesses across systems.",
+        "distractors": {
+          "A": "Tokenization protects sensitive data; it is not vulnerability discovery and remediation.",
+          "B": "",
+          "C": "Penetration testing is a point-in-time simulated attack, not the continuous scan-prioritize-remediate cycle.",
+          "D": "Load testing measures performance under load, not security weaknesses."
+        },
+        "exam_pattern": "Continuous scan -> prioritize (CVSS) -> remediate -> verify = vulnerability management."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 4 — Compliance/hardening (vulnerability management)"
+      ]
+    },
+    {
+      "id": "cloudplus-sec-015",
+      "exam": "cloudplus",
+      "domain": "cloudp_security",
+      "subtopic": "cloudp_compliance_hardening",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An auditor asks a company to prove that its payment-processing environment meets an external standard that governs the handling of cardholder data. Which standard is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "NTP"
+        },
+        {
+          "id": "B",
+          "text": "TLS 1.3"
+        },
+        {
+          "id": "C",
+          "text": "PCI DSS"
+        },
+        {
+          "id": "D",
+          "text": "RAID 6"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "PCI DSS (Payment Card Industry Data Security Standard) prescribes controls for organizations that store, process, or transmit cardholder data; compliance is demonstrated through assessments and evidence.",
+        "distractors": {
+          "A": "NTP is a time-synchronization protocol, not a compliance framework.",
+          "B": "TLS 1.3 is an encryption protocol that may help meet a standard but is not itself the cardholder-data standard.",
+          "C": "",
+          "D": "RAID 6 is a disk-redundancy level, not a compliance standard for card data."
+        },
+        "exam_pattern": "Cardholder-data handling standard = PCI DSS; map the regulation/standard to the data it governs."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 4 — Compliance (standards/regulations)"
+      ]
+    },
+    {
+      "id": "cloudplus-sec-016",
+      "exam": "cloudplus",
+      "domain": "cloudp_security",
+      "subtopic": "cloudp_compliance_hardening",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the term: The process of reducing a system's attack surface by removing unnecessary services, closing unused ports, applying secure settings, and patching is called system ____ (one word).",
+      "correct": [
+        "hardening",
+        "system hardening"
+      ],
+      "explanation": {
+        "correct": "Hardening reduces attack surface by disabling or removing unneeded components, enforcing secure configuration baselines, closing unused ports, and keeping systems patched.",
+        "distractors": {},
+        "exam_pattern": "Shrink attack surface via secure baselines/removing unneeded services = hardening."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 4 — Hardening"
+      ]
+    },
+    {
+      "id": "cloudplus-ts-001",
+      "exam": "cloudplus",
+      "domain": "cloudp_troubleshooting",
+      "subtopic": "cloudp_ts_methodology",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "According to the CompTIA troubleshooting methodology, what is the FIRST step when a cloud issue is reported?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Establish a plan of action"
+        },
+        {
+          "id": "B",
+          "text": "Identify the problem (gather information; duplicate it if possible)"
+        },
+        {
+          "id": "C",
+          "text": "Verify full system functionality"
+        },
+        {
+          "id": "D",
+          "text": "Document findings and outcomes"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The methodology begins with Identify the problem — gather information, question users, identify symptoms, and determine whether anything changed — before theorizing a cause.",
+        "distractors": {
+          "A": "Establishing a plan of action comes after you have tested and confirmed the cause, not first.",
+          "B": "",
+          "C": "Verifying full functionality is near the end, after implementing the solution.",
+          "D": "Documenting findings is the final step, not the first."
+        },
+        "exam_pattern": "Order: Identify -> theorize cause -> test theory -> plan -> implement -> verify -> document."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 6 — Troubleshooting methodology"
+      ]
+    },
+    {
+      "id": "cloudplus-ts-002",
+      "exam": "cloudplus",
+      "domain": "cloudp_troubleshooting",
+      "subtopic": "cloudp_ts_methodology",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A technician has gathered symptoms and formed a theory that a misconfigured security group is blocking traffic. According to the methodology, what should they do NEXT?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Establish a plan of action before any testing"
+        },
+        {
+          "id": "B",
+          "text": "Document the outcome and close the ticket"
+        },
+        {
+          "id": "C",
+          "text": "Test the theory to determine the cause"
+        },
+        {
+          "id": "D",
+          "text": "Implement preventive measures"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "After establishing a theory of probable cause, the next step is to test the theory to confirm or reject the cause; if confirmed, you proceed to plan the fix.",
+        "distractors": {
+          "A": "You establish a plan of action only after the theory is tested and confirmed.",
+          "B": "Documentation is the last step, not immediately after forming a theory.",
+          "C": "",
+          "D": "Preventive measures come during verification after the fix, not right after theorizing."
+        },
+        "exam_pattern": "Theory -> TEST the theory next; if unconfirmed, form a new theory or escalate."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 6 — Troubleshooting methodology"
+      ]
+    },
+    {
+      "id": "cloudplus-ts-003",
+      "exam": "cloudplus",
+      "domain": "cloudp_troubleshooting",
+      "subtopic": "cloudp_ts_methodology",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After successfully fixing a cloud outage and verifying functionality, a methodology-driven technician's final step is to:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Escalate to the vendor"
+        },
+        {
+          "id": "B",
+          "text": "Establish a new theory of probable cause"
+        },
+        {
+          "id": "C",
+          "text": "Document findings, actions, and outcomes"
+        },
+        {
+          "id": "D",
+          "text": "Duplicate the problem again"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The last step is to document the findings, actions, and outcomes, creating a record that speeds future troubleshooting and knowledge sharing.",
+        "distractors": {
+          "A": "Escalation happens when you cannot resolve it yourself, not as the final step after a successful fix.",
+          "B": "Forming a theory is an early step, not what you do after the issue is resolved and verified.",
+          "C": "",
+          "D": "Duplicating the problem is part of identifying it early on, not the closing step."
+        },
+        "exam_pattern": "Always finish by documenting findings, actions, and outcomes."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 6 — Troubleshooting methodology"
+      ]
+    },
+    {
+      "id": "cloudplus-ts-004",
+      "exam": "cloudplus",
+      "domain": "cloudp_troubleshooting",
+      "subtopic": "cloudp_ts_methodology",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the term: When a problem is beyond a technician's authority, access, or expertise to resolve, the appropriate methodology action is to ____ the issue to a higher tier or the provider (one word).",
+      "correct": [
+        "escalate",
+        "escalation"
+      ],
+      "explanation": {
+        "correct": "Escalation moves an issue to a higher support tier, another team, or the cloud provider when it exceeds the current responder's access, authority, or expertise, so it still gets resolved.",
+        "distractors": {},
+        "exam_pattern": "Beyond your access/expertise -> escalate (don't stall)."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 6 — Troubleshooting methodology (escalation)"
+      ]
+    },
+    {
+      "id": "cloudplus-ts-005",
+      "exam": "cloudplus",
+      "domain": "cloudp_troubleshooting",
+      "subtopic": "cloudp_ts_deployment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An automated deployment suddenly fails with 'LimitExceeded' when launching the 21st instance, though the identical template worked before. What is the most likely cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The object-storage bucket is in the wrong region"
+        },
+        {
+          "id": "B",
+          "text": "TLS 1.2 is disabled"
+        },
+        {
+          "id": "C",
+          "text": "An account service quota/limit has been reached"
+        },
+        {
+          "id": "D",
+          "text": "The CPU of each instance is too small"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Cloud accounts enforce service quotas/limits (e.g., max instances per region). Hitting one causes 'LimitExceeded' errors; the fix is to request a quota increase or free up/relocate resources.",
+        "distractors": {
+          "A": "A misplaced storage bucket would cause access/region errors, not an instance-count limit error.",
+          "B": "Disabled TLS 1.2 would cause connection/security errors, not a provisioning quota error.",
+          "C": "",
+          "D": "Instance CPU size does not cause a 'LimitExceeded' error on the 21st launch; it would affect performance, not provisioning count."
+        },
+        "exam_pattern": "'LimitExceeded' on the Nth resource = service quota/limit; request an increase."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 6 — Deployment issues (quotas/limits)"
+      ]
+    },
+    {
+      "id": "cloudplus-ts-006",
+      "exam": "cloudplus",
+      "domain": "cloudp_troubleshooting",
+      "subtopic": "cloudp_ts_deployment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IaC template deployment fails immediately with a parsing error pointing to a specific line before any resources are created. What should the technician check first?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The template's syntax/formatting (e.g., malformed JSON/YAML)"
+        },
+        {
+          "id": "B",
+          "text": "The user's monitor resolution"
+        },
+        {
+          "id": "C",
+          "text": "The data center's physical power"
+        },
+        {
+          "id": "D",
+          "text": "The RAID battery backup"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A parsing error before any resource is created indicates a syntax/format problem in the template (malformed JSON/YAML, wrong indentation, or an invalid property); validate and lint the template.",
+        "distractors": {
+          "A": "",
+          "B": "Monitor resolution has nothing to do with template validation failures.",
+          "C": "Physical power issues would not produce a template parsing error at a specific line.",
+          "D": "A RAID battery is a storage-hardware concern, unrelated to template parsing."
+        },
+        "exam_pattern": "Parse/validation error before resources created = fix template syntax (JSON/YAML)."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 6 — Deployment issues (templates)"
+      ]
+    },
+    {
+      "id": "cloudplus-ts-007",
+      "exam": "cloudplus",
+      "domain": "cloudp_troubleshooting",
+      "subtopic": "cloudp_ts_deployment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "New instances launch successfully but all come up with an outdated application version and missing patches. The most likely culprit is:",
+      "options": [
+        {
+          "id": "A",
+          "text": "The load-balancer algorithm"
+        },
+        {
+          "id": "B",
+          "text": "A stale golden image that needs to be rebuilt/re-baked"
+        },
+        {
+          "id": "C",
+          "text": "An expired TLS certificate"
+        },
+        {
+          "id": "D",
+          "text": "The DNS TTL being too high"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "If every new instance is outdated identically, the base/golden image is stale; re-bake it with current patches and the latest application build so new instances start current.",
+        "distractors": {
+          "A": "A load-balancing algorithm affects traffic distribution, not the software version baked into instances.",
+          "B": "",
+          "C": "An expired certificate causes TLS errors, not an outdated application build on every new instance.",
+          "D": "A high DNS TTL delays record changes; it does not install outdated software on new instances."
+        },
+        "exam_pattern": "Every new instance identically outdated = stale image; re-bake the golden image."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 6 — Deployment issues (images)"
+      ]
+    },
+    {
+      "id": "cloudplus-ts-008",
+      "exam": "cloudplus",
+      "domain": "cloudp_troubleshooting",
+      "subtopic": "cloudp_ts_deployment",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "A deployment to a new region fails to create resources. Which TWO are plausible deployment-stage causes to investigate? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Insufficient quota/limits for the new region's resources"
+        },
+        {
+          "id": "B",
+          "text": "The company logo image is too large"
+        },
+        {
+          "id": "C",
+          "text": "A requested instance type or service is not available in that region"
+        },
+        {
+          "id": "D",
+          "text": "The end user chose a dark-mode theme in the console"
+        }
+      ],
+      "correct": [
+        "A",
+        "C"
+      ],
+      "explanation": {
+        "correct": "Region-specific failures commonly stem from a service/instance type not offered in that region, or from fresh regional quotas/limits that must be raised before resources can be created.",
+        "distractors": {
+          "A": "",
+          "B": "A logo image's size is irrelevant to deploying infrastructure resources.",
+          "C": "",
+          "D": "A console theme choice has no effect on resource creation."
+        },
+        "exam_pattern": "New-region deploy fails -> check regional service availability and regional quotas."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 6 — Deployment issues (capacity/region/quota)"
+      ]
+    },
+    {
+      "id": "cloudplus-ts-009",
+      "exam": "cloudplus",
+      "domain": "cloudp_troubleshooting",
+      "subtopic": "cloudp_ts_connectivity",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Users can reach a server by its IP address but not by its hostname. Which subsystem is the most likely cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DNS name resolution"
+        },
+        {
+          "id": "B",
+          "text": "RAID array"
+        },
+        {
+          "id": "C",
+          "text": "Disk IOPS"
+        },
+        {
+          "id": "D",
+          "text": "Load-balancer stickiness"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Reachable by IP but not by name points to DNS: a missing/incorrect record, the wrong resolver, or propagation delay is preventing hostname-to-IP resolution.",
+        "distractors": {
+          "A": "",
+          "B": "A RAID array is about disk redundancy; it does not resolve hostnames.",
+          "C": "Disk IOPS is a storage-performance metric, unrelated to DNS resolution.",
+          "D": "Load-balancer stickiness affects session persistence, not name resolution."
+        },
+        "exam_pattern": "Works by IP, fails by name = DNS problem."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 6 — Connectivity (DNS)"
+      ]
+    },
+    {
+      "id": "cloudplus-ts-010",
+      "exam": "cloudplus",
+      "domain": "cloudp_troubleshooting",
+      "subtopic": "cloudp_ts_connectivity",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Two healthy instances in different subnets cannot communicate; packets are silently dropped. In cloud networking, what is the most likely first suspect to check?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The object-storage lifecycle policy"
+        },
+        {
+          "id": "B",
+          "text": "Security group / network ACL rules and the route table"
+        },
+        {
+          "id": "C",
+          "text": "The instances' CPU governor settings"
+        },
+        {
+          "id": "D",
+          "text": "The TLS cipher-suite list"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Silently blocked traffic between subnets is most often a security group/NACL denying the port/protocol or a missing/incorrect route in the route table; verify the allow rules and routes first.",
+        "distractors": {
+          "A": "An object-storage lifecycle policy manages data retention, not inter-subnet connectivity.",
+          "B": "",
+          "C": "CPU governor settings affect performance, not whether packets are permitted between subnets.",
+          "D": "TLS cipher suites affect encrypted session negotiation, not basic subnet reachability."
+        },
+        "exam_pattern": "No traffic between subnets -> check security groups/NACLs and route tables first."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 6 — Connectivity (firewall/routing)"
+      ]
+    },
+    {
+      "id": "cloudplus-ts-011",
+      "exam": "cloudplus",
+      "domain": "cloudp_troubleshooting",
+      "subtopic": "cloudp_ts_connectivity",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A VPN tunnel is up and small pings succeed, but large data transfers hang or fail intermittently across it. Which issue is the classic cause?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A missing cost-allocation tag"
+        },
+        {
+          "id": "B",
+          "text": "An MTU/fragmentation mismatch (often needing MSS clamping)"
+        },
+        {
+          "id": "C",
+          "text": "A stale golden image"
+        },
+        {
+          "id": "D",
+          "text": "An expired IAM access key"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Small packets passing while large transfers stall over a tunnel is the hallmark of an MTU/fragmentation problem: encapsulation overhead lowers the effective MTU, so oversized packets with 'don't fragment' set are dropped. Lowering MTU or clamping MSS resolves it.",
+        "distractors": {
+          "A": "A missing tag affects cost reporting, not connectivity.",
+          "B": "",
+          "C": "A stale image affects software versions on instances, not packet-size behavior on a tunnel.",
+          "D": "An expired access key causes authentication failures, not size-dependent packet loss."
+        },
+        "exam_pattern": "Small packets OK, large ones fail over a tunnel = MTU/fragmentation; fix MTU or clamp MSS."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 6 — Connectivity (MTU/latency)"
+      ]
+    },
+    {
+      "id": "cloudplus-ts-012",
+      "exam": "cloudplus",
+      "domain": "cloudp_troubleshooting",
+      "subtopic": "cloudp_ts_connectivity",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the term: The time delay for a packet to travel from source to destination, which users experience as lag and which increases with physical distance between regions, is called ____ (one word).",
+      "correct": [
+        "latency"
+      ],
+      "explanation": {
+        "correct": "Latency is the time delay for data to traverse the network path; it grows with distance/hops and, when high, degrades interactive and chatty workloads. Placing resources closer to users (or using a CDN) reduces it.",
+        "distractors": {},
+        "exam_pattern": "Network delay experienced as lag, rising with distance = latency (reduce via proximity/CDN)."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 6 — Connectivity (latency)"
+      ]
+    },
+    {
+      "id": "cloudplus-ts-013",
+      "exam": "cloudplus",
+      "domain": "cloudp_troubleshooting",
+      "subtopic": "cloudp_ts_performance",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A database server's storage shows sustained 100% disk utilization with a long I/O queue, while CPU and memory are moderate. Which resource is the bottleneck?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Memory"
+        },
+        {
+          "id": "B",
+          "text": "Storage I/O (IOPS/throughput)"
+        },
+        {
+          "id": "C",
+          "text": "DNS"
+        },
+        {
+          "id": "D",
+          "text": "CPU"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Saturated disk utilization with a growing I/O queue indicates a storage I/O (IOPS/throughput) bottleneck; remedies include faster disk tiers, more provisioned IOPS, caching, or spreading I/O.",
+        "distractors": {
+          "A": "Memory is moderate, so paging/exhaustion is not the indicated bottleneck.",
+          "B": "",
+          "C": "DNS is a name-resolution service, not a disk-throughput constraint.",
+          "D": "CPU is reported as moderate, so processing is not the constraint here."
+        },
+        "exam_pattern": "Disk at 100% with I/O queue = storage IOPS/throughput bottleneck."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 6 — Performance (IOPS/throughput)"
+      ]
+    },
+    {
+      "id": "cloudplus-ts-014",
+      "exam": "cloudplus",
+      "domain": "cloudp_troubleshooting",
+      "subtopic": "cloudp_ts_performance",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An application server becomes sluggish and the OS begins heavily swapping to disk; available RAM is near zero while CPU is not maxed. Which resource is constrained?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DNS resolution"
+        },
+        {
+          "id": "B",
+          "text": "Memory (RAM)"
+        },
+        {
+          "id": "C",
+          "text": "Disk capacity (free space)"
+        },
+        {
+          "id": "D",
+          "text": "Network bandwidth"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Near-zero free RAM with heavy swapping is a memory bottleneck; the system pages to disk, hurting performance. Fixes include adding memory (vertical scale), tuning the app, or scaling out.",
+        "distractors": {
+          "A": "DNS-resolution issues cause name lookups to fail, not memory swapping.",
+          "B": "",
+          "C": "Low free disk space causes write failures, not the paging/swapping signature of memory pressure.",
+          "D": "Network-bandwidth saturation would show as network-throughput limits, not swapping."
+        },
+        "exam_pattern": "Low free RAM + heavy swapping = memory bottleneck."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 6 — Performance (memory)"
+      ]
+    },
+    {
+      "id": "cloudplus-ts-015",
+      "exam": "cloudplus",
+      "domain": "cloudp_troubleshooting",
+      "subtopic": "cloudp_ts_performance",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "During peak load, a compute-heavy service shows sustained 100% CPU utilization and rising request latency, while memory and disk are fine. Which remediation most directly addresses the bottleneck?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Enable object-storage versioning"
+        },
+        {
+          "id": "B",
+          "text": "Scale the compute (out by adding instances, or up to a larger CPU)"
+        },
+        {
+          "id": "C",
+          "text": "Increase the DNS TTL"
+        },
+        {
+          "id": "D",
+          "text": "Rotate the TLS certificate"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Sustained 100% CPU with latency growth is a compute bottleneck; adding instances (scale out) behind a load balancer or moving to a larger CPU size (scale up) relieves it.",
+        "distractors": {
+          "A": "Object-storage versioning protects data; it does not reduce CPU load.",
+          "B": "",
+          "C": "DNS TTL affects record caching, not CPU saturation.",
+          "D": "Rotating a certificate addresses TLS trust, not CPU exhaustion."
+        },
+        "exam_pattern": "Sustained 100% CPU + latency = compute bottleneck -> scale out/up."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 6 — Performance (CPU)"
+      ]
+    },
+    {
+      "id": "cloudplus-ts-016",
+      "exam": "cloudplus",
+      "domain": "cloudp_troubleshooting",
+      "subtopic": "cloudp_ts_performance",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "A monitoring dashboard is key to diagnosing performance issues. Which TWO metrics most directly identify a storage-throughput bottleneck? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "TLS handshake cipher"
+        },
+        {
+          "id": "B",
+          "text": "IOPS (I/O operations per second)"
+        },
+        {
+          "id": "C",
+          "text": "Disk throughput (MB/s) and I/O queue depth"
+        },
+        {
+          "id": "D",
+          "text": "DNS query response code"
+        }
+      ],
+      "correct": [
+        "B",
+        "C"
+      ],
+      "explanation": {
+        "correct": "IOPS and disk throughput (with I/O queue depth) directly reveal storage-performance limits; when they plateau at the volume's maximum while the queue grows, storage is the bottleneck.",
+        "distractors": {
+          "A": "A TLS cipher reflects an encryption negotiation, not disk performance.",
+          "B": "",
+          "C": "",
+          "D": "A DNS response code reflects name-resolution success, not storage throughput."
+        },
+        "exam_pattern": "Diagnose storage limits with IOPS, throughput (MB/s), and queue depth."
+      },
+      "references": [
+        "CompTIA Cloud+ CV0-004 Objectives: Domain 6 — Performance (storage metrics)"
+      ]
+    }
+  ]
+}

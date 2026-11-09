@@ -1,0 +1,2932 @@
+{
+  "exam": "ms900",
+  "count": 72,
+  "questions": [
+    {
+      "id": "ms900-apps-001",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_productivity_apps",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A company wants cloud-hosted business email, calendars, and contacts for all employees, managed as part of Microsoft 365 with no on-premises mail server. Which service provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Exchange Online"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft Forms"
+        },
+        {
+          "id": "C",
+          "text": "SharePoint Online"
+        },
+        {
+          "id": "D",
+          "text": "OneDrive"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Exchange Online is the cloud-hosted email, calendar, and contacts (mailbox) service in Microsoft 365, removing the need for an on-premises Exchange server.",
+        "distractors": {
+          "A": "",
+          "B": "Microsoft Forms creates surveys and quizzes, not email.",
+          "C": "SharePoint Online hosts sites and document libraries, not mailboxes.",
+          "D": "OneDrive provides personal file storage, not email/calendar."
+        },
+        "exam_pattern": "Cloud email/calendar/contacts in Microsoft 365 = Exchange Online."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Exchange Online"
+      ]
+    },
+    {
+      "id": "ms900-apps-002",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_productivity_apps",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A department needs a shared intranet site with team pages, news, and document libraries where many colleagues store and co-manage files together. Which Microsoft 365 service is designed for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Outlook"
+        },
+        {
+          "id": "B",
+          "text": "Exchange Online"
+        },
+        {
+          "id": "C",
+          "text": "SharePoint Online"
+        },
+        {
+          "id": "D",
+          "text": "Microsoft Bookings"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "SharePoint Online provides team sites, intranet portals, news, and shared document libraries for group collaboration and content management.",
+        "distractors": {
+          "A": "Outlook is an email and calendar client, not an intranet/site platform.",
+          "B": "Exchange Online provides mailboxes, not collaborative sites and libraries.",
+          "C": "",
+          "D": "Microsoft Bookings schedules appointments, not intranet sites."
+        },
+        "exam_pattern": "Intranet, team sites, and shared document libraries = SharePoint Online."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): SharePoint Online"
+      ]
+    },
+    {
+      "id": "ms900-apps-003",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_productivity_apps",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Each employee needs personal cloud storage to save work files, sync them across their laptop and phone, and share individual documents with specific people. Which service fits best?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft OneDrive"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft Forms"
+        },
+        {
+          "id": "C",
+          "text": "A SharePoint communication site"
+        },
+        {
+          "id": "D",
+          "text": "Exchange Online"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "OneDrive (for work or school) gives each user personal cloud file storage that syncs across devices and allows sharing specific files, tied to their Microsoft 365 account.",
+        "distractors": {
+          "A": "",
+          "B": "Microsoft Forms collects survey and quiz responses, not files.",
+          "C": "A SharePoint communication site is for broad team/organization content, not an individual's personal storage.",
+          "D": "Exchange Online handles email, not personal file storage and sync."
+        },
+        "exam_pattern": "Personal, per-user cloud file storage and sync = OneDrive; shared team libraries = SharePoint."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): OneDrive"
+      ]
+    },
+    {
+      "id": "ms900-apps-004",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_productivity_apps",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An HR team wants to send employees a quick online survey and an auto-graded training quiz, then view response charts. Which Microsoft 365 app is purpose-built for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft Bookings"
+        },
+        {
+          "id": "B",
+          "text": "OneDrive"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Forms"
+        },
+        {
+          "id": "D",
+          "text": "SharePoint Online"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Microsoft Forms lets users create surveys, quizzes, and polls, collect responses, and view real-time results and charts, with automatic grading for quizzes.",
+        "distractors": {
+          "A": "Microsoft Bookings manages appointment scheduling, not surveys or quizzes.",
+          "B": "OneDrive stores files; it does not create surveys or quizzes.",
+          "C": "",
+          "D": "SharePoint hosts sites and content; it is not a dedicated survey/quiz app with auto-grading."
+        },
+        "exam_pattern": "Surveys, quizzes, and polls = Microsoft Forms."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft Forms"
+      ]
+    },
+    {
+      "id": "ms900-apps-005",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_productivity_apps",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A clinic wants customers to self-schedule appointments online, choosing a staff member and time slot, with automatic confirmations and calendar updates. Which Microsoft 365 service provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft Forms"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft Bookings"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Teams"
+        },
+        {
+          "id": "D",
+          "text": "OneDrive"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Microsoft Bookings provides online appointment scheduling - a customer-facing booking page, staff calendars, and automatic confirmations and reminders.",
+        "distractors": {
+          "A": "Microsoft Forms collects survey and quiz responses, not appointment bookings.",
+          "B": "",
+          "C": "Teams is for chat, meetings, and calling, not a customer self-scheduling booking page.",
+          "D": "OneDrive is personal file storage, unrelated to scheduling."
+        },
+        "exam_pattern": "Customer self-service appointment scheduling = Microsoft Bookings."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft Bookings"
+      ]
+    },
+    {
+      "id": "ms900-apps-006",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_productivity_apps",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Which Microsoft 365 service hosts users' mailboxes - email, calendar, and contacts - in the cloud, replacing an on-premises mail server? Enter the service name.",
+      "correct": [
+        "exchange online",
+        "exchange"
+      ],
+      "explanation": {
+        "correct": "Exchange Online is the cloud mailbox service (email, calendar, contacts) in Microsoft 365.",
+        "distractors": {},
+        "exam_pattern": "Cloud mailboxes in Microsoft 365 = Exchange Online."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Exchange Online"
+      ]
+    },
+    {
+      "id": "ms900-apps-007",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_teams_collaboration",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Employees want a single app that combines persistent chat, online meetings with video, calling, and shared workspaces organized by project. Which Microsoft 365 service is this hub for teamwork?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft Teams"
+        },
+        {
+          "id": "B",
+          "text": "OneDrive"
+        },
+        {
+          "id": "C",
+          "text": "SharePoint Online"
+        },
+        {
+          "id": "D",
+          "text": "Outlook"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Microsoft Teams is the hub for teamwork in Microsoft 365, bringing together chat, meetings, calling, and collaboration in teams and channels within one app.",
+        "distractors": {
+          "A": "",
+          "B": "OneDrive is personal file storage, not a teamwork hub.",
+          "C": "SharePoint provides sites and libraries that Teams builds on, but is not the chat and meeting app.",
+          "D": "Outlook handles email and calendar but is not the chat/meetings/channels hub."
+        },
+        "exam_pattern": "Chat + meetings + calling + channels in one app = Microsoft Teams."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft Teams"
+      ]
+    },
+    {
+      "id": "ms900-apps-008",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_teams_collaboration",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Several colleagues open the same Word document stored in the cloud and edit it at the same time, each seeing the others' changes live. What is this capability called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mail merge"
+        },
+        {
+          "id": "B",
+          "text": "Data loss prevention"
+        },
+        {
+          "id": "C",
+          "text": "Device enrollment"
+        },
+        {
+          "id": "D",
+          "text": "Co-authoring"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Co-authoring lets multiple people edit the same document simultaneously in real time, with changes visible to all; it works when files are stored in OneDrive or SharePoint.",
+        "distractors": {
+          "A": "Mail merge generates personalized documents from a data source, not simultaneous editing.",
+          "B": "Data loss prevention blocks oversharing of sensitive data; it is not a collaboration feature.",
+          "C": "Device enrollment registers devices for management (Intune), unrelated to document editing.",
+          "D": ""
+        },
+        "exam_pattern": "Multiple people editing one cloud document at once in real time = co-authoring."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Collaboration and co-authoring"
+      ]
+    },
+    {
+      "id": "ms900-apps-009",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_teams_collaboration",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization's older documentation still references 'Skype for Business' for internal meetings and instant messaging. Which current Microsoft 365 service is its replacement for meetings, chat, and calling?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Exchange Online"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft Viva"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Teams"
+        },
+        {
+          "id": "D",
+          "text": "Microsoft Bookings"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Skype for Business has been retired; Microsoft Teams is its successor for chat, meetings, and calling in Microsoft 365.",
+        "distractors": {
+          "A": "Exchange Online is email and calendaring, not meetings and instant messaging.",
+          "B": "Microsoft Viva is an employee experience platform, not a meetings/chat replacement.",
+          "C": "",
+          "D": "Microsoft Bookings is appointment scheduling, unrelated to instant messaging and meetings."
+        },
+        "exam_pattern": "Skype for Business is retired; Microsoft Teams replaced it."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft Teams (Skype for Business retirement)"
+      ]
+    },
+    {
+      "id": "ms900-apps-010",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_teams_collaboration",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company wants users to make and receive regular phone calls to external phone numbers directly inside Microsoft Teams. Which capability enables this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Safe Links"
+        },
+        {
+          "id": "B",
+          "text": "OneDrive sync"
+        },
+        {
+          "id": "C",
+          "text": "Teams Phone (with a calling plan)"
+        },
+        {
+          "id": "D",
+          "text": "Sensitivity labels"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Teams Phone adds cloud-based telephony to Teams, so users can place and receive calls to the public telephone network (PSTN) when paired with a calling plan or equivalent connectivity.",
+        "distractors": {
+          "A": "Safe Links is an email/URL protection feature in Defender for Office 365, not telephony.",
+          "B": "OneDrive sync keeps files current across devices, not phone calling.",
+          "C": "",
+          "D": "Sensitivity labels classify and protect content, unrelated to phone calling."
+        },
+        "exam_pattern": "PSTN calling inside Teams = Teams Phone."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft Teams Phone"
+      ]
+    },
+    {
+      "id": "ms900-apps-011",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_teams_collaboration",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Within a team in Microsoft Teams, members want separate, persistent spaces to organize conversations, files, and apps by topic - for example 'Marketing', 'Budget', and 'Events'. What are these spaces called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Licenses"
+        },
+        {
+          "id": "B",
+          "text": "Tenants"
+        },
+        {
+          "id": "C",
+          "text": "Sensitivity labels"
+        },
+        {
+          "id": "D",
+          "text": "Channels"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Channels are dedicated sections within a team that keep conversations, files, and apps organized by topic, project, or department.",
+        "distractors": {
+          "A": "A license grants a user access to services; it is not a workspace within a team.",
+          "B": "A tenant is the organization's entire Microsoft 365 instance, not a topic space inside a team.",
+          "C": "Sensitivity labels classify and protect content; they are not Teams conversation spaces.",
+          "D": ""
+        },
+        "exam_pattern": "Topic-based, persistent sections inside a team = channels."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Teams channels"
+      ]
+    },
+    {
+      "id": "ms900-apps-012",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_endpoint_intune",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An IT admin needs a cloud service to enroll, configure, and secure laptops and phones, deploy apps, and enforce compliance policies across the organization. Which Microsoft service provides this endpoint management?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft Forms"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft Bookings"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Intune"
+        },
+        {
+          "id": "D",
+          "text": "Exchange Online"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Microsoft Intune is the cloud-based endpoint management service for mobile device management (MDM) and mobile application management (MAM), used to enroll, configure, secure, and monitor devices and apps.",
+        "distractors": {
+          "A": "Microsoft Forms creates surveys and quizzes, unrelated to endpoint management.",
+          "B": "Microsoft Bookings schedules appointments, not devices.",
+          "C": "",
+          "D": "Exchange Online provides mailboxes, not device management."
+        },
+        "exam_pattern": "Cloud device and app management (MDM/MAM) = Microsoft Intune."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft Intune"
+      ]
+    },
+    {
+      "id": "ms900-apps-013",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_endpoint_intune",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On corporate-owned phones, IT wants to manage the entire enrolled device - its settings, compliance state, and the ability to wipe the whole device remotely. Which management approach is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Click-to-Run"
+        },
+        {
+          "id": "B",
+          "text": "Mobile application management (MAM)"
+        },
+        {
+          "id": "C",
+          "text": "Mobile device management (MDM)"
+        },
+        {
+          "id": "D",
+          "text": "Co-authoring"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Mobile device management (MDM) enrolls and manages the entire device, enforcing settings and compliance and allowing a full device wipe - appropriate for corporate-owned devices.",
+        "distractors": {
+          "A": "Click-to-Run is an Office installation technology, not a device-management approach.",
+          "B": "MAM manages only specific apps and their data (well suited to BYOD), not the whole device.",
+          "C": "",
+          "D": "Co-authoring is real-time document collaboration, unrelated to device management."
+        },
+        "exam_pattern": "Manage the whole enrolled device = MDM; manage just the app and its data = MAM."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Intune MDM vs MAM"
+      ]
+    },
+    {
+      "id": "ms900-apps-014",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_endpoint_intune",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Employees use personal phones for work (BYOD). IT wants to protect and, if needed, remove only the company data in work apps, without touching the user's personal photos and apps. Which approach fits best?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Disabling the user's Microsoft 365 license"
+        },
+        {
+          "id": "B",
+          "text": "Mobile application management (MAM) with app protection policies"
+        },
+        {
+          "id": "C",
+          "text": "A full device wipe via MDM enrollment"
+        },
+        {
+          "id": "D",
+          "text": "Installing Office LTSC"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Mobile application management (MAM) with app protection policies secures corporate data inside managed apps and supports a selective wipe of only company data, making it ideal for personal (BYOD) devices.",
+        "distractors": {
+          "A": "Removing a license blocks service access but does not selectively protect or wipe app data on the device.",
+          "B": "",
+          "C": "A full device wipe would also erase the user's personal data, which BYOD aims to avoid.",
+          "D": "Office LTSC is a perpetual Office edition, unrelated to protecting mobile app data."
+        },
+        "exam_pattern": "Protect and selectively wipe only company data on personal devices = MAM app protection policies."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Intune app protection (MAM)"
+      ]
+    },
+    {
+      "id": "ms900-apps-015",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_endpoint_intune",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company wants to give each user a personal, persistent Windows desktop in the cloud that they can stream to any device, with simple, fixed per-user monthly pricing. Which service provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SharePoint Online"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft Forms"
+        },
+        {
+          "id": "C",
+          "text": "Windows 365 (Cloud PC)"
+        },
+        {
+          "id": "D",
+          "text": "Microsoft Intune"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Windows 365 delivers a Cloud PC - a personal, persistent Windows desktop hosted in the cloud and streamed to any device - with simple, fixed per-user pricing.",
+        "distractors": {
+          "A": "SharePoint Online hosts sites and files, not virtual desktops.",
+          "B": "Microsoft Forms is for surveys and quizzes, unrelated to desktops.",
+          "C": "",
+          "D": "Intune manages devices but does not itself provide a hosted Windows desktop."
+        },
+        "exam_pattern": "Personal, persistent, fixed-price cloud Windows desktop = Windows 365 Cloud PC."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Windows 365"
+      ]
+    },
+    {
+      "id": "ms900-apps-016",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_endpoint_intune",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An organization needs flexible, highly configurable desktop and app virtualization in Azure, including multi-session Windows and consumption-based scaling that IT manages in detail. Which service is designed for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft Bookings"
+        },
+        {
+          "id": "B",
+          "text": "Azure Virtual Desktop"
+        },
+        {
+          "id": "C",
+          "text": "The fixed Windows 365 Cloud PC"
+        },
+        {
+          "id": "D",
+          "text": "OneDrive"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Azure Virtual Desktop (AVD) provides flexible, deeply configurable desktop and app virtualization in Azure, including multi-session Windows and consumption-based scaling that IT manages.",
+        "distractors": {
+          "A": "Microsoft Bookings is appointment scheduling, not virtualization.",
+          "B": "",
+          "C": "Windows 365 offers a simpler, fixed-price personal Cloud PC rather than the configurable, multi-session, consumption-based model described.",
+          "D": "OneDrive is file storage, not desktop virtualization."
+        },
+        "exam_pattern": "Flexible, multi-session, consumption-based Azure VDI = Azure Virtual Desktop; simple fixed-price personal Cloud PC = Windows 365."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Azure Virtual Desktop vs Windows 365"
+      ]
+    },
+    {
+      "id": "ms900-apps-017",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_analytics_copilot",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A company wants an AI assistant built into Word, Excel, PowerPoint, Outlook, and Teams that can draft content, summarize meetings, and analyze data using the organization's own Microsoft 365 content. Which offering is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft 365 Copilot"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft Forms"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Bookings"
+        },
+        {
+          "id": "D",
+          "text": "Windows 365"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Microsoft 365 Copilot is the generative-AI assistant integrated across the Microsoft 365 apps; it uses the organization's data (via Microsoft Graph) to draft, summarize, and analyze, with enterprise data protection.",
+        "distractors": {
+          "A": "",
+          "B": "Microsoft Forms creates surveys and quizzes.",
+          "C": "Microsoft Bookings handles appointment scheduling, not AI assistance.",
+          "D": "Windows 365 provides Cloud PCs, not an in-app AI assistant."
+        },
+        "exam_pattern": "Generative-AI assistant across the Microsoft 365 apps, grounded in your org data = Microsoft 365 Copilot."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft 365 Copilot"
+      ]
+    },
+    {
+      "id": "ms900-apps-018",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_analytics_copilot",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Microsoft 365 Copilot and Viva Insights draw on a common layer that connects an organization's Microsoft 365 data - emails, chats, documents, calendar - through a single programmable gateway that respects each user's existing permissions. What is this layer called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Conditional Access"
+        },
+        {
+          "id": "B",
+          "text": "The Microsoft 365 roadmap"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Graph"
+        },
+        {
+          "id": "D",
+          "text": "Click-to-Run"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Microsoft Graph is the unified API and data layer that connects Microsoft 365 data and signals; Copilot and insights experiences are grounded in it, honoring each user's existing permissions.",
+        "distractors": {
+          "A": "Conditional Access is an identity access-control feature, not a data API.",
+          "B": "The Microsoft 365 roadmap lists upcoming features, not a data gateway.",
+          "C": "",
+          "D": "Click-to-Run is an Office install technology, not a data layer."
+        },
+        "exam_pattern": "The unified Microsoft 365 data/API layer that Copilot is grounded in = Microsoft Graph."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft Graph"
+      ]
+    },
+    {
+      "id": "ms900-apps-019",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_analytics_copilot",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Employees and managers want data-driven insights into productivity and wellbeing - focus time, meeting habits, and after-hours work - to help build better work patterns. Which Microsoft service provides these analytics?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft Bookings"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft Intune"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Viva Insights"
+        },
+        {
+          "id": "D",
+          "text": "Exchange Online"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Microsoft Viva Insights delivers personal, manager, and organizational productivity and wellbeing analytics (with privacy protections) to help improve work patterns.",
+        "distractors": {
+          "A": "Microsoft Bookings schedules appointments, unrelated to analytics.",
+          "B": "Intune manages devices, not productivity analytics.",
+          "C": "",
+          "D": "Exchange Online provides mailboxes, not insights dashboards."
+        },
+        "exam_pattern": "Productivity and wellbeing analytics = Microsoft Viva Insights (part of Microsoft Viva)."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft Viva Insights"
+      ]
+    },
+    {
+      "id": "ms900-apps-020",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_analytics_copilot",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After a Teams meeting, a user wants an AI-generated recap with key points, decisions, and action items drawn from the meeting. Which capability provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Click-to-Run"
+        },
+        {
+          "id": "B",
+          "text": "A sensitivity label"
+        },
+        {
+          "id": "C",
+          "text": "A retention policy"
+        },
+        {
+          "id": "D",
+          "text": "Microsoft 365 Copilot in Teams"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Microsoft 365 Copilot in Teams can generate meeting recaps - summarizing the discussion, decisions, and action items - as part of Copilot's in-app AI experiences.",
+        "distractors": {
+          "A": "Click-to-Run installs Office apps; it does not produce AI summaries.",
+          "B": "A sensitivity label classifies and protects content; it does not summarize meetings.",
+          "C": "A retention policy governs how long content is kept, not meeting recaps.",
+          "D": ""
+        },
+        "exam_pattern": "In-app AI experiences such as a Teams meeting recap come from Microsoft 365 Copilot."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Copilot in Microsoft 365 apps"
+      ]
+    },
+    {
+      "id": "ms900-apps-021",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_deployment_options",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Microsoft 365 Apps install on PCs using a streaming technology that downloads the apps quickly and keeps them updated automatically, rather than the older Windows Installer (MSI) method. What is this technology called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mobile application management"
+        },
+        {
+          "id": "B",
+          "text": "Office for the web"
+        },
+        {
+          "id": "C",
+          "text": "Click-to-Run"
+        },
+        {
+          "id": "D",
+          "text": "Azure Virtual Desktop"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Click-to-Run is the streaming install-and-update technology for Microsoft 365 Apps; it provisions apps quickly and keeps them automatically updated.",
+        "distractors": {
+          "A": "MAM protects mobile app data; it is not an Office install method.",
+          "B": "Office for the web is the browser version; it is not an install technology for the desktop apps.",
+          "C": "",
+          "D": "Azure Virtual Desktop is desktop virtualization, not an install technology."
+        },
+        "exam_pattern": "The Microsoft 365 Apps install and update technology = Click-to-Run."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft 365 Apps deployment (Click-to-Run)"
+      ]
+    },
+    {
+      "id": "ms900-apps-022",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_deployment_options",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An enterprise wants to control how often users receive new Microsoft 365 Apps features - some pilot users getting them sooner and most users on a more predictable, less frequent cadence. Which deployment setting governs this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sensitivity labels"
+        },
+        {
+          "id": "B",
+          "text": "Calling plans"
+        },
+        {
+          "id": "C",
+          "text": "Update channels"
+        },
+        {
+          "id": "D",
+          "text": "Conditional Access"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Update channels (for example, Current Channel, Monthly Enterprise Channel, and Semi-Annual Enterprise Channel) control how frequently devices receive new feature updates for Microsoft 365 Apps.",
+        "distractors": {
+          "A": "Sensitivity labels classify and protect content, not update cadence.",
+          "B": "Calling plans enable PSTN calling, unrelated to app updates.",
+          "C": "",
+          "D": "Conditional Access controls sign-in access, not feature-update frequency."
+        },
+        "exam_pattern": "How often users get new Microsoft 365 Apps features = update channels."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft 365 Apps update channels"
+      ]
+    },
+    {
+      "id": "ms900-apps-023",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_deployment_options",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A contractor on a locked-down device that cannot install software still needs to view and lightly edit Word and Excel files in a browser. Which option meets this need without any installation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A full Click-to-Run installation"
+        },
+        {
+          "id": "B",
+          "text": "Office for the web"
+        },
+        {
+          "id": "C",
+          "text": "Windows 365 enrollment"
+        },
+        {
+          "id": "D",
+          "text": "Microsoft Intune"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Office for the web provides browser-based versions of Word, Excel, PowerPoint, and more, so users can view and edit documents without installing anything locally.",
+        "distractors": {
+          "A": "A Click-to-Run installation is exactly what the scenario rules out.",
+          "B": "",
+          "C": "Windows 365 provides a full Cloud PC, a heavier solution than simply editing in a browser.",
+          "D": "Intune manages devices; it is not a way to edit documents in a browser."
+        },
+        "exam_pattern": "Edit documents in a browser with no install = Office for the web."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Office for the web"
+      ]
+    },
+    {
+      "id": "ms900-apps-024",
+      "exam": "ms900",
+      "domain": "ms9_apps_services",
+      "subtopic": "ms9_deployment_options",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Name the streaming technology used to install and automatically update Microsoft 365 Apps on Windows PCs (the hyphenated three-word name; spacing is ignored).",
+      "correct": [
+        "click-to-run",
+        "click to run",
+        "clicktorun"
+      ],
+      "explanation": {
+        "correct": "Click-to-Run is the streaming technology that installs and keeps Microsoft 365 Apps updated.",
+        "distractors": {},
+        "exam_pattern": "The Microsoft 365 Apps install/update technology = Click-to-Run."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Click-to-Run"
+      ]
+    },
+    {
+      "id": "ms900-con-001",
+      "exam": "ms900",
+      "domain": "ms9_cloud_concepts",
+      "subtopic": "ms9_cloud_benefits",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An organization subscribes to Microsoft 365, and Microsoft fully manages the underlying servers, infrastructure, and software updates while staff simply sign in and use the apps. Which cloud service model does Microsoft 365 represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "On-premises software"
+        },
+        {
+          "id": "B",
+          "text": "IaaS (Infrastructure as a Service)"
+        },
+        {
+          "id": "C",
+          "text": "SaaS (Software as a Service)"
+        },
+        {
+          "id": "D",
+          "text": "PaaS (Platform as a Service)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Microsoft 365 is Software as a Service (SaaS): a complete, provider-managed cloud solution delivered by subscription. Microsoft maintains the infrastructure, platform, and application, and the customer just uses it.",
+        "distractors": {
+          "A": "On-premises software runs on the organization's own servers, the opposite of a managed cloud subscription.",
+          "B": "IaaS provides raw infrastructure (VMs, storage, networking) the customer must manage, not finished software.",
+          "C": "",
+          "D": "PaaS gives developers a managed platform to build apps, not a ready-to-use application suite."
+        },
+        "exam_pattern": "Ready-to-use, provider-managed, subscription software = SaaS; Microsoft 365 is the classic SaaS example."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Describe cloud concepts - cloud services (SaaS)"
+      ]
+    },
+    {
+      "id": "ms900-con-002",
+      "exam": "ms900",
+      "domain": "ms9_cloud_concepts",
+      "subtopic": "ms9_cloud_benefits",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company retires its on-premises Exchange servers, which it bought outright and refreshed every few years, and moves to Exchange Online in Microsoft 365, paid per user each month. How does this change its IT spending model?",
+      "options": [
+        {
+          "id": "A",
+          "text": "From operational expenditure (OpEx) to capital expenditure (CapEx)"
+        },
+        {
+          "id": "B",
+          "text": "From capital expenditure (CapEx) to operational expenditure (OpEx)"
+        },
+        {
+          "id": "C",
+          "text": "From a subscription to a one-time perpetual purchase"
+        },
+        {
+          "id": "D",
+          "text": "It removes all IT costs entirely"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Buying servers is a capital expenditure (CapEx) - a large up-front purchase of owned assets. A monthly per-user cloud subscription is an operating expenditure (OpEx) - an ongoing, pay-as-you-go cost. Moving to Microsoft 365 shifts spend from CapEx to OpEx.",
+        "distractors": {
+          "A": "This reverses the direction; cloud subscriptions move spend toward OpEx, not CapEx.",
+          "B": "",
+          "C": "A per-user monthly subscription is the opposite of a one-time perpetual purchase.",
+          "D": "Cloud services still cost money; it is a different spending model, not free."
+        },
+        "exam_pattern": "Buy-and-own hardware = CapEx; pay-as-you-go cloud subscription = OpEx."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Describe the benefits of cloud services (CapEx vs OpEx)"
+      ]
+    },
+    {
+      "id": "ms900-con-003",
+      "exam": "ms900",
+      "domain": "ms9_cloud_concepts",
+      "subtopic": "ms9_cloud_benefits",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A business grows from 50 to 500 employees and later cuts seasonal staff. With Microsoft 365 it can add or remove user licenses on demand, without buying or decommissioning any hardware. Which cloud benefit does this illustrate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Physical datacenter security"
+        },
+        {
+          "id": "B",
+          "text": "Scalability"
+        },
+        {
+          "id": "C",
+          "text": "Perpetual licensing"
+        },
+        {
+          "id": "D",
+          "text": "Real-time co-authoring"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Scalability (and elasticity) is the ability to increase or decrease resources - here, user licenses - to match demand, without the delay and cost of provisioning your own hardware.",
+        "distractors": {
+          "A": "Physical datacenter security is about protecting facilities, not adjusting capacity to demand.",
+          "B": "",
+          "C": "Perpetual licensing is a one-time purchase model, unrelated to scaling capacity up and down.",
+          "D": "Co-authoring is real-time document collaboration, not a capacity/scaling benefit."
+        },
+        "exam_pattern": "Grow or shrink capacity on demand = scalability/elasticity."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Describe the benefits of cloud services (scalability)"
+      ]
+    },
+    {
+      "id": "ms900-con-004",
+      "exam": "ms900",
+      "domain": "ms9_cloud_concepts",
+      "subtopic": "ms9_cloud_benefits",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After adopting Microsoft 365 as a SaaS solution, the IT team asks who applies security patches and feature updates to the Microsoft 365 applications and services. Who is responsible?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A third-party reseller"
+        },
+        {
+          "id": "B",
+          "text": "The organization's own IT team"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft, the cloud provider"
+        },
+        {
+          "id": "D",
+          "text": "The organization's end users"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "In SaaS the provider manages the application and everything beneath it, including patching and updating. With Microsoft 365, Microsoft keeps the apps and services current automatically.",
+        "distractors": {
+          "A": "A reseller may sell licenses but does not maintain or patch the service.",
+          "B": "In SaaS the provider, not the customer's IT team, maintains the software (unlike on-premises).",
+          "C": "",
+          "D": "End users consume the apps; they do not patch cloud services."
+        },
+        "exam_pattern": "In SaaS the provider patches/updates the software; Microsoft keeps Microsoft 365 always up to date."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Describe the benefits of cloud services (SaaS responsibilities)"
+      ]
+    },
+    {
+      "id": "ms900-con-005",
+      "exam": "ms900",
+      "domain": "ms9_cloud_concepts",
+      "subtopic": "ms9_cloud_benefits",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Microsoft 365 delivers its services to many different customer organizations from Microsoft-owned datacenters over the internet, with each tenant's data logically isolated. Which cloud deployment model is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A private cloud"
+        },
+        {
+          "id": "B",
+          "text": "An on-premises datacenter"
+        },
+        {
+          "id": "C",
+          "text": "A standalone desktop installation"
+        },
+        {
+          "id": "D",
+          "text": "The public cloud"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The public cloud is owned and operated by a third-party provider and shared (multi-tenant) across many organizations over the internet - exactly how Microsoft 365 is delivered.",
+        "distractors": {
+          "A": "A private cloud is dedicated to a single organization, not shared across many tenants.",
+          "B": "An on-premises datacenter is owned and operated by the organization itself.",
+          "C": "A standalone desktop installation is local software, not a cloud deployment model.",
+          "D": ""
+        },
+        "exam_pattern": "Provider-owned, internet-delivered, multi-tenant service = public cloud (Microsoft 365)."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Describe cloud concepts (public, private, hybrid)"
+      ]
+    },
+    {
+      "id": "ms900-con-006",
+      "exam": "ms900",
+      "domain": "ms9_cloud_concepts",
+      "subtopic": "ms9_cloud_benefits",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Microsoft 365 is delivered as a complete, ready-to-use cloud solution in which the provider manages the infrastructure, platform, and application, and the customer subscribes and uses it. Which cloud service model is this? Enter the three-letter acronym.",
+      "correct": [
+        "saas",
+        "software as a service"
+      ],
+      "explanation": {
+        "correct": "Microsoft 365 is Software as a Service (SaaS) - the provider manages everything and the customer subscribes to and uses the software.",
+        "distractors": {},
+        "exam_pattern": "Fully managed, subscription-based application delivered over the internet = SaaS."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Describe cloud concepts (SaaS)"
+      ]
+    },
+    {
+      "id": "ms900-con-007",
+      "exam": "ms900",
+      "domain": "ms9_cloud_concepts",
+      "subtopic": "ms9_m365_vs_office",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company currently uses a one-time-purchase edition of Office installed only on individual PCs. Leadership now wants always-current apps PLUS cloud email, personal cloud storage, and Microsoft Teams. Which offering adds these capabilities over standalone Office?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Office for the web only"
+        },
+        {
+          "id": "B",
+          "text": "A Microsoft 365 subscription"
+        },
+        {
+          "id": "C",
+          "text": "A second copy of the standalone Office edition"
+        },
+        {
+          "id": "D",
+          "text": "A Windows operating-system upgrade"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A Microsoft 365 subscription bundles the Office apps with cloud services - Exchange Online email, OneDrive storage, SharePoint, and Microsoft Teams - and keeps the apps continuously updated, which standalone (perpetual) Office does not provide.",
+        "distractors": {
+          "A": "Office for the web gives browser apps but not the full bundle of mailboxes, storage, and Teams described.",
+          "B": "",
+          "C": "Another standalone copy still lacks cloud services and ongoing feature updates.",
+          "D": "A Windows upgrade updates the operating system, not the Office apps or cloud services."
+        },
+        "exam_pattern": "Standalone Office = installed apps only; Microsoft 365 adds cloud services, multi-device, and continuous updates."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Differences between Microsoft 365 and Office"
+      ]
+    },
+    {
+      "id": "ms900-con-008",
+      "exam": "ms900",
+      "domain": "ms9_cloud_concepts",
+      "subtopic": "ms9_m365_vs_office",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An administrator compares a perpetual-license edition of Office (bought once) with a Microsoft 365 subscription. Which one continuously receives new features, not just security and quality fixes?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Both stop at the originally shipped features"
+        },
+        {
+          "id": "B",
+          "text": "Neither receives any updates"
+        },
+        {
+          "id": "C",
+          "text": "The perpetual Office license"
+        },
+        {
+          "id": "D",
+          "text": "The Microsoft 365 subscription"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A Microsoft 365 subscription delivers ongoing feature updates and improvements in addition to security fixes. A perpetual Office license receives only security/quality fixes for its support lifetime and stays on the feature set it shipped with.",
+        "distractors": {
+          "A": "Only the perpetual license is limited to its original features; the subscription keeps evolving.",
+          "B": "The subscription clearly keeps receiving new features, so 'neither' is wrong.",
+          "C": "A perpetual license is frozen at its original features; it does not gain new ones.",
+          "D": ""
+        },
+        "exam_pattern": "Subscription (Microsoft 365) = always up to date with new features; perpetual Office = security/quality fixes only."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Differences between Microsoft 365 and Office"
+      ]
+    },
+    {
+      "id": "ms900-con-009",
+      "exam": "ms900",
+      "domain": "ms9_cloud_concepts",
+      "subtopic": "ms9_m365_vs_office",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Within a Microsoft 365 subscription, what is the name for the subscription version of the Office desktop client applications (Word, Excel, PowerPoint, Outlook) that installs on PCs and Macs and stays automatically updated?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Office for the web"
+        },
+        {
+          "id": "B",
+          "text": "Office Mobile only"
+        },
+        {
+          "id": "C",
+          "text": "Office LTSC"
+        },
+        {
+          "id": "D",
+          "text": "Microsoft 365 Apps"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "'Microsoft 365 Apps' is the subscription-delivered suite of Office desktop client applications included with most Microsoft 365 plans; it installs locally and updates automatically.",
+        "distractors": {
+          "A": "Office for the web is the browser-based version, not the installed desktop suite.",
+          "B": "Office Mobile refers only to phone/tablet apps, not the full installed desktop suite.",
+          "C": "Office LTSC is a separate perpetual, long-term-servicing edition, not the subscription apps.",
+          "D": ""
+        },
+        "exam_pattern": "The subscription desktop Office suite in Microsoft 365 is called 'Microsoft 365 Apps'."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft 365 Apps"
+      ]
+    },
+    {
+      "id": "ms900-con-010",
+      "exam": "ms900",
+      "domain": "ms9_cloud_concepts",
+      "subtopic": "ms9_m365_vs_office",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Staff need to install the Office apps on several of their own devices and edit the same documents together in real time, with files saved to the cloud. Which option best meets this need?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Windows Server license"
+        },
+        {
+          "id": "B",
+          "text": "A perpetual Office license tied to a single PC"
+        },
+        {
+          "id": "C",
+          "text": "A Microsoft 365 subscription"
+        },
+        {
+          "id": "D",
+          "text": "An on-premises file server only"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A Microsoft 365 subscription allows installing the apps on multiple devices per user and, by storing files in OneDrive/SharePoint, enables real-time co-authoring - capabilities a single-PC perpetual license does not offer.",
+        "distractors": {
+          "A": "A Windows Server license is for a server operating system, not Office productivity apps.",
+          "B": "A perpetual license is typically tied to one device and lacks cloud co-authoring.",
+          "C": "",
+          "D": "An on-premises file server stores files but does not provide the apps or cloud co-authoring."
+        },
+        "exam_pattern": "Multi-device install + real-time cloud co-authoring = Microsoft 365 subscription."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Differences between Microsoft 365 and Office"
+      ]
+    },
+    {
+      "id": "ms900-con-011",
+      "exam": "ms900",
+      "domain": "ms9_cloud_concepts",
+      "subtopic": "ms9_m365_vs_office",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which of the following is included with a Microsoft 365 subscription but NOT with a standalone, perpetual purchase of Office?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Saving a file to the local hard drive"
+        },
+        {
+          "id": "B",
+          "text": "A local installation of Excel"
+        },
+        {
+          "id": "C",
+          "text": "The ability to type in Word while offline"
+        },
+        {
+          "id": "D",
+          "text": "Cloud services such as Exchange Online and OneDrive"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Cloud services - Exchange Online mailboxes, OneDrive storage, SharePoint, and Teams - come with Microsoft 365 but not with standalone perpetual Office, which provides only the locally installed apps.",
+        "distractors": {
+          "A": "Saving to the local disk is possible in both offerings.",
+          "B": "Both offerings provide a local installation of Excel.",
+          "C": "Typing offline in Word works in both the subscription and the perpetual edition.",
+          "D": ""
+        },
+        "exam_pattern": "The cloud services (email, storage, Teams) are the key add Microsoft 365 brings over standalone Office."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Differences between Microsoft 365 and Office"
+      ]
+    },
+    {
+      "id": "ms900-con-012",
+      "exam": "ms900",
+      "domain": "ms9_cloud_concepts",
+      "subtopic": "ms9_cloud_adoption",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A company shifts to hybrid work and wants employees to reach their email, files, and meetings securely from home, the office, or on the road. Which characteristic of adopting Microsoft 365 most directly supports this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Removal of all security controls"
+        },
+        {
+          "id": "B",
+          "text": "A requirement to be on the office LAN"
+        },
+        {
+          "id": "C",
+          "text": "Access to services from anywhere with an internet connection"
+        },
+        {
+          "id": "D",
+          "text": "Elimination of the need for user accounts"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A core driver for adopting a cloud service like Microsoft 365 is anywhere-access: because the services are internet-delivered, users can work securely from any location and device, enabling hybrid and remote work.",
+        "distractors": {
+          "A": "Adopting the cloud does not remove security controls; it provides them.",
+          "B": "Requiring the office LAN is an on-premises limitation that cloud adoption removes.",
+          "C": "",
+          "D": "Cloud services still require identities/user accounts to sign in securely."
+        },
+        "exam_pattern": "Cloud adoption enables secure anywhere-access, a key enabler of hybrid/remote work."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Reasons to adopt cloud services"
+      ]
+    },
+    {
+      "id": "ms900-con-013",
+      "exam": "ms900",
+      "domain": "ms9_cloud_concepts",
+      "subtopic": "ms9_cloud_adoption",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "While planning a move to Microsoft 365, IT identifies a practical consideration: because the services are delivered over the internet, what does day-to-day access most depend on?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reliable internet connectivity and bandwidth"
+        },
+        {
+          "id": "B",
+          "text": "Buying perpetual software licenses"
+        },
+        {
+          "id": "C",
+          "text": "Printing all documents locally"
+        },
+        {
+          "id": "D",
+          "text": "Owning more on-premises servers"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Cloud services are reached over the internet, so dependable connectivity and adequate bandwidth are important adoption considerations; if the internet is down, access to the cloud services is affected.",
+        "distractors": {
+          "A": "",
+          "B": "The licensing model does not determine day-to-day connectivity.",
+          "C": "Local printing is unrelated to reaching cloud services over the internet.",
+          "D": "Moving to the cloud reduces, not increases, the need to own servers."
+        },
+        "exam_pattern": "Cloud is internet-delivered, so reliable connectivity/bandwidth is a key adoption consideration."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Cloud adoption considerations"
+      ]
+    },
+    {
+      "id": "ms900-con-014",
+      "exam": "ms900",
+      "domain": "ms9_cloud_concepts",
+      "subtopic": "ms9_cloud_adoption",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "An organization is building the business case to adopt Microsoft 365. Which TWO are commonly cited benefits of moving to this cloud service? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Automatic exemption from all compliance regulations"
+        },
+        {
+          "id": "B",
+          "text": "A guarantee that no internet connection is ever required"
+        },
+        {
+          "id": "C",
+          "text": "Built-in business continuity, so data stays available if an office is unavailable"
+        },
+        {
+          "id": "D",
+          "text": "Reduced need to buy and maintain on-premises servers"
+        }
+      ],
+      "correct": [
+        "C",
+        "D"
+      ],
+      "explanation": {
+        "correct": "Adopting Microsoft 365 reduces on-premises hardware and maintenance (a cost and agility benefit) and improves business continuity, because data lives in resilient cloud datacenters and remains reachable even if a local office is down.",
+        "distractors": {
+          "A": "Moving to the cloud does not exempt an organization from regulations; it must still meet its compliance obligations.",
+          "B": "Cloud services require internet access, so this is false.",
+          "C": "",
+          "D": ""
+        },
+        "exam_pattern": "Cloud adoption wins: less owned hardware/maintenance and stronger business continuity - not freedom from internet or compliance."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Reasons to adopt cloud services"
+      ]
+    },
+    {
+      "id": "ms900-con-015",
+      "exam": "ms900",
+      "domain": "ms9_cloud_concepts",
+      "subtopic": "ms9_cloud_adoption",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A small firm with a lean IT staff wants to stop racking servers, patching the email server, and planning hardware refreshes. How does adopting Microsoft 365 help with this goal?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It shifts all patching responsibility to end users"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft manages the underlying infrastructure and keeps the services updated"
+        },
+        {
+          "id": "C",
+          "text": "It requires hiring more datacenter staff"
+        },
+        {
+          "id": "D",
+          "text": "It forces a company-wide hardware refresh every year"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "With Microsoft 365 (SaaS), Microsoft runs and maintains the datacenters, servers, and service updates, so a small IT team can focus on users and business needs instead of infrastructure upkeep.",
+        "distractors": {
+          "A": "Patching the cloud services is Microsoft's responsibility, not the end users'.",
+          "B": "",
+          "C": "The cloud reduces datacenter staffing needs rather than increasing them.",
+          "D": "There is no owned server hardware to refresh on a schedule in a SaaS model."
+        },
+        "exam_pattern": "Cloud adoption offloads infrastructure and maintenance to the provider - a key draw for small IT teams."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Reasons to adopt cloud services"
+      ]
+    },
+    {
+      "id": "ms900-con-016",
+      "exam": "ms900",
+      "domain": "ms9_cloud_concepts",
+      "subtopic": "ms9_cloud_adoption",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Paying for Microsoft 365 as an ongoing, per-user monthly or annual subscription - instead of a large up-front hardware purchase - is an example of which type of expenditure? Enter the common four-letter abbreviation (ends in 'Ex').",
+      "correct": [
+        "opex",
+        "operating expenditure",
+        "operational expenditure",
+        "operating expense"
+      ],
+      "explanation": {
+        "correct": "An ongoing, subscription/usage-based cost is an operating expenditure (OpEx), in contrast to a capital expenditure (CapEx), which is a large up-front purchase of owned assets.",
+        "distractors": {},
+        "exam_pattern": "Subscription / pay-as-you-go = OpEx; up-front owned hardware = CapEx."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Describe the benefits of cloud services (OpEx)"
+      ]
+    },
+    {
+      "id": "ms900-price-001",
+      "exam": "ms900",
+      "domain": "ms9_pricing_support",
+      "subtopic": "ms9_licensing",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A growing company of about 120 employees wants the full installed desktop Office apps plus cloud services (email, Teams, OneDrive), on a per-user plan aimed at small and medium-sized businesses. Which Microsoft 365 plan best fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft 365 F3"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft 365 Business Standard"
+        },
+        {
+          "id": "C",
+          "text": "Windows 365"
+        },
+        {
+          "id": "D",
+          "text": "Office LTSC (perpetual)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Microsoft 365 Business plans are designed for small and medium-sized businesses; Business Standard includes the installed desktop apps plus cloud services such as Exchange Online, Teams, and OneDrive.",
+        "distractors": {
+          "A": "F3 is an enterprise frontline-worker plan (typically web/mobile apps), not the SMB desktop-apps plan described.",
+          "B": "",
+          "C": "Windows 365 provides Cloud PCs; it is not a Microsoft 365 Office licensing plan.",
+          "D": "Office LTSC is a perpetual, apps-only edition with no cloud services."
+        },
+        "exam_pattern": "Small/medium business + desktop apps + cloud services = Microsoft 365 Business Standard."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft 365 Business plans"
+      ]
+    },
+    {
+      "id": "ms900-price-002",
+      "exam": "ms900",
+      "domain": "ms9_pricing_support",
+      "subtopic": "ms9_licensing",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A retailer employs many shift-based frontline workers who often share devices, do not sit at a desk, and mainly need web and mobile apps, email, and Teams at the lowest cost. Which Microsoft 365 license is designed for them?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft 365 E5"
+        },
+        {
+          "id": "B",
+          "text": "Office LTSC"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft 365 F3"
+        },
+        {
+          "id": "D",
+          "text": "Microsoft Entra ID P2"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Microsoft 365 F3 is the enterprise plan tailored to frontline workers - lower-cost and oriented to web and mobile apps plus core services - fitting shift-based, deskless staff.",
+        "distractors": {
+          "A": "E5 is the premium enterprise plan with advanced security, compliance, and analytics - far more than frontline staff need.",
+          "B": "Office LTSC is a perpetual apps-only edition, not a frontline-worker plan.",
+          "C": "",
+          "D": "Entra ID P2 is an identity add-on, not a Microsoft 365 user plan."
+        },
+        "exam_pattern": "Deskless, shift-based, low-cost web/mobile = Microsoft 365 F3 (frontline)."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft 365 frontline (F3)"
+      ]
+    },
+    {
+      "id": "ms900-price-003",
+      "exam": "ms900",
+      "domain": "ms9_pricing_support",
+      "subtopic": "ms9_licensing",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A large enterprise wants the most comprehensive Microsoft 365 plan, adding advanced security (Microsoft Defender), advanced compliance, analytics (Power BI Pro), and Teams Phone beyond what the mid-tier enterprise plan offers. Which plan is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft 365 E5"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft 365 E3"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft 365 Business Basic"
+        },
+        {
+          "id": "D",
+          "text": "Office for the web"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Microsoft 365 E5 is the top enterprise plan, adding advanced Defender security, advanced compliance, analytics (Power BI Pro), and Teams Phone capabilities over the mid-tier E3.",
+        "distractors": {
+          "A": "",
+          "B": "E3 is the mid-tier enterprise plan, without E5's advanced security/compliance/analytics additions.",
+          "C": "Business Basic is a small/medium-business web-and-mobile plan, not the top enterprise plan.",
+          "D": "Office for the web is the browser apps, not an enterprise suite plan."
+        },
+        "exam_pattern": "Top enterprise plan with advanced security/compliance/analytics = Microsoft 365 E5."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft 365 Enterprise E3 vs E5"
+      ]
+    },
+    {
+      "id": "ms900-price-004",
+      "exam": "ms900",
+      "domain": "ms9_pricing_support",
+      "subtopic": "ms9_licensing",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A startup wants cloud email, Teams, OneDrive, and the web and mobile versions of the Office apps, but does NOT need the installed desktop applications, at the lowest Business price. Which plan fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Office LTSC"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft 365 Business Basic"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft 365 Business Standard"
+        },
+        {
+          "id": "D",
+          "text": "Microsoft 365 E5"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Microsoft 365 Business Basic includes cloud services (Exchange Online, Teams, OneDrive, SharePoint) and the web and mobile Office apps, but not the installed desktop applications - the lowest-cost Business tier.",
+        "distractors": {
+          "A": "Office LTSC is a perpetual desktop-only edition with no cloud services.",
+          "B": "",
+          "C": "Business Standard adds the installed desktop apps, which this scenario says are not needed.",
+          "D": "E5 is the premium enterprise plan, far beyond this need."
+        },
+        "exam_pattern": "Cloud services + web/mobile apps, no desktop install = Microsoft 365 Business Basic."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft 365 Business Basic"
+      ]
+    },
+    {
+      "id": "ms900-price-005",
+      "exam": "ms900",
+      "domain": "ms9_pricing_support",
+      "subtopic": "ms9_licensing",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company wants to roll out Microsoft 365 Copilot to some users. What must each of those users already have before the Copilot add-on license can be assigned to them?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A perpetual Office 2021 license"
+        },
+        {
+          "id": "B",
+          "text": "A Windows 365 Cloud PC"
+        },
+        {
+          "id": "C",
+          "text": "An eligible base Microsoft 365 subscription license"
+        },
+        {
+          "id": "D",
+          "text": "Nothing; Copilot replaces the base license"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Microsoft 365 Copilot is an add-on license: each user must already have an eligible base Microsoft 365 (or Office 365) subscription, and Copilot is licensed on top of it.",
+        "distractors": {
+          "A": "A perpetual Office 2021 license is not an eligible base Microsoft 365 subscription for the Copilot add-on.",
+          "B": "A Cloud PC is unrelated to the licensing prerequisite for Copilot.",
+          "C": "",
+          "D": "An add-on supplements, rather than replaces, the base subscription."
+        },
+        "exam_pattern": "Add-ons (like Microsoft 365 Copilot) require an eligible base subscription underneath."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft 365 add-ons and Copilot licensing"
+      ]
+    },
+    {
+      "id": "ms900-price-006",
+      "exam": "ms900",
+      "domain": "ms9_pricing_support",
+      "subtopic": "ms9_licensing",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "A license such as Microsoft 365 Copilot that is purchased on top of an existing eligible subscription - rather than as a standalone plan - is known as an ___. Enter the term (one word; a hyphen is optional).",
+      "correct": [
+        "add-on",
+        "addon",
+        "add on"
+      ],
+      "explanation": {
+        "correct": "Licenses purchased on top of an eligible base plan (such as Microsoft 365 Copilot) are called add-ons.",
+        "distractors": {},
+        "exam_pattern": "Licensed on top of a base plan = an add-on."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft 365 add-ons"
+      ]
+    },
+    {
+      "id": "ms900-price-007",
+      "exam": "ms900",
+      "domain": "ms9_pricing_support",
+      "subtopic": "ms9_billing_cost",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An administrator needs one place to buy and assign licenses, add users, manage subscriptions, and view invoices for Microsoft 365. Which portal is used for these administration and billing tasks?",
+      "options": [
+        {
+          "id": "A",
+          "text": "OneDrive"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft Teams"
+        },
+        {
+          "id": "C",
+          "text": "The Service Trust Portal"
+        },
+        {
+          "id": "D",
+          "text": "The Microsoft 365 admin center"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The Microsoft 365 admin center is the central portal for managing users, subscriptions, license assignment, and billing (including invoices) for the organization.",
+        "distractors": {
+          "A": "OneDrive is file storage.",
+          "B": "Teams is for collaboration, not subscription and billing administration.",
+          "C": "The Service Trust Portal hosts compliance reports, not billing.",
+          "D": ""
+        },
+        "exam_pattern": "Manage users, licenses, subscriptions, and billing = Microsoft 365 admin center."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft 365 admin center"
+      ]
+    },
+    {
+      "id": "ms900-price-008",
+      "exam": "ms900",
+      "domain": "ms9_pricing_support",
+      "subtopic": "ms9_billing_cost",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization wants to let a finance staff member manage purchases, subscriptions, and invoices in Microsoft 365 without granting broad administrative control over users or security. Which role best follows the principle of least privilege?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Global Administrator"
+        },
+        {
+          "id": "B",
+          "text": "Billing Administrator"
+        },
+        {
+          "id": "C",
+          "text": "Guest user"
+        },
+        {
+          "id": "D",
+          "text": "Teams owner"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The Billing Administrator role can manage purchases, subscriptions, and invoices without the broad powers of a Global Administrator, aligning with least privilege.",
+        "distractors": {
+          "A": "Global Administrator has full control over everything - far more access than this task requires.",
+          "B": "",
+          "C": "A guest user is an external collaborator with limited access, not a billing manager.",
+          "D": "A Teams owner manages a specific team, not organization-wide billing."
+        },
+        "exam_pattern": "Manage billing only (least privilege) = Billing Administrator role."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft 365 admin roles (Billing Administrator)"
+      ]
+    },
+    {
+      "id": "ms900-price-009",
+      "exam": "ms900",
+      "domain": "ms9_pricing_support",
+      "subtopic": "ms9_billing_cost",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A new employee's account exists in Microsoft Entra ID, but they cannot access Exchange Online email or Teams. What must an administrator typically do to grant access to these services?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Install Office LTSC on a server"
+        },
+        {
+          "id": "B",
+          "text": "Buy new on-premises server hardware"
+        },
+        {
+          "id": "C",
+          "text": "Assign the user a license for a Microsoft 365 plan"
+        },
+        {
+          "id": "D",
+          "text": "Enroll the company in the Service Trust Portal"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Access to Microsoft 365 services is granted by assigning the user a license (a user subscription license) for a plan that includes those services; without a license, the services are unavailable.",
+        "distractors": {
+          "A": "Installing a perpetual Office edition does not grant access to Exchange Online or Teams.",
+          "B": "No server hardware is needed for a SaaS service.",
+          "C": "",
+          "D": "The Service Trust Portal provides compliance documents, not user access."
+        },
+        "exam_pattern": "A user needs an assigned license to use Microsoft 365 services."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Assigning Microsoft 365 licenses"
+      ]
+    },
+    {
+      "id": "ms900-price-010",
+      "exam": "ms900",
+      "domain": "ms9_pricing_support",
+      "subtopic": "ms9_billing_cost",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "When choosing how to pay for a Microsoft 365 subscription, an organization compares a month-to-month commitment with an annual commitment. Which statement is generally true about this choice?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The billing frequency changes which apps are included in the plan"
+        },
+        {
+          "id": "B",
+          "text": "An annual commitment typically offers a lower per-user rate than paying month-to-month"
+        },
+        {
+          "id": "C",
+          "text": "An annual commitment can never be paid in monthly installments"
+        },
+        {
+          "id": "D",
+          "text": "Monthly billing is always free"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Microsoft 365 generally offers a lower per-user price for an annual commitment than for a flexible month-to-month plan, which trades a higher rate for more flexibility.",
+        "distractors": {
+          "A": "Billing frequency affects price and flexibility, not which apps the plan includes.",
+          "B": "",
+          "C": "Many annual-term commitments can still be paid in monthly installments.",
+          "D": "Monthly billing is not free; it is simply billed more frequently."
+        },
+        "exam_pattern": "Annual commitment usually costs less per user than month-to-month flexibility."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Billing and subscription options"
+      ]
+    },
+    {
+      "id": "ms900-price-011",
+      "exam": "ms900",
+      "domain": "ms9_pricing_support",
+      "subtopic": "ms9_support_sla",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Microsoft publishes a financially backed commitment that its online services will be available a certain percentage of the time, offering service credits if it falls short. What is this commitment called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Service Level Agreement (SLA)"
+        },
+        {
+          "id": "B",
+          "text": "A calling plan"
+        },
+        {
+          "id": "C",
+          "text": "A retention policy"
+        },
+        {
+          "id": "D",
+          "text": "A sensitivity label"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A Service Level Agreement (SLA) is Microsoft's financially backed commitment to a level of service availability (uptime); if Microsoft misses it, customers may be eligible for service credits.",
+        "distractors": {
+          "A": "",
+          "B": "A calling plan enables PSTN calling. None of these are availability guarantees.",
+          "C": "A retention policy governs content lifecycle.",
+          "D": "A sensitivity label classifies and protects content, not an uptime commitment."
+        },
+        "exam_pattern": "Financially backed uptime/availability guarantee = Service Level Agreement (SLA)."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Service Level Agreement"
+      ]
+    },
+    {
+      "id": "ms900-price-012",
+      "exam": "ms900",
+      "domain": "ms9_pricing_support",
+      "subtopic": "ms9_support_sla",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Users report that Outlook is slow, and an admin wants to confirm whether Microsoft is experiencing a service incident affecting the organization's tenant. Where should the admin look?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The OneDrive recycle bin"
+        },
+        {
+          "id": "B",
+          "text": "The service health page in the Microsoft 365 admin center"
+        },
+        {
+          "id": "C",
+          "text": "The Microsoft 365 roadmap"
+        },
+        {
+          "id": "D",
+          "text": "Microsoft Forms"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The service health page (in the Microsoft 365 admin center) shows the current health of Microsoft 365 services, including active incidents and advisories affecting the tenant.",
+        "distractors": {
+          "A": "The OneDrive recycle bin restores deleted files.",
+          "B": "",
+          "C": "The roadmap lists upcoming features, not live service incidents.",
+          "D": "Microsoft Forms is for surveys and quizzes."
+        },
+        "exam_pattern": "Check live Microsoft 365 service incidents = service health in the admin center."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Service health and continuity"
+      ]
+    },
+    {
+      "id": "ms900-price-013",
+      "exam": "ms900",
+      "domain": "ms9_pricing_support",
+      "subtopic": "ms9_support_sla",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An administrator needs to open a support request with Microsoft for a Microsoft 365 problem. Where is this done, and what helps Microsoft prioritize the response?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By applying a sensitivity label to the mailbox"
+        },
+        {
+          "id": "B",
+          "text": "Through the certifications in the Service Trust Portal"
+        },
+        {
+          "id": "C",
+          "text": "In the Microsoft 365 admin center, assigning a severity to the request"
+        },
+        {
+          "id": "D",
+          "text": "By editing a retention label"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Admins open support requests from the Microsoft 365 admin center (Help & support); the request's severity level helps Microsoft prioritize how urgently to respond.",
+        "distractors": {
+          "A": "Sensitivity labels classify content, unrelated to opening support cases.",
+          "B": "The Service Trust Portal provides compliance documents, not support requests.",
+          "C": "",
+          "D": "Retention labels manage content lifecycle, not support tickets."
+        },
+        "exam_pattern": "Open support requests in the Microsoft 365 admin center; a severity level sets priority."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Support options and severity"
+      ]
+    },
+    {
+      "id": "ms900-price-014",
+      "exam": "ms900",
+      "domain": "ms9_pricing_support",
+      "subtopic": "ms9_lifecycle",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IT admin wants advance notices about upcoming changes, new features, and planned updates that will affect their specific Microsoft 365 tenant, so they can prepare users. Where are these tenant-specific notifications posted?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft Bookings"
+        },
+        {
+          "id": "B",
+          "text": "The Service Trust Portal"
+        },
+        {
+          "id": "C",
+          "text": "The Message center"
+        },
+        {
+          "id": "D",
+          "text": "A sensitivity label"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The Message center (in the Microsoft 365 admin center) posts notifications about upcoming changes, new and updated features, and planned maintenance affecting the organization's tenant.",
+        "distractors": {
+          "A": "Microsoft Bookings schedules appointments.",
+          "B": "The Service Trust Portal hosts compliance and audit documents, not change notifications.",
+          "C": "",
+          "D": "A sensitivity label classifies content. None of these deliver tenant change notices."
+        },
+        "exam_pattern": "Tenant-specific notices about upcoming changes/features = Message center."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Message center"
+      ]
+    },
+    {
+      "id": "ms900-price-015",
+      "exam": "ms900",
+      "domain": "ms9_pricing_support",
+      "subtopic": "ms9_lifecycle",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company wants a public view of Microsoft 365 features that are in development, rolling out, or recently launched across the service - not specific to their own tenant. Which resource provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft Secure Score"
+        },
+        {
+          "id": "B",
+          "text": "The Microsoft 365 roadmap"
+        },
+        {
+          "id": "C",
+          "text": "Conditional Access"
+        },
+        {
+          "id": "D",
+          "text": "The Message center"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The Microsoft 365 roadmap is a public resource listing features that are in development, rolling out, or launched; the Message center, by contrast, is tenant-specific.",
+        "distractors": {
+          "A": "Secure Score measures security posture.",
+          "B": "",
+          "C": "Conditional Access controls sign-ins. Neither lists upcoming features publicly.",
+          "D": "The Message center shows changes for your own tenant, not the public roadmap."
+        },
+        "exam_pattern": "Public, forward-looking feature list = Microsoft 365 roadmap; tenant-specific = Message center."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft 365 roadmap"
+      ]
+    },
+    {
+      "id": "ms900-price-016",
+      "exam": "ms900",
+      "domain": "ms9_pricing_support",
+      "subtopic": "ms9_lifecycle",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "To let a group of pilot users receive new Microsoft 365 features earlier than the rest of the organization (for evaluation), an admin enables ___ release. Fill in the missing word (one word; formerly called 'First Release').",
+      "correct": [
+        "targeted",
+        "target"
+      ],
+      "explanation": {
+        "correct": "Targeted release (formerly First Release) lets selected users - or the whole organization - get new features early, before the Standard release rollout.",
+        "distractors": {},
+        "exam_pattern": "Early feature access for pilot users = Targeted release; default broad rollout = Standard release."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Release options (Targeted vs Standard release)"
+      ]
+    },
+    {
+      "id": "ms900-sec-001",
+      "exam": "ms900",
+      "domain": "ms9_security_compliance",
+      "subtopic": "ms9_identity_entra",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An organization needs a cloud-based identity and access management service to store user accounts and let them sign in to Microsoft 365 and thousands of other apps. Which Microsoft service provides this (it was formerly called Azure Active Directory)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft Bookings"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft Purview"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Intune"
+        },
+        {
+          "id": "D",
+          "text": "Microsoft Entra ID"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Microsoft Entra ID (formerly Azure Active Directory) is the cloud identity and access management service that authenticates users and controls access to Microsoft 365 and other integrated applications.",
+        "distractors": {
+          "A": "Microsoft Bookings is appointment scheduling, unrelated to identity.",
+          "B": "Purview is the compliance and data-governance suite, not an identity service.",
+          "C": "Intune manages devices and apps, not the identity directory.",
+          "D": ""
+        },
+        "exam_pattern": "Cloud identity/access management (formerly Azure AD) = Microsoft Entra ID."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft Entra ID"
+      ]
+    },
+    {
+      "id": "ms900-sec-002",
+      "exam": "ms900",
+      "domain": "ms9_security_compliance",
+      "subtopic": "ms9_identity_entra",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "To reduce the risk from stolen passwords, a company requires users to confirm each sign-in with both their password and an approval in an authenticator app on their phone. Which security method is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Single sign-on (SSO)"
+        },
+        {
+          "id": "B",
+          "text": "Data loss prevention (DLP)"
+        },
+        {
+          "id": "C",
+          "text": "Co-authoring"
+        },
+        {
+          "id": "D",
+          "text": "Multifactor authentication (MFA)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Multifactor authentication (MFA) requires two or more verification factors - such as something you know (a password) plus something you have (a phone/authenticator) - so a stolen password alone is not enough to sign in.",
+        "distractors": {
+          "A": "Single sign-on reduces how often users sign in; it does not add a second verification factor.",
+          "B": "DLP prevents data oversharing, not sign-in verification.",
+          "C": "Co-authoring is real-time document collaboration, unrelated to authentication.",
+          "D": ""
+        },
+        "exam_pattern": "Two or more verification factors at sign-in = MFA."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Multifactor authentication"
+      ]
+    },
+    {
+      "id": "ms900-sec-003",
+      "exam": "ms900",
+      "domain": "ms9_security_compliance",
+      "subtopic": "ms9_identity_entra",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Employees want to sign in once and then reach Microsoft 365 and several other connected applications without being prompted to enter their credentials again for each one. Which capability provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Service Level Agreement"
+        },
+        {
+          "id": "B",
+          "text": "Single sign-on (SSO)"
+        },
+        {
+          "id": "C",
+          "text": "Mobile device management"
+        },
+        {
+          "id": "D",
+          "text": "Sensitivity labels"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Single sign-on (SSO) lets a user authenticate once with Microsoft Entra ID and then access multiple connected apps without re-entering credentials for each one.",
+        "distractors": {
+          "A": "A Service Level Agreement is an uptime commitment, not an authentication feature.",
+          "B": "",
+          "C": "Mobile device management secures devices; it is not about the cross-app sign-in experience.",
+          "D": "Sensitivity labels classify and protect content, unrelated to sign-in."
+        },
+        "exam_pattern": "Sign in once, reach many apps = single sign-on (SSO)."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Single sign-on"
+      ]
+    },
+    {
+      "id": "ms900-sec-004",
+      "exam": "ms900",
+      "domain": "ms9_security_compliance",
+      "subtopic": "ms9_identity_entra",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Security wants to allow or block sign-ins automatically based on signals such as the user, device compliance, location, and risk - for example, requiring MFA when a sign-in comes from an unfamiliar location. Which Microsoft Entra feature does this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Click-to-Run"
+        },
+        {
+          "id": "B",
+          "text": "Retention labels"
+        },
+        {
+          "id": "C",
+          "text": "Conditional Access"
+        },
+        {
+          "id": "D",
+          "text": "Microsoft Graph"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Conditional Access in Microsoft Entra ID evaluates sign-in signals (user, device, location, risk) and enforces controls - grant, block, or require MFA - based on policy.",
+        "distractors": {
+          "A": "Click-to-Run installs Office apps, unrelated to access policy.",
+          "B": "Retention labels manage how long content is kept, not sign-in decisions.",
+          "C": "",
+          "D": "Microsoft Graph is a data/API layer, not an access-policy engine."
+        },
+        "exam_pattern": "Policy-based sign-in decisions from signals (user/device/location/risk) = Conditional Access."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Conditional Access"
+      ]
+    },
+    {
+      "id": "ms900-sec-005",
+      "exam": "ms900",
+      "domain": "ms9_security_compliance",
+      "subtopic": "ms9_identity_entra",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "What is the current name of Microsoft's cloud identity and access management service that was previously known as Azure Active Directory (Azure AD)? Enter the product name.",
+      "correct": [
+        "microsoft entra id",
+        "entra id",
+        "entra"
+      ],
+      "explanation": {
+        "correct": "Azure Active Directory was renamed Microsoft Entra ID; it is Microsoft's cloud identity and access management service.",
+        "distractors": {},
+        "exam_pattern": "Azure AD is now Microsoft Entra ID."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft Entra ID"
+      ]
+    },
+    {
+      "id": "ms900-sec-006",
+      "exam": "ms900",
+      "domain": "ms9_security_compliance",
+      "subtopic": "ms9_threat_protection",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company wants to protect email against malicious attachments and dangerous URLs - scanning attachments in a sandbox and checking links at the moment a user clicks them. Which service provides Safe Attachments and Safe Links?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft Intune"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft Defender for Office 365"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Bookings"
+        },
+        {
+          "id": "D",
+          "text": "Microsoft Entra ID"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Microsoft Defender for Office 365 protects email and collaboration with features like Safe Attachments (detonates attachments in a sandbox) and Safe Links (checks URLs at time of click).",
+        "distractors": {
+          "A": "Intune manages devices, not email threat protection.",
+          "B": "",
+          "C": "Microsoft Bookings schedules appointments.",
+          "D": "Microsoft Entra ID handles identity, not email attachment and link scanning."
+        },
+        "exam_pattern": "Safe Links + Safe Attachments for email = Microsoft Defender for Office 365."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft Defender for Office 365"
+      ]
+    },
+    {
+      "id": "ms900-sec-007",
+      "exam": "ms900",
+      "domain": "ms9_security_compliance",
+      "subtopic": "ms9_threat_protection",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A security team wants one unified portal that correlates threat signals across endpoints, email, identities, and cloud apps so they can investigate an incident end to end. Which Microsoft solution provides this extended detection and response?",
+      "options": [
+        {
+          "id": "A",
+          "text": "OneDrive"
+        },
+        {
+          "id": "B",
+          "text": "Click-to-Run"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Defender XDR"
+        },
+        {
+          "id": "D",
+          "text": "Microsoft Forms"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Microsoft Defender XDR (formerly Microsoft 365 Defender) unifies and correlates signals across endpoints (Defender for Endpoint), email (Defender for Office 365), identities (Defender for Identity), and cloud apps (Defender for Cloud Apps) into end-to-end incidents.",
+        "distractors": {
+          "A": "OneDrive is file storage.",
+          "B": "Click-to-Run installs Office apps. None of these correlate cross-domain threat signals.",
+          "C": "",
+          "D": "Microsoft Forms is for surveys and quizzes."
+        },
+        "exam_pattern": "Unified cross-domain detection and response across endpoint, email, identity, apps = Microsoft Defender XDR."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft Defender XDR"
+      ]
+    },
+    {
+      "id": "ms900-sec-008",
+      "exam": "ms900",
+      "domain": "ms9_security_compliance",
+      "subtopic": "ms9_threat_protection",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An administrator wants a single measurement of the organization's security posture, with prioritized recommended actions and points for improvements, tracked over time. Which Microsoft tool provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A sensitivity label"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft Secure Score"
+        },
+        {
+          "id": "C",
+          "text": "The Microsoft 365 roadmap"
+        },
+        {
+          "id": "D",
+          "text": "A calling plan"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Microsoft Secure Score measures an organization's security posture, gives a numeric score, and recommends prioritized improvement actions, letting you track progress over time.",
+        "distractors": {
+          "A": "A sensitivity label classifies and protects content; it is not a posture score.",
+          "B": "",
+          "C": "The Microsoft 365 roadmap lists upcoming features, not security posture.",
+          "D": "A calling plan enables PSTN calling, unrelated to security scoring."
+        },
+        "exam_pattern": "A measured security-posture score with improvement actions = Microsoft Secure Score."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft Secure Score"
+      ]
+    },
+    {
+      "id": "ms900-sec-009",
+      "exam": "ms900",
+      "domain": "ms9_security_compliance",
+      "subtopic": "ms9_threat_protection",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "In Microsoft Defender for Office 365, name the feature that opens unknown email attachments in an isolated sandbox to detect malicious behavior before the message is delivered. Enter the feature name (two words).",
+      "correct": [
+        "safe attachments",
+        "safe attachment"
+      ],
+      "explanation": {
+        "correct": "Safe Attachments detonates unknown attachments in an isolated sandbox to catch malware that signature scanning might miss, before the message reaches the user.",
+        "distractors": {},
+        "exam_pattern": "Sandbox detonation of email attachments = Safe Attachments; click-time URL checks = Safe Links."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Defender for Office 365 Safe Attachments"
+      ]
+    },
+    {
+      "id": "ms900-sec-010",
+      "exam": "ms900",
+      "domain": "ms9_security_compliance",
+      "subtopic": "ms9_compliance_purview",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A healthcare company wants to automatically detect and prevent users from emailing or sharing documents that contain sensitive data such as credit-card or patient-record numbers to outsiders. Which Microsoft Purview capability does this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Single sign-on"
+        },
+        {
+          "id": "B",
+          "text": "Teams channels"
+        },
+        {
+          "id": "C",
+          "text": "Click-to-Run"
+        },
+        {
+          "id": "D",
+          "text": "Data loss prevention (DLP)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Microsoft Purview Data Loss Prevention (DLP) detects sensitive information (such as credit-card or health identifiers) and enforces policies to block or warn when users try to share it inappropriately.",
+        "distractors": {
+          "A": "Single sign-on is an identity feature, not data protection.",
+          "B": "Teams channels organize conversations. None of these detect or prevent sensitive-data sharing.",
+          "C": "Click-to-Run installs Office apps.",
+          "D": ""
+        },
+        "exam_pattern": "Detect and prevent oversharing of sensitive data = DLP (Microsoft Purview)."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft Purview Data Loss Prevention"
+      ]
+    },
+    {
+      "id": "ms900-sec-011",
+      "exam": "ms900",
+      "domain": "ms9_security_compliance",
+      "subtopic": "ms9_compliance_purview",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization wants to classify documents and emails as 'Public', 'Confidential', or 'Highly Confidential' and automatically apply encryption and visual markings based on the classification. Which Microsoft Purview feature provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft Bookings"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft Secure Score"
+        },
+        {
+          "id": "C",
+          "text": "Conditional Access"
+        },
+        {
+          "id": "D",
+          "text": "Sensitivity labels"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Sensitivity labels (Microsoft Purview Information Protection) classify content and can enforce protection such as encryption, access restrictions, and watermarks or headers based on the label.",
+        "distractors": {
+          "A": "Microsoft Bookings schedules appointments.",
+          "B": "Secure Score measures security posture; it does not classify documents.",
+          "C": "Conditional Access controls sign-ins, not content classification.",
+          "D": ""
+        },
+        "exam_pattern": "Classify and protect content (encryption, markings) = sensitivity labels."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Sensitivity labels"
+      ]
+    },
+    {
+      "id": "ms900-sec-012",
+      "exam": "ms900",
+      "domain": "ms9_security_compliance",
+      "subtopic": "ms9_compliance_purview",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To meet regulations, a firm must keep certain records for a fixed number of years and then dispose of them, even if users try to delete them earlier. Which Microsoft Purview capability enforces this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Retention labels and policies"
+        },
+        {
+          "id": "B",
+          "text": "Click-to-Run"
+        },
+        {
+          "id": "C",
+          "text": "Single sign-on"
+        },
+        {
+          "id": "D",
+          "text": "Safe Links"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Retention labels and policies (Microsoft Purview Data Lifecycle Management) keep content for a required period and can delete it afterward, helping meet regulatory recordkeeping obligations.",
+        "distractors": {
+          "A": "",
+          "B": "Click-to-Run installs Office apps.",
+          "C": "Single sign-on is an identity feature, unrelated to retention.",
+          "D": "Safe Links protects against malicious URLs, not record retention."
+        },
+        "exam_pattern": "Keep-then-dispose of content for compliance = retention labels/policies."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Retention in Microsoft Purview"
+      ]
+    },
+    {
+      "id": "ms900-sec-013",
+      "exam": "ms900",
+      "domain": "ms9_security_compliance",
+      "subtopic": "ms9_compliance_purview",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A legal team needs to identify, place on hold, collect, and export relevant emails and documents across Microsoft 365 for a lawsuit. Which Microsoft Purview solution is designed for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "OneDrive sync"
+        },
+        {
+          "id": "B",
+          "text": "eDiscovery"
+        },
+        {
+          "id": "C",
+          "text": "Multifactor authentication"
+        },
+        {
+          "id": "D",
+          "text": "Teams Phone"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Microsoft Purview eDiscovery helps legal teams identify, place holds on, collect, review, and export content across Microsoft 365 for legal and investigative cases.",
+        "distractors": {
+          "A": "OneDrive sync keeps files updated across devices, not legal collection.",
+          "B": "",
+          "C": "MFA verifies sign-ins, unrelated to legal discovery.",
+          "D": "Teams Phone is telephony, unrelated to eDiscovery."
+        },
+        "exam_pattern": "Find / hold / collect / export content for legal cases = eDiscovery (Microsoft Purview)."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): eDiscovery"
+      ]
+    },
+    {
+      "id": "ms900-sec-014",
+      "exam": "ms900",
+      "domain": "ms9_security_compliance",
+      "subtopic": "ms9_zero_trust_privacy",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company adopts a security strategy summarized as 'verify explicitly, use least-privilege access, and assume breach,' trusting no request by default even from inside the corporate network. Which security model is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Perpetual licensing"
+        },
+        {
+          "id": "B",
+          "text": "Perimeter-only (castle-and-moat) security"
+        },
+        {
+          "id": "C",
+          "text": "Open access with no controls"
+        },
+        {
+          "id": "D",
+          "text": "Zero Trust"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The Zero Trust model treats every access request as untrusted until verified, guided by three principles: verify explicitly, use least-privilege access, and assume breach.",
+        "distractors": {
+          "A": "Perpetual licensing is a purchasing model, unrelated to a security strategy.",
+          "B": "Castle-and-moat trusts anything already inside the network perimeter - the opposite of Zero Trust.",
+          "C": "Open access applies no controls; it is not a security model.",
+          "D": ""
+        },
+        "exam_pattern": "'Never trust, always verify' - verify explicitly / least privilege / assume breach = Zero Trust."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Zero Trust principles"
+      ]
+    },
+    {
+      "id": "ms900-sec-015",
+      "exam": "ms900",
+      "domain": "ms9_security_compliance",
+      "subtopic": "ms9_zero_trust_privacy",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A prospective customer's auditors want Microsoft's independent compliance reports and certifications - such as ISO 27001 and SOC audit reports - for its cloud services. Where can an organization obtain these documents?",
+      "options": [
+        {
+          "id": "A",
+          "text": "OneDrive"
+        },
+        {
+          "id": "B",
+          "text": "The Teams admin center"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Forms"
+        },
+        {
+          "id": "D",
+          "text": "The Service Trust Portal"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The Service Trust Portal is Microsoft's hub for audit reports, certifications (ISO, SOC, and more), and other compliance and trust documentation for its cloud services.",
+        "distractors": {
+          "A": "OneDrive stores personal files, not Microsoft's audit documentation.",
+          "B": "The Teams admin center manages Teams, not compliance reports.",
+          "C": "Microsoft Forms creates surveys and quizzes.",
+          "D": ""
+        },
+        "exam_pattern": "Microsoft's audit reports and compliance certifications = Service Trust Portal."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Service Trust Portal"
+      ]
+    },
+    {
+      "id": "ms900-sec-016",
+      "exam": "ms900",
+      "domain": "ms9_security_compliance",
+      "subtopic": "ms9_zero_trust_privacy",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization wants to proactively manage privacy risks - such as identifying overexposed personal data - and automate responses to subject rights (data) requests from individuals. Which Microsoft solution is built for privacy management?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Azure Virtual Desktop"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft Priva"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Teams"
+        },
+        {
+          "id": "D",
+          "text": "Click-to-Run"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Microsoft Priva (part of Microsoft Purview) helps organizations manage privacy risks for personal data and automate subject rights (data subject) requests.",
+        "distractors": {
+          "A": "Azure Virtual Desktop is desktop virtualization. None of these are privacy-risk solutions.",
+          "B": "",
+          "C": "Teams is collaboration, not privacy management.",
+          "D": "Click-to-Run installs Office apps."
+        },
+        "exam_pattern": "Privacy-risk management and subject rights requests = Microsoft Priva."
+      },
+      "references": [
+        "Microsoft Learn (MS-900): Microsoft Priva"
+      ]
+    }
+  ]
+}
