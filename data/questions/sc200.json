@@ -2095,7 +2095,7 @@
       "subtopic": "sc200_sentinel_analytics",
       "difficulty": 2,
       "type": "mcq",
-      "stem": "A detection must fire as close to real time as possible, running about once a minute against a single table. Which rule type fits, with the trade-off of limited query complexity (no cross-table joins)?",
+      "stem": "A detection must fire as close to real time as possible, evaluating about once a minute instead of on the usual multi-minute schedule. Which Microsoft Sentinel analytics rule type is purpose-built for this near-real-time cadence?",
       "options": [
         {
           "id": "A",
@@ -2118,9 +2118,9 @@
         "D"
       ],
       "explanation": {
-        "correct": "NRT rules run roughly every minute for near-real-time detection but are limited (typically a single table, no cross-table joins) in order to achieve that speed.",
+        "correct": "NRT rules run about once a minute — versus the 5-minute minimum for scheduled rules — to give near-real-time detection with minimal ingestion delay.",
         "distractors": {
-          "A": "Fusion correlates multistage attacks via ML; it is not a per-minute single-table rule you author.",
+          "A": "Fusion correlates multistage attacks via ML; it is not a per-minute rule you author.",
           "B": "Microsoft security rules create incidents from imported alerts; they do not run a per-minute KQL query.",
           "C": "A 5-minute scheduled rule is slower and is not the purpose-built low-latency option.",
           "D": ""
@@ -2250,7 +2250,7 @@
       "explanation": {
         "correct": "Fusion (multistage attack correlation) and Anomaly rules are built-in, ML-driven templates you enable; scheduled and NRT rules require you to write the query.",
         "distractors": {
-          "A": "NRT rules also require you to author a (single-table) KQL query.",
+          "A": "NRT rules also require you to author the KQL query.",
           "B": "Scheduled rules require you to author the KQL detection logic.",
           "C": "",
           "D": ""

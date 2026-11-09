@@ -5,13 +5,14 @@ _Last updated: 2026-11-09_
 ## What this is
 **CertLab** — a Streamlit study & diagnostic platform for IT certifications. The
 engine is data-driven by exam blueprints, so adding a cert = a new blueprint + a
-question bank (no engine changes). **17 live tracks** (all selectable in the picker)
+question bank (no engine changes). **21 live tracks** (all selectable in the picker)
 across a multi-provider catalog: Cisco **CCNA 200-301**, **CCNP ENCOR 350-401**,
 **CyberOps CBROPS 200-201**; CompTIA **Security+ SY0-701**, **Network+ N10-009**,
 **A+ Core 1/2**, **CySA+ CS0-003**, **PenTest+ PT0-003**; **AWS Cloud Practitioner
 CLF-C02**; Microsoft **AZ-900**, **SC-900**; (ISC)² **CC**, **SSCP**, **CISSP**;
-ISACA **CISM**, **CISA**. (SecurityX, CEH, SC-200 and AZ-500 are in active build;
-their blueprints are already scaffolded.) Core study logic
+ISACA **CISM**, **CISA**; EC-Council **CEH v13**; plus Microsoft **SC-200** &
+**AZ-500** and CompTIA **SecurityX (CAS-005)**. (The remaining catalog tiles — AWS
+Solutions Architect Associate, Linux+, Cloud+, MS-900 — stay "coming soon".) Core study logic
 is a standalone, unit-tested Python package (`studyengine`); the UI is a Streamlit
 multipage app driven by a native `st.navigation` router (`Home.py`) with one module
 per page under `views/`.
@@ -23,8 +24,8 @@ defaults anywhere in the app body — and recolors per track (see "per-track acc
 
 | Area | Status |
 |------|--------|
-| Exam blueprints (domains + weights + sub-topics) | ✅ 17 live (6 original + AWS CLF, AZ-900, CySA+, PenTest+, (ISC)² CC/SSCP/CISSP, Cisco CBROPS, MS SC-900, ISACA CISM/CISA); SecurityX/CEH/SC-200/AZ-500 scaffolded in EXAMS, not yet LIVE |
-| Question bank | ✅ **2,490 original items** across 17 live tracks — the 6 original at ~205 each, plus AWS CLF 152, AZ-900 121, CySA+ 141, PenTest+ 167, (ISC)² CC 90, CBROPS 90, SC-900 92, CISSP 130, CISM 80, CISA 92, SSCP 105. Built as per-domain expansion pools (`content_<track>_*.py`) auto-merged by the build glob. **Every cyber track was authored original (no braindumps) and passed an adversarial accuracy-verification pass** (keys independently re-derived; high-risk facts web-checked against vendor/ISC2/NIST/FIRST sources) |
+| Exam blueprints (domains + weights + sub-topics) | ✅ 21 live (6 original + AWS CLF, AZ-900, CySA+, PenTest+, (ISC)² CC/SSCP/CISSP, Cisco CBROPS, MS SC-900/SC-200/AZ-500, ISACA CISM/CISA, EC-Council CEH, CompTIA SecurityX) |
+| Question bank | ✅ **2,832 original items** across 21 live tracks — the 6 original at ~205 each, plus AWS CLF 152, AZ-900 121, CySA+ 141, PenTest+ 167, (ISC)² CC 90, CBROPS 90, SC-900 92, CISSP 130, CISM 80, CISA 92, SSCP 105, CEH 97, SC-200 85, AZ-500 84, SecurityX 76. Built as per-domain expansion pools (`content_<track>_*.py`) auto-merged by the build glob. **Every cyber track was authored original (no braindumps) and passed an adversarial accuracy-verification pass** (keys independently re-derived; high-risk facts web-checked against vendor/ISC2/NIST/FIRST sources). Offensive tracks (PenTest+, CEH) are authored conceptually — identify the tool/technique, no weaponized payloads |
 | Track picker | ✅ sidebar **dropdown** lists every track; unbuilt ones show "· coming soon" and are non-selectable (revert + notice). **Locks during a timed Exam Simulation** (you can't switch tracks mid-exam); every other mode keeps its per-track progress across a switch, so the picker stays live there |
 | Per-track accent theme | ✅ each track has its own accent (Cisco blue/violet, Security+ green, Network+ teal, A+ amber/rose); header glyphs, level card, progress bars, primary buttons recolor to the active track (`TRACK_ACCENT` + `_theme_css`) |
 | Diagnostic baseline (5/domain → **20–30 Q by track**: 6-domain CCNA/ENCOR=30, 5-domain Sec+/Net+/A+1=25, 4-domain A+2=20) + focus recs | ✅ real-exam navigation (back/forward, flag-for-review, question map, review-before-submit) |
@@ -49,7 +50,7 @@ defaults anywhere in the app body — and recolors per track (see "per-track acc
 | XP / leveling | ✅ 9 ranks, event-based XP (Profile.record_study): rewards getting better (improving/mastering items) + streaks; penalizes misses with per-question escalation — missing the SAME item again and again costs more (−6 → −9 → −12 → −15 floor), a correct answer resets the chain; no credit for mere attempts; steep curve (Level 2 ≈ 30–50 correct answers). Benchmark excluded (study_overall). Home card, sidebar badge, +/−XP + streak chip on each answer |
 | Instructor view | ✅ first account = instructor; roster, per-learner drill-down, account management (create/edit name+login/reset password/role/delete), and reset a learner's status (benchmark only, or all progress); nav entry hidden from learners |
 | Launchers | ✅ `run.sh`, `run.bat`, `run-shared.bat` (LAN), exe |
-| Test suite | ✅ **2686 tests passing** (`test_data_integrity.py` auto-covers every bank item against its blueprint; `test_exam_nav.py` — AppTest coverage of the navigable exam engine, per-track baseline sizes, and the timed-exam track-switch lock) |
+| Test suite | ✅ **3028 tests passing** (`test_data_integrity.py` auto-covers every bank item against its blueprint; `test_exam_nav.py` — AppTest coverage of the navigable exam engine, per-track baseline sizes, and the timed-exam track-switch lock) |
 
 Run: `run.bat` (Windows) / `./run.sh` (macOS/Linux) / `streamlit run Home.py`.
 Test: `python -m pytest -q`.

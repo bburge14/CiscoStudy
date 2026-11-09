@@ -234,8 +234,9 @@ QUESTIONS = [
     {
         "id": "sc200-sent-010", "exam": "sc200", "domain": "sc200_sentinel",
         "subtopic": "sc200_sentinel_analytics", "difficulty": 2, "type": "mcq",
-        "stem": "A detection must fire as close to real time as possible, running about once a minute "
-                "against a single table. Which rule type fits, with the trade-off of limited query complexity (no cross-table joins)?",
+        "stem": "A detection must fire as close to real time as possible, evaluating about once a minute "
+                "instead of on the usual multi-minute schedule. Which Microsoft Sentinel analytics rule "
+                "type is purpose-built for this near-real-time cadence?",
         "options": [
             {"id": "A", "text": "Scheduled (every 5 minutes)"},
             {"id": "B", "text": "Near-real-time (NRT)"},
@@ -244,11 +245,11 @@ QUESTIONS = [
         ],
         "correct": ["B"],
         "explanation": {
-            "correct": "NRT rules run roughly every minute for near-real-time detection but are limited "
-                       "(typically a single table, no cross-table joins) in order to achieve that speed.",
+            "correct": "NRT rules run about once a minute — versus the 5-minute minimum for scheduled "
+                       "rules — to give near-real-time detection with minimal ingestion delay.",
             "distractors": {
                 "A": "A 5-minute scheduled rule is slower and is not the purpose-built low-latency option.",
-                "C": "Fusion correlates multistage attacks via ML; it is not a per-minute single-table rule you author.",
+                "C": "Fusion correlates multistage attacks via ML; it is not a per-minute rule you author.",
                 "D": "Microsoft security rules create incidents from imported alerts; they do not run a per-minute KQL query.",
             },
             "exam_pattern": "Lowest latency, single-table, ~1-minute cadence = NRT rule (with query limits).",
@@ -320,7 +321,7 @@ QUESTIONS = [
                        "templates you enable; scheduled and NRT rules require you to write the query.",
             "distractors": {
                 "C": "Scheduled rules require you to author the KQL detection logic.",
-                "D": "NRT rules also require you to author a (single-table) KQL query.",
+                "D": "NRT rules also require you to author the KQL query.",
             },
             "exam_pattern": "ML/built-in = Fusion & Anomaly; author-your-own KQL = scheduled & NRT.",
         },
