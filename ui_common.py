@@ -113,6 +113,17 @@ TRACK_ACCENT = {
     "az900":   "#0078D4",   # Microsoft Azure — blue
     "cysa":    "#6366F1",   # CompTIA CySA+ — indigo
     "pentest": "#E5484D",   # CompTIA PenTest+ — offensive/red-team crimson
+    "isc2cc":  "#14B8A6",   # (ISC)² CC — teal
+    "cbrops":  "#00BCEB",   # Cisco CyberOps — Cisco cyan
+    "sc900":   "#3B9BE0",   # Microsoft SC-900 — sky blue
+    "cissp":   "#8E44AD",   # (ISC)² CISSP — purple
+    "cism":    "#2E86C1",   # ISACA CISM — blue
+    "cisa":    "#17A589",   # ISACA CISA — green-teal
+    "sscp":    "#27AE60",   # (ISC)² SSCP — green
+    "ceh":     "#CB4B16",   # EC-Council CEH — offensive burnt-orange
+    "sc200":   "#7E57C2",   # Microsoft SC-200 — Defender purple
+    "az500":   "#0E8A6B",   # Microsoft AZ-500 — Azure security green
+    "securityx": "#A64D79", # CompTIA SecurityX — plum
 }
 
 
