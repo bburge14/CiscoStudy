@@ -1393,6 +1393,28 @@ def render_any_pbq(pbq_id: str, skey_prefix: str) -> bool:
 
 
 # --- reusable PBQ terminal --------------------------------------------------
+_CLI_TERM_CSS = """<style>
+@keyframes cwblink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.cwterm{background:#0a0e14;border:1px solid #1b2430;border-radius:9px;overflow:hidden;
+ font-family:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;font-size:13px;
+ box-shadow:0 10px 30px rgba(0,0,0,.45);margin:.3rem 0 .55rem}
+.cwterm .bar{display:flex;align-items:center;gap:.45rem;background:#11161f;
+ border-bottom:1px solid #1b2430;padding:.44rem .64rem}
+.cwterm .bar i{width:11px;height:11px;border-radius:50%;display:inline-block;flex:none}
+.cwterm .bar .t{margin-left:.5rem;color:#8a94a6;font-size:11.5px;letter-spacing:.03em}
+.cwterm .body{padding:.65rem .8rem;max-height:360px;overflow:auto;white-space:pre-wrap;
+ line-height:1.5;color:#c6d0dc;tab-size:4;word-break:break-word}
+.cwterm .p{color:#56d364}.cwterm .c{color:#e6edf3;font-weight:600}
+.cwterm .o{color:#9da7b3}.cwterm .e{color:#f0756b}
+.cwterm .cur{display:inline-block;width:8px;height:1em;background:#56d364;
+ vertical-align:-2px;margin-left:2px;animation:cwblink 1.1s steps(1) infinite}
+[data-testid="stForm"] .stTextInput input{font-family:Consolas,Menlo,monospace !important;
+ background:#0a0e14 !important;color:#7ee787 !important;border:1px solid #1b2430 !important;
+ caret-color:#56d364;border-radius:6px}
+[data-testid="stForm"] .stTextInput input::placeholder{color:#4b5563 !important}
+</style>"""
+
+
 def render_pbq(scenario, skey_prefix: str) -> bool:
     """Render a scenario's ticket, CLI terminal and validation. Returns True
     once all checks pass (also sets a cross-page flag pbq_passed_<id>)."""
@@ -1434,14 +1456,24 @@ def render_pbq(scenario, skey_prefix: str) -> bool:
         consoles[dev] = Console(topo, dev)
     con = consoles[dev]
 
-    # transcript
-    lines = []
+    # transcript — rendered as an immersive IOS console (dark terminal window)
+    esc = html.escape
+    rows = []
     for p, c, o in st.session_state[tx_key]:
-        lines.append(f"{p} {c}")
+        rows.append(f"<span class='p'>{esc(p)}</span> <span class='c'>{esc(c)}</span>")
         if o:
-            lines.append(o)
-    lines.append(con.prompt)
-    st.code("\n".join(lines) or con.prompt, language="text")
+            cls = "e" if ("^" in o or o.lstrip().startswith("%")) else "o"
+            rows.append(f"<span class='{cls}'>{esc(o)}</span>")
+    rows.append(f"<span class='p'>{esc(con.prompt)}</span><span class='cur'></span>")
+    st.markdown(
+        _CLI_TERM_CSS
+        + "<div class='cwterm'><div class='bar'>"
+          "<i style='background:#ff5f57'></i><i style='background:#febc2e'></i>"
+          "<i style='background:#28c840'></i>"
+          f"<span class='t'>IOS console &mdash; {esc(dev)}</span></div>"
+          f"<div class='body'>{chr(10).join(rows)}</div></div>",
+        unsafe_allow_html=True,
+    )
 
     from studyengine.cli_sim.clihelp import complete
     input_key = f"{skey_prefix}_cmd"
@@ -1450,7 +1482,8 @@ def render_pbq(scenario, skey_prefix: str) -> bool:
         st.session_state[input_key] = st.session_state.pop(pend_key)
     with st.form(f"{skey_prefix}_form", clear_on_submit=False):
         cmd = st.text_input("Enter IOS command", key=input_key,
-                            placeholder="e.g. configure terminal", label_visibility="collapsed")
+                            placeholder=f"{con.prompt} type a command…  (e.g. configure terminal)",
+                            label_visibility="collapsed")
         cols = st.columns([1, 1, 1])
         run = cols[0].form_submit_button("Run", type="primary", width="stretch")
         tab = cols[1].form_submit_button("Complete", width="stretch")
