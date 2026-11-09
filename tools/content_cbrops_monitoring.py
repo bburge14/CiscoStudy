@@ -2,9 +2,9 @@
 
 Original, objective-aligned practice items for the six Security Monitoring
 subtopics tracked in CertLab:
-  * cbr_data_types            - the categories of monitored data: full packet
-                               capture, session data, transaction data,
-                               statistical data, metadata and alert data.
+  * cbr_data_types            - the five categories of monitored data: full
+                               packet capture, session data, transaction data,
+                               statistical data, and alert data.
   * cbr_attack_surface_vectors- attack surface vs vulnerability, attack vectors,
                                and reducing the attack surface.
   * cbr_network_telemetry     - what NetFlow, tcpdump and next-gen firewall /

@@ -133,7 +133,7 @@ QUESTIONS = [
                 "Microsoft Entra external identities capability enables this?",
         "options": [
             {"id": "A", "text": "B2B collaboration"},
-            {"id": "B", "text": "Azure AD B2C (business-to-customer)"},
+            {"id": "B", "text": "Microsoft Entra External ID for customers (CIAM; formerly Azure AD B2C)"},
             {"id": "C", "text": "Managed identities"},
             {"id": "D", "text": "Conditional Access"},
         ],
@@ -142,7 +142,7 @@ QUESTIONS = [
             "correct": "B2B collaboration (part of external identities) invites external partners as guests who "
                        "sign in with their own home credentials, with no separate account to manage.",
             "distractors": {
-                "B": "B2C is for customer/consumer sign-up and sign-in to your apps, not partner employees collaborating as guests.",
+                "B": "External ID for customers (CIAM, formerly Azure AD B2C) is for customer/consumer sign-up and sign-in to your apps, not partner employees collaborating as guests.",
                 "C": "Managed identities are for Azure resources, not external human collaborators.",
                 "D": "Conditional Access enforces access conditions; it does not provide the external-collaboration mechanism.",
             },
