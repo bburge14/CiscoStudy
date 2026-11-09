@@ -1,4 +1,4 @@
-"""CompTIA Linux+ (XK0-005) pool - Domain 2: Security.
+"""CompTIA Linux+ (XK0-006) pool - Domain 2: Security.
 
 Original, objective-aligned practice items for the five Security subtopics
 tracked in CertLab:
@@ -18,7 +18,7 @@ tracked in CertLab:
 Authoring rules match the other content_*.py pools: build_content.py shuffles
 option order (seeded by id), so the authored key is not positionally biased,
 every wrong option carries a distractor note, and each item cites the public
-XK0-005 objective domain it draws on. Commands, flags, directives, and file
+XK0-006 objective domain it draws on. Commands, flags, directives, and file
 paths are real and version-resilient across mainstream RHEL/Fedora and Debian/
 Ubuntu systems; no memorized or real exam items are used.
 """
@@ -46,7 +46,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Octal: r=4, w=2, x=1 per digit (owner/group/other). 7=rwx, 5=r-x, 6=rw-, 4=r--.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 2 — File permissions (chmod octal)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 2 — File permissions (chmod octal)"],
     },
     {
         "id": "linuxplus-sec-002", "exam": "linuxplus", "domain": "linuxp_security",
@@ -70,7 +70,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Symbolic classes: u=user/owner, g=group, o=others, a=all; +add, -remove, =set.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 2 — File permissions (chmod symbolic)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 2 — File permissions (chmod symbolic)"],
     },
     {
         "id": "linuxplus-sec-003", "exam": "linuxplus", "domain": "linuxp_security",
@@ -94,7 +94,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Special bits in the x column: SUID=s (owner), SGID=s (group), sticky=t (other).",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 2 — Special permissions (sticky bit)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 2 — Special permissions (sticky bit)"],
     },
     {
         "id": "linuxplus-sec-004", "exam": "linuxplus", "domain": "linuxp_security",
@@ -118,7 +118,7 @@ QUESTIONS = [
             },
             "exam_pattern": "setfacl -m to add/modify, -x to remove, -b to clear all; getfacl to view.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 2 — Access control lists (setfacl)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 2 — Access control lists (setfacl)"],
     },
     {
         "id": "linuxplus-sec-005", "exam": "linuxplus", "domain": "linuxp_security",
@@ -133,7 +133,7 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "chattr sets attributes (+i immutable, +a append-only); lsattr lists them.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 2 — File attributes (chattr)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 2 — File attributes (chattr)"],
     },
 
     # ===== linuxp_access_control ============================================
@@ -159,7 +159,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Always edit sudoers with visudo (or files in /etc/sudoers.d/ via visudo -f).",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 2 — Privilege escalation (visudo/sudoers)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 2 — Privilege escalation (visudo/sudoers)"],
     },
     {
         "id": "linuxplus-sec-007", "exam": "linuxplus", "domain": "linuxp_security",
@@ -184,7 +184,7 @@ QUESTIONS = [
             "exam_pattern": "getenforce reads mode; setenforce 0|1 toggles Permissive/Enforcing at runtime; "
                             "persist in /etc/selinux/config.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 2 — SELinux modes (getenforce)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 2 — SELinux modes (getenforce)"],
     },
     {
         "id": "linuxplus-sec-008", "exam": "linuxplus", "domain": "linuxp_security",
@@ -209,7 +209,7 @@ QUESTIONS = [
             },
             "exam_pattern": "403/AVC denials after moving files usually mean wrong SELinux context — fix with restorecon.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 2 — SELinux contexts (restorecon)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 2 — SELinux contexts (restorecon)"],
     },
     {
         "id": "linuxplus-sec-009", "exam": "linuxplus", "domain": "linuxp_security",
@@ -234,7 +234,7 @@ QUESTIONS = [
             "exam_pattern": "AppArmor (Debian/Ubuntu default) uses aa-status / aa-enforce / aa-complain; "
                             "SELinux (RHEL default) uses getenforce / setenforce.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 2 — Mandatory access control (AppArmor)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 2 — Mandatory access control (AppArmor)"],
     },
 
     # ===== linuxp_firewall ==================================================
@@ -260,7 +260,7 @@ QUESTIONS = [
             },
             "exam_pattern": "firewalld changes are runtime-only unless --permanent; then --reload to activate.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 2 — Host firewall (firewalld)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 2 — Host firewall (firewalld)"],
     },
     {
         "id": "linuxplus-sec-011", "exam": "linuxplus", "domain": "linuxp_security",
@@ -284,7 +284,7 @@ QUESTIONS = [
             },
             "exam_pattern": "ufw allow/deny <port>/<proto> or a service name; enable with 'ufw enable'.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 2 — Host firewall (ufw)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 2 — Host firewall (ufw)"],
     },
     {
         "id": "linuxplus-sec-012", "exam": "linuxplus", "domain": "linuxp_security",
@@ -298,7 +298,7 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "iptables -> nftables (nft); higher-level managers firewalld/ufw sit on top.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 2 — Packet filtering (nftables)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 2 — Packet filtering (nftables)"],
     },
 
     # ===== linuxp_ssh_hardening =============================================
@@ -324,7 +324,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Key sshd_config hardening: PermitRootLogin no, PasswordAuthentication no, use keys.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 2 — SSH hardening (sshd_config)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 2 — SSH hardening (sshd_config)"],
     },
     {
         "id": "linuxplus-sec-014", "exam": "linuxplus", "domain": "linuxp_security",
@@ -348,7 +348,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Key auth flow: ssh-keygen (create) -> ssh-copy-id (publish public key) -> ssh in.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 2 — Key-based auth (ssh-copy-id)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 2 — Key-based auth (ssh-copy-id)"],
     },
     {
         "id": "linuxplus-sec-015", "exam": "linuxplus", "domain": "linuxp_security",
@@ -362,7 +362,7 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "Server = sshd_config (with the 'd'); client = ssh_config. Restart sshd after edits.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 2 — SSH server config (sshd_config)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 2 — SSH server config (sshd_config)"],
     },
 
     # ===== linuxp_crypto_certs ==============================================
@@ -388,7 +388,7 @@ QUESTIONS = [
             },
             "exam_pattern": "LUKS flow: luksFormat (once) -> luksOpen (unlock to /dev/mapper) -> mount; luksClose to lock.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 2 — Disk encryption (LUKS/cryptsetup)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 2 — Disk encryption (LUKS/cryptsetup)"],
     },
     {
         "id": "linuxplus-sec-017", "exam": "linuxplus", "domain": "linuxp_security",
@@ -412,7 +412,7 @@ QUESTIONS = [
             },
             "exam_pattern": "gpg -e -r <recipient> = asymmetric (public key); gpg -c / openssl enc = symmetric (passphrase).",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 2 — Encryption tools (GnuPG)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 2 — Encryption tools (GnuPG)"],
     },
     {
         "id": "linuxplus-sec-018", "exam": "linuxplus", "domain": "linuxp_security",
@@ -436,6 +436,6 @@ QUESTIONS = [
             },
             "exam_pattern": "Inspect a cert file: openssl x509 -in <file> -noout -text; a CSR: openssl req ...",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 2 — Certificates (OpenSSL x509)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 2 — Certificates (OpenSSL x509)"],
     },
 ]
