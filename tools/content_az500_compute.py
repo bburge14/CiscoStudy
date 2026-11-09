@@ -496,7 +496,7 @@ QUESTIONS = [
         "id": "az500-comp-019", "exam": "az500", "domain": "az500_compute_storage_db",
         "subtopic": "az500_key_vault", "difficulty": 3, "type": "mcq",
         "stem": "A compliance mandate requires cryptographic keys to be protected by single-tenant, FIPS "
-                "140-2 Level 3 validated hardware security modules that your organization fully controls. "
+                "140-3 Level 3 validated hardware security modules that your organization fully controls. "
                 "Which Azure option meets this?",
         "options": [
             {"id": "A", "text": "Azure Key Vault Managed HSM"},
@@ -507,13 +507,13 @@ QUESTIONS = [
         "correct": ["A"],
         "explanation": {
             "correct": "Azure Key Vault Managed HSM is a fully managed, single-tenant, highly available service that "
-                       "protects keys with FIPS 140-2 Level 3 validated HSMs under the customer's control.",
+                       "protects keys with FIPS 140-3 Level 3 validated HSMs under the customer's control.",
             "distractors": {
                 "B": "The Standard tier uses software-protected keys and does not meet single-tenant Level 3 HSM requirements.",
                 "C": "Where the key is referenced does not change that a Standard vault is not a single-tenant Level 3 HSM.",
                 "D": "Dynamic Data Masking is a database feature unrelated to key-protection hardware.",
             },
-            "exam_pattern": "Single-tenant, fully controlled FIPS 140-2 Level 3 HSM = Azure Key Vault Managed HSM; "
+            "exam_pattern": "Single-tenant, fully controlled FIPS 140-3 Level 3 HSM = Azure Key Vault Managed HSM; "
                             "Premium vaults offer multi-tenant HSM-backed keys.",
         },
         "references": ["Microsoft Learn (AZ-500): Azure Key Vault Managed HSM"],
