@@ -1,0 +1,3660 @@
+{
+  "exam": "cbrops",
+  "count": 90,
+  "questions": [
+    {
+      "id": "cbrops-con-001",
+      "exam": "cbrops",
+      "domain": "cbr_security_concepts",
+      "subtopic": "cbr_cia_defense",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A control is designed to ensure that stored records cannot be altered by unauthorized users so their accuracy can be trusted. Which element of the CIA triad does this control protect?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Non-repudiation"
+        },
+        {
+          "id": "B",
+          "text": "Integrity"
+        },
+        {
+          "id": "C",
+          "text": "Confidentiality"
+        },
+        {
+          "id": "D",
+          "text": "Availability"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Integrity ensures data is not modified by unauthorized parties and stays accurate and trustworthy; hashing and access controls help enforce it.",
+        "distractors": {
+          "A": "Non-repudiation assures an action cannot be denied; it is not one of the three CIA elements.",
+          "B": "",
+          "C": "Confidentiality protects against unauthorized disclosure, not unauthorized modification.",
+          "D": "Availability ensures timely, reliable access to data, not that it stays unaltered."
+        },
+        "exam_pattern": "Unauthorized modification / accuracy / trustworthiness = Integrity."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.1 Describe the CIA triad"
+      ]
+    },
+    {
+      "id": "cbrops-con-002",
+      "exam": "cbrops",
+      "domain": "cbr_security_concepts",
+      "subtopic": "cbr_cia_defense",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A volumetric DDoS attack floods a public web server until legitimate users can no longer reach the site, though no data is read or changed. Which pillar of the CIA triad is most directly impacted?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Availability"
+        },
+        {
+          "id": "B",
+          "text": "Authentication"
+        },
+        {
+          "id": "C",
+          "text": "Integrity"
+        },
+        {
+          "id": "D",
+          "text": "Confidentiality"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Availability is the assurance that systems and data are accessible when needed; a DoS/DDoS that exhausts resources and blocks access attacks availability.",
+        "distractors": {
+          "A": "",
+          "B": "Authentication verifies identity and is not one of the three CIA pillars.",
+          "C": "Integrity concerns unauthorized change of data, but nothing was altered.",
+          "D": "Confidentiality concerns disclosure of data, but nothing was read or exposed here."
+        },
+        "exam_pattern": "DoS/DDoS, resource exhaustion, 'cannot reach the service' = Availability."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.1 Describe the CIA triad"
+      ]
+    },
+    {
+      "id": "cbrops-con-003",
+      "exam": "cbrops",
+      "domain": "cbr_security_concepts",
+      "subtopic": "cbr_cia_defense",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A security architecture layers a perimeter firewall, a network IPS, endpoint antimalware, and encryption of data at rest so that no single control failure exposes the protected asset. Which strategy does this describe?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Principle of least privilege"
+        },
+        {
+          "id": "B",
+          "text": "Zero trust"
+        },
+        {
+          "id": "C",
+          "text": "Defense in depth"
+        },
+        {
+          "id": "D",
+          "text": "Separation of duties"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Defense in depth layers multiple, independent controls so that if one fails the others still protect the asset.",
+        "distractors": {
+          "A": "Least privilege limits each identity to the minimum access needed; it is one control, not the layered strategy.",
+          "B": "Zero trust removes implicit trust and verifies every request; related, but not the 'multiple layers' definition.",
+          "C": "",
+          "D": "Separation of duties splits a task among people to prevent fraud, not a stack of technical defenses."
+        },
+        "exam_pattern": "Multiple independent layers so one failure is not fatal = defense in depth."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.5 Describe the principles of the defense-in-depth strategy"
+      ]
+    },
+    {
+      "id": "cbrops-con-004",
+      "exam": "cbrops",
+      "domain": "cbr_security_concepts",
+      "subtopic": "cbr_security_terms",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A new SOC analyst is granted only the specific log-review and ticketing permissions the job requires, and nothing more. Which security principle is being applied?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Separation of duties"
+        },
+        {
+          "id": "B",
+          "text": "Due diligence"
+        },
+        {
+          "id": "C",
+          "text": "Principle of least privilege"
+        },
+        {
+          "id": "D",
+          "text": "Defense in depth"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The principle of least privilege grants each user, process, or system only the minimum access needed to perform its function, limiting damage if the account is misused.",
+        "distractors": {
+          "A": "Separation of duties divides a sensitive task among multiple people.",
+          "B": "Due diligence is the ongoing effort to maintain security, not a minimal-access rule.",
+          "C": "",
+          "D": "Defense in depth is about layering controls, not minimizing an account's access."
+        },
+        "exam_pattern": "Minimum access needed to do the job = least privilege."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.3 Describe security terms"
+      ]
+    },
+    {
+      "id": "cbrops-con-005",
+      "exam": "cbrops",
+      "domain": "cbr_security_concepts",
+      "subtopic": "cbr_security_terms",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Rather than waiting for alerts to fire, an analyst forms a hypothesis and proactively searches historical telemetry for signs of an adversary that evaded existing detections. What is this activity called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Incident eradication"
+        },
+        {
+          "id": "B",
+          "text": "Penetration testing"
+        },
+        {
+          "id": "C",
+          "text": "Threat hunting"
+        },
+        {
+          "id": "D",
+          "text": "Reverse engineering"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Threat hunting is the proactive, hypothesis-driven search through telemetry for threats that automated detections missed, rather than reacting to alerts.",
+        "distractors": {
+          "A": "Eradication removes a confirmed threat after detection; it is a later incident-response step.",
+          "B": "Penetration testing is authorized offensive testing to find exploitable weaknesses, not a search for intruders in logs.",
+          "C": "",
+          "D": "Reverse engineering deconstructs malware or software to understand how it works."
+        },
+        "exam_pattern": "Proactive, hypothesis-driven search for undetected threats = threat hunting."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.3 Describe security terms"
+      ]
+    },
+    {
+      "id": "cbrops-con-006",
+      "exam": "cbrops",
+      "domain": "cbr_security_concepts",
+      "subtopic": "cbr_security_terms",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: The security model that eliminates implicit trust based on network location and instead continuously verifies every user, device, and request is known as the ______ model. (two words)",
+      "correct": [
+        "zero trust",
+        "zero-trust",
+        "zerotrust",
+        "zero trust model"
+      ],
+      "explanation": {
+        "correct": "Zero trust assumes no implicit trust inside or outside the perimeter and requires continuous authentication and authorization - 'never trust, always verify' - for every access request.",
+        "exam_pattern": "'Never trust, always verify' / no implicit trust by location = zero trust."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.3 Describe security terms"
+      ]
+    },
+    {
+      "id": "cbrops-con-007",
+      "exam": "cbrops",
+      "domain": "cbr_security_concepts",
+      "subtopic": "cbr_access_control_models",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On a file server, the owner of each file decides which other users may read or modify it and sets those permissions directly. Which access control model is in use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mandatory access control (MAC)"
+        },
+        {
+          "id": "B",
+          "text": "Role-based access control (RBAC)"
+        },
+        {
+          "id": "C",
+          "text": "Discretionary access control (DAC)"
+        },
+        {
+          "id": "D",
+          "text": "Rule-based access control"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "In DAC the resource owner has discretion to decide who may access the object and grants permissions at will - exactly the file-owner behavior described.",
+        "distractors": {
+          "A": "Under MAC the system enforces access using labels and clearances; owners cannot choose.",
+          "B": "RBAC ties access to job roles, not to the owner's discretion.",
+          "C": "",
+          "D": "Rule-based control applies administrator-defined global rules (e.g., ACL conditions), not owner choice."
+        },
+        "exam_pattern": "Resource owner decides who gets access = DAC."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.6 Compare access control models"
+      ]
+    },
+    {
+      "id": "cbrops-con-008",
+      "exam": "cbrops",
+      "domain": "cbr_security_concepts",
+      "subtopic": "cbr_access_control_models",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In a classified system, access is enforced by the operating system using security labels (such as Secret and Top Secret) matched against user clearances, and individual users cannot override these decisions. Which model is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mandatory access control (MAC)"
+        },
+        {
+          "id": "B",
+          "text": "Role-based access control (RBAC)"
+        },
+        {
+          "id": "C",
+          "text": "Attribute-based access control (ABAC)"
+        },
+        {
+          "id": "D",
+          "text": "Discretionary access control (DAC)"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "MAC enforces access centrally through security labels and clearances set by the system (not the user), which is why it is common in military and classified environments.",
+        "distractors": {
+          "A": "",
+          "B": "RBAC groups permissions by job role, not by classification labels and clearances.",
+          "C": "ABAC decides by attributes and policy; the defining label-and-clearance enforcement described is MAC.",
+          "D": "DAC lets owners set permissions at their discretion - the opposite of system-enforced labels."
+        },
+        "exam_pattern": "Security labels + clearances, system-enforced, military/classified = MAC."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.6 Compare access control models"
+      ]
+    },
+    {
+      "id": "cbrops-con-009",
+      "exam": "cbrops",
+      "domain": "cbr_security_concepts",
+      "subtopic": "cbr_access_control_models",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A company grants permissions by job function: every account in the 'SOC Analyst' role automatically receives the same rights, and moving a user to a different role changes their access. Which access control model is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Role-based access control (RBAC)"
+        },
+        {
+          "id": "B",
+          "text": "Discretionary access control (DAC)"
+        },
+        {
+          "id": "C",
+          "text": "Mandatory access control (MAC)"
+        },
+        {
+          "id": "D",
+          "text": "Time-based access control"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "RBAC assigns permissions to roles rather than to individuals; users inherit rights by their role, which simplifies administration as people change jobs.",
+        "distractors": {
+          "A": "",
+          "B": "DAC leaves access to the owner's discretion, not tied to a defined role.",
+          "C": "MAC uses labels and clearances enforced by the system, not job roles.",
+          "D": "Time-based control grants access only during permitted time windows, which is not what is described."
+        },
+        "exam_pattern": "Permissions attached to a job role/function = RBAC."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.6 Compare access control models"
+      ]
+    },
+    {
+      "id": "cbrops-con-010",
+      "exam": "cbrops",
+      "domain": "cbr_security_concepts",
+      "subtopic": "cbr_cvss",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In CVSS v3.1, which base metric expresses the context from which exploitation is possible, using the values Network, Adjacent, Local, and Physical?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Attack Complexity (AC)"
+        },
+        {
+          "id": "B",
+          "text": "Privileges Required (PR)"
+        },
+        {
+          "id": "C",
+          "text": "Attack Vector (AV)"
+        },
+        {
+          "id": "D",
+          "text": "Scope (S)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Attack Vector (AV) reflects how 'remote' an attacker can be; its values are Network, Adjacent, Local, and Physical.",
+        "distractors": {
+          "A": "Attack Complexity describes conditions beyond the attacker's control (Low/High), not where the attack originates.",
+          "B": "Privileges Required is the privilege level the attacker must already hold (None/Low/High).",
+          "C": "",
+          "D": "Scope indicates whether impact crosses a security authority boundary (Unchanged/Changed)."
+        },
+        "exam_pattern": "Network/Adjacent/Local/Physical = Attack Vector (AV)."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.7 Describe terms as defined in CVSS"
+      ]
+    },
+    {
+      "id": "cbrops-con-011",
+      "exam": "cbrops",
+      "domain": "cbr_security_concepts",
+      "subtopic": "cbr_cvss",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A CVSS v3.1 assessment notes that exploiting a hypervisor flaw lets the attacker affect guest VMs that sit beyond the vulnerable component's own security authority. Which base metric captures this condition?",
+      "options": [
+        {
+          "id": "A",
+          "text": "User Interaction (UI)"
+        },
+        {
+          "id": "B",
+          "text": "Attack Vector (AV)"
+        },
+        {
+          "id": "C",
+          "text": "Scope (S)"
+        },
+        {
+          "id": "D",
+          "text": "Confidentiality (C)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Scope (Unchanged vs Changed) captures whether a successful exploit can impact resources beyond the security authority of the vulnerable component - here, other VMs.",
+        "distractors": {
+          "A": "User Interaction states whether a human must participate (None/Required).",
+          "B": "Attack Vector describes where the attack originates, not the spread of impact.",
+          "C": "",
+          "D": "Confidentiality measures the impact to data confidentiality, not whether impact crosses a boundary."
+        },
+        "exam_pattern": "Impact crosses a security authority boundary (Unchanged vs Changed) = Scope."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.7 Describe terms as defined in CVSS"
+      ]
+    },
+    {
+      "id": "cbrops-con-012",
+      "exam": "cbrops",
+      "domain": "cbr_security_concepts",
+      "subtopic": "cbr_cvss",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A vulnerability is published with a CVSS v3.1 base score of 9.8. Into which qualitative severity rating does that score fall?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Critical"
+        },
+        {
+          "id": "B",
+          "text": "Medium"
+        },
+        {
+          "id": "C",
+          "text": "Low"
+        },
+        {
+          "id": "D",
+          "text": "High"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "On the CVSS v3.1 qualitative scale, 9.0-10.0 is Critical, so a 9.8 base score is Critical.",
+        "distractors": {
+          "A": "",
+          "B": "Medium covers 4.0-6.9.",
+          "C": "Low covers 0.1-3.9.",
+          "D": "High covers 7.0-8.9, which is below a 9.8 score."
+        },
+        "exam_pattern": "CVSS v3 bands: 0.1-3.9 Low, 4.0-6.9 Medium, 7.0-8.9 High, 9.0-10.0 Critical."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.7 Describe terms as defined in CVSS"
+      ]
+    },
+    {
+      "id": "cbrops-con-013",
+      "exam": "cbrops",
+      "domain": "cbr_security_concepts",
+      "subtopic": "cbr_risk_terms",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "In risk terminology, how is a 'vulnerability' best defined?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A weakness in a system or process that could be exploited"
+        },
+        {
+          "id": "B",
+          "text": "The probability and impact of a loss event"
+        },
+        {
+          "id": "C",
+          "text": "A person or event with the potential to cause harm"
+        },
+        {
+          "id": "D",
+          "text": "The tool or code used to take advantage of a weakness"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A vulnerability is a weakness or flaw (in software, configuration, or process) that a threat could exploit.",
+        "distractors": {
+          "A": "",
+          "B": "The probability and impact of a loss is risk.",
+          "C": "A person or event with potential to cause harm is a threat, not a vulnerability.",
+          "D": "The tool or code that leverages a weakness is an exploit."
+        },
+        "exam_pattern": "Weakness that could be exploited = vulnerability; who/what causes harm = threat."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.4 Compare security concepts"
+      ]
+    },
+    {
+      "id": "cbrops-con-014",
+      "exam": "cbrops",
+      "domain": "cbr_security_concepts",
+      "subtopic": "cbr_risk_terms",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An unpatched internet-facing server (a known weakness) is being actively targeted by a worm circulating in the wild. The potential for loss that results from the worm acting on the weakness is best described as the organization's ______.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Threat"
+        },
+        {
+          "id": "B",
+          "text": "Exploit"
+        },
+        {
+          "id": "C",
+          "text": "Risk"
+        },
+        {
+          "id": "D",
+          "text": "Vulnerability"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Risk is the potential for loss when a threat acts on a vulnerability; it combines the likelihood of that happening with the impact if it does.",
+        "distractors": {
+          "A": "The worm itself is the threat - the agent with potential to cause harm.",
+          "B": "The specific code the worm uses to compromise the server is the exploit.",
+          "C": "",
+          "D": "The unpatched server is the vulnerability - the weakness."
+        },
+        "exam_pattern": "Risk = likelihood a threat exploits a vulnerability x impact; it is the potential for loss."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.4 Compare security concepts"
+      ]
+    },
+    {
+      "id": "cbrops-con-015",
+      "exam": "cbrops",
+      "domain": "cbr_security_concepts",
+      "subtopic": "cbr_risk_terms",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: A piece of software, a chunk of data, or a sequence of commands that takes advantage of a specific vulnerability to cause unintended behavior on a system is called a(n) ______.",
+      "correct": [
+        "exploit"
+      ],
+      "explanation": {
+        "correct": "An exploit is the actual tool, code, or technique that leverages a vulnerability. The vulnerability is the weakness itself; the threat is the actor or event that may use the exploit.",
+        "exam_pattern": "Code/technique that leverages a vulnerability = exploit (distinct from the weakness)."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.4 Compare security concepts"
+      ]
+    },
+    {
+      "id": "cbrops-con-016",
+      "exam": "cbrops",
+      "domain": "cbr_security_concepts",
+      "subtopic": "cbr_soc_analysis_tools",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A SOC deploys a platform that ingests logs from firewalls, servers, and endpoints, normalizes them, and correlates events across sources to generate prioritized alerts for analysts. Which technology is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Certificate authority (CA)"
+        },
+        {
+          "id": "B",
+          "text": "SOAR"
+        },
+        {
+          "id": "C",
+          "text": "IPS"
+        },
+        {
+          "id": "D",
+          "text": "SIEM"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A SIEM (security information and event management) centrally collects, normalizes, and correlates log data from many sources and raises alerts for investigation.",
+        "distractors": {
+          "A": "A certificate authority issues digital certificates and has nothing to do with log correlation.",
+          "B": "SOAR focuses on orchestrating and automating response actions, not primarily on log aggregation and correlation.",
+          "C": "An IPS inspects and blocks malicious traffic inline; it is a log source, not the aggregation platform.",
+          "D": ""
+        },
+        "exam_pattern": "Central collection + normalization + correlation of logs into alerts = SIEM."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.2 Compare security deployments"
+      ]
+    },
+    {
+      "id": "cbrops-con-017",
+      "exam": "cbrops",
+      "domain": "cbr_security_concepts",
+      "subtopic": "cbr_soc_analysis_tools",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To cut response time, a SOC wants a platform that runs automated playbooks to enrich alerts and push containment actions across its firewall, EDR, and ticketing systems from one place. Which technology best fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "SIEM"
+        },
+        {
+          "id": "B",
+          "text": "Data loss prevention (DLP)"
+        },
+        {
+          "id": "C",
+          "text": "NetFlow collector"
+        },
+        {
+          "id": "D",
+          "text": "SOAR"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "SOAR (security orchestration, automation, and response) runs playbooks that automate enrichment and response across integrated tools, reducing manual effort and response time.",
+        "distractors": {
+          "A": "A SIEM aggregates and correlates logs and raises alerts but does not natively orchestrate multi-tool automated response.",
+          "B": "DLP focuses on preventing data exfiltration, not orchestrating incident response.",
+          "C": "A NetFlow collector gathers flow records for traffic analysis, not response automation.",
+          "D": ""
+        },
+        "exam_pattern": "Automation + orchestration + playbooks across tools = SOAR."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.2 Compare security deployments"
+      ]
+    },
+    {
+      "id": "cbrops-con-018",
+      "exam": "cbrops",
+      "domain": "cbr_security_concepts",
+      "subtopic": "cbr_soc_analysis_tools",
+      "difficulty": 3,
+      "type": "multi",
+      "stem": "Which TWO capabilities most distinguish a SOAR platform from a traditional SIEM? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Signing and issuing X.509 certificates"
+        },
+        {
+          "id": "B",
+          "text": "Storing and correlating raw log events"
+        },
+        {
+          "id": "C",
+          "text": "Orchestrating actions across multiple separate security tools"
+        },
+        {
+          "id": "D",
+          "text": "Executing automated response playbooks"
+        }
+      ],
+      "correct": [
+        "C",
+        "D"
+      ],
+      "explanation": {
+        "correct": "SOAR adds orchestration across tools and automated playbook-driven response on top of detection; those are its defining capabilities versus a SIEM.",
+        "distractors": {
+          "A": "Certificate issuance is a PKI/CA function, unrelated to SOAR.",
+          "B": "Storing and correlating logs is the SIEM's core role, not what sets SOAR apart.",
+          "C": "",
+          "D": ""
+        },
+        "exam_pattern": "SOAR = orchestration + automated playbooks layered on detection."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.2 Compare security deployments"
+      ]
+    },
+    {
+      "id": "cbrops-host-001",
+      "exam": "cbrops",
+      "domain": "cbr_host_analysis",
+      "subtopic": "cbr_endpoint_technologies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Software installed on a single server watches that host's log files, file integrity, and process activity and raises an alert when it sees suspicious behavior, but it does not block the activity. Which endpoint technology is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Certificate authority"
+        },
+        {
+          "id": "B",
+          "text": "Load balancer"
+        },
+        {
+          "id": "C",
+          "text": "Network firewall"
+        },
+        {
+          "id": "D",
+          "text": "Host-based intrusion detection system (HIDS)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A HIDS monitors a single host (logs, file integrity, processes) and alerts on suspicious activity; being detection-only, it reports rather than blocks (a HIPS would block).",
+        "distractors": {
+          "A": "A certificate authority issues certificates and does no host monitoring.",
+          "B": "A load balancer distributes traffic across servers; it is not a host monitoring tool.",
+          "C": "A network firewall filters traffic at the network boundary, not host log/file/process activity.",
+          "D": ""
+        },
+        "exam_pattern": "Monitors one host's logs/files/processes and alerts (no block) = HIDS."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.1 Describe the functionality of endpoint technologies"
+      ]
+    },
+    {
+      "id": "cbrops-host-002",
+      "exam": "cbrops",
+      "domain": "cbr_host_analysis",
+      "subtopic": "cbr_endpoint_technologies",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: A control that permits only explicitly approved applications to execute on an endpoint and blocks everything else by default is called application ______ (the default-deny approach).",
+      "correct": [
+        "allowlisting",
+        "allow listing",
+        "allow-listing",
+        "whitelisting",
+        "allowlist",
+        "application allowlisting"
+      ],
+      "explanation": {
+        "correct": "Application allowlisting (whitelisting) is a default-deny control: only approved programs run, which stops unknown or unauthorized executables, including much malware.",
+        "exam_pattern": "Default-deny, only approved apps run = application allowlisting (vs blocklisting's default-allow)."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.1 Describe the functionality of endpoint technologies"
+      ]
+    },
+    {
+      "id": "cbrops-host-003",
+      "exam": "cbrops",
+      "domain": "cbr_host_analysis",
+      "subtopic": "cbr_endpoint_technologies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To analyze a suspicious attachment safely, an analyst runs it inside an isolated, instrumented environment that is kept separate from production systems so its behavior can be observed without risk. This technique is called:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hashing"
+        },
+        {
+          "id": "B",
+          "text": "Tunneling"
+        },
+        {
+          "id": "C",
+          "text": "Load balancing"
+        },
+        {
+          "id": "D",
+          "text": "Sandboxing"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Sandboxing executes untrusted code in a contained, isolated environment so its actions can be watched without exposing real hosts or data.",
+        "distractors": {
+          "A": "Hashing produces a fingerprint of a file; it does not run the file to observe behavior.",
+          "B": "Tunneling encapsulates traffic in another protocol; it is an evasion technique, not analysis isolation.",
+          "C": "Load balancing distributes traffic across servers and is unrelated to malware isolation.",
+          "D": ""
+        },
+        "exam_pattern": "Run untrusted code in an isolated environment to observe it = sandboxing."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.1 Describe the functionality of endpoint technologies"
+      ]
+    },
+    {
+      "id": "cbrops-host-004",
+      "exam": "cbrops",
+      "domain": "cbr_host_analysis",
+      "subtopic": "cbr_endpoint_technologies",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which endpoint technology controls inbound and outbound network connections for one specific computer, allowing or denying traffic based on rules local to that machine?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Antivirus signature database"
+        },
+        {
+          "id": "B",
+          "text": "Host-based firewall"
+        },
+        {
+          "id": "C",
+          "text": "SIEM correlation engine"
+        },
+        {
+          "id": "D",
+          "text": "Certificate revocation list"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A host-based (personal) firewall enforces allow/deny rules on the connections of the single machine it runs on, independent of the network perimeter.",
+        "distractors": {
+          "A": "An antivirus database identifies malicious files, it does not filter network connections.",
+          "B": "",
+          "C": "A SIEM correlates logs centrally; it does not enforce per-host connection rules.",
+          "D": "A CRL lists revoked certificates and has nothing to do with filtering host traffic."
+        },
+        "exam_pattern": "Per-machine inbound/outbound connection rules = host-based firewall."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.1 Describe the functionality of endpoint technologies"
+      ]
+    },
+    {
+      "id": "cbrops-host-005",
+      "exam": "cbrops",
+      "domain": "cbr_host_analysis",
+      "subtopic": "cbr_os_components",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On a Windows host, an analyst investigating persistence examines a hierarchical database that stores operating-system and application configuration, including the auto-start 'Run' keys. Which component is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The page file"
+        },
+        {
+          "id": "B",
+          "text": "The Windows Registry"
+        },
+        {
+          "id": "C",
+          "text": "The /etc directory"
+        },
+        {
+          "id": "D",
+          "text": "The master boot record"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The Windows Registry is the central hierarchical configuration store; malware often adds auto-start 'Run' key entries there for persistence, so it is a key artifact.",
+        "distractors": {
+          "A": "The page file backs virtual memory on disk; it is not the configuration database.",
+          "B": "",
+          "C": "/etc holds configuration files on Linux, not Windows.",
+          "D": "The master boot record holds boot code and the partition table, not OS configuration settings."
+        },
+        "exam_pattern": "Windows central config store with auto-start keys = the Registry."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.2 Identify components of an operating system (Windows and Linux)"
+      ]
+    },
+    {
+      "id": "cbrops-host-006",
+      "exam": "cbrops",
+      "domain": "cbr_host_analysis",
+      "subtopic": "cbr_os_components",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An analyst moving from Windows to a Linux host asks where most service and system configuration is stored, since Linux has no central registry. Which answer is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "In plain-text configuration files, largely under the /etc directory"
+        },
+        {
+          "id": "B",
+          "text": "Only in volatile RAM, never on disk"
+        },
+        {
+          "id": "C",
+          "text": "Inside the NTFS master file table"
+        },
+        {
+          "id": "D",
+          "text": "In the Windows Registry hive files"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Linux stores most system and service configuration as human-readable text files, predominantly under /etc, rather than in a single binary registry.",
+        "distractors": {
+          "A": "",
+          "B": "Configuration persists on disk so it survives reboots; it is not kept only in RAM.",
+          "C": "The NTFS master file table is a Windows file-system structure, not where Linux configuration lives.",
+          "D": "The registry is a Windows construct; Linux does not use it."
+        },
+        "exam_pattern": "Linux config = text files under /etc (no central registry)."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.2 Identify components of an operating system (Windows and Linux)"
+      ]
+    },
+    {
+      "id": "cbrops-host-007",
+      "exam": "cbrops",
+      "domain": "cbr_host_analysis",
+      "subtopic": "cbr_os_components",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "On a Linux host, which command would an analyst use to list the processes currently running so they can spot an unexpected one?",
+      "options": [
+        {
+          "id": "A",
+          "text": "regedit"
+        },
+        {
+          "id": "B",
+          "text": "chkdsk"
+        },
+        {
+          "id": "C",
+          "text": "ipconfig"
+        },
+        {
+          "id": "D",
+          "text": "ps"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "ps (and tools like top) lists running processes on Linux, letting an analyst review what is executing and flag anything unexpected.",
+        "distractors": {
+          "A": "regedit is the Windows Registry editor, not available on Linux and not a process lister.",
+          "B": "chkdsk checks a Windows disk for errors; it is unrelated to listing processes.",
+          "C": "ipconfig displays network configuration on Windows; it does not list processes.",
+          "D": ""
+        },
+        "exam_pattern": "List Linux processes = ps/top (regedit/ipconfig/chkdsk are Windows tools)."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.2 Identify components of an operating system (Windows and Linux)"
+      ]
+    },
+    {
+      "id": "cbrops-host-008",
+      "exam": "cbrops",
+      "domain": "cbr_host_analysis",
+      "subtopic": "cbr_os_components",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which file system is the native, default file system used by modern Windows installations and supports features such as access control lists and journaling?",
+      "options": [
+        {
+          "id": "A",
+          "text": "HFS+"
+        },
+        {
+          "id": "B",
+          "text": "ext4"
+        },
+        {
+          "id": "C",
+          "text": "SMB"
+        },
+        {
+          "id": "D",
+          "text": "NTFS"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "NTFS is the native Windows file system and supports per-file permissions (ACLs), journaling, and other features analysts rely on when examining Windows disks.",
+        "distractors": {
+          "A": "HFS+ is a legacy Apple macOS file system.",
+          "B": "ext4 is a common Linux file system, not the Windows default.",
+          "C": "SMB is a network file-sharing protocol, not an on-disk file system.",
+          "D": ""
+        },
+        "exam_pattern": "Native modern Windows file system = NTFS; Linux commonly ext4."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.2 Identify components of an operating system (Windows and Linux)"
+      ]
+    },
+    {
+      "id": "cbrops-host-009",
+      "exam": "cbrops",
+      "domain": "cbr_host_analysis",
+      "subtopic": "cbr_logs_artifacts",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In the Windows Security event log, which event ID records a failed logon attempt - the entry an analyst counts when looking for password-guessing activity?",
+      "options": [
+        {
+          "id": "A",
+          "text": "7045"
+        },
+        {
+          "id": "B",
+          "text": "4625"
+        },
+        {
+          "id": "C",
+          "text": "4624"
+        },
+        {
+          "id": "D",
+          "text": "1102"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Event ID 4625 is 'An account failed to log on'; a burst of 4625 events for one account signals password guessing or brute forcing.",
+        "distractors": {
+          "A": "7045 marks a new service being installed, not a logon failure.",
+          "B": "",
+          "C": "4624 is a successful logon, the opposite of a failed attempt.",
+          "D": "1102 records that the audit/security log was cleared."
+        },
+        "exam_pattern": "Windows logon: 4624 = success, 4625 = failure."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.6 Interpret OS, application, or command line logs to identify an event"
+      ]
+    },
+    {
+      "id": "cbrops-host-010",
+      "exam": "cbrops",
+      "domain": "cbr_host_analysis",
+      "subtopic": "cbr_logs_artifacts",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On a Linux server, where would an analyst typically look for authentication and system log messages generated through the syslog mechanism?",
+      "options": [
+        {
+          "id": "A",
+          "text": "In files under /var/log (such as auth.log or secure)"
+        },
+        {
+          "id": "B",
+          "text": "In the BIOS/UEFI firmware settings"
+        },
+        {
+          "id": "C",
+          "text": "In the Windows Event Viewer"
+        },
+        {
+          "id": "D",
+          "text": "In the HKEY_LOCAL_MACHINE registry hive"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Linux systems write syslog-based messages to text files under /var/log; authentication events appear in auth.log (Debian/Ubuntu) or secure (RHEL/CentOS).",
+        "distractors": {
+          "A": "",
+          "B": "BIOS/UEFI settings are firmware configuration, not OS log messages.",
+          "C": "Event Viewer is the Windows log interface, not used for Linux syslog files.",
+          "D": "The registry is a Windows configuration store, not a Linux log location."
+        },
+        "exam_pattern": "Linux logs live in /var/log; auth events in auth.log or secure."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.6 Interpret OS, application, or command line logs to identify an event"
+      ]
+    },
+    {
+      "id": "cbrops-host-011",
+      "exam": "cbrops",
+      "domain": "cbr_host_analysis",
+      "subtopic": "cbr_logs_artifacts",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A Windows endpoint has Sysmon deployed in addition to the default auditing. What extra visibility does Sysmon provide to an analyst?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Detailed logs such as process creation with command lines, hashes, and network connections"
+        },
+        {
+          "id": "B",
+          "text": "It encrypts all host traffic end to end"
+        },
+        {
+          "id": "C",
+          "text": "It blocks all inbound connections by default"
+        },
+        {
+          "id": "D",
+          "text": "It replaces the need for any antivirus product"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Sysmon records rich endpoint telemetry - process creation with full command line and hashes, network connections, image loads, and more - beyond what default Windows logging captures.",
+        "distractors": {
+          "A": "",
+          "B": "Sysmon logs activity; it does not encrypt traffic.",
+          "C": "Sysmon does not filter or block connections; it records them.",
+          "D": "Sysmon is a logging/telemetry tool, not a replacement for antivirus prevention."
+        },
+        "exam_pattern": "Sysmon = deep endpoint telemetry (process creation, hashes, net connections) for detection."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.6 Interpret OS, application, or command line logs to identify an event"
+      ]
+    },
+    {
+      "id": "cbrops-host-012",
+      "exam": "cbrops",
+      "domain": "cbr_host_analysis",
+      "subtopic": "cbr_logs_artifacts",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A Windows Security log shows roughly 200 Event ID 4625 entries for one account within two minutes, all from the same remote IP, immediately followed by a single Event ID 4624 for that account from the same IP. What does this pattern most likely indicate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A routine scheduled backup completing"
+        },
+        {
+          "id": "B",
+          "text": "A successful password brute-force / guessing attack"
+        },
+        {
+          "id": "C",
+          "text": "The security log being cleared by an administrator"
+        },
+        {
+          "id": "D",
+          "text": "A normal user mistyping their password once"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Many failed logons (4625) in quick succession followed by a success (4624) from the same source is the classic signature of a brute-force attack that finally guessed the password.",
+        "distractors": {
+          "A": "A backup job does not generate repeated failed-logon events for an account.",
+          "B": "",
+          "C": "Clearing the log is event 1102 and would not generate a flood of 4625 failures.",
+          "D": "A single mistype produces one or two failures, not ~200 in two minutes followed by a success."
+        },
+        "exam_pattern": "Flood of 4625 then a 4624 from one source = brute force that succeeded."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.6 Interpret OS, application, or command line logs to identify an event"
+      ]
+    },
+    {
+      "id": "cbrops-host-013",
+      "exam": "cbrops",
+      "domain": "cbr_host_analysis",
+      "subtopic": "cbr_malware_analysis",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A malware sandbox report lists the sample's SHA-256 hash. What is the primary way an analyst uses this hash value?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To determine the malware's physical location on disk"
+        },
+        {
+          "id": "B",
+          "text": "To recover the password the malware used"
+        },
+        {
+          "id": "C",
+          "text": "As a unique fingerprint to look the file up against threat-intelligence/IOC feeds"
+        },
+        {
+          "id": "D",
+          "text": "To decrypt the malware's encrypted payload"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A cryptographic hash is a unique fingerprint of the file; analysts search it against intelligence sources (e.g., VirusTotal, internal IOC lists) to see whether the sample is already known-bad.",
+        "distractors": {
+          "A": "A hash identifies the content, not where the file sits on disk.",
+          "B": "A hash does not reveal passwords; it is a fingerprint of the data.",
+          "C": "",
+          "D": "A hash is one-way; it cannot decrypt anything."
+        },
+        "exam_pattern": "File hash = unique IOC to match the sample against known-bad intelligence."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.7 Interpret the output report of a malware analysis tool"
+      ]
+    },
+    {
+      "id": "cbrops-host-014",
+      "exam": "cbrops",
+      "domain": "cbr_host_analysis",
+      "subtopic": "cbr_malware_analysis",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A detonation chamber executes a suspicious file and reports the files it created, the registry keys it modified, and the external hosts it contacted. Which type of malware analysis produced this report?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Static analysis only"
+        },
+        {
+          "id": "B",
+          "text": "Dynamic (behavioral) analysis"
+        },
+        {
+          "id": "C",
+          "text": "Penetration testing"
+        },
+        {
+          "id": "D",
+          "text": "Source-code review"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Dynamic (behavioral) analysis runs the sample in an instrumented sandbox and records what it actually does - file, registry, and network activity - at runtime.",
+        "distractors": {
+          "A": "Static analysis examines the file without executing it, so it would not report runtime behavior like live network callouts.",
+          "B": "",
+          "C": "Penetration testing is authorized offensive assessment, not malware detonation analysis.",
+          "D": "Source-code review inspects source, which is rarely available for malware and is not what a detonation chamber does."
+        },
+        "exam_pattern": "Runs the sample and records behavior (files/registry/network) = dynamic analysis."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.7 Interpret the output report of a malware analysis tool"
+      ]
+    },
+    {
+      "id": "cbrops-host-015",
+      "exam": "cbrops",
+      "domain": "cbr_host_analysis",
+      "subtopic": "cbr_malware_analysis",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In a sandbox report's networking section, after the sample executes it repeatedly connects outbound to an unfamiliar domain and waits for instructions. What does this behavior most directly indicate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A routine Windows Update check"
+        },
+        {
+          "id": "B",
+          "text": "Normal DNS name resolution for the host's time sync"
+        },
+        {
+          "id": "C",
+          "text": "Command-and-control (C2) communication"
+        },
+        {
+          "id": "D",
+          "text": "The sandbox itself being compromised"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Repeated outbound connections to an unknown host where the sample awaits instructions is classic command-and-control (C2) beaconing; the domain/IP becomes a network IOC.",
+        "distractors": {
+          "A": "Windows Update contacts known Microsoft endpoints, not an unfamiliar attacker-controlled domain.",
+          "B": "Time sync (NTP) and benign DNS do not involve waiting for instructions from an unknown host.",
+          "C": "",
+          "D": "The report describes the sample's behavior, not a compromise of the analysis sandbox."
+        },
+        "exam_pattern": "Beaconing to an unknown host awaiting commands = C2; capture the domain/IP as an IOC."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.7 Interpret the output report of a malware analysis tool"
+      ]
+    },
+    {
+      "id": "cbrops-host-016",
+      "exam": "cbrops",
+      "domain": "cbr_host_analysis",
+      "subtopic": "cbr_evidence_attribution",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "During an investigation, an analyst preserves the original hard drive and a verified bit-for-bit forensic image of it. In evidence terms, this most reliable, original-source material is classified as:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Indirect (circumstantial) evidence"
+        },
+        {
+          "id": "B",
+          "text": "Corroborative evidence"
+        },
+        {
+          "id": "C",
+          "text": "Hearsay"
+        },
+        {
+          "id": "D",
+          "text": "Best evidence"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Best evidence is the original or most authoritative source (such as the original drive or a verified image), carrying the greatest reliability in an investigation.",
+        "distractors": {
+          "A": "Indirect (circumstantial) evidence implies a fact without directly proving it.",
+          "B": "Corroborative evidence supports or confirms other evidence; it is not the primary original source.",
+          "C": "Hearsay is secondhand information, generally the weakest and least reliable.",
+          "D": ""
+        },
+        "exam_pattern": "Original / most reliable source = best evidence."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.4 Identify type of evidence used based on provided logs"
+      ]
+    },
+    {
+      "id": "cbrops-host-017",
+      "exam": "cbrops",
+      "domain": "cbr_host_analysis",
+      "subtopic": "cbr_evidence_attribution",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A firewall log on its own does not prove who ran an attack, but it supports and strengthens the conclusion already drawn from host and authentication logs. What role does this firewall log play?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An indicator of attack (IOA)"
+        },
+        {
+          "id": "B",
+          "text": "Best evidence"
+        },
+        {
+          "id": "C",
+          "text": "Corroborative evidence"
+        },
+        {
+          "id": "D",
+          "text": "The sole conclusive proof"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Corroborative evidence supports or reinforces other evidence; it adds weight to a conclusion but does not stand alone as the primary proof.",
+        "distractors": {
+          "A": "An IOA describes attacker behavior/intent; the question is about the evidentiary role of a supporting log.",
+          "B": "Best evidence is the original, most authoritative source - the firewall log here is supporting, not primary.",
+          "C": "",
+          "D": "It explicitly does not by itself prove who ran the attack, so it is not sole conclusive proof."
+        },
+        "exam_pattern": "Supports/strengthens other evidence = corroborative."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.4 Identify type of evidence used based on provided logs"
+      ]
+    },
+    {
+      "id": "cbrops-host-018",
+      "exam": "cbrops",
+      "domain": "cbr_host_analysis",
+      "subtopic": "cbr_evidence_attribution",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: Forensic artifacts such as known-malicious file hashes, suspicious domains, or known-bad IP addresses that signal a system may have been breached are collectively called indicators of ______ (give the word or the three-letter abbreviation).",
+      "correct": [
+        "compromise",
+        "ioc",
+        "iocs",
+        "indicators of compromise"
+      ],
+      "explanation": {
+        "correct": "Indicators of compromise (IOCs) are forensic artifacts - hashes, domains, IPs, file names, registry keys - that suggest a host has been breached and are used for detection and hunting.",
+        "exam_pattern": "Artifacts that a breach occurred (hashes/domains/IPs) = indicators of compromise (IOC)."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.3 Describe the role of attribution in an investigation"
+      ]
+    },
+    {
+      "id": "cbrops-intr-001",
+      "exam": "cbrops",
+      "domain": "cbr_network_intrusion",
+      "subtopic": "cbr_packet_session_analysis",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Fill in the blank: The combination of source IP address, destination IP address, source port, destination port, and transport protocol - used to uniquely identify a single network conversation - is called the ______ (hyphenated term).",
+      "correct": [
+        "5-tuple",
+        "five-tuple",
+        "5 tuple",
+        "five tuple"
+      ],
+      "explanation": {
+        "correct": "The 5-tuple (source IP, destination IP, source port, destination port, protocol) uniquely identifies a flow and is used to isolate a compromised host across a set of logs.",
+        "exam_pattern": "Src IP + dst IP + src port + dst port + protocol = the 5-tuple."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.10 Interpret the 5-tuple approach to isolate a compromised host"
+      ]
+    },
+    {
+      "id": "cbrops-intr-002",
+      "exam": "cbrops",
+      "domain": "cbr_network_intrusion",
+      "subtopic": "cbr_packet_session_analysis",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Given a PCAP that contains an HTTP download of a suspicious file, which Wireshark capability lets an analyst reassemble the TCP stream and carve the transferred file back out for analysis?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Changing the interface MAC address"
+        },
+        {
+          "id": "B",
+          "text": "The capture filter 'host 0.0.0.0'"
+        },
+        {
+          "id": "C",
+          "text": "Follow TCP Stream / Export Objects"
+        },
+        {
+          "id": "D",
+          "text": "Disabling name resolution"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Following the TCP stream reassembles the bytes of a conversation, and Export Objects (e.g., HTTP) carves the transferred file out of the capture for further analysis.",
+        "distractors": {
+          "A": "Changing a MAC address does not reconstruct application data from a capture.",
+          "B": "A capture filter limits what is captured; it does not reassemble or extract a file from an existing PCAP.",
+          "C": "",
+          "D": "Turning off name resolution only affects how addresses are displayed, not file extraction."
+        },
+        "exam_pattern": "Reassemble conversation then carve the file = Follow TCP Stream / Export Objects."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 4.6 Extract files from a TCP stream when given a PCAP file and Wireshark"
+      ]
+    },
+    {
+      "id": "cbrops-intr-003",
+      "exam": "cbrops",
+      "domain": "cbr_network_intrusion",
+      "subtopic": "cbr_packet_session_analysis",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "When identifying the key elements of an intrusion from a PCAP, which TWO of the following are fields an analyst reads directly to characterize the suspicious connection? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "The attacker's home street address"
+        },
+        {
+          "id": "B",
+          "text": "Source and destination ports"
+        },
+        {
+          "id": "C",
+          "text": "Source and destination IP addresses"
+        },
+        {
+          "id": "D",
+          "text": "The analyst's SIEM license key"
+        }
+      ],
+      "correct": [
+        "B",
+        "C"
+      ],
+      "explanation": {
+        "correct": "Addresses and ports (with protocol and payload) are the core elements read from a PCAP to identify the endpoints and service involved in an intrusion.",
+        "distractors": {
+          "A": "A physical home address is not contained in network packets.",
+          "B": "",
+          "C": "",
+          "D": "A SIEM license key is administrative data, not a packet field."
+        },
+        "exam_pattern": "PCAP key elements = source/dest address, source/dest port, protocol, payload."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 4.7 Identify key elements in an intrusion from a given PCAP file"
+      ]
+    },
+    {
+      "id": "cbrops-intr-004",
+      "exam": "cbrops",
+      "domain": "cbr_network_intrusion",
+      "subtopic": "cbr_packet_session_analysis",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Across firewall, proxy, and NetFlow logs, an analyst wants to track every record tied to one specific malicious conversation to isolate the compromised host. What is the most precise way to pivot through all those logs?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Search only for the string 'malware' in each log"
+        },
+        {
+          "id": "B",
+          "text": "Filter each log source on the shared 5-tuple of the conversation"
+        },
+        {
+          "id": "C",
+          "text": "Sort every log alphabetically by hostname"
+        },
+        {
+          "id": "D",
+          "text": "Filter only on the destination port number"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The 5-tuple uniquely identifies the flow, so pivoting on it across sources ties together exactly the records for that conversation and pinpoints the involved host.",
+        "distractors": {
+          "A": "Logs rarely contain a literal 'malware' label, so a keyword search misses the relevant records.",
+          "B": "",
+          "C": "Alphabetical sorting by hostname does not isolate one specific conversation.",
+          "D": "A port alone (e.g., 443) matches countless unrelated flows, so it is not precise."
+        },
+        "exam_pattern": "Pivot across logs on the shared 5-tuple to isolate a compromised host."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.10 Interpret the 5-tuple approach to isolate a compromised host"
+      ]
+    },
+    {
+      "id": "cbrops-intr-005",
+      "exam": "cbrops",
+      "domain": "cbr_network_intrusion",
+      "subtopic": "cbr_protocol_headers",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An analyst suspects a SYN flood. Which part of the TCP header should they inspect to see that many connections are sending SYN but never completing the three-way handshake?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The control flags (SYN, ACK, FIN, RST) field"
+        },
+        {
+          "id": "B",
+          "text": "The UDP checksum field"
+        },
+        {
+          "id": "C",
+          "text": "The IPv4 Time To Live field"
+        },
+        {
+          "id": "D",
+          "text": "The Ethernet source MAC field"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "TCP control flags reveal handshake state; a flood of SYN-only segments with no completing ACK is the signature of a SYN flood or SYN scan.",
+        "distractors": {
+          "A": "",
+          "B": "UDP is connectionless and has no SYN/ACK handshake, so its checksum is irrelevant here.",
+          "C": "TTL is an IPv4 field about hop count, not TCP handshake state.",
+          "D": "The source MAC is a Layer 2 Ethernet field and says nothing about TCP flags."
+        },
+        "exam_pattern": "Handshake state / SYN flood evidence lives in the TCP control flags."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 4.8 Interpret the fields in protocol headers as related to intrusion analysis"
+      ]
+    },
+    {
+      "id": "cbrops-intr-006",
+      "exam": "cbrops",
+      "domain": "cbr_network_intrusion",
+      "subtopic": "cbr_protocol_headers",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In an IPv4 header, what is the purpose of the Time To Live (TTL) field, which each router decrements as the packet is forwarded?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It stores the destination port number"
+        },
+        {
+          "id": "B",
+          "text": "It encrypts the packet's payload"
+        },
+        {
+          "id": "C",
+          "text": "It limits a packet's lifetime so it is discarded if it loops too long"
+        },
+        {
+          "id": "D",
+          "text": "It authenticates the sender's identity"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "TTL is decremented at each hop and the packet is dropped when it reaches zero, preventing packets from circulating forever; it can also hint at the source OS or hop distance.",
+        "distractors": {
+          "A": "Port numbers live in the TCP/UDP header, not the IPv4 TTL field.",
+          "B": "TTL provides no encryption; it is a hop counter.",
+          "C": "",
+          "D": "TTL does not authenticate anything."
+        },
+        "exam_pattern": "TTL = per-hop lifetime counter (loop prevention), decremented by each router."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 4.8 Interpret the fields in protocol headers as related to intrusion analysis"
+      ]
+    },
+    {
+      "id": "cbrops-intr-007",
+      "exam": "cbrops",
+      "domain": "cbr_network_intrusion",
+      "subtopic": "cbr_protocol_headers",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "At which layer, and using which addresses, does the Ethernet frame header operate when delivering a frame between devices on the same local segment?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Layer 3, using source and destination IP addresses"
+        },
+        {
+          "id": "B",
+          "text": "Layer 4, using TCP port numbers"
+        },
+        {
+          "id": "C",
+          "text": "Layer 2, using source and destination MAC addresses"
+        },
+        {
+          "id": "D",
+          "text": "Layer 7, using URLs"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The Ethernet header is a Layer 2 construct that carries source and destination MAC addresses to move frames between devices on the same local network segment.",
+        "distractors": {
+          "A": "IP addressing is Layer 3; it is carried inside the frame, not in the Ethernet header itself.",
+          "B": "TCP ports are Layer 4 and are not part of the Ethernet header.",
+          "C": "",
+          "D": "URLs are Layer 7 application data, far above the Ethernet frame."
+        },
+        "exam_pattern": "Ethernet header = Layer 2, MAC addressing, local segment delivery."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 4.8 Interpret the fields in protocol headers as related to intrusion analysis"
+      ]
+    },
+    {
+      "id": "cbrops-intr-008",
+      "exam": "cbrops",
+      "domain": "cbr_network_intrusion",
+      "subtopic": "cbr_protocol_headers",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A host sends an ICMP Echo Request (Type 8) and expects an ICMP Echo Reply (Type 0). Which common utility generates this exchange, and what is it typically used to confirm?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ssh, used to open an encrypted remote shell"
+        },
+        {
+          "id": "B",
+          "text": "ping, used to confirm basic reachability between two hosts"
+        },
+        {
+          "id": "C",
+          "text": "arp, used to map an IP address to a MAC address"
+        },
+        {
+          "id": "D",
+          "text": "nslookup, used to resolve a domain name to an IP"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "ping sends ICMP Echo Requests (Type 8) and listens for Echo Replies (Type 0) to verify that a destination is reachable; a flood of these can also signal an ICMP-based attack.",
+        "distractors": {
+          "A": "ssh uses TCP 22 for encrypted sessions, not ICMP echo.",
+          "B": "",
+          "C": "arp resolves IP-to-MAC at Layer 2 and does not use ICMP echo messages.",
+          "D": "nslookup queries DNS over UDP/TCP 53; it does not use ICMP echo."
+        },
+        "exam_pattern": "ICMP Type 8 request / Type 0 reply = ping (reachability test)."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 4.8 Interpret the fields in protocol headers as related to intrusion analysis"
+      ]
+    },
+    {
+      "id": "cbrops-intr-009",
+      "exam": "cbrops",
+      "domain": "cbr_network_intrusion",
+      "subtopic": "cbr_ids_ips_events",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IDS fires an alert on a file transfer, but investigation shows the traffic was a legitimate, authorized backup. How is this alert classified?",
+      "options": [
+        {
+          "id": "A",
+          "text": "False positive"
+        },
+        {
+          "id": "B",
+          "text": "False negative"
+        },
+        {
+          "id": "C",
+          "text": "True positive"
+        },
+        {
+          "id": "D",
+          "text": "True negative"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A false positive is an alert on activity that turns out to be benign - the sensor fired, but there was no actual attack.",
+        "distractors": {
+          "A": "",
+          "B": "A false negative is a missed detection (no alert for real malicious traffic); here an alert did fire.",
+          "C": "A true positive is an alert on genuinely malicious activity, which this was not.",
+          "D": "A true negative is correctly staying silent on benign traffic; here the sensor did alert."
+        },
+        "exam_pattern": "Alert fired + traffic benign = false positive (a false alarm)."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 4.2 Compare impact and no impact for these items"
+      ]
+    },
+    {
+      "id": "cbrops-intr-010",
+      "exam": "cbrops",
+      "domain": "cbr_network_intrusion",
+      "subtopic": "cbr_ids_ips_events",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: When an IDS/IPS fails to generate an alert for traffic that was in fact malicious - a dangerous missed detection - the outcome is classified as a false ______.",
+      "correct": [
+        "negative",
+        "false negative"
+      ],
+      "explanation": {
+        "correct": "A false negative is malicious activity that the sensor missed (no alert). It is the most dangerous outcome because the attack proceeds undetected.",
+        "exam_pattern": "Malicious traffic + no alert = false negative (a missed detection)."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 4.2 Compare impact and no impact for these items"
+      ]
+    },
+    {
+      "id": "cbrops-intr-011",
+      "exam": "cbrops",
+      "domain": "cbr_network_intrusion",
+      "subtopic": "cbr_ids_ips_events",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IPS alerts on an inbound exploit attempt, and analysis confirms the traffic really was an attack against a vulnerable service. How is this alert correctly classified?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Benign"
+        },
+        {
+          "id": "B",
+          "text": "True negative"
+        },
+        {
+          "id": "C",
+          "text": "False positive"
+        },
+        {
+          "id": "D",
+          "text": "True positive"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A true positive is an alert that correctly identifies genuinely malicious activity - the sensor fired and the traffic really was an attack.",
+        "distractors": {
+          "A": "'Benign' means harmless activity; this was a confirmed attack.",
+          "B": "A true negative is correctly not alerting on benign traffic; here an alert did fire on an attack.",
+          "C": "A false positive would mean the traffic was actually benign, which analysis disproved.",
+          "D": ""
+        },
+        "exam_pattern": "Alert fired + traffic truly malicious = true positive."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 4.2 Compare impact and no impact for these items"
+      ]
+    },
+    {
+      "id": "cbrops-intr-012",
+      "exam": "cbrops",
+      "domain": "cbr_network_intrusion",
+      "subtopic": "cbr_ids_ips_events",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An analyst reviews an event that reads: 'signature ET MALWARE matched - inbound exploit pattern detected in packet payload.' Which source technology most likely generated this event?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A certificate authority"
+        },
+        {
+          "id": "B",
+          "text": "A DHCP server"
+        },
+        {
+          "id": "C",
+          "text": "An NTP time source"
+        },
+        {
+          "id": "D",
+          "text": "An IDS/IPS (signature-based network sensor)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A signature match against packet payload is the hallmark of an IDS/IPS (e.g., Snort/Suricata), which inspects traffic content and alerts on known patterns.",
+        "distractors": {
+          "A": "A certificate authority issues certificates and does not match traffic signatures.",
+          "B": "A DHCP server leases IP addresses; it does not inspect payloads for exploit signatures.",
+          "C": "An NTP source provides time synchronization and generates no signature alerts.",
+          "D": ""
+        },
+        "exam_pattern": "Payload signature match = IDS/IPS; map the event to the technology that could produce it."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 4.1 Map the provided events to source technologies"
+      ]
+    },
+    {
+      "id": "cbrops-intr-013",
+      "exam": "cbrops",
+      "domain": "cbr_network_intrusion",
+      "subtopic": "cbr_firewall_filtering",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A stateful firewall automatically permits the return traffic of a connection that an internal host originated, without needing a separate inbound rule. How does it know the inbound packets belong to an allowed session?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It tracks active connections in a state table and matches returning packets to them"
+        },
+        {
+          "id": "B",
+          "text": "It allows all inbound traffic by default"
+        },
+        {
+          "id": "C",
+          "text": "It trusts any packet whose source port is 80"
+        },
+        {
+          "id": "D",
+          "text": "It inspects and stores the full payload of every packet permanently"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A stateful firewall records each established connection in a state (connection) table and allows return packets that match an existing entry, unlike a stateless filter.",
+        "distractors": {
+          "A": "",
+          "B": "Allowing all inbound traffic by default would defeat the firewall's purpose; stateful inspection is selective.",
+          "C": "Trusting traffic merely because the source port is 80 is a weakness of naive stateless rules, not stateful tracking.",
+          "D": "Tracking connection state does not require storing every payload permanently; that describes full capture."
+        },
+        "exam_pattern": "Connection/state table matches return traffic = stateful firewall."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 4.3 Compare deep packet inspection with packet filtering and stateful firewall operation"
+      ]
+    },
+    {
+      "id": "cbrops-intr-014",
+      "exam": "cbrops",
+      "domain": "cbr_network_intrusion",
+      "subtopic": "cbr_firewall_filtering",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Compared with basic packet filtering that only checks header fields, what distinguishes deep packet inspection (DPI)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It ignores the payload and looks only at the 5-tuple"
+        },
+        {
+          "id": "B",
+          "text": "It examines the packet's payload/application-layer content, not just the headers"
+        },
+        {
+          "id": "C",
+          "text": "It can only operate on encrypted traffic"
+        },
+        {
+          "id": "D",
+          "text": "It forwards traffic without any inspection"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "DPI looks inside the packet at the payload and application-layer data, enabling detection of content-based threats that header-only packet filtering cannot see.",
+        "distractors": {
+          "A": "Looking only at the 5-tuple describes stateless packet filtering, the opposite of DPI.",
+          "B": "",
+          "C": "DPI needs readable content; encryption actually hampers it unless the traffic is decrypted first.",
+          "D": "DPI adds inspection; it does not forward blindly."
+        },
+        "exam_pattern": "Inspects payload/application content = deep packet inspection (vs header-only filtering)."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 4.3 Compare deep packet inspection with packet filtering and stateful firewall operation"
+      ]
+    },
+    {
+      "id": "cbrops-intr-015",
+      "exam": "cbrops",
+      "domain": "cbr_network_intrusion",
+      "subtopic": "cbr_firewall_filtering",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A simple router ACL permits or denies each packet solely on its source/destination IP, port, and protocol, keeping no memory of previous packets. What type of filtering is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Deep packet inspection"
+        },
+        {
+          "id": "B",
+          "text": "Stateful inspection"
+        },
+        {
+          "id": "C",
+          "text": "Application sandboxing"
+        },
+        {
+          "id": "D",
+          "text": "Stateless packet filtering"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Stateless packet filtering evaluates each packet independently against header criteria (the 5-tuple) and keeps no connection state, so it cannot relate a packet to a session.",
+        "distractors": {
+          "A": "DPI inspects payload content; this filter only checks headers.",
+          "B": "Stateful inspection would track connection state, which this filter explicitly does not do.",
+          "C": "Application sandboxing isolates and runs code; it is not a packet-filtering method.",
+          "D": ""
+        },
+        "exam_pattern": "Per-packet header-only decisions, no state = stateless packet filtering."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 4.3 Compare deep packet inspection with packet filtering and stateful firewall operation"
+      ]
+    },
+    {
+      "id": "cbrops-intr-016",
+      "exam": "cbrops",
+      "domain": "cbr_network_intrusion",
+      "subtopic": "cbr_intrusion_artifacts",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A proxy log entry records that an internal host requested http://malicious-update[.]example/installer.exe just before the host was infected. Which artifact element from this event is most useful as an indicator to block and hunt for across the fleet?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The URL/URI that was requested"
+        },
+        {
+          "id": "B",
+          "text": "The proxy's uptime counter"
+        },
+        {
+          "id": "C",
+          "text": "The analyst's username"
+        },
+        {
+          "id": "D",
+          "text": "The time zone of the log server"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The requested URL/URI is a strong artifact: it can be blocked at the proxy and searched across other hosts' logs to find additional victims that contacted the same resource.",
+        "distractors": {
+          "A": "",
+          "B": "The proxy's uptime is operational trivia, not an indicator of the malicious request.",
+          "C": "The analyst's username identifies who is investigating, not the threat.",
+          "D": "The log server's time zone helps align timelines but is not an indicator to block or hunt."
+        },
+        "exam_pattern": "Malicious URL/URI in a proxy log = blockable, huntable artifact."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 4.9 Interpret common artifact elements from an event to identify an alert"
+      ]
+    },
+    {
+      "id": "cbrops-intr-017",
+      "exam": "cbrops",
+      "domain": "cbr_network_intrusion",
+      "subtopic": "cbr_intrusion_artifacts",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An endpoint alert includes the SHA-256 hash of a dropped executable. Why is this hash a valuable artifact when qualifying the alert?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It shows the physical location of the attacker"
+        },
+        {
+          "id": "B",
+          "text": "It reveals the password of the user who ran the file"
+        },
+        {
+          "id": "C",
+          "text": "It decrypts the host's network traffic"
+        },
+        {
+          "id": "D",
+          "text": "It can be matched against threat intelligence to confirm the file is known malware"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A file hash is a precise identifier; matching it against intelligence feeds confirms whether the sample is known-bad and lets analysts search other endpoints for the same file.",
+        "distractors": {
+          "A": "A hash identifies file content, not an attacker's physical location.",
+          "B": "A hash is a one-way fingerprint of the file; it does not contain passwords.",
+          "C": "A hash cannot decrypt traffic.",
+          "D": ""
+        },
+        "exam_pattern": "File hash artifact = match to known-bad intelligence and hunt other hosts."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 4.9 Interpret common artifact elements from an event to identify an alert"
+      ]
+    },
+    {
+      "id": "cbrops-intr-018",
+      "exam": "cbrops",
+      "domain": "cbr_network_intrusion",
+      "subtopic": "cbr_intrusion_artifacts",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "In a captured TCP session, the server side of the connection is using port 443 while the client side uses port 51972. Which statement correctly interprets these port artifacts?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The port numbers reveal the usernames on each host"
+        },
+        {
+          "id": "B",
+          "text": "443 is a well-known service port (HTTPS); 51972 is a client ephemeral port"
+        },
+        {
+          "id": "C",
+          "text": "Both ports must be below 1024 to be valid"
+        },
+        {
+          "id": "D",
+          "text": "443 is the client's ephemeral port; 51972 is the server's service port"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Servers listen on well-known ports (443 = HTTPS, in the 0-1023 range), while clients source connections from high, temporary (ephemeral) ports such as 51972.",
+        "distractors": {
+          "A": "Port numbers identify services/sessions, not user accounts.",
+          "B": "",
+          "C": "Only well-known ports are below 1024; client ephemeral ports are intentionally high.",
+          "D": "This reverses the roles; the low well-known port (443) is the server side, not the client."
+        },
+        "exam_pattern": "Low well-known port = server/service; high ephemeral port = client side."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 4.9 Interpret common artifact elements from an event to identify an alert"
+      ]
+    },
+    {
+      "id": "cbrops-mon-001",
+      "exam": "cbrops",
+      "domain": "cbr_security_monitoring",
+      "subtopic": "cbr_data_types",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An analyst needs to reconstruct the exact bytes of a file an attacker transferred, including the full application payload. Which category of monitored data is required?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Full packet capture"
+        },
+        {
+          "id": "B",
+          "text": "Statistical data"
+        },
+        {
+          "id": "C",
+          "text": "Alert data"
+        },
+        {
+          "id": "D",
+          "text": "Session data"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Full packet capture records entire frames, headers and payload, so the complete content of a transfer can be reconstructed - at the cost of heavy storage.",
+        "distractors": {
+          "A": "",
+          "B": "Statistical data describes traffic trends and baselines, not individual payloads.",
+          "C": "Alert data is the notifications a sensor raises, not the raw content of the transfer.",
+          "D": "Session data (e.g., NetFlow) summarizes the conversation (5-tuple, bytes, timing) but holds no payload."
+        },
+        "exam_pattern": "Need the actual payload/content = full packet capture."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 2.4 Describe the uses of data types in security monitoring"
+      ]
+    },
+    {
+      "id": "cbrops-mon-002",
+      "exam": "cbrops",
+      "domain": "cbr_security_monitoring",
+      "subtopic": "cbr_data_types",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A record summarizes a single conversation between two hosts - source and destination IP and port, protocol, byte and packet counts, and start/stop times - but contains no payload. Which data type is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Transaction data"
+        },
+        {
+          "id": "B",
+          "text": "Full packet capture"
+        },
+        {
+          "id": "C",
+          "text": "Session data"
+        },
+        {
+          "id": "D",
+          "text": "Alert data"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Session (connection) data summarizes a flow between two endpoints with metadata such as the 5-tuple, counts and timestamps; NetFlow is the classic example.",
+        "distractors": {
+          "A": "Transaction data records application-level requests/responses (e.g., an HTTP GET), not a flow summary.",
+          "B": "Full packet capture includes the payload, which this record explicitly lacks.",
+          "C": "",
+          "D": "Alert data is generated when a rule matches, not a per-conversation summary."
+        },
+        "exam_pattern": "Per-conversation summary (5-tuple + counts + times, no payload) = session data."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 2.4 Describe the uses of data types in security monitoring"
+      ]
+    },
+    {
+      "id": "cbrops-mon-003",
+      "exam": "cbrops",
+      "domain": "cbr_security_monitoring",
+      "subtopic": "cbr_data_types",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IDS writes an entry only when traffic matches one of its rules and flags it as suspicious. These IDS-generated entries are an example of which monitored data type?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Full packet capture"
+        },
+        {
+          "id": "B",
+          "text": "Alert data"
+        },
+        {
+          "id": "C",
+          "text": "Statistical data"
+        },
+        {
+          "id": "D",
+          "text": "Session data"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Alert data is produced by detection tools (IDS/IPS, antivirus) when a signature or rule matches; it tells the analyst something notable was seen.",
+        "distractors": {
+          "A": "Full packet capture stores all traffic content, not just rule matches.",
+          "B": "",
+          "C": "Statistical data is aggregated trend/baseline information, not per-match notifications.",
+          "D": "Session data summarizes conversations regardless of whether they are suspicious."
+        },
+        "exam_pattern": "Output of a sensor/rule match = alert data."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 2.4 Describe the uses of data types in security monitoring"
+      ]
+    },
+    {
+      "id": "cbrops-mon-004",
+      "exam": "cbrops",
+      "domain": "cbr_security_monitoring",
+      "subtopic": "cbr_attack_surface_vectors",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "How is an organization's 'attack surface' best described, as distinct from a single vulnerability?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The code an attacker runs to exploit a flaw"
+        },
+        {
+          "id": "B",
+          "text": "The sum of all points where an attacker could try to enter or extract data"
+        },
+        {
+          "id": "C",
+          "text": "A single specific weakness in one application"
+        },
+        {
+          "id": "D",
+          "text": "The probability that an attack succeeds"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The attack surface is the total set of exposed entry and exit points (services, ports, interfaces, accounts) an attacker could attempt to use; a vulnerability is one weakness within it.",
+        "distractors": {
+          "A": "Code that exploits a flaw is an exploit.",
+          "B": "",
+          "C": "A single weakness is a vulnerability, a component of the surface, not the surface itself.",
+          "D": "The probability an attack succeeds relates to risk, not the definition of the attack surface."
+        },
+        "exam_pattern": "All exposed entry/exit points together = attack surface; one weakness = vulnerability."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 2.1 Compare attack surface and vulnerability"
+      ]
+    },
+    {
+      "id": "cbrops-mon-005",
+      "exam": "cbrops",
+      "domain": "cbr_security_monitoring",
+      "subtopic": "cbr_attack_surface_vectors",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A phishing email carrying a malicious attachment is used to gain an initial foothold on a workstation. In this intrusion, the phishing email is best described as the ______.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Payload"
+        },
+        {
+          "id": "B",
+          "text": "Vulnerability"
+        },
+        {
+          "id": "C",
+          "text": "Attack vector"
+        },
+        {
+          "id": "D",
+          "text": "Attack surface"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "An attack vector is the path or means an attacker uses to reach and compromise a target; a phishing email is a common vector for initial access.",
+        "distractors": {
+          "A": "The payload is the malicious code that executes after delivery, not the delivery method itself.",
+          "B": "A vulnerability is the weakness being exploited (e.g., a user tricked into opening a file), not the delivery path.",
+          "C": "",
+          "D": "The attack surface is the set of all possible entry points, not the one path used here."
+        },
+        "exam_pattern": "The path/means of attack (phishing, USB, exposed service) = attack vector."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 2.1 Compare attack surface and vulnerability"
+      ]
+    },
+    {
+      "id": "cbrops-mon-006",
+      "exam": "cbrops",
+      "domain": "cbr_security_monitoring",
+      "subtopic": "cbr_attack_surface_vectors",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To harden a server, an administrator disables unused services, closes listening ports that are not needed, and removes default accounts. What is the primary security effect of these actions?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It eliminates all risk to the server"
+        },
+        {
+          "id": "B",
+          "text": "It increases the server's attack surface"
+        },
+        {
+          "id": "C",
+          "text": "It reduces the server's attack surface"
+        },
+        {
+          "id": "D",
+          "text": "It converts vulnerabilities into exploits"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Each disabled service, closed port, and removed account is one fewer exposed entry point, so the overall attack surface shrinks.",
+        "distractors": {
+          "A": "Reducing exposure lowers risk but cannot eliminate all of it - avoid absolute claims.",
+          "B": "Removing exposure lowers the surface; it does not raise it.",
+          "C": "",
+          "D": "Hardening removes weaknesses; it does not turn them into exploits."
+        },
+        "exam_pattern": "Disable/close/remove unneeded exposure = smaller attack surface."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 2.1 Compare attack surface and vulnerability"
+      ]
+    },
+    {
+      "id": "cbrops-mon-007",
+      "exam": "cbrops",
+      "domain": "cbr_security_monitoring",
+      "subtopic": "cbr_network_telemetry",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A SOC uses NetFlow for network visibility. Which information does a standard NetFlow record provide to the analyst?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The plaintext of encrypted file transfers"
+        },
+        {
+          "id": "B",
+          "text": "The private key used in each TLS session"
+        },
+        {
+          "id": "C",
+          "text": "The full application-layer payload of each packet"
+        },
+        {
+          "id": "D",
+          "text": "Source/destination IP and port, protocol, and byte/packet counts for a flow"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "NetFlow exports metadata about IP conversations - addresses, ports, protocol, counters and timestamps - which scales well and reveals who talked to whom, when, and how much.",
+        "distractors": {
+          "A": "NetFlow cannot decrypt traffic or reveal plaintext of encrypted transfers.",
+          "B": "NetFlow never contains cryptographic keys.",
+          "C": "NetFlow does not capture payload; full packet capture is needed for that.",
+          "D": ""
+        },
+        "exam_pattern": "NetFlow = flow metadata (5-tuple + counts + times), no payload."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 2.2 Identify the types of data provided by these technologies"
+      ]
+    },
+    {
+      "id": "cbrops-mon-008",
+      "exam": "cbrops",
+      "domain": "cbr_security_monitoring",
+      "subtopic": "cbr_network_telemetry",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An application runs over a non-standard port to avoid detection, yet a next-generation firewall with application visibility and control still identifies it correctly. How is this possible?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It reads the application name from the TCP port field"
+        },
+        {
+          "id": "B",
+          "text": "It identifies applications by inspecting traffic content/behavior, not just the port number"
+        },
+        {
+          "id": "C",
+          "text": "It decrypts and stores every packet payload permanently"
+        },
+        {
+          "id": "D",
+          "text": "It assumes every flow on a non-standard port is that application"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Application visibility and control on an NGFW identifies apps from traffic characteristics and deep inspection, so it recognizes an app even when it moves to an unexpected port.",
+        "distractors": {
+          "A": "There is no application-name field in a TCP header; the port alone does not name the app.",
+          "B": "",
+          "C": "AVC classifies applications; it does not require permanently storing every decrypted payload.",
+          "D": "It does not guess from the port; that is exactly the port-based assumption AVC avoids."
+        },
+        "exam_pattern": "Identifies apps regardless of port via inspection = NGFW application visibility and control."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 2.2 Identify the types of data provided by these technologies"
+      ]
+    },
+    {
+      "id": "cbrops-mon-009",
+      "exam": "cbrops",
+      "domain": "cbr_security_monitoring",
+      "subtopic": "cbr_network_telemetry",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An analyst must retain months of connection history to spot slow beaconing but cannot afford to store full packets for that period. Compared with full packet capture, what is the main advantage of relying on NetFlow/session data here?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It decrypts TLS so content is always visible"
+        },
+        {
+          "id": "B",
+          "text": "It guarantees zero false positives in detection"
+        },
+        {
+          "id": "C",
+          "text": "It needs far less storage while still showing who talked to whom, when, and how much"
+        },
+        {
+          "id": "D",
+          "text": "It records the complete payload of every connection"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Session data is compact metadata, so it can be retained far longer than full packet capture and is well suited to spotting long-term patterns like beaconing.",
+        "distractors": {
+          "A": "NetFlow does not decrypt traffic.",
+          "B": "No data source guarantees zero false positives.",
+          "C": "",
+          "D": "Recording full payloads is the strength of full capture, not of NetFlow."
+        },
+        "exam_pattern": "Long retention of 'who/when/how much' with low storage = session data/NetFlow over full capture."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 2.2 Identify the types of data provided by these technologies"
+      ]
+    },
+    {
+      "id": "cbrops-mon-010",
+      "exam": "cbrops",
+      "domain": "cbr_security_monitoring",
+      "subtopic": "cbr_detection_methods",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A detection engine matches traffic against a database of known-bad patterns and alerts only when an incoming packet matches one. What is a key limitation of this signature/rule-based approach?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It cannot detect any known attacks"
+        },
+        {
+          "id": "B",
+          "text": "It only works on encrypted traffic"
+        },
+        {
+          "id": "C",
+          "text": "It requires a baseline of normal behavior to work"
+        },
+        {
+          "id": "D",
+          "text": "It cannot detect new or unknown attacks that have no existing signature"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Signature/rule-based detection is precise for known threats but blind to novel or zero-day attacks for which no signature yet exists.",
+        "distractors": {
+          "A": "It is specifically good at catching known attacks; that is its purpose.",
+          "B": "Signature matching works on readable traffic; encryption actually hinders it.",
+          "C": "Needing a baseline of 'normal' describes behavioral/anomaly detection, not signature matching.",
+          "D": ""
+        },
+        "exam_pattern": "Known patterns only, misses zero-days = signature/rule-based detection."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.11 Compare rule-based detection vs. behavioral and statistical detection"
+      ]
+    },
+    {
+      "id": "cbrops-mon-011",
+      "exam": "cbrops",
+      "domain": "cbr_security_monitoring",
+      "subtopic": "cbr_detection_methods",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A monitoring system first learns a profile of each user's normal activity, then alerts when an account suddenly behaves very differently (for example, logging in at 3 a.m. and accessing servers it never touches). Which detection method is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Blocklist-based detection"
+        },
+        {
+          "id": "B",
+          "text": "Hash-based detection"
+        },
+        {
+          "id": "C",
+          "text": "Behavioral / anomaly-based detection"
+        },
+        {
+          "id": "D",
+          "text": "Signature-based detection"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Behavioral (anomaly) detection builds a baseline of normal behavior and flags deviations, which lets it catch novel activity that no signature describes.",
+        "distractors": {
+          "A": "A blocklist matches specific known-bad indicators, not deviations from learned behavior.",
+          "B": "Hash-based detection identifies known files by their hash, not behavioral deviation.",
+          "C": "",
+          "D": "Signature-based detection matches known patterns and would not learn a per-user baseline."
+        },
+        "exam_pattern": "Baseline 'normal' then flag deviations = behavioral/anomaly detection."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.11 Compare rule-based detection vs. behavioral and statistical detection"
+      ]
+    },
+    {
+      "id": "cbrops-mon-012",
+      "exam": "cbrops",
+      "domain": "cbr_security_monitoring",
+      "subtopic": "cbr_detection_methods",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A system computes the normal mean and variance of traffic volume per hour and raises an alert when the current rate is several standard deviations above that norm. This is the clearest example of which detection approach?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Rule-based ACL filtering"
+        },
+        {
+          "id": "B",
+          "text": "Signature-based detection"
+        },
+        {
+          "id": "C",
+          "text": "Statistical detection"
+        },
+        {
+          "id": "D",
+          "text": "Allowlist enforcement"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Statistical detection uses mathematical measures of normal (means, variances, thresholds) and flags values that deviate significantly, such as a sudden traffic spike.",
+        "distractors": {
+          "A": "A rule-based ACL permits/denies by fixed header criteria; it does no statistical analysis.",
+          "B": "Signature-based detection matches fixed known patterns, not statistical deviation.",
+          "C": "",
+          "D": "Allowlisting permits only approved items; it is not a statistical measure of traffic."
+        },
+        "exam_pattern": "Means/variance/thresholds and deviation = statistical detection."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.11 Compare rule-based detection vs. behavioral and statistical detection"
+      ]
+    },
+    {
+      "id": "cbrops-mon-013",
+      "exam": "cbrops",
+      "domain": "cbr_security_monitoring",
+      "subtopic": "cbr_evasion_obfuscation",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Malware communicates with its command-and-control server over TLS. Why does this encryption reduce the visibility of a signature-based IDS that only sees the wire traffic?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Encryption changes the destination IP address on every packet"
+        },
+        {
+          "id": "B",
+          "text": "The payload is ciphertext, so content signatures cannot match the hidden data"
+        },
+        {
+          "id": "C",
+          "text": "TLS removes the TCP/IP headers from the packets"
+        },
+        {
+          "id": "D",
+          "text": "Encrypted packets are never logged by any device"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Encryption hides the payload as ciphertext, so an IDS inspecting content cannot match signatures against it unless the traffic is first decrypted (e.g., via TLS inspection).",
+        "distractors": {
+          "A": "Encryption protects payload content; it does not rewrite the destination IP each packet.",
+          "B": "",
+          "C": "TLS encrypts the application data but leaves the IP/TCP headers readable for routing.",
+          "D": "Encrypted flows are still logged (NetFlow, firewall, proxy); only their content is opaque."
+        },
+        "exam_pattern": "Encryption blinds content inspection (payload is ciphertext) while headers remain visible."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 2.3 Describe the impact of these technologies on data visibility"
+      ]
+    },
+    {
+      "id": "cbrops-mon-014",
+      "exam": "cbrops",
+      "domain": "cbr_security_monitoring",
+      "subtopic": "cbr_evasion_obfuscation",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An attacker splits a malicious payload across many small IP fragments hoping the IDS evaluates each fragment alone and never reassembles the complete signature. Which evasion technique is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Load balancing"
+        },
+        {
+          "id": "B",
+          "text": "Port security"
+        },
+        {
+          "id": "C",
+          "text": "Fragmentation"
+        },
+        {
+          "id": "D",
+          "text": "Symmetric encryption"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Fragmentation-based evasion breaks an attack across packet fragments so a sensor that does not fully reassemble traffic fails to see the whole malicious pattern.",
+        "distractors": {
+          "A": "Load balancing distributes traffic for performance/availability; it is not an IDS-evasion method.",
+          "B": "Port security is a switch feature limiting MAC addresses per port, not a packet-splitting evasion.",
+          "C": "",
+          "D": "Encryption hides content but does not rely on splitting the payload across fragments."
+        },
+        "exam_pattern": "Split attack across fragments to defeat reassembly/signatures = fragmentation evasion."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 2.9 Describe evasion and obfuscation techniques"
+      ]
+    },
+    {
+      "id": "cbrops-mon-015",
+      "exam": "cbrops",
+      "domain": "cbr_security_monitoring",
+      "subtopic": "cbr_evasion_obfuscation",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: Encapsulating one protocol's traffic inside another - for example, smuggling command-and-control data inside DNS queries or ICMP packets to slip past inspection - is an evasion technique called ______.",
+      "correct": [
+        "tunneling",
+        "tunnelling",
+        "protocol tunneling"
+      ],
+      "explanation": {
+        "correct": "Tunneling hides traffic by wrapping it inside an allowed protocol (such as DNS or ICMP), so inspection that trusts the outer protocol may miss the smuggled payload.",
+        "exam_pattern": "Hiding traffic inside an allowed protocol (DNS/ICMP/HTTP) = tunneling."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 2.9 Describe evasion and obfuscation techniques"
+      ]
+    },
+    {
+      "id": "cbrops-mon-016",
+      "exam": "cbrops",
+      "domain": "cbr_security_monitoring",
+      "subtopic": "cbr_certificates_crypto",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Before a web server can obtain a TLS certificate, it generates a request that contains its public key and identifying information and submits it to a certificate authority for signing. What is this request called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A pre-shared key (PSK)"
+        },
+        {
+          "id": "B",
+          "text": "A certificate revocation list (CRL)"
+        },
+        {
+          "id": "C",
+          "text": "A session ticket"
+        },
+        {
+          "id": "D",
+          "text": "A certificate signing request (CSR)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A CSR carries the applicant's public key and identity details to the CA, which validates them and issues a signed certificate.",
+        "distractors": {
+          "A": "A pre-shared key is a shared secret for symmetric authentication, unrelated to requesting a certificate.",
+          "B": "A CRL is the CA's published list of certificates it has revoked, not a request for one.",
+          "C": "A session ticket resumes a prior TLS session; it is not a certificate request.",
+          "D": ""
+        },
+        "exam_pattern": "Public key + identity sent to the CA to be signed = CSR."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 2.11 Identify the certificate components in a given scenario"
+      ]
+    },
+    {
+      "id": "cbrops-mon-017",
+      "exam": "cbrops",
+      "domain": "cbr_security_monitoring",
+      "subtopic": "cbr_certificates_crypto",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "While inspecting a server's X.509 certificate, which of the following is a standard field an analyst should expect to find?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The certificate owner's account password"
+        },
+        {
+          "id": "B",
+          "text": "The symmetric session key used for the connection"
+        },
+        {
+          "id": "C",
+          "text": "The server's private key"
+        },
+        {
+          "id": "D",
+          "text": "The issuer's distinguished name and the validity period (Not Before / Not After)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "An X.509 certificate contains the issuer and subject names, serial number, validity dates, the subject's public key, and the CA's signature - the issuer DN and validity period are standard fields.",
+        "distractors": {
+          "A": "Passwords are not part of a certificate.",
+          "B": "The symmetric session key is negotiated per connection and is not stored in the certificate.",
+          "C": "A certificate never contains the private key; the private key is kept secret by the owner.",
+          "D": ""
+        },
+        "exam_pattern": "X.509 holds issuer/subject, validity, serial, public key, CA signature - never the private key."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 2.11 Identify the certificate components in a given scenario"
+      ]
+    },
+    {
+      "id": "cbrops-mon-018",
+      "exam": "cbrops",
+      "domain": "cbr_security_monitoring",
+      "subtopic": "cbr_certificates_crypto",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: In a public key infrastructure (PKI), the trusted entity that validates identities and issues and digitally signs digital certificates is called a ______ (two words, or its abbreviation).",
+      "correct": [
+        "certificate authority",
+        "certification authority",
+        "ca"
+      ],
+      "explanation": {
+        "correct": "A certificate authority (CA) is the trusted PKI entity that verifies a requester's identity and signs its certificate; clients trust the certificate because they trust the CA that signed it.",
+        "exam_pattern": "Trusted issuer/signer of certificates in PKI = certificate authority (CA)."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 2.10 Describe the impact of certificates on security"
+      ]
+    },
+    {
+      "id": "cbrops-pol-001",
+      "exam": "cbrops",
+      "domain": "cbr_policies_procedures",
+      "subtopic": "cbr_incident_handling_nist",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the correct order of the four phases of the incident response life cycle as defined in NIST SP 800-61?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Detection and Analysis; Preparation; Recovery; Containment"
+        },
+        {
+          "id": "B",
+          "text": "Containment; Preparation; Detection; Lessons Learned"
+        },
+        {
+          "id": "C",
+          "text": "Preparation; Detection and Analysis; Containment, Eradication and Recovery; Post-Incident Activity"
+        },
+        {
+          "id": "D",
+          "text": "Preparation; Containment; Detection and Analysis; Eradication"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "NIST SP 800-61 defines the life cycle as Preparation; Detection and Analysis; Containment, Eradication and Recovery; and Post-Incident Activity (lessons learned), in that order.",
+        "distractors": {
+          "A": "Preparation comes first, before detection; this ordering is scrambled.",
+          "B": "Containment cannot precede Preparation and Detection; the sequence is wrong.",
+          "C": "",
+          "D": "Detection and Analysis must precede Containment; you cannot contain what you have not detected."
+        },
+        "exam_pattern": "NIST 800-61: Prepare -> Detect & Analyze -> Contain/Eradicate/Recover -> Post-Incident."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 5.4 Map elements to the steps of analysis based on NIST SP 800-61"
+      ]
+    },
+    {
+      "id": "cbrops-pol-002",
+      "exam": "cbrops",
+      "domain": "cbr_policies_procedures",
+      "subtopic": "cbr_incident_handling_nist",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After confirming an endpoint is infected and spreading, the responder disconnects it from the network to stop the malware reaching other hosts. Into which NIST SP 800-61 phase does this action fall?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Post-Incident Activity"
+        },
+        {
+          "id": "B",
+          "text": "Preparation"
+        },
+        {
+          "id": "C",
+          "text": "Containment, Eradication and Recovery"
+        },
+        {
+          "id": "D",
+          "text": "Detection and Analysis"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Isolating an affected system to limit the spread of damage is a containment action, part of the Containment, Eradication and Recovery phase.",
+        "distractors": {
+          "A": "Post-Incident Activity is the later lessons-learned review, not the immediate isolation step.",
+          "B": "Preparation is the before-the-incident readiness work (tooling, training), not isolating a live host.",
+          "C": "",
+          "D": "Detection and Analysis is identifying and scoping the incident, which has already happened here."
+        },
+        "exam_pattern": "Isolate/limit spread of an active incident = Containment (within Containment/Eradication/Recovery)."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 5.3 Apply the incident handling process (NIST SP 800-61) to an event"
+      ]
+    },
+    {
+      "id": "cbrops-pol-003",
+      "exam": "cbrops",
+      "domain": "cbr_policies_procedures",
+      "subtopic": "cbr_incident_handling_nist",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After an incident is fully resolved, the team holds a review to document what happened, what worked, and how to improve detection and response next time. Which NIST SP 800-61 phase is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Post-Incident Activity (lessons learned)"
+        },
+        {
+          "id": "B",
+          "text": "Detection and Analysis"
+        },
+        {
+          "id": "C",
+          "text": "Containment, Eradication and Recovery"
+        },
+        {
+          "id": "D",
+          "text": "Preparation"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The Post-Incident Activity phase captures lessons learned - what happened, how the response went, and improvements to feed back into preparation and detection.",
+        "distractors": {
+          "A": "",
+          "B": "Detection and Analysis is identifying and validating the incident, which occurs much earlier.",
+          "C": "Containment, Eradication and Recovery handles the active response, before the retrospective.",
+          "D": "Preparation is the readiness work before an incident; the review afterward feeds into it but is a separate, final phase."
+        },
+        "exam_pattern": "Retrospective / lessons learned after resolution = Post-Incident Activity."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 5.4 Map elements to the steps of analysis based on NIST SP 800-61"
+      ]
+    },
+    {
+      "id": "cbrops-pol-004",
+      "exam": "cbrops",
+      "domain": "cbr_policies_procedures",
+      "subtopic": "cbr_incident_handling_nist",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: The first phase of the NIST SP 800-61 incident response life cycle - which includes building the CSIRT, acquiring tools, and training staff before any incident occurs - is called ______.",
+      "correct": [
+        "preparation",
+        "the preparation phase",
+        "prepare"
+      ],
+      "explanation": {
+        "correct": "Preparation is the first phase: establishing the team, tooling, policies, and training so the organization is ready to respond before an incident ever happens.",
+        "exam_pattern": "Readiness before any incident (team, tools, training) = Preparation (phase 1)."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 5.2 Describe the elements in an incident response plan (NIST SP 800-61)"
+      ]
+    },
+    {
+      "id": "cbrops-pol-005",
+      "exam": "cbrops",
+      "domain": "cbr_policies_procedures",
+      "subtopic": "cbr_attack_frameworks",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An adversary emails a weaponized PDF to a targeted employee in hopes they will open it. Which stage of the Lockheed Martin Cyber Kill Chain does sending that email represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Actions on Objectives"
+        },
+        {
+          "id": "B",
+          "text": "Delivery"
+        },
+        {
+          "id": "C",
+          "text": "Installation"
+        },
+        {
+          "id": "D",
+          "text": "Reconnaissance"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Delivery is the stage where the weaponized payload is transmitted to the target - for example, emailing a malicious attachment or link.",
+        "distractors": {
+          "A": "Actions on Objectives is the final stage where the attacker achieves their goal (e.g., exfiltration).",
+          "B": "",
+          "C": "Installation is when malware installs itself on the victim after successful exploitation.",
+          "D": "Reconnaissance is the earlier research/target-selection stage, before any payload is sent."
+        },
+        "exam_pattern": "Transmitting the payload to the victim (email/USB/link) = Delivery."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 5.10 Classify intrusion events into categories (Cyber Kill Chain, Diamond Model)"
+      ]
+    },
+    {
+      "id": "cbrops-pol-006",
+      "exam": "cbrops",
+      "domain": "cbr_policies_procedures",
+      "subtopic": "cbr_attack_frameworks",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "The Diamond Model of Intrusion Analysis represents every intrusion event with four core interconnected features. Which set lists those four features?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Confidentiality, Integrity, Availability, Authentication"
+        },
+        {
+          "id": "B",
+          "text": "Preparation, Detection, Containment, Recovery"
+        },
+        {
+          "id": "C",
+          "text": "People, Process, Technology, Governance"
+        },
+        {
+          "id": "D",
+          "text": "Adversary, Capability, Infrastructure, Victim"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The Diamond Model's four core features are Adversary, Capability, Infrastructure, and Victim, connected to show how an attacker uses capabilities over infrastructure against a victim.",
+        "distractors": {
+          "A": "Those are CIA-triad and authentication concepts, not Diamond Model vertices.",
+          "B": "Those are incident-response phases (NIST 800-61), not the Diamond Model features.",
+          "C": "People/Process/Technology/Governance is a general operating-model framing, not the Diamond Model.",
+          "D": ""
+        },
+        "exam_pattern": "Diamond Model vertices = Adversary, Capability, Infrastructure, Victim."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 5.10 Classify intrusion events into categories (Cyber Kill Chain, Diamond Model)"
+      ]
+    },
+    {
+      "id": "cbrops-pol-007",
+      "exam": "cbrops",
+      "domain": "cbr_policies_procedures",
+      "subtopic": "cbr_attack_frameworks",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "After installing itself, malware opens a persistent channel back to an attacker-controlled server to receive further instructions. Which Cyber Kill Chain stage does this represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Weaponization"
+        },
+        {
+          "id": "B",
+          "text": "Delivery"
+        },
+        {
+          "id": "C",
+          "text": "Command and Control (C2)"
+        },
+        {
+          "id": "D",
+          "text": "Reconnaissance"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Command and Control (C2) is the stage where compromised hosts establish a channel to the attacker's infrastructure so the adversary can issue remote instructions.",
+        "distractors": {
+          "A": "Weaponization is building the payload (coupling an exploit with a backdoor) before delivery.",
+          "B": "Delivery is transmitting the payload to the target, which has already occurred here.",
+          "C": "",
+          "D": "Reconnaissance is the initial research stage, long before a C2 channel exists."
+        },
+        "exam_pattern": "Channel back to the attacker for remote instructions = Command and Control (C2)."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 5.10 Classify intrusion events into categories (Cyber Kill Chain, Diamond Model)"
+      ]
+    },
+    {
+      "id": "cbrops-pol-008",
+      "exam": "cbrops",
+      "domain": "cbr_policies_procedures",
+      "subtopic": "cbr_attack_frameworks",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which stage of the Cyber Kill Chain involves the adversary researching and selecting targets - for example, harvesting employee email addresses and identifying exposed services - before any payload is built?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Command and Control"
+        },
+        {
+          "id": "B",
+          "text": "Exploitation"
+        },
+        {
+          "id": "C",
+          "text": "Installation"
+        },
+        {
+          "id": "D",
+          "text": "Reconnaissance"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Reconnaissance is the first Kill Chain stage: the attacker gathers information and selects targets before weaponizing or delivering anything.",
+        "distractors": {
+          "A": "Command and Control is establishing remote control, a later stage still.",
+          "B": "Exploitation is triggering the vulnerability on the target, which comes after delivery.",
+          "C": "Installation places malware on the victim after successful exploitation.",
+          "D": ""
+        },
+        "exam_pattern": "Research and target selection first = Reconnaissance."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 5.10 Classify intrusion events into categories (Cyber Kill Chain, Diamond Model)"
+      ]
+    },
+    {
+      "id": "cbrops-pol-009",
+      "exam": "cbrops",
+      "domain": "cbr_policies_procedures",
+      "subtopic": "cbr_chain_of_custody",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Fill in the blank: The chronological documentation that records every person who collected, handled, or transferred a piece of evidence - preserving its integrity and legal admissibility - is called the ______ ______ (three words including 'of').",
+      "correct": [
+        "chain of custody",
+        "the chain of custody"
+      ],
+      "explanation": {
+        "correct": "The chain of custody documents the seizure, custody, control, transfer, and handling of evidence over time, demonstrating it was not altered and keeping it admissible.",
+        "exam_pattern": "Who handled evidence, when, and how, documented end to end = chain of custody."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 3.3 Describe the role of attribution in an investigation (chain of custody)"
+      ]
+    },
+    {
+      "id": "cbrops-pol-010",
+      "exam": "cbrops",
+      "domain": "cbr_policies_procedures",
+      "subtopic": "cbr_chain_of_custody",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Following the order of volatility from NIST SP 800-86 when collecting evidence from a live system, which data should an analyst capture first?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Printed documents in a filing cabinet"
+        },
+        {
+          "id": "B",
+          "text": "Volatile data such as the contents of RAM and active network connections"
+        },
+        {
+          "id": "C",
+          "text": "Data written to an optical disc in a drawer"
+        },
+        {
+          "id": "D",
+          "text": "Files archived on offline backup tapes"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The order of volatility says to collect the most volatile data first - CPU/registers, then RAM and live network state - because it disappears when the system is powered down.",
+        "distractors": {
+          "A": "Printed documents do not change when the system is powered off and are not volatile data.",
+          "B": "",
+          "C": "An optical disc is stable, persistent storage; it is low on the volatility order.",
+          "D": "Backup tapes are highly non-volatile and are collected much later, not first."
+        },
+        "exam_pattern": "Collect most volatile first: registers/cache -> RAM/network state -> disk -> backups."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 5.6 Describe concepts as documented in NIST SP 800-86"
+      ]
+    },
+    {
+      "id": "cbrops-pol-011",
+      "exam": "cbrops",
+      "domain": "cbr_policies_procedures",
+      "subtopic": "cbr_chain_of_custody",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To prove that a seized disk image has not been altered between acquisition and analysis, an analyst computes a cryptographic hash at collection and again later and compares the two values. What property is this technique verifying?",
+      "options": [
+        {
+          "id": "A",
+          "text": "User non-repudiation"
+        },
+        {
+          "id": "B",
+          "text": "Network availability"
+        },
+        {
+          "id": "C",
+          "text": "Data confidentiality"
+        },
+        {
+          "id": "D",
+          "text": "Data integrity"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Matching hash values before and after demonstrate the evidence is unchanged, which verifies its integrity and supports admissibility.",
+        "distractors": {
+          "A": "Non-repudiation ties an action to an identity; the hash comparison here is about integrity of the image.",
+          "B": "Availability concerns access to systems/data, not whether an image was modified.",
+          "C": "Confidentiality is about preventing disclosure; hashing here proves the data was not altered, not that it was kept secret.",
+          "D": ""
+        },
+        "exam_pattern": "Hash at collection = hash later -> evidence unchanged = data integrity."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 5.6 Describe concepts as documented in NIST SP 800-86"
+      ]
+    },
+    {
+      "id": "cbrops-pol-012",
+      "exam": "cbrops",
+      "domain": "cbr_policies_procedures",
+      "subtopic": "cbr_chain_of_custody",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A responder arrives at a running, compromised workstation that holds active malware in memory. To preserve the most evidence, what should they generally do before powering the machine off?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Run a full antivirus clean before collecting anything"
+        },
+        {
+          "id": "B",
+          "text": "Immediately pull the power cord to 'freeze' the disk"
+        },
+        {
+          "id": "C",
+          "text": "Reboot the machine to clear the malware"
+        },
+        {
+          "id": "D",
+          "text": "Capture a memory (RAM) image and other volatile data first"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Volatile data such as RAM, running processes, and network connections is lost at shutdown, so capturing a memory image first preserves evidence (like in-memory malware) that disk forensics would miss.",
+        "distractors": {
+          "A": "Running an AV clean modifies the system and can delete the very artifacts needed as evidence.",
+          "B": "Pulling power destroys all volatile memory evidence before it can be captured.",
+          "C": "Rebooting wipes volatile state and may alter the disk, destroying evidence.",
+          "D": ""
+        },
+        "exam_pattern": "Live system: collect volatile memory/state before shutdown (order of volatility)."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 5.6 Describe concepts as documented in NIST SP 800-86"
+      ]
+    },
+    {
+      "id": "cbrops-pol-013",
+      "exam": "cbrops",
+      "domain": "cbr_policies_procedures",
+      "subtopic": "cbr_csirt_metrics",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A SOC manager wants a metric for the average elapsed time between when an intrusion actually begins and when the SOC first detects it. Which metric is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mean time to detect (MTTD)"
+        },
+        {
+          "id": "B",
+          "text": "Mean time to contain"
+        },
+        {
+          "id": "C",
+          "text": "Mean time between failures (MTBF)"
+        },
+        {
+          "id": "D",
+          "text": "Annual loss expectancy (ALE)"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Mean time to detect (MTTD) measures how long, on average, it takes the SOC to notice an incident after it starts; lowering it shrinks the attacker's dwell time.",
+        "distractors": {
+          "A": "",
+          "B": "Time to contain measures how long to stop the incident spreading after detection, a later stage.",
+          "C": "MTBF is a hardware/reliability metric, not a detection-speed metric.",
+          "D": "ALE is a quantitative risk figure (expected yearly loss), not a detection-time metric."
+        },
+        "exam_pattern": "Time from compromise to detection = MTTD (mean time to detect)."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 5.11 Describe the relationship of SOC metrics to scope analysis"
+      ]
+    },
+    {
+      "id": "cbrops-pol-014",
+      "exam": "cbrops",
+      "domain": "cbr_policies_procedures",
+      "subtopic": "cbr_csirt_metrics",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which SOC metric specifically tracks how long it takes, after an incident is detected, to stop it from spreading further to additional systems?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Time to detect"
+        },
+        {
+          "id": "B",
+          "text": "Time to onboard a new analyst"
+        },
+        {
+          "id": "C",
+          "text": "Certificate validity period"
+        },
+        {
+          "id": "D",
+          "text": "Time to contain"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Time to contain measures the interval from detection to successfully halting the incident's spread, limiting its blast radius.",
+        "distractors": {
+          "A": "Time to detect measures finding the incident, not stopping its spread afterward.",
+          "B": "Analyst onboarding time is a staffing metric, not an incident-response timing metric.",
+          "C": "A certificate validity period is a PKI attribute, unrelated to incident containment speed.",
+          "D": ""
+        },
+        "exam_pattern": "Detection -> stop the spread interval = time to contain."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 5.11 Describe the relationship of SOC metrics to scope analysis"
+      ]
+    },
+    {
+      "id": "cbrops-pol-015",
+      "exam": "cbrops",
+      "domain": "cbr_policies_procedures",
+      "subtopic": "cbr_csirt_metrics",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "What is the primary function of a Computer Security Incident Response Team (CSIRT) within an organization?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To receive, triage, and respond to reported security incidents"
+        },
+        {
+          "id": "B",
+          "text": "To design the company's marketing campaigns"
+        },
+        {
+          "id": "C",
+          "text": "To issue and sign TLS certificates for the organization"
+        },
+        {
+          "id": "D",
+          "text": "To manage employee payroll and benefits"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A CSIRT is the designated team that receives incident reports, triages and investigates them, and coordinates the response and recovery.",
+        "distractors": {
+          "A": "",
+          "B": "Marketing is unrelated to incident response.",
+          "C": "Issuing certificates is a PKI/CA function, not the CSIRT's role.",
+          "D": "Payroll and benefits are HR functions, not incident response."
+        },
+        "exam_pattern": "Team that receives, triages, and responds to incidents = CSIRT."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 5.5 Map the organization stakeholders against the NIST IR categories"
+      ]
+    },
+    {
+      "id": "cbrops-pol-016",
+      "exam": "cbrops",
+      "domain": "cbr_policies_procedures",
+      "subtopic": "cbr_runbook_automation",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In SOC operations, what is a 'playbook' (also called a runbook)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A hardware appliance that blocks malware inline"
+        },
+        {
+          "id": "B",
+          "text": "A database of every user's stored credentials"
+        },
+        {
+          "id": "C",
+          "text": "A legal record of how evidence was handled"
+        },
+        {
+          "id": "D",
+          "text": "A documented, repeatable set of steps for responding to a specific type of incident"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A playbook/runbook is a documented, repeatable procedure that tells analysts exactly how to handle a given alert or incident type, ensuring consistent and faster response.",
+        "distractors": {
+          "A": "A hardware appliance that blocks malware is an IPS/firewall, not a documented procedure.",
+          "B": "A credential database is an identity store, unrelated to a response procedure.",
+          "C": "A record of evidence handling is the chain of custody, not a response playbook.",
+          "D": ""
+        },
+        "exam_pattern": "Documented repeatable response steps for an incident type = playbook/runbook."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 5.3 Apply the incident handling process (NIST SP 800-61) to an event"
+      ]
+    },
+    {
+      "id": "cbrops-pol-017",
+      "exam": "cbrops",
+      "domain": "cbr_policies_procedures",
+      "subtopic": "cbr_runbook_automation",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the main benefit of run book automation (RBA) for a security operations center?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It replaces the need to log any security events"
+        },
+        {
+          "id": "B",
+          "text": "It guarantees that no incident will ever occur"
+        },
+        {
+          "id": "C",
+          "text": "It automates repetitive response tasks, reducing response time and human error"
+        },
+        {
+          "id": "D",
+          "text": "It encrypts all of the organization's data at rest"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Run book automation executes routine, well-defined response steps automatically, so analysts respond faster and more consistently and are freed for higher-value analysis.",
+        "distractors": {
+          "A": "Automation relies on logs and telemetry; it does not remove the need to log events.",
+          "B": "Automation speeds response; it cannot guarantee incidents never happen.",
+          "C": "",
+          "D": "Encrypting data at rest is a separate data-protection control, not the purpose of RBA."
+        },
+        "exam_pattern": "Automate routine response steps -> faster, consistent response, fewer errors = RBA."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 1.3 Describe security terms (run book automation)"
+      ]
+    },
+    {
+      "id": "cbrops-pol-018",
+      "exam": "cbrops",
+      "domain": "cbr_policies_procedures",
+      "subtopic": "cbr_runbook_automation",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A SOC implements a SOAR playbook for phishing reports that automatically extracts URLs and attachments, detonates them in a sandbox, enriches any indicators with threat intelligence, and opens a ticket - escalating to an analyst only if something malicious is found. What is the main advantage of handling phishing this way?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It permanently stops all email delivery to users"
+        },
+        {
+          "id": "B",
+          "text": "It handles routine triage consistently and quickly, so analysts focus on confirmed threats"
+        },
+        {
+          "id": "C",
+          "text": "It removes the need for any human analyst involvement at all"
+        },
+        {
+          "id": "D",
+          "text": "It makes the organization immune to phishing"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Automated playbooks perform repetitive triage and enrichment consistently and fast, escalating only true positives, which cuts response time and analyst workload.",
+        "distractors": {
+          "A": "A triage playbook does not, and should not, halt all email delivery to users.",
+          "B": "",
+          "C": "The playbook still escalates confirmed threats to analysts; it augments, not eliminates, human judgment.",
+          "D": "Automation improves response but cannot make an organization immune to phishing."
+        },
+        "exam_pattern": "SOAR playbook = consistent, fast automated triage/enrichment; humans handle confirmed threats."
+      },
+      "references": [
+        "Cisco 200-201 CBROPS Exam Topics: 5.3 Apply the incident handling process (NIST SP 800-61) to an event"
+      ]
+    }
+  ]
+}

@@ -58,7 +58,7 @@ CERT_CATALOG = [
     {"provider": "Cisco", "blurb": "Routing, switching, enterprise & security", "certs": [
         {"key": "ccna", "name": "CCNA 200-301", "status": "active"},
         {"key": "encor", "name": "CCNP ENCOR 350-401", "status": "active"},
-        {"key": "cbrops", "name": "CyberOps Associate (CBROPS)", "status": "soon"},
+        {"key": "cbrops", "name": "CyberOps Associate (CBROPS)", "status": "active"},
     ]},
     {"provider": "CompTIA", "blurb": "Vendor-neutral IT & security", "certs": [
         {"key": "secplus", "name": "Security+ SY0-701", "status": "active"},
@@ -72,7 +72,7 @@ CERT_CATALOG = [
         {"key": "cloudplus", "name": "Cloud+ CV0-004", "status": "soon"},
     ]},
     {"provider": "(ISC)²", "blurb": "Cybersecurity practitioner & leadership", "certs": [
-        {"key": "isc2cc", "name": "Certified in Cybersecurity (CC)", "status": "soon"},
+        {"key": "isc2cc", "name": "Certified in Cybersecurity (CC)", "status": "active"},
         {"key": "sscp", "name": "SSCP", "status": "soon"},
         {"key": "cissp", "name": "CISSP", "status": "soon"},
     ]},
@@ -89,7 +89,7 @@ CERT_CATALOG = [
     ]},
     {"provider": "Microsoft Azure", "blurb": "Azure, security & Microsoft 365", "certs": [
         {"key": "az900", "name": "Azure Fundamentals (AZ-900)", "status": "active"},
-        {"key": "sc900", "name": "Security, Compliance & Identity (SC-900)", "status": "soon"},
+        {"key": "sc900", "name": "Security, Compliance & Identity (SC-900)", "status": "active"},
         {"key": "sc200", "name": "Security Operations Analyst (SC-200)", "status": "soon"},
         {"key": "az500", "name": "Azure Security Engineer (AZ-500)", "status": "soon"},
         {"key": "ms900", "name": "Microsoft 365 Fundamentals (MS-900)", "status": "soon"},
