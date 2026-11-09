@@ -239,13 +239,66 @@ CLF = ExamBlueprint(
     ),
 )
 
+# --- Microsoft Azure Fundamentals (AZ-900) ----------------------------------
+AZ900 = ExamBlueprint(
+    code="az900",
+    name="Azure Fundamentals (AZ-900)",
+    domains=(
+        Domain("az_cloud_concepts", "1.0 Cloud Concepts", 0.28,
+               ("az_cloud_models", "az_cloud_benefits", "az_service_types")),
+        Domain("az_architecture_services", "2.0 Azure Architecture and Services", 0.38,
+               ("az_core_architecture", "az_compute_networking", "az_storage", "az_identity")),
+        Domain("az_management_governance", "3.0 Azure Management and Governance", 0.34,
+               ("az_cost_management", "az_governance_compliance", "az_tools_monitoring")),
+    ),
+)
+
+# --- CompTIA CySA+ (CS0-003) -------------------------------------------------
+CYSA = ExamBlueprint(
+    code="cysa",
+    name="CySA+ CS0-003",
+    domains=(
+        Domain("cysa_security_operations", "1.0 Security Operations", 0.33,
+               ("so_system_network_analysis", "so_threat_intel", "so_threat_hunting",
+                "so_malicious_activity", "so_tools_automation")),
+        Domain("cysa_vuln_management", "2.0 Vulnerability Management", 0.30,
+               ("vm_scanning", "vm_assessment_tools", "vm_prioritization",
+                "vm_mitigation", "vm_secure_coding")),
+        Domain("cysa_incident_response", "3.0 Incident Response and Management", 0.20,
+               ("ir_lifecycle", "ir_detection_analysis", "ir_containment_recovery")),
+        Domain("cysa_reporting_comm", "4.0 Reporting and Communication", 0.17,
+               ("rc_vuln_reporting", "rc_incident_reporting", "rc_metrics", "rc_stakeholder_comm")),
+    ),
+)
+
+# --- CompTIA PenTest+ (PT0-003) ---------------------------------------------
+PENTEST = ExamBlueprint(
+    code="pentest",
+    name="PenTest+ PT0-003",
+    domains=(
+        Domain("pt_engagement", "1.0 Engagement Management", 0.13,
+               ("pt_scoping_roe", "pt_methodologies", "pt_grc_legal", "pt_reporting_comm")),
+        Domain("pt_recon", "2.0 Reconnaissance and Enumeration", 0.21,
+               ("pt_passive_recon", "pt_active_recon", "pt_enumeration", "pt_recon_tools")),
+        Domain("pt_vuln_discovery", "3.0 Vulnerability Discovery and Analysis", 0.17,
+               ("pt_vuln_scanning", "pt_vuln_analysis", "pt_vuln_types")),
+        Domain("pt_attacks", "4.0 Attacks and Exploits", 0.35,
+               ("pt_network_attacks", "pt_web_attacks", "pt_auth_attacks",
+                "pt_wireless_social", "pt_cloud_specialized")),
+        Domain("pt_post_exploit", "5.0 Post-exploitation and Lateral Movement", 0.14,
+               ("pt_post_access", "pt_lateral_movement", "pt_persistence_stealth", "pt_cleanup_exfil")),
+    ),
+)
+
 EXAMS: dict[str, ExamBlueprint] = {
-    bp.code: bp for bp in (CCNA, ENCOR, SECPLUS, NETPLUS, APLUS1, APLUS2, CLF)
+    bp.code: bp for bp in (CCNA, ENCOR, SECPLUS, NETPLUS, APLUS1, APLUS2, CLF, AZ900, CYSA, PENTEST)
 }
 
 # Tracks that have a real question bank and are selectable in the UI. Blueprints
 # for the rest exist (objectives captured) but stay "coming soon" until built.
-LIVE_EXAMS: tuple[str, ...] = ("ccna", "encor", "secplus", "netplus", "aplus1", "aplus2", "clf")
+LIVE_EXAMS: tuple[str, ...] = (
+    "ccna", "encor", "secplus", "netplus", "aplus1", "aplus2", "clf", "az900", "cysa", "pentest",
+)
 
 
 def get_blueprint(code: str) -> ExamBlueprint:
