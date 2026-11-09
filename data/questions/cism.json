@@ -1,0 +1,3258 @@
+{
+  "exam": "cism",
+  "count": 80,
+  "questions": [
+    {
+      "id": "cism-gov-001",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_governance_framework",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Senior leadership asks the information security manager to state, in one sentence, the PRIMARY objective of information security governance. Which response is best?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To eliminate all information security risk to the organization"
+        },
+        {
+          "id": "B",
+          "text": "To deploy the strongest available technical controls across the enterprise"
+        },
+        {
+          "id": "C",
+          "text": "To let the security team operate independently of the business units"
+        },
+        {
+          "id": "D",
+          "text": "To align the information security program with the organization's business objectives and strategy"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Governance exists to direct and align information security with business goals so that security delivers value and manages risk to an acceptable level; strategic alignment is its primary objective.",
+        "distractors": {
+          "A": "Risk can be managed to an acceptable level but never fully eliminated; 'eliminate all risk' is a classic trap.",
+          "B": "Technology is a means, not the objective; governance is business- and strategy-driven, not technology-first.",
+          "C": "Security must be integrated with the business, not isolated from it.",
+          "D": ""
+        },
+        "exam_pattern": "Governance = align security with business objectives; 'eliminate all risk' and 'technology-first' are wrong-answer signatures."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Information Security Governance (objectives)"
+      ]
+    },
+    {
+      "id": "cism-gov-002",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_governance_framework",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A board member asks how information security 'governance' differs from information security 'management.' Which distinction is MOST accurate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Governance writes the operating procedures, while management approves the overall budget"
+        },
+        {
+          "id": "B",
+          "text": "Governance is performed by the security operations team, while management is performed by the auditors"
+        },
+        {
+          "id": "C",
+          "text": "They are interchangeable terms for the same function"
+        },
+        {
+          "id": "D",
+          "text": "Governance sets strategic direction and oversees outcomes, while management executes and runs day-to-day activities"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Governance (a board/senior-management responsibility) evaluates, directs, and monitors; management plans, builds, and runs the program to carry out that direction.",
+        "distractors": {
+          "A": "This is reversed and mischaracterised: procedures are an execution (management) artifact, while budget approval is a governance/senior-management act.",
+          "B": "Governance is a board/senior-management responsibility, not a security-operations task; auditors provide independent assurance, not management.",
+          "C": "They are distinct layers - direction and oversight versus execution - not synonyms.",
+          "D": ""
+        },
+        "exam_pattern": "Governance = evaluate/direct/monitor (board, senior mgmt); management = plan/build/run (CISO and team)."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Governance versus management"
+      ]
+    },
+    {
+      "id": "cism-gov-003",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_governance_framework",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "The information security manager is organizing the program's documentation. Which document type specifies mandatory, measurable requirements (such as approved encryption algorithms) that support a policy?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Standard"
+        },
+        {
+          "id": "B",
+          "text": "Policy"
+        },
+        {
+          "id": "C",
+          "text": "Guideline"
+        },
+        {
+          "id": "D",
+          "text": "Procedure"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A standard is a mandatory, specific requirement that supports a policy (for example, a minimum key length or an approved algorithm list) and makes the policy enforceable.",
+        "distractors": {
+          "A": "",
+          "B": "A policy is a high-level statement of management intent and direction, not the specific mandatory requirement.",
+          "C": "Guidelines are recommended, discretionary practices, not mandatory requirements.",
+          "D": "Procedures are step-by-step instructions for performing a task, not the requirement itself."
+        },
+        "exam_pattern": "Hierarchy: Policy (intent) -> Standard (mandatory specifics) -> Procedure (steps) -> Guideline (optional advice)."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Policies, standards, procedures and guidelines"
+      ]
+    },
+    {
+      "id": "cism-gov-004",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_governance_framework",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization wants a framework that governs and manages enterprise IT and links IT goals to business goals for the board's oversight. Which framework is the BEST fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "COBIT"
+        },
+        {
+          "id": "B",
+          "text": "NIST SP 800-53"
+        },
+        {
+          "id": "C",
+          "text": "ISO/IEC 27002"
+        },
+        {
+          "id": "D",
+          "text": "PCI DSS"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "COBIT is a framework for the governance and management of enterprise IT; it maps enterprise and IT goals and gives the board a structure for oversight.",
+        "distractors": {
+          "A": "",
+          "B": "NIST SP 800-53 is a security and privacy control catalog (primarily for US federal systems), not a governance framework.",
+          "C": "ISO/IEC 27002 is a catalog of information security controls, not an enterprise IT governance framework.",
+          "D": "PCI DSS is a payment-card data security standard, not an enterprise governance framework."
+        },
+        "exam_pattern": "Governance of enterprise IT and business-IT goal alignment for the board = COBIT."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Governance frameworks (COBIT)"
+      ]
+    },
+    {
+      "id": "cism-gov-005",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_governance_framework",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: The international standard that specifies the certifiable requirements for establishing and operating an Information Security Management System (ISMS) is ISO/IEC _____. (enter the number)",
+      "correct": [
+        "27001"
+      ],
+      "explanation": {
+        "correct": "ISO/IEC 27001 defines the requirements for an ISMS and is the standard an organization is certified against; ISO/IEC 27002 provides the supporting control guidance.",
+        "exam_pattern": "27001 = ISMS requirements (certifiable); 27002 = control best-practice guidance; 27014 = governance of information security."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - ISO/IEC 27001 and the ISMS"
+      ]
+    },
+    {
+      "id": "cism-gov-006",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_strategy_alignment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To ensure the information security strategy truly supports the organization, on what should the information security manager BASE the strategy?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The preferences of the security operations staff"
+        },
+        {
+          "id": "B",
+          "text": "The organization's business strategy and objectives"
+        },
+        {
+          "id": "C",
+          "text": "The latest industry threat-intelligence reports"
+        },
+        {
+          "id": "D",
+          "text": "The capabilities of the security tools already owned"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The security strategy must be derived from and support the business strategy and objectives; alignment with the business is what makes the strategy appropriate.",
+        "distractors": {
+          "A": "Staff preferences do not define business alignment or priorities.",
+          "B": "",
+          "C": "Threat intelligence informs risk decisions but is not the foundation of strategic alignment.",
+          "D": "Basing the strategy on existing tools is technology-driven and backwards - needs should drive tools, not the reverse."
+        },
+        "exam_pattern": "Security strategy derives from business strategy/objectives - business-driven, not tool- or threat-driven."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Strategic alignment"
+      ]
+    },
+    {
+      "id": "cism-gov-007",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_strategy_alignment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An information security steering committee made up of senior business and IT leaders has been formed. What is its PRIMARY purpose?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To investigate and respond to security incidents"
+        },
+        {
+          "id": "B",
+          "text": "To perform technical configuration reviews of security controls"
+        },
+        {
+          "id": "C",
+          "text": "To deliver security awareness training to all staff"
+        },
+        {
+          "id": "D",
+          "text": "To ensure security initiatives are aligned with and prioritized against business objectives"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The steering committee provides cross-functional direction - ensuring security initiatives align with business objectives and are prioritized appropriately.",
+        "distractors": {
+          "A": "Incident investigation is handled by the incident response team, not the steering committee.",
+          "B": "Technical configuration reviews are an operational task, not a steering-committee function.",
+          "C": "Delivering training is a program activity, not the committee's governing role.",
+          "D": ""
+        },
+        "exam_pattern": "Steering committee = cross-functional alignment, prioritization, and direction of security with the business."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Security steering committee"
+      ]
+    },
+    {
+      "id": "cism-gov-008",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_strategy_alignment",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A newly hired information security manager is asked to develop the organization's first information security strategy. What should the manager do FIRST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Benchmark the proposed security budget against competitors"
+        },
+        {
+          "id": "B",
+          "text": "Purchase and deploy a security information and event management (SIEM) platform"
+        },
+        {
+          "id": "C",
+          "text": "Understand the organization's business objectives and current risk posture"
+        },
+        {
+          "id": "D",
+          "text": "Write and publish the acceptable use policy"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A strategy must be grounded in the business objectives (the desired state) and the current state of risk; understanding both comes first and everything else follows.",
+        "distractors": {
+          "A": "Budget benchmarking is an input used later in planning, not the first step.",
+          "B": "Deploying tooling before understanding needs is technology-first and premature.",
+          "C": "",
+          "D": "Policies are written after the strategy's direction is understood, not before."
+        },
+        "exam_pattern": "Start a strategy by understanding business objectives (desired state) and current state; define direction before tools or policies."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Developing an information security strategy"
+      ]
+    },
+    {
+      "id": "cism-gov-009",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_strategy_alignment",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "The information security manager has documented the organization's desired state of security and its current state. What does the difference between the two BEST represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The residual risk the board must formally accept"
+        },
+        {
+          "id": "B",
+          "text": "The organization's risk appetite"
+        },
+        {
+          "id": "C",
+          "text": "The list of controls that have already failed an audit"
+        },
+        {
+          "id": "D",
+          "text": "The gap that the security strategy's roadmap is designed to close"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Desired state minus current state is the gap; the strategy produces a roadmap of initiatives to close that gap over time.",
+        "distractors": {
+          "A": "Residual risk is what remains after controls are applied, not the current-versus-desired gap.",
+          "B": "Risk appetite is how much risk is acceptable, not a measure of the state gap.",
+          "C": "The gap is not an audit-failure list; it reflects where the program needs to go.",
+          "D": ""
+        },
+        "exam_pattern": "Desired state - current state = the gap; the strategy/roadmap is what closes it."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Current state, desired state and gap analysis"
+      ]
+    },
+    {
+      "id": "cism-gov-010",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_strategy_alignment",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "Which TWO factors are MOST critical to the success of an organization's information security governance program? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Alignment of the security program with business objectives"
+        },
+        {
+          "id": "B",
+          "text": "Deploying the newest available security technology"
+        },
+        {
+          "id": "C",
+          "text": "Visible commitment and support from senior management"
+        },
+        {
+          "id": "D",
+          "text": "Maintaining the largest possible security headcount"
+        }
+      ],
+      "correct": [
+        "A",
+        "C"
+      ],
+      "explanation": {
+        "correct": "Governance succeeds when senior management visibly supports it and when the program is aligned with business objectives; these are the top critical success factors.",
+        "distractors": {
+          "A": "",
+          "B": "Technology is an enabler, not a governance critical success factor.",
+          "C": "",
+          "D": "A large headcount does not by itself make governance effective; direction and alignment do."
+        },
+        "exam_pattern": "Top governance success factors = senior-management support and business alignment; technology/headcount are distractors."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Critical success factors"
+      ]
+    },
+    {
+      "id": "cism-gov-011",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_roles_responsibilities",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After a breach, regulators ask who is ultimately accountable for the organization's information security. Who is it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The third-party managed security service provider"
+        },
+        {
+          "id": "B",
+          "text": "The information security manager (CISO)"
+        },
+        {
+          "id": "C",
+          "text": "The data custodians in the IT department"
+        },
+        {
+          "id": "D",
+          "text": "The board of directors and senior management"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Day-to-day responsibility is delegated, but ultimate accountability for information security rests with the board of directors and senior management and cannot be delegated away.",
+        "distractors": {
+          "A": "Outsourcing operations transfers tasks, not the organization's accountability.",
+          "B": "The CISO is responsible for running the program but is not where ultimate accountability stops.",
+          "C": "Custodians maintain controls operationally; they are not ultimately accountable.",
+          "D": ""
+        },
+        "exam_pattern": "Responsibility can be delegated; ultimate accountability stays with the board/senior management."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Roles and responsibilities (accountability)"
+      ]
+    },
+    {
+      "id": "cism-gov-012",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_roles_responsibilities",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Who is responsible for determining the classification level of a set of business information and for deciding who may access it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The data custodian"
+        },
+        {
+          "id": "B",
+          "text": "The end users of the data"
+        },
+        {
+          "id": "C",
+          "text": "The data (information) owner"
+        },
+        {
+          "id": "D",
+          "text": "The information security manager"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The data/information owner - typically a business leader - classifies the data and authorizes access, because the owner understands its value to the business.",
+        "distractors": {
+          "A": "The custodian implements and maintains protection per the owner's direction but does not set classification.",
+          "B": "Users consume data under the access rules; they do not set its classification.",
+          "C": "",
+          "D": "The security manager facilitates and advises on the scheme but does not own the business data."
+        },
+        "exam_pattern": "Data/information owner classifies and authorizes access; the custodian protects it as directed."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Data owner responsibilities"
+      ]
+    },
+    {
+      "id": "cism-gov-013",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_roles_responsibilities",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IT storage administrator implements and maintains the encryption, backups, and access controls that a business unit's data owner has specified. Which role is the administrator fulfilling?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data custodian"
+        },
+        {
+          "id": "B",
+          "text": "Security steering committee member"
+        },
+        {
+          "id": "C",
+          "text": "Risk owner"
+        },
+        {
+          "id": "D",
+          "text": "Data owner"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A data custodian implements and maintains the protective controls as directed by the owner; this is typically an IT operations role.",
+        "distractors": {
+          "A": "",
+          "B": "Steering committee members provide governance direction, not hands-on control maintenance.",
+          "C": "A risk owner is accountable for a specific risk's treatment, not for maintaining controls.",
+          "D": "The owner sets classification and requirements; the administrator is carrying them out, not setting them."
+        },
+        "exam_pattern": "Custodian = implements/maintains controls per the owner's direction (usually IT)."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Data custodian responsibilities"
+      ]
+    },
+    {
+      "id": "cism-gov-014",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_roles_responsibilities",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Within a well-governed organization, what is the PRIMARY responsibility of the information security manager (CISO)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Personally performing all forensic investigations"
+        },
+        {
+          "id": "B",
+          "text": "Approving the organization's risk appetite"
+        },
+        {
+          "id": "C",
+          "text": "Developing and managing the information security program and reporting on it to senior management"
+        },
+        {
+          "id": "D",
+          "text": "Owning and classifying all business data"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The information security manager builds, runs, and reports on the program, translating governance direction into an effective security capability.",
+        "distractors": {
+          "A": "The manager coordinates and facilitates; hands-on forensics is performed by specialists.",
+          "B": "Risk appetite is set by the board/senior management, not the CISO.",
+          "C": "",
+          "D": "Data ownership and classification rest with the business data owners."
+        },
+        "exam_pattern": "The manager builds/runs/reports on the program and facilitates - rather than owning business decisions or doing hands-on work."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Information security manager role"
+      ]
+    },
+    {
+      "id": "cism-gov-015",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_roles_responsibilities",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An information security policy has been drafted. Whose approval gives it the authority to be enforced across the organization?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The security operations team"
+        },
+        {
+          "id": "B",
+          "text": "Senior management"
+        },
+        {
+          "id": "C",
+          "text": "The help desk"
+        },
+        {
+          "id": "D",
+          "text": "The external auditors"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "An information security policy derives its authority from senior management (and board) approval, which signals the organization's commitment and makes it enforceable.",
+        "distractors": {
+          "A": "The operations team implements policy but cannot grant it organizational authority.",
+          "B": "",
+          "C": "The help desk has no policy-approval authority.",
+          "D": "Auditors assess compliance with policy; they do not approve or own it."
+        },
+        "exam_pattern": "Policy authority comes from senior-management (and board) approval - a sign of tone at the top."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Policy approval and management commitment"
+      ]
+    },
+    {
+      "id": "cism-gov-016",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_legal_regulatory",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A new data-protection regulation will soon apply to the organization. What should the information security manager do FIRST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Immediately purchase a compliance-management tool"
+        },
+        {
+          "id": "B",
+          "text": "Halt all processing of personal data until further notice"
+        },
+        {
+          "id": "C",
+          "text": "Perform a gap analysis comparing current controls against the new requirements"
+        },
+        {
+          "id": "D",
+          "text": "Notify all customers that the organization is non-compliant"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The manager should first understand the impact by performing a gap analysis of current controls against the new requirements, then plan risk-based remediation.",
+        "distractors": {
+          "A": "Buying a tool before understanding the gap is premature and technology-first.",
+          "B": "Halting all processing is a disproportionate overreaction, not a risk-based first step.",
+          "C": "",
+          "D": "Declaring non-compliance to customers before assessing the situation is unwarranted and harmful."
+        },
+        "exam_pattern": "New law/regulation -> first assess impact via gap/impact analysis, then plan remediation."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Legal and regulatory requirements"
+      ]
+    },
+    {
+      "id": "cism-gov-017",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_legal_regulatory",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "From a management perspective, what is the BEST reason for the organization to comply with applicable laws and regulations?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To demonstrate due diligence and reduce legal and financial liability"
+        },
+        {
+          "id": "B",
+          "text": "To avoid having to perform risk assessments"
+        },
+        {
+          "id": "C",
+          "text": "To guarantee that a breach can never occur"
+        },
+        {
+          "id": "D",
+          "text": "To achieve the strongest possible technical security"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Compliance is a business and legal driver: it demonstrates due diligence/due care and reduces the organization's legal and financial liability.",
+        "distractors": {
+          "A": "",
+          "B": "Compliance does not remove the need for risk assessment; the two are complementary.",
+          "C": "Compliance reduces but never guarantees against breaches.",
+          "D": "Compliance is a legal/risk obligation, not a measure of technical strength."
+        },
+        "exam_pattern": "Compliance = demonstrating due diligence/due care and limiting liability - a business/legal driver."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Due diligence and legal drivers"
+      ]
+    },
+    {
+      "id": "cism-gov-018",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_legal_regulatory",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "The organization must satisfy several overlapping regulations and standards that share many similar control requirements. What is the MOST efficient approach for the information security manager?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Comply only with the strictest regulation and ignore the others"
+        },
+        {
+          "id": "B",
+          "text": "Maintain a separate, independent control set for each regulation"
+        },
+        {
+          "id": "C",
+          "text": "Map the requirements to a single common (unified) control framework"
+        },
+        {
+          "id": "D",
+          "text": "Delegate each regulation to a different business unit without coordination"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Mapping overlapping obligations to one common control framework (control rationalization) lets a single control satisfy many requirements, reducing duplication.",
+        "distractors": {
+          "A": "Ignoring the other regulations creates compliance gaps and legal exposure.",
+          "B": "Duplicate, siloed control sets are inefficient and hard to maintain.",
+          "C": "",
+          "D": "Uncoordinated delegation leads to inconsistency and gaps."
+        },
+        "exam_pattern": "Harmonise overlapping obligations by mapping to one common control framework."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Managing multiple compliance requirements"
+      ]
+    },
+    {
+      "id": "cism-gov-019",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_legal_regulatory",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "The organization outsources processing of regulated customer data to a cloud provider. Who remains accountable to regulators for protecting that data?",
+      "options": [
+        {
+          "id": "A",
+          "text": "No one, once a contract is signed"
+        },
+        {
+          "id": "B",
+          "text": "The cloud provider alone"
+        },
+        {
+          "id": "C",
+          "text": "The organization that collected the data"
+        },
+        {
+          "id": "D",
+          "text": "The regulator"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The organization that collected the data (the data controller) remains accountable to regulators even when processing is outsourced; accountability cannot be contracted away.",
+        "distractors": {
+          "A": "A contract allocates duties but does not erase the organization's accountability.",
+          "B": "The provider has contractual obligations, but legal accountability to regulators stays with the controller.",
+          "C": "",
+          "D": "The regulator enforces the law; it is not accountable for protecting the data."
+        },
+        "exam_pattern": "You can outsource the processing, but not the accountability - the data controller stays responsible."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Outsourcing and accountability"
+      ]
+    },
+    {
+      "id": "cism-gov-020",
+      "exam": "cism",
+      "domain": "cism_governance",
+      "subtopic": "cism_legal_regulatory",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: Before engaging a vendor to handle regulated data, an organization investigates the vendor's security practices and compliance posture. This investigative process is known as due _____. (one word)",
+      "correct": [
+        "diligence"
+      ],
+      "explanation": {
+        "correct": "Due diligence is the investigation and evaluation performed before a decision or engagement; due care is then the ongoing prudent action taken to protect assets.",
+        "exam_pattern": "Due diligence = investigate/evaluate beforehand; due care = act prudently afterward."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 1 - Due diligence and due care"
+      ]
+    },
+    {
+      "id": "cism-inc-001",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_incident_readiness",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "What is the PRIMARY goal of incident management?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To minimize the impact of incidents on the business and restore normal operations"
+        },
+        {
+          "id": "B",
+          "text": "To identify and punish the employee responsible"
+        },
+        {
+          "id": "C",
+          "text": "To purchase new security tools after each event"
+        },
+        {
+          "id": "D",
+          "text": "To avoid ever reporting incidents to senior management"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Incident management exists to limit the damage an incident causes to the business and to restore normal operations as quickly as possible.",
+        "distractors": {
+          "A": "",
+          "B": "Assigning blame is not the goal; managing impact and recovery is.",
+          "C": "Tool acquisition is not the purpose of incident management.",
+          "D": "Incidents must be reported and escalated appropriately, not hidden from management."
+        },
+        "exam_pattern": "Incident management = minimize business impact and restore operations quickly."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - Incident management objectives"
+      ]
+    },
+    {
+      "id": "cism-inc-002",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_incident_readiness",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which of the following MOST improves an organization's readiness to handle security incidents effectively?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A larger marketing budget"
+        },
+        {
+          "id": "B",
+          "text": "Buying the single most expensive firewall available"
+        },
+        {
+          "id": "C",
+          "text": "Hiring more salespeople"
+        },
+        {
+          "id": "D",
+          "text": "A documented and regularly tested incident response plan"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Readiness comes from preparation: a documented incident response plan that is regularly tested (and a trained team) so people know what to do when an incident occurs.",
+        "distractors": {
+          "A": "A marketing budget does not affect incident readiness.",
+          "B": "A single tool does not equal readiness; preparation and process do.",
+          "C": "Sales staffing is unrelated to incident readiness.",
+          "D": ""
+        },
+        "exam_pattern": "Readiness comes from a documented, tested plan and a prepared team - preparation is the foundation."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - Incident response planning and testing"
+      ]
+    },
+    {
+      "id": "cism-inc-003",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_incident_readiness",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "When establishing a computer security incident response team (CSIRT), which TWO functions beyond IT security should be represented so the team can handle an incident's full impact? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "The office vending-machine supplier"
+        },
+        {
+          "id": "B",
+          "text": "Communications / public relations"
+        },
+        {
+          "id": "C",
+          "text": "An unaffiliated external blogger"
+        },
+        {
+          "id": "D",
+          "text": "Legal / compliance"
+        }
+      ],
+      "correct": [
+        "B",
+        "D"
+      ],
+      "explanation": {
+        "correct": "Incidents have legal, regulatory, and reputational dimensions, so the CSIRT needs legal/compliance and communications/PR representation in addition to IT security.",
+        "distractors": {
+          "A": "A vending-machine supplier has no role in incident response.",
+          "B": "",
+          "C": "An unaffiliated blogger is not a trusted internal function and should not be on the team.",
+          "D": ""
+        },
+        "exam_pattern": "Effective CSIRT = cross-functional (IT security plus legal, communications, HR, and business), not IT alone."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - CSIRT composition"
+      ]
+    },
+    {
+      "id": "cism-inc-004",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_incident_readiness",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "During incident preparation, what is the information security manager's PRIMARY role?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Writing custom exploit code to test defenses"
+        },
+        {
+          "id": "B",
+          "text": "Personally performing all malware reverse-engineering"
+        },
+        {
+          "id": "C",
+          "text": "Ensuring the plan, team, training, and communication processes are in place and supported by management"
+        },
+        {
+          "id": "D",
+          "text": "Manually rebuilding every affected server without help"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The manager facilitates and coordinates - making sure the plan, trained team, and communication/escalation processes exist and have management support - rather than doing the hands-on technical work.",
+        "distractors": {
+          "A": "Writing exploit code is not a management responsibility.",
+          "B": "Deep technical analysis is performed by specialists, not the manager personally.",
+          "C": "",
+          "D": "Hands-on server rebuilds are operational tasks, not the manager's primary role."
+        },
+        "exam_pattern": "The manager facilitates and coordinates - plan, people, training, support - rather than doing hands-on technical work."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - Role of the information security manager"
+      ]
+    },
+    {
+      "id": "cism-inc-005",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_incident_response_plan",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Immediately after a suspected incident is confirmed, why is classifying its severity important?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It determines the appropriate response, escalation, and allocation of resources"
+        },
+        {
+          "id": "B",
+          "text": "It is only needed for the final written report"
+        },
+        {
+          "id": "C",
+          "text": "It assigns blame to a specific department"
+        },
+        {
+          "id": "D",
+          "text": "It removes the need for any containment"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Classifying severity drives the response in real time: how urgently to act, who to escalate to, and what resources to commit.",
+        "distractors": {
+          "A": "",
+          "B": "Classification is needed during the incident to drive the response, not just for reporting afterward.",
+          "C": "Classification guides the response, not blame.",
+          "D": "Classification informs containment but does not replace it."
+        },
+        "exam_pattern": "Classify/prioritize by impact to drive the right response, escalation, and resources."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - Incident classification and prioritization"
+      ]
+    },
+    {
+      "id": "cism-inc-006",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_incident_response_plan",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A major incident is underway. According to good incident management practice, who should be informed based on the incident's severity?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The general public immediately, before any assessment"
+        },
+        {
+          "id": "B",
+          "text": "No one, in order to keep the incident secret"
+        },
+        {
+          "id": "C",
+          "text": "Only the help desk"
+        },
+        {
+          "id": "D",
+          "text": "Predefined stakeholders per the communication/escalation plan, which can include senior management, legal, and regulators"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Communication follows a predefined escalation plan so the right stakeholders - which may include senior management, legal, and regulators - are informed based on severity.",
+        "distractors": {
+          "A": "Public disclosure before assessment is premature and potentially harmful; follow the plan.",
+          "B": "Concealment violates escalation requirements and often legal obligations.",
+          "C": "The help desk alone is insufficient for a major incident.",
+          "D": ""
+        },
+        "exam_pattern": "Communicate per a predefined escalation plan to the right stakeholders based on severity."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - Communication and escalation"
+      ]
+    },
+    {
+      "id": "cism-inc-007",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_incident_response_plan",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An analyst confirms ransomware is actively spreading across the network. According to the incident response plan, what is the BEST immediate priority?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Draft the post-incident review report"
+        },
+        {
+          "id": "B",
+          "text": "Contain the incident to limit its spread and impact"
+        },
+        {
+          "id": "C",
+          "text": "Schedule next year's tabletop exercise"
+        },
+        {
+          "id": "D",
+          "text": "Update the asset inventory"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Once an incident is confirmed and actively spreading, the immediate priority is containment to limit the damage and stop it from spreading further.",
+        "distractors": {
+          "A": "The report comes after the incident is handled, not during active spread.",
+          "B": "",
+          "C": "Exercise scheduling is preparation, irrelevant during an active incident.",
+          "D": "Inventory updates are not the immediate priority while an incident is spreading."
+        },
+        "exam_pattern": "Once confirmed, the immediate priority is containment to limit damage/spread."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - Containment as immediate priority"
+      ]
+    },
+    {
+      "id": "cism-inc-008",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_incident_response_plan",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Fill in the blank: The dedicated group responsible for detecting, analyzing, and responding to security incidents is abbreviated CSIRT, which stands for Computer Security Incident Response _____. (one word)",
+      "correct": [
+        "team"
+      ],
+      "explanation": {
+        "correct": "CSIRT stands for Computer Security Incident Response Team - a cross-functional team with clearly defined roles and responsibilities.",
+        "exam_pattern": "CSIRT = Computer Security Incident Response Team (cross-functional, defined roles)."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - Incident response team (CSIRT)"
+      ]
+    },
+    {
+      "id": "cism-inc-009",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_bcp_dr",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the PRIMARY purpose of a business impact analysis (BIA)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To configure the backup software"
+        },
+        {
+          "id": "B",
+          "text": "To write the acceptable use policy"
+        },
+        {
+          "id": "C",
+          "text": "To select a firewall vendor"
+        },
+        {
+          "id": "D",
+          "text": "To identify critical business processes and determine recovery priorities and objectives such as RTO and RPO"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A BIA identifies the organization's critical processes and the impact of their disruption, setting recovery priorities and objectives (RTO, RPO, MTD) - the foundation of BCP/DR.",
+        "distractors": {
+          "A": "Configuring backups is an implementation task the BIA informs, not the BIA itself.",
+          "B": "The acceptable use policy is unrelated to a BIA.",
+          "C": "Firewall selection is unrelated to a BIA.",
+          "D": ""
+        },
+        "exam_pattern": "BIA identifies critical processes and sets recovery objectives (RTO/RPO/MTD) - the basis of BCP/DR."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - Business impact analysis"
+      ]
+    },
+    {
+      "id": "cism-inc-010",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_bcp_dr",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A recovery plan states that no more than 15 minutes of data may be lost in a disruption. Which recovery objective does this define?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Recovery time objective (RTO)"
+        },
+        {
+          "id": "B",
+          "text": "Mean time between failures (MTBF)"
+        },
+        {
+          "id": "C",
+          "text": "Maximum tolerable downtime (MTD)"
+        },
+        {
+          "id": "D",
+          "text": "Recovery point objective (RPO)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The RPO is the maximum acceptable amount of data loss, expressed as a point in time (here, 15 minutes of data); it drives backup/replication frequency.",
+        "distractors": {
+          "A": "RTO is the acceptable time to restore service (downtime), not the amount of data loss.",
+          "B": "MTBF is a reliability measure, not a recovery objective.",
+          "C": "MTD is the total time a process can be down before unacceptable harm occurs.",
+          "D": ""
+        },
+        "exam_pattern": "RPO = acceptable data loss (point in time); RTO = acceptable downtime (time to restore)."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - RPO versus RTO"
+      ]
+    },
+    {
+      "id": "cism-inc-011",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_bcp_dr",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Management specifies that a critical system must be back in operation within four hours of an outage. Which recovery metric does the four-hour target represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Recovery point objective (RPO)"
+        },
+        {
+          "id": "B",
+          "text": "Service delivery objective (SDO)"
+        },
+        {
+          "id": "C",
+          "text": "Recovery time objective (RTO)"
+        },
+        {
+          "id": "D",
+          "text": "Annual loss expectancy (ALE)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The RTO is the maximum acceptable time to restore a process or system after a disruption - here, four hours.",
+        "distractors": {
+          "A": "RPO measures acceptable data loss, not restoration time.",
+          "B": "SDO is the level of service to be met during alternate processing, not the restoration deadline.",
+          "C": "",
+          "D": "ALE is a financial risk/loss measure, not a recovery deadline."
+        },
+        "exam_pattern": "RTO = how quickly service must be restored; it must be no greater than the MTD."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - Recovery time objective"
+      ]
+    },
+    {
+      "id": "cism-inc-012",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_bcp_dr",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An information security manager finds that a critical process has an RTO of 24 hours but a maximum tolerable downtime (MTD) of 8 hours. What is the BEST course of action?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Delete the process from the business continuity plan"
+        },
+        {
+          "id": "B",
+          "text": "Arbitrarily increase the MTD to 48 hours"
+        },
+        {
+          "id": "C",
+          "text": "Do nothing, because the two values are independent"
+        },
+        {
+          "id": "D",
+          "text": "Revise the recovery strategy so the RTO is within the MTD"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The RTO must be less than or equal to the MTD; an RTO of 24 hours against an 8-hour MTD is an unacceptable gap, so the recovery strategy must be strengthened to bring RTO within the MTD.",
+        "distractors": {
+          "A": "Removing a critical process from the BCP abandons continuity planning for it.",
+          "B": "Arbitrarily inflating the MTD ignores the real business tolerance it represents.",
+          "C": "The values are related - RTO must not exceed MTD - so inaction leaves an unacceptable gap.",
+          "D": ""
+        },
+        "exam_pattern": "RTO must be <= MTD; if RTO exceeds MTD, strengthen the recovery strategy to close the gap."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - RTO, MTD and recovery strategy"
+      ]
+    },
+    {
+      "id": "cism-inc-013",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_containment_eradication",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "During an active malware outbreak, the response team isolates the affected network segments. Which incident response phase does this action represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Lessons learned"
+        },
+        {
+          "id": "B",
+          "text": "Containment"
+        },
+        {
+          "id": "C",
+          "text": "Recovery"
+        },
+        {
+          "id": "D",
+          "text": "Eradication"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Isolating affected segments to stop the malware from spreading is containment - limiting the scope and impact before removing the cause.",
+        "distractors": {
+          "A": "Lessons learned occurs after the incident is closed.",
+          "B": "",
+          "C": "Recovery restores systems to normal after eradication.",
+          "D": "Eradication removes the malware/root cause after spread is limited."
+        },
+        "exam_pattern": "Containment = limit the spread/impact first; then eradicate the cause; then recover."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - Containment"
+      ]
+    },
+    {
+      "id": "cism-inc-014",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_containment_eradication",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After containing an incident, the team removes the malware, closes the exploited vulnerability, and eliminates the attacker's footholds. Which phase is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Containment"
+        },
+        {
+          "id": "B",
+          "text": "Preparation"
+        },
+        {
+          "id": "C",
+          "text": "Eradication"
+        },
+        {
+          "id": "D",
+          "text": "Detection"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Eradication removes the root cause - malware, the exploited vulnerability, and any attacker access - after the incident has been contained.",
+        "distractors": {
+          "A": "Containment limits spread but does not remove the cause.",
+          "B": "Preparation happens before any incident occurs.",
+          "C": "",
+          "D": "Detection is identifying the incident, not removing its cause."
+        },
+        "exam_pattern": "Eradication removes the root cause (malware, vulnerability, attacker access) after containment."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - Eradication"
+      ]
+    },
+    {
+      "id": "cism-inc-015",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_containment_eradication",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Before returning eradicated systems to production, what should the team do to avoid re-infection?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reconnect the systems immediately without checks to save time"
+        },
+        {
+          "id": "B",
+          "text": "Restore from the most recent backup without verifying that it is clean"
+        },
+        {
+          "id": "C",
+          "text": "Restore and validate systems from known-good sources and confirm the vulnerability is remediated"
+        },
+        {
+          "id": "D",
+          "text": "Stop all monitoring once the systems are back online"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Recovery restores systems from known-good sources, confirms the vulnerability is fixed, and validates the systems before and after returning them to production, with heightened monitoring to catch recurrence.",
+        "distractors": {
+          "A": "Reconnecting without verification risks immediate re-infection.",
+          "B": "An unverified backup may reintroduce the very compromise that was removed.",
+          "C": "",
+          "D": "Heightened monitoring after recovery is essential to catch recurrence, not something to stop."
+        },
+        "exam_pattern": "Recovery = restore from known-good, validate remediation, then monitor closely for recurrence."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - Recovery and validation"
+      ]
+    },
+    {
+      "id": "cism-inc-016",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_containment_eradication",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "While containing a serious incident that may lead to legal action, what should the information security manager ensure is preserved?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Evidence, through proper handling and a documented chain of custody, where feasible"
+        },
+        {
+          "id": "B",
+          "text": "The marketing team's event calendar"
+        },
+        {
+          "id": "C",
+          "text": "Nothing - wiping the systems as fast as possible is the only priority"
+        },
+        {
+          "id": "D",
+          "text": "Only the CEO's email mailbox"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "When legal or regulatory action is possible, containment must be balanced with preserving evidence through proper handling and a documented chain of custody so it remains admissible.",
+        "distractors": {
+          "A": "",
+          "B": "The marketing calendar is irrelevant to incident evidence.",
+          "C": "Prematurely wiping systems can destroy evidence needed for legal action.",
+          "D": "Preserving a single mailbox ignores the broader relevant evidence."
+        },
+        "exam_pattern": "Balance containment with evidence preservation (chain of custody) when legal/regulatory action is possible."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - Evidence preservation and chain of custody"
+      ]
+    },
+    {
+      "id": "cism-inc-017",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_post_incident_review",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the PRIMARY purpose of a post-incident review (lessons-learned session)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To identify root causes and improvements that prevent recurrence and strengthen the response capability"
+        },
+        {
+          "id": "B",
+          "text": "To delete all logs generated during the incident"
+        },
+        {
+          "id": "C",
+          "text": "To assign blame to individual employees"
+        },
+        {
+          "id": "D",
+          "text": "To close the incident ticket as quickly as possible"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A post-incident review performs root-cause analysis and identifies improvements, so the organization can prevent recurrence and strengthen its response for next time.",
+        "distractors": {
+          "A": "",
+          "B": "Deleting logs destroys records needed for learning and possible legal use.",
+          "C": "Lessons learned focus on improvement, not blaming individuals.",
+          "D": "Speed to close is not the purpose; organizational learning is."
+        },
+        "exam_pattern": "Post-incident review = root-cause analysis and improvements to prevent recurrence."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - Post-incident review and lessons learned"
+      ]
+    },
+    {
+      "id": "cism-inc-018",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_post_incident_review",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A post-incident review concludes that unclear escalation paths delayed the response. What should the information security manager do with this finding?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ignore it, since the incident is already over"
+        },
+        {
+          "id": "B",
+          "text": "Update the incident response plan and related processes to correct the weakness"
+        },
+        {
+          "id": "C",
+          "text": "Remove escalation from the plan entirely"
+        },
+        {
+          "id": "D",
+          "text": "Keep it secret from the response team"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Lessons learned must feed back into the plan: the manager updates the incident response plan and processes so the escalation weakness is corrected for future incidents.",
+        "distractors": {
+          "A": "Ignoring the finding wastes the review and allows the problem to recur.",
+          "B": "",
+          "C": "Removing escalation worsens the problem rather than fixing it.",
+          "D": "Withholding lessons prevents improvement and team learning."
+        },
+        "exam_pattern": "Lessons learned must feed back into the plan and controls - continuous improvement closes the loop."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - Feeding lessons learned back into the plan"
+      ]
+    },
+    {
+      "id": "cism-inc-019",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_post_incident_review",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization runs a discussion-based walkthrough of a simulated incident scenario to validate its response plan without affecting production systems. What is this exercise called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A tabletop exercise"
+        },
+        {
+          "id": "B",
+          "text": "A vulnerability scan"
+        },
+        {
+          "id": "C",
+          "text": "A penetration test"
+        },
+        {
+          "id": "D",
+          "text": "A full data-center failover"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A tabletop exercise is a discussion-based walkthrough of a scenario that validates the plan, roles, and decisions without affecting production systems.",
+        "distractors": {
+          "A": "",
+          "B": "A vulnerability scan is an automated technical assessment, not a scenario discussion.",
+          "C": "A penetration test actively probes systems for weaknesses, not a discussion-based walkthrough.",
+          "D": "A full failover actually switches operations and does affect systems, unlike a tabletop."
+        },
+        "exam_pattern": "Tabletop = discussion-based plan validation with no production impact; it tests roles, decisions, and gaps."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - Tabletop exercises and plan testing"
+      ]
+    },
+    {
+      "id": "cism-inc-020",
+      "exam": "cism",
+      "domain": "cism_incident",
+      "subtopic": "cism_post_incident_review",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: Reviewing an incident after closure to capture what worked, what did not, and how to improve is commonly called the lessons-_____ process. (one word)",
+      "correct": [
+        "learned"
+      ],
+      "explanation": {
+        "correct": "The lessons-learned process reviews the incident after closure and drives continuous improvement of the organization's incident response capability.",
+        "exam_pattern": "Lessons-learned review drives continuous improvement of incident response."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 4 - Lessons-learned process"
+      ]
+    },
+    {
+      "id": "cism-prog-001",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_program_development",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An information security program is being developed. To be effective, with what must the program be aligned?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The personal certifications held by the security team"
+        },
+        {
+          "id": "B",
+          "text": "The information security strategy and the organization's business objectives"
+        },
+        {
+          "id": "C",
+          "text": "The vendor's default product settings"
+        },
+        {
+          "id": "D",
+          "text": "The physical office floor plan"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The program is the execution of the security strategy, which itself aligns to business objectives; alignment flows from governance down into the program.",
+        "distractors": {
+          "A": "Staff certifications are useful but do not define program alignment.",
+          "B": "",
+          "C": "Vendor defaults are not an alignment target.",
+          "D": "The floor plan is irrelevant to program alignment."
+        },
+        "exam_pattern": "The program executes the strategy, which aligns to business objectives - alignment flows from governance."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - Program alignment with strategy"
+      ]
+    },
+    {
+      "id": "cism-prog-002",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_program_development",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Before building out specific controls and projects, on what should the information security program be based so that resources address the greatest exposures?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The number of help-desk tickets filed last month"
+        },
+        {
+          "id": "B",
+          "text": "A risk assessment of the organization's assets"
+        },
+        {
+          "id": "C",
+          "text": "The alphabetical order of the business units"
+        },
+        {
+          "id": "D",
+          "text": "The cheapest tools currently available"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Program priorities are risk-driven: a risk assessment shows where exposure is greatest, so resources go where they reduce the most risk.",
+        "distractors": {
+          "A": "Ticket volume does not reflect the greatest risk exposures.",
+          "B": "",
+          "C": "Alphabetical ordering has nothing to do with exposure.",
+          "D": "Choosing by lowest cost is not risk-based prioritization."
+        },
+        "exam_pattern": "Program priorities are risk-driven - focus resources where exposure is greatest."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - Risk-based program priorities"
+      ]
+    },
+    {
+      "id": "cism-prog-003",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_program_development",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Senior management asks the information security manager to justify the security program's budget. Which argument is MOST aligned with the CISM perspective?",
+      "options": [
+        {
+          "id": "A",
+          "text": "'We need the newest technology because our competitors have it'"
+        },
+        {
+          "id": "B",
+          "text": "'The security team prefers these particular tools'"
+        },
+        {
+          "id": "C",
+          "text": "'These investments reduce risk to acceptable levels and support the organization's business objectives'"
+        },
+        {
+          "id": "D",
+          "text": "'Spending more always means better security'"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Security is justified in business terms - reducing risk to acceptable levels and supporting business objectives (value delivery) - which is what management responds to.",
+        "distractors": {
+          "A": "Keeping up with competitors is not a value- or risk-based justification.",
+          "B": "Team preference is not a business justification.",
+          "C": "",
+          "D": "More spending does not linearly improve security and ignores cost-benefit."
+        },
+        "exam_pattern": "Justify security in business terms - risk reduction and support for objectives (value delivery)."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - Business case and value delivery"
+      ]
+    },
+    {
+      "id": "cism-prog-004",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_program_development",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which of the following BEST indicates that an information security program is well integrated with the organization?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Security is applied only after systems have gone live"
+        },
+        {
+          "id": "B",
+          "text": "Only the security team is aware of the security policies"
+        },
+        {
+          "id": "C",
+          "text": "The security team works in isolation from other departments"
+        },
+        {
+          "id": "D",
+          "text": "Security requirements are considered within business and IT project processes from the start"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "An integrated program builds security into business and IT processes from the beginning, rather than bolting it on afterward.",
+        "distractors": {
+          "A": "Bolt-on, after-the-fact security indicates poor integration.",
+          "B": "Policies known only to the security team show poor integration and awareness.",
+          "C": "Isolation is the opposite of integration.",
+          "D": ""
+        },
+        "exam_pattern": "Integrated security is built in from the start across business/IT processes, not bolted on."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - Integrating security into processes"
+      ]
+    },
+    {
+      "id": "cism-prog-005",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_security_controls",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A firewall that blocks unauthorized traffic before it can reach internal systems is BEST classified as which functional control type?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Detective"
+        },
+        {
+          "id": "B",
+          "text": "Preventive"
+        },
+        {
+          "id": "C",
+          "text": "Corrective"
+        },
+        {
+          "id": "D",
+          "text": "Compensating"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A preventive control stops an unwanted event before it happens; a firewall blocking traffic is a classic preventive control.",
+        "distractors": {
+          "A": "A detective control identifies events after they occur (for example, an IDS or log review), not before.",
+          "B": "",
+          "C": "A corrective control restores after an event (for example, restoring from backup).",
+          "D": "A compensating control is an alternative used when the primary control is not feasible."
+        },
+        "exam_pattern": "Preventive = stop before it happens; detective = find it; corrective = fix/restore after."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - Control types (preventive)"
+      ]
+    },
+    {
+      "id": "cism-prog-006",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_security_controls",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An intrusion detection system that alerts analysts to suspicious activity is an example of which functional control type?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Deterrent"
+        },
+        {
+          "id": "B",
+          "text": "Corrective"
+        },
+        {
+          "id": "C",
+          "text": "Detective"
+        },
+        {
+          "id": "D",
+          "text": "Preventive"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A detective control identifies and signals events that have occurred; an IDS that generates alerts detects rather than blocks.",
+        "distractors": {
+          "A": "A deterrent discourages an action (for example, a warning banner); detection happens after the attempt.",
+          "B": "Corrective controls restore systems after an incident, not detect it.",
+          "C": "",
+          "D": "Preventive controls block the activity; an IDS detects it instead."
+        },
+        "exam_pattern": "IDS, log review, and alerts = detective controls (identify events)."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - Control types (detective)"
+      ]
+    },
+    {
+      "id": "cism-prog-007",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_security_controls",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "Which TWO of the following are examples of ADMINISTRATIVE (managerial) controls? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "A firewall rule set"
+        },
+        {
+          "id": "B",
+          "text": "Security awareness training"
+        },
+        {
+          "id": "C",
+          "text": "A door lock on the server room"
+        },
+        {
+          "id": "D",
+          "text": "An acceptable use policy"
+        }
+      ],
+      "correct": [
+        "B",
+        "D"
+      ],
+      "explanation": {
+        "correct": "Administrative (managerial) controls are people- and process-oriented - policies, procedures, and training such as awareness training and an acceptable use policy.",
+        "distractors": {
+          "A": "A firewall rule set is a technical (logical) control.",
+          "B": "",
+          "C": "A door lock is a physical control.",
+          "D": ""
+        },
+        "exam_pattern": "Administrative = policies/training/procedures; technical = systems; physical = environment."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - Control categories (administrative/technical/physical)"
+      ]
+    },
+    {
+      "id": "cism-prog-008",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_security_controls",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A legacy system cannot support multi-factor authentication. The information security manager instead isolates it on a restricted network segment with enhanced monitoring. The added controls are BEST described as:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Preventive controls that fully replicate MFA's assurance"
+        },
+        {
+          "id": "B",
+          "text": "Redundant controls that can safely be removed"
+        },
+        {
+          "id": "C",
+          "text": "Deterrent controls"
+        },
+        {
+          "id": "D",
+          "text": "Compensating controls"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "When the preferred control is not feasible, compensating controls provide comparable risk reduction by other means - here, isolation plus monitoring stand in for MFA.",
+        "distractors": {
+          "A": "They reduce risk but do not claim to fully replicate MFA's assurance; the aim is reasonable compensation.",
+          "B": "They are not disposable; they address a real gap left by the missing control.",
+          "C": "Deterrents discourage behavior; these controls substitute for a missing control.",
+          "D": ""
+        },
+        "exam_pattern": "When the preferred control is infeasible, compensating controls reduce risk by alternative means."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - Compensating controls"
+      ]
+    },
+    {
+      "id": "cism-prog-009",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_program_frameworks",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization adopts a framework whose core organizes activities into Identify, Protect, Detect, Respond, and Recover. Which framework is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "ITIL"
+        },
+        {
+          "id": "B",
+          "text": "PCI DSS"
+        },
+        {
+          "id": "C",
+          "text": "The NIST Cybersecurity Framework (CSF)"
+        },
+        {
+          "id": "D",
+          "text": "The OSI reference model"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Identify, Protect, Detect, Respond, and Recover are the core functions of the NIST Cybersecurity Framework (CSF 2.0 adds Govern).",
+        "distractors": {
+          "A": "ITIL addresses IT service management, not these cybersecurity functions.",
+          "B": "PCI DSS is a payment-card security standard, not these five functions.",
+          "C": "",
+          "D": "The OSI model describes networking layers, not security functions."
+        },
+        "exam_pattern": "Identify, Protect, Detect, Respond, Recover (and Govern in CSF 2.0) = NIST CSF core functions."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - NIST Cybersecurity Framework"
+      ]
+    },
+    {
+      "id": "cism-prog-010",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_program_frameworks",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An information security manager needs a reference catalog of security control best practices to help implement the organization's ISMS. Which document is the BEST source?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The organization's ISO/IEC 27001 certification certificate"
+        },
+        {
+          "id": "B",
+          "text": "A structured cabling standard"
+        },
+        {
+          "id": "C",
+          "text": "The company travel policy"
+        },
+        {
+          "id": "D",
+          "text": "ISO/IEC 27002"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "ISO/IEC 27002 provides guidance and best practices for selecting and implementing information security controls, supporting an ISO/IEC 27001 ISMS.",
+        "distractors": {
+          "A": "27001 states the ISMS requirements and is what you certify against; 27002 is the control guidance you implement.",
+          "B": "Cabling standards are unrelated to security control selection.",
+          "C": "A travel policy is not a security control catalog.",
+          "D": ""
+        },
+        "exam_pattern": "27001 = ISMS requirements; 27002 = the control best-practice catalog that supports it."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - ISO/IEC 27002 controls"
+      ]
+    },
+    {
+      "id": "cism-prog-011",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_program_frameworks",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: A prioritized, prescriptive set of defensive safeguards published by the Center for Internet Security, often adopted as a practical starting point, are the _____ Controls. (enter the three-letter acronym)",
+      "correct": [
+        "cis"
+      ],
+      "explanation": {
+        "correct": "The CIS Controls are a prioritized, prescriptive set of safeguards; they are more actionable and specific than broad frameworks like the NIST CSF or ISO/IEC 27002.",
+        "exam_pattern": "CIS Controls = prioritized, prescriptive safeguards; NIST CSF and ISO/IEC 27002 are broader framework/catalog references."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - CIS Controls"
+      ]
+    },
+    {
+      "id": "cism-prog-012",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_awareness_training",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "What is the PRIMARY goal of a security awareness program?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To train the security team on advanced forensic tools"
+        },
+        {
+          "id": "B",
+          "text": "To satisfy a request from the marketing department"
+        },
+        {
+          "id": "C",
+          "text": "To influence employee behavior so staff recognize and respond appropriately to security risks"
+        },
+        {
+          "id": "D",
+          "text": "To replace the need for all technical controls"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Awareness aims to change behavior and build a security culture so the workforce recognizes and responds appropriately to risks such as phishing and social engineering.",
+        "distractors": {
+          "A": "That describes specialized technical training for the security team, not organization-wide awareness.",
+          "B": "Awareness targets risk behavior, not a marketing goal.",
+          "C": "",
+          "D": "Awareness complements, rather than replaces, technical controls."
+        },
+        "exam_pattern": "Awareness aims to change behavior and build a security culture across the workforce."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - Security awareness objectives"
+      ]
+    },
+    {
+      "id": "cism-prog-013",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_awareness_training",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To maximize effectiveness, how should security awareness content BEST be delivered?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only to the IT department"
+        },
+        {
+          "id": "B",
+          "text": "Only after a breach has already occurred"
+        },
+        {
+          "id": "C",
+          "text": "Tailored to the roles and responsibilities of different audiences, on an ongoing basis"
+        },
+        {
+          "id": "D",
+          "text": "As a single generic message sent once to everyone"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Awareness is most effective when it is role-based, ongoing, and tailored to each audience so the content is relevant to what people actually do.",
+        "distractors": {
+          "A": "Awareness must reach the whole workforce, not just IT.",
+          "B": "Awareness is ongoing and proactive, not only a reaction to incidents.",
+          "C": "",
+          "D": "A one-size-fits-all, one-time message is far less effective."
+        },
+        "exam_pattern": "Effective awareness is role-based, ongoing, and tailored to the audience."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - Tailoring awareness to the audience"
+      ]
+    },
+    {
+      "id": "cism-prog-014",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_awareness_training",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which metric BEST demonstrates that a security awareness program is effective?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The length of the training video"
+        },
+        {
+          "id": "B",
+          "text": "The number of awareness posters printed"
+        },
+        {
+          "id": "C",
+          "text": "The number of training slides produced"
+        },
+        {
+          "id": "D",
+          "text": "A measurable reduction in risky behaviors, such as fewer employees falling for simulated phishing"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Effectiveness is shown by outcomes - a measurable change in behavior, such as a falling click rate on phishing simulations - not by how much material was produced.",
+        "distractors": {
+          "A": "Video length measures effort, not effectiveness.",
+          "B": "Poster counts are activity, not outcomes.",
+          "C": "Slide counts are output/activity measures, not evidence of behavior change.",
+          "D": ""
+        },
+        "exam_pattern": "Measure awareness by outcomes/behavior change (for example, phishing-simulation click rates), not activity volume."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - Measuring awareness effectiveness"
+      ]
+    },
+    {
+      "id": "cism-prog-015",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_metrics_reporting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An information security manager wants a metric showing how well the patch-management process is performing - for example, the percentage of critical patches applied within the target window. Which metric type is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A risk appetite statement"
+        },
+        {
+          "id": "B",
+          "text": "Key performance indicator (KPI)"
+        },
+        {
+          "id": "C",
+          "text": "Key risk indicator (KRI)"
+        },
+        {
+          "id": "D",
+          "text": "Key goal indicator (KGI)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A KPI measures how well a process is performing against a target - here, timely application of critical patches.",
+        "distractors": {
+          "A": "A risk appetite statement sets acceptable risk; it is not a performance metric.",
+          "B": "",
+          "C": "A KRI signals changing risk exposure, not process performance.",
+          "D": "A KGI confirms whether a goal was achieved, not how the process is performing."
+        },
+        "exam_pattern": "KPI = how well a process performs; KGI = whether the goal was met; KRI = how risk exposure is trending."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - KPIs, KGIs and KRIs"
+      ]
+    },
+    {
+      "id": "cism-prog-016",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_metrics_reporting",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "When reporting security metrics to the board of directors, what should the information security manager focus on MOST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Verbatim technical log excerpts"
+        },
+        {
+          "id": "B",
+          "text": "Business-relevant information such as risk posture, trends, and alignment with objectives"
+        },
+        {
+          "id": "C",
+          "text": "Raw counts of blocked network packets"
+        },
+        {
+          "id": "D",
+          "text": "The number of firewall rules changed last month"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Metrics must suit the audience; the board needs business-relevant information - risk posture, trends, and alignment with objectives - to make decisions.",
+        "distractors": {
+          "A": "Raw logs are inappropriate for board-level reporting.",
+          "B": "",
+          "C": "Packet counts are too technical and not decision-relevant for the board.",
+          "D": "Firewall rule-change counts are operational detail with little board value."
+        },
+        "exam_pattern": "Tailor metrics to the audience - the board needs business-relevant risk and value information, not technical minutiae."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - Reporting to senior management/board"
+      ]
+    },
+    {
+      "id": "cism-prog-017",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_metrics_reporting",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: In CISM, optimizing security investments so they support business objectives and manage risk cost-effectively is referred to as value _____. (one word)",
+      "correct": [
+        "delivery"
+      ],
+      "explanation": {
+        "correct": "Value delivery means security spending is optimized to support business objectives and manage risk cost-effectively - security as a business enabler, not just a cost.",
+        "exam_pattern": "Value delivery = optimized, cost-effective security that supports business objectives and manages risk."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - Value delivery"
+      ]
+    },
+    {
+      "id": "cism-prog-018",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_third_party_mgmt",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Before onboarding a vendor that will process sensitive customer data, what should the information security manager ensure is done FIRST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Grant the vendor immediate production access to speed integration"
+        },
+        {
+          "id": "B",
+          "text": "A due-diligence assessment of the vendor's security posture against the organization's requirements"
+        },
+        {
+          "id": "C",
+          "text": "A press release announcing the new partnership"
+        },
+        {
+          "id": "D",
+          "text": "Payment of the full contract value up front"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Third-party risk is assessed before engagement: due diligence verifies the vendor can meet the organization's security requirements before any data or access is granted.",
+        "distractors": {
+          "A": "Granting access before assessment introduces unmanaged risk.",
+          "B": "",
+          "C": "A press release is unrelated to managing third-party risk.",
+          "D": "Payment is a commercial step, not a security control."
+        },
+        "exam_pattern": "Assess third-party risk (due diligence) before engagement; grant access only after requirements are met."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - Third-party due diligence"
+      ]
+    },
+    {
+      "id": "cism-prog-019",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_third_party_mgmt",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which mechanism BEST allows an organization to hold a service provider to agreed security and service levels and to verify ongoing compliance?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Checking the vendor's social media presence"
+        },
+        {
+          "id": "B",
+          "text": "The vendor's general brand reputation"
+        },
+        {
+          "id": "C",
+          "text": "Contractual security requirements, SLAs, and a right-to-audit clause"
+        },
+        {
+          "id": "D",
+          "text": "Verbal assurances from the vendor's sales team"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Enforceable contract terms - defined security requirements, SLAs, and a right-to-audit clause - let the organization hold the provider accountable and verify compliance.",
+        "distractors": {
+          "A": "Social media presence is not evidence of security compliance.",
+          "B": "Reputation is not an enforceable control.",
+          "C": "",
+          "D": "Verbal assurances are unenforceable."
+        },
+        "exam_pattern": "Bind third parties with contractual security requirements, SLAs, and audit rights - then monitor."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - Contracts, SLAs and right to audit"
+      ]
+    },
+    {
+      "id": "cism-prog-020",
+      "exam": "cism",
+      "domain": "cism_program",
+      "subtopic": "cism_third_party_mgmt",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "After outsourcing a business process to a third party, how should the information security manager treat the associated risk?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Continue to monitor the provider's performance and security, since accountability for the data remains with the organization"
+        },
+        {
+          "id": "B",
+          "text": "Delete the risk from the risk register"
+        },
+        {
+          "id": "C",
+          "text": "Assume the vendor's certifications remove any need for oversight"
+        },
+        {
+          "id": "D",
+          "text": "Consider it fully transferred and stop monitoring it"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Outsourcing the function does not outsource accountability; the organization must keep monitoring the provider's security and performance throughout the relationship.",
+        "distractors": {
+          "A": "",
+          "B": "Removing it from the register hides an active risk.",
+          "C": "Certifications are helpful evidence but do not eliminate ongoing oversight.",
+          "D": "Outsourcing does not end the organization's accountability or the need to monitor."
+        },
+        "exam_pattern": "You can outsource the function, not the accountability - third-party risk needs ongoing monitoring."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 3 - Ongoing third-party monitoring"
+      ]
+    },
+    {
+      "id": "cism-risk-001",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_risk_assessment",
+      "difficulty": 1,
+      "type": "multi",
+      "stem": "When assessing an information security risk, which TWO factors are combined to determine the risk's level? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "The brand name of the affected vendor"
+        },
+        {
+          "id": "B",
+          "text": "The number of employees in the IT department"
+        },
+        {
+          "id": "C",
+          "text": "The likelihood that the event will occur"
+        },
+        {
+          "id": "D",
+          "text": "The impact (consequence) if it occurs"
+        }
+      ],
+      "correct": [
+        "C",
+        "D"
+      ],
+      "explanation": {
+        "correct": "Risk level is a function of likelihood multiplied by impact - how probable the event is and how severe its consequences would be.",
+        "distractors": {
+          "A": "A vendor's brand is irrelevant to the inherent level of a risk.",
+          "B": "IT headcount does not determine a risk's likelihood or impact.",
+          "C": "",
+          "D": ""
+        },
+        "exam_pattern": "Risk level = likelihood x impact (probability and consequence)."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Risk = likelihood x impact"
+      ]
+    },
+    {
+      "id": "cism-risk-002",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_risk_assessment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An information security manager is beginning a risk assessment. What should be identified and valued FIRST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The marketing budget"
+        },
+        {
+          "id": "B",
+          "text": "The firewall rule base"
+        },
+        {
+          "id": "C",
+          "text": "The incident response team roster"
+        },
+        {
+          "id": "D",
+          "text": "The organization's information assets"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "You cannot assess risk to something you have not identified and valued, so asset identification and valuation come first and establish what is worth protecting.",
+        "distractors": {
+          "A": "The marketing budget is irrelevant to valuing information assets.",
+          "B": "A firewall rule base is a control detail examined later, not the starting point.",
+          "C": "The incident response roster is unrelated to establishing what is at risk.",
+          "D": ""
+        },
+        "exam_pattern": "First identify and value the assets - risk assessment starts from what needs protecting."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Asset identification and valuation"
+      ]
+    },
+    {
+      "id": "cism-risk-003",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_risk_assessment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An unpatched flaw in a public web application could allow data theft. In risk terminology, the unpatched flaw itself is BEST described as a:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vulnerability"
+        },
+        {
+          "id": "B",
+          "text": "Threat"
+        },
+        {
+          "id": "C",
+          "text": "Control"
+        },
+        {
+          "id": "D",
+          "text": "Risk response"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A vulnerability is a weakness that a threat could exploit; an unpatched flaw is exactly such a weakness.",
+        "distractors": {
+          "A": "",
+          "B": "A threat is the potential cause or actor (for example, an attacker) that exploits the weakness, not the weakness itself.",
+          "C": "A control reduces risk; it is not the weakness being described.",
+          "D": "A risk response is the chosen treatment of a risk, not the weakness."
+        },
+        "exam_pattern": "Vulnerability = weakness; threat = potential cause that exploits it; risk = likelihood/impact of that exploitation."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Threats and vulnerabilities"
+      ]
+    },
+    {
+      "id": "cism-risk-004",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_risk_assessment",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What should PRIMARILY drive the selection and prioritization of security controls?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The newest products offered by security vendors"
+        },
+        {
+          "id": "B",
+          "text": "The controls a competitor has deployed"
+        },
+        {
+          "id": "C",
+          "text": "The personal preference of the CISO"
+        },
+        {
+          "id": "D",
+          "text": "The results of the risk assessment"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Controls should be chosen on a risk basis: the risk assessment results identify where exposure is greatest and therefore which controls matter most.",
+        "distractors": {
+          "A": "Vendor novelty is not a sound basis for control selection.",
+          "B": "Copying a competitor ignores the organization's own risk profile and context.",
+          "C": "Personal preference is not a risk-based or defensible basis.",
+          "D": ""
+        },
+        "exam_pattern": "Controls are risk-driven - selected from assessment results, not from products or peers."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Risk-based control selection"
+      ]
+    },
+    {
+      "id": "cism-risk-005",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_risk_assessment",
+      "difficulty": 3,
+      "type": "fill",
+      "stem": "Fill in the blank: The level of risk that exists before any controls or mitigating actions are applied is called _____ risk. (one word)",
+      "correct": [
+        "inherent"
+      ],
+      "explanation": {
+        "correct": "Inherent risk is the exposure that exists before controls; residual risk is what remains after controls have been applied.",
+        "exam_pattern": "Inherent risk = before controls; residual risk = after controls."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Inherent and residual risk"
+      ]
+    },
+    {
+      "id": "cism-risk-006",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_risk_response",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An organization purchases cyber-insurance to offset the financial loss from a potential breach. Which risk response does this represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Risk avoidance"
+        },
+        {
+          "id": "B",
+          "text": "Risk transfer (sharing)"
+        },
+        {
+          "id": "C",
+          "text": "Risk acceptance"
+        },
+        {
+          "id": "D",
+          "text": "Risk mitigation"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Buying insurance shifts (shares) the financial consequence of the risk to a third party, which is risk transfer.",
+        "distractors": {
+          "A": "Avoidance means eliminating the activity that causes the risk.",
+          "B": "",
+          "C": "Acceptance means taking no action and retaining the risk, not shifting the loss.",
+          "D": "Mitigation reduces likelihood or impact with controls, not by shifting financial loss to another party."
+        },
+        "exam_pattern": "Insurance/outsourcing the loss = transfer (share); accept, avoid, and mitigate are the other three responses."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Risk response options"
+      ]
+    },
+    {
+      "id": "cism-risk-007",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_risk_response",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After assessment, management decides a proposed online service carries unacceptable risk that cannot be cost-effectively reduced, so it cancels the project entirely. This is an example of risk:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mitigation"
+        },
+        {
+          "id": "B",
+          "text": "Avoidance"
+        },
+        {
+          "id": "C",
+          "text": "Transfer"
+        },
+        {
+          "id": "D",
+          "text": "Acceptance"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Cancelling the activity so the exposure never arises is risk avoidance - eliminating the risk by not undertaking the activity.",
+        "distractors": {
+          "A": "Mitigation would reduce the risk while still offering the service, not cancel it.",
+          "B": "",
+          "C": "Transfer would shift the risk to a third party, not eliminate the activity.",
+          "D": "Acceptance would proceed with the service and retain the risk."
+        },
+        "exam_pattern": "Eliminating the activity/exposure altogether = risk avoidance."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Risk avoidance"
+      ]
+    },
+    {
+      "id": "cism-risk-008",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_risk_response",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After controls are applied, a residual risk remains. Who should FORMALLY accept this residual risk?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The external penetration tester"
+        },
+        {
+          "id": "B",
+          "text": "The security operations analyst"
+        },
+        {
+          "id": "C",
+          "text": "The appropriate business or senior management (the risk owner)"
+        },
+        {
+          "id": "D",
+          "text": "The information security manager"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Residual risk is a business decision, so it is formally accepted by the appropriate level of business/senior management - the risk owner - who bears the consequences.",
+        "distractors": {
+          "A": "A tester identifies weaknesses; they do not accept risk.",
+          "B": "An analyst has no authority to accept organizational risk.",
+          "C": "",
+          "D": "The security manager advises and facilitates but does not own or accept the business risk."
+        },
+        "exam_pattern": "Residual risk is accepted by management/the business risk owner - never by the security manager alone."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Risk acceptance and ownership"
+      ]
+    },
+    {
+      "id": "cism-risk-009",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_risk_response",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An information security manager is evaluating a control that would cost far more to implement than the maximum loss the risk could ever cause. What is the BEST recommendation?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Transfer the risk by buying the most expensive insurance available"
+        },
+        {
+          "id": "B",
+          "text": "Ignore the risk entirely and document nothing"
+        },
+        {
+          "id": "C",
+          "text": "Recommend a response proportionate to the risk, since the control's cost exceeds the potential loss"
+        },
+        {
+          "id": "D",
+          "text": "Implement the control anyway to maximize security"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Controls should be cost-effective: when a control costs more than the loss it prevents, the manager recommends a proportionate response rather than overspending.",
+        "distractors": {
+          "A": "Buying maximal insurance regardless of cost repeats the same disproportion.",
+          "B": "Ignoring and failing to document the risk is not a managed response.",
+          "C": "",
+          "D": "Spending more than the asset or loss is worth is not cost-effective or defensible."
+        },
+        "exam_pattern": "Control cost must be proportionate to the risk - never spend more protecting an asset than it is worth."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Cost-benefit of controls"
+      ]
+    },
+    {
+      "id": "cism-risk-010",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_risk_response",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "The board states the amount of risk the organization is willing to pursue in order to meet its objectives. This statement defines the organization's risk:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Vulnerability"
+        },
+        {
+          "id": "B",
+          "text": "Incident"
+        },
+        {
+          "id": "C",
+          "text": "Register"
+        },
+        {
+          "id": "D",
+          "text": "Appetite"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Risk appetite is the amount and type of risk an organization is willing to take on to pursue its objectives; it is set by the board/senior management and guides decisions.",
+        "distractors": {
+          "A": "A vulnerability is a weakness, not a statement of acceptable risk.",
+          "B": "An incident is a realized event, not a tolerance statement.",
+          "C": "A risk register is a list of identified risks, not a statement of willingness to take risk.",
+          "D": ""
+        },
+        "exam_pattern": "Risk appetite = how much risk the organization will take to meet objectives (set by the board/senior mgmt)."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Risk appetite and tolerance"
+      ]
+    },
+    {
+      "id": "cism-risk-011",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_risk_monitoring",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An information security manager wants a metric that gives an early-warning signal that risk exposure is rising toward or beyond acceptable levels. Which type of metric is BEST suited?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Return on investment (ROI)"
+        },
+        {
+          "id": "B",
+          "text": "Key performance indicator (KPI)"
+        },
+        {
+          "id": "C",
+          "text": "Key goal indicator (KGI)"
+        },
+        {
+          "id": "D",
+          "text": "Key risk indicator (KRI)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A KRI is a threshold-based, forward-looking metric designed to warn when risk exposure is increasing, so management can act before the risk is realized.",
+        "distractors": {
+          "A": "ROI measures financial return, not risk exposure.",
+          "B": "A KPI measures how well a process performs, not risk-exposure thresholds.",
+          "C": "A KGI measures achievement of a goal, not rising risk.",
+          "D": ""
+        },
+        "exam_pattern": "Early warning of rising risk = KRI (predictive, threshold-based)."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Key risk indicators"
+      ]
+    },
+    {
+      "id": "cism-risk-012",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_risk_monitoring",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Why must information security risk be monitored on an ongoing basis rather than assessed only once?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Because auditors require a brand-new report every single day"
+        },
+        {
+          "id": "B",
+          "text": "Because the threat and business environment change over time, altering risk levels"
+        },
+        {
+          "id": "C",
+          "text": "Because risk appetite must be lowered each year"
+        },
+        {
+          "id": "D",
+          "text": "Because controls never work and must be constantly replaced"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Risk is dynamic: threats, technology, and the business all change, so continuous monitoring keeps the risk picture current and decisions well informed.",
+        "distractors": {
+          "A": "Audit cadence is not the reason; risk changes independently of audit schedules.",
+          "B": "",
+          "C": "Risk appetite is a management decision, not something that must drop every year.",
+          "D": "Controls do work; monitoring addresses change, not universal control failure."
+        },
+        "exam_pattern": "Risk is dynamic - continuous monitoring keeps the picture current as threats and the business change."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Continuous risk monitoring"
+      ]
+    },
+    {
+      "id": "cism-risk-013",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_risk_monitoring",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which tool does an information security manager use to record identified risks, their owners, treatment decisions, and current status?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The asset depreciation schedule"
+        },
+        {
+          "id": "B",
+          "text": "The risk register"
+        },
+        {
+          "id": "C",
+          "text": "The network topology diagram"
+        },
+        {
+          "id": "D",
+          "text": "The incident ticket queue"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The risk register is the central record of identified risks, their owners, chosen treatments, and status, and it supports ongoing monitoring and reporting.",
+        "distractors": {
+          "A": "A depreciation schedule is a finance/asset record, not a risk record.",
+          "B": "",
+          "C": "A network diagram shows topology, not risk tracking.",
+          "D": "The ticket queue tracks incidents and requests, not the inventory of risks."
+        },
+        "exam_pattern": "Risk register = the central record of risks, owners, treatments, and status."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Risk register"
+      ]
+    },
+    {
+      "id": "cism-risk-014",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_risk_monitoring",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Monitoring reveals that a newly disclosed vulnerability significantly raises the likelihood that a previously accepted risk will be exploited. What should the information security manager do FIRST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reassess the risk and report the changed exposure to the risk owner and management"
+        },
+        {
+          "id": "B",
+          "text": "Do nothing, because the risk was already accepted"
+        },
+        {
+          "id": "C",
+          "text": "Immediately shut down all affected systems"
+        },
+        {
+          "id": "D",
+          "text": "Remove the risk from the risk register"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A material change in exposure invalidates the earlier acceptance, so the manager reassesses the risk and escalates the new picture to the risk owner for a decision.",
+        "distractors": {
+          "A": "",
+          "B": "A prior acceptance does not hold once the risk materially changes; it must be revisited.",
+          "C": "Shutting systems down is a drastic step taken only if justified after reassessment.",
+          "D": "Deleting the risk hides a now-elevated exposure."
+        },
+        "exam_pattern": "When monitoring shows risk has changed, reassess and escalate to the owner - acceptance is not permanent."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Reassessing changed risk"
+      ]
+    },
+    {
+      "id": "cism-risk-015",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_risk_monitoring",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: The risk that remains after security controls and other mitigating measures have been applied is called _____ risk. (one word)",
+      "correct": [
+        "residual"
+      ],
+      "explanation": {
+        "correct": "Residual risk is what remains after controls are applied; it should fall within the organization's risk appetite/tolerance, and management formally accepts it.",
+        "exam_pattern": "Residual risk = after controls; it should be within risk appetite and accepted by management."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Residual risk"
+      ]
+    },
+    {
+      "id": "cism-risk-016",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_asset_classification",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the PRIMARY purpose of classifying information assets?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To make the asset inventory longer and more detailed"
+        },
+        {
+          "id": "B",
+          "text": "To decide which assets should be deleted"
+        },
+        {
+          "id": "C",
+          "text": "To determine the appropriate level of protection based on the asset's sensitivity and criticality"
+        },
+        {
+          "id": "D",
+          "text": "To assign each asset to a specific employee for tax purposes"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Classification matches the level of protection to the asset's sensitivity and criticality, so controls are applied where they are most needed - the basis for risk-based protection.",
+        "distractors": {
+          "A": "A longer inventory is not a purpose; classification is about protection level.",
+          "B": "Classification guides protection, not deletion decisions.",
+          "C": "",
+          "D": "Tax assignment is unrelated to security classification."
+        },
+        "exam_pattern": "Classify to apply protection proportional to sensitivity/criticality."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Asset classification"
+      ]
+    },
+    {
+      "id": "cism-risk-017",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_asset_classification",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Who should determine the classification level of a particular set of business information?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The newest member of the help desk"
+        },
+        {
+          "id": "B",
+          "text": "The firewall administrator"
+        },
+        {
+          "id": "C",
+          "text": "The physical security guard"
+        },
+        {
+          "id": "D",
+          "text": "The data (information) owner"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The business data/information owner understands the information's value and is responsible for classifying it (and authorizing access).",
+        "distractors": {
+          "A": "Help-desk tenure is irrelevant; classification is the owner's responsibility.",
+          "B": "The firewall administrator enforces technical controls, not classification.",
+          "C": "A guard handles physical access, not data classification.",
+          "D": ""
+        },
+        "exam_pattern": "The business data/information owner classifies the data."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Data ownership and classification"
+      ]
+    },
+    {
+      "id": "cism-risk-018",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_asset_classification",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization has labeled a dataset 'Highly Confidential.' How should this classification influence the security program?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It means the data may now be shared publicly"
+        },
+        {
+          "id": "B",
+          "text": "It requires the data to be deleted within 24 hours"
+        },
+        {
+          "id": "C",
+          "text": "It should have no effect on control selection"
+        },
+        {
+          "id": "D",
+          "text": "It should drive stronger, commensurate controls such as encryption and strict access limits"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A higher classification calls for stronger, proportionate controls - the whole point of classification is to drive the level of protection applied.",
+        "distractors": {
+          "A": "'Highly Confidential' restricts, rather than permits, public sharing.",
+          "B": "Classification sets the protection level, not a blanket deletion deadline.",
+          "C": "Classification exists precisely to influence control selection.",
+          "D": ""
+        },
+        "exam_pattern": "Higher classification -> stronger, commensurate controls; classification drives protection decisions."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Classification drives controls"
+      ]
+    },
+    {
+      "id": "cism-risk-019",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_asset_classification",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A business unit labels nearly all of its data as 'Top Secret,' far above its actual sensitivity. Why is this a concern for the information security manager?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It reduces the organization's overall risk to zero"
+        },
+        {
+          "id": "B",
+          "text": "Over-classification wastes resources on excessive protection and erodes the credibility of the classification scheme"
+        },
+        {
+          "id": "C",
+          "text": "It has no downside and should be encouraged"
+        },
+        {
+          "id": "D",
+          "text": "It automatically improves the organization's regulatory compliance"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Classification should match actual sensitivity; over-classification spends scarce resources on unneeded protection and, when staff see it as excessive, undermines trust in the whole scheme.",
+        "distractors": {
+          "A": "No scheme reduces risk to zero, and over-classification does not either.",
+          "B": "",
+          "C": "Over-classification does have downsides, so it should not simply be encouraged.",
+          "D": "Mislabeling does not improve compliance; accurate classification does."
+        },
+        "exam_pattern": "Classification should match real sensitivity - over- and under-classification both cause problems (cost, credibility, exposure)."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Appropriate classification"
+      ]
+    },
+    {
+      "id": "cism-risk-020",
+      "exam": "cism",
+      "domain": "cism_risk",
+      "subtopic": "cism_asset_classification",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "When an organization adopts a data classification scheme, what must be assigned to each information asset to ensure accountability for its classification and protection?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An identified data owner"
+        },
+        {
+          "id": "B",
+          "text": "A public IP address"
+        },
+        {
+          "id": "C",
+          "text": "A marketing label"
+        },
+        {
+          "id": "D",
+          "text": "A dedicated new firewall"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Every asset needs an identified owner; ownership is the foundation of accountability for classifying the asset and ensuring it is protected appropriately.",
+        "distractors": {
+          "A": "",
+          "B": "An IP address is a network attribute, not accountability for the asset.",
+          "C": "A marketing label is unrelated to classification accountability.",
+          "D": "A firewall is a control, not an accountability assignment."
+        },
+        "exam_pattern": "Assign an owner to every asset - ownership underpins accountability for classification and protection."
+      },
+      "references": [
+        "ISACA CISM Review Manual: Domain 2 - Asset ownership"
+      ]
+    }
+  ]
+}

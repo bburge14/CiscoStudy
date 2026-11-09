@@ -553,7 +553,7 @@ EXAMS: dict[str, ExamBlueprint] = {
 # for the rest exist (objectives captured) but stay "coming soon" until built.
 LIVE_EXAMS: tuple[str, ...] = (
     "ccna", "encor", "secplus", "netplus", "aplus1", "aplus2", "clf", "az900", "cysa", "pentest",
-    "isc2cc", "cbrops", "sc900",
+    "isc2cc", "cbrops", "sc900", "cissp", "cism", "cisa", "sscp",
 )
 
 

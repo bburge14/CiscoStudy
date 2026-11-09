@@ -327,9 +327,9 @@ QUESTIONS = [
     {
         "id": "sscp-net-013", "exam": "sscp", "domain": "sscp_network_security",
         "subtopic": "sscp_wireless_cellular", "difficulty": 3, "type": "mcq",
-        "stem": "Which Wi-Fi security standard replaces the pre-shared-key 4-way handshake used in its "
-                "predecessor with SAE (Simultaneous Authentication of Equals) to resist offline "
-                "dictionary attacks and add forward secrecy?",
+        "stem": "Which Wi-Fi security standard replaces its predecessor's pre-shared-key authentication "
+                "with SAE (Simultaneous Authentication of Equals) to resist offline dictionary "
+                "attacks and add forward secrecy?",
         "options": [
             {"id": "A", "text": "WEP"},
             {"id": "B", "text": "WPA (original)"},
@@ -338,13 +338,14 @@ QUESTIONS = [
         ],
         "correct": ["D"],
         "explanation": {
-            "correct": "WPA3 introduces SAE (the Dragonfly handshake) in place of WPA2's PSK handshake, "
-                       "resisting offline dictionary attacks on captured handshakes and providing "
-                       "forward secrecy.",
+            "correct": "WPA3 introduces SAE (the Dragonfly handshake) in place of WPA2's PSK-based "
+                       "authentication, resisting offline dictionary attacks on captured handshakes "
+                       "and providing forward secrecy. (WPA3-Personal still runs a 4-way handshake "
+                       "afterward to derive session keys.)",
             "distractors": {
                 "A": "WEP is obsolete and insecure (weak RC4/IV usage); it has no SAE.",
                 "B": "The original WPA used TKIP and still relied on a PSK handshake, not SAE.",
-                "C": "WPA2 (CCMP/AES) uses the 4-way PSK handshake that WPA3's SAE was designed to replace.",
+                "C": "WPA2 (CCMP/AES) relies on PSK-based authentication, which WPA3's SAE was designed to replace.",
             },
             "exam_pattern": "SAE / Dragonfly and forward secrecy = WPA3; WPA2 = CCMP/AES with PSK handshake.",
         },
