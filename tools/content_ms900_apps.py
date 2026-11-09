@@ -1,7 +1,7 @@
-"""Microsoft 365 Fundamentals (MS-900) pool - Domain 2: Microsoft 365 Apps and Services.
+"""Microsoft 365 Fundamentals pool - Domain 2: Microsoft 365 Apps and Services.
 
 Original, objective-aligned practice items for the five Apps and Services
-subtopics tracked in CertLab (the largest MS-900 domain):
+subtopics tracked in CertLab (the largest M365 Fundamentals domain):
   * ms9_productivity_apps    - the core apps and services: Word/Excel/PowerPoint/
                                Outlook, Exchange Online (email), SharePoint Online
                                (sites/intranet), OneDrive (storage), Microsoft
@@ -48,7 +48,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Cloud email/calendar/contacts in Microsoft 365 = Exchange Online.",
         },
-        "references": ["Microsoft Learn (MS-900): Exchange Online"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Exchange Online"],
     },
     {
         "id": "ms900-apps-002", "exam": "ms900", "domain": "ms9_apps_services",
@@ -72,7 +72,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Intranet, team sites, and shared document libraries = SharePoint Online.",
         },
-        "references": ["Microsoft Learn (MS-900): SharePoint Online"],
+        "references": ["Microsoft Learn (M365 Fundamentals): SharePoint Online"],
     },
     {
         "id": "ms900-apps-003", "exam": "ms900", "domain": "ms9_apps_services",
@@ -96,7 +96,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Personal, per-user cloud file storage and sync = OneDrive; shared team libraries = SharePoint.",
         },
-        "references": ["Microsoft Learn (MS-900): OneDrive"],
+        "references": ["Microsoft Learn (M365 Fundamentals): OneDrive"],
     },
     {
         "id": "ms900-apps-004", "exam": "ms900", "domain": "ms9_apps_services",
@@ -120,7 +120,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Surveys, quizzes, and polls = Microsoft Forms.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft Forms"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft Forms"],
     },
     {
         "id": "ms900-apps-005", "exam": "ms900", "domain": "ms9_apps_services",
@@ -144,7 +144,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Customer self-service appointment scheduling = Microsoft Bookings.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft Bookings"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft Bookings"],
     },
     {
         "id": "ms900-apps-006", "exam": "ms900", "domain": "ms9_apps_services",
@@ -157,7 +157,7 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "Cloud mailboxes in Microsoft 365 = Exchange Online.",
         },
-        "references": ["Microsoft Learn (MS-900): Exchange Online"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Exchange Online"],
     },
 
     # ===== ms9_teams_collaboration ==========================================
@@ -183,7 +183,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Chat + meetings + calling + channels in one app = Microsoft Teams.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft Teams"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft Teams"],
     },
     {
         "id": "ms900-apps-008", "exam": "ms900", "domain": "ms9_apps_services",
@@ -207,7 +207,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Multiple people editing one cloud document at once in real time = co-authoring.",
         },
-        "references": ["Microsoft Learn (MS-900): Collaboration and co-authoring"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Collaboration and co-authoring"],
     },
     {
         "id": "ms900-apps-009", "exam": "ms900", "domain": "ms9_apps_services",
@@ -232,7 +232,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Skype for Business is retired; Microsoft Teams replaced it.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft Teams (Skype for Business retirement)"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft Teams (Skype for Business retirement)"],
     },
     {
         "id": "ms900-apps-010", "exam": "ms900", "domain": "ms9_apps_services",
@@ -256,7 +256,7 @@ QUESTIONS = [
             },
             "exam_pattern": "PSTN calling inside Teams = Teams Phone.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft Teams Phone"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft Teams Phone"],
     },
     {
         "id": "ms900-apps-011", "exam": "ms900", "domain": "ms9_apps_services",
@@ -281,7 +281,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Topic-based, persistent sections inside a team = channels.",
         },
-        "references": ["Microsoft Learn (MS-900): Teams channels"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Teams channels"],
     },
 
     # ===== ms9_endpoint_intune ==============================================
@@ -309,7 +309,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Cloud device and app management (MDM/MAM) = Microsoft Intune.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft Intune"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft Intune"],
     },
     {
         "id": "ms900-apps-013", "exam": "ms900", "domain": "ms9_apps_services",
@@ -333,7 +333,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Manage the whole enrolled device = MDM; manage just the app and its data = MAM.",
         },
-        "references": ["Microsoft Learn (MS-900): Intune MDM vs MAM"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Intune MDM vs MAM"],
     },
     {
         "id": "ms900-apps-014", "exam": "ms900", "domain": "ms9_apps_services",
@@ -359,7 +359,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Protect and selectively wipe only company data on personal devices = MAM app protection policies.",
         },
-        "references": ["Microsoft Learn (MS-900): Intune app protection (MAM)"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Intune app protection (MAM)"],
     },
     {
         "id": "ms900-apps-015", "exam": "ms900", "domain": "ms9_apps_services",
@@ -383,7 +383,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Personal, persistent, fixed-price cloud Windows desktop = Windows 365 Cloud PC.",
         },
-        "references": ["Microsoft Learn (MS-900): Windows 365"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Windows 365"],
     },
     {
         "id": "ms900-apps-016", "exam": "ms900", "domain": "ms9_apps_services",
@@ -408,7 +408,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Flexible, multi-session, consumption-based Azure VDI = Azure Virtual Desktop; simple fixed-price personal Cloud PC = Windows 365.",
         },
-        "references": ["Microsoft Learn (MS-900): Azure Virtual Desktop vs Windows 365"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Azure Virtual Desktop vs Windows 365"],
     },
 
     # ===== ms9_analytics_copilot ============================================
@@ -436,7 +436,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Generative-AI assistant across the Microsoft 365 apps, grounded in your org data = Microsoft 365 Copilot.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft 365 Copilot"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft 365 Copilot"],
     },
     {
         "id": "ms900-apps-018", "exam": "ms900", "domain": "ms9_apps_services",
@@ -461,7 +461,7 @@ QUESTIONS = [
             },
             "exam_pattern": "The unified Microsoft 365 data/API layer that Copilot is grounded in = Microsoft Graph.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft Graph"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft Graph"],
     },
     {
         "id": "ms900-apps-019", "exam": "ms900", "domain": "ms9_apps_services",
@@ -486,7 +486,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Productivity and wellbeing analytics = Microsoft Viva Insights (part of Microsoft Viva).",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft Viva Insights"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft Viva Insights"],
     },
     {
         "id": "ms900-apps-020", "exam": "ms900", "domain": "ms9_apps_services",
@@ -510,7 +510,7 @@ QUESTIONS = [
             },
             "exam_pattern": "In-app AI experiences such as a Teams meeting recap come from Microsoft 365 Copilot.",
         },
-        "references": ["Microsoft Learn (MS-900): Copilot in Microsoft 365 apps"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Copilot in Microsoft 365 apps"],
     },
 
     # ===== ms9_deployment_options ===========================================
@@ -537,7 +537,7 @@ QUESTIONS = [
             },
             "exam_pattern": "The Microsoft 365 Apps install and update technology = Click-to-Run.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft 365 Apps deployment (Click-to-Run)"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft 365 Apps deployment (Click-to-Run)"],
     },
     {
         "id": "ms900-apps-022", "exam": "ms900", "domain": "ms9_apps_services",
@@ -562,7 +562,7 @@ QUESTIONS = [
             },
             "exam_pattern": "How often users get new Microsoft 365 Apps features = update channels.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft 365 Apps update channels"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft 365 Apps update channels"],
     },
     {
         "id": "ms900-apps-023", "exam": "ms900", "domain": "ms9_apps_services",
@@ -586,7 +586,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Edit documents in a browser with no install = Office for the web.",
         },
-        "references": ["Microsoft Learn (MS-900): Office for the web"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Office for the web"],
     },
     {
         "id": "ms900-apps-024", "exam": "ms900", "domain": "ms9_apps_services",
@@ -599,6 +599,6 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "The Microsoft 365 Apps install/update technology = Click-to-Run.",
         },
-        "references": ["Microsoft Learn (MS-900): Click-to-Run"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Click-to-Run"],
     },
 ]

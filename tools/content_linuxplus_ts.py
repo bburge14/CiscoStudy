@@ -1,4 +1,4 @@
-"""CompTIA Linux+ (XK0-005) pool - Domain 4: Troubleshooting.
+"""CompTIA Linux+ (XK0-006) pool - Domain 4: Troubleshooting.
 
 Original, objective-aligned practice items for the six Troubleshooting subtopics
 tracked in CertLab:
@@ -14,7 +14,7 @@ tracked in CertLab:
 Authoring rules match the other content_*.py pools: build_content.py shuffles
 option order (seeded by id), so the authored key is not positionally biased,
 every wrong option carries a distractor note, and each item cites the public
-XK0-005 objective domain it draws on. Commands, flags, and file paths are real
+XK0-006 objective domain it draws on. Commands, flags, and file paths are real
 and version-resilient across mainstream RHEL/Fedora and Debian/Ubuntu systems;
 no memorized or real exam items are used.
 """
@@ -43,7 +43,7 @@ QUESTIONS = [
             },
             "exam_pattern": "'No space' but df -h shows free space => check df -i for inode exhaustion.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Storage troubleshooting (inodes)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Storage troubleshooting (inodes)"],
     },
     {
         "id": "linuxplus-ts-002", "exam": "linuxplus", "domain": "linuxp_troubleshooting",
@@ -67,7 +67,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Find space hogs with du (per-directory totals); confirm fullness with df.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Storage troubleshooting (du)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Storage troubleshooting (du)"],
     },
     {
         "id": "linuxplus-ts-003", "exam": "linuxplus", "domain": "linuxp_troubleshooting",
@@ -91,7 +91,7 @@ QUESTIONS = [
             },
             "exam_pattern": "fsck only on unmounted/read-only filesystems; the root fs is checked at boot.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Filesystem repair (fsck)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Filesystem repair (fsck)"],
     },
     {
         "id": "linuxplus-ts-004", "exam": "linuxplus", "domain": "linuxp_troubleshooting",
@@ -106,7 +106,7 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "Disk I/O load: iostat (and iotop for per-process I/O); high %iowait = waiting on storage.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — I/O performance (iostat)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — I/O performance (iostat)"],
     },
 
     # ===== linuxp_ts_network ================================================
@@ -132,7 +132,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Works by IP but not by name => DNS issue. Test with dig/nslookup; check /etc/resolv.conf.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Network troubleshooting (DNS/dig)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Network troubleshooting (DNS/dig)"],
     },
     {
         "id": "linuxplus-ts-006", "exam": "linuxplus", "domain": "linuxp_troubleshooting",
@@ -156,7 +156,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Confirm a service is bound/listening with ss -tlnp (modern netstat replacement).",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Network troubleshooting (ss)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Network troubleshooting (ss)"],
     },
     {
         "id": "linuxplus-ts-007", "exam": "linuxplus", "domain": "linuxp_troubleshooting",
@@ -180,7 +180,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Locate where routing/connectivity breaks along a path with traceroute/tracepath/mtr.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Network troubleshooting (traceroute)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Network troubleshooting (traceroute)"],
     },
     {
         "id": "linuxplus-ts-008", "exam": "linuxplus", "domain": "linuxp_troubleshooting",
@@ -195,7 +195,7 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "Packet capture: tcpdump (CLI) or Wireshark/tshark (GUI); filter with BPF expressions.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Network troubleshooting (tcpdump)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Network troubleshooting (tcpdump)"],
     },
 
     # ===== linuxp_ts_cpu_memory =============================================
@@ -221,7 +221,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Memory snapshot: free -h; watch the 'available' column, not just 'free'.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Memory troubleshooting (free)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Memory troubleshooting (free)"],
     },
     {
         "id": "linuxplus-ts-010", "exam": "linuxplus", "domain": "linuxp_troubleshooting",
@@ -245,7 +245,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Process vanished + low memory => check dmesg/journalctl -k for OOM-killer messages.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Memory troubleshooting (OOM killer)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Memory troubleshooting (OOM killer)"],
     },
     {
         "id": "linuxplus-ts-011", "exam": "linuxplus", "domain": "linuxp_troubleshooting",
@@ -269,7 +269,7 @@ QUESTIONS = [
             },
             "exam_pattern": "vmstat <interval> for ongoing CPU/memory/paging trends; high 'wa' = I/O wait, high 'si/so' = swapping.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Performance troubleshooting (vmstat)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Performance troubleshooting (vmstat)"],
     },
 
     # ===== linuxp_ts_users_access ===========================================
@@ -295,7 +295,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Diagnose access issues with ls -l (perms/owner) and id (user's UID/groups) before editing perms.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Access troubleshooting (permissions)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Access troubleshooting (permissions)"],
     },
     {
         "id": "linuxplus-ts-013", "exam": "linuxplus", "domain": "linuxp_troubleshooting",
@@ -319,7 +319,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Check lock status with 'passwd -S' (or 'chage -l' for aging); lock/unlock with usermod -L/-U.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Account troubleshooting (passwd -S)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Account troubleshooting (passwd -S)"],
     },
     {
         "id": "linuxplus-ts-014", "exam": "linuxplus", "domain": "linuxp_troubleshooting",
@@ -333,7 +333,7 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "Verify effective identity and groups with id; 'groups' lists just the group names.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Access troubleshooting (id/groups)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Access troubleshooting (id/groups)"],
     },
 
     # ===== linuxp_ts_services ===============================================
@@ -359,7 +359,7 @@ QUESTIONS = [
             },
             "exam_pattern": "First step for a failing service: systemctl status <unit>, then journalctl -u <unit> for detail.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Service troubleshooting (systemctl status)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Service troubleshooting (systemctl status)"],
     },
     {
         "id": "linuxplus-ts-016", "exam": "linuxplus", "domain": "linuxp_troubleshooting",
@@ -383,7 +383,7 @@ QUESTIONS = [
             },
             "exam_pattern": "journalctl -u <unit> isolates a service's logs; combine with --since / -b for time/boot scoping.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Service troubleshooting (journalctl -u)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Service troubleshooting (journalctl -u)"],
     },
     {
         "id": "linuxplus-ts-017", "exam": "linuxplus", "domain": "linuxp_troubleshooting",
@@ -407,7 +407,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Quickly surface problems with systemctl --failed before drilling in with status/journalctl.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Service troubleshooting (failed units)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Service troubleshooting (failed units)"],
     },
 
     # ===== linuxp_ts_tools ==================================================
@@ -433,7 +433,7 @@ QUESTIONS = [
             },
             "exam_pattern": "General log: Debian /var/log/syslog, RHEL /var/log/messages; auth: auth.log vs secure.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Log analysis (/var/log)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Log analysis (/var/log)"],
     },
     {
         "id": "linuxplus-ts-019", "exam": "linuxplus", "domain": "linuxp_troubleshooting",
@@ -458,7 +458,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Trace syscalls with strace (and library calls with ltrace) to find where a program fails.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Diagnostic tools (strace)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Diagnostic tools (strace)"],
     },
     {
         "id": "linuxplus-ts-020", "exam": "linuxplus", "domain": "linuxp_troubleshooting",
@@ -482,7 +482,7 @@ QUESTIONS = [
             },
             "exam_pattern": "'Device is busy' on umount => find holders with lsof or fuser, then stop/kill them.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Diagnostic tools (lsof)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Diagnostic tools (lsof)"],
     },
     {
         "id": "linuxplus-ts-021", "exam": "linuxplus", "domain": "linuxp_troubleshooting",
@@ -497,6 +497,6 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "On systemd hosts, journalctl centralizes logs (-u/-b/-k/-p/--since); text logs still live in /var/log.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 4 — Log analysis (journalctl)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 4 — Log analysis (journalctl)"],
     },
 ]

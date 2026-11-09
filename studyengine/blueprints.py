@@ -588,10 +588,10 @@ CLOUDPLUS = ExamBlueprint(
     ),
 )
 
-# --- CompTIA Linux+ (XK0-005) -----------------------------------------------
+# --- CompTIA Linux+ (XK0-006) -----------------------------------------------
 LINUXPLUS = ExamBlueprint(
     code="linuxplus",
-    name="CompTIA Linux+ (XK0-005)",
+    name="CompTIA Linux+ (XK0-006)",
     domains=(
         Domain("linuxp_system_mgmt", "1.0 System Management", 0.32,
                ("linuxp_filesystem", "linuxp_package_mgmt", "linuxp_processes_services",
@@ -609,10 +609,10 @@ LINUXPLUS = ExamBlueprint(
     ),
 )
 
-# --- Microsoft 365 Fundamentals (MS-900) ------------------------------------
+# --- Microsoft 365 Fundamentals ---------------------------------------------
 MS900 = ExamBlueprint(
     code="ms900",
-    name="Microsoft 365 Fundamentals (MS-900)",
+    name="Microsoft 365 Fundamentals",
     domains=(
         Domain("ms9_cloud_concepts", "1.0 Cloud Concepts", 0.10,
                ("ms9_cloud_benefits", "ms9_m365_vs_office", "ms9_cloud_adoption")),

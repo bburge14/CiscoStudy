@@ -1,4 +1,4 @@
-"""CompTIA Linux+ (XK0-005) pool - Domain 3: Scripting, Containers, and Automation.
+"""CompTIA Linux+ (XK0-006) pool - Domain 3: Scripting, Containers, and Automation.
 
 Original, objective-aligned practice items for the four subtopics tracked in
 CertLab:
@@ -15,7 +15,7 @@ CertLab:
 Authoring rules match the other content_*.py pools: build_content.py shuffles
 option order (seeded by id), so the authored key is not positionally biased,
 every wrong option carries a distractor note, and each item cites the public
-XK0-005 objective domain it draws on. Syntax (Bash, Git, Docker/Podman, Ansible,
+XK0-006 objective domain it draws on. Syntax (Bash, Git, Docker/Podman, Ansible,
 cron) is real and version-resilient across mainstream distributions; no
 memorized or real exam items are used.
 """
@@ -44,7 +44,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Shebang = '#!' + interpreter path on line 1 (e.g., #!/bin/bash, #!/usr/bin/env python3).",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 3 — Shell scripting (shebang)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 3 — Shell scripting (shebang)"],
     },
     {
         "id": "linuxplus-scr-002", "exam": "linuxplus", "domain": "linuxp_scripting",
@@ -68,7 +68,7 @@ QUESTIONS = [
             },
             "exam_pattern": "$?=last exit code, $#=arg count, $$=shell PID, $!=last background PID, $0=script name.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 3 — Exit codes ($?)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 3 — Exit codes ($?)"],
     },
     {
         "id": "linuxplus-scr-003", "exam": "linuxplus", "domain": "linuxp_scripting",
@@ -92,7 +92,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Numeric tests: -eq -ne -lt -le -gt -ge. String tests: = != < > (the latter need [[ ]]).",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 3 — Conditionals (test operators)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 3 — Conditionals (test operators)"],
     },
     {
         "id": "linuxplus-scr-004", "exam": "linuxplus", "domain": "linuxp_scripting",
@@ -116,7 +116,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Iterate files with a glob (for f in *.ext), never by parsing 'ls'.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 3 — Loops and globbing (for)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 3 — Loops and globbing (for)"],
     },
     {
         "id": "linuxplus-scr-005", "exam": "linuxplus", "domain": "linuxp_scripting",
@@ -131,7 +131,7 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "case ... in ... ) ... ;; esac — note it is terminated by 'esac' (case reversed).",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 3 — Control flow (case)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 3 — Control flow (case)"],
     },
 
     # ===== linuxp_git_version ===============================================
@@ -157,7 +157,7 @@ QUESTIONS = [
             },
             "exam_pattern": "clone = first copy of a remote; init = new empty repo; pull = update an existing repo.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 3 — Version control (git clone)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 3 — Version control (git clone)"],
     },
     {
         "id": "linuxplus-scr-007", "exam": "linuxplus", "domain": "linuxp_scripting",
@@ -181,7 +181,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Typical flow: git add (stage) -> git commit -m (record) -> git push (publish).",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 3 — Version control (git add/commit)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 3 — Version control (git add/commit)"],
     },
     {
         "id": "linuxplus-scr-008", "exam": "linuxplus", "domain": "linuxp_scripting",
@@ -205,7 +205,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Checkout the target branch, then 'git merge <source>' to bring the source's work in.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 3 — Branching (git merge)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 3 — Branching (git merge)"],
     },
     {
         "id": "linuxplus-scr-009", "exam": "linuxplus", "domain": "linuxp_scripting",
@@ -219,7 +219,7 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "git status (current state) vs git log (commit history) vs git diff (line-level changes).",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 3 — Version control (git status)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 3 — Version control (git status)"],
     },
 
     # ===== linuxp_containers ================================================
@@ -245,7 +245,7 @@ QUESTIONS = [
             },
             "exam_pattern": "-p HOST:CONTAINER (host port first); -d detaches; run starts a new container.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 3 — Containers (docker/podman run)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 3 — Containers (docker/podman run)"],
     },
     {
         "id": "linuxplus-scr-011", "exam": "linuxplus", "domain": "linuxp_scripting",
@@ -268,7 +268,7 @@ QUESTIONS = [
             },
             "exam_pattern": "ps = running containers (-a for all); images = image list.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 3 — Containers (docker ps)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 3 — Containers (docker ps)"],
     },
     {
         "id": "linuxplus-scr-012", "exam": "linuxplus", "domain": "linuxp_scripting",
@@ -292,7 +292,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Dockerfile essentials: FROM (base) -> RUN (build steps) -> COPY/ADD -> CMD/ENTRYPOINT (default process).",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 3 — Containers (Dockerfile FROM)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 3 — Containers (Dockerfile FROM)"],
     },
     {
         "id": "linuxplus-scr-013", "exam": "linuxplus", "domain": "linuxp_scripting",
@@ -307,7 +307,7 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "Persistence: -v/--volume (or --mount). Without it, a container's writable layer is lost on removal.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 3 — Containers (volumes)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 3 — Containers (volumes)"],
     },
 
     # ===== linuxp_automation ================================================
@@ -334,7 +334,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Repeatable automation converges to desired state and only changes what is needed = idempotent.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 3 — Automation (idempotency)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 3 — Automation (idempotency)"],
     },
     {
         "id": "linuxplus-scr-015", "exam": "linuxplus", "domain": "linuxp_scripting",
@@ -358,7 +358,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Ansible pieces: inventory (hosts) + playbook (plays/tasks) + modules (actions) + handlers (notified tasks).",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 3 — Automation (Ansible inventory)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 3 — Automation (Ansible inventory)"],
     },
     {
         "id": "linuxplus-scr-016", "exam": "linuxplus", "domain": "linuxp_scripting",
@@ -382,7 +382,7 @@ QUESTIONS = [
             },
             "exam_pattern": "cron order: min hour dom month dow <command>. '*' = every value.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 3 — Scheduling (cron fields)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 3 — Scheduling (cron fields)"],
     },
     {
         "id": "linuxplus-scr-017", "exam": "linuxplus", "domain": "linuxp_scripting",
@@ -396,6 +396,6 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "crontab -e edit, -l list, -r remove; '-u user' targets another user's crontab (as root).",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 3 — Scheduling (crontab)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 3 — Scheduling (crontab)"],
     },
 ]

@@ -1,4 +1,4 @@
-"""Microsoft 365 Fundamentals (MS-900) pool - Domain 4: Pricing, Licensing, and Support.
+"""Microsoft 365 Fundamentals pool - Domain 4: Pricing, Licensing, and Support.
 
 Original, objective-aligned practice items for the four subtopics tracked in CertLab:
   * ms9_licensing     - Microsoft 365 Business plans (Basic / Standard / Premium)
@@ -12,7 +12,7 @@ Original, objective-aligned practice items for the four subtopics tracked in Cer
   * ms9_lifecycle     - the Message center, the Microsoft 365 roadmap, and release
                         options (Targeted release vs Standard release).
 
-Current Microsoft product names are used throughout. Per MS-900 guidance and because
+Current Microsoft product names are used throughout. Per M365 Fundamentals guidance and because
 prices/limits change, items test WHICH plan or tool fits a need and the capability
 each provides - not specific prices or numeric caps. build_content.py shuffles option
 order by id, so the authored key is not positionally biased; every wrong option
@@ -45,7 +45,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Small/medium business + desktop apps + cloud services = Microsoft 365 Business Standard.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft 365 Business plans"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft 365 Business plans"],
     },
     {
         "id": "ms900-price-002", "exam": "ms900", "domain": "ms9_pricing_support",
@@ -70,7 +70,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Deskless, shift-based, low-cost web/mobile = Microsoft 365 F3 (frontline).",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft 365 frontline (F3)"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft 365 frontline (F3)"],
     },
     {
         "id": "ms900-price-003", "exam": "ms900", "domain": "ms9_pricing_support",
@@ -95,7 +95,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Top enterprise plan with advanced security/compliance/analytics = Microsoft 365 E5.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft 365 Enterprise E3 vs E5"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft 365 Enterprise E3 vs E5"],
     },
     {
         "id": "ms900-price-004", "exam": "ms900", "domain": "ms9_pricing_support",
@@ -120,7 +120,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Cloud services + web/mobile apps, no desktop install = Microsoft 365 Business Basic.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft 365 Business Basic"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft 365 Business Basic"],
     },
     {
         "id": "ms900-price-005", "exam": "ms900", "domain": "ms9_pricing_support",
@@ -144,7 +144,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Add-ons (like Microsoft 365 Copilot) require an eligible base subscription underneath.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft 365 add-ons and Copilot licensing"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft 365 add-ons and Copilot licensing"],
     },
     {
         "id": "ms900-price-006", "exam": "ms900", "domain": "ms9_pricing_support",
@@ -159,7 +159,7 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "Licensed on top of a base plan = an add-on.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft 365 add-ons"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft 365 add-ons"],
     },
 
     # ===== ms9_billing_cost =================================================
@@ -185,7 +185,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Manage users, licenses, subscriptions, and billing = Microsoft 365 admin center.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft 365 admin center"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft 365 admin center"],
     },
     {
         "id": "ms900-price-008", "exam": "ms900", "domain": "ms9_pricing_support",
@@ -210,7 +210,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Manage billing only (least privilege) = Billing Administrator role.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft 365 admin roles (Billing Administrator)"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft 365 admin roles (Billing Administrator)"],
     },
     {
         "id": "ms900-price-009", "exam": "ms900", "domain": "ms9_pricing_support",
@@ -235,7 +235,7 @@ QUESTIONS = [
             },
             "exam_pattern": "A user needs an assigned license to use Microsoft 365 services.",
         },
-        "references": ["Microsoft Learn (MS-900): Assigning Microsoft 365 licenses"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Assigning Microsoft 365 licenses"],
     },
     {
         "id": "ms900-price-010", "exam": "ms900", "domain": "ms9_pricing_support",
@@ -260,7 +260,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Annual commitment usually costs less per user than month-to-month flexibility.",
         },
-        "references": ["Microsoft Learn (MS-900): Billing and subscription options"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Billing and subscription options"],
     },
 
     # ===== ms9_support_sla ==================================================
@@ -287,7 +287,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Financially backed uptime/availability guarantee = Service Level Agreement (SLA).",
         },
-        "references": ["Microsoft Learn (MS-900): Service Level Agreement"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Service Level Agreement"],
     },
     {
         "id": "ms900-price-012", "exam": "ms900", "domain": "ms9_pricing_support",
@@ -311,7 +311,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Check live Microsoft 365 service incidents = service health in the admin center.",
         },
-        "references": ["Microsoft Learn (MS-900): Service health and continuity"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Service health and continuity"],
     },
     {
         "id": "ms900-price-013", "exam": "ms900", "domain": "ms9_pricing_support",
@@ -335,7 +335,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Open support requests in the Microsoft 365 admin center; a severity level sets priority.",
         },
-        "references": ["Microsoft Learn (MS-900): Support options and severity"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Support options and severity"],
     },
 
     # ===== ms9_lifecycle ====================================================
@@ -362,7 +362,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Tenant-specific notices about upcoming changes/features = Message center.",
         },
-        "references": ["Microsoft Learn (MS-900): Message center"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Message center"],
     },
     {
         "id": "ms900-price-015", "exam": "ms900", "domain": "ms9_pricing_support",
@@ -386,7 +386,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Public, forward-looking feature list = Microsoft 365 roadmap; tenant-specific = Message center.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft 365 roadmap"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft 365 roadmap"],
     },
     {
         "id": "ms900-price-016", "exam": "ms900", "domain": "ms9_pricing_support",
@@ -401,6 +401,6 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "Early feature access for pilot users = Targeted release; default broad rollout = Standard release.",
         },
-        "references": ["Microsoft Learn (MS-900): Release options (Targeted vs Standard release)"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Release options (Targeted vs Standard release)"],
     },
 ]

@@ -68,7 +68,7 @@ CERT_CATALOG = [
         {"key": "aplus2", "name": "A+ Core 2 (220-1102)", "status": "active"},
         {"key": "pentest", "name": "PenTest+ PT0-003", "status": "active"},
         {"key": "securityx", "name": "SecurityX / CASP+ (CAS-005)", "status": "active"},
-        {"key": "linuxplus", "name": "Linux+ XK0-005", "status": "active"},
+        {"key": "linuxplus", "name": "Linux+ XK0-006", "status": "active"},
         {"key": "cloudplus", "name": "Cloud+ CV0-004", "status": "active"},
     ]},
     {"provider": "(ISC)²", "blurb": "Cybersecurity practitioner & leadership", "certs": [
@@ -92,7 +92,7 @@ CERT_CATALOG = [
         {"key": "sc900", "name": "Security, Compliance & Identity (SC-900)", "status": "active"},
         {"key": "sc200", "name": "Security Operations Analyst (SC-200)", "status": "active"},
         {"key": "az500", "name": "Azure Security Engineer (AZ-500)", "status": "active"},
-        {"key": "ms900", "name": "Microsoft 365 Fundamentals (MS-900)", "status": "active"},
+        {"key": "ms900", "name": "Microsoft 365 Fundamentals", "status": "active"},
     ]},
 ]
 PASS_THRESHOLD = 0.8

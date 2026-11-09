@@ -42,7 +42,7 @@
         "exam_pattern": "Shebang = '#!' + interpreter path on line 1 (e.g., #!/bin/bash, #!/usr/bin/env python3)."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Shell scripting (shebang)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 3 — Shell scripting (shebang)"
       ]
     },
     {
@@ -85,7 +85,7 @@
         "exam_pattern": "$?=last exit code, $#=arg count, $$=shell PID, $!=last background PID, $0=script name."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Exit codes ($?)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 3 — Exit codes ($?)"
       ]
     },
     {
@@ -128,7 +128,7 @@
         "exam_pattern": "Numeric tests: -eq -ne -lt -le -gt -ge. String tests: = != < > (the latter need [[ ]])."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Conditionals (test operators)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 3 — Conditionals (test operators)"
       ]
     },
     {
@@ -171,7 +171,7 @@
         "exam_pattern": "Iterate files with a glob (for f in *.ext), never by parsing 'ls'."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Loops and globbing (for)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 3 — Loops and globbing (for)"
       ]
     },
     {
@@ -191,7 +191,7 @@
         "exam_pattern": "case ... in ... ) ... ;; esac — note it is terminated by 'esac' (case reversed)."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Control flow (case)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 3 — Control flow (case)"
       ]
     },
     {
@@ -234,7 +234,7 @@
         "exam_pattern": "clone = first copy of a remote; init = new empty repo; pull = update an existing repo."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Version control (git clone)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 3 — Version control (git clone)"
       ]
     },
     {
@@ -277,7 +277,7 @@
         "exam_pattern": "Typical flow: git add (stage) -> git commit -m (record) -> git push (publish)."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Version control (git add/commit)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 3 — Version control (git add/commit)"
       ]
     },
     {
@@ -320,7 +320,7 @@
         "exam_pattern": "Checkout the target branch, then 'git merge <source>' to bring the source's work in."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Branching (git merge)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 3 — Branching (git merge)"
       ]
     },
     {
@@ -341,7 +341,7 @@
         "exam_pattern": "git status (current state) vs git log (commit history) vs git diff (line-level changes)."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Version control (git status)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 3 — Version control (git status)"
       ]
     },
     {
@@ -384,7 +384,7 @@
         "exam_pattern": "-p HOST:CONTAINER (host port first); -d detaches; run starts a new container."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Containers (docker/podman run)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 3 — Containers (docker/podman run)"
       ]
     },
     {
@@ -427,7 +427,7 @@
         "exam_pattern": "ps = running containers (-a for all); images = image list."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Containers (docker ps)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 3 — Containers (docker ps)"
       ]
     },
     {
@@ -470,7 +470,7 @@
         "exam_pattern": "Dockerfile essentials: FROM (base) -> RUN (build steps) -> COPY/ADD -> CMD/ENTRYPOINT (default process)."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Containers (Dockerfile FROM)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 3 — Containers (Dockerfile FROM)"
       ]
     },
     {
@@ -491,7 +491,7 @@
         "exam_pattern": "Persistence: -v/--volume (or --mount). Without it, a container's writable layer is lost on removal."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Containers (volumes)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 3 — Containers (volumes)"
       ]
     },
     {
@@ -534,7 +534,7 @@
         "exam_pattern": "Repeatable automation converges to desired state and only changes what is needed = idempotent."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Automation (idempotency)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 3 — Automation (idempotency)"
       ]
     },
     {
@@ -577,7 +577,7 @@
         "exam_pattern": "Ansible pieces: inventory (hosts) + playbook (plays/tasks) + modules (actions) + handlers (notified tasks)."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Automation (Ansible inventory)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 3 — Automation (Ansible inventory)"
       ]
     },
     {
@@ -620,7 +620,7 @@
         "exam_pattern": "cron order: min hour dom month dow <command>. '*' = every value."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Scheduling (cron fields)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 3 — Scheduling (cron fields)"
       ]
     },
     {
@@ -640,7 +640,7 @@
         "exam_pattern": "crontab -e edit, -l list, -r remove; '-u user' targets another user's crontab (as root)."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 3 — Scheduling (crontab)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 3 — Scheduling (crontab)"
       ]
     },
     {
@@ -683,7 +683,7 @@
         "exam_pattern": "Octal: r=4, w=2, x=1 per digit (owner/group/other). 7=rwx, 5=r-x, 6=rw-, 4=r--."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — File permissions (chmod octal)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 2 — File permissions (chmod octal)"
       ]
     },
     {
@@ -726,7 +726,7 @@
         "exam_pattern": "Symbolic classes: u=user/owner, g=group, o=others, a=all; +add, -remove, =set."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — File permissions (chmod symbolic)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 2 — File permissions (chmod symbolic)"
       ]
     },
     {
@@ -769,7 +769,7 @@
         "exam_pattern": "Special bits in the x column: SUID=s (owner), SGID=s (group), sticky=t (other)."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Special permissions (sticky bit)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 2 — Special permissions (sticky bit)"
       ]
     },
     {
@@ -812,7 +812,7 @@
         "exam_pattern": "setfacl -m to add/modify, -x to remove, -b to clear all; getfacl to view."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Access control lists (setfacl)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 2 — Access control lists (setfacl)"
       ]
     },
     {
@@ -833,7 +833,7 @@
         "exam_pattern": "chattr sets attributes (+i immutable, +a append-only); lsattr lists them."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — File attributes (chattr)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 2 — File attributes (chattr)"
       ]
     },
     {
@@ -876,7 +876,7 @@
         "exam_pattern": "Always edit sudoers with visudo (or files in /etc/sudoers.d/ via visudo -f)."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Privilege escalation (visudo/sudoers)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 2 — Privilege escalation (visudo/sudoers)"
       ]
     },
     {
@@ -919,7 +919,7 @@
         "exam_pattern": "getenforce reads mode; setenforce 0|1 toggles Permissive/Enforcing at runtime; persist in /etc/selinux/config."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — SELinux modes (getenforce)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 2 — SELinux modes (getenforce)"
       ]
     },
     {
@@ -962,7 +962,7 @@
         "exam_pattern": "403/AVC denials after moving files usually mean wrong SELinux context — fix with restorecon."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — SELinux contexts (restorecon)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 2 — SELinux contexts (restorecon)"
       ]
     },
     {
@@ -1005,7 +1005,7 @@
         "exam_pattern": "AppArmor (Debian/Ubuntu default) uses aa-status / aa-enforce / aa-complain; SELinux (RHEL default) uses getenforce / setenforce."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Mandatory access control (AppArmor)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 2 — Mandatory access control (AppArmor)"
       ]
     },
     {
@@ -1048,7 +1048,7 @@
         "exam_pattern": "firewalld changes are runtime-only unless --permanent; then --reload to activate."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Host firewall (firewalld)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 2 — Host firewall (firewalld)"
       ]
     },
     {
@@ -1091,7 +1091,7 @@
         "exam_pattern": "ufw allow/deny <port>/<proto> or a service name; enable with 'ufw enable'."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Host firewall (ufw)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 2 — Host firewall (ufw)"
       ]
     },
     {
@@ -1112,7 +1112,7 @@
         "exam_pattern": "iptables -> nftables (nft); higher-level managers firewalld/ufw sit on top."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Packet filtering (nftables)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 2 — Packet filtering (nftables)"
       ]
     },
     {
@@ -1155,7 +1155,7 @@
         "exam_pattern": "Key sshd_config hardening: PermitRootLogin no, PasswordAuthentication no, use keys."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — SSH hardening (sshd_config)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 2 — SSH hardening (sshd_config)"
       ]
     },
     {
@@ -1198,7 +1198,7 @@
         "exam_pattern": "Key auth flow: ssh-keygen (create) -> ssh-copy-id (publish public key) -> ssh in."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Key-based auth (ssh-copy-id)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 2 — Key-based auth (ssh-copy-id)"
       ]
     },
     {
@@ -1219,7 +1219,7 @@
         "exam_pattern": "Server = sshd_config (with the 'd'); client = ssh_config. Restart sshd after edits."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — SSH server config (sshd_config)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 2 — SSH server config (sshd_config)"
       ]
     },
     {
@@ -1262,7 +1262,7 @@
         "exam_pattern": "LUKS flow: luksFormat (once) -> luksOpen (unlock to /dev/mapper) -> mount; luksClose to lock."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Disk encryption (LUKS/cryptsetup)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 2 — Disk encryption (LUKS/cryptsetup)"
       ]
     },
     {
@@ -1305,7 +1305,7 @@
         "exam_pattern": "gpg -e -r <recipient> = asymmetric (public key); gpg -c / openssl enc = symmetric (passphrase)."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Encryption tools (GnuPG)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 2 — Encryption tools (GnuPG)"
       ]
     },
     {
@@ -1348,7 +1348,7 @@
         "exam_pattern": "Inspect a cert file: openssl x509 -in <file> -noout -text; a CSR: openssl req ..."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 2 — Certificates (OpenSSL x509)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 2 — Certificates (OpenSSL x509)"
       ]
     },
     {
@@ -1369,7 +1369,7 @@
         "exam_pattern": "System-wide config = /etc; variable data = /var; kernel/process view = /proc."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Filesystem Hierarchy Standard"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Filesystem Hierarchy Standard"
       ]
     },
     {
@@ -1412,7 +1412,7 @@
         "exam_pattern": "find time tests: -mtime=modified, -atime=accessed, -ctime=inode change; -N = within N days, +N = more than N days."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Manage files and directories (find)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Manage files and directories (find)"
       ]
     },
     {
@@ -1455,7 +1455,7 @@
         "exam_pattern": "df = free space per filesystem; du = size consumed by files/dirs."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Monitor storage (df/du)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Monitor storage (df/du)"
       ]
     },
     {
@@ -1498,7 +1498,7 @@
         "exam_pattern": "Debian/Ubuntu: apt/apt-get/dpkg. RHEL/Fedora: dnf/yum/rpm."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Software management (apt)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Software management (apt)"
       ]
     },
     {
@@ -1541,7 +1541,7 @@
         "exam_pattern": "rpm -q = query installed; -qa lists all; -ql lists a package's files; -qf finds the owning package."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Software management (rpm)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Software management (rpm)"
       ]
     },
     {
@@ -1584,7 +1584,7 @@
         "exam_pattern": "dpkg -L = list files of a package; dpkg -S = which package owns a file."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Software management (dpkg)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Software management (dpkg)"
       ]
     },
     {
@@ -1627,7 +1627,7 @@
         "exam_pattern": "enable = start at boot; start = start now; enable --now = both; mask = block entirely."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Manage services (systemctl)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Manage services (systemctl)"
       ]
     },
     {
@@ -1670,7 +1670,7 @@
         "exam_pattern": "journalctl -u <unit> filters by unit; -b by boot; -k kernel; -f to follow."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Service logs (journalctl)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Service logs (journalctl)"
       ]
     },
     {
@@ -1713,7 +1713,7 @@
         "exam_pattern": "nice starts a process with a priority; renice changes a running one. Higher nice = lower priority."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Process priority (nice/renice)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Process priority (nice/renice)"
       ]
     },
     {
@@ -1734,7 +1734,7 @@
         "exam_pattern": "top = built-in live process monitor; htop = enhanced but usually not preinstalled."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Monitor processes (top)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Monitor processes (top)"
       ]
     },
     {
@@ -1777,7 +1777,7 @@
         "exam_pattern": "useradd -m creates home; -s sets shell; -M suppresses home creation."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Manage users (useradd)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Manage users (useradd)"
       ]
     },
     {
@@ -1820,7 +1820,7 @@
         "exam_pattern": "passwd = account info (world-readable); shadow = hashes + aging (root-only)."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Account databases (/etc/shadow)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Account databases (/etc/shadow)"
       ]
     },
     {
@@ -1863,7 +1863,7 @@
         "exam_pattern": "Always use -aG together to add a user to a group; -G alone overwrites group membership."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Manage groups (usermod)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Manage groups (usermod)"
       ]
     },
     {
@@ -1906,7 +1906,7 @@
         "exam_pattern": "LVM growth: lvextend -L +SIZE, then grow the filesystem (lvextend -r does both)."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Logical Volume Manager (lvextend)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Logical Volume Manager (lvextend)"
       ]
     },
     {
@@ -1951,7 +1951,7 @@
         "exam_pattern": "LVM build order: pvcreate -> vgcreate -> lvcreate -> mkfs on the LV."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — LVM provisioning (pvcreate/vgcreate/lvcreate)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — LVM provisioning (pvcreate/vgcreate/lvcreate)"
       ]
     },
     {
@@ -1972,7 +1972,7 @@
         "exam_pattern": "Persistent mounts live in /etc/fstab; prefer UUID= or LABEL= over device names."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Filesystem mounting (/etc/fstab)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Filesystem mounting (/etc/fstab)"
       ]
     },
     {
@@ -2015,7 +2015,7 @@
         "exam_pattern": "iproute2 replaces net-tools: ip addr (ifconfig), ip route (route), ss (netstat)."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Network configuration (ip)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Network configuration (ip)"
       ]
     },
     {
@@ -2058,7 +2058,7 @@
         "exam_pattern": "ss flags: -t TCP, -u UDP, -l listening, -n numeric, -p process."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Network sockets (ss)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Network sockets (ss)"
       ]
     },
     {
@@ -2079,7 +2079,7 @@
         "exam_pattern": "DNS servers -> /etc/resolv.conf; static name-to-IP overrides -> /etc/hosts."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Name resolution (/etc/resolv.conf)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Name resolution (/etc/resolv.conf)"
       ]
     },
     {
@@ -2122,7 +2122,7 @@
         "exam_pattern": "modprobe = dependency-aware load/unload; insmod/rmmod = raw single-module ops; lsmod = list."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Kernel modules (modprobe)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Kernel modules (modprobe)"
       ]
     },
     {
@@ -2165,7 +2165,7 @@
         "exam_pattern": "Runtime kernel tunables: sysctl -w (now) + /etc/sysctl.d/*.conf (persistent)."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Kernel parameters (sysctl)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Kernel parameters (sysctl)"
       ]
     },
     {
@@ -2208,7 +2208,7 @@
         "exam_pattern": "RHEL: grub2-mkconfig -o /boot/grub2/grub.cfg. Debian: update-grub (wraps grub-mkconfig)."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 1 — Boot process (GRUB2)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 1 — Boot process (GRUB2)"
       ]
     },
     {
@@ -2251,7 +2251,7 @@
         "exam_pattern": "'No space' but df -h shows free space => check df -i for inode exhaustion."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Storage troubleshooting (inodes)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Storage troubleshooting (inodes)"
       ]
     },
     {
@@ -2294,7 +2294,7 @@
         "exam_pattern": "Find space hogs with du (per-directory totals); confirm fullness with df."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Storage troubleshooting (du)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Storage troubleshooting (du)"
       ]
     },
     {
@@ -2337,7 +2337,7 @@
         "exam_pattern": "fsck only on unmounted/read-only filesystems; the root fs is checked at boot."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Filesystem repair (fsck)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Filesystem repair (fsck)"
       ]
     },
     {
@@ -2358,7 +2358,7 @@
         "exam_pattern": "Disk I/O load: iostat (and iotop for per-process I/O); high %iowait = waiting on storage."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — I/O performance (iostat)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — I/O performance (iostat)"
       ]
     },
     {
@@ -2401,7 +2401,7 @@
         "exam_pattern": "Works by IP but not by name => DNS issue. Test with dig/nslookup; check /etc/resolv.conf."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Network troubleshooting (DNS/dig)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Network troubleshooting (DNS/dig)"
       ]
     },
     {
@@ -2444,7 +2444,7 @@
         "exam_pattern": "Confirm a service is bound/listening with ss -tlnp (modern netstat replacement)."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Network troubleshooting (ss)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Network troubleshooting (ss)"
       ]
     },
     {
@@ -2487,7 +2487,7 @@
         "exam_pattern": "Locate where routing/connectivity breaks along a path with traceroute/tracepath/mtr."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Network troubleshooting (traceroute)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Network troubleshooting (traceroute)"
       ]
     },
     {
@@ -2508,7 +2508,7 @@
         "exam_pattern": "Packet capture: tcpdump (CLI) or Wireshark/tshark (GUI); filter with BPF expressions."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Network troubleshooting (tcpdump)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Network troubleshooting (tcpdump)"
       ]
     },
     {
@@ -2551,7 +2551,7 @@
         "exam_pattern": "Memory snapshot: free -h; watch the 'available' column, not just 'free'."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Memory troubleshooting (free)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Memory troubleshooting (free)"
       ]
     },
     {
@@ -2594,7 +2594,7 @@
         "exam_pattern": "Process vanished + low memory => check dmesg/journalctl -k for OOM-killer messages."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Memory troubleshooting (OOM killer)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Memory troubleshooting (OOM killer)"
       ]
     },
     {
@@ -2637,7 +2637,7 @@
         "exam_pattern": "vmstat <interval> for ongoing CPU/memory/paging trends; high 'wa' = I/O wait, high 'si/so' = swapping."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Performance troubleshooting (vmstat)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Performance troubleshooting (vmstat)"
       ]
     },
     {
@@ -2680,7 +2680,7 @@
         "exam_pattern": "Diagnose access issues with ls -l (perms/owner) and id (user's UID/groups) before editing perms."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Access troubleshooting (permissions)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Access troubleshooting (permissions)"
       ]
     },
     {
@@ -2723,7 +2723,7 @@
         "exam_pattern": "Check lock status with 'passwd -S' (or 'chage -l' for aging); lock/unlock with usermod -L/-U."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Account troubleshooting (passwd -S)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Account troubleshooting (passwd -S)"
       ]
     },
     {
@@ -2744,7 +2744,7 @@
         "exam_pattern": "Verify effective identity and groups with id; 'groups' lists just the group names."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Access troubleshooting (id/groups)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Access troubleshooting (id/groups)"
       ]
     },
     {
@@ -2787,7 +2787,7 @@
         "exam_pattern": "First step for a failing service: systemctl status <unit>, then journalctl -u <unit> for detail."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Service troubleshooting (systemctl status)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Service troubleshooting (systemctl status)"
       ]
     },
     {
@@ -2830,7 +2830,7 @@
         "exam_pattern": "journalctl -u <unit> isolates a service's logs; combine with --since / -b for time/boot scoping."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Service troubleshooting (journalctl -u)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Service troubleshooting (journalctl -u)"
       ]
     },
     {
@@ -2873,7 +2873,7 @@
         "exam_pattern": "Quickly surface problems with systemctl --failed before drilling in with status/journalctl."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Service troubleshooting (failed units)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Service troubleshooting (failed units)"
       ]
     },
     {
@@ -2916,7 +2916,7 @@
         "exam_pattern": "General log: Debian /var/log/syslog, RHEL /var/log/messages; auth: auth.log vs secure."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Log analysis (/var/log)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Log analysis (/var/log)"
       ]
     },
     {
@@ -2959,7 +2959,7 @@
         "exam_pattern": "Trace syscalls with strace (and library calls with ltrace) to find where a program fails."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Diagnostic tools (strace)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Diagnostic tools (strace)"
       ]
     },
     {
@@ -3002,7 +3002,7 @@
         "exam_pattern": "'Device is busy' on umount => find holders with lsof or fuser, then stop/kill them."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Diagnostic tools (lsof)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Diagnostic tools (lsof)"
       ]
     },
     {
@@ -3024,7 +3024,7 @@
         "exam_pattern": "On systemd hosts, journalctl centralizes logs (-u/-b/-k/-p/--since); text logs still live in /var/log."
       },
       "references": [
-        "CompTIA Linux+ XK0-005 Objectives: Domain 4 — Log analysis (journalctl)"
+        "CompTIA Linux+ XK0-006 Objectives: Domain 4 — Log analysis (journalctl)"
       ]
     }
   ]

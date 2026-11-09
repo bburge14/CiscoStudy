@@ -1,4 +1,4 @@
-"""CompTIA Linux+ (XK0-005) pool - Domain 1: System Management.
+"""CompTIA Linux+ (XK0-006) pool - Domain 1: System Management.
 
 Original, objective-aligned practice items for the seven System Management
 subtopics tracked in CertLab:
@@ -19,9 +19,9 @@ subtopics tracked in CertLab:
 Authoring rules match the other content_*.py pools: build_content.py shuffles
 option order (seeded by id), so the authored answer key is not positionally
 biased, every wrong option carries a distractor note, and each item cites the
-public XK0-005 objective domain it draws on. Commands, flags, and file paths are
+public XK0-006 objective domain it draws on. Commands, flags, and file paths are
 real and version-resilient across mainstream RHEL/Fedora and Debian/Ubuntu
-systems (true across XK0-005/006); no memorized or real exam items are used.
+systems (true across XK0-005 and XK0-006); no memorized or real exam items are used.
 """
 
 QUESTIONS = [
@@ -40,7 +40,7 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "System-wide config = /etc; variable data = /var; kernel/process view = /proc.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Filesystem Hierarchy Standard"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Filesystem Hierarchy Standard"],
     },
     {
         "id": "linuxplus-sys-002", "exam": "linuxplus", "domain": "linuxp_system_mgmt",
@@ -65,7 +65,7 @@ QUESTIONS = [
             "exam_pattern": "find time tests: -mtime=modified, -atime=accessed, -ctime=inode change; "
                             "-N = within N days, +N = more than N days.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Manage files and directories (find)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Manage files and directories (find)"],
     },
     {
         "id": "linuxplus-sys-003", "exam": "linuxplus", "domain": "linuxp_system_mgmt",
@@ -89,7 +89,7 @@ QUESTIONS = [
             },
             "exam_pattern": "df = free space per filesystem; du = size consumed by files/dirs.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Monitor storage (df/du)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Monitor storage (df/du)"],
     },
 
     # ===== linuxp_package_mgmt ==============================================
@@ -115,7 +115,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Debian/Ubuntu: apt/apt-get/dpkg. RHEL/Fedora: dnf/yum/rpm.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Software management (apt)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Software management (apt)"],
     },
     {
         "id": "linuxplus-sys-005", "exam": "linuxplus", "domain": "linuxp_system_mgmt",
@@ -139,7 +139,7 @@ QUESTIONS = [
             },
             "exam_pattern": "rpm -q = query installed; -qa lists all; -ql lists a package's files; -qf finds the owning package.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Software management (rpm)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Software management (rpm)"],
     },
     {
         "id": "linuxplus-sys-006", "exam": "linuxplus", "domain": "linuxp_system_mgmt",
@@ -162,7 +162,7 @@ QUESTIONS = [
             },
             "exam_pattern": "dpkg -L = list files of a package; dpkg -S = which package owns a file.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Software management (dpkg)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Software management (dpkg)"],
     },
 
     # ===== linuxp_processes_services ========================================
@@ -188,7 +188,7 @@ QUESTIONS = [
             },
             "exam_pattern": "enable = start at boot; start = start now; enable --now = both; mask = block entirely.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Manage services (systemctl)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Manage services (systemctl)"],
     },
     {
         "id": "linuxplus-sys-008", "exam": "linuxplus", "domain": "linuxp_system_mgmt",
@@ -212,7 +212,7 @@ QUESTIONS = [
             },
             "exam_pattern": "journalctl -u <unit> filters by unit; -b by boot; -k kernel; -f to follow.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Service logs (journalctl)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Service logs (journalctl)"],
     },
     {
         "id": "linuxplus-sys-009", "exam": "linuxplus", "domain": "linuxp_system_mgmt",
@@ -236,7 +236,7 @@ QUESTIONS = [
             },
             "exam_pattern": "nice starts a process with a priority; renice changes a running one. Higher nice = lower priority.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Process priority (nice/renice)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Process priority (nice/renice)"],
     },
     {
         "id": "linuxplus-sys-010", "exam": "linuxplus", "domain": "linuxp_system_mgmt",
@@ -251,7 +251,7 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "top = built-in live process monitor; htop = enhanced but usually not preinstalled.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Monitor processes (top)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Monitor processes (top)"],
     },
 
     # ===== linuxp_users_groups ==============================================
@@ -277,7 +277,7 @@ QUESTIONS = [
             },
             "exam_pattern": "useradd -m creates home; -s sets shell; -M suppresses home creation.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Manage users (useradd)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Manage users (useradd)"],
     },
     {
         "id": "linuxplus-sys-012", "exam": "linuxplus", "domain": "linuxp_system_mgmt",
@@ -301,7 +301,7 @@ QUESTIONS = [
             },
             "exam_pattern": "passwd = account info (world-readable); shadow = hashes + aging (root-only).",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Account databases (/etc/shadow)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Account databases (/etc/shadow)"],
     },
     {
         "id": "linuxplus-sys-013", "exam": "linuxplus", "domain": "linuxp_system_mgmt",
@@ -325,7 +325,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Always use -aG together to add a user to a group; -G alone overwrites group membership.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Manage groups (usermod)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Manage groups (usermod)"],
     },
 
     # ===== linuxp_storage_lvm ===============================================
@@ -351,7 +351,7 @@ QUESTIONS = [
             },
             "exam_pattern": "LVM growth: lvextend -L +SIZE, then grow the filesystem (lvextend -r does both).",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Logical Volume Manager (lvextend)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Logical Volume Manager (lvextend)"],
     },
     {
         "id": "linuxplus-sys-015", "exam": "linuxplus", "domain": "linuxp_system_mgmt",
@@ -374,7 +374,7 @@ QUESTIONS = [
             },
             "exam_pattern": "LVM build order: pvcreate -> vgcreate -> lvcreate -> mkfs on the LV.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — LVM provisioning (pvcreate/vgcreate/lvcreate)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — LVM provisioning (pvcreate/vgcreate/lvcreate)"],
     },
     {
         "id": "linuxplus-sys-016", "exam": "linuxplus", "domain": "linuxp_system_mgmt",
@@ -388,7 +388,7 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "Persistent mounts live in /etc/fstab; prefer UUID= or LABEL= over device names.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Filesystem mounting (/etc/fstab)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Filesystem mounting (/etc/fstab)"],
     },
 
     # ===== linuxp_networking_config =========================================
@@ -414,7 +414,7 @@ QUESTIONS = [
             },
             "exam_pattern": "iproute2 replaces net-tools: ip addr (ifconfig), ip route (route), ss (netstat).",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Network configuration (ip)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Network configuration (ip)"],
     },
     {
         "id": "linuxplus-sys-018", "exam": "linuxplus", "domain": "linuxp_system_mgmt",
@@ -438,7 +438,7 @@ QUESTIONS = [
             },
             "exam_pattern": "ss flags: -t TCP, -u UDP, -l listening, -n numeric, -p process.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Network sockets (ss)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Network sockets (ss)"],
     },
     {
         "id": "linuxplus-sys-019", "exam": "linuxplus", "domain": "linuxp_system_mgmt",
@@ -453,7 +453,7 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "DNS servers -> /etc/resolv.conf; static name-to-IP overrides -> /etc/hosts.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Name resolution (/etc/resolv.conf)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Name resolution (/etc/resolv.conf)"],
     },
 
     # ===== linuxp_boot_kernel ===============================================
@@ -479,7 +479,7 @@ QUESTIONS = [
             },
             "exam_pattern": "modprobe = dependency-aware load/unload; insmod/rmmod = raw single-module ops; lsmod = list.",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Kernel modules (modprobe)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Kernel modules (modprobe)"],
     },
     {
         "id": "linuxplus-sys-021", "exam": "linuxplus", "domain": "linuxp_system_mgmt",
@@ -504,7 +504,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Runtime kernel tunables: sysctl -w (now) + /etc/sysctl.d/*.conf (persistent).",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Kernel parameters (sysctl)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Kernel parameters (sysctl)"],
     },
     {
         "id": "linuxplus-sys-022", "exam": "linuxplus", "domain": "linuxp_system_mgmt",
@@ -528,6 +528,6 @@ QUESTIONS = [
             },
             "exam_pattern": "RHEL: grub2-mkconfig -o /boot/grub2/grub.cfg. Debian: update-grub (wraps grub-mkconfig).",
         },
-        "references": ["CompTIA Linux+ XK0-005 Objectives: Domain 1 — Boot process (GRUB2)"],
+        "references": ["CompTIA Linux+ XK0-006 Objectives: Domain 1 — Boot process (GRUB2)"],
     },
 ]

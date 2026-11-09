@@ -42,7 +42,7 @@
         "exam_pattern": "Cloud email/calendar/contacts in Microsoft 365 = Exchange Online."
       },
       "references": [
-        "Microsoft Learn (MS-900): Exchange Online"
+        "Microsoft Learn (M365 Fundamentals): Exchange Online"
       ]
     },
     {
@@ -85,7 +85,7 @@
         "exam_pattern": "Intranet, team sites, and shared document libraries = SharePoint Online."
       },
       "references": [
-        "Microsoft Learn (MS-900): SharePoint Online"
+        "Microsoft Learn (M365 Fundamentals): SharePoint Online"
       ]
     },
     {
@@ -128,7 +128,7 @@
         "exam_pattern": "Personal, per-user cloud file storage and sync = OneDrive; shared team libraries = SharePoint."
       },
       "references": [
-        "Microsoft Learn (MS-900): OneDrive"
+        "Microsoft Learn (M365 Fundamentals): OneDrive"
       ]
     },
     {
@@ -171,7 +171,7 @@
         "exam_pattern": "Surveys, quizzes, and polls = Microsoft Forms."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft Forms"
+        "Microsoft Learn (M365 Fundamentals): Microsoft Forms"
       ]
     },
     {
@@ -214,7 +214,7 @@
         "exam_pattern": "Customer self-service appointment scheduling = Microsoft Bookings."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft Bookings"
+        "Microsoft Learn (M365 Fundamentals): Microsoft Bookings"
       ]
     },
     {
@@ -235,7 +235,7 @@
         "exam_pattern": "Cloud mailboxes in Microsoft 365 = Exchange Online."
       },
       "references": [
-        "Microsoft Learn (MS-900): Exchange Online"
+        "Microsoft Learn (M365 Fundamentals): Exchange Online"
       ]
     },
     {
@@ -278,7 +278,7 @@
         "exam_pattern": "Chat + meetings + calling + channels in one app = Microsoft Teams."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft Teams"
+        "Microsoft Learn (M365 Fundamentals): Microsoft Teams"
       ]
     },
     {
@@ -321,7 +321,7 @@
         "exam_pattern": "Multiple people editing one cloud document at once in real time = co-authoring."
       },
       "references": [
-        "Microsoft Learn (MS-900): Collaboration and co-authoring"
+        "Microsoft Learn (M365 Fundamentals): Collaboration and co-authoring"
       ]
     },
     {
@@ -364,7 +364,7 @@
         "exam_pattern": "Skype for Business is retired; Microsoft Teams replaced it."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft Teams (Skype for Business retirement)"
+        "Microsoft Learn (M365 Fundamentals): Microsoft Teams (Skype for Business retirement)"
       ]
     },
     {
@@ -407,7 +407,7 @@
         "exam_pattern": "PSTN calling inside Teams = Teams Phone."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft Teams Phone"
+        "Microsoft Learn (M365 Fundamentals): Microsoft Teams Phone"
       ]
     },
     {
@@ -450,7 +450,7 @@
         "exam_pattern": "Topic-based, persistent sections inside a team = channels."
       },
       "references": [
-        "Microsoft Learn (MS-900): Teams channels"
+        "Microsoft Learn (M365 Fundamentals): Teams channels"
       ]
     },
     {
@@ -493,7 +493,7 @@
         "exam_pattern": "Cloud device and app management (MDM/MAM) = Microsoft Intune."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft Intune"
+        "Microsoft Learn (M365 Fundamentals): Microsoft Intune"
       ]
     },
     {
@@ -536,7 +536,7 @@
         "exam_pattern": "Manage the whole enrolled device = MDM; manage just the app and its data = MAM."
       },
       "references": [
-        "Microsoft Learn (MS-900): Intune MDM vs MAM"
+        "Microsoft Learn (M365 Fundamentals): Intune MDM vs MAM"
       ]
     },
     {
@@ -579,7 +579,7 @@
         "exam_pattern": "Protect and selectively wipe only company data on personal devices = MAM app protection policies."
       },
       "references": [
-        "Microsoft Learn (MS-900): Intune app protection (MAM)"
+        "Microsoft Learn (M365 Fundamentals): Intune app protection (MAM)"
       ]
     },
     {
@@ -622,7 +622,7 @@
         "exam_pattern": "Personal, persistent, fixed-price cloud Windows desktop = Windows 365 Cloud PC."
       },
       "references": [
-        "Microsoft Learn (MS-900): Windows 365"
+        "Microsoft Learn (M365 Fundamentals): Windows 365"
       ]
     },
     {
@@ -665,7 +665,7 @@
         "exam_pattern": "Flexible, multi-session, consumption-based Azure VDI = Azure Virtual Desktop; simple fixed-price personal Cloud PC = Windows 365."
       },
       "references": [
-        "Microsoft Learn (MS-900): Azure Virtual Desktop vs Windows 365"
+        "Microsoft Learn (M365 Fundamentals): Azure Virtual Desktop vs Windows 365"
       ]
     },
     {
@@ -708,7 +708,7 @@
         "exam_pattern": "Generative-AI assistant across the Microsoft 365 apps, grounded in your org data = Microsoft 365 Copilot."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft 365 Copilot"
+        "Microsoft Learn (M365 Fundamentals): Microsoft 365 Copilot"
       ]
     },
     {
@@ -751,7 +751,7 @@
         "exam_pattern": "The unified Microsoft 365 data/API layer that Copilot is grounded in = Microsoft Graph."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft Graph"
+        "Microsoft Learn (M365 Fundamentals): Microsoft Graph"
       ]
     },
     {
@@ -794,7 +794,7 @@
         "exam_pattern": "Productivity and wellbeing analytics = Microsoft Viva Insights (part of Microsoft Viva)."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft Viva Insights"
+        "Microsoft Learn (M365 Fundamentals): Microsoft Viva Insights"
       ]
     },
     {
@@ -837,7 +837,7 @@
         "exam_pattern": "In-app AI experiences such as a Teams meeting recap come from Microsoft 365 Copilot."
       },
       "references": [
-        "Microsoft Learn (MS-900): Copilot in Microsoft 365 apps"
+        "Microsoft Learn (M365 Fundamentals): Copilot in Microsoft 365 apps"
       ]
     },
     {
@@ -880,7 +880,7 @@
         "exam_pattern": "The Microsoft 365 Apps install and update technology = Click-to-Run."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft 365 Apps deployment (Click-to-Run)"
+        "Microsoft Learn (M365 Fundamentals): Microsoft 365 Apps deployment (Click-to-Run)"
       ]
     },
     {
@@ -923,7 +923,7 @@
         "exam_pattern": "How often users get new Microsoft 365 Apps features = update channels."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft 365 Apps update channels"
+        "Microsoft Learn (M365 Fundamentals): Microsoft 365 Apps update channels"
       ]
     },
     {
@@ -966,7 +966,7 @@
         "exam_pattern": "Edit documents in a browser with no install = Office for the web."
       },
       "references": [
-        "Microsoft Learn (MS-900): Office for the web"
+        "Microsoft Learn (M365 Fundamentals): Office for the web"
       ]
     },
     {
@@ -988,7 +988,7 @@
         "exam_pattern": "The Microsoft 365 Apps install/update technology = Click-to-Run."
       },
       "references": [
-        "Microsoft Learn (MS-900): Click-to-Run"
+        "Microsoft Learn (M365 Fundamentals): Click-to-Run"
       ]
     },
     {
@@ -1031,7 +1031,7 @@
         "exam_pattern": "Ready-to-use, provider-managed, subscription software = SaaS; Microsoft 365 is the classic SaaS example."
       },
       "references": [
-        "Microsoft Learn (MS-900): Describe cloud concepts - cloud services (SaaS)"
+        "Microsoft Learn (M365 Fundamentals): Describe cloud concepts - cloud services (SaaS)"
       ]
     },
     {
@@ -1074,7 +1074,7 @@
         "exam_pattern": "Buy-and-own hardware = CapEx; pay-as-you-go cloud subscription = OpEx."
       },
       "references": [
-        "Microsoft Learn (MS-900): Describe the benefits of cloud services (CapEx vs OpEx)"
+        "Microsoft Learn (M365 Fundamentals): Describe the benefits of cloud services (CapEx vs OpEx)"
       ]
     },
     {
@@ -1117,7 +1117,7 @@
         "exam_pattern": "Grow or shrink capacity on demand = scalability/elasticity."
       },
       "references": [
-        "Microsoft Learn (MS-900): Describe the benefits of cloud services (scalability)"
+        "Microsoft Learn (M365 Fundamentals): Describe the benefits of cloud services (scalability)"
       ]
     },
     {
@@ -1160,7 +1160,7 @@
         "exam_pattern": "In SaaS the provider patches/updates the software; Microsoft keeps Microsoft 365 always up to date."
       },
       "references": [
-        "Microsoft Learn (MS-900): Describe the benefits of cloud services (SaaS responsibilities)"
+        "Microsoft Learn (M365 Fundamentals): Describe the benefits of cloud services (SaaS responsibilities)"
       ]
     },
     {
@@ -1203,7 +1203,7 @@
         "exam_pattern": "Provider-owned, internet-delivered, multi-tenant service = public cloud (Microsoft 365)."
       },
       "references": [
-        "Microsoft Learn (MS-900): Describe cloud concepts (public, private, hybrid)"
+        "Microsoft Learn (M365 Fundamentals): Describe cloud concepts (public, private, hybrid)"
       ]
     },
     {
@@ -1224,7 +1224,7 @@
         "exam_pattern": "Fully managed, subscription-based application delivered over the internet = SaaS."
       },
       "references": [
-        "Microsoft Learn (MS-900): Describe cloud concepts (SaaS)"
+        "Microsoft Learn (M365 Fundamentals): Describe cloud concepts (SaaS)"
       ]
     },
     {
@@ -1267,7 +1267,7 @@
         "exam_pattern": "Standalone Office = installed apps only; Microsoft 365 adds cloud services, multi-device, and continuous updates."
       },
       "references": [
-        "Microsoft Learn (MS-900): Differences between Microsoft 365 and Office"
+        "Microsoft Learn (M365 Fundamentals): Differences between Microsoft 365 and Office"
       ]
     },
     {
@@ -1310,7 +1310,7 @@
         "exam_pattern": "Subscription (Microsoft 365) = always up to date with new features; perpetual Office = security/quality fixes only."
       },
       "references": [
-        "Microsoft Learn (MS-900): Differences between Microsoft 365 and Office"
+        "Microsoft Learn (M365 Fundamentals): Differences between Microsoft 365 and Office"
       ]
     },
     {
@@ -1353,7 +1353,7 @@
         "exam_pattern": "The subscription desktop Office suite in Microsoft 365 is called 'Microsoft 365 Apps'."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft 365 Apps"
+        "Microsoft Learn (M365 Fundamentals): Microsoft 365 Apps"
       ]
     },
     {
@@ -1396,7 +1396,7 @@
         "exam_pattern": "Multi-device install + real-time cloud co-authoring = Microsoft 365 subscription."
       },
       "references": [
-        "Microsoft Learn (MS-900): Differences between Microsoft 365 and Office"
+        "Microsoft Learn (M365 Fundamentals): Differences between Microsoft 365 and Office"
       ]
     },
     {
@@ -1439,7 +1439,7 @@
         "exam_pattern": "The cloud services (email, storage, Teams) are the key add Microsoft 365 brings over standalone Office."
       },
       "references": [
-        "Microsoft Learn (MS-900): Differences between Microsoft 365 and Office"
+        "Microsoft Learn (M365 Fundamentals): Differences between Microsoft 365 and Office"
       ]
     },
     {
@@ -1482,7 +1482,7 @@
         "exam_pattern": "Cloud adoption enables secure anywhere-access, a key enabler of hybrid/remote work."
       },
       "references": [
-        "Microsoft Learn (MS-900): Reasons to adopt cloud services"
+        "Microsoft Learn (M365 Fundamentals): Reasons to adopt cloud services"
       ]
     },
     {
@@ -1525,7 +1525,7 @@
         "exam_pattern": "Cloud is internet-delivered, so reliable connectivity/bandwidth is a key adoption consideration."
       },
       "references": [
-        "Microsoft Learn (MS-900): Cloud adoption considerations"
+        "Microsoft Learn (M365 Fundamentals): Cloud adoption considerations"
       ]
     },
     {
@@ -1569,7 +1569,7 @@
         "exam_pattern": "Cloud adoption wins: less owned hardware/maintenance and stronger business continuity - not freedom from internet or compliance."
       },
       "references": [
-        "Microsoft Learn (MS-900): Reasons to adopt cloud services"
+        "Microsoft Learn (M365 Fundamentals): Reasons to adopt cloud services"
       ]
     },
     {
@@ -1612,7 +1612,7 @@
         "exam_pattern": "Cloud adoption offloads infrastructure and maintenance to the provider - a key draw for small IT teams."
       },
       "references": [
-        "Microsoft Learn (MS-900): Reasons to adopt cloud services"
+        "Microsoft Learn (M365 Fundamentals): Reasons to adopt cloud services"
       ]
     },
     {
@@ -1635,7 +1635,7 @@
         "exam_pattern": "Subscription / pay-as-you-go = OpEx; up-front owned hardware = CapEx."
       },
       "references": [
-        "Microsoft Learn (MS-900): Describe the benefits of cloud services (OpEx)"
+        "Microsoft Learn (M365 Fundamentals): Describe the benefits of cloud services (OpEx)"
       ]
     },
     {
@@ -1678,7 +1678,7 @@
         "exam_pattern": "Small/medium business + desktop apps + cloud services = Microsoft 365 Business Standard."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft 365 Business plans"
+        "Microsoft Learn (M365 Fundamentals): Microsoft 365 Business plans"
       ]
     },
     {
@@ -1721,7 +1721,7 @@
         "exam_pattern": "Deskless, shift-based, low-cost web/mobile = Microsoft 365 F3 (frontline)."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft 365 frontline (F3)"
+        "Microsoft Learn (M365 Fundamentals): Microsoft 365 frontline (F3)"
       ]
     },
     {
@@ -1764,7 +1764,7 @@
         "exam_pattern": "Top enterprise plan with advanced security/compliance/analytics = Microsoft 365 E5."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft 365 Enterprise E3 vs E5"
+        "Microsoft Learn (M365 Fundamentals): Microsoft 365 Enterprise E3 vs E5"
       ]
     },
     {
@@ -1807,7 +1807,7 @@
         "exam_pattern": "Cloud services + web/mobile apps, no desktop install = Microsoft 365 Business Basic."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft 365 Business Basic"
+        "Microsoft Learn (M365 Fundamentals): Microsoft 365 Business Basic"
       ]
     },
     {
@@ -1850,7 +1850,7 @@
         "exam_pattern": "Add-ons (like Microsoft 365 Copilot) require an eligible base subscription underneath."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft 365 add-ons and Copilot licensing"
+        "Microsoft Learn (M365 Fundamentals): Microsoft 365 add-ons and Copilot licensing"
       ]
     },
     {
@@ -1872,7 +1872,7 @@
         "exam_pattern": "Licensed on top of a base plan = an add-on."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft 365 add-ons"
+        "Microsoft Learn (M365 Fundamentals): Microsoft 365 add-ons"
       ]
     },
     {
@@ -1915,7 +1915,7 @@
         "exam_pattern": "Manage users, licenses, subscriptions, and billing = Microsoft 365 admin center."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft 365 admin center"
+        "Microsoft Learn (M365 Fundamentals): Microsoft 365 admin center"
       ]
     },
     {
@@ -1958,7 +1958,7 @@
         "exam_pattern": "Manage billing only (least privilege) = Billing Administrator role."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft 365 admin roles (Billing Administrator)"
+        "Microsoft Learn (M365 Fundamentals): Microsoft 365 admin roles (Billing Administrator)"
       ]
     },
     {
@@ -2001,7 +2001,7 @@
         "exam_pattern": "A user needs an assigned license to use Microsoft 365 services."
       },
       "references": [
-        "Microsoft Learn (MS-900): Assigning Microsoft 365 licenses"
+        "Microsoft Learn (M365 Fundamentals): Assigning Microsoft 365 licenses"
       ]
     },
     {
@@ -2044,7 +2044,7 @@
         "exam_pattern": "Annual commitment usually costs less per user than month-to-month flexibility."
       },
       "references": [
-        "Microsoft Learn (MS-900): Billing and subscription options"
+        "Microsoft Learn (M365 Fundamentals): Billing and subscription options"
       ]
     },
     {
@@ -2087,7 +2087,7 @@
         "exam_pattern": "Financially backed uptime/availability guarantee = Service Level Agreement (SLA)."
       },
       "references": [
-        "Microsoft Learn (MS-900): Service Level Agreement"
+        "Microsoft Learn (M365 Fundamentals): Service Level Agreement"
       ]
     },
     {
@@ -2130,7 +2130,7 @@
         "exam_pattern": "Check live Microsoft 365 service incidents = service health in the admin center."
       },
       "references": [
-        "Microsoft Learn (MS-900): Service health and continuity"
+        "Microsoft Learn (M365 Fundamentals): Service health and continuity"
       ]
     },
     {
@@ -2173,7 +2173,7 @@
         "exam_pattern": "Open support requests in the Microsoft 365 admin center; a severity level sets priority."
       },
       "references": [
-        "Microsoft Learn (MS-900): Support options and severity"
+        "Microsoft Learn (M365 Fundamentals): Support options and severity"
       ]
     },
     {
@@ -2216,7 +2216,7 @@
         "exam_pattern": "Tenant-specific notices about upcoming changes/features = Message center."
       },
       "references": [
-        "Microsoft Learn (MS-900): Message center"
+        "Microsoft Learn (M365 Fundamentals): Message center"
       ]
     },
     {
@@ -2259,7 +2259,7 @@
         "exam_pattern": "Public, forward-looking feature list = Microsoft 365 roadmap; tenant-specific = Message center."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft 365 roadmap"
+        "Microsoft Learn (M365 Fundamentals): Microsoft 365 roadmap"
       ]
     },
     {
@@ -2280,7 +2280,7 @@
         "exam_pattern": "Early feature access for pilot users = Targeted release; default broad rollout = Standard release."
       },
       "references": [
-        "Microsoft Learn (MS-900): Release options (Targeted vs Standard release)"
+        "Microsoft Learn (M365 Fundamentals): Release options (Targeted vs Standard release)"
       ]
     },
     {
@@ -2323,7 +2323,7 @@
         "exam_pattern": "Cloud identity/access management (formerly Azure AD) = Microsoft Entra ID."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft Entra ID"
+        "Microsoft Learn (M365 Fundamentals): Microsoft Entra ID"
       ]
     },
     {
@@ -2366,7 +2366,7 @@
         "exam_pattern": "Two or more verification factors at sign-in = MFA."
       },
       "references": [
-        "Microsoft Learn (MS-900): Multifactor authentication"
+        "Microsoft Learn (M365 Fundamentals): Multifactor authentication"
       ]
     },
     {
@@ -2409,7 +2409,7 @@
         "exam_pattern": "Sign in once, reach many apps = single sign-on (SSO)."
       },
       "references": [
-        "Microsoft Learn (MS-900): Single sign-on"
+        "Microsoft Learn (M365 Fundamentals): Single sign-on"
       ]
     },
     {
@@ -2452,7 +2452,7 @@
         "exam_pattern": "Policy-based sign-in decisions from signals (user/device/location/risk) = Conditional Access."
       },
       "references": [
-        "Microsoft Learn (MS-900): Conditional Access"
+        "Microsoft Learn (M365 Fundamentals): Conditional Access"
       ]
     },
     {
@@ -2474,7 +2474,7 @@
         "exam_pattern": "Azure AD is now Microsoft Entra ID."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft Entra ID"
+        "Microsoft Learn (M365 Fundamentals): Microsoft Entra ID"
       ]
     },
     {
@@ -2517,7 +2517,7 @@
         "exam_pattern": "Safe Links + Safe Attachments for email = Microsoft Defender for Office 365."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft Defender for Office 365"
+        "Microsoft Learn (M365 Fundamentals): Microsoft Defender for Office 365"
       ]
     },
     {
@@ -2560,7 +2560,7 @@
         "exam_pattern": "Unified cross-domain detection and response across endpoint, email, identity, apps = Microsoft Defender XDR."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft Defender XDR"
+        "Microsoft Learn (M365 Fundamentals): Microsoft Defender XDR"
       ]
     },
     {
@@ -2603,7 +2603,7 @@
         "exam_pattern": "A measured security-posture score with improvement actions = Microsoft Secure Score."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft Secure Score"
+        "Microsoft Learn (M365 Fundamentals): Microsoft Secure Score"
       ]
     },
     {
@@ -2624,7 +2624,7 @@
         "exam_pattern": "Sandbox detonation of email attachments = Safe Attachments; click-time URL checks = Safe Links."
       },
       "references": [
-        "Microsoft Learn (MS-900): Defender for Office 365 Safe Attachments"
+        "Microsoft Learn (M365 Fundamentals): Defender for Office 365 Safe Attachments"
       ]
     },
     {
@@ -2667,7 +2667,7 @@
         "exam_pattern": "Detect and prevent oversharing of sensitive data = DLP (Microsoft Purview)."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft Purview Data Loss Prevention"
+        "Microsoft Learn (M365 Fundamentals): Microsoft Purview Data Loss Prevention"
       ]
     },
     {
@@ -2710,7 +2710,7 @@
         "exam_pattern": "Classify and protect content (encryption, markings) = sensitivity labels."
       },
       "references": [
-        "Microsoft Learn (MS-900): Sensitivity labels"
+        "Microsoft Learn (M365 Fundamentals): Sensitivity labels"
       ]
     },
     {
@@ -2753,7 +2753,7 @@
         "exam_pattern": "Keep-then-dispose of content for compliance = retention labels/policies."
       },
       "references": [
-        "Microsoft Learn (MS-900): Retention in Microsoft Purview"
+        "Microsoft Learn (M365 Fundamentals): Retention in Microsoft Purview"
       ]
     },
     {
@@ -2796,7 +2796,7 @@
         "exam_pattern": "Find / hold / collect / export content for legal cases = eDiscovery (Microsoft Purview)."
       },
       "references": [
-        "Microsoft Learn (MS-900): eDiscovery"
+        "Microsoft Learn (M365 Fundamentals): eDiscovery"
       ]
     },
     {
@@ -2839,7 +2839,7 @@
         "exam_pattern": "'Never trust, always verify' - verify explicitly / least privilege / assume breach = Zero Trust."
       },
       "references": [
-        "Microsoft Learn (MS-900): Zero Trust principles"
+        "Microsoft Learn (M365 Fundamentals): Zero Trust principles"
       ]
     },
     {
@@ -2882,7 +2882,7 @@
         "exam_pattern": "Microsoft's audit reports and compliance certifications = Service Trust Portal."
       },
       "references": [
-        "Microsoft Learn (MS-900): Service Trust Portal"
+        "Microsoft Learn (M365 Fundamentals): Service Trust Portal"
       ]
     },
     {
@@ -2925,7 +2925,7 @@
         "exam_pattern": "Privacy-risk management and subject rights requests = Microsoft Priva."
       },
       "references": [
-        "Microsoft Learn (MS-900): Microsoft Priva"
+        "Microsoft Learn (M365 Fundamentals): Microsoft Priva"
       ]
     }
   ]

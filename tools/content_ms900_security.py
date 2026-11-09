@@ -1,4 +1,4 @@
-"""Microsoft 365 Fundamentals (MS-900) pool - Domain 3: Security, Compliance, Privacy & Trust.
+"""Microsoft 365 Fundamentals pool - Domain 3: Security, Compliance, Privacy & Trust.
 
 Original, objective-aligned practice items for the four subtopics tracked in CertLab:
   * ms9_identity_entra      - Microsoft Entra ID (formerly Azure AD) as cloud
@@ -44,7 +44,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Cloud identity/access management (formerly Azure AD) = Microsoft Entra ID.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft Entra ID"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft Entra ID"],
     },
     {
         "id": "ms900-sec-002", "exam": "ms900", "domain": "ms9_security_compliance",
@@ -70,7 +70,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Two or more verification factors at sign-in = MFA.",
         },
-        "references": ["Microsoft Learn (MS-900): Multifactor authentication"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Multifactor authentication"],
     },
     {
         "id": "ms900-sec-003", "exam": "ms900", "domain": "ms9_security_compliance",
@@ -95,7 +95,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Sign in once, reach many apps = single sign-on (SSO).",
         },
-        "references": ["Microsoft Learn (MS-900): Single sign-on"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Single sign-on"],
     },
     {
         "id": "ms900-sec-004", "exam": "ms900", "domain": "ms9_security_compliance",
@@ -120,7 +120,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Policy-based sign-in decisions from signals (user/device/location/risk) = Conditional Access.",
         },
-        "references": ["Microsoft Learn (MS-900): Conditional Access"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Conditional Access"],
     },
     {
         "id": "ms900-sec-005", "exam": "ms900", "domain": "ms9_security_compliance",
@@ -134,7 +134,7 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "Azure AD is now Microsoft Entra ID.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft Entra ID"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft Entra ID"],
     },
 
     # ===== ms9_threat_protection ============================================
@@ -161,7 +161,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Safe Links + Safe Attachments for email = Microsoft Defender for Office 365.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft Defender for Office 365"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft Defender for Office 365"],
     },
     {
         "id": "ms900-sec-007", "exam": "ms900", "domain": "ms9_security_compliance",
@@ -187,7 +187,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Unified cross-domain detection and response across endpoint, email, identity, apps = Microsoft Defender XDR.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft Defender XDR"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft Defender XDR"],
     },
     {
         "id": "ms900-sec-008", "exam": "ms900", "domain": "ms9_security_compliance",
@@ -212,7 +212,7 @@ QUESTIONS = [
             },
             "exam_pattern": "A measured security-posture score with improvement actions = Microsoft Secure Score.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft Secure Score"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft Secure Score"],
     },
     {
         "id": "ms900-sec-009", "exam": "ms900", "domain": "ms9_security_compliance",
@@ -227,7 +227,7 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "Sandbox detonation of email attachments = Safe Attachments; click-time URL checks = Safe Links.",
         },
-        "references": ["Microsoft Learn (MS-900): Defender for Office 365 Safe Attachments"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Defender for Office 365 Safe Attachments"],
     },
 
     # ===== ms9_compliance_purview ===========================================
@@ -255,7 +255,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Detect and prevent oversharing of sensitive data = DLP (Microsoft Purview).",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft Purview Data Loss Prevention"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft Purview Data Loss Prevention"],
     },
     {
         "id": "ms900-sec-011", "exam": "ms900", "domain": "ms9_security_compliance",
@@ -281,7 +281,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Classify and protect content (encryption, markings) = sensitivity labels.",
         },
-        "references": ["Microsoft Learn (MS-900): Sensitivity labels"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Sensitivity labels"],
     },
     {
         "id": "ms900-sec-012", "exam": "ms900", "domain": "ms9_security_compliance",
@@ -306,7 +306,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Keep-then-dispose of content for compliance = retention labels/policies.",
         },
-        "references": ["Microsoft Learn (MS-900): Retention in Microsoft Purview"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Retention in Microsoft Purview"],
     },
     {
         "id": "ms900-sec-013", "exam": "ms900", "domain": "ms9_security_compliance",
@@ -330,7 +330,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Find / hold / collect / export content for legal cases = eDiscovery (Microsoft Purview).",
         },
-        "references": ["Microsoft Learn (MS-900): eDiscovery"],
+        "references": ["Microsoft Learn (M365 Fundamentals): eDiscovery"],
     },
 
     # ===== ms9_zero_trust_privacy ===========================================
@@ -357,7 +357,7 @@ QUESTIONS = [
             },
             "exam_pattern": "'Never trust, always verify' - verify explicitly / least privilege / assume breach = Zero Trust.",
         },
-        "references": ["Microsoft Learn (MS-900): Zero Trust principles"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Zero Trust principles"],
     },
     {
         "id": "ms900-sec-015", "exam": "ms900", "domain": "ms9_security_compliance",
@@ -382,7 +382,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Microsoft's audit reports and compliance certifications = Service Trust Portal.",
         },
-        "references": ["Microsoft Learn (MS-900): Service Trust Portal"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Service Trust Portal"],
     },
     {
         "id": "ms900-sec-016", "exam": "ms900", "domain": "ms9_security_compliance",
@@ -407,6 +407,6 @@ QUESTIONS = [
             },
             "exam_pattern": "Privacy-risk management and subject rights requests = Microsoft Priva.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft Priva"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft Priva"],
     },
 ]

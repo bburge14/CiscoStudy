@@ -1,4 +1,4 @@
-"""Microsoft 365 Fundamentals (MS-900) pool - Domain 1: Cloud Concepts.
+"""Microsoft 365 Fundamentals pool - Domain 1: Cloud Concepts.
 
 Original, objective-aligned practice items for the three Cloud Concepts
 subtopics tracked in CertLab:
@@ -47,7 +47,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Ready-to-use, provider-managed, subscription software = SaaS; Microsoft 365 is the classic SaaS example.",
         },
-        "references": ["Microsoft Learn (MS-900): Describe cloud concepts - cloud services (SaaS)"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Describe cloud concepts - cloud services (SaaS)"],
     },
     {
         "id": "ms900-con-002", "exam": "ms900", "domain": "ms9_cloud_concepts",
@@ -73,7 +73,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Buy-and-own hardware = CapEx; pay-as-you-go cloud subscription = OpEx.",
         },
-        "references": ["Microsoft Learn (MS-900): Describe the benefits of cloud services (CapEx vs OpEx)"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Describe the benefits of cloud services (CapEx vs OpEx)"],
     },
     {
         "id": "ms900-con-003", "exam": "ms900", "domain": "ms9_cloud_concepts",
@@ -98,7 +98,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Grow or shrink capacity on demand = scalability/elasticity.",
         },
-        "references": ["Microsoft Learn (MS-900): Describe the benefits of cloud services (scalability)"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Describe the benefits of cloud services (scalability)"],
     },
     {
         "id": "ms900-con-004", "exam": "ms900", "domain": "ms9_cloud_concepts",
@@ -122,7 +122,7 @@ QUESTIONS = [
             },
             "exam_pattern": "In SaaS the provider patches/updates the software; Microsoft keeps Microsoft 365 always up to date.",
         },
-        "references": ["Microsoft Learn (MS-900): Describe the benefits of cloud services (SaaS responsibilities)"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Describe the benefits of cloud services (SaaS responsibilities)"],
     },
     {
         "id": "ms900-con-005", "exam": "ms900", "domain": "ms9_cloud_concepts",
@@ -147,7 +147,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Provider-owned, internet-delivered, multi-tenant service = public cloud (Microsoft 365).",
         },
-        "references": ["Microsoft Learn (MS-900): Describe cloud concepts (public, private, hybrid)"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Describe cloud concepts (public, private, hybrid)"],
     },
     {
         "id": "ms900-con-006", "exam": "ms900", "domain": "ms9_cloud_concepts",
@@ -162,7 +162,7 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "Fully managed, subscription-based application delivered over the internet = SaaS.",
         },
-        "references": ["Microsoft Learn (MS-900): Describe cloud concepts (SaaS)"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Describe cloud concepts (SaaS)"],
     },
 
     # ===== ms9_m365_vs_office ===============================================
@@ -190,7 +190,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Standalone Office = installed apps only; Microsoft 365 adds cloud services, multi-device, and continuous updates.",
         },
-        "references": ["Microsoft Learn (MS-900): Differences between Microsoft 365 and Office"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Differences between Microsoft 365 and Office"],
     },
     {
         "id": "ms900-con-008", "exam": "ms900", "domain": "ms9_cloud_concepts",
@@ -215,7 +215,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Subscription (Microsoft 365) = always up to date with new features; perpetual Office = security/quality fixes only.",
         },
-        "references": ["Microsoft Learn (MS-900): Differences between Microsoft 365 and Office"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Differences between Microsoft 365 and Office"],
     },
     {
         "id": "ms900-con-009", "exam": "ms900", "domain": "ms9_cloud_concepts",
@@ -240,7 +240,7 @@ QUESTIONS = [
             },
             "exam_pattern": "The subscription desktop Office suite in Microsoft 365 is called 'Microsoft 365 Apps'.",
         },
-        "references": ["Microsoft Learn (MS-900): Microsoft 365 Apps"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft 365 Apps"],
     },
     {
         "id": "ms900-con-010", "exam": "ms900", "domain": "ms9_cloud_concepts",
@@ -265,7 +265,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Multi-device install + real-time cloud co-authoring = Microsoft 365 subscription.",
         },
-        "references": ["Microsoft Learn (MS-900): Differences between Microsoft 365 and Office"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Differences between Microsoft 365 and Office"],
     },
     {
         "id": "ms900-con-011", "exam": "ms900", "domain": "ms9_cloud_concepts",
@@ -290,7 +290,7 @@ QUESTIONS = [
             },
             "exam_pattern": "The cloud services (email, storage, Teams) are the key add Microsoft 365 brings over standalone Office.",
         },
-        "references": ["Microsoft Learn (MS-900): Differences between Microsoft 365 and Office"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Differences between Microsoft 365 and Office"],
     },
 
     # ===== ms9_cloud_adoption ===============================================
@@ -318,7 +318,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Cloud adoption enables secure anywhere-access, a key enabler of hybrid/remote work.",
         },
-        "references": ["Microsoft Learn (MS-900): Reasons to adopt cloud services"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Reasons to adopt cloud services"],
     },
     {
         "id": "ms900-con-013", "exam": "ms900", "domain": "ms9_cloud_concepts",
@@ -343,7 +343,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Cloud is internet-delivered, so reliable connectivity/bandwidth is a key adoption consideration.",
         },
-        "references": ["Microsoft Learn (MS-900): Cloud adoption considerations"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Cloud adoption considerations"],
     },
     {
         "id": "ms900-con-014", "exam": "ms900", "domain": "ms9_cloud_concepts",
@@ -367,7 +367,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Cloud adoption wins: less owned hardware/maintenance and stronger business continuity - not freedom from internet or compliance.",
         },
-        "references": ["Microsoft Learn (MS-900): Reasons to adopt cloud services"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Reasons to adopt cloud services"],
     },
     {
         "id": "ms900-con-015", "exam": "ms900", "domain": "ms9_cloud_concepts",
@@ -392,7 +392,7 @@ QUESTIONS = [
             },
             "exam_pattern": "Cloud adoption offloads infrastructure and maintenance to the provider - a key draw for small IT teams.",
         },
-        "references": ["Microsoft Learn (MS-900): Reasons to adopt cloud services"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Reasons to adopt cloud services"],
     },
     {
         "id": "ms900-con-016", "exam": "ms900", "domain": "ms9_cloud_concepts",
@@ -407,6 +407,6 @@ QUESTIONS = [
             "distractors": {},
             "exam_pattern": "Subscription / pay-as-you-go = OpEx; up-front owned hardware = CapEx.",
         },
-        "references": ["Microsoft Learn (MS-900): Describe the benefits of cloud services (OpEx)"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Describe the benefits of cloud services (OpEx)"],
     },
 ]
