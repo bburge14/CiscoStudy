@@ -6486,14 +6486,14 @@
         "A"
       ],
       "explanation": {
-        "correct": "Remote journaling (a form of electronic vaulting) streams transaction logs offsite in near real time, so very little data is lost if the primary site fails - a small RPO.",
+        "correct": "Remote journaling streams transaction LOGS offsite in near real time, so very little data is lost if the primary site fails - a small RPO. (It differs from electronic vaulting, which transfers bulk backup data in periodic batches, and from database shadowing, which keeps a real-time duplicate.)",
         "distractors": {
           "A": "",
           "B": "Printing reports is not a data-recovery mechanism.",
           "C": "Monthly local tapes leave a large data-loss window and sit at the primary location.",
           "D": "An annual backup leaves an enormous RPO."
         },
-        "exam_pattern": "Near-real-time offsite transaction logs = remote journaling/electronic vaulting -> small RPO."
+        "exam_pattern": "Near-real-time offsite transaction logs = remote journaling -> small RPO (electronic vaulting = periodic batch transfer; database shadowing = real-time duplicate)."
       },
       "references": [
         "ISACA CISA Review Manual: Domain 4 — Electronic vaulting and remote journaling"
