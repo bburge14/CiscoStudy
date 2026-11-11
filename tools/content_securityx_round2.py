@@ -3182,7 +3182,7 @@ QUESTIONS = [
                 "make a malicious file appear old and benign. Which investigative approach BEST counters this "
                 "timestamp manipulation?",
         "options": [
-            {"id": "A", "text": "Cross-correlate multiple independent evidence sources that are harder to forge in lockstep - e.g., filesystem journal/$MFT metadata vs $STANDARD_INFO timestamps, centralized logs, and other artifacts - rather than trusting a single displayed timestamp"},
+            {"id": "A", "text": "Cross-correlate multiple independent evidence sources that are harder to forge in lockstep - e.g., NTFS $MFT $STANDARD_INFORMATION ($SI) vs $FILE_NAME ($FN) timestamps, $LogFile/$UsnJrnl journals, centralized logs, and other artifacts - rather than trusting a single displayed timestamp"},
             {"id": "B", "text": "Trust the file's displayed modified timestamp as authoritative"},
             {"id": "C", "text": "Conclude the file is benign because it looks old"},
             {"id": "D", "text": "Abandon the timeline since timestamps can be changed"},
@@ -3190,7 +3190,7 @@ QUESTIONS = [
         "correct": ["A"],
         "explanation": {
             "correct": "Timestomping typically alters the easily changed timestamps, but corroborating artifacts "
-                       "(filesystem journals, $MFT vs $STANDARD_INFO discrepancies, centralized/external logs) are harder to alter consistently; cross-correlating independent sources exposes the manipulation and reconstructs the true timeline.",
+                       "(filesystem journals, $MFT $STANDARD_INFORMATION vs $FILE_NAME discrepancies, centralized/external logs) are harder to alter consistently; cross-correlating independent sources exposes the manipulation and reconstructs the true timeline.",
             "distractors": {
                 "B": "Trusting the displayed timestamp is exactly what the attacker's timestomping exploits.",
                 "C": "Appearing old is the deception; corroboration is needed, not assumption of benignity.",
