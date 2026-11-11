@@ -4371,7 +4371,7 @@
         },
         {
           "id": "D",
-          "text": "Viva Goals"
+          "text": "Viva Learning"
         }
       ],
       "correct": [
@@ -4383,7 +4383,7 @@
           "A": "Microsoft Intune manages devices, not an employee experience portal.",
           "B": "Power Automate builds workflows, unrelated to an employee home base.",
           "C": "",
-          "D": "Viva Goals is for setting and tracking objectives (OKRs), not a news/resource home base."
+          "D": "Viva Learning centralizes training content and courses inside Teams, not a news/resource home base."
         },
         "exam_pattern": "Employee home base/gateway in Teams (news, dashboard, resources) = Viva Connections."
       },
@@ -4484,11 +4484,11 @@
       "subtopic": "ms9_analytics_copilot",
       "difficulty": 2,
       "type": "mcq",
-      "stem": "A leadership team wants to set measurable objectives and key results (OKRs), align teams to them, and track progress in one place connected to their daily tools. Which Microsoft Viva module is built for goal setting and alignment?",
+      "stem": "A company wants to give employees, managers, and leaders personalized, privacy-protected insights into work patterns - focus time, meeting load, and collaboration habits - to improve productivity and wellbeing. Which Microsoft Viva module provides this?",
       "options": [
         {
           "id": "A",
-          "text": "Viva Learning"
+          "text": "Viva Insights"
         },
         {
           "id": "B",
@@ -4500,24 +4500,24 @@
         },
         {
           "id": "D",
-          "text": "Viva Goals"
+          "text": "Microsoft Forms"
         }
       ],
       "correct": [
-        "D"
+        "A"
       ],
       "explanation": {
-        "correct": "Viva Goals is the objectives-and-key-results (OKR) module for setting, aligning, and tracking goals across teams, integrated with tools like Teams.",
+        "correct": "Viva Insights delivers personalized, privacy-protected productivity and wellbeing insights (focus/quiet time, meeting and collaboration habits) for individuals, with aggregated, de-identified analytics for managers and leaders.",
         "distractors": {
-          "A": "Viva Learning centralizes training content, not goal tracking.",
-          "B": "OneDrive stores files; it does not manage objectives.",
-          "C": "Microsoft Whiteboard is a brainstorming canvas, not OKR management.",
-          "D": ""
+          "A": "",
+          "B": "OneDrive stores personal files; it does not analyze work patterns.",
+          "C": "Microsoft Whiteboard is a collaborative brainstorming canvas, not analytics.",
+          "D": "Microsoft Forms creates surveys and quizzes, not productivity insights."
         },
-        "exam_pattern": "OKRs - set/align/track goals = Viva Goals."
+        "exam_pattern": "Productivity & wellbeing analytics = Viva Insights; Viva Learning = training; Viva Connections = intranet gateway; Viva Engage = communities."
       },
       "references": [
-        "Microsoft Learn (M365 Fundamentals): Microsoft Viva Goals"
+        "Microsoft Learn (M365 Fundamentals): Microsoft Viva Insights"
       ]
     },
     {
@@ -6958,14 +6958,14 @@
         "D"
       ],
       "explanation": {
-        "correct": "Microsoft 365 F1 is the entry frontline plan focused on basic collaboration (such as Teams and SharePoint) for deskless staff; it does not include the web or desktop Office apps that F3 adds.",
+        "correct": "Microsoft 365 F1 is the entry frontline plan focused on basic collaboration (such as Teams and SharePoint) for deskless staff; it includes read-only Office for the web and mobile apps, while F3 adds full web/mobile editing (the desktop Office apps are in neither frontline plan).",
         "distractors": {
           "A": "Business Premium is an SMB plan with desktop apps and advanced security, not an entry frontline plan.",
           "B": "E5 is the premium enterprise plan - far more than entry frontline staff need, and much costlier.",
           "C": "Microsoft 365 Apps for enterprise is just the Office apps suite, not a frontline user plan.",
           "D": ""
         },
-        "exam_pattern": "Lowest-cost frontline, basic collaboration, no Office apps = Microsoft 365 F1 (F3 adds web/mobile apps)."
+        "exam_pattern": "Lowest-cost frontline, basic collaboration = Microsoft 365 F1 (read-only web/mobile Office; F3 adds full editing; no desktop apps in either)."
       },
       "references": [
         "Microsoft Learn (M365 Fundamentals): Microsoft 365 frontline plans (F1 vs F3)"

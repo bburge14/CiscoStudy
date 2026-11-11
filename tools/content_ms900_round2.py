@@ -1115,7 +1115,7 @@ QUESTIONS = [
         "stem": "A company wants a curated 'home base' inside Microsoft Teams where employees see company news, a resource dashboard, and quick links - acting as a gateway to the digital workplace. Which Microsoft Viva module provides this employee-experience entry point?",
         "options": [
             {"id": "A", "text": "Viva Connections"},
-            {"id": "B", "text": "Viva Goals"},
+            {"id": "B", "text": "Viva Learning"},
             {"id": "C", "text": "Microsoft Intune"},
             {"id": "D", "text": "Power Automate"},
         ],
@@ -1123,7 +1123,7 @@ QUESTIONS = [
         "explanation": {
             "correct": "Viva Connections provides a personalized gateway to the digital workplace inside Teams - company news, a dashboard of resources, and a feed - as the employee's home base.",
             "distractors": {
-                "B": "Viva Goals is for setting and tracking objectives (OKRs), not a news/resource home base.",
+                "B": "Viva Learning centralizes training content and courses inside Teams, not a news/resource home base.",
                 "C": "Microsoft Intune manages devices, not an employee experience portal.",
                 "D": "Power Automate builds workflows, unrelated to an employee home base.",
             },
@@ -1178,24 +1178,24 @@ QUESTIONS = [
     {
         "id": "ms900-apps-r2-041", "exam": "ms900", "domain": "ms9_apps_services",
         "subtopic": "ms9_analytics_copilot", "difficulty": 2, "type": "mcq",
-        "stem": "A leadership team wants to set measurable objectives and key results (OKRs), align teams to them, and track progress in one place connected to their daily tools. Which Microsoft Viva module is built for goal setting and alignment?",
+        "stem": "A company wants to give employees, managers, and leaders personalized, privacy-protected insights into work patterns - focus time, meeting load, and collaboration habits - to improve productivity and wellbeing. Which Microsoft Viva module provides this?",
         "options": [
-            {"id": "A", "text": "Viva Learning"},
+            {"id": "A", "text": "Viva Insights"},
             {"id": "B", "text": "Microsoft Whiteboard"},
             {"id": "C", "text": "OneDrive"},
-            {"id": "D", "text": "Viva Goals"},
+            {"id": "D", "text": "Microsoft Forms"},
         ],
-        "correct": ["D"],
+        "correct": ["A"],
         "explanation": {
-            "correct": "Viva Goals is the objectives-and-key-results (OKR) module for setting, aligning, and tracking goals across teams, integrated with tools like Teams.",
+            "correct": "Viva Insights delivers personalized, privacy-protected productivity and wellbeing insights (focus/quiet time, meeting and collaboration habits) for individuals, with aggregated, de-identified analytics for managers and leaders.",
             "distractors": {
-                "A": "Viva Learning centralizes training content, not goal tracking.",
-                "B": "Microsoft Whiteboard is a brainstorming canvas, not OKR management.",
-                "C": "OneDrive stores files; it does not manage objectives.",
+                "B": "Microsoft Whiteboard is a collaborative brainstorming canvas, not analytics.",
+                "C": "OneDrive stores personal files; it does not analyze work patterns.",
+                "D": "Microsoft Forms creates surveys and quizzes, not productivity insights.",
             },
-            "exam_pattern": "OKRs - set/align/track goals = Viva Goals.",
+            "exam_pattern": "Productivity & wellbeing analytics = Viva Insights; Viva Learning = training; Viva Connections = intranet gateway; Viva Engage = communities.",
         },
-        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft Viva Goals"],
+        "references": ["Microsoft Learn (M365 Fundamentals): Microsoft Viva Insights"],
     },
     {
         "id": "ms900-apps-r2-042", "exam": "ms900", "domain": "ms9_apps_services",
@@ -2467,13 +2467,13 @@ QUESTIONS = [
         ],
         "correct": ["B"],
         "explanation": {
-            "correct": "Microsoft 365 F1 is the entry frontline plan focused on basic collaboration (such as Teams and SharePoint) for deskless staff; it does not include the web or desktop Office apps that F3 adds.",
+            "correct": "Microsoft 365 F1 is the entry frontline plan focused on basic collaboration (such as Teams and SharePoint) for deskless staff; it includes read-only Office for the web and mobile apps, while F3 adds full web/mobile editing (the desktop Office apps are in neither frontline plan).",
             "distractors": {
                 "A": "E5 is the premium enterprise plan - far more than entry frontline staff need, and much costlier.",
                 "C": "Business Premium is an SMB plan with desktop apps and advanced security, not an entry frontline plan.",
                 "D": "Microsoft 365 Apps for enterprise is just the Office apps suite, not a frontline user plan.",
             },
-            "exam_pattern": "Lowest-cost frontline, basic collaboration, no Office apps = Microsoft 365 F1 (F3 adds web/mobile apps).",
+            "exam_pattern": "Lowest-cost frontline, basic collaboration = Microsoft 365 F1 (read-only web/mobile Office; F3 adds full editing; no desktop apps in either).",
         },
         "references": ["Microsoft Learn (M365 Fundamentals): Microsoft 365 frontline plans (F1 vs F3)"],
     },
