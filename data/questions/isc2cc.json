@@ -5810,7 +5810,7 @@
           "A": "",
           "B": "72.14.200.5 is a public, internet-routable address.",
           "C": "8.8.8.8 is a well-known public DNS address, routable on the internet.",
-          "D": "203.0.113.0/24 is a public documentation range, not one of the RFC 1918 private ranges."
+          "D": "203.0.113.0/24 is a reserved documentation range (RFC 5737, TEST-NET-3), not one of the RFC 1918 private ranges."
         },
         "exam_pattern": "RFC 1918 private ranges: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16."
       },
@@ -5973,7 +5973,7 @@
       "subtopic": "cc_network_threats_attacks",
       "difficulty": 3,
       "type": "mcq",
-      "stem": "Instead of a mass email, an attacker sends the CFO a personalized message that references a real project and appears to come from the CEO, urgently requesting a wire transfer. This targeted attack is:",
+      "stem": "Instead of a mass email, an attacker sends a specific accounts-payable clerk a personalized message that references a real project and appears to come from a manager, urgently requesting a wire transfer. This targeted attack is:",
       "options": [
         {
           "id": "A",
@@ -6403,7 +6403,7 @@
       "subtopic": "cc_network_defense",
       "difficulty": 2,
       "type": "mcq",
-      "stem": "The most extreme way to isolate a highly sensitive system is to keep it physically disconnected from the internet and all untrusted networks. This isolation is known as an:",
+      "stem": "The most extreme way to isolate a highly sensitive system is to keep it physically disconnected from the internet and all untrusted networks. This isolation is known as a(n):",
       "options": [
         {
           "id": "A",

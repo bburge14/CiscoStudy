@@ -69,7 +69,7 @@ QUESTIONS = [
             "correct": "Dynamic membership rules use the form (property -operator \"value\"); -eq tests equality, so "
                        "(user.department -eq \"Sales\") selects users whose department equals Sales.",
             "distractors": {
-                "A": "-contains checks whether a multi-valued property includes a value; it is the wrong operator for a single-valued equality test, and the quotes are missing.",
+                "A": "-contains is a substring (partial-string) match - it would also match values like 'Presales'/'Wholesales' - not an exact-equality operator, and the quotes are missing.",
                 "C": "== and single quotes are not valid dynamic membership rule syntax (that is programming syntax, not the rule builder).",
                 "D": "match(...) is not a valid dynamic membership operator or function.",
             },
@@ -988,24 +988,27 @@ QUESTIONS = [
     {
         "id": "az500-net-r2-008", "exam": "az500", "domain": "az500_networking",
         "subtopic": "az500_network_security", "difficulty": 2, "type": "mcq",
-        "stem": "After an incident you need a record of which flows an NSG allowed and denied, so you can "
-                "analyze traffic patterns and top talkers over time. Which capability captures this?",
+        "stem": "After an incident you need a record of which flows were allowed and denied in your virtual "
+                "network (including which NSG rule applied), so you can analyze traffic patterns and top "
+                "talkers over time. Which current capability captures this?",
         "options": [
-            {"id": "A", "text": "NSG flow logs (via Network Watcher), optionally with Traffic Analytics"},
+            {"id": "A", "text": "Virtual network (VNet) flow logs via Network Watcher, with Traffic Analytics"},
             {"id": "B", "text": "A diagnostic setting on a Key Vault"},
             {"id": "C", "text": "Microsoft Entra sign-in logs"},
             {"id": "D", "text": "A stored access policy"},
         ],
         "correct": ["A"],
         "explanation": {
-            "correct": "NSG flow logs (through Network Watcher) record allowed/denied 5-tuple flows to a storage "
-                       "account; Traffic Analytics can then process them into insights such as top talkers and traffic patterns.",
+            "correct": "VNet flow logs (through Network Watcher) record allowed/denied 5-tuple flows at the virtual "
+                       "network level - including the NSG rule that applied - to a storage account; Traffic Analytics "
+                       "processes them into insights such as top talkers and traffic patterns. VNet flow logs are the "
+                       "current replacement for the retiring NSG flow logs.",
             "distractors": {
                 "B": "A Key Vault diagnostic setting logs vault operations, not network flows through an NSG.",
                 "C": "Entra sign-in logs record authentication events, not network traffic allowed/denied by an NSG.",
                 "D": "A stored access policy constrains storage SAS tokens; it does not capture flow records.",
             },
-            "exam_pattern": "Record allowed/denied network flows for analysis = NSG flow logs (Network Watcher) + Traffic Analytics.",
+            "exam_pattern": "Record allowed/denied network flows for analysis = VNet flow logs (Network Watcher) + Traffic Analytics (replacing retiring NSG flow logs).",
         },
         "references": ["Microsoft Learn (AZ-500): NSG flow logs and Traffic Analytics"],
     },
@@ -1743,9 +1746,9 @@ QUESTIONS = [
     {
         "id": "az500-comp-r2-015", "exam": "az500", "domain": "az500_compute_storage_db",
         "subtopic": "az500_storage_security", "difficulty": 3, "type": "mcq",
-        "stem": "An Azure Files SMB share must authorize cloud-only Microsoft Entra users with NTFS "
-                "permissions, and clients should not need line-of-sight to any domain controller. Which "
-                "identity source for Azure Files meets this?",
+        "stem": "An Azure Files SMB share must authorize hybrid identities (on-premises AD accounts synced "
+                "to Microsoft Entra ID) with NTFS permissions, and clients should not need line-of-sight to "
+                "any domain controller. Which identity source for Azure Files meets this?",
         "options": [
             {"id": "A", "text": "On-premises Active Directory Domain Services (AD DS)"},
             {"id": "B", "text": "Microsoft Entra Kerberos"},
@@ -1755,13 +1758,13 @@ QUESTIONS = [
         "correct": ["B"],
         "explanation": {
             "correct": "Microsoft Entra Kerberos authentication for Azure Files lets Microsoft Entra ID issue Kerberos "
-                       "tickets so Entra-joined clients authenticate to the SMB share without needing network line-of-sight to domain controllers - well suited to cloud-only identities.",
+                       "tickets so Entra-joined clients authenticate to the SMB share without needing network line-of-sight to domain controllers - the generally available scenario for hybrid identities synced to Microsoft Entra ID.",
             "distractors": {
                 "A": "AD DS requires clients to reach on-premises domain controllers for Kerberos, which the requirement forbids.",
                 "C": "Account keys grant full shared-key access with no per-user NTFS identity, defeating identity-based authorization.",
                 "D": "A per-user SAS is a token-based grant, not identity-based SMB authentication with NTFS permissions.",
             },
-            "exam_pattern": "Azure Files identity-based SMB auth: AD DS, Entra Domain Services, or Entra Kerberos; Entra Kerberos suits cloud-only users with no DC line-of-sight.",
+            "exam_pattern": "Azure Files identity-based SMB auth: AD DS, Entra Domain Services, or Entra Kerberos; Entra Kerberos (GA for hybrid identities) needs no DC line-of-sight.",
         },
         "references": ["Microsoft Learn (AZ-500): Azure Files identity-based authentication (Microsoft Entra Kerberos)"],
     },
