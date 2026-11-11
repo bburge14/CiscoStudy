@@ -2447,11 +2447,11 @@
         },
         {
           "id": "B",
-          "text": "Reconnaissance"
+          "text": "Reconnaissance and discovery"
         },
         {
           "id": "C",
-          "text": "Domain dominance"
+          "text": "Persistence and privilege escalation"
         },
         {
           "id": "D",
@@ -2462,11 +2462,11 @@
         "B"
       ],
       "explanation": {
-        "correct": "Account, group, and security-principal enumeration (LDAP/SAMR recon) is classified under the reconnaissance phase, where attackers map the environment before escalating.",
+        "correct": "Account, group, and security-principal enumeration (LDAP/SAMR recon) is classified under the reconnaissance and discovery phase, where attackers map the environment before escalating.",
         "distractors": {
-          "A": "Exfiltration is not one of MDI's named phases.",
+          "A": "Exfiltration detections fall under MDI's 'Other' alerts, not the reconnaissance and discovery phase.",
           "B": "",
-          "C": "Domain dominance covers domain-wide control (DCSync, Golden Ticket), not early enumeration.",
+          "C": "Persistence and privilege escalation covers maintaining domain-wide control (e.g., DCSync, Golden Ticket), not early enumeration.",
           "D": "Lateral movement covers moving between hosts with stolen credentials (e.g., pass-the-hash), not initial enumeration."
         },
         "exam_pattern": "Account/group enumeration (LDAP/SAMR) = reconnaissance phase."
@@ -2639,11 +2639,11 @@
         },
         {
           "id": "B",
-          "text": "Domain dominance"
+          "text": "Lateral movement"
         },
         {
           "id": "C",
-          "text": "Reconnaissance"
+          "text": "Reconnaissance and discovery"
         },
         {
           "id": "D",
@@ -2655,7 +2655,7 @@
         "C"
       ],
       "explanation": {
-        "correct": "MDI phases are reconnaissance, compromised credentials, lateral movement, and domain dominance; reconnaissance and domain dominance are two of them.",
+        "correct": "MDI groups detections into phases such as reconnaissance and discovery, credential access, lateral movement, and persistence and privilege escalation; reconnaissance and discovery and lateral movement are two of them.",
         "distractors": {
           "A": "Detonation refers to Safe Attachments sandboxing in Defender for Office 365, not an MDI phase.",
           "B": "",
@@ -3239,7 +3239,7 @@
         "distractors": {
           "A": "JIT VM access controls management-port exposure; it does not scan for vulnerabilities/secrets.",
           "B": "",
-          "C": "The legacy Log Analytics agent (MMA) is agent-based collection - the opposite of agentless - and is being retired.",
+          "C": "The legacy Log Analytics agent (MMA) is agent-based collection - the opposite of agentless - and was retired in 2024.",
           "D": "Adaptive network hardening recommends NSG rules; it is not a vulnerability/secrets scanner."
         },
         "exam_pattern": "Scan VM disks for vulns/secrets with no in-guest agent = agentless machine scanning."

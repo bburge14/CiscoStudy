@@ -455,18 +455,18 @@ QUESTIONS = [
                 "accounts and group memberships in Active Directory (for example via LDAP or SAMR queries). This "
                 "maps to which MDI attack phase?",
         "options": [
-            {"id": "A", "text": "Reconnaissance"},
-            {"id": "B", "text": "Domain dominance"},
+            {"id": "A", "text": "Reconnaissance and discovery"},
+            {"id": "B", "text": "Persistence and privilege escalation"},
             {"id": "C", "text": "Exfiltration"},
             {"id": "D", "text": "Lateral movement"},
         ],
         "correct": ["A"],
         "explanation": {
             "correct": "Account, group, and security-principal enumeration (LDAP/SAMR recon) is classified "
-                       "under the reconnaissance phase, where attackers map the environment before escalating.",
+                       "under the reconnaissance and discovery phase, where attackers map the environment before escalating.",
             "distractors": {
-                "B": "Domain dominance covers domain-wide control (DCSync, Golden Ticket), not early enumeration.",
-                "C": "Exfiltration is not one of MDI's named phases.",
+                "B": "Persistence and privilege escalation covers maintaining domain-wide control (e.g., DCSync, Golden Ticket), not early enumeration.",
+                "C": "Exfiltration detections fall under MDI's 'Other' alerts, not the reconnaissance and discovery phase.",
                 "D": "Lateral movement covers moving between hosts with stolen credentials (e.g., pass-the-hash), not initial enumeration.",
             },
             "exam_pattern": "Account/group enumeration (LDAP/SAMR) = reconnaissance phase.",
@@ -571,15 +571,16 @@ QUESTIONS = [
         "stem": "Microsoft Defender for Identity organizes detections around an attack kill chain. Which TWO "
                 "of the following are named MDI attack phases? (Choose two.)",
         "options": [
-            {"id": "A", "text": "Reconnaissance"},
-            {"id": "B", "text": "Domain dominance"},
+            {"id": "A", "text": "Reconnaissance and discovery"},
+            {"id": "B", "text": "Lateral movement"},
             {"id": "C", "text": "Detonation"},
             {"id": "D", "text": "Data loss prevention"},
         ],
         "correct": ["A", "B"],
         "explanation": {
-            "correct": "MDI phases are reconnaissance, compromised credentials, lateral movement, and domain "
-                       "dominance; reconnaissance and domain dominance are two of them.",
+            "correct": "MDI groups detections into phases such as reconnaissance and discovery, credential "
+                       "access, lateral movement, and persistence and privilege escalation; reconnaissance "
+                       "and discovery and lateral movement are two of them.",
             "distractors": {
                 "C": "Detonation refers to Safe Attachments sandboxing in Defender for Office 365, not an MDI phase.",
                 "D": "Data loss prevention is a Microsoft Purview capability, not an MDI attack phase.",
@@ -931,7 +932,7 @@ QUESTIONS = [
             "distractors": {
                 "B": "JIT VM access controls management-port exposure; it does not scan for vulnerabilities/secrets.",
                 "C": "Adaptive network hardening recommends NSG rules; it is not a vulnerability/secrets scanner.",
-                "D": "The legacy Log Analytics agent (MMA) is agent-based collection - the opposite of agentless - and is being retired.",
+                "D": "The legacy Log Analytics agent (MMA) is agent-based collection - the opposite of agentless - and was retired in 2024.",
             },
             "exam_pattern": "Scan VM disks for vulns/secrets with no in-guest agent = agentless machine scanning.",
         },
