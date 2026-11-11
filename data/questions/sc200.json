@@ -1,6 +1,6 @@
 {
   "exam": "sc200",
-  "count": 85,
+  "count": 200,
   "questions": [
     {
       "id": "sc200-dfc-001",
@@ -1722,6 +1722,4750 @@
       },
       "references": [
         "Microsoft Learn (SC-200): Create indicators for files, IPs, and URLs in Defender for Endpoint"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-001",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mde_endpoint",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A SOC must onboard pooled, non-persistent virtual desktop (VDI) instances that are re-imaged frequently to Microsoft Defender for Endpoint. Which onboarding approach is designed for this scenario?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The local onboarding script run once on the gold image only"
+        },
+        {
+          "id": "B",
+          "text": "Emailing each virtual desktop user the onboarding package"
+        },
+        {
+          "id": "C",
+          "text": "The non-persistent VDI onboarding package (single-entry, per-device-name reuse)"
+        },
+        {
+          "id": "D",
+          "text": "Enabling device discovery and waiting for the VMs to be found"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Defender for Endpoint provides a dedicated VDI onboarding package for non-persistent virtual desktops so repeatedly re-imaged instances register consistently instead of creating a new orphaned device object on every reboot.",
+        "distractors": {
+          "A": "Baking the generic local script into the gold image without the VDI package causes duplicate/short-lived device entries as instances are recreated.",
+          "B": "Onboarding is an administrative task; it is not performed by end users running packages.",
+          "C": "",
+          "D": "Device discovery finds unmanaged devices on the network; it does not onboard VMs to the service."
+        },
+        "exam_pattern": "Non-persistent VDI -> the dedicated VDI onboarding package; local script = small physical pilots."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Onboard non-persistent VDI devices to Microsoft Defender for Endpoint"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-002",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mde_endpoint",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Security wants an attack surface reduction (ASR) rule enforced, but during rollout they want users to be able to bypass a block (and continue) while the team captures the events. Which ASR rule mode fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Disabled (Not configured)"
+        },
+        {
+          "id": "B",
+          "text": "Warn mode"
+        },
+        {
+          "id": "C",
+          "text": "Audit mode"
+        },
+        {
+          "id": "D",
+          "text": "Block mode"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Warn mode behaves like Block but lets the user unblock (bypass) the action, typically for 24 hours, so disruption is captured without hard-stopping legitimate work during rollout.",
+        "distractors": {
+          "A": "Disabled/Not configured means the rule does nothing at all.",
+          "B": "",
+          "C": "Audit only records what would have happened; it never blocks, so users have nothing to bypass.",
+          "D": "Block enforces with no user bypass - the opposite of allowing the user to continue."
+        },
+        "exam_pattern": "Enforce but allow user bypass = Warn; measure only = Audit; hard enforce = Block."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Attack surface reduction rules modes (Audit, Block, Warn)"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-003",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mde_endpoint",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank (two words): The Microsoft Defender for Endpoint feature that prevents malware and unauthorized users or apps from turning off antivirus/real-time protection or changing core security settings is called ______ ______.",
+      "correct": [
+        "tamper protection"
+      ],
+      "explanation": {
+        "correct": "Tamper protection locks critical Microsoft Defender Antivirus settings (real-time protection, cloud-delivered protection, etc.) so they can't be disabled or altered by attackers, malware, or local changes outside approved management.",
+        "distractors": {},
+        "exam_pattern": "Stop AV/security settings from being disabled or changed = tamper protection."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Protect security settings with tamper protection"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-004",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mde_endpoint",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization wants onboarded devices to block outbound connections to known malicious or low-reputation IP addresses and domains at the network layer, for ALL processes (not just a browser). Which Defender for Endpoint capability provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Web content filtering"
+        },
+        {
+          "id": "B",
+          "text": "Controlled folder access"
+        },
+        {
+          "id": "C",
+          "text": "Device control"
+        },
+        {
+          "id": "D",
+          "text": "Network protection"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Network protection blocks connections to dangerous/low-reputation domains and IPs across the operating system (extending SmartScreen beyond Microsoft Edge to all processes).",
+        "distractors": {
+          "A": "Web content filtering blocks whole website categories for governance, not threat-reputation blocking for all processes.",
+          "B": "Controlled folder access guards folders against unauthorized writes (ransomware), not outbound network connections.",
+          "C": "Device control governs peripherals/removable media (e.g., USB), not network destinations.",
+          "D": ""
+        },
+        "exam_pattern": "Block malicious IP/domain connections for all processes = network protection (SmartScreen OS-wide)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Protect your network with network protection"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-005",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mde_endpoint",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Management asks you to prevent employees from browsing to gambling and adult website categories on managed devices, for acceptable-use reasons. Which Defender for Endpoint feature is intended for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Attack surface reduction rules"
+        },
+        {
+          "id": "B",
+          "text": "Safe Links"
+        },
+        {
+          "id": "C",
+          "text": "Web content filtering"
+        },
+        {
+          "id": "D",
+          "text": "Tamper protection"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Web content filtering blocks access to websites by category (e.g., adult content, gambling), reporting and enforcing acceptable-use policy on onboarded devices.",
+        "distractors": {
+          "A": "ASR rules block exploit/malware behaviors, not website categories.",
+          "B": "Safe Links is a Defender for Office 365 time-of-click URL feature, not endpoint category filtering.",
+          "C": "",
+          "D": "Tamper protection locks security settings; it has nothing to do with website categories."
+        },
+        "exam_pattern": "Block website CATEGORIES (acceptable use) = web content filtering; malicious destinations = network protection."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Web content filtering in Microsoft Defender for Endpoint"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-006",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mde_endpoint",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To defend against ransomware, a team wants only trusted applications to be able to modify files in protected folders such as Documents, blocking untrusted processes from writing to them. Which Defender for Endpoint capability does this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Automated investigation and remediation"
+        },
+        {
+          "id": "B",
+          "text": "Network protection"
+        },
+        {
+          "id": "C",
+          "text": "Live response"
+        },
+        {
+          "id": "D",
+          "text": "Controlled folder access"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Controlled folder access protects designated folders by allowing only trusted apps to write to them, blocking untrusted/unknown processes - a key anti-ransomware control.",
+        "distractors": {
+          "A": "AIR investigates and remediates alerts; it is not the folder write-protection control.",
+          "B": "Network protection blocks malicious network destinations, not file writes to folders.",
+          "C": "Live response is a manual remote shell for investigation, not a preventive folder guard.",
+          "D": ""
+        },
+        "exam_pattern": "Allow only trusted apps to write to key folders (anti-ransomware) = controlled folder access."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Protect important folders with controlled folder access"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-007",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mde_endpoint",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In Microsoft Defender Vulnerability Management, a security admin selects a recommendation and chooses 'Request remediation'. What does submitting the request actually do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It permanently removes the vulnerable software"
+        },
+        {
+          "id": "B",
+          "text": "It isolates all affected devices from the network"
+        },
+        {
+          "id": "C",
+          "text": "It creates a remediation task that flows to IT as a Microsoft Intune ticket for action"
+        },
+        {
+          "id": "D",
+          "text": "It immediately patches the affected devices"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A remediation request creates a tracked task that hands off to IT (as a Microsoft Intune ticket) - bridging security and IT. Submitting it does not itself change devices; the IT admin performs the remediation.",
+        "distractors": {
+          "A": "The request tracks remediation; it does not uninstall software on its own.",
+          "B": "Isolation is a response action on a device, not what a vulnerability remediation request does.",
+          "C": "",
+          "D": "The request does not apply patches; it assigns work to IT to remediate."
+        },
+        "exam_pattern": "DVM 'Request remediation' = a tracked task to IT (Intune ticket); it doesn't auto-fix devices."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Remediate vulnerabilities with Defender Vulnerability Management"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-008",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mde_endpoint",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A Defender Vulnerability Management recommendation cannot be acted on yet because a vendor patch is unavailable and a compensating third-party control is already in place. The team wants to stop it from skewing their exposure view for now, with a documented justification. What should they create?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A remediation request"
+        },
+        {
+          "id": "B",
+          "text": "An alert suppression rule"
+        },
+        {
+          "id": "C",
+          "text": "An exception on the recommendation (with a justification such as third-party control)"
+        },
+        {
+          "id": "D",
+          "text": "A custom detection rule"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "An exception excludes a specific security recommendation (with a justification like third-party control, alternate mitigation, or risk accepted) so it stops affecting the exposure view until it's revisited.",
+        "distractors": {
+          "A": "A remediation request assigns the fix to IT; it is not how you document a justified non-action.",
+          "B": "Alert suppression stops alerts from firing; it does not manage vulnerability recommendations.",
+          "C": "",
+          "D": "Custom detection rules generate alerts from queries; they are unrelated to recommendation exceptions."
+        },
+        "exam_pattern": "Justified 'we won't act on this recommendation now' = DVM exception (recommendation or CVE level)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Create exceptions in Microsoft Defender Vulnerability Management"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-009",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mde_endpoint",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A SOC notices unmanaged devices on the corporate network and wants Defender for Endpoint to actively probe discovered endpoints to enrich details (OS, open ports). Which device discovery mode should be configured?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Disable device discovery"
+        },
+        {
+          "id": "B",
+          "text": "Cloud Discovery"
+        },
+        {
+          "id": "C",
+          "text": "Standard discovery (active probing of discovered devices)"
+        },
+        {
+          "id": "D",
+          "text": "Basic discovery (passive observation only)"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Standard discovery (the default) uses onboarded devices to actively probe discovered endpoints, enriching inventory with richer details; Basic only passively observes traffic.",
+        "distractors": {
+          "A": "Disabling discovery stops finding unmanaged devices entirely.",
+          "B": "Cloud Discovery is a Defender for Cloud Apps feature that finds shadow-IT cloud apps from traffic logs, not endpoint device discovery.",
+          "C": "",
+          "D": "Basic discovery passively collects what it sees without active probing, so details are sparser."
+        },
+        "exam_pattern": "Active probing to enrich unmanaged devices = Standard discovery; passive = Basic."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Device discovery (Standard vs Basic) in Defender for Endpoint"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-010",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mde_endpoint",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A company runs a non-Microsoft antivirus as primary, so Microsoft Defender Antivirus is in passive mode. They still want Defender for Endpoint to remediate malicious artifacts it detects behind the scenes. Which capability must be enabled?",
+      "options": [
+        {
+          "id": "A",
+          "text": "EDR in block mode"
+        },
+        {
+          "id": "B",
+          "text": "Tamper protection"
+        },
+        {
+          "id": "C",
+          "text": "Attack surface reduction rules in Audit mode"
+        },
+        {
+          "id": "D",
+          "text": "Controlled folder access"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "EDR in block mode lets Defender for Endpoint block and remediate malicious artifacts found by EDR even when Microsoft Defender Antivirus is in passive mode (a third-party AV is primary).",
+        "distractors": {
+          "A": "",
+          "B": "Tamper protection locks AV settings; it does not enable post-breach remediation while AV is passive.",
+          "C": "ASR Audit only logs; it does not remediate anything.",
+          "D": "Controlled folder access guards folders from ransomware writes; it is not EDR-driven remediation."
+        },
+        "exam_pattern": "Remediate EDR detections while a third-party AV is primary (Defender AV passive) = EDR in block mode."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Endpoint detection and response (EDR) in block mode"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-011",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdo_office365",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An organization wants URLs in email (and in Teams and Office apps) checked for malicious content at the moment a user clicks them, not just at delivery. Which Defender for Office 365 feature provides this time-of-click protection?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Anti-spam policy"
+        },
+        {
+          "id": "B",
+          "text": "Safe Attachments"
+        },
+        {
+          "id": "C",
+          "text": "Zero-hour auto purge (ZAP)"
+        },
+        {
+          "id": "D",
+          "text": "Safe Links"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Safe Links rewrites and checks URLs at time of click (and supports Teams and Office apps), so a link that turns malicious after delivery is still caught when clicked.",
+        "distractors": {
+          "A": "Anti-spam filters unwanted bulk mail by reputation/content, not click-time URL verdicts.",
+          "B": "Safe Attachments detonates file attachments in a sandbox; it does not do time-of-click URL checks.",
+          "C": "ZAP retroactively removes already-delivered bad mail; it is not time-of-click URL protection.",
+          "D": ""
+        },
+        "exam_pattern": "Time-of-click URL protection (email/Teams/Office) = Safe Links; attachment detonation = Safe Attachments."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Safe Links in Microsoft Defender for Office 365"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-012",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdo_office365",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A message that passed filtering at delivery is later determined to be malware or phishing. Which Defender for Office 365 capability automatically acts on the message AFTER delivery by moving it out of the mailbox to quarantine?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dynamic Delivery"
+        },
+        {
+          "id": "B",
+          "text": "Safe Attachments"
+        },
+        {
+          "id": "C",
+          "text": "Outbound spam filtering"
+        },
+        {
+          "id": "D",
+          "text": "Zero-hour auto purge (ZAP)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Zero-hour auto purge (ZAP) retroactively detects and neutralizes malicious or spam messages that were already delivered, moving them to quarantine based on updated verdicts.",
+        "distractors": {
+          "A": "Dynamic Delivery is a Safe Attachments option that cuts delivery latency; it acts before delivery, not after.",
+          "B": "Safe Attachments detonates attachments at delivery time, not retroactively on delivered mail.",
+          "C": "Outbound spam filtering limits what your users send; it does not remediate delivered inbound mail.",
+          "D": ""
+        },
+        "exam_pattern": "Retroactively remove already-delivered bad mail = ZAP."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Zero-hour auto purge (ZAP) in Microsoft Defender for Office 365"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-013",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdo_office365",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A new tenant wants Microsoft's recommended baseline for anti-spam, anti-phishing, Safe Links, and Safe Attachments applied quickly and kept current automatically, without hand-tuning each policy. What should they enable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A single custom anti-spam policy"
+        },
+        {
+          "id": "B",
+          "text": "Preset security policies (Standard or Strict)"
+        },
+        {
+          "id": "C",
+          "text": "The Tenant Allow/Block List"
+        },
+        {
+          "id": "D",
+          "text": "Attack simulation training"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Preset security policies (Standard and Strict) apply Microsoft's recommended, automatically maintained protection settings across EOP and Defender for Office 365 - you just scope who they apply to.",
+        "distractors": {
+          "A": "A single custom policy must be hand-tuned and maintained; it is not the Microsoft-managed baseline.",
+          "B": "",
+          "C": "The Tenant Allow/Block List overrides individual verdicts; it is not a full protection baseline.",
+          "D": "Attack simulation training runs phishing drills; it does not configure mail protection policies."
+        },
+        "exam_pattern": "Microsoft-recommended, auto-maintained baseline = preset security policies (Standard/Strict)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Preset security policies in Defender for Office 365"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-014",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdo_office365",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A legitimate partner domain keeps getting filtered as spoofing, and separately the team wants to force-block a specific malicious sender and URL tenant-wide. Which Defender for Office 365 feature lets you override the service's verdicts with explicit allow/block entries?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Quarantine policies"
+        },
+        {
+          "id": "B",
+          "text": "Safe Attachments policy"
+        },
+        {
+          "id": "C",
+          "text": "Configuration analyzer"
+        },
+        {
+          "id": "D",
+          "text": "The Tenant Allow/Block List"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The Tenant Allow/Block List lets admins create explicit allow or block entries for senders/domains, URLs, files, and spoofed senders, overriding the filtering verdicts.",
+        "distractors": {
+          "A": "Quarantine policies define what recipients can do with quarantined messages; they do not set allow/block verdicts.",
+          "B": "Safe Attachments scans attachments; it is not the allow/block override list.",
+          "C": "Configuration analyzer compares your settings to recommended baselines; it does not create allow/block entries.",
+          "D": ""
+        },
+        "exam_pattern": "Explicitly allow/block senders, URLs, files, spoof = Tenant Allow/Block List."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Manage allows and blocks in the Tenant Allow/Block List"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-015",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdo_office365",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Analysts find that a clean newsletter was wrongly quarantined (false positive) and, separately, a phish that slipped through (false negative). They want Microsoft to re-examine both and improve filtering. Which Defender for Office 365 tool should they use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Attack simulation training"
+        },
+        {
+          "id": "B",
+          "text": "Secure Score"
+        },
+        {
+          "id": "C",
+          "text": "Submissions (admin submission to Microsoft)"
+        },
+        {
+          "id": "D",
+          "text": "Threat Explorer only"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The Submissions portal lets admins report false positives and false negatives (emails, URLs, attachments) to Microsoft for analysis, which also helps tune filtering.",
+        "distractors": {
+          "A": "Attack simulation training runs internal phishing drills; it is not a reporting channel to Microsoft.",
+          "B": "Secure Score recommends posture improvements; it does not submit messages for Microsoft analysis.",
+          "C": "",
+          "D": "Threat Explorer investigates and remediates mail, but reporting items to Microsoft for review is done through Submissions."
+        },
+        "exam_pattern": "Report false positive/negative mail to Microsoft = Submissions (admin submission)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Submit messages and files to Microsoft for analysis"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-016",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdo_office365",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A security team wants to control what end users can do with their own quarantined messages - for example, allow them to request release of quarantined phish but never self-release malware. Which Defender for Office 365 construct governs these recipient capabilities?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Preset security policies"
+        },
+        {
+          "id": "B",
+          "text": "Safe Links policy"
+        },
+        {
+          "id": "C",
+          "text": "Quarantine policies"
+        },
+        {
+          "id": "D",
+          "text": "Anti-spam policy"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Quarantine policies define what recipients can do with their quarantined messages (view, release, request release, block sender). Messages quarantined as malware or high-confidence phish can't be self-released by users regardless of the policy.",
+        "distractors": {
+          "A": "Preset security policies apply a baseline; the per-recipient quarantine capabilities are defined by quarantine policies.",
+          "B": "Safe Links handles URL time-of-click protection, not quarantine permissions.",
+          "C": "",
+          "D": "The anti-spam policy sets filtering verdicts/actions; the recipient's quarantine capabilities come from the quarantine policy it references."
+        },
+        "exam_pattern": "What users may do with quarantined mail (release/request) = quarantine policies."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Quarantine policies in Microsoft Defender for Office 365"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-017",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdo_office365",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Over time, several custom Defender for Office 365 policies have drifted from Microsoft's recommendations. Which tool compares your anti-spam, anti-phishing, Safe Links, and Safe Attachments settings against the Standard and Strict baselines and flags the gaps?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Threat Explorer"
+        },
+        {
+          "id": "B",
+          "text": "Attack simulation training"
+        },
+        {
+          "id": "C",
+          "text": "Configuration analyzer"
+        },
+        {
+          "id": "D",
+          "text": "The Submissions portal"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Configuration analyzer compares your current policy settings to the Standard and Strict recommended baselines and highlights where to adjust, helping keep policies aligned.",
+        "distractors": {
+          "A": "Threat Explorer hunts and remediates email; it does not audit policy settings against baselines.",
+          "B": "Attack simulation training runs phishing drills; it does not analyze policy drift.",
+          "C": "",
+          "D": "Submissions reports messages to Microsoft; it does not compare policy configurations."
+        },
+        "exam_pattern": "Compare policies to Standard/Strict and flag drift = configuration analyzer."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Configuration analyzer for security policies"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-018",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdi_identity",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Early in an intrusion, Microsoft Defender for Identity detects an attacker enumerating accounts and group memberships in Active Directory (for example via LDAP or SAMR queries). This maps to which MDI attack phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Exfiltration"
+        },
+        {
+          "id": "B",
+          "text": "Reconnaissance"
+        },
+        {
+          "id": "C",
+          "text": "Domain dominance"
+        },
+        {
+          "id": "D",
+          "text": "Lateral movement"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Account, group, and security-principal enumeration (LDAP/SAMR recon) is classified under the reconnaissance phase, where attackers map the environment before escalating.",
+        "distractors": {
+          "A": "Exfiltration is not one of MDI's named phases.",
+          "B": "",
+          "C": "Domain dominance covers domain-wide control (DCSync, Golden Ticket), not early enumeration.",
+          "D": "Lateral movement covers moving between hosts with stolen credentials (e.g., pass-the-hash), not initial enumeration."
+        },
+        "exam_pattern": "Account/group enumeration (LDAP/SAMR) = reconnaissance phase."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Reconnaissance alerts in Microsoft Defender for Identity"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-019",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdi_identity",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank (two words): Microsoft Defender for Identity alerts on pass-the-hash and pass-the-ticket activity during the ______ ______ phase, where an attacker reuses stolen credentials to move between hosts toward higher-value targets.",
+      "correct": [
+        "lateral movement"
+      ],
+      "explanation": {
+        "correct": "Pass-the-hash and pass-the-ticket are lateral movement techniques - reusing stolen credential material to pivot across machines within the environment.",
+        "distractors": {},
+        "exam_pattern": "Pass-the-hash / pass-the-ticket pivoting between hosts = lateral movement phase."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Lateral movement alerts in Microsoft Defender for Identity"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-020",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdi_identity",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "From the Microsoft Defender portal, an analyst investigating an MDI alert wants to contain a compromised on-premises Active Directory account by preventing it from signing in until re-enabled. Which Defender for Identity remediation action does this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Disable user (in Active Directory)"
+        },
+        {
+          "id": "B",
+          "text": "Lower the user's investigation priority"
+        },
+        {
+          "id": "C",
+          "text": "Add the user to a honeytoken tag"
+        },
+        {
+          "id": "D",
+          "text": "Create a lateral movement path"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The Disable user action disables the account at the Active Directory level, blocking sign-in and access to network resources until it is re-enabled (Suspend user disables the corresponding account at the Microsoft Entra ID level).",
+        "distractors": {
+          "A": "",
+          "B": "Investigation priority is a UEBA scoring concept, not a containment action.",
+          "C": "Honeytoken tags mark decoy accounts; they do not contain a real compromised account.",
+          "D": "Lateral movement paths are a visualization of pivot routes, not a remediation action."
+        },
+        "exam_pattern": "Contain on-prem AD account = Disable user (AD); cloud account = Suspend user (Entra ID)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Remediation actions in Microsoft Defender for Identity"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-021",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdi_identity",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "To let Microsoft Defender for Identity perform account remediation actions (such as forcing a password reset or disabling an account) in on-premises Active Directory with scoped, least-privilege rights, what should an administrator configure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Microsoft Sentinel watchlist"
+        },
+        {
+          "id": "B",
+          "text": "A honeytoken account"
+        },
+        {
+          "id": "C",
+          "text": "A Conditional Access policy"
+        },
+        {
+          "id": "D",
+          "text": "An action account (for example, a group managed service account) with the needed AD permissions"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "An action account - commonly a group managed service account (gMSA) granted only the specific AD permissions (e.g., reset password, modify userAccountControl) - lets MDI execute remediation with least privilege instead of broad rights.",
+        "distractors": {
+          "A": "Watchlists are Sentinel reference data; they do not grant MDI the rights to act in AD.",
+          "B": "A honeytoken is a decoy account for detection, not a service identity that performs remediation.",
+          "C": "Conditional Access governs cloud sign-in; it does not give MDI permission to remediate on-prem AD accounts.",
+          "D": ""
+        },
+        "exam_pattern": "Let MDI remediate AD accounts with least privilege = an action account (gMSA) with scoped permissions."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Manage action accounts in Microsoft Defender for Identity"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-022",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdi_identity",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Beyond detecting attacks, Microsoft Defender for Identity surfaces proactive recommendations to fix risky identity configurations (such as legacy protocols or unsecure account settings) to shrink the attack surface. What are these called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Identity security posture assessments (recommendations)"
+        },
+        {
+          "id": "B",
+          "text": "Lateral movement paths"
+        },
+        {
+          "id": "C",
+          "text": "Custom detection rules"
+        },
+        {
+          "id": "D",
+          "text": "Honeytoken tags"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Identity security posture assessments provide proactive recommendations (surfaced via Microsoft Secure Score) to remediate risky AD configurations and reduce the identity attack surface.",
+        "distractors": {
+          "A": "",
+          "B": "Lateral movement paths show how attackers could pivot; they are not posture recommendations.",
+          "C": "Custom detection rules generate alerts from queries; they are not MDI posture assessments.",
+          "D": "Honeytoken tags mark decoy accounts for detection, not configuration hardening guidance."
+        },
+        "exam_pattern": "Proactive 'fix risky identity configs' guidance = identity security posture assessments."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Identity security posture assessments in Defender for Identity"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-023",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdi_identity",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "Microsoft Defender for Identity organizes detections around an attack kill chain. Which TWO of the following are named MDI attack phases? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Detonation"
+        },
+        {
+          "id": "B",
+          "text": "Domain dominance"
+        },
+        {
+          "id": "C",
+          "text": "Reconnaissance"
+        },
+        {
+          "id": "D",
+          "text": "Data loss prevention"
+        }
+      ],
+      "correct": [
+        "B",
+        "C"
+      ],
+      "explanation": {
+        "correct": "MDI phases are reconnaissance, compromised credentials, lateral movement, and domain dominance; reconnaissance and domain dominance are two of them.",
+        "distractors": {
+          "A": "Detonation refers to Safe Attachments sandboxing in Defender for Office 365, not an MDI phase.",
+          "B": "",
+          "C": "",
+          "D": "Data loss prevention is a Microsoft Purview capability, not an MDI attack phase."
+        },
+        "exam_pattern": "MDI phases: reconnaissance -> compromised credentials -> lateral movement -> domain dominance."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Understand security alerts by attack phase in Defender for Identity"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-024",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdca_cloudapps",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company wants to outright block sign-in to a sanctioned cloud app from unmanaged devices in real time (not just limit actions during the session). Which Defender for Cloud Apps policy type, delivered through Conditional Access App Control, does this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A session policy"
+        },
+        {
+          "id": "B",
+          "text": "An anomaly detection policy"
+        },
+        {
+          "id": "C",
+          "text": "An access policy"
+        },
+        {
+          "id": "D",
+          "text": "A file policy"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Access policies use Conditional Access App Control to allow or block the sign-in/access to an app in real time (e.g., block from unmanaged devices). Session policies instead control actions WITHIN an allowed session (like blocking downloads).",
+        "distractors": {
+          "A": "Session policies monitor/limit activity inside an active session; they don't block the sign-in outright.",
+          "B": "Anomaly detection policies flag behavioral outliers after the fact; they don't block access inline.",
+          "C": "",
+          "D": "File policies inspect content in connected apps via API; they are not real-time access control."
+        },
+        "exam_pattern": "Block/allow the access itself in real time = access policy; control the live session = session policy."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Access policies in Microsoft Defender for Cloud Apps"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-025",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdca_cloudapps",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To gain deep visibility and governance over data and activities already stored in a sanctioned SaaS app (e.g., scan files for sensitive content, audit user activity), how should Defender for Cloud Apps be connected to that app?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Using an app connector (API connection) for that app"
+        },
+        {
+          "id": "B",
+          "text": "Using Cloud Discovery traffic logs"
+        },
+        {
+          "id": "C",
+          "text": "Using a Conditional Access App Control session policy"
+        },
+        {
+          "id": "D",
+          "text": "Using a Microsoft Sentinel watchlist"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "App connectors use the app's APIs to give deep visibility and governance over content and activities already in the sanctioned app (scan files, inspect activity logs, apply actions).",
+        "distractors": {
+          "A": "",
+          "B": "Cloud Discovery reveals which apps are used from traffic logs; it does not govern data inside an app.",
+          "C": "Session policies control live sessions in real time; they do not scan data at rest via API.",
+          "D": "Watchlists are Sentinel reference data; they are unrelated to connecting a SaaS app."
+        },
+        "exam_pattern": "Deep API governance over data already in a sanctioned app = app connector (API connection)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Connect apps to get visibility with app connectors"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-026",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdca_cloudapps",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Using an API-connected app, a SOC wants to continuously find files that contain credit-card numbers and are shared externally, then automatically remove external sharing. Which Defender for Cloud Apps policy type fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An access policy"
+        },
+        {
+          "id": "B",
+          "text": "A file policy"
+        },
+        {
+          "id": "C",
+          "text": "An app governance policy"
+        },
+        {
+          "id": "D",
+          "text": "A Cloud Discovery policy"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "File policies scan content in connected apps (e.g., for sensitive data and sharing state) and can apply governance actions such as removing external sharing or quarantining the file.",
+        "distractors": {
+          "A": "Access policies allow/block sign-in in real time; they do not inspect file content or sharing.",
+          "B": "",
+          "C": "App governance targets OAuth app permissions/behavior, not file content and sharing.",
+          "D": "Cloud Discovery policies watch for new/risky discovered apps, not file content."
+        },
+        "exam_pattern": "Find/act on sensitive or over-shared files in connected apps = file policy."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Create file policies in Microsoft Defender for Cloud Apps"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-027",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdca_cloudapps",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "The SOC is worried about risky third-party OAuth apps that users have consented to, which hold broad Microsoft Graph permissions to mailboxes and files. Which Defender for Cloud Apps capability is designed to monitor and govern these OAuth-connected apps?",
+      "options": [
+        {
+          "id": "A",
+          "text": "App governance (OAuth app monitoring)"
+        },
+        {
+          "id": "B",
+          "text": "Web content filtering"
+        },
+        {
+          "id": "C",
+          "text": "Cloud Discovery"
+        },
+        {
+          "id": "D",
+          "text": "Session policies"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "App governance monitors OAuth-connected apps' permissions and behavior (e.g., unusual data access, overprivileged consent) and can alert or remediate risky apps.",
+        "distractors": {
+          "A": "",
+          "B": "Web content filtering is a Defender for Endpoint category-blocking feature, unrelated to OAuth apps.",
+          "C": "Cloud Discovery finds shadow-IT apps from traffic; it does not analyze OAuth app permissions/behavior.",
+          "D": "Session policies control live user sessions, not consented OAuth app risk."
+        },
+        "exam_pattern": "Risky consented OAuth apps / Graph permissions = app governance."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): App governance in Microsoft Defender for Cloud Apps"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-028",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdca_cloudapps",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In the Defender for Cloud Apps cloud app catalog, each discovered app is assigned a risk score. What is the primary purpose of that score?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To set the app's Microsoft 365 license cost"
+        },
+        {
+          "id": "B",
+          "text": "To help decide whether to sanction or unsanction the app, based on security/compliance/legal factors"
+        },
+        {
+          "id": "C",
+          "text": "To calculate the tenant's Secure Score"
+        },
+        {
+          "id": "D",
+          "text": "To measure how much bandwidth the app consumes"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The catalog scores each app (on a numeric scale) using dozens of security, compliance, and legal risk factors, helping the SOC decide whether to sanction or unsanction it.",
+        "distractors": {
+          "A": "The score is about risk, not licensing cost.",
+          "B": "",
+          "C": "Secure Score is a separate Microsoft posture metric; the app risk score is specific to Cloud Discovery governance.",
+          "D": "Bandwidth usage is shown elsewhere; the risk score reflects risk factors, not consumption."
+        },
+        "exam_pattern": "Discovered-app risk score (many factors) = decide sanction vs unsanction."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): The cloud app catalog and risk scores in Defender for Cloud Apps"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-029",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_mdca_cloudapps",
+      "difficulty": 3,
+      "type": "fill",
+      "stem": "Fill in the blank (two words): Conditional Access App Control enforces real-time session controls (such as blocking downloads) by routing a user's app traffic through a ______ ______ operated by Microsoft Defender for Cloud Apps, after Microsoft Entra Conditional Access directs the session to it.",
+      "correct": [
+        "reverse proxy"
+      ],
+      "explanation": {
+        "correct": "Conditional Access App Control works as a reverse proxy: Entra Conditional Access routes the session to Defender for Cloud Apps, which then applies real-time monitoring and session controls.",
+        "distractors": {},
+        "exam_pattern": "Real-time session control mechanism = reverse proxy via Conditional Access App Control."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Protect apps with Conditional Access App Control"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-030",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_xdr_incidents",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Microsoft Defender XDR can automatically contain a high-confidence, in-progress attack (e.g., human-operated ransomware) by actions such as disabling a compromised account or isolating a device, before an analyst responds. What is this capability called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Secure Score"
+        },
+        {
+          "id": "B",
+          "text": "Automated investigation and remediation (AIR)"
+        },
+        {
+          "id": "C",
+          "text": "Automatic attack disruption"
+        },
+        {
+          "id": "D",
+          "text": "Advanced hunting"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Automatic attack disruption uses high-confidence XDR signals to contain an active attack automatically (e.g., contain device, disable/suspend user) to limit spread while analysts investigate.",
+        "distractors": {
+          "A": "Secure Score measures posture; it does not contain attacks.",
+          "B": "AIR investigates and remediates alerts on a device, but attack disruption is the cross-workload, high-confidence auto-containment capability.",
+          "C": "",
+          "D": "Advanced hunting is proactive querying, not automatic containment."
+        },
+        "exam_pattern": "Auto-contain an active high-confidence attack across workloads = automatic attack disruption."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Automatic attack disruption in Microsoft Defender XDR"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-031",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_xdr_incidents",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A particular analytics detection generates frequent false positives from a known, benign internal tool, creating noisy alerts. In Microsoft Defender XDR, what is the appropriate way to reduce this noise without turning off protection broadly?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Offboard the affected devices"
+        },
+        {
+          "id": "B",
+          "text": "Tune the alert / create an alert-tuning (suppression) rule for that benign pattern"
+        },
+        {
+          "id": "C",
+          "text": "Lower the tenant's Secure Score target"
+        },
+        {
+          "id": "D",
+          "text": "Delete the alerts as they arrive"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Alert tuning (suppression) rules let you automatically handle a specific, known-benign alert pattern (suppress/resolve) while keeping the detection active for everything else.",
+        "distractors": {
+          "A": "Offboarding devices removes protection; it does not tune a noisy detection.",
+          "B": "",
+          "C": "Secure Score targets have nothing to do with alert generation.",
+          "D": "Manually deleting alerts is reactive, unscalable, and loses tuning signal."
+        },
+        "exam_pattern": "Quiet a specific benign alert pattern = alert tuning / suppression rule, not blanket disablement."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Tune an alert and create alert-tuning rules in Microsoft Defender XDR"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-032",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_xdr_incidents",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "While reviewing an incident, an analyst wants to pivot a suspicious entity (such as a file hash or account) directly into advanced hunting to find everywhere it appears across the estate. Which capability in the Defender portal provides this one-click pivot?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Content hub"
+        },
+        {
+          "id": "B",
+          "text": "Go hunt (from the entity)"
+        },
+        {
+          "id": "C",
+          "text": "Workflow automation"
+        },
+        {
+          "id": "D",
+          "text": "Secure Score recommendation"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The 'Go hunt' action takes an entity from an incident/alert and launches a prebuilt advanced hunting query to find related activity across the environment.",
+        "distractors": {
+          "A": "The Content hub is a Microsoft Sentinel content marketplace, not an entity pivot.",
+          "B": "",
+          "C": "Workflow automation is a Defender for Cloud feature to trigger Logic Apps, not an incident hunting pivot.",
+          "D": "Secure Score recommendations improve posture; they are not an entity-to-hunt pivot."
+        },
+        "exam_pattern": "Pivot an entity into advanced hunting = Go hunt."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Investigate entities with Go hunt in advanced hunting"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-033",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_xdr_incidents",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A SOC lead wants to route an incident to a specific analyst and track who is working it, while keeping the queue organized by progress. In the Defender portal incident, what should be set?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The incident assignment (owner) and status (e.g., In progress)"
+        },
+        {
+          "id": "B",
+          "text": "A Secure Score exception"
+        },
+        {
+          "id": "C",
+          "text": "The incident's MITRE ATT&CK technique list"
+        },
+        {
+          "id": "D",
+          "text": "A device group"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Assigning an owner and setting the status (New / In progress / Resolved) routes and tracks incident work; tags and comments add further organization.",
+        "distractors": {
+          "A": "",
+          "B": "Secure Score exceptions relate to posture recommendations, not incident ownership.",
+          "C": "The technique list describes the attack; it does not assign or track ownership.",
+          "D": "Device groups scope RBAC/automation for endpoints, not incident assignment."
+        },
+        "exam_pattern": "Route/track incident work = assign owner + set status (plus tags/comments)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Manage incidents (assign, status, tags) in Microsoft Defender XDR"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-034",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_xdr_incidents",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Automated investigation produced several remediation actions that are pending approval, and the team also wants to review the history of actions already taken across Microsoft Defender XDR. Which centralized hub shows and lets them approve/undo these actions?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The Content hub"
+        },
+        {
+          "id": "B",
+          "text": "The Action center"
+        },
+        {
+          "id": "C",
+          "text": "The investigation graph"
+        },
+        {
+          "id": "D",
+          "text": "Secure Score"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The Action center centralizes remediation actions - pending actions awaiting approval and a history of completed actions - across Defender XDR, where analysts can approve, reject, or undo them.",
+        "distractors": {
+          "A": "The Content hub installs Sentinel solutions; it is not the remediation action center.",
+          "B": "",
+          "C": "The investigation graph (a Sentinel feature) visualizes entities; it is not the remediation-action hub.",
+          "D": "Secure Score measures posture; it does not track remediation actions."
+        },
+        "exam_pattern": "Approve/track pending and completed remediation actions = Action center."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): The Action center in Microsoft Defender XDR"
+      ]
+    },
+    {
+      "id": "sc200-xdr-r2-035",
+      "exam": "sc200",
+      "domain": "sc200_defender_xdr",
+      "subtopic": "sc200_xdr_incidents",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "A SOC wants to continuously improve the quality and signal of its incident queue over time. Which TWO practices support this goal? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Resolve incidents with an accurate classification and determination (true/false/benign positive)"
+        },
+        {
+          "id": "B",
+          "text": "Tune or suppress alerts that are confirmed benign and noisy"
+        },
+        {
+          "id": "C",
+          "text": "Disable the Microsoft Defender XDR data connectors"
+        },
+        {
+          "id": "D",
+          "text": "Delete incidents to keep the queue short"
+        }
+      ],
+      "correct": [
+        "A",
+        "B"
+      ],
+      "explanation": {
+        "correct": "Classifying/closing incidents accurately feeds detection tuning and metrics, and tuning/suppressing confirmed-benign noisy alerts raises signal - both improve queue quality over time.",
+        "distractors": {
+          "A": "",
+          "B": "",
+          "C": "Disabling connectors stops data flowing in - the opposite of a healthy queue.",
+          "D": "Deleting incidents destroys context and the outcome signal; it does not improve detection quality."
+        },
+        "exam_pattern": "Improve the queue = classify on close + tune/suppress confirmed-benign noise."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Classify incidents and tune detections in Microsoft Defender XDR"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-001",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_posture",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A security team wants each open recommendation assigned to an owner with a remediation due date, and wants overdue items to drive accountability without instantly penalizing Secure Score. Which Microsoft Defender for Cloud feature provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Alert suppression rules"
+        },
+        {
+          "id": "B",
+          "text": "Just-in-time VM access"
+        },
+        {
+          "id": "C",
+          "text": "Workflow automation"
+        },
+        {
+          "id": "D",
+          "text": "Governance rules (assign owner, due date, grace period)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Governance rules assign an owner and a remediation due date (e.g., 7/14/30/90 days) to recommendations and can apply a grace period so a recommendation doesn't affect Secure Score until it becomes overdue.",
+        "distractors": {
+          "A": "Alert suppression dismisses specific security alerts; it does not assign recommendation ownership or due dates.",
+          "B": "JIT VM access reduces port exposure; it is a control, not a remediation governance feature.",
+          "C": "Workflow automation triggers Logic Apps on alerts/recommendations; it does not set owners, due dates, or grace periods.",
+          "D": ""
+        },
+        "exam_pattern": "Owner + due date + grace period on recommendations = governance rules."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Drive remediation with governance rules in Defender for Cloud"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-002",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_posture",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization wants to assess the operating systems and software on its Azure VMs for vulnerabilities and exposed secrets WITHOUT installing an agent on each machine. Which Defender for Cloud capability provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Just-in-time VM access"
+        },
+        {
+          "id": "B",
+          "text": "Agentless machine scanning"
+        },
+        {
+          "id": "C",
+          "text": "The Log Analytics agent (MMA)"
+        },
+        {
+          "id": "D",
+          "text": "Adaptive network hardening"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Agentless machine scanning (available with Defender CSPM or Defender for Servers Plan 2) inspects VM disks on a schedule for vulnerabilities, installed software, and secrets without deploying an in-guest agent.",
+        "distractors": {
+          "A": "JIT VM access controls management-port exposure; it does not scan for vulnerabilities/secrets.",
+          "B": "",
+          "C": "The legacy Log Analytics agent (MMA) is agent-based collection - the opposite of agentless - and is being retired.",
+          "D": "Adaptive network hardening recommends NSG rules; it is not a vulnerability/secrets scanner."
+        },
+        "exam_pattern": "Scan VM disks for vulns/secrets with no in-guest agent = agentless machine scanning."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Agentless machine scanning in Microsoft Defender for Cloud"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-003",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_posture",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A security architect wants an outside-in view of the organization's internet-facing assets (domains, hosts, exposed services) to find unknown or unmanaged attack surface. Which capability, included with Defender CSPM, provides this discovery?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Regulatory compliance dashboard"
+        },
+        {
+          "id": "B",
+          "text": "Just-in-time VM access"
+        },
+        {
+          "id": "C",
+          "text": "External attack surface management (EASM)"
+        },
+        {
+          "id": "D",
+          "text": "Workload protection plans"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "External attack surface management discovers internet-facing assets from an outside-in (attacker) perspective, surfacing unknown/unmanaged exposure; it is included with Defender CSPM.",
+        "distractors": {
+          "A": "The regulatory compliance dashboard maps controls to standards; it does not discover external internet-facing assets.",
+          "B": "JIT reduces management-port exposure on known VMs; it does not discover unknown external assets.",
+          "C": "",
+          "D": "Workload protection plans provide threat detection for resource types, not external attack-surface discovery."
+        },
+        "exam_pattern": "Outside-in discovery of internet-facing assets = external attack surface management (EASM)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): External attack surface management in Defender for Cloud"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-004",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_posture",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Where do the security recommendations shown in Microsoft Defender for Cloud come from, by default?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They are authored manually by each subscription owner"
+        },
+        {
+          "id": "B",
+          "text": "An Azure Policy initiative (the Microsoft Cloud Security Benchmark) assigned to the scope"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Sentinel analytics rules"
+        },
+        {
+          "id": "D",
+          "text": "Conditional Access policies"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Recommendations are generated by evaluating resources against a security policy - an Azure Policy initiative, by default the Microsoft Cloud Security Benchmark (MCSB) - assigned at the subscription/management-group scope. You can also add custom recommendations.",
+        "distractors": {
+          "A": "Recommendations are produced by policy evaluation, not hand-authored per subscription.",
+          "B": "",
+          "C": "Sentinel analytics rules detect threats in logs; they do not generate Defender for Cloud posture recommendations.",
+          "D": "Conditional Access governs identity sign-in, not cloud-resource posture recommendations."
+        },
+        "exam_pattern": "Defender for Cloud recommendations = Azure Policy security initiative (MCSB by default)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Security policies and the Microsoft Cloud Security Benchmark"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-005",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_posture",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Auditors require the environment to be measured against PCI DSS and NIST SP 800-53 in addition to the default benchmark. How does an analyst make Defender for Cloud track these?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Add the standards to the Regulatory compliance dashboard (assign the compliance standards)"
+        },
+        {
+          "id": "B",
+          "text": "Enable just-in-time VM access"
+        },
+        {
+          "id": "C",
+          "text": "Create a Microsoft Sentinel workbook"
+        },
+        {
+          "id": "D",
+          "text": "Raise the Secure Score target to 100%"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "You add regulatory standards (PCI DSS, NIST, ISO, etc.) to the Regulatory compliance dashboard; Defender for Cloud then continuously assesses resources against those controls alongside the default MCSB.",
+        "distractors": {
+          "A": "",
+          "B": "JIT is a single hardening control, not a compliance-standard assessment.",
+          "C": "A workbook visualizes data; it does not add a compliance standard assessment.",
+          "D": "Secure Score targets don't map resources to PCI/NIST controls."
+        },
+        "exam_pattern": "Track PCI/NIST/ISO = add the standard(s) to the Regulatory compliance dashboard."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Add regulatory standards to the compliance dashboard"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-006",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_posture",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In Microsoft Defender for Cloud, recommendations are grouped into 'security controls' for Secure Score. How are points earned for a control?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Points are fixed and cannot change with remediation"
+        },
+        {
+          "id": "B",
+          "text": "Each individual recommendation adds points independently as it is fixed"
+        },
+        {
+          "id": "C",
+          "text": "Points are earned only when ALL recommendations in the control are remediated for a given resource"
+        },
+        {
+          "id": "D",
+          "text": "Points are based on the number of alerts generated"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Secure Score is calculated from security controls (groups of related recommendations); a resource earns the control's points only when all of that control's recommendations are remediated for it, encouraging complete hardening.",
+        "distractors": {
+          "A": "Points change as you remediate; the score rises with remediation.",
+          "B": "Points accrue at the control level (all recommendations satisfied), not per single recommendation.",
+          "C": "",
+          "D": "Secure Score reflects posture/recommendations, not alert volume."
+        },
+        "exam_pattern": "Secure Score = per-control (all recommendations in a control remediated for a resource)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): How Secure Score and security controls are calculated"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-007",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_posture",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank (one word): When a specific recommendation does not apply to a resource (for example, an accepted risk or a mitigated-by-design case) and you want it excluded so it stops affecting Secure Score, you create an ______ in Microsoft Defender for Cloud.",
+      "correct": [
+        "exemption"
+      ],
+      "explanation": {
+        "correct": "An exemption excludes a recommendation from a resource/scope (with a justification such as waiver or risk mitigated), so it no longer impacts Secure Score or the recommendation list.",
+        "distractors": {},
+        "exam_pattern": "Exclude a recommendation from a resource (accepted risk / mitigated) = exemption."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Exempt resources from recommendations in Defender for Cloud"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-008",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_workloads",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A team needs just-in-time VM access, file integrity monitoring, and integrated vulnerability assessment on their servers - not only the Defender for Endpoint integration. Which plan/tier is required?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Foundational CSPM (free)"
+        },
+        {
+          "id": "B",
+          "text": "Defender for Servers Plan 2"
+        },
+        {
+          "id": "C",
+          "text": "Defender for Servers Plan 1"
+        },
+        {
+          "id": "D",
+          "text": "Defender for Resource Manager"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Defender for Servers Plan 2 provides the full capability set - JIT VM access, file integrity monitoring, integrated vulnerability assessment, agentless scanning, and more. Plan 1 delivers only the Defender for Endpoint integration.",
+        "distractors": {
+          "A": "Foundational CSPM is free posture management; it is not a workload protection plan.",
+          "B": "",
+          "C": "Plan 1 is limited to the Defender for Endpoint integration; it lacks JIT, FIM, and VA.",
+          "D": "Defender for Resource Manager monitors ARM control-plane operations, not server guest protection."
+        },
+        "exam_pattern": "JIT + FIM + VA on servers = Defender for Servers Plan 2 (Plan 1 = MDE integration only)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Defender for Servers plans (Plan 1 vs Plan 2)"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-009",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_workloads",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A company hosts web applications on Azure App Service and wants threat detection for web-app attacks and suspicious behavior on those apps. Which plan should be enabled?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Defender for App Service"
+        },
+        {
+          "id": "B",
+          "text": "Defender for Key Vault"
+        },
+        {
+          "id": "C",
+          "text": "Defender for Storage"
+        },
+        {
+          "id": "D",
+          "text": "Defender for DNS"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Defender for App Service detects threats targeting web apps running on App Service (e.g., web-attack patterns, suspicious operations) and surfaces related alerts.",
+        "distractors": {
+          "A": "",
+          "B": "Defender for Key Vault detects abnormal secret/key access, not web-app attacks.",
+          "C": "Defender for Storage protects storage accounts (blob malware scanning, access anomalies), not App Service web apps.",
+          "D": "Defender for DNS monitored DNS-layer threats and has since been consolidated; it is not the App Service plan."
+        },
+        "exam_pattern": "Threat detection for Azure App Service web apps = Defender for App Service."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Microsoft Defender for App Service"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-010",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_workloads",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A SOC wants alerts on suspicious control-plane operations - such as anomalous use of Azure Resource Manager to deploy or modify resources, or toolkit activity (e.g., from compromised credentials). Which plan detects these ARM-layer threats?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Defender for Servers Plan 1"
+        },
+        {
+          "id": "B",
+          "text": "Defender for Databases"
+        },
+        {
+          "id": "C",
+          "text": "Defender for Resource Manager"
+        },
+        {
+          "id": "D",
+          "text": "Defender for Containers"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Defender for Resource Manager monitors the Azure Resource Manager control plane and alerts on suspicious/malicious management operations (e.g., unusual resource deployment, exploitation toolkits).",
+        "distractors": {
+          "A": "Defender for Servers protects VM guests via Defender for Endpoint, not ARM operations.",
+          "B": "Defender for Databases detects database-layer threats (e.g., SQL injection), not control-plane operations.",
+          "C": "",
+          "D": "Defender for Containers protects Kubernetes workloads, not the ARM control plane."
+        },
+        "exam_pattern": "Suspicious ARM control-plane / management operations = Defender for Resource Manager."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Microsoft Defender for Resource Manager"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-011",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_workloads",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "On protected servers, a team wants to be alerted when critical operating-system files, registry keys, or application binaries are changed, to catch tampering. Which Defender for Cloud capability provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Regulatory compliance"
+        },
+        {
+          "id": "B",
+          "text": "Just-in-time VM access"
+        },
+        {
+          "id": "C",
+          "text": "File integrity monitoring (FIM)"
+        },
+        {
+          "id": "D",
+          "text": "Adaptive application controls"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "File integrity monitoring (part of Defender for Servers Plan 2) tracks changes to important OS files, registry keys, and application files, alerting on potentially suspicious modifications.",
+        "distractors": {
+          "A": "Regulatory compliance maps controls to standards; it does not alert on file changes.",
+          "B": "JIT controls management-port exposure; it does not watch file/registry changes.",
+          "C": "",
+          "D": "Adaptive application controls allowlist known-good apps; they are not file-change monitoring."
+        },
+        "exam_pattern": "Alert on changes to OS/registry/app files = file integrity monitoring (FIM)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): File integrity monitoring in Microsoft Defender for Cloud"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-012",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_workloads",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization publishes REST APIs through Azure API Management and wants threat detection and security insights specifically for those APIs (e.g., anomalous or malicious API access). Which plan should be enabled?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Foundational CSPM"
+        },
+        {
+          "id": "B",
+          "text": "Defender for APIs"
+        },
+        {
+          "id": "C",
+          "text": "Defender for App Service"
+        },
+        {
+          "id": "D",
+          "text": "Defender for Storage"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Defender for APIs provides threat detection and security posture insights for APIs published in Azure API Management, surfacing anomalous or malicious API usage.",
+        "distractors": {
+          "A": "Foundational CSPM provides posture recommendations, not API runtime threat detection.",
+          "B": "",
+          "C": "Defender for App Service protects web apps hosted on App Service, not APIs managed by API Management.",
+          "D": "Defender for Storage covers storage accounts, not API traffic."
+        },
+        "exam_pattern": "Threat detection for APIs in Azure API Management = Defender for APIs."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Microsoft Defender for APIs"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-013",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_workloads",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "Which statement best describes how Microsoft Defender for Cloud workload protection plans are enabled?",
+      "options": [
+        {
+          "id": "A",
+          "text": "All plans are always on and cannot be turned off"
+        },
+        {
+          "id": "B",
+          "text": "They are enabled granularly - you turn on individual Defender plans per subscription (and some per resource) as needed"
+        },
+        {
+          "id": "C",
+          "text": "Enabling any one plan automatically enables all other plans"
+        },
+        {
+          "id": "D",
+          "text": "Plans can only be enabled for the entire Azure tenant at once"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Defender plans are toggled individually (per subscription, and for some workloads per resource), so you can protect exactly the resource types you need and manage cost.",
+        "distractors": {
+          "A": "Plans are optional and can be enabled or disabled; they are not always on.",
+          "B": "",
+          "C": "Enabling one plan does not enable the others; each is separate.",
+          "D": "Plans are enabled at the subscription (or resource) level, not only tenant-wide."
+        },
+        "exam_pattern": "Defender plans = enabled per subscription/resource, individually (cost/scope control)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Enable Microsoft Defender for Cloud plans"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-014",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_workloads",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "To receive threat alerts for the following two resource types, an organization must enable the corresponding Defender plan for EACH. Which TWO pairings are correct? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Any resource -> the Regulatory compliance dashboard"
+        },
+        {
+          "id": "B",
+          "text": "Azure SQL databases -> Defender for Databases (Defender for SQL)"
+        },
+        {
+          "id": "C",
+          "text": "Azure Storage accounts -> Defender for Storage"
+        },
+        {
+          "id": "D",
+          "text": "Any resource -> Secure Score (free)"
+        }
+      ],
+      "correct": [
+        "B",
+        "C"
+      ],
+      "explanation": {
+        "correct": "Runtime threat alerts for SQL databases require Defender for Databases/SQL, and for storage accounts require Defender for Storage - each resource type has its own workload plan.",
+        "distractors": {
+          "A": "The Regulatory compliance dashboard maps controls to standards; it is not a threat-alert plan.",
+          "B": "",
+          "C": "",
+          "D": "Secure Score is free posture management; it does not provide resource threat alerts."
+        },
+        "exam_pattern": "Threat alerts are per-plan: SQL -> Defender for Databases; Storage -> Defender for Storage."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Workload protection plans by resource type"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-015",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_workloads",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "With Defender for Servers Plan 2 enabled, where do the discovered CVEs/weaknesses on a protected virtual machine appear for the analyst to review and prioritize?",
+      "options": [
+        {
+          "id": "A",
+          "text": "As vulnerability assessment findings/recommendations (via the integrated Defender Vulnerability Management scanner)"
+        },
+        {
+          "id": "B",
+          "text": "As Microsoft Sentinel watchlists"
+        },
+        {
+          "id": "C",
+          "text": "As quarantine policies"
+        },
+        {
+          "id": "D",
+          "text": "As Conditional Access reports"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Defender for Servers integrates Microsoft Defender Vulnerability Management, so VM software vulnerabilities (CVEs) surface as assessment findings and security recommendations to triage and remediate.",
+        "distractors": {
+          "A": "",
+          "B": "Watchlists are Sentinel reference data, not VM vulnerability findings.",
+          "C": "Quarantine policies are a Defender for Office 365 construct, unrelated to VM vulnerabilities.",
+          "D": "Conditional Access reports cover sign-in policy, not VM CVEs."
+        },
+        "exam_pattern": "Server CVEs with Defender for Servers = integrated vulnerability assessment (MDVM) findings/recommendations."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Vulnerability assessment for machines in Defender for Cloud"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-016",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_alerts",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A team wants Microsoft Defender for Cloud to continuously send its alerts and recommendations to a Log Analytics workspace and to an Event Hub (to feed a third-party SIEM). Which feature is designed for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Secure Score"
+        },
+        {
+          "id": "B",
+          "text": "Just-in-time VM access"
+        },
+        {
+          "id": "C",
+          "text": "Alert suppression"
+        },
+        {
+          "id": "D",
+          "text": "Continuous export"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Continuous export streams Defender for Cloud alerts and recommendations to a Log Analytics workspace or Event Hub, enabling downstream integration (e.g., a third-party SIEM).",
+        "distractors": {
+          "A": "Secure Score measures posture; it is not an export pipeline.",
+          "B": "JIT controls management-port exposure; it does not export alerts.",
+          "C": "Alert suppression quiets specific alerts; it does not export data.",
+          "D": ""
+        },
+        "exam_pattern": "Stream Defender for Cloud alerts/recommendations out (Log Analytics / Event Hub) = continuous export."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Continuously export Microsoft Defender for Cloud data"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-017",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_alerts",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Before an incident occurs, a SOC wants to validate that their Defender for Cloud alert pipeline and automation (exports, playbooks) actually fire. What is the safe, supported way to produce test alerts?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Run real malware on a production VM"
+        },
+        {
+          "id": "B",
+          "text": "Lower the Secure Score target"
+        },
+        {
+          "id": "C",
+          "text": "Delete a storage account"
+        },
+        {
+          "id": "D",
+          "text": "Generate sample alerts from Microsoft Defender for Cloud"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Defender for Cloud can generate sample alerts, letting teams validate alert routing, exports, and automation end to end without a real attack.",
+        "distractors": {
+          "A": "Running real malware is dangerous and unnecessary; sample alerts exist for safe testing.",
+          "B": "Secure Score targets are unrelated to generating test alerts.",
+          "C": "Deleting resources is destructive and does not validate the alert pipeline.",
+          "D": ""
+        },
+        "exam_pattern": "Safely test the alert/automation pipeline = generate sample alerts."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Generate sample security alerts in Defender for Cloud"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-018",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_alerts",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Microsoft Defender for Cloud observes several related alerts on the same resources that appear to be stages of one attack. How does Defender for Cloud help the analyst see the bigger picture?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It raises the Secure Score"
+        },
+        {
+          "id": "B",
+          "text": "It deletes the lower-severity alerts automatically"
+        },
+        {
+          "id": "C",
+          "text": "It correlates related alerts into a security incident"
+        },
+        {
+          "id": "D",
+          "text": "It converts the alerts into recommendations"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Defender for Cloud correlates related alerts into a single security incident, grouping the stages of an attack so analysts can respond to the whole story rather than isolated alerts.",
+        "distractors": {
+          "A": "Correlating alerts does not change Secure Score (which reflects recommendations).",
+          "B": "Related alerts are grouped, not deleted; evidence is preserved.",
+          "C": "",
+          "D": "Alerts are detected threats; they are not converted into posture recommendations."
+        },
+        "exam_pattern": "Related Defender for Cloud alerts grouped into one attack view = a security incident."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Security alerts and incidents in Microsoft Defender for Cloud"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-019",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_alerts",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization wants the right people emailed automatically whenever a high-severity Microsoft Defender for Cloud alert fires on a subscription. Which setting enables this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Email notifications (configured per subscription by severity/role)"
+        },
+        {
+          "id": "B",
+          "text": "A quarantine policy"
+        },
+        {
+          "id": "C",
+          "text": "A Microsoft Sentinel watchlist"
+        },
+        {
+          "id": "D",
+          "text": "Just-in-time VM access"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Defender for Cloud email notification settings let you choose who is emailed (by role such as Owner, and by minimum alert severity) when alerts occur on a subscription.",
+        "distractors": {
+          "A": "",
+          "B": "Quarantine policies are a Defender for Office 365 construct, unrelated to alert emails.",
+          "C": "Watchlists are Sentinel reference data; they do not send Defender for Cloud alert emails.",
+          "D": "JIT reduces port exposure; it does not notify on alerts."
+        },
+        "exam_pattern": "Email the right people on high-severity alerts = Defender for Cloud email notifications (by severity/role)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Configure email notifications for security alerts"
+      ]
+    },
+    {
+      "id": "sc200-dfc-r2-020",
+      "exam": "sc200",
+      "domain": "sc200_defender_cloud",
+      "subtopic": "sc200_dfc_alerts",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After investigation, an analyst concludes a Defender for Cloud alert is a false positive. They set the alert status to 'Dismissed'. What does dismissing the alert signify?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The alert is permanently prevented from ever recurring"
+        },
+        {
+          "id": "B",
+          "text": "The affected resource is deleted"
+        },
+        {
+          "id": "C",
+          "text": "The Defender plan is turned off"
+        },
+        {
+          "id": "D",
+          "text": "The alert is closed as not requiring action (e.g., false positive), without remediating a threat"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Dismissing marks the alert as not actionable (such as a false positive or benign), closing it in the queue; it records the outcome but does not, by itself, stop similar future alerts.",
+        "distractors": {
+          "A": "To stop a recurring benign pattern you use a suppression rule; dismissing a single alert does not prevent recurrence.",
+          "B": "Dismissing changes the alert status; it does not delete resources.",
+          "C": "Dismissing one alert does not disable the plan.",
+          "D": ""
+        },
+        "exam_pattern": "Dismiss = close as not actionable; suppress = stop a recurring benign pattern."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Manage and respond to security alerts (alert status)"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-001",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_setup",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization wants to manage Microsoft Sentinel together with Defender XDR in the unified Microsoft Defender portal. What is a key prerequisite/consideration for onboarding?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Every user needs the Global Administrator role"
+        },
+        {
+          "id": "B",
+          "text": "You onboard a Log Analytics workspace that has Microsoft Sentinel enabled (one primary workspace to the unified portal)"
+        },
+        {
+          "id": "C",
+          "text": "Sentinel must be moved to an Azure Storage account"
+        },
+        {
+          "id": "D",
+          "text": "You must delete the Log Analytics workspace first"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Sentinel runs on a Log Analytics workspace with Sentinel enabled; onboarding to the Defender portal connects that workspace (one primary workspace) so XDR and Sentinel share one incident queue.",
+        "distractors": {
+          "A": "Global Administrator is not required for every user; least-privilege roles are used.",
+          "B": "",
+          "C": "Sentinel data stays in Log Analytics; it is not moved to a storage account.",
+          "D": "Deleting the workspace would destroy all Sentinel data; the workspace is required."
+        },
+        "exam_pattern": "Unified portal = onboard the Sentinel-enabled Log Analytics workspace (one primary workspace)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Connect Microsoft Sentinel to the Microsoft Defender portal"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-002",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_setup",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An engineer needs to create and edit Microsoft Sentinel analytics rules and manage content, but should not be granted broad subscription Owner rights. Which built-in role is the least-privilege fit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Microsoft Sentinel Responder"
+        },
+        {
+          "id": "B",
+          "text": "Subscription Owner"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Sentinel Reader"
+        },
+        {
+          "id": "D",
+          "text": "Microsoft Sentinel Contributor"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Microsoft Sentinel Contributor allows creating and editing analytics rules, workbooks, and other content (on top of read and incident management) - the least-privilege role for authoring detections.",
+        "distractors": {
+          "A": "Responder adds incident management but not rule authoring.",
+          "B": "Subscription Owner is far broader than needed for authoring Sentinel content.",
+          "C": "Reader can only view; it cannot create or edit rules.",
+          "D": ""
+        },
+        "exam_pattern": "Author/edit analytics rules = Sentinel Contributor; triage only = Responder; view = Reader."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Roles and permissions in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-003",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_setup",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A company keeps two Microsoft Sentinel workspaces (one per region) and needs a single KQL query that returns results from a table in BOTH workspaces. Which approach works?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It is impossible to query more than one workspace"
+        },
+        {
+          "id": "B",
+          "text": "Export both to a CSV and merge manually"
+        },
+        {
+          "id": "C",
+          "text": "Move all data into a single Azure SQL database"
+        },
+        {
+          "id": "D",
+          "text": "Use the workspace() expression to reference the other workspace and union the results (cross-workspace query)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Cross-workspace queries use the workspace(\"...\") expression (often with union) so a single KQL query spans tables across multiple workspaces - useful for multi-region or multi-tenant SOCs.",
+        "distractors": {
+          "A": "Multi-workspace querying is supported via the workspace() expression.",
+          "B": "Manual CSV merging is not a query mechanism and does not scale.",
+          "C": "Sentinel data lives in Log Analytics; moving it to SQL is neither required nor how cross-workspace queries work.",
+          "D": ""
+        },
+        "exam_pattern": "Query across workspaces = workspace(\"name\").Table (+ union) cross-workspace query."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Query multiple workspaces in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-004",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_setup",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A managed security service provider (MSSP) needs its analysts to manage many customers' Microsoft Sentinel workspaces from its own tenant, with delegated, auditable access. Which Azure capability is designed for this cross-tenant management?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Azure Lighthouse (delegated resource management)"
+        },
+        {
+          "id": "B",
+          "text": "Conditional Access App Control"
+        },
+        {
+          "id": "C",
+          "text": "Microsoft Entra Connect"
+        },
+        {
+          "id": "D",
+          "text": "A Sentinel watchlist"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Azure Lighthouse enables delegated, cross-tenant resource management, so an MSSP can manage multiple customers' Sentinel workspaces from a single pane with scoped, auditable access.",
+        "distractors": {
+          "A": "",
+          "B": "Conditional Access App Control is a Defender for Cloud Apps session-control feature, not MSSP delegation.",
+          "C": "Entra Connect syncs on-prem identities to Entra ID; it is not cross-tenant Azure resource delegation.",
+          "D": "Watchlists are reference data in a workspace; they do not provide cross-tenant management."
+        },
+        "exam_pattern": "MSSP managing many tenants' Sentinel workspaces = Azure Lighthouse (delegated management)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Manage multiple tenants with Azure Lighthouse and Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-005",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_setup",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A SOC ingests high-value security logs that must be available for real-time scheduled analytics rules and frequent interactive hunting. Which Log Analytics table plan should these tables use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Basic logs"
+        },
+        {
+          "id": "B",
+          "text": "Archive-only"
+        },
+        {
+          "id": "C",
+          "text": "Analytics logs"
+        },
+        {
+          "id": "D",
+          "text": "Auxiliary logs"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The Analytics table plan is for high-value data used in continuous monitoring, real-time detection, and frequent analytics - and it is the plan scheduled analytics rules require.",
+        "distractors": {
+          "A": "Basic logs are for medium-touch, occasional troubleshooting data with limited query features; scheduled analytics rules can't run on Basic tables.",
+          "B": "Archive is long-term retention, not an interactive query plan for real-time detection.",
+          "C": "",
+          "D": "Auxiliary (data lake) logs are low-cost, low-touch data for verbose logs/compliance, not real-time detection."
+        },
+        "exam_pattern": "Real-time detection + frequent hunting = Analytics tier; cheap/low-touch = Basic/Auxiliary."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Manage data tiers (Analytics, Basic, Auxiliary) in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-006",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_setup",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Compliance requires keeping certain security logs for seven years, but analysts only query the last 90 days interactively. What is the cost-appropriate way to meet this in Log Analytics/Microsoft Sentinel?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Delete data after 90 days and hope it isn't needed"
+        },
+        {
+          "id": "B",
+          "text": "Set interactive retention short and configure long-term (archive) retention for the rest (up to 12 years total)"
+        },
+        {
+          "id": "C",
+          "text": "Export everything to email"
+        },
+        {
+          "id": "D",
+          "text": "Keep all data in interactive retention for seven years"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Configure a shorter interactive retention and extend long-term (archive) retention for the remainder - total retention can reach up to 12 years - meeting compliance cost-effectively.",
+        "distractors": {
+          "A": "Deleting data needed for compliance fails the requirement.",
+          "B": "",
+          "C": "Email is not a retention mechanism and cannot hold log volumes.",
+          "D": "Keeping everything hot for seven years is far more expensive than using archive retention."
+        },
+        "exam_pattern": "Short interactive + long-term archive retention (up to 12 years) for compliance."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Configure interactive and long-term data retention"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-007",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_setup",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Within one Log Analytics workspace, a team should be able to read only ONE specific table (for example, a sensitive application log), not all tables. Which approach grants this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Table-level RBAC (Azure role scoped to the specific table)"
+        },
+        {
+          "id": "B",
+          "text": "A watchlist"
+        },
+        {
+          "id": "C",
+          "text": "A workbook"
+        },
+        {
+          "id": "D",
+          "text": "Making everyone a Sentinel Reader on the workspace"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Table-level RBAC grants access to specific tables within a workspace, so a group can read only the designated table rather than all workspace data.",
+        "distractors": {
+          "A": "",
+          "B": "Watchlists store reference data; they are not an access-control mechanism.",
+          "C": "Workbooks visualize data the viewer can already access; they do not grant per-table permissions.",
+          "D": "Sentinel Reader on the workspace grants read across its data - broader than one table."
+        },
+        "exam_pattern": "Restrict access to a single table within a workspace = table-level RBAC."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Manage access to Microsoft Sentinel data by table (table-level RBAC)"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-008",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_setup",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank (one word, plural): To satisfy EU data-residency rules while running a single SOC, an organization can deploy multiple Microsoft Sentinel ______, each created in the region where its data must stay.",
+      "correct": [
+        "workspaces",
+        "workspace"
+      ],
+      "explanation": {
+        "correct": "Because a workspace's region determines where its data is stored, residency is met by deploying multiple workspaces in the required regions (then querying across them when needed).",
+        "distractors": {},
+        "exam_pattern": "Residency across regions = multiple workspaces (region = data location)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Design Microsoft Sentinel workspace architecture for residency"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-009",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_connectors",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To ingest Windows Security event logs from servers into Microsoft Sentinel and control exactly which events are collected (All, Common, or Minimal), which collection method is used?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The TAXII connector"
+        },
+        {
+          "id": "B",
+          "text": "The Windows Security Events connector via the Azure Monitor Agent, configured by a data collection rule (DCR)"
+        },
+        {
+          "id": "C",
+          "text": "A watchlist CSV import"
+        },
+        {
+          "id": "D",
+          "text": "A Logic App recurrence trigger"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Windows Security Events are collected by the Azure Monitor Agent (AMA); a data collection rule (DCR) defines the event set (All, Common, Minimal, or custom XPath) and lands data in the SecurityEvent table.",
+        "distractors": {
+          "A": "TAXII pulls STIX threat indicators, not Windows event logs.",
+          "B": "",
+          "C": "Watchlists import reference data; they do not collect Windows event logs.",
+          "D": "A recurrence trigger runs a playbook on a timer; it is not the event-collection pipeline."
+        },
+        "exam_pattern": "Windows Security Events = AMA + DCR (choose All/Common/Minimal) -> SecurityEvent table."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Collect Windows security events with the Azure Monitor Agent"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-010",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_connectors",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An appliance sends plain Syslog messages (not CEF) to a Linux forwarder running the Azure Monitor Agent. Into which Microsoft Sentinel table does this data land?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The CommonSecurityLog table"
+        },
+        {
+          "id": "B",
+          "text": "The SigninLogs table"
+        },
+        {
+          "id": "C",
+          "text": "The SecurityAlert table"
+        },
+        {
+          "id": "D",
+          "text": "The Syslog table"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Plain Syslog messages are stored in the Syslog table; CEF-formatted messages are parsed into the CommonSecurityLog table. Both are collected via AMA on a Linux forwarder.",
+        "distractors": {
+          "A": "CommonSecurityLog holds CEF-formatted data, not plain Syslog.",
+          "B": "SigninLogs holds Microsoft Entra sign-ins, not appliance Syslog.",
+          "C": "SecurityAlert holds alerts from connected products, not raw Syslog.",
+          "D": ""
+        },
+        "exam_pattern": "Plain Syslog -> Syslog table; CEF -> CommonSecurityLog table."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Syslog and CEF data in Microsoft Sentinel (Syslog vs CommonSecurityLog)"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-011",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_connectors",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A team needs a data connector for a SaaS product that exposes a REST API, but they want to avoid writing and hosting custom code. Which Microsoft Sentinel capability lets them build the connector declaratively?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A workbook"
+        },
+        {
+          "id": "B",
+          "text": "The Codeless Connector Platform (CCP)"
+        },
+        {
+          "id": "C",
+          "text": "A scheduled analytics rule"
+        },
+        {
+          "id": "D",
+          "text": "A watchlist"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The Codeless Connector Platform lets you define a data connector for a REST API declaratively (via configuration), without writing or hosting custom collection code.",
+        "distractors": {
+          "A": "A workbook visualizes data; it does not ingest it.",
+          "B": "",
+          "C": "A scheduled analytics rule detects threats in already-ingested data; it is not a data connector.",
+          "D": "A watchlist imports reference data, not a streaming API connector."
+        },
+        "exam_pattern": "Build a REST-API connector without code = Codeless Connector Platform (CCP)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Create a codeless connector for Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-012",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_connectors",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A custom in-house application writes JSON logs that a team wants to send into a custom table in their Log Analytics workspace for Microsoft Sentinel. Which mechanism is intended for sending such custom data?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The Microsoft Defender XDR connector"
+        },
+        {
+          "id": "B",
+          "text": "The Logs ingestion API (with a data collection rule to a custom table)"
+        },
+        {
+          "id": "C",
+          "text": "A session policy"
+        },
+        {
+          "id": "D",
+          "text": "The TAXII connector"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The Logs ingestion API sends custom application data into a custom table via a data collection rule (and DCE), the supported path for arbitrary custom logs.",
+        "distractors": {
+          "A": "The Defender XDR connector streams XDR data, not your custom app logs.",
+          "B": "",
+          "C": "A session policy is a Defender for Cloud Apps control, unrelated to log ingestion.",
+          "D": "TAXII ingests STIX threat indicators, not arbitrary custom app logs."
+        },
+        "exam_pattern": "Send custom app logs to a custom table = Logs ingestion API + DCR."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Send custom logs with the Logs ingestion API"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-013",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_connectors",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization wants to bring Amazon Web Services logs (for example CloudTrail) into Microsoft Sentinel. Which ingestion method does the AWS connector commonly use?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pulling logs from an AWS S3 bucket (S3-based connector)"
+        },
+        {
+          "id": "B",
+          "text": "Installing the Azure Monitor Agent on every EC2 instance"
+        },
+        {
+          "id": "C",
+          "text": "A watchlist import"
+        },
+        {
+          "id": "D",
+          "text": "A TAXII feed"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The AWS connector for Sentinel commonly ingests logs (CloudTrail, GuardDuty, VPC Flow) by reading them from an S3 bucket that AWS is configured to write to.",
+        "distractors": {
+          "A": "",
+          "B": "AMA on each EC2 instance is for OS logs, not the AWS service logs the connector pulls from S3.",
+          "C": "Watchlists import small reference datasets, not streaming AWS logs.",
+          "D": "TAXII is for STIX threat indicators, not AWS service logs."
+        },
+        "exam_pattern": "AWS logs into Sentinel = S3-based AWS connector (CloudTrail/GuardDuty/VPC)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Connect Amazon Web Services to Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-014",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_connectors",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A SOC wants to verify that its data connectors are healthy and ingesting, and be alerted if a connector stops sending data. Which capability surfaces connector health/status in Microsoft Sentinel?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Secure Score"
+        },
+        {
+          "id": "B",
+          "text": "Health monitoring (the SentinelHealth table / connector health)"
+        },
+        {
+          "id": "C",
+          "text": "A Safe Attachments policy"
+        },
+        {
+          "id": "D",
+          "text": "The investigation graph"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Sentinel health monitoring (including the SentinelHealth table) reports data connector status and errors, so teams can detect and alert on connectors that stop ingesting.",
+        "distractors": {
+          "A": "Secure Score is a Defender for Cloud posture metric, not Sentinel connector health.",
+          "B": "",
+          "C": "Safe Attachments is a Defender for Office 365 feature, unrelated to connector health.",
+          "D": "The investigation graph visualizes an incident's entities; it does not report connector health."
+        },
+        "exam_pattern": "Monitor/alert on connector ingestion health = Sentinel health (SentinelHealth table)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Monitor the health of your data connectors in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-015",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_connectors",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After installing a solution from the Content hub, a new analyst notices no data is flowing and no detections are firing. What is typically still required?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Nothing - installing a solution automatically ingests data and enables all rules"
+        },
+        {
+          "id": "B",
+          "text": "Delete and reinstall the workspace"
+        },
+        {
+          "id": "C",
+          "text": "Connect/configure the solution's data connector and enable its analytics rule templates"
+        },
+        {
+          "id": "D",
+          "text": "Disable the Content hub"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Installing a Content hub solution deploys its components, but you still typically connect/configure the data connector and enable the included analytics rule templates for detections to run.",
+        "distractors": {
+          "A": "Solutions bundle content but do not auto-connect data sources or auto-enable every rule.",
+          "B": "Reinstalling the workspace is destructive and unnecessary.",
+          "C": "",
+          "D": "Disabling the Content hub does not make data flow; the connector must be configured."
+        },
+        "exam_pattern": "Solution installed != data flowing; still connect the data connector + enable rule templates."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Deploy and manage out-of-the-box content from the Content hub"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-016",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_connectors",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "When configuring Syslog/CEF or Windows event collection today, which agent should be used, given the retirement of the legacy agent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The Azure Monitor Agent (AMA), with collection defined by data collection rules"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft Entra Connect"
+        },
+        {
+          "id": "C",
+          "text": "The legacy Log Analytics agent (MMA/OMS)"
+        },
+        {
+          "id": "D",
+          "text": "The on-premises data gateway only"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The Azure Monitor Agent (AMA) is the current agent; collection is controlled by data collection rules. The legacy Log Analytics agent (MMA/OMS) has been retired and should not be used for new deployments.",
+        "distractors": {
+          "A": "",
+          "B": "Entra Connect syncs identities; it is not a log-collection agent.",
+          "C": "The legacy Log Analytics agent (MMA) is retired; AMA replaces it.",
+          "D": "The on-premises data gateway supports some integrations but is not the agent for Syslog/CEF/Windows event collection."
+        },
+        "exam_pattern": "Current collection agent = AMA (DCR-driven); MMA/Log Analytics agent is retired."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Migrate to the Azure Monitor Agent for Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-017",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_connectors",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank (one table name): Firewall logs forwarded in Common Event Format (CEF) and collected by the Azure Monitor Agent are stored in Microsoft Sentinel's ______ table.",
+      "correct": [
+        "CommonSecurityLog"
+      ],
+      "explanation": {
+        "correct": "CEF data parses into the CommonSecurityLog table, whereas plain Syslog lands in the Syslog table.",
+        "distractors": {},
+        "exam_pattern": "CEF -> CommonSecurityLog; plain Syslog -> Syslog."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): CEF data and the CommonSecurityLog table in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-018",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_analytics",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A SOC wants ML-driven detection of unusual behavior but needs to adjust the sensitivity (thresholds) of a built-in anomaly detection to fit their environment. What is true about Microsoft Sentinel anomaly rules?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They are customizable ML templates - you can duplicate and tune their parameters/thresholds"
+        },
+        {
+          "id": "B",
+          "text": "They cannot be changed in any way"
+        },
+        {
+          "id": "C",
+          "text": "They require you to write the detection KQL from scratch"
+        },
+        {
+          "id": "D",
+          "text": "They only work on firewall data"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Anomaly rules are built on Microsoft's ML models but are customizable: you can duplicate a template and tune its parameters/thresholds, then run it in flighting or production.",
+        "distractors": {
+          "A": "",
+          "B": "Anomaly rules are tunable (thresholds/parameters), not fixed.",
+          "C": "The ML logic is provided; you tune parameters rather than author the detection query.",
+          "D": "Anomaly rules cover many behaviors/data types, not only firewall data."
+        },
+        "exam_pattern": "Anomaly rules = tunable ML templates (adjust thresholds), not hand-written KQL."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Use customizable anomalies to detect threats in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-019",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_analytics",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In a scheduled analytics rule, what is the purpose of entity mapping?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To export the data to storage"
+        },
+        {
+          "id": "B",
+          "text": "To link query result columns (e.g., Account, IP, Host) to entity types so alerts/incidents are investigable and can be correlated"
+        },
+        {
+          "id": "C",
+          "text": "To choose which chart renders the results"
+        },
+        {
+          "id": "D",
+          "text": "To set how often the query runs"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Entity mapping ties result columns to recognized entity types (Account, IP, Host, etc.), so alerts carry identifiable entities for investigation, enrichment, and entity-based incident grouping (up to 10 entity mappings per rule).",
+        "distractors": {
+          "A": "Exporting data is not what entity mapping does.",
+          "B": "",
+          "C": "Chart selection is a visualization choice, unrelated to entity mapping.",
+          "D": "Run frequency is set by the query scheduling, not entity mapping."
+        },
+        "exam_pattern": "Map columns to entities so alerts are investigable/correlatable = entity mapping (max 10 per rule)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Map data fields to entities in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-020",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_analytics",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A detection should raise a SEPARATE alert for each matching event (so every risky sign-in is tracked individually), rather than one alert summarizing the whole query run. Which analytics rule setting controls this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Event grouping (trigger an alert for each event vs. a single alert per rule run)"
+        },
+        {
+          "id": "B",
+          "text": "Entity mapping"
+        },
+        {
+          "id": "C",
+          "text": "The MITRE ATT&CK mapping"
+        },
+        {
+          "id": "D",
+          "text": "The lookback period"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Event grouping chooses whether the rule produces a single alert per run (default) or a separate alert for each event returned - the latter tracks each matching row individually.",
+        "distractors": {
+          "A": "",
+          "B": "Entity mapping links fields to entities; it does not control alert-per-event behavior.",
+          "C": "MITRE mapping tags tactics/techniques; it does not split results into per-event alerts.",
+          "D": "The lookback period sets how far back the query reads, not how results become alerts."
+        },
+        "exam_pattern": "One alert per run vs one per event = event grouping setting."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Event grouping in Microsoft Sentinel scheduled rules"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-021",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_analytics",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A noisy rule creates a flood of separate incidents when the same account is involved. The SOC wants alerts that share the same mapped entities to be collapsed into a single incident. Which analytics rule setting achieves this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Query scheduling frequency"
+        },
+        {
+          "id": "B",
+          "text": "Incident settings - alert grouping (group alerts with matching entities into one incident)"
+        },
+        {
+          "id": "C",
+          "text": "Event grouping"
+        },
+        {
+          "id": "D",
+          "text": "Data connector health"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Alert grouping (under a rule's incident settings) can group related alerts into one incident - for example, by matching entities/details within a time window - reducing duplicate incidents.",
+        "distractors": {
+          "A": "Frequency sets how often the query runs, not incident grouping.",
+          "B": "",
+          "C": "Event grouping controls alert creation per run/event, not how alerts become one incident.",
+          "D": "Connector health is unrelated to grouping alerts into incidents."
+        },
+        "exam_pattern": "Collapse related alerts into one incident = alert grouping (incident settings)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Group alerts into incidents in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-022",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_analytics",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "When configuring a scheduled analytics rule, how do the 'run query every' and 'lookup data from the last' settings differ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They are the same setting with two names"
+        },
+        {
+          "id": "B",
+          "text": "Both control only the alert title"
+        },
+        {
+          "id": "C",
+          "text": "'Run query every' is the frequency (how often it executes); 'lookup data from the last' is the lookback window of data each run examines"
+        },
+        {
+          "id": "D",
+          "text": "'Run query every' sets retention; 'lookup data from the last' sets severity"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Frequency defines how often the rule runs; the lookback period defines how far back each execution queries data. They are set independently (e.g., run every 5 minutes over the last 1 hour).",
+        "distractors": {
+          "A": "They are distinct settings - execution cadence vs. data window.",
+          "B": "Neither controls the alert title.",
+          "C": "",
+          "D": "Neither sets retention or severity."
+        },
+        "exam_pattern": "Frequency (how often) vs lookback period (how far back each run reads) - set separately."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Schedule and scope scheduled analytics rules"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-023",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_analytics",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "After a scheduled rule fires, a team wants it to stop re-running for a set period to avoid repeated alerts on the same ongoing condition. Which rule option provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Entity mapping"
+        },
+        {
+          "id": "B",
+          "text": "Suppression - 'Stop running query after alert is generated' for a chosen duration"
+        },
+        {
+          "id": "C",
+          "text": "Lowering the alert severity"
+        },
+        {
+          "id": "D",
+          "text": "Changing the MITRE technique"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The rule's suppression setting ('Stop running query after alert is generated') pauses the rule for a specified duration once it fires, preventing repeated alerts on the same condition.",
+        "distractors": {
+          "A": "Entity mapping identifies entities; it does not suppress re-runs.",
+          "B": "",
+          "C": "Severity affects prioritization, not whether the rule keeps firing.",
+          "D": "The MITRE technique is metadata; it does not control re-running."
+        },
+        "exam_pattern": "Pause a rule after it fires (avoid repeats) = suppression ('stop running after alert')."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Alert suppression in scheduled analytics rules"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-024",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_analytics",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To report detection coverage against adversary techniques, a SOC tags each analytics rule with the tactics and techniques it detects. Which framework does Microsoft Sentinel use for this mapping?",
+      "options": [
+        {
+          "id": "A",
+          "text": "PCI DSS"
+        },
+        {
+          "id": "B",
+          "text": "ISO/IEC 27001"
+        },
+        {
+          "id": "C",
+          "text": "MITRE ATT&CK (tactics and techniques)"
+        },
+        {
+          "id": "D",
+          "text": "The Microsoft Cloud Security Benchmark"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Sentinel maps analytics rules to MITRE ATT&CK tactics and techniques, and the MITRE ATT&CK coverage view shows which techniques your enabled rules cover.",
+        "distractors": {
+          "A": "PCI DSS is a payment-card compliance standard, not ATT&CK.",
+          "B": "ISO 27001 is a compliance standard, not an adversary technique taxonomy.",
+          "C": "",
+          "D": "MCSB is a Defender for Cloud posture benchmark, not detection-technique mapping."
+        },
+        "exam_pattern": "Rule technique tagging / coverage = MITRE ATT&CK."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Understand security coverage by the MITRE ATT&CK framework"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-025",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_analytics",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "What is the fastest supported way to start detecting with proven logic in Microsoft Sentinel, rather than writing every scheduled rule from a blank query?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use a watchlist as a rule"
+        },
+        {
+          "id": "B",
+          "text": "Only write each KQL detection by hand"
+        },
+        {
+          "id": "C",
+          "text": "Create rules from the built-in analytics rule templates (from the Content hub/Analytics)"
+        },
+        {
+          "id": "D",
+          "text": "Import rules by email"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Sentinel provides analytics rule templates (via the Content hub/Analytics blade) that you instantiate and tune, giving proven detection logic quickly without authoring from scratch.",
+        "distractors": {
+          "A": "A watchlist is reference data, not an analytics rule.",
+          "B": "Hand-writing every rule is slower and skips Microsoft's and vendors' tested templates.",
+          "C": "",
+          "D": "Rules are not imported by email."
+        },
+        "exam_pattern": "Fast proven detections = instantiate analytics rule templates (then tune)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Create analytics rules from templates in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-026",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_analytics",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An analyst tries to create a scheduled analytics rule whose query references a table configured with the Basic logs plan, but Sentinel won't let the rule be created. Why?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The rule needs a workbook first"
+        },
+        {
+          "id": "B",
+          "text": "Basic logs are encrypted and unqueryable"
+        },
+        {
+          "id": "C",
+          "text": "Scheduled rules can only query one table ever"
+        },
+        {
+          "id": "D",
+          "text": "Scheduled analytics rules require Analytics-tier tables; Basic/Auxiliary logs can't back a scheduled rule"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Scheduled analytics rules run on Analytics-tier data. Tables on the Basic (or Auxiliary) plan are intended for lower-cost, limited querying and can't drive scheduled analytics rules; switch the table to Analytics if continuous detection is required.",
+        "distractors": {
+          "A": "A workbook is not a prerequisite for creating analytics rules.",
+          "B": "Basic logs are queryable (with limits); they are not unqueryable due to encryption.",
+          "C": "Scheduled rules can reference multiple tables; the blocker here is the Basic table plan.",
+          "D": ""
+        },
+        "exam_pattern": "Scheduled rule needs Analytics tier; Basic/Auxiliary tables can't back it."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Table plans and analytics rules in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-027",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_analytics",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank (two words): In a scheduled analytics rule, the ______ ______ defines how far back in time each execution of the query reads data (for example, the last 1 hour).",
+      "correct": [
+        "lookback period",
+        "look back period"
+      ],
+      "explanation": {
+        "correct": "The lookback period is the time window of data each run of the rule examines; it is set independently of the run frequency.",
+        "distractors": {},
+        "exam_pattern": "Time window each run reads = lookback period (separate from run frequency)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Query scheduling and lookback in scheduled analytics rules"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-028",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_soar",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A particular analytics rule reliably produces benign, low-value incidents that clutter the queue. Without disabling the rule, the SOC wants matching incidents automatically closed. What should they configure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A near-real-time analytics rule"
+        },
+        {
+          "id": "B",
+          "text": "An automation rule that sets the incident status to Closed for matching conditions"
+        },
+        {
+          "id": "C",
+          "text": "A workbook"
+        },
+        {
+          "id": "D",
+          "text": "A watchlist"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "An automation rule can match incidents by condition (e.g., from a specific rule or with certain properties) and automatically change status to Closed with a classification - quieting noise without disabling detection.",
+        "distractors": {
+          "A": "An NRT rule is a detection type; it does not auto-close noisy incidents.",
+          "B": "",
+          "C": "Workbooks visualize data; they do not act on incidents.",
+          "D": "Watchlists store reference data; they do not close incidents."
+        },
+        "exam_pattern": "Auto-close benign incidents from a rule = automation rule (set status Closed)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Automatically close incidents with automation rules"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-029",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_soar",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Several automation rules could apply to the same incident, and the SOC needs predictable behavior for which runs first. How is execution sequence determined among automation rules?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By the order (priority number) assigned to each automation rule - they run in that sequence"
+        },
+        {
+          "id": "B",
+          "text": "By the size of the Log Analytics workspace"
+        },
+        {
+          "id": "C",
+          "text": "Randomly each time"
+        },
+        {
+          "id": "D",
+          "text": "Alphabetically by playbook name"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Automation rules run in the order defined by their assigned order/priority value, so you control the sequence of actions applied to an incident.",
+        "distractors": {
+          "A": "",
+          "B": "Workspace size does not determine automation rule order.",
+          "C": "Execution is deterministic by order, not random.",
+          "D": "Ordering is by the rule's order value, not playbook name."
+        },
+        "exam_pattern": "Automation rule sequence = the order/priority value you assign."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Automation rules order and execution in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-030",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_soar",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An automation rule fails to run a playbook, with a permissions error. What is the usual cause/fix?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The workspace must be moved to another region"
+        },
+        {
+          "id": "B",
+          "text": "Microsoft Sentinel must be granted permissions to run the playbook (e.g., the Microsoft Sentinel Automation Contributor role on the playbook's resource group)"
+        },
+        {
+          "id": "C",
+          "text": "The analytics rule must be deleted"
+        },
+        {
+          "id": "D",
+          "text": "The playbook must be rewritten as a watchlist"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "For an automation rule to run a Logic App playbook, Microsoft Sentinel needs explicit permission on the playbook's resource group (the Microsoft Sentinel Automation Contributor role), otherwise it can't invoke it.",
+        "distractors": {
+          "A": "Region moves do not resolve a playbook-run permissions error.",
+          "B": "",
+          "C": "Deleting the analytics rule removes the detection; it does not fix playbook permissions.",
+          "D": "A playbook is a Logic App workflow; it cannot be a watchlist."
+        },
+        "exam_pattern": "Playbook won't run from automation = grant Sentinel permission on the playbook resource group."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Grant Microsoft Sentinel permission to run playbooks"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-031",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_soar",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "During an investigation, an analyst wants to run a playbook against a single IP-address entity (to enrich it with reputation data) on demand. Which playbook trigger supports running against an individual entity?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A recurrence (timer) trigger"
+        },
+        {
+          "id": "B",
+          "text": "An FTP trigger"
+        },
+        {
+          "id": "C",
+          "text": "The Microsoft Sentinel entity trigger"
+        },
+        {
+          "id": "D",
+          "text": "A blob-created trigger"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The Microsoft Sentinel entity trigger lets a playbook take a single entity (such as an IP, account, or host) as input, so analysts can run enrichment/response against that entity on demand.",
+        "distractors": {
+          "A": "A recurrence trigger runs on a timer, not against a chosen entity.",
+          "B": "An FTP trigger is unrelated to Sentinel entities.",
+          "C": "",
+          "D": "A blob-created trigger fires on storage events, not entities."
+        },
+        "exam_pattern": "Run a playbook on one entity = entity trigger; on incidents = incident trigger; on alerts = alert trigger."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Entity triggers for playbooks in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-032",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_soar",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An analyst reviewing an incident wants to immediately execute a specific response playbook themselves (not wait for an automated rule). Can this be done?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Yes - but only by deleting the incident"
+        },
+        {
+          "id": "B",
+          "text": "No - playbooks run only when the workspace is created"
+        },
+        {
+          "id": "C",
+          "text": "No - playbooks only run on a timer"
+        },
+        {
+          "id": "D",
+          "text": "Yes - a playbook can be run manually (on demand) from an incident, alert, or entity"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Playbooks can be triggered manually (on demand) from an incident, alert, or entity, letting analysts invoke response actions during an investigation in addition to automated runs.",
+        "distractors": {
+          "A": "Deleting the incident is unrelated to running a playbook.",
+          "B": "Playbooks are not limited to workspace creation.",
+          "C": "Playbooks are not timer-only; they support manual and event-based triggers.",
+          "D": ""
+        },
+        "exam_pattern": "Playbooks can be run on demand from an incident/alert/entity, not only automatically."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Run playbooks on demand in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-033",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_soar",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which statement about Microsoft Sentinel automation rules is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "They can be triggered when an incident is created or updated (and when alerts are created), and can run playbooks or change incident properties"
+        },
+        {
+          "id": "B",
+          "text": "They can only send email and nothing else"
+        },
+        {
+          "id": "C",
+          "text": "They can only run once per day on a fixed timer"
+        },
+        {
+          "id": "D",
+          "text": "They replace the need for any analytics rules"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Automation rules can trigger on incident creation or update (and on alert creation), and can set properties (status, severity, owner, tags) and/or run playbooks - centralizing incident handling.",
+        "distractors": {
+          "A": "",
+          "B": "They do far more than email - assign, tag, close, run playbooks, etc.",
+          "C": "Automation rules are event-driven (incident/alert), not a once-daily timer.",
+          "D": "They orchestrate response; detections still come from analytics rules."
+        },
+        "exam_pattern": "Automation rules trigger on incident create/update (and alert create) and orchestrate handling."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Automation rules triggers and actions in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-034",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_soar",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Inside a Logic App playbook, which Microsoft Sentinel connector actions let the workflow enrich and update the incident it was triggered by?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only storage-account file actions"
+        },
+        {
+          "id": "B",
+          "text": "Only Azure DevOps pipeline actions"
+        },
+        {
+          "id": "C",
+          "text": "Actions such as 'Get incident', 'Get entities', 'Add comment to incident', and 'Update incident' (status/severity)"
+        },
+        {
+          "id": "D",
+          "text": "Only 'Delete workspace'"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The Microsoft Sentinel Logic Apps connector provides incident actions (get incident/entities, add a comment, update status/severity, add tags), so playbooks can enrich and progress the incident.",
+        "distractors": {
+          "A": "Storage file actions are not how a playbook updates a Sentinel incident.",
+          "B": "DevOps pipeline actions are unrelated to Sentinel incident handling.",
+          "C": "",
+          "D": "Playbooks do not operate by deleting the workspace."
+        },
+        "exam_pattern": "Playbook ↔ incident = Sentinel connector actions (get entities, add comment, update incident)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Microsoft Sentinel Logic Apps connector actions"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-035",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_soar",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Fill in the blank (one word): In Microsoft Sentinel, a ______ is the automated, repeatable set of response actions (built on Azure Logic Apps) that you attach to an alert, incident, or entity to carry out SOAR response.",
+      "correct": [
+        "playbook"
+      ],
+      "explanation": {
+        "correct": "A playbook is the Logic Apps-based response workflow; automation rules decide when and which playbooks run as part of Sentinel's SOAR capabilities.",
+        "distractors": {},
+        "exam_pattern": "Logic Apps response workflow = playbook; the orchestration layer = automation rule."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Automate threat response with playbooks in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-036",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_incidents",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A threat hunter wants to proactively search for suspicious patterns BEFORE any alert fires, using a library of queries organized by MITRE ATT&CK tactic. Which Microsoft Sentinel capability is designed for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Watchlists"
+        },
+        {
+          "id": "B",
+          "text": "Automation rules"
+        },
+        {
+          "id": "C",
+          "text": "Hunting queries (the Hunting page)"
+        },
+        {
+          "id": "D",
+          "text": "Data connectors"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The Hunting page provides proactive, hypothesis-driven KQL hunting queries mapped to MITRE ATT&CK tactics/techniques, letting analysts search for threats before alerts are generated.",
+        "distractors": {
+          "A": "Watchlists are reference data used within queries, not the hunting capability itself.",
+          "B": "Automation rules orchestrate incident response; they are not proactive hunting queries.",
+          "C": "",
+          "D": "Data connectors ingest data; they do not provide hunting queries."
+        },
+        "exam_pattern": "Proactive, pre-alert searching by ATT&CK tactic = hunting queries (Hunting page)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Hunt for threats with Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-037",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_incidents",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "While testing a hunting hypothesis, an analyst wants to watch a query against incoming data in real time and be notified as new matches arrive. Which Microsoft Sentinel hunting feature provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Livestream"
+        },
+        {
+          "id": "B",
+          "text": "A playbook"
+        },
+        {
+          "id": "C",
+          "text": "A workbook"
+        },
+        {
+          "id": "D",
+          "text": "A watchlist"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Livestream runs a hunting query against live, incoming data and notifies the analyst of new matches in near real time - useful to test a detection idea or watch an active threat.",
+        "distractors": {
+          "A": "",
+          "B": "Playbooks automate response; they do not stream query results for hunting.",
+          "C": "Workbooks visualize stored data; they are not live hunting sessions.",
+          "D": "Watchlists are static reference datasets, not live query sessions."
+        },
+        "exam_pattern": "Watch a hunting query against live data = livestream."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Use hunting livestream in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-038",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_incidents",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "During hunting, an analyst finds notable rows worth preserving and escalating. They bookmark the results. What can be done with a Microsoft Sentinel hunting bookmark?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It deletes the underlying data"
+        },
+        {
+          "id": "B",
+          "text": "It disables the connector"
+        },
+        {
+          "id": "C",
+          "text": "Promote it to a new incident or add it to an existing incident as evidence"
+        },
+        {
+          "id": "D",
+          "text": "It only changes the chart color"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Bookmarks preserve notable query findings (with their entities and context) and can be promoted to a new incident or attached to an existing incident as evidence for investigation.",
+        "distractors": {
+          "A": "Bookmarks preserve data references; they do not delete data.",
+          "B": "Bookmarks are unrelated to connector state.",
+          "C": "",
+          "D": "A bookmark saves findings; it is not a chart styling option."
+        },
+        "exam_pattern": "Save hunting findings as evidence -> create/add to an incident = bookmarks."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Keep track of data with hunting bookmarks"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-039",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_incidents",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A data-science-savvy analyst needs to run advanced, multi-step investigations - combining KQL results with Python, machine learning, and rich visualizations - over Microsoft Sentinel data. Which capability supports this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Automation rules"
+        },
+        {
+          "id": "B",
+          "text": "Notebooks (Jupyter notebooks, e.g., via Azure Machine Learning)"
+        },
+        {
+          "id": "C",
+          "text": "Data connectors"
+        },
+        {
+          "id": "D",
+          "text": "Watchlists"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Microsoft Sentinel notebooks (Jupyter, often hosted in Azure Machine Learning) enable advanced hunting/investigation with Python, ML, and custom visualizations beyond what KQL alone offers.",
+        "distractors": {
+          "A": "Automation rules orchestrate response; they are not interactive analysis notebooks.",
+          "B": "",
+          "C": "Data connectors ingest data; they are not an investigation notebook tool.",
+          "D": "Watchlists are reference data, not an analysis notebook environment."
+        },
+        "exam_pattern": "Python/ML/advanced multi-step investigation over Sentinel data = notebooks (Jupyter/Azure ML)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Use Jupyter notebooks to hunt in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-040",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_incidents",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "A SOC manager wants an interactive dashboard that visualizes sign-in trends and incident volumes from the Microsoft Sentinel workspace, with charts and filters. Which feature provides this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Watchlists"
+        },
+        {
+          "id": "B",
+          "text": "Automation rules"
+        },
+        {
+          "id": "C",
+          "text": "Playbooks"
+        },
+        {
+          "id": "D",
+          "text": "Workbooks"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Workbooks provide interactive, customizable dashboards and visualizations over workspace data (built on Azure Monitor workbooks), with charts, grids, and filters.",
+        "distractors": {
+          "A": "Watchlists are reference datasets, not visualizations.",
+          "B": "Automation rules orchestrate incidents; they do not visualize data.",
+          "C": "Playbooks automate response actions; they do not build dashboards.",
+          "D": ""
+        },
+        "exam_pattern": "Interactive dashboards/visualization in Sentinel = workbooks."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Visualize data with workbooks in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-041",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_incidents",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A SOC maintains a very large reference list of allowed IP ranges and wants analytics rules and hunting queries to join against it efficiently. Which Microsoft Sentinel feature and access method fits?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A playbook referenced inline in KQL"
+        },
+        {
+          "id": "B",
+          "text": "A watchlist, referenced in KQL via the _GetWatchlist('name') function (large watchlists can be backed by Azure Storage)"
+        },
+        {
+          "id": "C",
+          "text": "A workbook referenced by _GetWorkbook()"
+        },
+        {
+          "id": "D",
+          "text": "A data connector queried with join kind=anti"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Watchlists hold reference data and are queried in KQL with _GetWatchlist('name'); large watchlists can be backed by Azure Storage for scale, so rules/hunts can join against them.",
+        "distractors": {
+          "A": "Playbooks are response workflows; they are not referenced inline in KQL.",
+          "B": "",
+          "C": "There is no _GetWorkbook() reference function; workbooks visualize data, they aren't joined in KQL.",
+          "D": "A data connector ingests data; the reference-list pattern uses a watchlist, not a connector."
+        },
+        "exam_pattern": "Join rules/hunts against a reference list = watchlist via _GetWatchlist() (large = Azure Storage-backed)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Build queries with watchlists and the _GetWatchlist function"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-042",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_incidents",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "After enabling UEBA in Microsoft Sentinel, which table should analysts query to hunt on behavioral anomalies and the per-entity investigation priority scores it produces?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Heartbeat"
+        },
+        {
+          "id": "B",
+          "text": "BehaviorAnalytics"
+        },
+        {
+          "id": "C",
+          "text": "CommonSecurityLog"
+        },
+        {
+          "id": "D",
+          "text": "AzureActivity"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "UEBA enriches activity into the BehaviorAnalytics table, including behavioral context and investigation-priority scoring that analysts can hunt and build detections on.",
+        "distractors": {
+          "A": "Heartbeat tracks agent connectivity, not user/entity behavior analytics.",
+          "B": "",
+          "C": "CommonSecurityLog holds CEF appliance data, not UEBA output.",
+          "D": "AzureActivity records Azure control-plane operations, not UEBA scores."
+        },
+        "exam_pattern": "UEBA output for hunting = BehaviorAnalytics table (with investigation priority)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Hunt with UEBA and the BehaviorAnalytics table"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-043",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_incidents",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Investigating a suspicious account, an analyst wants a consolidated timeline of that user's activity, alerts, and enrichment in one place. Which Microsoft Sentinel capability provides this per-entity view?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A data collection rule"
+        },
+        {
+          "id": "B",
+          "text": "The entity page (entity behavior)"
+        },
+        {
+          "id": "C",
+          "text": "The Content hub"
+        },
+        {
+          "id": "D",
+          "text": "The Tenant Allow/Block List"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Entity pages present a consolidated view for a user, host, or IP - a timeline of activities, related alerts, and enrichment/insights - to speed investigation.",
+        "distractors": {
+          "A": "A data collection rule governs ingestion, not entity investigation.",
+          "B": "",
+          "C": "The Content hub installs solutions; it is not a per-entity investigation view.",
+          "D": "The Tenant Allow/Block List is a Defender for Office 365 feature, unrelated to Sentinel entity pages."
+        },
+        "exam_pattern": "Consolidated per-entity timeline/insights = entity page."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Investigate entities with entity pages in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-sent-r2-044",
+      "exam": "sc200",
+      "domain": "sc200_sentinel",
+      "subtopic": "sc200_sentinel_incidents",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "Which TWO Microsoft Sentinel capabilities are intended for PROACTIVE threat hunting (before an alert or incident exists)? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Automation rules"
+        },
+        {
+          "id": "B",
+          "text": "Hunting queries (Hunting page)"
+        },
+        {
+          "id": "C",
+          "text": "Quarantine policies"
+        },
+        {
+          "id": "D",
+          "text": "Livestream"
+        }
+      ],
+      "correct": [
+        "B",
+        "D"
+      ],
+      "explanation": {
+        "correct": "Hunting queries and livestream are proactive hunting tools - searching for and watching suspicious activity before alerts fire.",
+        "distractors": {
+          "A": "Automation rules react to incidents/alerts that already exist; they are not proactive hunting.",
+          "B": "",
+          "C": "Quarantine policies are a Defender for Office 365 construct, not a Sentinel hunting tool.",
+          "D": ""
+        },
+        "exam_pattern": "Proactive hunting = hunting queries + livestream (bookmarks/notebooks support it too)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Proactive threat hunting tools in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-hunt-r2-001",
+      "exam": "sc200",
+      "domain": "sc200_hunting_intel",
+      "subtopic": "sc200_kql",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A hunter wants, for each device, the single MOST RECENT sign-in row - keeping other columns from that row (not just the max timestamp). Which KQL aggregation function fits inside summarize?",
+      "options": [
+        {
+          "id": "A",
+          "text": "max(Timestamp) by DeviceName"
+        },
+        {
+          "id": "B",
+          "text": "count() by DeviceName"
+        },
+        {
+          "id": "C",
+          "text": "arg_max(Timestamp, *) by DeviceName"
+        },
+        {
+          "id": "D",
+          "text": "make_list(Timestamp) by DeviceName"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "arg_max(Timestamp, *) returns the row that has the maximum Timestamp per group and keeps the other columns (the '*'), giving the latest full record per device.",
+        "distractors": {
+          "A": "max(Timestamp) returns only the maximum timestamp value, not the other columns of that row.",
+          "B": "count() returns how many rows, not the latest row.",
+          "C": "",
+          "D": "make_list() collects all values into an array; it does not pick the latest row."
+        },
+        "exam_pattern": "Latest full row per group = arg_max(Timestamp, *); just the max value = max()."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): KQL aggregation - arg_max()"
+      ]
+    },
+    {
+      "id": "sc200-hunt-r2-002",
+      "exam": "sc200",
+      "domain": "sc200_hunting_intel",
+      "subtopic": "sc200_kql",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A column contains a dynamic array of file hashes per event. A hunter wants one output row per individual hash so they can group/count by hash. Which KQL operator expands the array into rows?",
+      "options": [
+        {
+          "id": "A",
+          "text": "project-away"
+        },
+        {
+          "id": "B",
+          "text": "mv-expand"
+        },
+        {
+          "id": "C",
+          "text": "make_list"
+        },
+        {
+          "id": "D",
+          "text": "summarize"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "mv-expand expands each element of a dynamic array (or property bag) into its own row - the inverse of summarize make_list() - so each hash becomes a separate record.",
+        "distractors": {
+          "A": "project-away removes columns; it does not expand arrays.",
+          "B": "",
+          "C": "make_list does the opposite: it collects values into one array.",
+          "D": "summarize aggregates rows; it does not expand an array into rows."
+        },
+        "exam_pattern": "Array -> one row per element = mv-expand (inverse of make_list)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): KQL - the mv-expand operator"
+      ]
+    },
+    {
+      "id": "sc200-hunt-r2-003",
+      "exam": "sc200",
+      "domain": "sc200_hunting_intel",
+      "subtopic": "sc200_kql",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A hunter needs to pull structured fields (user, source IP) out of a free-text log message column into their own columns. Which KQL operator is designed to extract calculated columns from a string pattern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "distinct"
+        },
+        {
+          "id": "B",
+          "text": "parse"
+        },
+        {
+          "id": "C",
+          "text": "summarize"
+        },
+        {
+          "id": "D",
+          "text": "sort"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "parse evaluates a string expression and produces one or more calculated columns from a pattern (values are null where the pattern doesn't match; use parse-where to drop non-matching rows).",
+        "distractors": {
+          "A": "distinct returns unique combinations; it does not extract substrings into columns.",
+          "B": "",
+          "C": "summarize aggregates rows; it does not extract fields from a string.",
+          "D": "sort orders rows; it does not parse text into columns."
+        },
+        "exam_pattern": "Extract fields from a text column = parse (parse-where to drop failures)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): KQL - the parse operator"
+      ]
+    },
+    {
+      "id": "sc200-hunt-r2-004",
+      "exam": "sc200",
+      "domain": "sc200_hunting_intel",
+      "subtopic": "sc200_kql",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A hunter wants to define a reusable threshold value and a reusable subquery at the top of a KQL query, then reference them below. Which KQL statement does this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The take operator"
+        },
+        {
+          "id": "B",
+          "text": "The where operator"
+        },
+        {
+          "id": "C",
+          "text": "The render operator"
+        },
+        {
+          "id": "D",
+          "text": "The let statement"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "let binds a name to a scalar value, a list, or even a subquery/tabular expression, so you can declare thresholds and reusable datasets once and reference them later in the query.",
+        "distractors": {
+          "A": "take returns an arbitrary sample of rows; it does not define variables.",
+          "B": "where filters rows; it does not declare reusable variables.",
+          "C": "render selects a chart type for output.",
+          "D": ""
+        },
+        "exam_pattern": "Declare reusable values/subqueries = let."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): KQL - the let statement"
+      ]
+    },
+    {
+      "id": "sc200-hunt-r2-005",
+      "exam": "sc200",
+      "domain": "sc200_hunting_intel",
+      "subtopic": "sc200_kql",
+      "difficulty": 1,
+      "type": "fill",
+      "stem": "Fill in the blank (one KQL function): To keep only events from the last 24 hours relative to now, a hunter writes `where Timestamp > ______(1d)`.",
+      "correct": [
+        "ago"
+      ],
+      "explanation": {
+        "correct": "ago(1d) returns the time 24 hours before now, so the predicate keeps events from the last day; ago() is the standard relative-time function for filtering.",
+        "distractors": {},
+        "exam_pattern": "Relative time filter = ago(<timespan>); fixed window = between(..)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): KQL - the ago() function"
+      ]
+    },
+    {
+      "id": "sc200-hunt-r2-006",
+      "exam": "sc200",
+      "domain": "sc200_hunting_intel",
+      "subtopic": "sc200_kql",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A hunter needs accounts that appear in a sign-in table but have NO matching row in an alerts table (present in the left table, absent from the right). Which KQL join kind returns exactly these?",
+      "options": [
+        {
+          "id": "A",
+          "text": "join kind=inner"
+        },
+        {
+          "id": "B",
+          "text": "join kind=rightouter"
+        },
+        {
+          "id": "C",
+          "text": "join kind=fullouter"
+        },
+        {
+          "id": "D",
+          "text": "join kind=leftanti"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A leftanti join returns only the left-table rows that have no match in the right table - exactly 'in A but not in B' - making it ideal for finding activity with no corresponding alert.",
+        "distractors": {
+          "A": "inner returns only matching rows (in both), the opposite of what's needed.",
+          "B": "rightouter keeps all right-table rows; it does not isolate left-only rows.",
+          "C": "fullouter returns all rows from both sides, matched or not.",
+          "D": ""
+        },
+        "exam_pattern": "'In A, not in B' = join kind=leftanti; 'in both' = inner."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): KQL join flavors - leftanti and other kinds"
+      ]
+    },
+    {
+      "id": "sc200-hunt-r2-007",
+      "exam": "sc200",
+      "domain": "sc200_hunting_intel",
+      "subtopic": "sc200_advanced_hunting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To hunt for devices making outbound network connections to a suspected command-and-control IP address, which Microsoft Defender XDR advanced hunting table should be queried?",
+      "options": [
+        {
+          "id": "A",
+          "text": "IdentityDirectoryEvents"
+        },
+        {
+          "id": "B",
+          "text": "DeviceNetworkEvents"
+        },
+        {
+          "id": "C",
+          "text": "DeviceFileEvents"
+        },
+        {
+          "id": "D",
+          "text": "EmailEvents"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "DeviceNetworkEvents records network connection telemetry from onboarded devices (remote IPs/URLs, ports, process), ideal for hunting outbound connections to a C2 address.",
+        "distractors": {
+          "A": "IdentityDirectoryEvents covers on-prem AD/identity activity, not device network traffic.",
+          "B": "",
+          "C": "DeviceFileEvents covers file create/modify/delete activity, not network connections.",
+          "D": "EmailEvents covers email delivery, not device network connections."
+        },
+        "exam_pattern": "Device outbound connections / C2 hunting = DeviceNetworkEvents."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Advanced hunting schema - DeviceNetworkEvents"
+      ]
+    },
+    {
+      "id": "sc200-hunt-r2-008",
+      "exam": "sc200",
+      "domain": "sc200_hunting_intel",
+      "subtopic": "sc200_advanced_hunting",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A hunter wants authentication/logon activity captured by Microsoft Defender for Identity (on-premises AD and related sign-ins) within the Defender XDR advanced hunting schema. Which table is most appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "AlertInfo"
+        },
+        {
+          "id": "B",
+          "text": "IdentityLogonEvents"
+        },
+        {
+          "id": "C",
+          "text": "CloudAppEvents"
+        },
+        {
+          "id": "D",
+          "text": "DeviceProcessEvents"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "IdentityLogonEvents contains logon/authentication events from identity providers monitored by Defender for Identity (and related sources), supporting identity-centric hunting.",
+        "distractors": {
+          "A": "AlertInfo lists alerts, not raw identity logon telemetry.",
+          "B": "",
+          "C": "CloudAppEvents holds Defender for Cloud Apps activities, not AD logon events.",
+          "D": "DeviceProcessEvents holds process creation on endpoints, not identity logons."
+        },
+        "exam_pattern": "Identity logon/auth telemetry (MDI) = IdentityLogonEvents; AD object changes = IdentityDirectoryEvents."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Advanced hunting schema - IdentityLogonEvents"
+      ]
+    },
+    {
+      "id": "sc200-hunt-r2-009",
+      "exam": "sc200",
+      "domain": "sc200_hunting_intel",
+      "subtopic": "sc200_advanced_hunting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To hunt across activities in SaaS apps monitored by Microsoft Defender for Cloud Apps (for example, mass file downloads or risky OAuth activity) using advanced hunting, which table holds these events?",
+      "options": [
+        {
+          "id": "A",
+          "text": "CloudAppEvents"
+        },
+        {
+          "id": "B",
+          "text": "DeviceRegistryEvents"
+        },
+        {
+          "id": "C",
+          "text": "EmailAttachmentInfo"
+        },
+        {
+          "id": "D",
+          "text": "DeviceImageLoadEvents"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "CloudAppEvents contains activities from apps monitored by Defender for Cloud Apps, so hunters can query cloud-app user actions across connected SaaS services.",
+        "distractors": {
+          "A": "",
+          "B": "DeviceRegistryEvents covers endpoint registry changes, not cloud-app activity.",
+          "C": "EmailAttachmentInfo covers email attachments, not SaaS app activity.",
+          "D": "DeviceImageLoadEvents covers DLL/image loads on endpoints, not cloud apps."
+        },
+        "exam_pattern": "SaaS app activity hunting = CloudAppEvents (Defender for Cloud Apps)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Advanced hunting schema - CloudAppEvents"
+      ]
+    },
+    {
+      "id": "sc200-hunt-r2-010",
+      "exam": "sc200",
+      "domain": "sc200_hunting_intel",
+      "subtopic": "sc200_advanced_hunting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A hunter wants details about the FILE ATTACHMENTS carried by emails (such as file name and hash) to pivot on a malicious attachment across the tenant. Which advanced hunting table is most directly relevant?",
+      "options": [
+        {
+          "id": "A",
+          "text": "DeviceLogonEvents"
+        },
+        {
+          "id": "B",
+          "text": "EmailAttachmentInfo"
+        },
+        {
+          "id": "C",
+          "text": "AzureActivity"
+        },
+        {
+          "id": "D",
+          "text": "UrlClickEvents"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "EmailAttachmentInfo contains information about files attached to emails (name, hashes, malware verdict), letting hunters trace a malicious attachment; join with EmailEvents for delivery context.",
+        "distractors": {
+          "A": "DeviceLogonEvents covers endpoint logons, not email attachments.",
+          "B": "",
+          "C": "AzureActivity records Azure control-plane operations, not email attachments.",
+          "D": "UrlClickEvents records Safe Links URL clicks, not attachment file details."
+        },
+        "exam_pattern": "Email attachment file details = EmailAttachmentInfo; URLs in email = EmailUrlInfo; clicks = UrlClickEvents."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Advanced hunting schema - EmailAttachmentInfo"
+      ]
+    },
+    {
+      "id": "sc200-hunt-r2-011",
+      "exam": "sc200",
+      "domain": "sc200_hunting_intel",
+      "subtopic": "sc200_advanced_hunting",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In the unified Microsoft Defender portal, a hunter writes an advanced hunting query that returns both Microsoft Sentinel-sourced rows and Defender XDR device rows. For which results can they use the built-in 'take actions' (response) capability directly from the query output?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only for Microsoft Sentinel data"
+        },
+        {
+          "id": "B",
+          "text": "For neither - response actions are never available from hunting"
+        },
+        {
+          "id": "C",
+          "text": "For all rows equally, including Sentinel-only rows"
+        },
+        {
+          "id": "D",
+          "text": "Only for Microsoft Defender XDR data (take actions is supported on Defender data, not Sentinel-only results)"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "In unified advanced hunting, the guided mode and 'take actions' response capabilities support Microsoft Defender XDR data only; you can query Sentinel tables alongside Defender data, but direct response actions apply to Defender results.",
+        "distractors": {
+          "A": "It is the reverse: take actions is for Defender data, not Sentinel-only data.",
+          "B": "Response actions ARE available from hunting - for Defender XDR data.",
+          "C": "Take actions does not apply to Sentinel-only results; it is a known Defender-data limitation.",
+          "D": ""
+        },
+        "exam_pattern": "Unified hunting 'take actions' = Defender XDR data only (Sentinel tables are queryable but not actionable there)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Advanced hunting with Microsoft Sentinel data in the Defender portal"
+      ]
+    },
+    {
+      "id": "sc200-hunt-r2-012",
+      "exam": "sc200",
+      "domain": "sc200_hunting_intel",
+      "subtopic": "sc200_custom_detections",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "When creating a Microsoft Defender XDR custom detection rule, why must the query's results map impacted entities (such as DeviceId, AccountObjectId, or the recipient mailbox)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "So the workspace retention increases"
+        },
+        {
+          "id": "B",
+          "text": "So the rule runs faster"
+        },
+        {
+          "id": "C",
+          "text": "So the generated alerts are tied to the right assets and response actions can target those entities"
+        },
+        {
+          "id": "D",
+          "text": "So the data is exported to storage"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Mapping impacted entities lets Defender XDR associate alerts with the correct devices/users/mailboxes and apply response actions (isolate device, disable user, etc.) to those entities.",
+        "distractors": {
+          "A": "It does not change retention.",
+          "B": "Entity mapping is about targeting alerts/actions, not query speed.",
+          "C": "",
+          "D": "It does not export data to storage."
+        },
+        "exam_pattern": "Custom detection must map impacted entities so alerts/actions hit the right assets."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Map impacted entities in custom detection rules"
+      ]
+    },
+    {
+      "id": "sc200-hunt-r2-013",
+      "exam": "sc200",
+      "domain": "sc200_hunting_intel",
+      "subtopic": "sc200_custom_detections",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A SOC builds a custom detection rule whose query includes a Microsoft Sentinel table (in the unified portal). Which constraint applies to this rule?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It cannot generate alerts at all"
+        },
+        {
+          "id": "B",
+          "text": "Near-real-time (continuous) frequency isn't available, and the Sentinel data must be in the Analytics tier"
+        },
+        {
+          "id": "C",
+          "text": "It requires the device to be isolated first"
+        },
+        {
+          "id": "D",
+          "text": "It must run only once per week"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "When a custom detection includes Microsoft Sentinel data, the near-real-time frequency isn't offered, and the Sentinel tables must be Analytics-tier (not Basic/Auxiliary) for the rule to be created.",
+        "distractors": {
+          "A": "The rule still generates alerts; the constraint is on frequency and data tier.",
+          "B": "",
+          "C": "Device isolation is a response action, not a creation constraint.",
+          "D": "There is no fixed weekly-only requirement; periodic frequencies apply."
+        },
+        "exam_pattern": "Custom detection with Sentinel data = no NRT frequency + Analytics-tier tables required."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Custom detections that include Microsoft Sentinel data"
+      ]
+    },
+    {
+      "id": "sc200-hunt-r2-014",
+      "exam": "sc200",
+      "domain": "sc200_hunting_intel",
+      "subtopic": "sc200_threat_intel",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A SOC wants Microsoft Sentinel to automatically generate alerts when Microsoft-generated threat intelligence indicators match events in their logs (for example, a known-malicious IP seen in network data). Which analytics capability does this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A watchlist"
+        },
+        {
+          "id": "B",
+          "text": "The Microsoft Threat Intelligence matching analytics rule"
+        },
+        {
+          "id": "C",
+          "text": "An anomaly rule"
+        },
+        {
+          "id": "D",
+          "text": "A workbook"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The Microsoft Threat Intelligence (matching) analytics rule correlates Microsoft's threat intelligence indicators against your ingested logs and raises alerts on matches.",
+        "distractors": {
+          "A": "A watchlist is static reference data; it does not itself match TI and generate alerts.",
+          "B": "",
+          "C": "An anomaly rule flags behavioral outliers via ML, not indicator matching.",
+          "D": "A workbook visualizes data; it does not generate TI-match alerts."
+        },
+        "exam_pattern": "Auto-alert on Microsoft TI indicator matches in your logs = TI matching analytics rule."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Use matching analytics to detect threats with threat intelligence"
+      ]
+    },
+    {
+      "id": "sc200-hunt-r2-015",
+      "exam": "sc200",
+      "domain": "sc200_hunting_intel",
+      "subtopic": "sc200_threat_intel",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In Microsoft Sentinel's threat intelligence, in what standardized format are indicators (and related objects) represented, including when adding an indicator manually with a validity period and confidence?",
+      "options": [
+        {
+          "id": "A",
+          "text": "STIX objects"
+        },
+        {
+          "id": "B",
+          "text": "Bicep templates"
+        },
+        {
+          "id": "C",
+          "text": "CSV watchlists"
+        },
+        {
+          "id": "D",
+          "text": "YAML playbooks"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Sentinel represents threat intelligence as STIX objects (indicators and other STIX object types), and the threat intelligence management interface lets you add/curate indicators (with validity, confidence, tags) in that model.",
+        "distractors": {
+          "A": "",
+          "B": "Bicep is for infrastructure-as-code deployments, not TI indicators.",
+          "C": "A CSV watchlist is generic reference data, not the STIX TI object standard.",
+          "D": "YAML is used for some content definitions, not the TI indicator object model."
+        },
+        "exam_pattern": "Sentinel threat intelligence objects = STIX (indicators, etc.)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Work with threat intelligence (STIX objects) in Microsoft Sentinel"
+      ]
+    },
+    {
+      "id": "sc200-hunt-r2-016",
+      "exam": "sc200",
+      "domain": "sc200_hunting_intel",
+      "subtopic": "sc200_threat_intel",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In Microsoft Defender for Endpoint, custom indicators (IoCs) can be assigned a response action and scoped to device groups. Which of the following is NOT a valid Defender for Endpoint indicator action?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Allow"
+        },
+        {
+          "id": "B",
+          "text": "Quarantine the user's mailbox"
+        },
+        {
+          "id": "C",
+          "text": "Warn / Audit"
+        },
+        {
+          "id": "D",
+          "text": "Block (or Block and remediate)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Defender for Endpoint indicator actions include Allow, Audit, Warn, Block, and Block and remediate (scopable to device groups). Quarantining a mailbox is a Defender for Office 365 action, not an endpoint indicator action.",
+        "distractors": {
+          "A": "Allow is a valid indicator action (explicitly permit a known-good IoC).",
+          "B": "",
+          "C": "Warn and Audit are valid indicator actions.",
+          "D": "Block / Block and remediate are valid endpoint indicator actions."
+        },
+        "exam_pattern": "MDE indicator actions = Allow / Audit / Warn / Block / Block-and-remediate (scoped to device groups)."
+      },
+      "references": [
+        "Microsoft Learn (SC-200): Create indicators and response actions in Defender for Endpoint"
       ]
     },
     {

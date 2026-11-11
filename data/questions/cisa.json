@@ -1,6 +1,6 @@
 {
   "exam": "cisa",
-  "count": 92,
+  "count": 200,
   "questions": [
     {
       "id": "cisa-acq-001",
@@ -3745,6 +3745,4564 @@
       },
       "references": [
         "ISACA CISA Review Manual: Domain 5 — Physical access controls"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-001",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_standards",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To preserve the independence of the IS audit function, the function should report FUNCTIONALLY to:",
+      "options": [
+        {
+          "id": "A",
+          "text": "The IT operations manager"
+        },
+        {
+          "id": "B",
+          "text": "The head of software development"
+        },
+        {
+          "id": "C",
+          "text": "The chief information officer (CIO) whose area it audits"
+        },
+        {
+          "id": "D",
+          "text": "The audit committee of the board of directors"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Reporting functionally to the audit committee (board) keeps the audit function organizationally independent of the IT management whose activities it examines.",
+        "distractors": {
+          "A": "IT operations is a subject of the audit, not an independent oversight body.",
+          "B": "Software development is audited by the function and cannot be its reporting line.",
+          "C": "The CIO owns the IT area under audit; reporting to the CIO impairs independence.",
+          "D": ""
+        },
+        "exam_pattern": "Audit reports functionally to the audit committee/board - never to the IT management it audits."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Organizational independence and reporting lines"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-002",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_standards",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IS auditor is assigned to audit a highly specialized system that is outside the auditor's technical expertise. What is the BEST course of action?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Omit the specialized system and report on the rest"
+        },
+        {
+          "id": "B",
+          "text": "Proceed and rely only on management's verbal assurances"
+        },
+        {
+          "id": "C",
+          "text": "Decline to form any conclusion about the system"
+        },
+        {
+          "id": "D",
+          "text": "Engage or consult a qualified subject-matter expert while retaining responsibility for the audit conclusion"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The proficiency standard lets the auditor use a competent expert's work for areas beyond their skill, but the IS auditor still owns and supervises the conclusion.",
+        "distractors": {
+          "A": "Scoping out the key system undermines the purpose of the audit.",
+          "B": "Verbal assurances are weak evidence and do not address the competence gap.",
+          "C": "Declining abandons the objective; the standards provide for using experts instead.",
+          "D": ""
+        },
+        "exam_pattern": "Lack a skill? Use a competent expert - but the auditor still owns the conclusion (proficiency/due care)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Proficiency and use of the work of experts"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-003",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_standards",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IS audit concludes that controls are adequate. Which statement BEST reflects the level of assurance the auditor can provide?",
+      "options": [
+        {
+          "id": "A",
+          "text": "No assurance at all"
+        },
+        {
+          "id": "B",
+          "text": "Absolute assurance that no control weakness or error exists"
+        },
+        {
+          "id": "C",
+          "text": "A guarantee that fraud is impossible"
+        },
+        {
+          "id": "D",
+          "text": "Reasonable assurance, because inherent limitations and sampling mean some issues may go undetected"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Because of sampling and the inherent limitations of any audit, the IS auditor provides reasonable - not absolute - assurance.",
+        "distractors": {
+          "A": "The audit does provide assurance; it is reasonable rather than none.",
+          "B": "Audits cannot provide absolute assurance that every issue has been found.",
+          "C": "No audit can guarantee that fraud is impossible.",
+          "D": ""
+        },
+        "exam_pattern": "Audits give REASONABLE assurance, not absolute (sampling + inherent limitations)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Reasonable assurance and inherent limitations"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-004",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_standards",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Midway through an engagement, management restricts the IS auditor from accessing records needed to complete testing. What should the auditor do?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Quietly drop the affected tests and issue an unqualified report"
+        },
+        {
+          "id": "B",
+          "text": "Continue and estimate the missing results"
+        },
+        {
+          "id": "C",
+          "text": "Document the scope limitation and communicate it to those charged with governance, assessing its effect on the conclusion"
+        },
+        {
+          "id": "D",
+          "text": "Accept management's decision without comment"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A scope limitation must be documented and reported to those charged with governance, and its effect on the audit opinion must be considered.",
+        "distractors": {
+          "A": "Silently dropping tests and issuing a clean report misrepresents the audit.",
+          "B": "Fabricating or estimating missing results is an ethics violation, not evidence.",
+          "C": "",
+          "D": "Accepting a limitation without comment fails the auditor's reporting duty."
+        },
+        "exam_pattern": "Scope limitation -> document it, report to governance, and weigh its effect on the opinion."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Scope limitations and reporting"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-005",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_risk_based_audit",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: The susceptibility of a process or account to a material error, assuming NO related internal controls are in place, is called ______ risk.",
+      "correct": [
+        "inherent",
+        "inherent risk"
+      ],
+      "explanation": {
+        "correct": "Inherent risk is the risk present before controls are considered; the audit risk model then factors in control risk and detection risk.",
+        "distractors": {},
+        "exam_pattern": "Inherent = risk before controls; control = controls fail; detection = auditor misses it."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Audit risk components (inherent risk)"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-006",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_risk_based_audit",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An IS auditor assesses both inherent risk and control risk for a process as high. To keep overall audit risk at an acceptable level, the auditor should:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Issue the report without any testing"
+        },
+        {
+          "id": "B",
+          "text": "Ignore detection risk because it cannot be controlled"
+        },
+        {
+          "id": "C",
+          "text": "Reduce the amount of substantive testing"
+        },
+        {
+          "id": "D",
+          "text": "Increase the extent of substantive testing to lower detection risk"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "When inherent and control risk are high, the auditor lowers detection risk - the component they control - by performing more or more rigorous substantive testing.",
+        "distractors": {
+          "A": "No testing provides no basis for a supported conclusion.",
+          "B": "Detection risk is exactly the component the auditor can manage through testing.",
+          "C": "Reducing testing raises detection risk and therefore overall audit risk.",
+          "D": ""
+        },
+        "exam_pattern": "High inherent + control risk -> lower detection risk by doing MORE substantive testing."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Audit risk model (inherent x control x detection)"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-007",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_risk_based_audit",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which component of the audit risk model is reduced when an organization designs and operates strong, effective internal controls?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Business risk"
+        },
+        {
+          "id": "B",
+          "text": "Detection risk"
+        },
+        {
+          "id": "C",
+          "text": "Inherent risk"
+        },
+        {
+          "id": "D",
+          "text": "Control risk"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Effective internal controls reduce control risk - the risk that a material error is not prevented or detected by the organization's own controls.",
+        "distractors": {
+          "A": "Business risk is broader and is not a component of the audit risk model.",
+          "B": "Detection risk relates to the auditor's own procedures, not the client's controls.",
+          "C": "Inherent risk exists regardless of controls and is not reduced by them.",
+          "D": ""
+        },
+        "exam_pattern": "Strong internal controls lower CONTROL risk (not inherent, detection, or business risk)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Control risk"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-008",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_risk_based_audit",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What should be the PRIMARY basis for deciding which areas to include in the annual IS audit plan?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Alphabetical order of the systems"
+        },
+        {
+          "id": "B",
+          "text": "The personal interests of the audit team"
+        },
+        {
+          "id": "C",
+          "text": "The areas that are easiest and quickest to audit"
+        },
+        {
+          "id": "D",
+          "text": "A risk assessment of the organization's auditable universe"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A risk-based plan allocates audit coverage according to a risk assessment of the auditable universe, directing effort where risk is greatest.",
+        "distractors": {
+          "A": "Arbitrary ordering ignores risk entirely.",
+          "B": "Personal interest is neither objective nor risk-driven.",
+          "C": "Auditing by convenience leaves the highest-risk areas potentially uncovered.",
+          "D": ""
+        },
+        "exam_pattern": "The annual audit plan is built from a risk assessment of the audit universe."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Risk-based annual audit planning"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-009",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_execution",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IS auditor wants to determine whether a required access-approval control is actually operating. Which type of test is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Substantive test"
+        },
+        {
+          "id": "B",
+          "text": "Compliance test"
+        },
+        {
+          "id": "C",
+          "text": "Penetration test"
+        },
+        {
+          "id": "D",
+          "text": "Stress test"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A compliance test determines whether a control is being applied as designed (operating effectiveness).",
+        "distractors": {
+          "A": "A substantive test verifies the integrity/accuracy of data or balances, not whether a control operates.",
+          "B": "",
+          "C": "Penetration testing probes exploitable security weaknesses, not control operation.",
+          "D": "Stress testing checks performance under load."
+        },
+        "exam_pattern": "Does the CONTROL operate? = compliance test. Is the DATA accurate? = substantive test."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Compliance vs. substantive testing"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-010",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_execution",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "For a high-volume online transaction system that cannot be interrupted, which technique lets the IS auditor capture and flag selected transactions continuously as they are processed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reviewing printed reports once a year"
+        },
+        {
+          "id": "B",
+          "text": "A one-time year-end manual sample"
+        },
+        {
+          "id": "C",
+          "text": "Shutting the system down to review it offline"
+        },
+        {
+          "id": "D",
+          "text": "An embedded audit module (e.g., SCARF) built into the application"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "An embedded audit module - such as a systems control audit review file (SCARF) - is built into the production application to capture and flag transactions continuously, ideal when processing cannot be stopped.",
+        "distractors": {
+          "A": "Annual report review is neither continuous nor transaction-level.",
+          "B": "A single year-end sample is not continuous and misses interim activity.",
+          "C": "Disabling an online production system is not acceptable.",
+          "D": ""
+        },
+        "exam_pattern": "Continuous, in-line transaction capture on a non-stop system = embedded audit module (SCARF)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Continuous auditing and embedded audit modules"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-011",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_execution",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An IS auditor uses an integrated test facility (ITF), processing test transactions for a fictitious entity within the LIVE production system. What is the auditor's KEY precaution?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Allow the test transactions to post permanently to prove the system works"
+        },
+        {
+          "id": "B",
+          "text": "Ensure the test transactions are isolated and reversed so they do not corrupt live data or financial totals"
+        },
+        {
+          "id": "C",
+          "text": "Give every user access to the fictitious entity"
+        },
+        {
+          "id": "D",
+          "text": "Run the ITF only after the system is decommissioned"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Because ITF runs test data through the live system, the test transactions must be segregated and backed out so real data and totals are not contaminated.",
+        "distractors": {
+          "A": "Leaving test entries posted corrupts real balances.",
+          "B": "",
+          "C": "Broad access to the test entity is unnecessary and risky.",
+          "D": "Running ITF on a decommissioned system defeats its purpose of testing live processing."
+        },
+        "exam_pattern": "ITF runs test data through the LIVE system -> isolate and reverse the test transactions."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Integrated test facility (ITF)"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-012",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_execution",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An IS auditor reprocesses real production data using the auditor's own independently written program and compares the output to the live system's results. This CAAT is known as:",
+      "options": [
+        {
+          "id": "A",
+          "text": "A structured walkthrough"
+        },
+        {
+          "id": "B",
+          "text": "The test data method"
+        },
+        {
+          "id": "C",
+          "text": "Parallel simulation"
+        },
+        {
+          "id": "D",
+          "text": "Control self-assessment"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Parallel simulation uses the auditor's own program on actual production data, comparing its output with the live system to detect processing errors.",
+        "distractors": {
+          "A": "A structured walkthrough is a review/discussion, not reprocessing.",
+          "B": "The test data method runs the auditor's (often fictitious) data through the client's program - the reverse of this.",
+          "C": "",
+          "D": "CSA is a facilitated self-review by process owners, not reprocessing of data."
+        },
+        "exam_pattern": "Auditor's OWN program + REAL data, compared to production = parallel simulation."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — CAATs (parallel simulation)"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-013",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_execution",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "Which TWO of the following are PREVENTIVE controls? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "An input edit/validation check that rejects invalid data before it is processed"
+        },
+        {
+          "id": "B",
+          "text": "Reviewing audit logs weekly to spot unauthorized changes"
+        },
+        {
+          "id": "C",
+          "text": "Segregation of duties between authorizing and recording transactions"
+        },
+        {
+          "id": "D",
+          "text": "Restoring data from backup after corruption is discovered"
+        }
+      ],
+      "correct": [
+        "A",
+        "C"
+      ],
+      "explanation": {
+        "correct": "An edit check that blocks bad data before processing and segregation of duties both stop an undesirable event before it occurs - preventive controls.",
+        "distractors": {
+          "A": "",
+          "B": "Reviewing logs after the fact discovers events that already happened - a detective control.",
+          "C": "",
+          "D": "Restoring from backup after corruption remediates an event - a corrective control."
+        },
+        "exam_pattern": "Preventive = stop before (edit checks, SoD); detective = find after (log review); corrective = fix after (restore)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Types of controls (preventive/detective/corrective)"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-014",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_evidence_sampling",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IS auditor wants to estimate the total dollar value of misstatement in an accounts-payable file. Which sampling approach is MOST appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Discovery sampling"
+        },
+        {
+          "id": "B",
+          "text": "Attribute sampling"
+        },
+        {
+          "id": "C",
+          "text": "Variable sampling"
+        },
+        {
+          "id": "D",
+          "text": "Stop-or-go sampling"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Variable sampling estimates a numeric amount (such as a monetary value or misstatement), which is what this objective requires.",
+        "distractors": {
+          "A": "Discovery sampling aims to find at least one critical/fraudulent item, not estimate a total value.",
+          "B": "Attribute sampling estimates a rate of occurrence (how often), not a dollar amount.",
+          "C": "",
+          "D": "Stop-or-go sampling is used to minimize sample size when few errors are expected."
+        },
+        "exam_pattern": "Estimate an AMOUNT/value = variable sampling; estimate a RATE of occurrence = attribute sampling."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Variable vs. attribute sampling"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-015",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_evidence_sampling",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An IS auditor suspects fraud and wants a sampling method whose goal is to detect at least one instance of an irregularity when the expected occurrence rate is very low. Which method fits BEST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Monetary unit sampling for valuation"
+        },
+        {
+          "id": "B",
+          "text": "Discovery sampling"
+        },
+        {
+          "id": "C",
+          "text": "Variable (mean-per-unit) sampling"
+        },
+        {
+          "id": "D",
+          "text": "Judgmental sampling of the largest items only"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Discovery sampling is designed to surface at least one instance of a critical deviation or fraud when the expected occurrence rate is very low.",
+        "distractors": {
+          "A": "Monetary unit sampling targets overstatement in value, not fraud discovery.",
+          "B": "",
+          "C": "Variable sampling estimates monetary values, not the existence of a rare irregularity.",
+          "D": "Testing only the largest items can miss small fraudulent transactions."
+        },
+        "exam_pattern": "Find at least one rare/fraudulent instance (low expected rate) = discovery sampling."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Discovery sampling"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-016",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_evidence_sampling",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which sampling approach is designed to avoid excessive sampling by allowing the auditor to stop as early as possible when few or no errors are expected?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cluster sampling"
+        },
+        {
+          "id": "B",
+          "text": "Variable sampling"
+        },
+        {
+          "id": "C",
+          "text": "Stratified sampling"
+        },
+        {
+          "id": "D",
+          "text": "Stop-or-go sampling"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Stop-or-go sampling lets the test end at the earliest justified point, preventing an unnecessarily large sample when the expected error rate is low.",
+        "distractors": {
+          "A": "Cluster sampling draws groups of items; it is not about early stopping.",
+          "B": "Variable sampling estimates values and does not inherently minimize sample size.",
+          "C": "Stratification groups the population by a characteristic; it does not stop testing early.",
+          "D": ""
+        },
+        "exam_pattern": "Minimize sample size / stop early when few errors are expected = stop-or-go sampling."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Stop-or-go sampling"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-017",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_evidence_sampling",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which procedure gives the IS auditor the STRONGEST evidence that an automated control is operating as intended?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Accepting a management self-assessment"
+        },
+        {
+          "id": "B",
+          "text": "Asking the control owner whether the control works"
+        },
+        {
+          "id": "C",
+          "text": "Reading the documented control procedure"
+        },
+        {
+          "id": "D",
+          "text": "Re-performing the control and observing the result directly"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Re-performing the control and directly observing the outcome gives the auditor the most reliable, firsthand evidence that it operates.",
+        "distractors": {
+          "A": "A self-assessment is management's assertion, not independent evidence.",
+          "B": "Inquiry alone is the weakest evidence and needs corroboration.",
+          "C": "A documented procedure evidences design, not that the control actually operates.",
+          "D": ""
+        },
+        "exam_pattern": "Re-performance > observation > inquiry; proving a control OPERATES is strongest by re-performing it."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Audit evidence-gathering techniques"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-018",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_reporting",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "While performing fieldwork, an IS auditor uncovers evidence suggesting a possible fraud by a department supervisor. What should the auditor do FIRST?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Begin a covert investigation and interrogate staff"
+        },
+        {
+          "id": "B",
+          "text": "Ignore it unless it is material to the current audit scope"
+        },
+        {
+          "id": "C",
+          "text": "Confront the supervisor and demand an explanation"
+        },
+        {
+          "id": "D",
+          "text": "Report the matter to the appropriate level of management or the audit committee, per the organization's protocol"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Suspected fraud should be escalated to the appropriate level of management (above those involved) or the audit committee, following the organization's protocol; the auditor does not investigate or confront alone.",
+        "distractors": {
+          "A": "The IS auditor is not the investigator and should not run interrogations alone.",
+          "B": "Suspected fraud must be escalated regardless of the original audit scope.",
+          "C": "Confronting the suspect can compromise evidence and the inquiry.",
+          "D": ""
+        },
+        "exam_pattern": "Suspected fraud -> report to appropriate management/audit committee; don't investigate or confront alone."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Irregularities, illegal acts, and reporting"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-019",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_reporting",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A well-developed audit finding documents the condition, the criteria, the cause, and the effect. What does the 'criteria' element represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The business impact or risk of the problem"
+        },
+        {
+          "id": "B",
+          "text": "The current state or problem the auditor observed"
+        },
+        {
+          "id": "C",
+          "text": "The standard, policy, or requirement that the condition is measured against"
+        },
+        {
+          "id": "D",
+          "text": "The underlying reason the problem occurred"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Criteria is the standard or requirement (what should be) against which the observed condition is compared.",
+        "distractors": {
+          "A": "That is the 'effect' (the impact or risk).",
+          "B": "That is the 'condition' (what is).",
+          "C": "",
+          "D": "That is the 'cause' (why it happened)."
+        },
+        "exam_pattern": "Finding = Condition (what is) vs Criteria (what should be) + Cause (why) + Effect (impact)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Structure of audit findings"
+      ]
+    },
+    {
+      "id": "cisa-aud-r2-020",
+      "exam": "cisa",
+      "domain": "cisa_audit_process",
+      "subtopic": "cisa_audit_reporting",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "During follow-up, an IS auditor finds that a previously reported HIGH-risk weakness has not been remediated, and management has chosen to accept the risk. What is the auditor's BEST action?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Re-audit the entire original engagement"
+        },
+        {
+          "id": "B",
+          "text": "Implement the fix personally to close the gap"
+        },
+        {
+          "id": "C",
+          "text": "Report that the risk remains and has been formally accepted by management, escalating to senior management/the audit committee if it exceeds risk appetite"
+        },
+        {
+          "id": "D",
+          "text": "Remove the finding because management accepted the risk"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "An unremediated, accepted risk is still reported; if the residual risk exceeds the organization's risk appetite, the auditor escalates to senior management or the audit committee.",
+        "distractors": {
+          "A": "A full re-audit is disproportionate; follow-up targets the specific agreed action.",
+          "B": "Remediating personally impairs independence; the fix is management's responsibility.",
+          "C": "",
+          "D": "An accepted risk is documented, not deleted from the report."
+        },
+        "exam_pattern": "Unremediated high risk accepted by management -> document and escalate to governance; don't delete or fix it yourself."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 1 — Follow-up and residual risk acceptance"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-001",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_it_governance",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In COBIT, which activity BEST characterizes GOVERNANCE as distinct from management?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Writing the application source code for each project"
+        },
+        {
+          "id": "B",
+          "text": "Staffing and operating the service desk"
+        },
+        {
+          "id": "C",
+          "text": "Planning, building, running, and monitoring day-to-day activities"
+        },
+        {
+          "id": "D",
+          "text": "Evaluating, directing, and monitoring to set direction and oversee that objectives are met"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Governance (the board's role) evaluates, directs, and monitors (EDM) - setting direction and overseeing outcomes - while management plans, builds, runs, and monitors execution.",
+        "distractors": {
+          "A": "Writing code is a development activity, not governance.",
+          "B": "Operating the service desk is an operational task.",
+          "C": "Plan/Build/Run/Monitor is management's role, not governance.",
+          "D": ""
+        },
+        "exam_pattern": "Governance = Evaluate/Direct/Monitor (board sets direction); management = Plan/Build/Run/Monitor (executes)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Governance vs. management of enterprise IT (COBIT)"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-002",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_it_governance",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which tool helps management measure IT performance and its alignment with business objectives across multiple perspectives rather than financial measures alone?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The general ledger"
+        },
+        {
+          "id": "B",
+          "text": "A firewall rule base"
+        },
+        {
+          "id": "C",
+          "text": "The IT balanced scorecard"
+        },
+        {
+          "id": "D",
+          "text": "A single server-uptime percentage"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "An IT balanced scorecard measures IT across several perspectives (e.g., business contribution, user, operational excellence, future orientation), linking IT performance to business goals.",
+        "distractors": {
+          "A": "The general ledger is a financial accounting record.",
+          "B": "A firewall rule base is a technical configuration, not a performance measure.",
+          "C": "",
+          "D": "Uptime alone is a single operational metric, not a multi-perspective measure of alignment."
+        },
+        "exam_pattern": "Multi-perspective measurement of IT performance/alignment = IT balanced scorecard."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — IT balanced scorecard"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-003",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_it_governance",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the PRIMARY purpose of an enterprise architecture (EA)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To encrypt the production databases"
+        },
+        {
+          "id": "B",
+          "text": "To staff the help desk"
+        },
+        {
+          "id": "C",
+          "text": "To schedule nightly data backups"
+        },
+        {
+          "id": "D",
+          "text": "To provide a blueprint that aligns IT structure, data, and technology standards with business strategy"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "An enterprise architecture is the blueprint that keeps the organization's IT structure, data, and technology standards aligned with and supporting business strategy.",
+        "distractors": {
+          "A": "Encryption is a control, not an architecture blueprint.",
+          "B": "Help-desk staffing is an operational function.",
+          "C": "Backup scheduling is an operations task, not the purpose of EA.",
+          "D": ""
+        },
+        "exam_pattern": "EA = the blueprint that keeps IT standards/structure aligned with business strategy."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Enterprise architecture"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-004",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_it_governance",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization rates each IT process on a scale from 'initial/ad hoc' to 'optimized'. This is an example of using a:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Penetration test"
+        },
+        {
+          "id": "B",
+          "text": "Capability maturity model"
+        },
+        {
+          "id": "C",
+          "text": "Backup rotation scheme"
+        },
+        {
+          "id": "D",
+          "text": "Data flow diagram"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A capability maturity model rates process maturity on a graded scale (e.g., initial, repeatable, defined, managed, optimized), helping identify improvement priorities.",
+        "distractors": {
+          "A": "A penetration test probes security weaknesses, not process maturity.",
+          "B": "",
+          "C": "A backup rotation scheme is an operations control.",
+          "D": "A data flow diagram models how data moves through a system."
+        },
+        "exam_pattern": "Rating process maturity (initial -> optimized) = capability maturity model."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Process maturity models"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-005",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_it_strategy_policies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which type of governance document specifies a MANDATORY, uniform rule - such as requiring a specific minimum encryption algorithm on all laptops?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Policy"
+        },
+        {
+          "id": "B",
+          "text": "Standard"
+        },
+        {
+          "id": "C",
+          "text": "Guideline"
+        },
+        {
+          "id": "D",
+          "text": "Procedure"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A standard is a mandatory, specific, uniform rule (e.g., a required technology or configuration) that implements a policy.",
+        "distractors": {
+          "A": "A policy states high-level management intent, not a specific mandatory rule.",
+          "B": "",
+          "C": "A guideline is a recommended, non-mandatory practice.",
+          "D": "A procedure is the step-by-step how-to, not the mandatory rule itself."
+        },
+        "exam_pattern": "Mandatory, specific, uniform rule/technology = standard (policy=intent, procedure=steps, guideline=optional)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Standards vs. policies, procedures, guidelines"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-006",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_it_strategy_policies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "The IT strategic plan should be derived PRIMARILY from:",
+      "options": [
+        {
+          "id": "A",
+          "text": "The newest available technology trends"
+        },
+        {
+          "id": "B",
+          "text": "The external auditor's recommendations"
+        },
+        {
+          "id": "C",
+          "text": "The preferences of the IT staff"
+        },
+        {
+          "id": "D",
+          "text": "The organization's business/corporate strategy"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "IT strategy must flow from and align with the business/corporate strategy so IT investments support enterprise objectives.",
+        "distractors": {
+          "A": "Chasing the newest technology is not the same as aligning with business goals.",
+          "B": "The auditor advises on controls but does not set IT strategy.",
+          "C": "Staff preference is not a strategic basis.",
+          "D": ""
+        },
+        "exam_pattern": "IT strategy must flow from (align with) the business strategy."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — IT strategy alignment"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-007",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_it_strategy_policies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "To ensure IT investments reflect business priorities, an IT steering committee should include:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only junior developers"
+        },
+        {
+          "id": "B",
+          "text": "Only IT staff"
+        },
+        {
+          "id": "C",
+          "text": "Representatives from business/user units as well as senior IT management"
+        },
+        {
+          "id": "D",
+          "text": "Only external vendors"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A steering committee should be cross-functional - business/user representatives plus senior IT management - so IT delivery reflects business needs and priorities.",
+        "distractors": {
+          "A": "Junior developers lack the authority to set investment priorities.",
+          "B": "An IT-only committee loses the business voice that prioritization requires.",
+          "C": "",
+          "D": "Vendors have commercial conflicts and should not set internal priorities."
+        },
+        "exam_pattern": "Steering committee = cross-functional (business + senior IT) so IT serves business needs."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — IT steering committee composition"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-008",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_it_strategy_policies",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IS auditor notes the information security policy has not been reviewed or updated in five years. What is the GREATEST concern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Employees have already read it"
+        },
+        {
+          "id": "B",
+          "text": "The document uses an outdated font"
+        },
+        {
+          "id": "C",
+          "text": "The policy is too short"
+        },
+        {
+          "id": "D",
+          "text": "It may no longer address current threats, technologies, and regulatory requirements"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Policies must be reviewed periodically; a stale policy may fail to cover current threats, technology, and regulations, leaving gaps.",
+        "distractors": {
+          "A": "Employees reading the policy is a good thing, not a concern.",
+          "B": "Font choice is irrelevant to the control.",
+          "C": "Length is not the issue; relevance is.",
+          "D": ""
+        },
+        "exam_pattern": "Policies must be reviewed periodically - a stale policy may not cover current risks/regulations."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Policy lifecycle and review"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-009",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_org_structure",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which combination of duties performed by ONE person represents the GREATEST segregation-of-duties concern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Running two different management reports"
+        },
+        {
+          "id": "B",
+          "text": "Authorizing payments and reconciling the bank account that records them"
+        },
+        {
+          "id": "C",
+          "text": "Answering the help desk and writing user documentation"
+        },
+        {
+          "id": "D",
+          "text": "Attending two project meetings"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "One person who both authorizes/executes payments and reconciles the account can commit and then conceal a fraud - the classic incompatible-duties conflict.",
+        "distractors": {
+          "A": "Running reports is not a conflicting combination of duties.",
+          "B": "",
+          "C": "Help desk and documentation are compatible, low-risk duties.",
+          "D": "Attending meetings is not a duties conflict."
+        },
+        "exam_pattern": "One person who both authorizes/executes AND reconciles/records can commit and hide fraud - incompatible."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Segregation of incompatible duties"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-010",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_org_structure",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A data custodian (such as IT operations) is PRIMARILY responsible for:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Assigning the data's classification level"
+        },
+        {
+          "id": "B",
+          "text": "Approving the IT budget"
+        },
+        {
+          "id": "C",
+          "text": "Implementing and maintaining protection controls (backups, access enforcement) as directed by the data owner"
+        },
+        {
+          "id": "D",
+          "text": "Setting the organization's risk appetite"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The custodian safeguards the data day to day - implementing and maintaining the controls (backup, access enforcement) that the owner specifies.",
+        "distractors": {
+          "A": "Classifying data is the data owner's responsibility.",
+          "B": "Budget approval is a management decision, not a custodian task.",
+          "C": "",
+          "D": "Risk appetite is set by senior management."
+        },
+        "exam_pattern": "Owner classifies/authorizes; custodian safeguards and maintains controls as directed."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Data owner vs. custodian"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-011",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_org_structure",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "To avoid a conflict of interest, the information security function should ideally be organizationally independent of:",
+      "options": [
+        {
+          "id": "A",
+          "text": "External customers"
+        },
+        {
+          "id": "B",
+          "text": "IT operations and development, whose activities it must oversee"
+        },
+        {
+          "id": "C",
+          "text": "The marketing team"
+        },
+        {
+          "id": "D",
+          "text": "The legal department"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Security should not report into the IT operations/development functions it is meant to oversee, or it would be judging its own masters - a self-oversight conflict.",
+        "distractors": {
+          "A": "Customers are external and not part of the reporting line.",
+          "B": "",
+          "C": "Marketing is unrelated to the security-oversight conflict.",
+          "D": "Legal does not create the self-oversight conflict that reporting into IT ops/dev does."
+        },
+        "exam_pattern": "Security shouldn't report to the IT functions it polices (self-oversight conflict of interest)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Organizational placement of the security function"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-012",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_org_structure",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A policy requiring employees in sensitive positions to take at least one continuous week of vacation each year functions PRIMARILY as a control to:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Reduce payroll costs"
+        },
+        {
+          "id": "B",
+          "text": "Detect fraud or irregularities that require the employee's ongoing presence to conceal"
+        },
+        {
+          "id": "C",
+          "text": "Speed up transaction processing"
+        },
+        {
+          "id": "D",
+          "text": "Improve employee morale only"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Mandatory vacation (like job rotation) forces an absence during which another person operates the role, surfacing fraud that needs the perpetrator present to stay hidden.",
+        "distractors": {
+          "A": "Mandatory vacation does not reduce payroll costs.",
+          "B": "",
+          "C": "It does not speed up processing.",
+          "D": "Morale may improve, but that is not the control's purpose."
+        },
+        "exam_pattern": "Mandatory vacation / job rotation surfaces fraud that needs the perpetrator present to hide it."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Mandatory vacation and job rotation"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-013",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_risk_management",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "An organization decides NOT to launch a new online service because the associated security risk is judged too high. Which risk response is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Risk transfer"
+        },
+        {
+          "id": "B",
+          "text": "Risk acceptance"
+        },
+        {
+          "id": "C",
+          "text": "Risk avoidance"
+        },
+        {
+          "id": "D",
+          "text": "Risk mitigation"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Choosing not to undertake the risky activity at all is risk avoidance.",
+        "distractors": {
+          "A": "Transfer shifts the impact to a third party (e.g., insurance).",
+          "B": "Acceptance means proceeding and retaining the risk.",
+          "C": "",
+          "D": "Mitigation reduces the risk with controls but still proceeds."
+        },
+        "exam_pattern": "Decline the risky activity entirely = avoidance (accept=retain, transfer=shift, mitigate=reduce)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Risk response options"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-014",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_risk_management",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In quantitative risk analysis, which value represents the expected annual monetary loss from a specific risk, calculated as single loss expectancy multiplied by the annualized rate of occurrence?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Exposure factor"
+        },
+        {
+          "id": "B",
+          "text": "Risk appetite"
+        },
+        {
+          "id": "C",
+          "text": "Annual loss expectancy (ALE)"
+        },
+        {
+          "id": "D",
+          "text": "Residual risk"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "ALE = SLE x ARO, the expected yearly monetary loss used to compare risks and justify control spending.",
+        "distractors": {
+          "A": "The exposure factor is the percentage of asset value lost per event, not the annual loss.",
+          "B": "Risk appetite is the level of risk tolerated, not a calculated loss.",
+          "C": "",
+          "D": "Residual risk is what remains after controls, not a loss figure."
+        },
+        "exam_pattern": "ALE = SLE x ARO (expected yearly loss); SLE = asset value x exposure factor."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Quantitative risk analysis (ALE/SLE/ARO)"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-015",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_risk_management",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which metric is designed to give management an EARLY WARNING that risk exposure is rising toward an unacceptable level?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A key risk indicator (KRI)"
+        },
+        {
+          "id": "B",
+          "text": "A profit margin"
+        },
+        {
+          "id": "C",
+          "text": "A throughput key performance indicator (KPI)"
+        },
+        {
+          "id": "D",
+          "text": "A help-desk satisfaction score"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A key risk indicator is a forward-looking metric that signals increasing risk exposure before it becomes a loss.",
+        "distractors": {
+          "A": "",
+          "B": "Profit margin is a financial outcome, not a risk early-warning.",
+          "C": "A throughput KPI measures performance, not risk.",
+          "D": "A satisfaction score measures service quality, not risk."
+        },
+        "exam_pattern": "Early-warning signal of increasing risk = key risk indicator (KRI)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Key risk indicators"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-016",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_risk_management",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "When reliable monetary loss data is not available, which risk-analysis approach is MOST appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Waiting until a loss actually occurs"
+        },
+        {
+          "id": "B",
+          "text": "Quantitative analysis requiring precise dollar figures"
+        },
+        {
+          "id": "C",
+          "text": "Qualitative analysis using ratings such as high/medium/low"
+        },
+        {
+          "id": "D",
+          "text": "No analysis at all"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "When hard monetary data is lacking, qualitative analysis uses relative ratings (high/medium/low likelihood and impact) to prioritize risks.",
+        "distractors": {
+          "A": "Waiting for a loss is reactive, not analysis.",
+          "B": "Quantitative analysis needs the monetary data that is unavailable here.",
+          "C": "",
+          "D": "Skipping analysis leaves risk unmanaged."
+        },
+        "exam_pattern": "No hard dollar data -> qualitative (relative) rating; precise dollar impact -> quantitative."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Qualitative vs. quantitative risk analysis"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-017",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_bcp",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "How does the recovery time objective (RTO) relate to the maximum tolerable downtime (MTD) for a business process?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The RTO must always exceed the MTD"
+        },
+        {
+          "id": "B",
+          "text": "The MTD must always be zero"
+        },
+        {
+          "id": "C",
+          "text": "They are unrelated measures"
+        },
+        {
+          "id": "D",
+          "text": "The RTO must be less than or equal to the MTD"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Recovery must complete within the maximum downtime the business can tolerate, so the RTO must be set at or below the MTD.",
+        "distractors": {
+          "A": "An RTO exceeding the MTD means recovery is too slow to be tolerable.",
+          "B": "MTD is rarely zero; it reflects how long the process can be down.",
+          "C": "They are directly related - RTO is bounded by MTD.",
+          "D": ""
+        },
+        "exam_pattern": "RTO (planned recovery time) must fit within MTD (max downtime the business can bear)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — MTD, RTO, and recovery objectives"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-018",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_bcp",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which statement BEST distinguishes a business continuity plan (BCP) from a disaster recovery plan (DRP)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The BCP covers only IT systems"
+        },
+        {
+          "id": "B",
+          "text": "The BCP addresses keeping the whole business (people, processes, facilities) operating, while the DRP focuses on recovering IT systems and infrastructure"
+        },
+        {
+          "id": "C",
+          "text": "They are identical documents"
+        },
+        {
+          "id": "D",
+          "text": "The DRP is broader than the BCP"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "The BCP is the broad plan to keep the business functioning; the DRP is the IT-focused subset that restores systems and infrastructure.",
+        "distractors": {
+          "A": "The BCP spans people, processes, and facilities, not IT alone.",
+          "B": "",
+          "C": "They are related but not identical.",
+          "D": "The BCP is the broader of the two, not the DRP."
+        },
+        "exam_pattern": "BCP = keep the business running (broad); DRP = restore IT (a subset of BCP)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — Business continuity vs. disaster recovery"
+      ]
+    },
+    {
+      "id": "cisa-gov-r2-019",
+      "exam": "cisa",
+      "domain": "cisa_governance",
+      "subtopic": "cisa_bcp",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IS auditor reviewing business continuity would be MOST concerned to find that the BCP:",
+      "options": [
+        {
+          "id": "A",
+          "text": "References the current organization chart"
+        },
+        {
+          "id": "B",
+          "text": "Is stored in a shared document library"
+        },
+        {
+          "id": "C",
+          "text": "Has never been tested or updated since it was first written"
+        },
+        {
+          "id": "D",
+          "text": "Includes staff contact lists"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "An untested, outdated BCP may fail when invoked; continuity plans must be tested and maintained to stay effective.",
+        "distractors": {
+          "A": "A current org chart is a sign the plan is maintained - good, not a concern.",
+          "B": "A shared library is reasonable storage (ideally with an accessible offsite copy).",
+          "C": "",
+          "D": "Contact lists are expected, useful plan content."
+        },
+        "exam_pattern": "An untested, outdated BCP may fail when needed - test and maintain it."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 2 — BCP testing and maintenance"
+      ]
+    },
+    {
+      "id": "cisa-acq-r2-001",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_project_management",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Using PERT with an optimistic estimate (O), most likely estimate (M), and pessimistic estimate (P), the expected activity duration is calculated as:",
+      "options": [
+        {
+          "id": "A",
+          "text": "(O + P) / 2"
+        },
+        {
+          "id": "B",
+          "text": "(O + M + P) / 3"
+        },
+        {
+          "id": "C",
+          "text": "The largest of O, M, and P"
+        },
+        {
+          "id": "D",
+          "text": "(O + 4M + P) / 6"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "PERT weights the most likely estimate four times: expected time = (O + 4M + P) / 6.",
+        "distractors": {
+          "A": "The midpoint of O and P ignores M entirely.",
+          "B": "A simple average ignores the extra weight on the most likely estimate.",
+          "C": "Taking the maximum is overly pessimistic and not the PERT formula.",
+          "D": ""
+        },
+        "exam_pattern": "PERT expected time = (O + 4M + P) / 6 (the most likely estimate is weighted x4)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — PERT estimation"
+      ]
+    },
+    {
+      "id": "cisa-acq-r2-002",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_project_management",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which project tool shows tasks as horizontal bars along a timeline and is used mainly to track progress against the schedule?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A Gantt chart"
+        },
+        {
+          "id": "B",
+          "text": "A data flow diagram"
+        },
+        {
+          "id": "C",
+          "text": "An entity-relationship diagram"
+        },
+        {
+          "id": "D",
+          "text": "A decision table"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A Gantt chart plots tasks as bars on a timeline, making it easy to track schedule and progress (though it does not highlight the critical path the way a network diagram does).",
+        "distractors": {
+          "A": "",
+          "B": "A data flow diagram models how data moves through a system.",
+          "C": "An entity-relationship diagram models data relationships.",
+          "D": "A decision table maps conditions to actions."
+        },
+        "exam_pattern": "Bars on a timeline for scheduling/progress = Gantt chart."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Project scheduling tools (Gantt)"
+      ]
+    },
+    {
+      "id": "cisa-acq-r2-003",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_project_management",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A task that lies ON the critical path is delayed by three days. Assuming no corrective action, what is the effect?",
+      "options": [
+        {
+          "id": "A",
+          "text": "There is no effect because the task has slack"
+        },
+        {
+          "id": "B",
+          "text": "The entire project's completion is delayed by three days"
+        },
+        {
+          "id": "C",
+          "text": "The project finishes earlier"
+        },
+        {
+          "id": "D",
+          "text": "Only non-critical tasks are affected"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Critical-path tasks have zero float, so any delay to them pushes out the whole project's completion by the same amount.",
+        "distractors": {
+          "A": "Critical-path tasks have zero slack/float by definition.",
+          "B": "",
+          "C": "A delay cannot make the project finish earlier.",
+          "D": "A critical-path delay affects the overall project end date, not just non-critical tasks."
+        },
+        "exam_pattern": "Critical-path tasks have zero float - any delay to them delays the whole project."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Critical path and float"
+      ]
+    },
+    {
+      "id": "cisa-acq-r2-004",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_project_management",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which technique measures whether a project is on schedule and within budget by comparing the planned value, earned value, and actual cost of work?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A feasibility study"
+        },
+        {
+          "id": "B",
+          "text": "Earned value management"
+        },
+        {
+          "id": "C",
+          "text": "A structured walkthrough"
+        },
+        {
+          "id": "D",
+          "text": "Function point analysis"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Earned value management integrates scope, schedule, and cost by comparing planned value, earned value, and actual cost to show schedule and cost performance.",
+        "distractors": {
+          "A": "A feasibility study assesses viability up front, not ongoing performance.",
+          "B": "",
+          "C": "A structured walkthrough is a review technique, not a performance measure.",
+          "D": "Function point analysis sizes software; it does not track schedule/cost performance."
+        },
+        "exam_pattern": "Integrated schedule+cost performance (planned vs earned vs actual) = earned value management."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Earned value management"
+      ]
+    },
+    {
+      "id": "cisa-acq-r2-005",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_sdlc",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "When user requirements are unclear or evolving, which development approach builds successive working models for users to react to and refine?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Prototyping"
+        },
+        {
+          "id": "B",
+          "text": "Big-bang integration"
+        },
+        {
+          "id": "C",
+          "text": "Direct cutover"
+        },
+        {
+          "id": "D",
+          "text": "The traditional waterfall model"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Prototyping iteratively builds working models that users evaluate, clarifying unclear or evolving requirements before full build.",
+        "distractors": {
+          "A": "",
+          "B": "Big-bang integration is a testing/integration approach, not a requirements technique.",
+          "C": "Direct cutover is a system conversion strategy.",
+          "D": "Waterfall fixes requirements up front and suits well-understood needs."
+        },
+        "exam_pattern": "Unclear/evolving requirements -> iterative prototyping to refine with users."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — SDLC approaches (prototyping)"
+      ]
+    },
+    {
+      "id": "cisa-acq-r2-006",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_sdlc",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "When auditing a project using agile/rapid development, what is the IS auditor's PRIMARY concern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "That users are involved frequently"
+        },
+        {
+          "id": "B",
+          "text": "That the team holds daily stand-up meetings"
+        },
+        {
+          "id": "C",
+          "text": "That software is delivered in increments"
+        },
+        {
+          "id": "D",
+          "text": "That speed and reduced formality may weaken documentation, controls, and audit trails"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Agile/RAD's speed and lighter ceremony can erode documentation, controls, and traceability; the auditor verifies that adequate controls and audit trails still exist.",
+        "distractors": {
+          "A": "Frequent user involvement is a strength of agile.",
+          "B": "Daily stand-ups are a normal, beneficial agile practice.",
+          "C": "Incremental delivery is a feature of agile, not a concern.",
+          "D": ""
+        },
+        "exam_pattern": "Agile/RAD's risk to the auditor = lighter documentation/controls - confirm controls and traceability remain."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Agile/RAD and control considerations"
+      ]
+    },
+    {
+      "id": "cisa-acq-r2-007",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_sdlc",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization licenses critical software from a small vendor and worries the vendor could go out of business. Which arrangement BEST protects its ability to maintain the software?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A source code escrow agreement with a trusted third party"
+        },
+        {
+          "id": "B",
+          "text": "A longer payment term"
+        },
+        {
+          "id": "C",
+          "text": "A bigger marketing budget"
+        },
+        {
+          "id": "D",
+          "text": "A faster internet connection"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A source code escrow holds the source with a neutral third party, released to the licensee on defined triggers (e.g., vendor bankruptcy) so the software can be maintained.",
+        "distractors": {
+          "A": "",
+          "B": "Payment terms do not secure access to the source code.",
+          "C": "Marketing budget is irrelevant to this risk.",
+          "D": "Bandwidth has nothing to do with vendor failure."
+        },
+        "exam_pattern": "Vendor-failure protection for licensed software = source code escrow (released on defined triggers)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Software acquisition and source code escrow"
+      ]
+    },
+    {
+      "id": "cisa-acq-r2-008",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_sdlc",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which type of testing examines the internal logic and code paths of a program, requiring knowledge of its internal structure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "White-box testing"
+        },
+        {
+          "id": "B",
+          "text": "Parallel testing"
+        },
+        {
+          "id": "C",
+          "text": "Black-box testing"
+        },
+        {
+          "id": "D",
+          "text": "User acceptance testing"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "White-box testing inspects internal logic and code paths, so it requires knowledge of the program's internal structure.",
+        "distractors": {
+          "A": "",
+          "B": "Parallel testing is a system conversion method, not a code-logic test.",
+          "C": "Black-box testing checks functionality without knowledge of internal code.",
+          "D": "User acceptance testing validates business requirements from the user's perspective."
+        },
+        "exam_pattern": "Internal logic/code = white-box; external behavior without internals = black-box."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Testing methods (white-box vs. black-box)"
+      ]
+    },
+    {
+      "id": "cisa-acq-r2-009",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_system_migration",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which conversion strategy introduces the new system gradually, module by module or location by location, over time?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Direct (big-bang) changeover"
+        },
+        {
+          "id": "B",
+          "text": "No changeover"
+        },
+        {
+          "id": "C",
+          "text": "Parallel changeover"
+        },
+        {
+          "id": "D",
+          "text": "Phased changeover"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "A phased changeover rolls the new system out incrementally (by module or site), lowering risk per step but taking longer and requiring old/new interfaces during transition.",
+        "distractors": {
+          "A": "Direct/big-bang switches everything at once.",
+          "B": "'No changeover' is not a strategy.",
+          "C": "Parallel runs the old and new systems together for comparison.",
+          "D": ""
+        },
+        "exam_pattern": "Gradual, incremental rollout = phased changeover (lower risk than big-bang, but longer)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Changeover strategies (phased)"
+      ]
+    },
+    {
+      "id": "cisa-acq-r2-010",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_system_migration",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An organization deploys a new system to one branch office first to validate it before rolling it out company-wide. This conversion approach is:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pilot changeover"
+        },
+        {
+          "id": "B",
+          "text": "Direct changeover across all sites at once"
+        },
+        {
+          "id": "C",
+          "text": "Big-bang conversion"
+        },
+        {
+          "id": "D",
+          "text": "Parallel changeover"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A pilot changeover proves the system at one site/group first, containing risk before an organization-wide rollout.",
+        "distractors": {
+          "A": "",
+          "B": "Direct changeover deploys everywhere at once with no trial site.",
+          "C": "Big-bang conversion switches the whole organization simultaneously.",
+          "D": "Parallel runs the old and new systems together, not a single trial site."
+        },
+        "exam_pattern": "Try it at one site/group first, then expand = pilot conversion."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Changeover strategies (pilot)"
+      ]
+    },
+    {
+      "id": "cisa-acq-r2-011",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_system_migration",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Before migrating data from a legacy system, the project cleans up duplicate, incomplete, and inconsistent records. What is the PRIMARY purpose of this data-cleansing step?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To encrypt the data in transit"
+        },
+        {
+          "id": "B",
+          "text": "To prevent carrying poor-quality 'garbage' data into the new system"
+        },
+        {
+          "id": "C",
+          "text": "To train the end users"
+        },
+        {
+          "id": "D",
+          "text": "To speed up the office network"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Cleansing corrects duplicates and errors in legacy data so poor-quality data is not migrated into the new system (garbage in, garbage out).",
+        "distractors": {
+          "A": "Encryption is a confidentiality control, not the goal of cleansing.",
+          "B": "",
+          "C": "User training is a separate implementation activity.",
+          "D": "Network speed is unrelated to data cleansing."
+        },
+        "exam_pattern": "Clean legacy data before migration so errors/duplicates aren't carried forward."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Data migration and cleansing"
+      ]
+    },
+    {
+      "id": "cisa-acq-r2-012",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_post_implementation",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A post-implementation review should compare the system's actual results PRIMARILY against:",
+      "options": [
+        {
+          "id": "A",
+          "text": "The costs, benefits, and objectives projected in the original business case"
+        },
+        {
+          "id": "B",
+          "text": "The preferences of the development team"
+        },
+        {
+          "id": "C",
+          "text": "The vendor's marketing claims"
+        },
+        {
+          "id": "D",
+          "text": "The newest industry technology trends"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A PIR measures the live system's actual costs, benefits, and performance against the original business case that justified the project.",
+        "distractors": {
+          "A": "",
+          "B": "Team preference is not the approved baseline.",
+          "C": "Marketing claims are not an objective benchmark.",
+          "D": "Industry trends are not the project's success criteria."
+        },
+        "exam_pattern": "PIR measures actual outcomes against the original business case (planned costs/benefits/objectives)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Post-implementation review and benefits"
+      ]
+    },
+    {
+      "id": "cisa-acq-r2-013",
+      "exam": "cisa",
+      "domain": "cisa_acquisition_dev",
+      "subtopic": "cisa_post_implementation",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "When an IS auditor participates in a post-implementation review, the auditor is PRIMARILY concerned with whether:",
+      "options": [
+        {
+          "id": "A",
+          "text": "The launch event was well attended"
+        },
+        {
+          "id": "B",
+          "text": "The system uses the latest framework"
+        },
+        {
+          "id": "C",
+          "text": "Adequate controls were built into the delivered system and the system met its objectives"
+        },
+        {
+          "id": "D",
+          "text": "The developers enjoyed the project"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "The IS auditor's PIR focus is whether adequate controls are present and operating and whether the system achieved its intended objectives and benefits.",
+        "distractors": {
+          "A": "Event attendance is irrelevant to control adequacy.",
+          "B": "Using the latest framework is not the audit concern.",
+          "C": "",
+          "D": "Team satisfaction does not evidence controls or benefits."
+        },
+        "exam_pattern": "In a PIR, the auditor focuses on control adequacy and whether objectives/benefits were achieved."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 3 — Auditor's role in post-implementation review"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-001",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_it_operations",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which control BEST ensures that only authorized, tested program changes are moved into production?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Changes are approved through change management and migrated by someone other than the developer who wrote them"
+        },
+        {
+          "id": "B",
+          "text": "Changes are applied directly to production and documented only if problems arise"
+        },
+        {
+          "id": "C",
+          "text": "Developers move their own changes whenever convenient"
+        },
+        {
+          "id": "D",
+          "text": "No approval is required for small changes"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Authorized and tested changes migrated by someone other than the developer enforces both change control and segregation of duties between development and production.",
+        "distractors": {
+          "A": "",
+          "B": "Applying changes directly and documenting only on failure is uncontrolled.",
+          "C": "Developers promoting their own code breaks segregation of duties.",
+          "D": "'No approval for small changes' is a loophole that undermines change control."
+        },
+        "exam_pattern": "Authorized + tested + segregated migration (developer doesn't promote own code) = sound change control."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Change and release management controls"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-002",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_it_operations",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the GREATEST risk of applying vendor security patches directly to production systems without testing them first?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The vendor will revoke support"
+        },
+        {
+          "id": "B",
+          "text": "The patch will install faster"
+        },
+        {
+          "id": "C",
+          "text": "The systems will become more secure"
+        },
+        {
+          "id": "D",
+          "text": "A patch could introduce incompatibilities that disrupt or crash production services"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "An untested patch may be incompatible and destabilize or crash production; patches should be tested in a non-production environment first.",
+        "distractors": {
+          "A": "Vendors do not revoke support simply for applying patches.",
+          "B": "Install speed is not a meaningful risk.",
+          "C": "Added security is the goal, not a risk.",
+          "D": ""
+        },
+        "exam_pattern": "Patch untested in production -> risk of outages/instability; test patches before deployment."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Patch management"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-003",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_it_operations",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IS auditor wants assurance that scheduled batch jobs complete successfully and that failures are handled. The BEST evidence is:",
+      "options": [
+        {
+          "id": "A",
+          "text": "A verbal assurance from an operator"
+        },
+        {
+          "id": "B",
+          "text": "The brand of the job-scheduling software"
+        },
+        {
+          "id": "C",
+          "text": "The color of the operations console screen"
+        },
+        {
+          "id": "D",
+          "text": "Review of the job schedule and exception/error logs showing failures are detected and reruns are performed"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Reviewing the job schedule and exception logs provides objective evidence that failed jobs are detected, escalated, and rerun.",
+        "distractors": {
+          "A": "A verbal assurance is weak, uncorroborated evidence.",
+          "B": "The software brand says nothing about whether jobs complete.",
+          "C": "Screen color is irrelevant.",
+          "D": ""
+        },
+        "exam_pattern": "Batch assurance = review the schedule and exception logs for detection and rerun of failed jobs."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Job scheduling and batch monitoring"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-004",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_it_operations",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the PRIMARY purpose of a configuration management database (CMDB)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To maintain accurate records of IT assets (configuration items) and their relationships to support change and incident management"
+        },
+        {
+          "id": "B",
+          "text": "To filter inbound network traffic"
+        },
+        {
+          "id": "C",
+          "text": "To store user passwords"
+        },
+        {
+          "id": "D",
+          "text": "To back up application data"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A CMDB is the authoritative inventory of configuration items and their relationships, supporting change, incident, and problem management.",
+        "distractors": {
+          "A": "",
+          "B": "Traffic filtering is a firewall role.",
+          "C": "Passwords belong in an identity/credential store, not the CMDB.",
+          "D": "Data backup is a separate function."
+        },
+        "exam_pattern": "CMDB = authoritative inventory of configuration items and their relationships."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Configuration management"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-005",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_it_operations",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An IS auditor finds that a critical financial report is produced by a complex end-user spreadsheet maintained by one analyst. What is the GREATEST concern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The spreadsheet uses color formatting"
+        },
+        {
+          "id": "B",
+          "text": "The analyst sometimes works from home"
+        },
+        {
+          "id": "C",
+          "text": "The spreadsheet lacks the change control, testing, and validation applied to formal applications, risking undetected errors"
+        },
+        {
+          "id": "D",
+          "text": "The file has a long name"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "User-developed spreadsheets driving key decisions typically lack formal change control, testing, and validation, so errors can go undetected - a data-integrity risk.",
+        "distractors": {
+          "A": "Formatting is not a control weakness.",
+          "B": "Remote work is not the core concern.",
+          "C": "",
+          "D": "The file name is irrelevant."
+        },
+        "exam_pattern": "End-user spreadsheets driving key decisions lack formal controls (change/test/validation) - a data-integrity risk."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — End-user computing controls"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-006",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_system_interfaces",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "In an electronic data interchange (EDI) environment, which control BEST provides assurance that inbound trading-partner transactions are complete and were not lost?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Transmitting functional acknowledgments and reconciling control totals for each batch received"
+        },
+        {
+          "id": "B",
+          "text": "Printing each message"
+        },
+        {
+          "id": "C",
+          "text": "Storing messages in a larger database"
+        },
+        {
+          "id": "D",
+          "text": "Using a colorful user interface"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Functional acknowledgments confirm receipt, and reconciling control totals confirms that every transaction in a batch was received and processed - completeness.",
+        "distractors": {
+          "A": "",
+          "B": "Printing messages does not reconcile what was sent versus received.",
+          "C": "Database size is irrelevant to transaction completeness.",
+          "D": "UI appearance does not assure completeness."
+        },
+        "exam_pattern": "EDI completeness = functional acknowledgments + control-total reconciliation at receipt."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — EDI controls"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-007",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_system_interfaces",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: The input control that detects transposition and transcription errors in a key field (such as an account number) by appending a calculated extra digit is called a check ______.",
+      "correct": [
+        "digit",
+        "check digit"
+      ],
+      "explanation": {
+        "correct": "A check digit is a digit computed from the other digits of a key field; if the field is mis-keyed or transposed, the recomputed check digit will not match, flagging the error.",
+        "distractors": {},
+        "exam_pattern": "Catch mis-keyed/transposed digits in an identifier = check digit."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Input/edit controls (check digit)"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-008",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_system_interfaces",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "A batch process sums the account-number field of all records (a total with no intrinsic meaning) and compares it before and after transfer. This control is a:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Check digit"
+        },
+        {
+          "id": "B",
+          "text": "Hash total"
+        },
+        {
+          "id": "C",
+          "text": "Parity bit"
+        },
+        {
+          "id": "D",
+          "text": "Digital signature"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A hash total is a meaningless control sum of a field (e.g., account numbers) used only to verify that the batch is complete and unchanged between sender and receiver.",
+        "distractors": {
+          "A": "A check digit validates a single field's keystrokes, not batch completeness.",
+          "B": "",
+          "C": "A parity bit detects single-bit transmission errors, not batch totals.",
+          "D": "A digital signature provides authentication/non-repudiation, not batch completeness."
+        },
+        "exam_pattern": "A meaningless control sum over a field to prove batch completeness = hash total."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Batch/processing controls (hash totals)"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-009",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_system_interfaces",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An application rejects any entry for 'hours worked in a week' that is greater than 168. Which type of input validation is this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A hash total"
+        },
+        {
+          "id": "B",
+          "text": "A range (limit) check"
+        },
+        {
+          "id": "C",
+          "text": "A check digit"
+        },
+        {
+          "id": "D",
+          "text": "A referential integrity check"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A range (limit) check verifies that a value falls within predefined bounds - here, that weekly hours cannot exceed 168.",
+        "distractors": {
+          "A": "A hash total verifies batch completeness, not a single value's range.",
+          "B": "",
+          "C": "A check digit validates an identifier's keystrokes, not a value's reasonableness.",
+          "D": "Referential integrity enforces key relationships in a database."
+        },
+        "exam_pattern": "Value must fall within predefined bounds = range/limit check."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Input validation (range/limit checks)"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-010",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_data_backup_recovery",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An organization performs a weekly full backup and daily incremental backups. To fully restore after a Thursday failure, what must be applied?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only the most recent incremental"
+        },
+        {
+          "id": "B",
+          "text": "The last full backup plus every incremental taken since, applied in order"
+        },
+        {
+          "id": "C",
+          "text": "The last full plus the single most recent incremental"
+        },
+        {
+          "id": "D",
+          "text": "Only the last full backup"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Incremental backups each capture changes since the previous backup, so a full restore needs the last full plus all subsequent incrementals applied in sequence.",
+        "distractors": {
+          "A": "A single incremental misses the earlier days' changes.",
+          "B": "",
+          "C": "'Full + one incremental' describes a differential scheme, not incremental.",
+          "D": "The full alone misses all the daily changes since."
+        },
+        "exam_pattern": "Incremental restore = last FULL + ALL incrementals in order (fast backup, slower/complex restore)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Backup types and restoration"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-011",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_data_backup_recovery",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which statement about the archive bit is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Only a differential backup clears it"
+        },
+        {
+          "id": "B",
+          "text": "Neither incremental nor differential backups touch it"
+        },
+        {
+          "id": "C",
+          "text": "Both incremental and differential backups clear it"
+        },
+        {
+          "id": "D",
+          "text": "An incremental backup clears (resets) the archive bit, whereas a differential backup leaves it set"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Incremental backups clear the archive bit (so the next incremental only grabs new changes), while differentials leave it set - which is why differentials keep growing until the next full backup.",
+        "distractors": {
+          "A": "It is the incremental, not the differential, that clears the bit.",
+          "B": "Both types read the archive bit, and incremental resets it.",
+          "C": "A differential does not clear the archive bit.",
+          "D": ""
+        },
+        "exam_pattern": "Incremental CLEARS the archive bit; differential does NOT - so differentials accumulate changes since the last full."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Backup mechanics (archive bit)"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-012",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_data_backup_recovery",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An administrator argues that RAID 5 on the server makes backups unnecessary. Why should the IS auditor disagree?",
+      "options": [
+        {
+          "id": "A",
+          "text": "RAID encrypts all stored data"
+        },
+        {
+          "id": "B",
+          "text": "RAID eliminates the need for a UPS"
+        },
+        {
+          "id": "C",
+          "text": "RAID automatically stores copies offsite"
+        },
+        {
+          "id": "D",
+          "text": "RAID protects against disk hardware failure but not against data corruption, accidental deletion, ransomware, or site disaster"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "RAID provides disk fault tolerance/availability, but it faithfully replicates corruption, deletions, and ransomware, and offers no protection against site disaster - so it is not a substitute for backups.",
+        "distractors": {
+          "A": "RAID does not encrypt data.",
+          "B": "RAID is unrelated to power protection.",
+          "C": "RAID does not provide offsite copies.",
+          "D": ""
+        },
+        "exam_pattern": "RAID = disk fault tolerance/availability, NOT a backup (no protection from deletion/corruption/disaster)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — RAID vs. backup"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-013",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_data_backup_recovery",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which technique transmits database transaction logs to an offsite location in near real time to minimize data loss (a very small RPO)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Remote journaling"
+        },
+        {
+          "id": "B",
+          "text": "Printing reports nightly"
+        },
+        {
+          "id": "C",
+          "text": "Monthly tape rotation to a local cabinet"
+        },
+        {
+          "id": "D",
+          "text": "An annual full backup only"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Remote journaling (a form of electronic vaulting) streams transaction logs offsite in near real time, so very little data is lost if the primary site fails - a small RPO.",
+        "distractors": {
+          "A": "",
+          "B": "Printing reports is not a data-recovery mechanism.",
+          "C": "Monthly local tapes leave a large data-loss window and sit at the primary location.",
+          "D": "An annual backup leaves an enormous RPO."
+        },
+        "exam_pattern": "Near-real-time offsite transaction logs = remote journaling/electronic vaulting -> small RPO."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Electronic vaulting and remote journaling"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-014",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_data_backup_recovery",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Why should backup copies be stored at an offsite location that is geographically separated from the primary site?",
+      "options": [
+        {
+          "id": "A",
+          "text": "So that a single local disaster (fire, flood) cannot destroy both the primary data and its backups"
+        },
+        {
+          "id": "B",
+          "text": "To reduce the organization's electricity costs"
+        },
+        {
+          "id": "C",
+          "text": "To make restores intentionally slower"
+        },
+        {
+          "id": "D",
+          "text": "So that the tapes accumulate more mileage"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Geographic separation ensures one local disaster cannot wipe out both production data and its backups at the same time.",
+        "distractors": {
+          "A": "",
+          "B": "Offsite storage is about disaster resilience, not electricity cost.",
+          "C": "Slower restores are a drawback, not the purpose.",
+          "D": "Tape mileage is not a reason for offsite storage."
+        },
+        "exam_pattern": "Separate offsite storage so one disaster can't take out both production and backups."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Offsite backup storage"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-015",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_disaster_recovery",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A recovery site that has hardware and network connectivity in place but requires recent data and final configuration to be loaded before operations resume is a:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Warm site"
+        },
+        {
+          "id": "B",
+          "text": "Reciprocal site"
+        },
+        {
+          "id": "C",
+          "text": "Hot site"
+        },
+        {
+          "id": "D",
+          "text": "Cold site"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A warm site has hardware and connectivity ready but needs current data and final setup, giving a moderate recovery time at moderate cost - between hot and cold.",
+        "distractors": {
+          "A": "",
+          "B": "A reciprocal site is a mutual-aid arrangement with another organization, not a staged facility.",
+          "C": "A hot site is fully equipped and current, ready within hours with no major load step.",
+          "D": "A cold site provides only space, power, and HVAC - no installed hardware."
+        },
+        "exam_pattern": "Partial equipment, needs data/config load, moderate time/cost = warm site."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Recovery site types (warm)"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-016",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_disaster_recovery",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which alternate-processing option is a transportable, pre-configured unit (e.g., a trailer) that can be moved to a location and connected to restore operations?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A mobile site"
+        },
+        {
+          "id": "B",
+          "text": "A hot site"
+        },
+        {
+          "id": "C",
+          "text": "A cold site"
+        },
+        {
+          "id": "D",
+          "text": "A reciprocal agreement"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A mobile site is a transportable, pre-equipped unit brought to a location and connected to resume operations - useful when a fixed alternate facility is impractical.",
+        "distractors": {
+          "A": "",
+          "B": "A hot site is a fixed, fully equipped facility.",
+          "C": "A cold site is a fixed, empty conditioned facility.",
+          "D": "A reciprocal agreement uses a partner's existing data center."
+        },
+        "exam_pattern": "Transportable, pre-equipped unit brought to a site = mobile site."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Recovery site types (mobile)"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-017",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_disaster_recovery",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which disaster recovery test is the LEAST disruptive and typically performed FIRST to validate the plan on paper?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An unannounced shutdown of the production data center"
+        },
+        {
+          "id": "B",
+          "text": "A checklist / structured walkthrough review"
+        },
+        {
+          "id": "C",
+          "text": "A full-interruption test"
+        },
+        {
+          "id": "D",
+          "text": "A parallel test"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A checklist/structured walkthrough reviews the plan on paper with no live processing, making it the least disruptive and a natural first step before more realistic tests.",
+        "distractors": {
+          "A": "An unannounced production shutdown is the most disruptive and risky option.",
+          "B": "",
+          "C": "A full-interruption test shifts live processing to the alternate site - the most disruptive.",
+          "D": "A parallel test processes real workloads at the alternate site - more disruptive than a walkthrough."
+        },
+        "exam_pattern": "Start DR testing with a low-risk checklist/walkthrough; progress toward parallel then full-interruption."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — DR test types and progression"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-018",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_disaster_recovery",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "During disaster recovery, in what order should systems and processes be restored?",
+      "options": [
+        {
+          "id": "A",
+          "text": "In order of business criticality, with the most time-sensitive processes (per the BIA) restored first"
+        },
+        {
+          "id": "B",
+          "text": "Starting with the least important systems"
+        },
+        {
+          "id": "C",
+          "text": "In alphabetical order of system name"
+        },
+        {
+          "id": "D",
+          "text": "In the order the systems were originally purchased"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Recovery is prioritized by business criticality from the BIA, restoring the most time-sensitive processes first to limit business impact.",
+        "distractors": {
+          "A": "",
+          "B": "Restoring least-important systems first wastes the critical recovery window.",
+          "C": "Alphabetical order ignores business priority.",
+          "D": "Purchase order has no bearing on business criticality."
+        },
+        "exam_pattern": "Recover the most business-critical/time-sensitive systems first, driven by the BIA."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Recovery prioritization"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-019",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_disaster_recovery",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IS auditor finds that the only copies of the disaster recovery plan are stored in the primary data center. Why is this a concern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The plan would take up too much shelf space"
+        },
+        {
+          "id": "B",
+          "text": "Staff would become too familiar with the plan"
+        },
+        {
+          "id": "C",
+          "text": "A disaster that destroys the data center would also destroy the plan needed to recover"
+        },
+        {
+          "id": "D",
+          "text": "The plan would be read too often"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "If the DRP exists only at the primary site, the same disaster that takes out the site destroys the plan; current copies must be kept offsite and accessible to recovery teams.",
+        "distractors": {
+          "A": "Shelf space is irrelevant.",
+          "B": "Familiarity with the plan is desirable.",
+          "C": "",
+          "D": "Frequent reading of the plan is beneficial, not a risk."
+        },
+        "exam_pattern": "Keep accessible DRP copies offsite - a plan trapped in the destroyed site is useless."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — DRP availability and storage"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-020",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_incident_problem_mgmt",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In IT service management, how is the PRIORITY of an incident normally determined?",
+      "options": [
+        {
+          "id": "A",
+          "text": "By combining its impact and its urgency"
+        },
+        {
+          "id": "B",
+          "text": "By how long the assigned technician has worked there"
+        },
+        {
+          "id": "C",
+          "text": "Solely by who reported it"
+        },
+        {
+          "id": "D",
+          "text": "By the alphabetical name of the affected system"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Incident priority is derived by combining impact (how much/how many are affected) with urgency (how quickly resolution is needed).",
+        "distractors": {
+          "A": "",
+          "B": "Technician tenure is irrelevant to incident priority.",
+          "C": "The reporter's identity alone does not set priority.",
+          "D": "The system's name does not determine priority."
+        },
+        "exam_pattern": "Incident priority = impact (how much/many) x urgency (how fast it's needed)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Incident prioritization"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-021",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_incident_problem_mgmt",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "In problem management, a problem whose root cause has been identified and for which a workaround exists is recorded as a:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Major incident"
+        },
+        {
+          "id": "B",
+          "text": "Service request"
+        },
+        {
+          "id": "C",
+          "text": "Known error"
+        },
+        {
+          "id": "D",
+          "text": "Change request"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Once root cause and a workaround are documented, a problem is logged as a known error, speeding resolution of future related incidents.",
+        "distractors": {
+          "A": "A major incident is a high-impact incident, not a documented root cause plus workaround.",
+          "B": "A service request is a routine user request (e.g., access or equipment).",
+          "C": "",
+          "D": "A change request proposes a modification to the environment."
+        },
+        "exam_pattern": "Root cause found + workaround documented = known error."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Problem management (known error)"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-022",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_incident_problem_mgmt",
+      "difficulty": 1,
+      "type": "mcq",
+      "stem": "In ITIL-based operations, the service desk functions PRIMARILY as:",
+      "options": [
+        {
+          "id": "A",
+          "text": "The team that writes application code"
+        },
+        {
+          "id": "B",
+          "text": "The group that approves the IT budget"
+        },
+        {
+          "id": "C",
+          "text": "The external audit function"
+        },
+        {
+          "id": "D",
+          "text": "The single point of contact (SPOC) between users and IT for incidents and service requests"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The service desk is the single point of contact for users - logging, routing, and tracking incidents and service requests.",
+        "distractors": {
+          "A": "Coding is a development activity, not the service desk's role.",
+          "B": "Budget approval is a management responsibility.",
+          "C": "External audit is independent of the service desk.",
+          "D": ""
+        },
+        "exam_pattern": "Service desk = single point of contact for users (logs/routes incidents and requests)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Service desk function"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-023",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_incident_problem_mgmt",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "An incident requires a decision to authorize significant emergency spending to resolve it. Which type of escalation is appropriate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Closing the incident immediately"
+        },
+        {
+          "id": "B",
+          "text": "Functional escalation to a technical specialist team"
+        },
+        {
+          "id": "C",
+          "text": "Logging it as a known error"
+        },
+        {
+          "id": "D",
+          "text": "Hierarchical escalation up the management chain"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Decisions needing authority (like approving emergency spend) require hierarchical escalation up the management chain.",
+        "distractors": {
+          "A": "Closing the incident leaves it unresolved.",
+          "B": "Functional escalation obtains technical expertise, not spending authority.",
+          "C": "A known error is a problem-management record, not an escalation for authority.",
+          "D": ""
+        },
+        "exam_pattern": "Need authority/management decision = hierarchical escalation; need expertise = functional escalation."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Incident escalation"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-024",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_database_mgmt",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which property of a database transaction guarantees that it either completes entirely or has no effect at all (no partial updates)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Isolation"
+        },
+        {
+          "id": "B",
+          "text": "Consistency"
+        },
+        {
+          "id": "C",
+          "text": "Atomicity"
+        },
+        {
+          "id": "D",
+          "text": "Durability"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Atomicity is the all-or-nothing property: a transaction either fully commits or is completely rolled back, leaving no partial updates.",
+        "distractors": {
+          "A": "Isolation keeps concurrent transactions from interfering with each other.",
+          "B": "Consistency keeps the database in a valid state that satisfies all constraints.",
+          "C": "",
+          "D": "Durability ensures committed results survive a subsequent failure."
+        },
+        "exam_pattern": "All-or-nothing transaction = Atomicity (the 'A' in ACID)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Transaction integrity (ACID)"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-025",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_database_mgmt",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which database control prevents two concurrent transactions from overwriting each other's updates (the 'lost update' problem)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A check digit"
+        },
+        {
+          "id": "B",
+          "text": "Locking / concurrency control"
+        },
+        {
+          "id": "C",
+          "text": "Normalization"
+        },
+        {
+          "id": "D",
+          "text": "Data encryption"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Locking/concurrency control serializes conflicting access so simultaneous transactions cannot overwrite one another (a deadlock is two transactions each waiting on the other's lock).",
+        "distractors": {
+          "A": "A check digit validates input keystrokes, not concurrency.",
+          "B": "",
+          "C": "Normalization reduces redundancy in the schema design, not runtime concurrency.",
+          "D": "Encryption protects confidentiality, not concurrent-update integrity."
+        },
+        "exam_pattern": "Serialize concurrent updates to prevent lost updates = locking/concurrency control."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Database concurrency control"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-026",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_database_mgmt",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A database administrator gives a group of users a view that exposes only certain columns and rows of a table. This BEST supports which objective?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Improving physical disk speed"
+        },
+        {
+          "id": "B",
+          "text": "Enforcing least-privilege logical access to data"
+        },
+        {
+          "id": "C",
+          "text": "Backing up the database"
+        },
+        {
+          "id": "D",
+          "text": "Encrypting the database at rest"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A view restricts users to only the rows/columns they need, implementing least-privilege access at the data level.",
+        "distractors": {
+          "A": "A view does not affect disk performance.",
+          "B": "",
+          "C": "A view is not a backup mechanism.",
+          "D": "A view is not encryption."
+        },
+        "exam_pattern": "Restrict users to specific columns/rows with a database view = least-privilege data access."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Database access controls (views)"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-027",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_database_mgmt",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "After a database server crash, which mechanism allows the DBMS to restore the database to a consistent state by undoing incomplete transactions and reapplying committed ones?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Transaction logs/journals with rollback and roll-forward"
+        },
+        {
+          "id": "B",
+          "text": "The data dictionary"
+        },
+        {
+          "id": "C",
+          "text": "A hash total"
+        },
+        {
+          "id": "D",
+          "text": "Referential integrity constraints"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "The DBMS uses transaction logs/journals (with checkpoints) to roll back uncommitted transactions and roll forward committed ones, restoring a consistent state after a crash.",
+        "distractors": {
+          "A": "",
+          "B": "The data dictionary defines metadata, not recovery state.",
+          "C": "A hash total is a batch-completeness control.",
+          "D": "Referential integrity enforces key relationships, not crash recovery."
+        },
+        "exam_pattern": "Crash recovery to a consistent state = transaction logs + rollback (undo) / roll-forward (reapply)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Database recovery (logging, checkpoints)"
+      ]
+    },
+    {
+      "id": "cisa-ops-r2-028",
+      "exam": "cisa",
+      "domain": "cisa_operations_resilience",
+      "subtopic": "cisa_database_mgmt",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: The repository that defines each data element, its format, attributes, and relationships (the database's metadata) is the data ______.",
+      "correct": [
+        "dictionary",
+        "data dictionary"
+      ],
+      "explanation": {
+        "correct": "The data dictionary holds metadata - the definitions, formats, attributes, and relationships of the data elements - supporting consistency and controlled change.",
+        "distractors": {},
+        "exam_pattern": "Metadata repository defining data elements/attributes/relationships = data dictionary."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 4 — Data dictionary"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-001",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_access_controls",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which access control model enforces access decisions using system-assigned security labels and clearances that users cannot change, making it suitable for high-security environments?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Role-based access control (RBAC)"
+        },
+        {
+          "id": "B",
+          "text": "Mandatory access control (MAC)"
+        },
+        {
+          "id": "C",
+          "text": "No access control"
+        },
+        {
+          "id": "D",
+          "text": "Discretionary access control (DAC)"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "MAC uses system-enforced labels and clearances that users cannot override, the most restrictive model, favored in military/high-security settings.",
+        "distractors": {
+          "A": "RBAC assigns access by job role, not by security labels/clearances.",
+          "B": "",
+          "C": "'No access control' is not a model.",
+          "D": "DAC lets the data owner grant access at their discretion - less restrictive."
+        },
+        "exam_pattern": "Labels/clearances, system-enforced, most restrictive = MAC; owner-granted = DAC; role-based = RBAC."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Access control models (MAC)"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-002",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_access_controls",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A large organization with frequent staff moves wants to simplify access administration and enforce least privilege consistently. Which access control model is MOST suitable?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Role-based access control (RBAC)"
+        },
+        {
+          "id": "B",
+          "text": "Assigning permissions individually to each user"
+        },
+        {
+          "id": "C",
+          "text": "Discretionary access managed ad hoc by each user"
+        },
+        {
+          "id": "D",
+          "text": "Granting everyone administrator rights"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "RBAC assigns permissions to roles and users to roles, so access changes with the job - scaling cleanly and enforcing least privilege despite frequent moves.",
+        "distractors": {
+          "A": "",
+          "B": "Per-user permissions do not scale and drift out of alignment over time.",
+          "C": "Ad hoc discretionary access is inconsistent and hard to govern.",
+          "D": "Universal administrator rights violate least privilege entirely."
+        },
+        "exam_pattern": "Scale + consistency + least privilege across many users = RBAC (permissions by role)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Role-based access control"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-003",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_access_controls",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "When comparing biometric systems, which single metric BEST indicates overall accuracy, measured where the false acceptance rate equals the false rejection rate?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The false acceptance rate alone"
+        },
+        {
+          "id": "B",
+          "text": "The average enrollment time"
+        },
+        {
+          "id": "C",
+          "text": "The false rejection rate alone"
+        },
+        {
+          "id": "D",
+          "text": "The crossover error rate (CER/EER), where lower is better"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "The crossover error rate (equal error rate) is the point where FAR equals FRR; a lower CER indicates a more accurate biometric system and allows fair comparison.",
+        "distractors": {
+          "A": "FAR alone (Type II error - accepting an impostor) describes only one error type at one threshold.",
+          "B": "Enrollment time is a usability factor, not accuracy.",
+          "C": "FRR alone (Type I error - rejecting a legitimate user) also describes only one error type.",
+          "D": ""
+        },
+        "exam_pattern": "Compare biometrics by the CER/EER (FAR=FRR) - lower CER = more accurate. (FRR=Type I, FAR=Type II.)"
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Biometric accuracy (FAR/FRR/CER)"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-004",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_access_controls",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which control is MOST important to prevent access misuse when an employee is involuntarily terminated?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Archiving the employee's old emails"
+        },
+        {
+          "id": "B",
+          "text": "Promptly disabling the employee's access, coordinated with the termination"
+        },
+        {
+          "id": "C",
+          "text": "Sending a company-wide announcement email"
+        },
+        {
+          "id": "D",
+          "text": "Scheduling a quarterly access review"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Access should be revoked immediately, ideally at or before the moment of an involuntary termination, to prevent retaliatory misuse.",
+        "distractors": {
+          "A": "Archiving emails does not disable the account.",
+          "B": "",
+          "C": "An email announcement does not remove the person's access.",
+          "D": "A quarterly review is far too slow to address an immediate termination."
+        },
+        "exam_pattern": "On termination (especially involuntary), revoke/disable access immediately - don't wait for the periodic review."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Access deprovisioning / termination"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-005",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_access_controls",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the PRIMARY security risk introduced by single sign-on (SSO)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Users must remember many more passwords"
+        },
+        {
+          "id": "B",
+          "text": "Each application requires a separate login"
+        },
+        {
+          "id": "C",
+          "text": "A compromised set of SSO credentials can grant an attacker access to all connected systems"
+        },
+        {
+          "id": "D",
+          "text": "Authentication becomes much slower"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "SSO concentrates risk: one compromised credential can unlock every connected system, so it should be protected with strong (multi-factor) authentication.",
+        "distractors": {
+          "A": "SSO reduces the number of passwords users must remember.",
+          "B": "SSO removes the need for separate logins - that is its purpose.",
+          "C": "",
+          "D": "SSO generally speeds access rather than slowing it."
+        },
+        "exam_pattern": "SSO convenience concentrates risk - one compromised credential unlocks everything (protect it with MFA)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Single sign-on"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-006",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_network_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Where should an organization place its public-facing web and email servers to keep them separated from the internal corporate network?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Outside any firewall on the public internet"
+        },
+        {
+          "id": "B",
+          "text": "Directly on the internal LAN"
+        },
+        {
+          "id": "C",
+          "text": "In a DMZ (screened subnet) between external and internal firewalls"
+        },
+        {
+          "id": "D",
+          "text": "On each employee's workstation"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A DMZ/screened subnet isolates internet-facing servers between two firewalls, so a compromise of a public server does not directly expose the internal network.",
+        "distractors": {
+          "A": "No-firewall exposure leaves the servers and network unprotected.",
+          "B": "Placing public servers on the internal LAN exposes internal systems if they are breached.",
+          "C": "",
+          "D": "Workstations are inappropriate hosts for public services."
+        },
+        "exam_pattern": "Internet-facing servers belong in a DMZ/screened subnet, isolated from the internal network."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Network segmentation (DMZ)"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-007",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_network_security",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which type of firewall inspects traffic at the application layer, can hide internal addresses, and makes connections on behalf of clients?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A static packet-filtering firewall"
+        },
+        {
+          "id": "B",
+          "text": "An application-level gateway (proxy) firewall"
+        },
+        {
+          "id": "C",
+          "text": "A media converter"
+        },
+        {
+          "id": "D",
+          "text": "A network hub"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "An application-level gateway (proxy) inspects traffic at the application layer, proxies connections for clients, and hides internal addresses - deeper control than packet filtering.",
+        "distractors": {
+          "A": "A static packet filter only checks header fields at lower layers.",
+          "B": "",
+          "C": "A media converter changes the physical medium and performs no filtering.",
+          "D": "A hub is a passive repeater with no filtering."
+        },
+        "exam_pattern": "Deep application-layer inspection + proxies connections + hides internal hosts = application-level gateway (proxy)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Firewall types (application gateway)"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-008",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_network_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which network design BEST limits an attacker's ability to move laterally and reach all internal systems after compromising one host?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Disabling all logging"
+        },
+        {
+          "id": "B",
+          "text": "Segmenting the network into zones/VLANs with filtering between them"
+        },
+        {
+          "id": "C",
+          "text": "Using a single flat network for simplicity"
+        },
+        {
+          "id": "D",
+          "text": "Giving every device a public IP address"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "Segmenting the network into zones/VLANs with filtering between them contains a breach and restricts lateral movement from a compromised host.",
+        "distractors": {
+          "A": "Disabling logging hides attacker activity and aids, not limits, the attacker.",
+          "B": "",
+          "C": "A flat network lets an intruder reach everything once inside.",
+          "D": "Public IPs on every device widen the attack surface."
+        },
+        "exam_pattern": "Segment the network (zones/VLANs) to contain breaches and limit lateral movement."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Network segmentation"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-009",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_network_security",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "An IS auditor finds a wireless LAN still secured with WEP. What is the PRIMARY concern?",
+      "options": [
+        {
+          "id": "A",
+          "text": "WEP transmits data too slowly"
+        },
+        {
+          "id": "B",
+          "text": "WEP is incompatible with modern laptops"
+        },
+        {
+          "id": "C",
+          "text": "WEP is cryptographically weak and easily broken; it should be replaced with WPA2/WPA3"
+        },
+        {
+          "id": "D",
+          "text": "WEP uses too much electrical power"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "WEP's encryption is fundamentally broken and can be cracked quickly, so wireless should use WPA2/WPA3 (AES) instead.",
+        "distractors": {
+          "A": "The concern is weak security, not speed.",
+          "B": "Compatibility is not the primary concern - weak encryption is.",
+          "C": "",
+          "D": "Power consumption is not the issue."
+        },
+        "exam_pattern": "WEP is broken - require WPA2/WPA3 (AES) for wireless."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Wireless security"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-010",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_network_security",
+      "difficulty": 2,
+      "type": "fill",
+      "stem": "Fill in the blank: A decoy system deliberately exposed to attract attackers so their activity can be detected and studied is called a ______.",
+      "correct": [
+        "honeypot",
+        "honey pot"
+      ],
+      "explanation": {
+        "correct": "A honeypot is a decoy with no production purpose; any interaction with it is suspicious, so it helps detect, divert, and study attackers.",
+        "distractors": {},
+        "exam_pattern": "Decoy to lure/detect/study attackers = honeypot."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Deception technologies (honeypot)"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-011",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_data_classification",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What should PRIMARILY determine how long an organization retains a category of records?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Legal, regulatory, and business requirements"
+        },
+        {
+          "id": "B",
+          "text": "How interesting the data is"
+        },
+        {
+          "id": "C",
+          "text": "The preference of the newest employee"
+        },
+        {
+          "id": "D",
+          "text": "The amount of free disk space available"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Retention periods are driven by legal, regulatory, and business requirements; keeping data longer than required raises cost and risk, while deleting too early can breach obligations.",
+        "distractors": {
+          "A": "",
+          "B": "How 'interesting' data is has no bearing on required retention.",
+          "C": "Individual preference is not a governance driver.",
+          "D": "Free disk space is not a valid basis for retention decisions."
+        },
+        "exam_pattern": "Retention periods come from legal/regulatory/business requirements - not convenience."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Data retention"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-012",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_data_classification",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which method BEST ensures that highly sensitive data on decommissioned hard drives cannot be recovered?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Renaming the files"
+        },
+        {
+          "id": "B",
+          "text": "Deleting the files and emptying the recycle bin"
+        },
+        {
+          "id": "C",
+          "text": "Physical destruction, degaussing, or cryptographic erasure of the media"
+        },
+        {
+          "id": "D",
+          "text": "Performing a quick format of the drive"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Physical destruction, degaussing, or cryptographic erase defeats data remanence so sensitive data cannot be reconstructed from retired media.",
+        "distractors": {
+          "A": "Renaming files changes nothing about recoverability.",
+          "B": "Deleting files and emptying the recycle bin leaves the data recoverable.",
+          "C": "",
+          "D": "A quick format does not overwrite the underlying data."
+        },
+        "exam_pattern": "Defeat data remanence with degaussing, crypto-erase, or physical destruction - not simple delete/format."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Media sanitization and data remanence"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-013",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_data_classification",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "After data has been classified, what is the NEXT step to ensure it is protected consistently throughout its life cycle?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Label the data and apply handling procedures (storage, transmission, disposal) appropriate to its classification"
+        },
+        {
+          "id": "B",
+          "text": "Publish all of it to the intranet"
+        },
+        {
+          "id": "C",
+          "text": "Delete the classification so it is simpler"
+        },
+        {
+          "id": "D",
+          "text": "Encrypt only the public data"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Classification is only useful if data is then labeled and handled - stored, transmitted, and disposed of - according to procedures matching its sensitivity level.",
+        "distractors": {
+          "A": "",
+          "B": "Publishing broadly ignores the classification.",
+          "C": "Discarding the classification defeats the scheme.",
+          "D": "Encrypting only public data misdirects protection away from sensitive data."
+        },
+        "exam_pattern": "Classification is only useful if data is then labeled and handled per its level."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Data labeling and handling"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-014",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_data_classification",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which technology inspects content to detect and block unauthorized transmission of sensitive data via email, web uploads, or removable media?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Data loss prevention (DLP)"
+        },
+        {
+          "id": "B",
+          "text": "An uninterruptible power supply (UPS)"
+        },
+        {
+          "id": "C",
+          "text": "A hypervisor"
+        },
+        {
+          "id": "D",
+          "text": "A load balancer"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Data loss prevention inspects content against classification/policy and blocks or alerts on unauthorized exfiltration through channels such as email, web, and USB.",
+        "distractors": {
+          "A": "",
+          "B": "A UPS supplies backup power.",
+          "C": "A hypervisor runs virtual machines.",
+          "D": "A load balancer distributes traffic across servers."
+        },
+        "exam_pattern": "Detect/block sensitive-data exfiltration by content = data loss prevention (DLP)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Data loss prevention"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-015",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_encryption_pki",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "To send a confidential message so that ONLY the intended recipient can read it, the sender should encrypt it with:",
+      "options": [
+        {
+          "id": "A",
+          "text": "The sender's private key"
+        },
+        {
+          "id": "B",
+          "text": "The sender's public key"
+        },
+        {
+          "id": "C",
+          "text": "A one-way hash function"
+        },
+        {
+          "id": "D",
+          "text": "The recipient's public key"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "explanation": {
+        "correct": "Encrypting with the recipient's public key means only the recipient's matching private key can decrypt it, providing confidentiality to that recipient.",
+        "distractors": {
+          "A": "Encrypting with the sender's private key creates a signature anyone can read with the public key - not confidentiality.",
+          "B": "The sender's public key cannot be decrypted by the recipient alone.",
+          "C": "A hash is one-way and cannot be decrypted, so it provides no confidentiality.",
+          "D": ""
+        },
+        "exam_pattern": "Confidentiality to a recipient = encrypt with the RECIPIENT's PUBLIC key (only their private key decrypts)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Asymmetric encryption for confidentiality"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-016",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_encryption_pki",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which technique BEST allows a recipient to verify that a downloaded file has not been altered in transit?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Opening the file to see if it looks right"
+        },
+        {
+          "id": "B",
+          "text": "Comparing a cryptographic hash (message digest) of the file against the published value"
+        },
+        {
+          "id": "C",
+          "text": "Renaming the file"
+        },
+        {
+          "id": "D",
+          "text": "Checking the file's size only"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A cryptographic hash is a one-way digest; if the recomputed hash matches the published value, the file is unchanged - this verifies integrity.",
+        "distractors": {
+          "A": "A visual check does not detect subtle tampering.",
+          "B": "",
+          "C": "Renaming proves nothing about integrity.",
+          "D": "File size is a weak indicator that an attacker can easily preserve."
+        },
+        "exam_pattern": "Detect tampering by comparing cryptographic hashes (integrity) - a hash is one-way, no key."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Hashing and integrity"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-017",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_encryption_pki",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which mechanism provides REAL-TIME checking of whether a digital certificate has been revoked?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A certificate revocation list (CRL) published periodically"
+        },
+        {
+          "id": "B",
+          "text": "The Online Certificate Status Protocol (OCSP)"
+        },
+        {
+          "id": "C",
+          "text": "The certificate's expiry date"
+        },
+        {
+          "id": "D",
+          "text": "The length of the public key"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "OCSP queries the certificate's status in real time, returning good/revoked/unknown, unlike a periodically published list.",
+        "distractors": {
+          "A": "A CRL is published on a schedule, so it can be stale between updates.",
+          "B": "",
+          "C": "The expiry date reflects validity period, not revocation.",
+          "D": "Key length is unrelated to revocation status."
+        },
+        "exam_pattern": "Real-time revocation check = OCSP; periodically published list = CRL."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Certificate revocation (OCSP/CRL)"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-018",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_encryption_pki",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the PRIMARY challenge of using symmetric encryption among many parties?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It cannot encrypt large files"
+        },
+        {
+          "id": "B",
+          "text": "It requires a certificate authority for every message"
+        },
+        {
+          "id": "C",
+          "text": "Securely distributing and managing the shared secret keys, whose number grows rapidly with participants"
+        },
+        {
+          "id": "D",
+          "text": "It is far too slow to use in practice"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Symmetric encryption is fast, but its weakness is secure key distribution/management - the number of keys grows roughly as n(n-1)/2 as participants increase.",
+        "distractors": {
+          "A": "Symmetric encryption handles large data well.",
+          "B": "It does not need a CA for every message.",
+          "C": "",
+          "D": "Symmetric algorithms are fast, not too slow."
+        },
+        "exam_pattern": "Symmetric is fast but its weakness is secure key distribution/management (key count = n(n-1)/2)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Symmetric key management"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-019",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_encryption_pki",
+      "difficulty": 2,
+      "type": "multi",
+      "stem": "Which TWO security services does a digital signature provide? (Choose two.)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Non-repudiation (the signer cannot deny signing)"
+        },
+        {
+          "id": "B",
+          "text": "Integrity (detecting if the message was altered)"
+        },
+        {
+          "id": "C",
+          "text": "High availability of the mail server"
+        },
+        {
+          "id": "D",
+          "text": "Confidentiality (hiding the message contents from eavesdroppers)"
+        }
+      ],
+      "correct": [
+        "A",
+        "B"
+      ],
+      "explanation": {
+        "correct": "A digital signature (the message digest encrypted with the sender's private key) provides integrity and non-repudiation (along with sender authentication).",
+        "distractors": {
+          "A": "",
+          "B": "",
+          "C": "Availability is unrelated to digital signatures.",
+          "D": "A signature does not hide the message; confidentiality requires separately encrypting with the recipient's public key."
+        },
+        "exam_pattern": "Digital signature = integrity + authentication + non-repudiation, NOT confidentiality."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Digital signature services"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-020",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_security_monitoring",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Why is synchronized time (e.g., via NTP) across servers and network devices IMPORTANT for security monitoring and investigations?",
+      "options": [
+        {
+          "id": "A",
+          "text": "It lets log events from different systems be accurately correlated and sequenced during analysis and forensics"
+        },
+        {
+          "id": "B",
+          "text": "It reduces the organization's electricity use"
+        },
+        {
+          "id": "C",
+          "text": "It encrypts the log files"
+        },
+        {
+          "id": "D",
+          "text": "It speeds up nightly backups"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Without synchronized clocks, events from different systems cannot be reliably correlated or placed in sequence, which undermines SIEM correlation and forensic reconstruction.",
+        "distractors": {
+          "A": "",
+          "B": "Time sync does not affect power use.",
+          "C": "NTP does not encrypt logs.",
+          "D": "It does not speed up backups."
+        },
+        "exam_pattern": "Without synchronized clocks you can't reliably correlate/sequence logs across systems (SIEM/forensics depend on it)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Log correlation and time synchronization"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-021",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_security_monitoring",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which intrusion detection method is MOST likely to detect a previously unknown (zero-day) attack?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A static list of blocked IP addresses"
+        },
+        {
+          "id": "B",
+          "text": "Signature-based detection matching known attack patterns"
+        },
+        {
+          "id": "C",
+          "text": "Anomaly/behavior-based detection that flags deviations from a baseline"
+        },
+        {
+          "id": "D",
+          "text": "A password-complexity policy"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Anomaly/behavior-based detection compares activity to a learned baseline, so it can flag novel attacks that have no existing signature (at the cost of more false positives).",
+        "distractors": {
+          "A": "A static IP blocklist cannot detect a new attack from an unknown source.",
+          "B": "Signature-based detection only catches attacks whose patterns are already known.",
+          "C": "",
+          "D": "A password policy is a preventive control, not a detection method."
+        },
+        "exam_pattern": "Known patterns = signature-based; unknown/zero-day via baseline deviation = anomaly/behavior-based."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — IDS detection methods"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-022",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_security_monitoring",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which activity BEST demonstrates whether an identified vulnerability can actually be exploited to compromise a system?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A user satisfaction survey"
+        },
+        {
+          "id": "B",
+          "text": "An authorized penetration test that attempts to exploit the weakness"
+        },
+        {
+          "id": "C",
+          "text": "An automated vulnerability scan that lists potential weaknesses"
+        },
+        {
+          "id": "D",
+          "text": "A review of the security policy document"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "explanation": {
+        "correct": "A penetration test attempts actual exploitation (with authorization), demonstrating whether a weakness is truly exploitable and its real impact.",
+        "distractors": {
+          "A": "A survey measures perception, not exploitability.",
+          "B": "",
+          "C": "A vulnerability scan identifies potential weaknesses but does not confirm exploitability.",
+          "D": "A policy review assesses documentation, not technical exploitability."
+        },
+        "exam_pattern": "Scan = find potential weaknesses (broad); pen test = prove exploitability (depth), with authorization."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Vulnerability scanning vs. penetration testing"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-023",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_security_monitoring",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "What is the PRIMARY purpose of maintaining an audit trail of user and system activity?",
+      "options": [
+        {
+          "id": "A",
+          "text": "To establish individual accountability and enable reconstruction of events"
+        },
+        {
+          "id": "B",
+          "text": "To speed up application response time"
+        },
+        {
+          "id": "C",
+          "text": "To replace the need for access controls"
+        },
+        {
+          "id": "D",
+          "text": "To reduce storage costs"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "An audit trail records who did what and when, establishing accountability and letting investigators reconstruct the sequence of events.",
+        "distractors": {
+          "A": "",
+          "B": "Audit logging does not improve application performance.",
+          "C": "Audit trails complement, not replace, access controls.",
+          "D": "Audit trails consume storage rather than reduce it."
+        },
+        "exam_pattern": "Audit trail = accountability (who did what, when) + ability to reconstruct events."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Audit trails and accountability"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-024",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_physical_environmental",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Why must a data center's HVAC system control HUMIDITY within a defined range?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Low humidity increases static electricity (ESD) that can damage components, while high humidity causes condensation and corrosion"
+        },
+        {
+          "id": "B",
+          "text": "Humidity sets the server's IP addressing"
+        },
+        {
+          "id": "C",
+          "text": "Humidity determines software licensing costs"
+        },
+        {
+          "id": "D",
+          "text": "Humidity changes the strength of the data's encryption"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Humidity that is too low invites static discharge (ESD) that harms electronics, while humidity that is too high promotes condensation and corrosion - both must be avoided.",
+        "distractors": {
+          "A": "",
+          "B": "Humidity is unrelated to IP addressing.",
+          "C": "Humidity is unrelated to licensing.",
+          "D": "Humidity has no effect on encryption strength."
+        },
+        "exam_pattern": "Keep humidity in range - too low = static/ESD, too high = condensation/corrosion."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Environmental controls (HVAC/humidity)"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-025",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_physical_environmental",
+      "difficulty": 3,
+      "type": "mcq",
+      "stem": "Which water-based fire-suppression system keeps the pipes DRY until a fire is detected, reducing the risk of accidental water damage to equipment, and is therefore often preferred in data centers?",
+      "options": [
+        {
+          "id": "A",
+          "text": "An open bucket of water at each rack"
+        },
+        {
+          "id": "B",
+          "text": "A wet-pipe sprinkler system that always holds water in the pipes"
+        },
+        {
+          "id": "C",
+          "text": "A pre-action sprinkler system"
+        },
+        {
+          "id": "D",
+          "text": "A deluge system that floods all heads immediately"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "A pre-action system holds water back until a detector triggers (and a sprinkler head opens), minimizing the chance of accidental water release over electronics.",
+        "distractors": {
+          "A": "A bucket of water is not a suppression system and harms electronics.",
+          "B": "A wet-pipe system keeps water in the pipes, risking leaks over equipment.",
+          "C": "",
+          "D": "A deluge system discharges from all heads at once - inappropriate over electronics."
+        },
+        "exam_pattern": "Pipes stay dry until detection (then charge, then discharge) = pre-action; preferred where water + electronics coexist."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Fire suppression (pre-action systems)"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-026",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_physical_environmental",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "A UPS keeps systems running for a few minutes during an outage. What is required to sustain operations through a PROLONGED power outage?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A backup generator"
+        },
+        {
+          "id": "B",
+          "text": "A thicker power cable"
+        },
+        {
+          "id": "C",
+          "text": "A surge protector"
+        },
+        {
+          "id": "D",
+          "text": "Additional UPS batteries for a few more minutes"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "A UPS only bridges short gaps; a backup generator supplies power for the duration of a prolonged outage once it starts and takes over from the UPS.",
+        "distractors": {
+          "A": "",
+          "B": "Cable thickness does not supply power during an outage.",
+          "C": "A surge protector conditions power spikes; it provides no power during an outage.",
+          "D": "More UPS batteries still only extend short-term runtime."
+        },
+        "exam_pattern": "UPS bridges short outages/allows transfer; a generator sustains power through prolonged outages."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Power continuity (UPS vs. generator)"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-027",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_physical_environmental",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Halon fire-suppression agents were phased out and replaced by clean agents such as FM-200 or inert gases PRIMARILY because Halon:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Is too expensive to manufacture"
+        },
+        {
+          "id": "B",
+          "text": "Is itself flammable"
+        },
+        {
+          "id": "C",
+          "text": "Depletes the ozone layer and was restricted under international agreement"
+        },
+        {
+          "id": "D",
+          "text": "Corrodes network cabling"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "explanation": {
+        "correct": "Halon production was banned because it is ozone-depleting (Montreal Protocol); clean agents like FM-200, Novec 1230, and inert gases are the environmentally acceptable replacements.",
+        "distractors": {
+          "A": "The driver was environmental impact, not manufacturing cost.",
+          "B": "Halon is a fire suppressant, not flammable.",
+          "C": "",
+          "D": "Cabling corrosion was not the reason for phasing out Halon."
+        },
+        "exam_pattern": "Halon was banned for ozone depletion -> replaced by clean agents (FM-200, Novec 1230, inert gas)."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Fire suppression agents (Halon replacement)"
+      ]
+    },
+    {
+      "id": "cisa-prot-r2-028",
+      "exam": "cisa",
+      "domain": "cisa_protection_assets",
+      "subtopic": "cisa_physical_environmental",
+      "difficulty": 2,
+      "type": "mcq",
+      "stem": "Which physical security control provides a DETECTIVE record of who entered the data center and when?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Badge-reader access logs and CCTV recordings"
+        },
+        {
+          "id": "B",
+          "text": "A perimeter security fence"
+        },
+        {
+          "id": "C",
+          "text": "A locked door"
+        },
+        {
+          "id": "D",
+          "text": "A warning sign"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "explanation": {
+        "correct": "Badge-reader logs and CCTV recordings capture who entered and when, providing an after-the-fact detective record for review and investigation.",
+        "distractors": {
+          "A": "",
+          "B": "A fence is a preventive/physical barrier, not a record of entries.",
+          "C": "A locked door is a preventive control; it keeps people out but keeps no record.",
+          "D": "A warning sign is a deterrent and records nothing."
+        },
+        "exam_pattern": "Record of who/when entered = access logs/CCTV (detective); locks/fences prevent, signs deter."
+      },
+      "references": [
+        "ISACA CISA Review Manual: Domain 5 — Physical access monitoring"
       ]
     }
   ]
