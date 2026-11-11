@@ -2259,7 +2259,7 @@ QUESTIONS = [
     {
         "id": "linuxplus-ts-r2-005", "exam": "linuxplus", "domain": "linuxp_troubleshooting",
         "subtopic": "linuxp_ts_storage", "difficulty": 2, "type": "fill",
-        "stem": "Which sysstat-era tool gives a top-like, real-time view of disk I/O broken down BY "
+        "stem": "Which interactive tool gives a top-like, real-time view of disk I/O broken down BY "
                 "PROCESS, so you can see which process is hammering the disk? (command name only)",
         "correct": ["iotop", "/usr/sbin/iotop", "/usr/bin/iotop"],
         "explanation": {
