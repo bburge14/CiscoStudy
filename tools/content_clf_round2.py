@@ -176,14 +176,15 @@ QUESTIONS = [
         "options": [
             {"id": "A", "text": "Stop guessing your capacity needs"},
             {"id": "B", "text": "Treat every server as a unique, long-lived 'pet'"},
-            {"id": "C", "text": "Make frequent, small, reversible changes"},
+            {"id": "C", "text": "Test systems at production scale"},
             {"id": "D", "text": "Always scale a single server vertically before anything else"},
         ],
         "correct": ["A", "C"],
         "explanation": {
-            "correct": "'Stop guessing capacity' and 'make frequent, small, reversible changes' are "
-                       "both general design principles of the Well-Architected Framework, enabled by "
-                       "the cloud's elasticity and automation.",
+            "correct": "'Stop guessing capacity' and 'test systems at production scale' are both "
+                       "general design principles of the Well-Architected Framework, enabled by the "
+                       "cloud's elasticity and on-demand resources. ('Make frequent, small, reversible "
+                       "changes' is an Operational Excellence pillar principle, not a general one.)",
             "distractors": {
                 "B": "Best practice treats servers as disposable and replaceable ('cattle'), not as "
                      "unique long-lived 'pets'.",
@@ -1213,7 +1214,7 @@ QUESTIONS = [
                      "path to AWS services.",
             },
             "exam_pattern": "'Reach an AWS service privately, no public internet' = VPC endpoint "
-                            "(AWS PrivateLink).",
+                            "(gateway endpoint for S3/DynamoDB; interface endpoints use AWS PrivateLink).",
         },
         "references": ["AWS CLF-C02 Exam Guide (Domain 3: Cloud Technology and Services)",
                        "Amazon VPC endpoints / AWS PrivateLink"],
@@ -1474,14 +1475,14 @@ QUESTIONS = [
         "options": [
             {"id": "A", "text": "Basic Support"},
             {"id": "B", "text": "AWS re:Post community Q&A"},
-            {"id": "C", "text": "Infrastructure Event Management (available with Enterprise Support "
-                                 "and Enterprise On-Ramp)"},
+            {"id": "C", "text": "AWS Countdown (formerly Infrastructure Event Management), "
+                                 "included with Enterprise Support"},
             {"id": "D", "text": "AWS Pricing Calculator"},
         ],
         "correct": ["C"],
         "explanation": {
-            "correct": "Infrastructure Event Management (IEM) is an offering of Enterprise Support "
-                       "(and Enterprise On-Ramp) that provides architectural and scaling guidance and "
+            "correct": "AWS Countdown (formerly Infrastructure Event Management, IEM) is included "
+                       "with Enterprise Support and provides architectural and scaling guidance plus "
                        "dedicated real-time support to help a workload handle a planned, high-demand "
                        "event such as a launch.",
             "distractors": {
@@ -1492,11 +1493,11 @@ QUESTIONS = [
                 "D": "The Pricing Calculator estimates costs; it does not provide event support.",
             },
             "exam_pattern": "'Dedicated guidance + real-time support for a planned high-traffic "
-                            "event' = Infrastructure Event Management (Enterprise / Enterprise "
-                            "On-Ramp).",
+                            "event' = AWS Countdown (formerly Infrastructure Event Management), an "
+                            "Enterprise Support offering.",
         },
         "references": ["AWS CLF-C02 Exam Guide (Domain 4: Billing, Pricing, and Support)",
-                       "AWS Support plans (Infrastructure Event Management)"],
+                       "AWS Support plans (AWS Countdown, formerly Infrastructure Event Management)"],
     },
 
     # ----- technical_resources -------------------------------------------

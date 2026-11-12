@@ -3036,7 +3036,7 @@
         },
         {
           "id": "B",
-          "text": "Make frequent, small, reversible changes"
+          "text": "Test systems at production scale"
         },
         {
           "id": "C",
@@ -3052,7 +3052,7 @@
         "D"
       ],
       "explanation": {
-        "correct": "'Stop guessing capacity' and 'make frequent, small, reversible changes' are both general design principles of the Well-Architected Framework, enabled by the cloud's elasticity and automation.",
+        "correct": "'Stop guessing capacity' and 'test systems at production scale' are both general design principles of the Well-Architected Framework, enabled by the cloud's elasticity and on-demand resources. ('Make frequent, small, reversible changes' is an Operational Excellence pillar principle, not a general one.)",
         "distractors": {
           "A": "Best practice treats servers as disposable and replaceable ('cattle'), not as unique long-lived 'pets'.",
           "B": "",
@@ -4469,7 +4469,7 @@
           "C": "An Elastic IP is a static public IPv4 address; it does not create a private path to AWS services.",
           "D": "An internet gateway provides a path to the public internet — the opposite of keeping traffic private."
         },
-        "exam_pattern": "'Reach an AWS service privately, no public internet' = VPC endpoint (AWS PrivateLink)."
+        "exam_pattern": "'Reach an AWS service privately, no public internet' = VPC endpoint (gateway endpoint for S3/DynamoDB; interface endpoints use AWS PrivateLink)."
       },
       "references": [
         "AWS CLF-C02 Exam Guide (Domain 3: Cloud Technology and Services)",
@@ -4828,7 +4828,7 @@
         },
         {
           "id": "C",
-          "text": "Infrastructure Event Management (available with Enterprise Support and Enterprise On-Ramp)"
+          "text": "AWS Countdown (formerly Infrastructure Event Management), included with Enterprise Support"
         },
         {
           "id": "D",
@@ -4839,18 +4839,18 @@
         "C"
       ],
       "explanation": {
-        "correct": "Infrastructure Event Management (IEM) is an offering of Enterprise Support (and Enterprise On-Ramp) that provides architectural and scaling guidance and dedicated real-time support to help a workload handle a planned, high-demand event such as a launch.",
+        "correct": "AWS Countdown (formerly Infrastructure Event Management, IEM) is included with Enterprise Support and provides architectural and scaling guidance plus dedicated real-time support to help a workload handle a planned, high-demand event such as a launch.",
         "distractors": {
           "A": "The Pricing Calculator estimates costs; it does not provide event support.",
           "B": "AWS re:Post is a free community Q&A service, not dedicated real-time launch support.",
           "C": "",
           "D": "Basic Support offers no technical support beyond account/billing help, so it cannot provide event scaling guidance."
         },
-        "exam_pattern": "'Dedicated guidance + real-time support for a planned high-traffic event' = Infrastructure Event Management (Enterprise / Enterprise On-Ramp)."
+        "exam_pattern": "'Dedicated guidance + real-time support for a planned high-traffic event' = AWS Countdown (formerly Infrastructure Event Management), an Enterprise Support offering."
       },
       "references": [
         "AWS CLF-C02 Exam Guide (Domain 4: Billing, Pricing, and Support)",
-        "AWS Support plans (Infrastructure Event Management)"
+        "AWS Support plans (AWS Countdown, formerly Infrastructure Event Management)"
       ]
     },
     {
