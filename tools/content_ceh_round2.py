@@ -120,19 +120,19 @@ QUESTIONS = [
         "stem": "An attacker queries a misconfigured DNS name server and successfully pulls a full copy of all "
                 "the zone's records (hosts, mail servers, aliases). Which technique succeeded?",
         "options": [
-            {"id": "A", "text": "DNS zone transfer (AXFR)"},
+            {"id": "A", "text": "DNS amplification"},
             {"id": "B", "text": "Reverse DNS lookup"},
             {"id": "C", "text": "WHOIS query"},
-            {"id": "D", "text": "DNS amplification"},
+            {"id": "D", "text": "DNS zone transfer (AXFR)"},
         ],
-        "correct": ["A"],
+        "correct": ["D"],
         "explanation": {
             "correct": "A zone transfer (AXFR) is meant for replication between authoritative servers; if allowed "
                        "to anyone, it hands an attacker the entire DNS record set. Restrict AXFR to known secondaries.",
             "distractors": {
                 "B": "A reverse lookup resolves a single IP to a name; it does not dump the whole zone.",
                 "C": "WHOIS returns registration data (registrar, dates), not the internal host records.",
-                "D": "DNS amplification is a DDoS reflection technique, not a records-disclosure method.",
+                "A": "DNS amplification is a DDoS reflection technique, not a records-disclosure method.",
             },
             "exam_pattern": "Dump all DNS records from a server = zone transfer (AXFR); restrict it to secondaries.",
         },
@@ -192,18 +192,18 @@ QUESTIONS = [
         "stem": "Which modular, menu-driven reconnaissance framework (with a feel similar to Metasploit) uses "
                 "pluggable modules to automate web-based OSINT and store results in a workspace database?",
         "options": [
-            {"id": "A", "text": "Recon-ng"},
+            {"id": "A", "text": "John the Ripper"},
             {"id": "B", "text": "Aircrack-ng"},
-            {"id": "C", "text": "John the Ripper"},
+            {"id": "C", "text": "Recon-ng"},
             {"id": "D", "text": "Burp Suite"},
         ],
-        "correct": ["A"],
+        "correct": ["C"],
         "explanation": {
             "correct": "Recon-ng is a full-featured, module-based web reconnaissance framework whose workflow "
                        "resembles Metasploit, automating OSINT collection into a workspace.",
             "distractors": {
                 "B": "Aircrack-ng cracks Wi-Fi keys; the '-ng' name is unrelated to OSINT.",
-                "C": "John the Ripper is an offline password cracker.",
+                "A": "John the Ripper is an offline password cracker.",
                 "D": "Burp Suite is a web intercepting proxy, not an OSINT framework.",
             },
             "exam_pattern": "Modular, Metasploit-style web OSINT framework = Recon-ng.",
@@ -304,19 +304,19 @@ QUESTIONS = [
         "stem": "Which Nmap capability runs Lua scripts to extend scanning into advanced discovery, richer "
                 "version detection, and even vulnerability checks (invoked with --script)?",
         "options": [
-            {"id": "A", "text": "The Nmap Scripting Engine (NSE)"},
+            {"id": "A", "text": "The decoy option (-D)"},
             {"id": "B", "text": "The -sn ping sweep"},
             {"id": "C", "text": "The -O OS-detection engine"},
-            {"id": "D", "text": "The decoy option (-D)"},
+            {"id": "D", "text": "The Nmap Scripting Engine (NSE)"},
         ],
-        "correct": ["A"],
+        "correct": ["D"],
         "explanation": {
             "correct": "The Nmap Scripting Engine (NSE) runs Lua scripts (invoked with --script) for discovery, "
                        "version and vuln checks, brute forcing, and more, greatly extending Nmap.",
             "distractors": {
                 "B": "-sn only performs host discovery and runs no scripts.",
                 "C": "-O fingerprints the operating system; it is not the scripting engine.",
-                "D": "-D adds decoy source addresses to obscure the scanner; it is not a scripting feature.",
+                "A": "-D adds decoy source addresses to obscure the scanner; it is not a scripting feature.",
             },
             "exam_pattern": "Lua scripts for advanced/vuln checks (--script) = Nmap Scripting Engine (NSE).",
         },
@@ -490,18 +490,18 @@ QUESTIONS = [
         "stem": "A team needs a free, open-source vulnerability scanner as an alternative to commercial Nessus. "
                 "Which scanner (the engine behind the Greenbone/GVM framework) fits?",
         "options": [
-            {"id": "A", "text": "OpenVAS"},
+            {"id": "A", "text": "sqlmap"},
             {"id": "B", "text": "Metasploit"},
-            {"id": "C", "text": "sqlmap"},
+            {"id": "C", "text": "OpenVAS"},
             {"id": "D", "text": "Aircrack-ng"},
         ],
-        "correct": ["A"],
+        "correct": ["C"],
         "explanation": {
             "correct": "OpenVAS (the scanning engine within Greenbone Vulnerability Management/GVM) is a widely used "
                        "open-source vulnerability scanner comparable to Nessus.",
             "distractors": {
                 "B": "Metasploit is an exploitation framework, not primarily a scan-and-report vulnerability scanner.",
-                "C": "sqlmap automates SQL injection; it is not a general vulnerability scanner.",
+                "A": "sqlmap automates SQL injection; it is not a general vulnerability scanner.",
                 "D": "Aircrack-ng is a wireless key-cracking suite.",
             },
             "exam_pattern": "Free/open-source vuln scanner (Greenbone/GVM engine) = OpenVAS.",
@@ -616,19 +616,19 @@ QUESTIONS = [
         "stem": "To avoid triggering account lockouts, an attacker tries just one or two very common passwords "
                 "against many different user accounts. Which password attack is this?",
         "options": [
-            {"id": "A", "text": "Password spraying"},
+            {"id": "A", "text": "Rainbow table attack"},
             {"id": "B", "text": "Brute-force attack"},
             {"id": "C", "text": "Dictionary attack"},
-            {"id": "D", "text": "Rainbow table attack"},
+            {"id": "D", "text": "Password spraying"},
         ],
-        "correct": ["A"],
+        "correct": ["D"],
         "explanation": {
             "correct": "Password spraying tries a few common passwords across many accounts, staying under lockout "
                        "thresholds that would trip if one account were hammered repeatedly.",
             "distractors": {
                 "B": "Brute force tries many passwords against one account and tends to trigger lockout.",
                 "C": "A dictionary attack runs a whole wordlist against an account, not one password across many.",
-                "D": "A rainbow table reverses captured hashes offline; it is not live guessing across accounts.",
+                "A": "A rainbow table reverses captured hashes offline; it is not live guessing across accounts.",
             },
             "exam_pattern": "One/two common passwords across MANY accounts to dodge lockout = password spraying.",
         },
@@ -726,19 +726,19 @@ QUESTIONS = [
         "stem": "Which type of keylogger is a physical device plugged in between the keyboard and the computer, "
                 "so OS-based anti-malware scanning the file system cannot detect it?",
         "options": [
-            {"id": "A", "text": "Hardware keylogger"},
+            {"id": "A", "text": "Form-grabbing keylogger"},
             {"id": "B", "text": "Kernel (software) keylogger"},
             {"id": "C", "text": "API-hooking keylogger"},
-            {"id": "D", "text": "Form-grabbing keylogger"},
+            {"id": "D", "text": "Hardware keylogger"},
         ],
-        "correct": ["A"],
+        "correct": ["D"],
         "explanation": {
             "correct": "A hardware keylogger is a physical inline device (or built into the keyboard); because it "
                        "is not software on the OS, host anti-malware cannot see it - physical inspection catches it.",
             "distractors": {
                 "B": "A kernel keylogger is software running in the OS and is at least potentially detectable by host tools.",
                 "C": "An API-hooking keylogger is software intercepting input APIs within the OS.",
-                "D": "A form-grabbing keylogger is software that captures browser form data, not a physical device.",
+                "A": "A form-grabbing keylogger is software that captures browser form data, not a physical device.",
             },
             "exam_pattern": "Physical inline device, invisible to OS anti-malware = hardware keylogger.",
         },
@@ -799,18 +799,18 @@ QUESTIONS = [
         "stem": "An attacker carries out malicious actions using signed, built-in operating-system binaries (such "
                 "as certutil, mshta, or regsvr32) so the activity blends in with normal administration. This is called?",
         "options": [
-            {"id": "A", "text": "Living off the land (using LOLBins)"},
+            {"id": "A", "text": "Sideloading"},
             {"id": "B", "text": "Packing"},
-            {"id": "C", "text": "Sideloading"},
+            {"id": "C", "text": "Living off the land (using LOLBins)"},
             {"id": "D", "text": "Steganography"},
         ],
-        "correct": ["A"],
+        "correct": ["C"],
         "explanation": {
             "correct": "Living off the land abuses legitimate, signed OS binaries (LOLBins) to evade allow-lists and "
                        "blend with normal activity, reducing the attacker's own tooling footprint.",
             "distractors": {
                 "B": "Packing compresses/obfuscates a malicious executable; it does not mean abusing built-in binaries.",
-                "C": "Sideloading installs apps from outside an official store - a different concept.",
+                "A": "Sideloading installs apps from outside an official store - a different concept.",
                 "D": "Steganography hides data in a carrier file; it is not about using built-in system tools.",
             },
             "exam_pattern": "Abuse built-in signed binaries to blend in = living off the land (LOLBins).",
@@ -919,18 +919,18 @@ QUESTIONS = [
         "stem": "Which malware is designed to irreversibly destroy or corrupt data and systems, with no intent of "
                 "ransom or recovery - typically deployed for sabotage?",
         "options": [
-            {"id": "A", "text": "Wiper"},
+            {"id": "A", "text": "Spyware"},
             {"id": "B", "text": "Ransomware"},
-            {"id": "C", "text": "Spyware"},
+            {"id": "C", "text": "Wiper"},
             {"id": "D", "text": "Rootkit"},
         ],
-        "correct": ["A"],
+        "correct": ["C"],
         "explanation": {
             "correct": "A wiper destroys data permanently; unlike ransomware, there is no key or recovery path, so "
                        "its purpose is disruption and sabotage.",
             "distractors": {
                 "B": "Ransomware encrypts data for extortion and can (in principle) be reversed with the key.",
-                "C": "Spyware covertly collects information rather than destroying it.",
+                "A": "Spyware covertly collects information rather than destroying it.",
                 "D": "A rootkit hides to maintain access; destruction is not its defining purpose.",
             },
             "exam_pattern": "Permanent data destruction, no ransom/recovery = wiper (sabotage).",
@@ -988,19 +988,19 @@ QUESTIONS = [
         "stem": "An attacker floods a DHCP server with lease requests using many spoofed MAC addresses until the "
                 "server's address pool is exhausted and legitimate clients can no longer get an IP. Which attack?",
         "options": [
-            {"id": "A", "text": "DHCP starvation"},
+            {"id": "A", "text": "SYN flood"},
             {"id": "B", "text": "MAC flooding"},
             {"id": "C", "text": "ARP poisoning"},
-            {"id": "D", "text": "SYN flood"},
+            {"id": "D", "text": "DHCP starvation"},
         ],
-        "correct": ["A"],
+        "correct": ["D"],
         "explanation": {
             "correct": "DHCP starvation exhausts the DHCP scope with spoofed requests, denying leases; it often "
                        "precedes standing up a rogue DHCP server. DHCP snooping with rate limits is the defense.",
             "distractors": {
                 "B": "MAC flooding overflows a switch's CAM table to force flooding, not the DHCP pool.",
                 "C": "ARP poisoning redirects LAN traffic by forging ARP replies, not by exhausting DHCP leases.",
-                "D": "A SYN flood exhausts a server's TCP connection table, unrelated to DHCP leases.",
+                "A": "A SYN flood exhausts a server's TCP connection table, unrelated to DHCP leases.",
             },
             "exam_pattern": "Exhaust the DHCP pool with spoofed MAC requests = DHCP starvation.",
         },
@@ -1255,19 +1255,19 @@ QUESTIONS = [
         "stem": "Which low-bandwidth, application-layer DoS opens many connections to a web server and holds them "
                 "open by trickling partial HTTP headers, exhausting its connection pool?",
         "options": [
-            {"id": "A", "text": "Slowloris"},
+            {"id": "A", "text": "UDP flood"},
             {"id": "B", "text": "SYN flood"},
             {"id": "C", "text": "Smurf attack"},
-            {"id": "D", "text": "UDP flood"},
+            {"id": "D", "text": "Slowloris"},
         ],
-        "correct": ["A"],
+        "correct": ["D"],
         "explanation": {
             "correct": "Slowloris is an application-layer attack that ties up a server's worker/connection slots with "
                        "many slow, never-finished HTTP requests, needing very little bandwidth.",
             "distractors": {
                 "B": "A SYN flood exhausts the TCP half-open table at the transport layer, not HTTP connection slots via slow headers.",
                 "C": "A Smurf attack is an ICMP amplification flood, high-volume rather than slow and low-bandwidth.",
-                "D": "A UDP flood sends high-volume UDP packets; it is not the slow partial-request technique.",
+                "A": "A UDP flood sends high-volume UDP packets; it is not the slow partial-request technique.",
             },
             "exam_pattern": "Slow partial HTTP requests exhausting connection slots = Slowloris (app-layer, low bandwidth).",
         },
@@ -1303,18 +1303,18 @@ QUESTIONS = [
         "stem": "Which amplification attack sends ICMP echo requests to a network's broadcast address with the "
                 "victim's spoofed source IP, so every host on that network replies to the victim at once?",
         "options": [
-            {"id": "A", "text": "Smurf attack"},
+            {"id": "A", "text": "SYN flood"},
             {"id": "B", "text": "Teardrop attack"},
-            {"id": "C", "text": "SYN flood"},
+            {"id": "C", "text": "Smurf attack"},
             {"id": "D", "text": "Slowloris"},
         ],
-        "correct": ["A"],
+        "correct": ["C"],
         "explanation": {
             "correct": "A Smurf attack abuses directed broadcast with ICMP echo and a spoofed victim source, so many "
                        "hosts flood the victim; Fraggle is the UDP echo/chargen variant. Disable directed broadcasts to defend.",
             "distractors": {
                 "B": "A Teardrop attack sends overlapping IP fragments to crash reassembly; it is not broadcast amplification.",
-                "C": "A SYN flood exhausts the connection table; it does not use ICMP broadcast reflection.",
+                "A": "A SYN flood exhausts the connection table; it does not use ICMP broadcast reflection.",
                 "D": "Slowloris is a slow HTTP attack, not ICMP amplification.",
             },
             "exam_pattern": "ICMP to broadcast with spoofed victim source = Smurf; UDP echo variant = Fraggle.",
@@ -1351,19 +1351,19 @@ QUESTIONS = [
         "stem": "To absorb a large volumetric DDoS, an organization routes inbound traffic through a high-capacity "
                 "service that filters out malicious packets and forwards only clean traffic. What is this service called?",
         "options": [
-            {"id": "A", "text": "A DDoS scrubbing (mitigation) service"},
+            {"id": "A", "text": "A jump box"},
             {"id": "B", "text": "A honeypot"},
             {"id": "C", "text": "A rainbow table"},
-            {"id": "D", "text": "A jump box"},
+            {"id": "D", "text": "A DDoS scrubbing (mitigation) service"},
         ],
-        "correct": ["A"],
+        "correct": ["D"],
         "explanation": {
             "correct": "DDoS scrubbing centers absorb and clean attack traffic at scale, passing only legitimate "
                        "requests to the origin; this is a core volumetric-DDoS defense.",
             "distractors": {
                 "B": "A honeypot is a decoy to lure attackers, not a high-capacity traffic filter.",
                 "C": "A rainbow table is a password-cracking structure, unrelated to DDoS mitigation.",
-                "D": "A jump box is a hardened pivot host for administration, not DDoS filtering.",
+                "A": "A jump box is a hardened pivot host for administration, not DDoS filtering.",
             },
             "exam_pattern": "Route traffic through high-capacity filtering to absorb a flood = DDoS scrubbing service.",
         },
@@ -1536,18 +1536,18 @@ QUESTIONS = [
         "stem": "To slip past a firewall rule that only trusts a specific internal source address, an attacker "
                 "forges the source IP of their packets to impersonate that trusted host. Which technique is this?",
         "options": [
-            {"id": "A", "text": "IP address spoofing"},
+            {"id": "A", "text": "Protocol tunneling"},
             {"id": "B", "text": "Payload encoding"},
-            {"id": "C", "text": "Protocol tunneling"},
+            {"id": "C", "text": "IP address spoofing"},
             {"id": "D", "text": "Packet fragmentation"},
         ],
-        "correct": ["A"],
+        "correct": ["C"],
         "explanation": {
             "correct": "IP spoofing forges the source address to masquerade as a trusted host, defeating source-based "
                        "ACLs; ingress/egress filtering (e.g., BCP 38) is a core defense.",
             "distractors": {
                 "B": "Encoding obfuscates the payload to dodge signatures; it does not impersonate a trusted source IP.",
-                "C": "Tunneling hides traffic inside an allowed protocol; it is not source-address forgery.",
+                "A": "Tunneling hides traffic inside an allowed protocol; it is not source-address forgery.",
                 "D": "Fragmentation splits packets to confuse reassembly; it does not spoof the source address.",
             },
             "exam_pattern": "Forge the source IP to impersonate a trusted host = IP spoofing (ingress filtering defends).",
@@ -1635,18 +1635,18 @@ QUESTIONS = [
         "stem": "Requesting a folder with no index page, an attacker receives the server's full list of files and "
                 "subfolders, revealing scripts and backups. Which misconfiguration caused this?",
         "options": [
-            {"id": "A", "text": "Directory listing (directory browsing) enabled"},
+            {"id": "A", "text": "Default administrative credentials"},
             {"id": "B", "text": "Directory traversal"},
-            {"id": "C", "text": "Default administrative credentials"},
+            {"id": "C", "text": "Directory listing (directory browsing) enabled"},
             {"id": "D", "text": "Cross-site scripting"},
         ],
-        "correct": ["A"],
+        "correct": ["C"],
         "explanation": {
             "correct": "When directory listing/browsing is enabled and no index file exists, the server returns the "
                        "folder's contents, leaking structure and files; disable auto-indexing to fix it.",
             "distractors": {
                 "B": "Directory traversal uses ../ sequences to escape the web root; here the server simply lists a folder it serves.",
-                "C": "Default admin credentials are a login weakness, not the cause of an exposed file listing.",
+                "A": "Default admin credentials are a login weakness, not the cause of an exposed file listing.",
                 "D": "XSS runs script in a victim's browser; it does not enumerate server folders.",
             },
             "exam_pattern": "Server lists folder contents when no index page = directory listing/browsing enabled.",
@@ -1699,19 +1699,19 @@ QUESTIONS = [
         "stem": "An attacker abuses a vulnerable feature to make the server itself fetch a URL of the attacker's "
                 "choosing, reaching internal-only services or a cloud metadata endpoint. Which OWASP Top 10 attack is this?",
         "options": [
-            {"id": "A", "text": "Server-Side Request Forgery (SSRF)"},
+            {"id": "A", "text": "Insecure direct object reference"},
             {"id": "B", "text": "Cross-Site Request Forgery (CSRF)"},
             {"id": "C", "text": "Reflected XSS"},
-            {"id": "D", "text": "Insecure direct object reference"},
+            {"id": "D", "text": "Server-Side Request Forgery (SSRF)"},
         ],
-        "correct": ["A"],
+        "correct": ["D"],
         "explanation": {
             "correct": "SSRF tricks the server into making attacker-chosen requests, so it can reach internal systems "
                        "or cloud metadata that the attacker cannot hit directly; allow-list outbound destinations to defend.",
             "distractors": {
                 "B": "CSRF makes the victim's browser (not the server) send a forged request using the user's session.",
                 "C": "Reflected XSS runs script in the victim's browser; it does not make the server fetch URLs.",
-                "D": "IDOR reaches other users' objects via reference tampering; it is not server-side URL fetching.",
+                "A": "IDOR reaches other users' objects via reference tampering; it is not server-side URL fetching.",
             },
             "exam_pattern": "Make the SERVER fetch an attacker URL (internal/metadata) = SSRF; browser-side forged request = CSRF.",
         },
@@ -1771,18 +1771,18 @@ QUESTIONS = [
         "stem": "A web app parses attacker-supplied XML that declares an external entity pointing at a local "
                 "server file, causing the parser to read and return that file's contents. Which attack is this?",
         "options": [
-            {"id": "A", "text": "XML External Entity (XXE) injection"},
+            {"id": "A", "text": "Cross-site request forgery"},
             {"id": "B", "text": "SQL injection"},
-            {"id": "C", "text": "Cross-site request forgery"},
+            {"id": "C", "text": "XML External Entity (XXE) injection"},
             {"id": "D", "text": "Clickjacking"},
         ],
-        "correct": ["A"],
+        "correct": ["C"],
         "explanation": {
             "correct": "XXE abuses an XML parser that resolves external entities, letting an attacker read local "
                        "files or reach internal systems; disable external entity/DTD processing to prevent it.",
             "distractors": {
                 "B": "SQL injection targets database queries, not XML entity resolution.",
-                "C": "CSRF forces a state-changing request via the victim's session; it is not XML parsing abuse.",
+                "A": "CSRF forces a state-changing request via the victim's session; it is not XML parsing abuse.",
                 "D": "Clickjacking manipulates UI layering; it does not involve XML external entities.",
             },
             "exam_pattern": "Malicious XML external entity reading server files = XXE (disable external entities).",
@@ -1869,19 +1869,19 @@ QUESTIONS = [
         "stem": "When results cannot be returned in the HTTP response, an attacker makes the database send the "
                 "stolen data to an attacker-controlled server over DNS or HTTP. Which SQL injection category is this?",
         "options": [
-            {"id": "A", "text": "Out-of-band SQL injection"},
+            {"id": "A", "text": "UNION-based SQL injection"},
             {"id": "B", "text": "In-band (classic) SQL injection"},
             {"id": "C", "text": "Boolean-based blind SQL injection"},
-            {"id": "D", "text": "UNION-based SQL injection"},
+            {"id": "D", "text": "Out-of-band SQL injection"},
         ],
-        "correct": ["A"],
+        "correct": ["D"],
         "explanation": {
             "correct": "Out-of-band SQLi exfiltrates data through a separate channel (DNS/HTTP callbacks) when the "
                        "app does not return results or respond timingly in-band - useful against blind, quiet endpoints.",
             "distractors": {
                 "B": "In-band SQLi returns data in the same response channel, the opposite of out-of-band.",
                 "C": "Boolean-based blind infers data from true/false response differences, still in the same channel.",
-                "D": "UNION-based returns data directly in the response (in-band).",
+                "A": "UNION-based returns data directly in the response (in-band).",
             },
             "exam_pattern": "Exfiltrate via a separate channel (DNS/HTTP) = out-of-band SQL injection.",
         },
@@ -1986,19 +1986,19 @@ QUESTIONS = [
         "stem": "Driving around an area with a Wi-Fi adapter and GPS to discover, locate, and map wireless "
                 "networks and their security settings is known as?",
         "options": [
-            {"id": "A", "text": "Wardriving"},
+            {"id": "A", "text": "Evil twin"},
             {"id": "B", "text": "War dialing"},
             {"id": "C", "text": "Bluesnarfing"},
-            {"id": "D", "text": "Evil twin"},
+            {"id": "D", "text": "Wardriving"},
         ],
-        "correct": ["A"],
+        "correct": ["D"],
         "explanation": {
             "correct": "Wardriving surveys and maps Wi-Fi networks (often with GPS) while moving through an area, "
                        "building a picture of SSIDs, locations, and encryption in use.",
             "distractors": {
                 "B": "War dialing scans ranges of phone numbers for modems/systems, not Wi-Fi mapping.",
                 "C": "Bluesnarfing steals data over Bluetooth; it is not Wi-Fi discovery by driving around.",
-                "D": "An evil twin is a rogue AP impersonating a legitimate SSID, not a mapping technique.",
+                "A": "An evil twin is a rogue AP impersonating a legitimate SSID, not a mapping technique.",
             },
             "exam_pattern": "Drive around mapping Wi-Fi networks with GPS = wardriving.",
         },
@@ -2162,18 +2162,18 @@ QUESTIONS = [
         "stem": "Which infamous IoT botnet spread by scanning the Internet for devices with open Telnet and "
                 "trying a built-in list of factory-default logins, then used them to launch massive DDoS attacks?",
         "options": [
-            {"id": "A", "text": "Mirai"},
+            {"id": "A", "text": "WannaCry"},
             {"id": "B", "text": "Stuxnet"},
-            {"id": "C", "text": "WannaCry"},
+            {"id": "C", "text": "Mirai"},
             {"id": "D", "text": "Heartbleed"},
         ],
-        "correct": ["A"],
+        "correct": ["C"],
         "explanation": {
             "correct": "Mirai enslaved IoT devices (cameras, routers) by trying default Telnet credentials, then "
                        "launched record DDoS attacks; changing default credentials and disabling Telnet are the fixes.",
             "distractors": {
                 "B": "Stuxnet was a targeted ICS/SCADA worm against centrifuges, not a Telnet-default IoT botnet.",
-                "C": "WannaCry was ransomware spread via an SMB exploit, not an IoT default-credential botnet.",
+                "A": "WannaCry was ransomware spread via an SMB exploit, not an IoT default-credential botnet.",
                 "D": "Heartbleed was an OpenSSL memory-disclosure vulnerability, not a botnet.",
             },
             "exam_pattern": "IoT botnet via default Telnet logins for DDoS = Mirai.",
@@ -2352,18 +2352,18 @@ QUESTIONS = [
         "stem": "Which algorithm lets two parties who have never met securely agree on a shared secret over an "
                 "untrusted channel, without ever transmitting the secret itself?",
         "options": [
-            {"id": "A", "text": "Diffie-Hellman key exchange"},
+            {"id": "A", "text": "SHA-256"},
             {"id": "B", "text": "AES"},
-            {"id": "C", "text": "SHA-256"},
+            {"id": "C", "text": "Diffie-Hellman key exchange"},
             {"id": "D", "text": "MD5"},
         ],
-        "correct": ["A"],
+        "correct": ["C"],
         "explanation": {
             "correct": "Diffie-Hellman lets two parties derive a shared secret from exchanged public values, so the "
                        "secret itself never crosses the wire - the basis of key exchange in many secure protocols.",
             "distractors": {
                 "B": "AES is a symmetric cipher that uses a key both sides already share; it does not negotiate one.",
-                "C": "SHA-256 is a one-way hash for integrity; it cannot establish a shared secret.",
+                "A": "SHA-256 is a one-way hash for integrity; it cannot establish a shared secret.",
                 "D": "MD5 is a (now weak) hash function, not a key-agreement algorithm.",
             },
             "exam_pattern": "Agree on a shared secret over an untrusted channel = Diffie-Hellman key exchange.",
@@ -2425,19 +2425,19 @@ QUESTIONS = [
         "stem": "Which PKI mechanism lets a client check, in real time, whether a single specific certificate has "
                 "been revoked, instead of downloading and searching a full list of revoked certificates?",
         "options": [
-            {"id": "A", "text": "Online Certificate Status Protocol (OCSP)"},
+            {"id": "A", "text": "Certificate Authority (CA)"},
             {"id": "B", "text": "Certificate Revocation List (CRL)"},
             {"id": "C", "text": "Certificate Signing Request (CSR)"},
-            {"id": "D", "text": "Certificate Authority (CA)"},
+            {"id": "D", "text": "Online Certificate Status Protocol (OCSP)"},
         ],
-        "correct": ["A"],
+        "correct": ["D"],
         "explanation": {
             "correct": "OCSP queries the responder for the status of one certificate in real time, avoiding the "
                        "overhead of downloading a whole CRL; OCSP stapling lets the server present a signed status to clients.",
             "distractors": {
                 "B": "A CRL is the full, periodically published list of revoked certificates the client must download and search.",
                 "C": "A CSR is the request submitted to obtain a certificate; it does not check revocation.",
-                "D": "The CA issues and signs certificates; checking revocation status is done via OCSP or a CRL.",
+                "A": "The CA issues and signs certificates; checking revocation status is done via OCSP or a CRL.",
             },
             "exam_pattern": "Real-time status of ONE cert = OCSP; the full downloaded list = CRL.",
         },
