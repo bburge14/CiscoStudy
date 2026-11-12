@@ -5643,7 +5643,7 @@
       "subtopic": "cissp_dr_recovery",
       "difficulty": 3,
       "type": "mcq",
-      "stem": "An organization runs a full backup every Sunday and an INCREMENTAL backup every other night. A failure occurs Thursday morning. Which backups are required for a full restore, and why?",
+      "stem": "An organization runs a full backup every Sunday and an INCREMENTAL backup each subsequent night (Monday through Saturday). A failure occurs Thursday morning. Which backups are required for a full restore, and why?",
       "options": [
         {
           "id": "A",

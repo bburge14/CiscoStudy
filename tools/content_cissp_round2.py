@@ -1789,9 +1789,9 @@ QUESTIONS = [
     {
         "id": "cissp-ops-r2-008", "exam": "cissp", "domain": "cissp_sec_ops",
         "subtopic": "cissp_dr_recovery", "difficulty": 3, "type": "mcq",
-        "stem": "An organization runs a full backup every Sunday and an INCREMENTAL backup every other "
-                "night. A failure occurs Thursday morning. Which backups are required for a full restore, "
-                "and why?",
+        "stem": "An organization runs a full backup every Sunday and an INCREMENTAL backup each "
+                "subsequent night (Monday through Saturday). A failure occurs Thursday morning. Which "
+                "backups are required for a full restore, and why?",
         "options": [
             {"id": "A", "text": "Only Wednesday night's incremental, because incrementals are cumulative"},
             {"id": "B", "text": "Only Sunday's full backup"},
