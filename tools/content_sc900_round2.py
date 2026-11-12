@@ -28,7 +28,7 @@ QUESTIONS = [
     {
         "id": "sc900-con-r2-001", "exam": "sc900", "domain": "sc9_concepts",
         "subtopic": "sc9_security_methodologies", "difficulty": 2, "type": "mcq",
-        "stem": "Microsoft's Zero Trust model applies defenses across six technology pillars. Which of the "
+        "stem": "Microsoft's Zero Trust model applies defenses across seven technology pillars. Which of the "
                 "following is one of those pillars?",
         "options": [
             {"id": "A", "text": "Infrastructure"},
@@ -38,14 +38,14 @@ QUESTIONS = [
         ],
         "correct": ["A"],
         "explanation": {
-            "correct": "The six Zero Trust pillars are identities, endpoints (devices), applications, data, "
-                       "infrastructure, and networks. Infrastructure is one of them.",
+            "correct": "The seven Zero Trust pillars are identities, endpoints (devices), applications, data, "
+                       "infrastructure, networks, and security operations (SecOps). Infrastructure is one of them.",
             "distractors": {
-                "B": "Governance is a GRC discipline, not one of the six Zero Trust technology pillars.",
+                "B": "Governance is a GRC discipline, not one of the seven Zero Trust technology pillars.",
                 "C": "Compliance is a GRC function, not a Zero Trust pillar.",
                 "D": "Encryption is a protective control used within pillars, not itself a Zero Trust pillar.",
             },
-            "exam_pattern": "Zero Trust pillars: identities, endpoints, apps, data, infrastructure, networks.",
+            "exam_pattern": "Zero Trust pillars: identities, endpoints, apps, data, infrastructure, networks, SecOps.",
         },
         "references": ["Microsoft Learn (SC-900): Describe the Zero Trust model (pillars)"],
     },

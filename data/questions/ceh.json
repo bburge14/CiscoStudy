@@ -2716,7 +2716,7 @@
       "subtopic": "ceh_enumeration",
       "difficulty": 3,
       "type": "mcq",
-      "stem": "A tester runs 'showmount -e' against TCP port 2049 to list a server's exported file systems and who may mount them. Which service is being enumerated?",
+      "stem": "A tester runs 'showmount -e' to enumerate a server's exported file systems and who may mount them (the service listens on port 2049). Which service is being enumerated?",
       "options": [
         {
           "id": "A",

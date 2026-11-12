@@ -1179,7 +1179,7 @@ QUESTIONS = [
     {
         "id": "sscp-ir-r2-001", "exam": "sscp", "domain": "sscp_incident_response",
         "subtopic": "sscp_incident_handling", "difficulty": 3, "type": "mcq",
-        "stem": "NIST SP 800-61 describes the incident response life cycle in four phases. Which phase "
+        "stem": "NIST SP 800-61 Rev 2 describes the incident response life cycle in four phases. Which phase "
                 "groups together the hands-on work of stopping the spread, removing the threat, and "
                 "restoring systems?",
         "options": [
@@ -1190,7 +1190,7 @@ QUESTIONS = [
         ],
         "correct": ["C"],
         "explanation": {
-            "correct": "NIST SP 800-61 uses four phases: Preparation; Detection and Analysis; "
+            "correct": "NIST SP 800-61 Rev 2 uses four phases: Preparation; Detection and Analysis; "
                        "Containment, Eradication, and Recovery (combined into one phase); and "
                        "Post-Incident Activity. The third phase bundles the active response steps that "
                        "other models often list separately.",
@@ -1199,9 +1199,9 @@ QUESTIONS = [
                 "B": "Detection and Analysis is identifying and scoping the incident.",
                 "D": "Post-Incident Activity is the lessons-learned review after recovery.",
             },
-            "exam_pattern": "NIST 800-61 four phases: Preparation -> Detection & Analysis -> Containment/Eradication/Recovery -> Post-Incident Activity.",
+            "exam_pattern": "NIST 800-61 Rev 2 four phases: Preparation -> Detection & Analysis -> Containment/Eradication/Recovery -> Post-Incident Activity.",
         },
-        "references": ["(ISC)2 SSCP CBK: Domain 4 - Incident response life cycle (NIST SP 800-61)"],
+        "references": ["(ISC)2 SSCP CBK: Domain 4 - Incident response life cycle (NIST SP 800-61 Rev 2)"],
     },
     {
         "id": "sscp-ir-r2-002", "exam": "sscp", "domain": "sscp_incident_response",
