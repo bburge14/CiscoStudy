@@ -1,0 +1,202 @@
+{
+  "exam": "cloudplus",
+  "units": [
+    {
+      "id": "cloudplus-u1",
+      "order": 1,
+      "title": "1.0 Cloud Architecture",
+      "summary": "The planning layer of the cloud: turning business and technical requirements into a design. Service models (IaaS/PaaS/SaaS), deployment models (public/private/hybrid/community/multicloud), the shared responsibility model, cloud-native patterns (containers, microservices, serverless), then capacity planning, scaling, and how to integrate and migrate workloads into the cloud.",
+      "domains": [
+        "cloudp_architecture"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cloudplus-l-cloud-models",
+          "title": "Cloud Service Models, Deployment Models & Requirements",
+          "markdown_path": "cloudplus/cloud-models.md",
+          "subtopics": [
+            "cloudp_requirements",
+            "cloudp_design_solutions"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cloudplus-l-capacity-migration",
+          "title": "Capacity Planning, Scaling, Integration & Migration",
+          "markdown_path": "cloudplus/capacity-migration.md",
+          "subtopics": [
+            "cloudp_capacity_scaling",
+            "cloudp_integration_migration"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cloudplus-u2",
+      "order": 2,
+      "title": "2.0 Deployment",
+      "summary": "Standing up the resources a design calls for. Provisioning models and templates; deploying compute (instances, containers, serverless) with the right sizing; deploying storage (block, file, object) with tiers, RAID and protection; and building the virtual network — subnets, routing, load balancers, DNS and connectivity.",
+      "domains": [
+        "cloudp_deployment"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cloudplus-l-provisioning-compute",
+          "title": "Provisioning & Compute Deployment",
+          "markdown_path": "cloudplus/provisioning-compute.md",
+          "subtopics": [
+            "cloudp_provisioning",
+            "cloudp_compute_deployment"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cloudplus-l-storage-networking",
+          "title": "Storage & Network Deployment",
+          "markdown_path": "cloudplus/storage-networking.md",
+          "subtopics": [
+            "cloudp_storage_deployment",
+            "cloudp_networking_deployment"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cloudplus-u3",
+      "order": 3,
+      "title": "3.0 Operations",
+      "summary": "Keeping a running cloud healthy and affordable. Monitoring, logging and observability (metrics, logs, traces, alerting); lifecycle maintenance, patching and automated upkeep; backup and disaster recovery built around RTO and RPO; and cost optimization and right-sizing — the discipline known as FinOps.",
+      "domains": [
+        "cloudp_operations"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cloudplus-l-monitoring-maintenance",
+          "title": "Monitoring, Logging, Observability & Lifecycle Maintenance",
+          "markdown_path": "cloudplus/monitoring-maintenance.md",
+          "subtopics": [
+            "cloudp_logging_monitoring",
+            "cloudp_maintenance_automation"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cloudplus-l-backup-optimization",
+          "title": "Backup, Disaster Recovery & Cost Optimization",
+          "markdown_path": "cloudplus/backup-optimization.md",
+          "subtopics": [
+            "cloudp_backup_restore",
+            "cloudp_optimization"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cloudplus-u4",
+      "order": 4,
+      "title": "4.0 Security",
+      "summary": "Securing cloud workloads across the shared responsibility line. Identity and access management (authentication, authorization, MFA, RBAC, least privilege, federation); data security (encryption at rest and in transit, key management, classification); network security (segmentation, security groups, zero trust); and compliance, posture management and hardening.",
+      "domains": [
+        "cloudp_security"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cloudplus-l-iam-data",
+          "title": "Identity, Access Management & Data Security",
+          "markdown_path": "cloudplus/iam-data.md",
+          "subtopics": [
+            "cloudp_identity_access",
+            "cloudp_data_security"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cloudplus-l-network-compliance",
+          "title": "Network Security, Compliance & Hardening",
+          "markdown_path": "cloudplus/network-compliance.md",
+          "subtopics": [
+            "cloudp_network_security",
+            "cloudp_compliance_hardening"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cloudplus-u5",
+      "order": 5,
+      "title": "5.0 DevOps Fundamentals",
+      "summary": "The automation culture that CV0-004 added as its own domain. CI/CD pipelines that build, test and release software, and the containers and orchestration they deploy; then infrastructure as code (declarative templates like Terraform), configuration management (Ansible), and the scripting, APIs and webhooks that glue a cloud platform together.",
+      "domains": [
+        "cloudp_devops"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cloudplus-l-cicd",
+          "title": "CI/CD Pipelines, Containers & Orchestration",
+          "markdown_path": "cloudplus/cicd.md",
+          "subtopics": [
+            "cloudp_cicd"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cloudplus-l-iac-automation",
+          "title": "Infrastructure as Code, Configuration Management & Automation",
+          "markdown_path": "cloudplus/iac-automation.md",
+          "subtopics": [
+            "cloudp_iac",
+            "cloudp_automation_scripting"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cloudplus-u6",
+      "order": 6,
+      "title": "6.0 Troubleshooting",
+      "summary": "Diagnosing problems methodically. The structured CompTIA troubleshooting methodology; the deployment and automation failures that break a release; connectivity problems across the virtual network (DNS, routing, security groups, VPN); and performance and capacity issues once a workload is live.",
+      "domains": [
+        "cloudp_troubleshooting"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cloudplus-l-ts-methodology-deployment",
+          "title": "Troubleshooting Methodology & Deployment Issues",
+          "markdown_path": "cloudplus/ts-methodology-deployment.md",
+          "subtopics": [
+            "cloudp_ts_methodology",
+            "cloudp_ts_deployment"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cloudplus-l-ts-connectivity-performance",
+          "title": "Troubleshooting Connectivity & Performance",
+          "markdown_path": "cloudplus/ts-connectivity-performance.md",
+          "subtopics": [
+            "cloudp_ts_connectivity",
+            "cloudp_ts_performance"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}

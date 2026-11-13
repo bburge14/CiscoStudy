@@ -1,0 +1,201 @@
+{
+  "exam": "saa",
+  "units": [
+    {
+      "id": "saa-u1",
+      "order": 1,
+      "title": "Design Secure Architectures",
+      "summary": "The Well-Architected Security pillar in practice: IAM identities, roles and policy evaluation; protecting data at rest and in transit with KMS, ACM and Secrets Manager; VPC firewalls and private connectivity; and the detective and protective services that keep workloads safe.",
+      "domains": [
+        "saa_secure"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "saa-l-iam",
+          "title": "IAM: Identities, Roles & Access Control",
+          "markdown_path": "saa/iam.md",
+          "subtopics": [
+            "saa_iam_access"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "saa-l-data-protection",
+          "title": "Data Protection: Encryption, KMS & Secrets",
+          "markdown_path": "saa/data-protection.md",
+          "subtopics": [
+            "saa_data_protection"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "saa-l-network-security",
+          "title": "Network Security: VPC Firewalls & Private Connectivity",
+          "markdown_path": "saa/network-security.md",
+          "subtopics": [
+            "saa_network_security"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "saa-l-secure-workloads",
+          "title": "Securing Workloads: Threat Detection, Protection & Governance",
+          "markdown_path": "saa/secure-workloads.md",
+          "subtopics": [
+            "saa_secure_workloads"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "saa-u2",
+      "order": 2,
+      "title": "Design Resilient Architectures",
+      "summary": "The Reliability pillar in practice: removing single points of failure with Multi-AZ, Auto Scaling and elastic load balancing; decoupling tiers with SQS, SNS and EventBridge; planning backups and disaster recovery to meet RTO/RPO targets; and choosing resilient storage.",
+      "domains": [
+        "saa_resilient"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "saa-l-high-availability",
+          "title": "High Availability & Fault Tolerance",
+          "markdown_path": "saa/high-availability.md",
+          "subtopics": [
+            "saa_ha_fault_tolerance"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "saa-l-decoupling",
+          "title": "Decoupling with SQS, SNS, EventBridge & Kinesis",
+          "markdown_path": "saa/decoupling.md",
+          "subtopics": [
+            "saa_decoupling"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "saa-l-backup-dr",
+          "title": "Backup & Disaster Recovery",
+          "markdown_path": "saa/backup-dr.md",
+          "subtopics": [
+            "saa_backup_dr"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "saa-l-storage-resilience",
+          "title": "Resilient Storage",
+          "markdown_path": "saa/storage-resilience.md",
+          "subtopics": [
+            "saa_storage_resilience"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "saa-u3",
+      "order": 3,
+      "title": "Design High-Performing Architectures",
+      "summary": "The Performance Efficiency pillar in practice: selecting the right compute (EC2 families, Lambda, Fargate, EKS); block, object and file storage; databases (RDS, Aurora, DynamoDB, Redshift) and in-memory caching; and edge networking that meets latency and throughput goals.",
+      "domains": [
+        "saa_performing"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "saa-l-compute-perf",
+          "title": "High-Performing Compute",
+          "markdown_path": "saa/compute-perf.md",
+          "subtopics": [
+            "saa_compute_perf"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "saa-l-storage-perf",
+          "title": "High-Performing Storage",
+          "markdown_path": "saa/storage-perf.md",
+          "subtopics": [
+            "saa_storage_perf"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "saa-l-database-perf",
+          "title": "High-Performing Databases & Caching",
+          "markdown_path": "saa/database-perf.md",
+          "subtopics": [
+            "saa_database_perf"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "saa-l-network-perf",
+          "title": "High-Performing Networking & Content Delivery",
+          "markdown_path": "saa/network-perf.md",
+          "subtopics": [
+            "saa_network_perf"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "saa-u4",
+      "order": 4,
+      "title": "Design Cost-Optimized Architectures",
+      "summary": "The Cost Optimization pillar in practice: choosing EC2 purchase models (On-Demand, Reserved, Spot, Savings Plans) and right-sizing; tiering storage with S3 classes and lifecycle rules; governing and monitoring spend; and cutting data-transfer charges.",
+      "domains": [
+        "saa_cost"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "saa-l-cost-compute",
+          "title": "Cost-Optimized Compute",
+          "markdown_path": "saa/cost-compute.md",
+          "subtopics": [
+            "saa_cost_compute"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "saa-l-cost-storage",
+          "title": "Cost-Optimized Storage",
+          "markdown_path": "saa/cost-storage.md",
+          "subtopics": [
+            "saa_cost_storage"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "saa-l-cost-management",
+          "title": "Cost Management, Monitoring & Governance",
+          "markdown_path": "saa/cost-management.md",
+          "subtopics": [
+            "saa_cost_management"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "saa-l-cost-network",
+          "title": "Cost-Optimized Networking & Data Transfer",
+          "markdown_path": "saa/cost-network.md",
+          "subtopics": [
+            "saa_cost_network"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}

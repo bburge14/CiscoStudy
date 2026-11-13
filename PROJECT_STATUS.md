@@ -1,6 +1,6 @@
 # PROJECT_STATUS
 
-_Last updated: 2026-11-09_
+_Last updated: 2026-11-13_
 
 ## What this is
 **CertLab** — a Streamlit study & diagnostic platform for IT certifications. The
@@ -12,7 +12,7 @@ across a multi-provider catalog: Cisco **CCNA 200-301**, **CCNP ENCOR 350-401**,
 CLF-C02**; Microsoft **AZ-900**, **SC-900**; (ISC)² **CC**, **SSCP**, **CISSP**;
 ISACA **CISM**, **CISA**; EC-Council **CEH v13**; plus Microsoft **SC-200** &
 **AZ-500** and CompTIA **SecurityX (CAS-005)**; **AWS Solutions Architect Associate
-(SAA-C03)**; CompTIA **Linux+ (XK0-005)** & **Cloud+ (CV0-004)**; and **Microsoft 365
+(SAA-C03)**; CompTIA **Linux+ (XK0-006)** & **Cloud+ (CV0-004)**; and **Microsoft 365
 Fundamentals (MS-900)**. Every catalog tile is now a live, built track, and the track
 picker groups them by issuing agency. Core study logic
 is a standalone, unit-tested Python package (`studyengine`); the UI is a Streamlit
@@ -32,9 +32,9 @@ defaults anywhere in the app body — and recolors per track (see "per-track acc
 | Per-track accent theme | ✅ each track has its own accent (Cisco blue/violet, Security+ green, Network+ teal, A+ amber/rose); header glyphs, level card, progress bars, primary buttons recolor to the active track (`TRACK_ACCENT` + `_theme_css`) |
 | Diagnostic baseline (5/domain → **20–30 Q by track**: 6-domain CCNA/ENCOR=30, 5-domain Sec+/Net+/A+1=25, 4-domain A+2=20) + focus recs | ✅ real-exam navigation (back/forward, flag-for-review, question map, review-before-submit) |
 | Endless Drill (adaptive, Leitner miss-boost, remediation mode) | ✅ + per-domain focus filter + Skip |
-| Structured Milestones (Read → Lesson Quiz → Milestone exam + PBQ, unit unlock) | ✅ all 6 tracks; lesson quiz = instant feedback; milestone exam = graded at end, **real-exam navigation** (back/forward + flag + question map + review-before-submit) + full after-quiz review (missed-first); milestone unlock gated on a PBQ (Cisco CLI or CompTIA interactive) |
+| Structured Milestones (Read → Lesson Quiz → Milestone exam + PBQ, unit unlock) | ✅ **all 25 tracks**; lesson quiz = instant feedback; milestone exam = graded at end, **real-exam navigation** (back/forward + flag + question map + review-before-submit) + full after-quiz review (missed-first); milestone unlock gated on a PBQ (Cisco CLI or CompTIA interactive) |
 | Open-Book Practice (real open-book: find the answer yourself) | ✅ 3 help levels (Full book / General area / Pinpoint); correct earns less the more help you took (100/70/40%); a miss is free with the book shut, else costs — scaled up by help (Pinpoint worst); book resets per question |
-| Lessons (Markdown) | ✅ 68 lessons across all 6 tracks (14 CCNA, 8 ENCOR, 13 Security+, 11 Network+, 11 A+ Core 1, 11 A+ Core 2); every blueprint sub-topic covered |
+| Lessons (Markdown) | ✅ **327 lessons / 121 units across ALL 25 tracks** — the 6 original (14 CCNA, 8 ENCOR, 13 Security+, 11 Network+, 11 A+ Core 1, 11 A+ Core 2) plus all 19 newer tracks (CLF, AZ-900, SC-900, MS-900, (ISC)² CC/SSCP/CISSP, CySA+, PenTest+, CBROPS, CISM, CISA, CEH, SC-200, AZ-500, SecurityX, SAA, Cloud+, Linux+); **every blueprint sub-topic covered exactly once**. Each newer track's lessons passed a web-grounded adversarial accuracy + originality review before merge (0 HIGH findings; offensive CEH/PenTest+ authored conceptual-only, no weaponized content). Structured as units → lessons → cumulative milestone (`studyengine/curriculum.py`, `data/curriculum/*.json`, `data/lessons/<track>/*.md`) |
 | CLI simulator (IOS subset + realistic `show` + IOS errors) | ✅ rendered as an **immersive dark terminal** in PBQ Lab (traffic-light title bar, live-mode green prompts, bold commands, dim output, red IOS errors with the `^` caret, blinking cursor, green-on-black input) |
 | PBQ engine — Cisco CLI | ✅ 11 real-state-validated scenarios (8 CCNA, 3 ENCOR) |
 | PBQ engine — CompTIA interactive | ✅ `studyengine/perf.py`: categorize / match / order tasks, **32 authored (8 per CompTIA track)**, graded against the key; served in PBQ Lab and as milestone gates (`render_any_pbq` dispatches by pbq_id). Real **drag-and-drop** via a custom component (`components/dragdrop/`), with a dropdown fallback |
@@ -52,7 +52,7 @@ defaults anywhere in the app body — and recolors per track (see "per-track acc
 | XP / leveling | ✅ 9 ranks, event-based XP (Profile.record_study): rewards getting better (improving/mastering items) + streaks; penalizes misses with per-question escalation — missing the SAME item again and again costs more (−6 → −9 → −12 → −15 floor), a correct answer resets the chain; no credit for mere attempts; steep curve (Level 2 ≈ 30–50 correct answers). Benchmark excluded (study_overall). Home card, sidebar badge, +/−XP + streak chip on each answer |
 | Instructor view | ✅ first account = instructor; roster, per-learner drill-down, account management (create/edit name+login/reset password/role/delete), and reset a learner's status (benchmark only, or all progress); nav entry hidden from learners |
 | Launchers | ✅ `run.sh`, `run.bat`, `run-shared.bat` (LAN), exe |
-| Test suite | ✅ **5233 tests passing** (`test_data_integrity.py` auto-covers every bank item against its blueprint; `test_exam_nav.py` — AppTest coverage of the navigable exam engine, per-track baseline sizes, and the timed-exam track-switch lock) |
+| Test suite | ✅ **5238 tests passing** (`test_data_integrity.py` auto-covers every bank item against its blueprint; `test_exam_nav.py` — AppTest coverage of the navigable exam engine, per-track baseline sizes, and the timed-exam track-switch lock) |
 
 Run: `run.bat` (Windows) / `./run.sh` (macOS/Linux) / `streamlit run Home.py`.
 Test: `python -m pytest -q`.

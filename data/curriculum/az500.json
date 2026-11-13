@@ -1,0 +1,192 @@
+{
+  "exam": "az500",
+  "units": [
+    {
+      "id": "az500-u1",
+      "order": 1,
+      "title": "Manage Identity and Access",
+      "summary": "Identity is the control plane of the Azure cloud. This unit covers Microsoft Entra ID tenants, users and groups; authentication with MFA, passwordless and Conditional Access; authorization through Azure RBAC, Entra roles and Privileged Identity Management; and the workload identities (managed identities and service principals) that let applications authenticate without stored secrets.",
+      "domains": [
+        "az500_identity_access"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "az500-l-entra-identities",
+          "title": "Microsoft Entra ID: Tenants, Users & Groups",
+          "markdown_path": "az500/entra-identities.md",
+          "subtopics": [
+            "az500_entra_identities"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "az500-l-authn-authz",
+          "title": "Authentication, MFA & Conditional Access",
+          "markdown_path": "az500/authn-authz.md",
+          "subtopics": [
+            "az500_entra_authn_authz"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "az500-l-rbac-pim",
+          "title": "Azure RBAC, Entra Roles & Privileged Identity Management",
+          "markdown_path": "az500/rbac-pim.md",
+          "subtopics": [
+            "az500_rbac_pim"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "az500-l-app-identity",
+          "title": "Application & Workload Identities",
+          "markdown_path": "az500/app-identity.md",
+          "subtopics": [
+            "az500_app_identity"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "az500-u2",
+      "order": 2,
+      "title": "Secure Networking",
+      "summary": "Defense in depth for Azure virtual networks. This unit covers filtering east-west and north-south traffic with network security groups, application security groups and Azure Firewall; keeping PaaS traffic off the public internet with Private Link, private endpoints and service endpoints, plus secure VM administration through Azure Bastion; and protecting internet-facing applications with the Web Application Firewall and Azure DDoS Protection.",
+      "domains": [
+        "az500_networking"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "az500-l-network-security",
+          "title": "Network Security Groups, ASGs & Azure Firewall",
+          "markdown_path": "az500/network-security.md",
+          "subtopics": [
+            "az500_network_security"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "az500-l-private-connectivity",
+          "title": "Private Link, Private Endpoints, Service Endpoints & Bastion",
+          "markdown_path": "az500/private-connectivity.md",
+          "subtopics": [
+            "az500_private_connectivity"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "az500-l-edge-protection",
+          "title": "Edge Protection: Web Application Firewall & DDoS Protection",
+          "markdown_path": "az500/edge-protection.md",
+          "subtopics": [
+            "az500_edge_protection"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "az500-u3",
+      "order": 3,
+      "title": "Secure Compute, Storage, and Databases",
+      "summary": "Protecting the data-bearing resources of a subscription. This unit covers hardening virtual machines and encrypting disks; securing Azure Storage with encryption, SAS tokens and the storage firewall; defending Azure SQL with authentication, auditing, Transparent Data Encryption and data classification; and centralizing secrets, keys and certificates in Azure Key Vault.",
+      "domains": [
+        "az500_compute_storage_db"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "az500-l-compute-security",
+          "title": "Secure Compute & Disk Encryption",
+          "markdown_path": "az500/compute-security.md",
+          "subtopics": [
+            "az500_compute_security"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "az500-l-storage-security",
+          "title": "Securing Azure Storage",
+          "markdown_path": "az500/storage-security.md",
+          "subtopics": [
+            "az500_storage_security"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "az500-l-database-security",
+          "title": "Securing Azure SQL Databases",
+          "markdown_path": "az500/database-security.md",
+          "subtopics": [
+            "az500_database_security"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "az500-l-key-vault",
+          "title": "Azure Key Vault",
+          "markdown_path": "az500/key-vault.md",
+          "subtopics": [
+            "az500_key_vault"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "az500-u4",
+      "order": 4,
+      "title": "Manage Security Operations",
+      "summary": "Detecting, investigating and governing at scale. This unit covers Microsoft Defender for Cloud secure score, Defender workload-protection plans and just-in-time VM access; Microsoft Sentinel for SIEM analytics, incidents and SOAR automation; Azure Monitor, Log Analytics and the Kusto Query Language that powers both; and governance with Azure Policy to keep the estate compliant.",
+      "domains": [
+        "az500_security_operations"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "az500-l-defender-for-cloud",
+          "title": "Microsoft Defender for Cloud & JIT VM Access",
+          "markdown_path": "az500/defender-for-cloud.md",
+          "subtopics": [
+            "az500_defender_for_cloud"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "az500-l-sentinel-ops",
+          "title": "Microsoft Sentinel: Analytics, Incidents & Automation",
+          "markdown_path": "az500/sentinel-ops.md",
+          "subtopics": [
+            "az500_sentinel_ops"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "az500-l-monitoring-logging",
+          "title": "Azure Monitor, Log Analytics & KQL",
+          "markdown_path": "az500/monitoring-logging.md",
+          "subtopics": [
+            "az500_monitoring_logging"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "az500-l-governance-policy",
+          "title": "Governance with Azure Policy",
+          "markdown_path": "az500/governance-policy.md",
+          "subtopics": [
+            "az500_governance_policy"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}

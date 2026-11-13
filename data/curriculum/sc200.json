@@ -1,0 +1,186 @@
+{
+  "exam": "sc200",
+  "units": [
+    {
+      "id": "sc200-u1",
+      "order": 1,
+      "title": "Mitigate threats with Microsoft Defender XDR",
+      "summary": "The Microsoft Defender XDR suite end to end: Defender for Endpoint (onboarding, attack surface reduction, automated investigation and response), Defender for Office 365 and Defender for Identity, Defender for Cloud Apps, and the unified incident queue with automatic attack disruption.",
+      "domains": [
+        "sc200_defender_xdr"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "sc200-l-defender-endpoint",
+          "title": "Microsoft Defender for Endpoint",
+          "markdown_path": "sc200/defender-endpoint.md",
+          "subtopics": [
+            "sc200_mde_endpoint"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sc200-l-defender-office-identity",
+          "title": "Defender for Office 365 & Defender for Identity",
+          "markdown_path": "sc200/defender-office-identity.md",
+          "subtopics": [
+            "sc200_mdo_office365",
+            "sc200_mdi_identity"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sc200-l-defender-cloud-apps",
+          "title": "Microsoft Defender for Cloud Apps",
+          "markdown_path": "sc200/defender-cloud-apps.md",
+          "subtopics": [
+            "sc200_mdca_cloudapps"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sc200-l-xdr-incidents",
+          "title": "The Unified Incident Queue & Attack Disruption",
+          "markdown_path": "sc200/xdr-incidents.md",
+          "subtopics": [
+            "sc200_xdr_incidents"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "sc200-u2",
+      "order": 2,
+      "title": "Mitigate threats with Microsoft Defender for Cloud",
+      "summary": "Protecting cloud and hybrid workloads with Microsoft Defender for Cloud: cloud security posture management with secure score and the regulatory compliance dashboard, the paid Defender plans that provide workload protection, and the security alerts those plans raise.",
+      "domains": [
+        "sc200_defender_cloud"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "sc200-l-dfc-posture",
+          "title": "Cloud Security Posture: Secure Score & Compliance",
+          "markdown_path": "sc200/dfc-posture.md",
+          "subtopics": [
+            "sc200_dfc_posture"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sc200-l-dfc-workloads",
+          "title": "Defender for Cloud Workload Protection Plans",
+          "markdown_path": "sc200/dfc-workloads.md",
+          "subtopics": [
+            "sc200_dfc_workloads"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sc200-l-dfc-alerts",
+          "title": "Security Alerts in Microsoft Defender for Cloud",
+          "markdown_path": "sc200/dfc-alerts.md",
+          "subtopics": [
+            "sc200_dfc_alerts"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "sc200-u3",
+      "order": 3,
+      "title": "Mitigate threats with Microsoft Sentinel",
+      "summary": "Standing up and running Microsoft Sentinel as a cloud-native SIEM and SOAR: workspace design and deployment, data connectors and ingestion, analytics rules that turn logs into incidents, and incident management with automation rules and Logic Apps playbooks.",
+      "domains": [
+        "sc200_sentinel"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "sc200-l-sentinel-setup",
+          "title": "Designing & Deploying a Sentinel Workspace",
+          "markdown_path": "sc200/sentinel-setup.md",
+          "subtopics": [
+            "sc200_sentinel_setup"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sc200-l-sentinel-connectors",
+          "title": "Connecting Data Sources to Microsoft Sentinel",
+          "markdown_path": "sc200/sentinel-connectors.md",
+          "subtopics": [
+            "sc200_sentinel_connectors"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sc200-l-sentinel-analytics",
+          "title": "Analytics Rules & Threat Detection",
+          "markdown_path": "sc200/sentinel-analytics.md",
+          "subtopics": [
+            "sc200_sentinel_analytics"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sc200-l-sentinel-incidents-soar",
+          "title": "Incident Management, Automation & SOAR Playbooks",
+          "markdown_path": "sc200/sentinel-incidents-soar.md",
+          "subtopics": [
+            "sc200_sentinel_incidents",
+            "sc200_sentinel_soar"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "sc200-u4",
+      "order": 4,
+      "title": "Threat Hunting and Intelligence (KQL)",
+      "summary": "Proactive defense with Kusto Query Language: KQL fundamentals for detection and hunting, advanced hunting across the Defender XDR and Sentinel schemas, turning hunting queries into custom detection rules, and operationalizing threat intelligence.",
+      "domains": [
+        "sc200_hunting_intel"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "sc200-l-kql-fundamentals",
+          "title": "KQL Fundamentals for Detection & Hunting",
+          "markdown_path": "sc200/kql-fundamentals.md",
+          "subtopics": [
+            "sc200_kql"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sc200-l-advanced-hunting-detections",
+          "title": "Advanced Hunting & Custom Detection Rules",
+          "markdown_path": "sc200/advanced-hunting-detections.md",
+          "subtopics": [
+            "sc200_advanced_hunting",
+            "sc200_custom_detections"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sc200-l-threat-intel",
+          "title": "Threat Intelligence in Microsoft Sentinel",
+          "markdown_path": "sc200/threat-intel.md",
+          "subtopics": [
+            "sc200_threat_intel"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}
