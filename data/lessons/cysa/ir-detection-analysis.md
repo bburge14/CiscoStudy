@@ -46,7 +46,7 @@ evidence is worthless.
 ### Order of volatility
 
 > The **order of volatility** says: collect the *most ephemeral* evidence first,
-> because it disappears soonest. **RAM and CPU cache** go first, before you ever
+> because it disappears soonest. **CPU cache/registers and RAM** go first, before you ever
 > power the machine down.
 
 From a running, compromised server, the memory and cache must be captured before
@@ -117,7 +117,7 @@ the final unit.
   **authentication logs from servers and domain controllers** for account misuse.
 - A hash + C2 IP + domain together are **IoCs**. Use **EDR** for process
   timelines, **full PCAP** for exfiltration payloads.
-- **Order of volatility:** collect **RAM/CPU cache first**; **capture memory
+- **Order of volatility:** collect **CPU cache/registers and RAM first**; **capture memory
   before powering down**.
 - Prove integrity with a **SHA-256 hash** (bit-for-bit copy), a **write blocker**
   (read-only access to original media), and a documented **chain of custody**

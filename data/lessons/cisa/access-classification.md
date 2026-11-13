@@ -9,7 +9,7 @@ you how much protection each asset deserves.
 
 ## The four steps: identification to accountability
 
-Every access decision follows the same sequence. CISA uses the shorthand **IAAA**.
+Every access decision follows the same sequence. A common shorthand for it is **IAAA**.
 
 > - **Identification** — the user **claims** an identity (a username).
 > - **Authentication** — the user **proves** that claim (a password, token, or
