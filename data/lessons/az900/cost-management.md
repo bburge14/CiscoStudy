@@ -39,9 +39,10 @@ Two calculators help you plan, and the exam distinguishes them by their job:
 > you are considering**, based on the configuration, region, and expected usage you
 > enter. Use it to price a future deployment.
 
-> **The Total Cost of Ownership (TCO) tool / Azure Migrate business case** compares
-> your **current on-premises costs against the equivalent Azure services**,
-> producing a migration business case. Use it to justify a move to the cloud.
+> The **Azure Migrate business case** (the successor to the retired standalone
+> **TCO Calculator**) compares your **current on-premises costs against the
+> equivalent Azure services**, producing a migration business case to justify a
+> move to the cloud.
 
 The tell is the comparison. If a company wants a **migration business case
 comparing its existing on-premises datacenter cost to Azure**, that is the **TCO

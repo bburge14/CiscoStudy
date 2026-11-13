@@ -29,7 +29,8 @@ everything, including billing and the ability to close the account.
 > as a limited IAM identity instead.
 
 A handful of rare tasks genuinely require root (like changing the account's
-support plan or closing the account), but day-to-day work should never touch it.
+root email or password, or closing the account), but day-to-day work should never
+touch it.
 
 ## The IAM building blocks
 

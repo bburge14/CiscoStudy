@@ -48,12 +48,17 @@ How to pick on the exam:
 
 ## The AWS Free Tier
 
-New accounts get the **AWS Free Tier**, which comes in three forms:
+The **AWS Free Tier** classically comes in three forms (the model the exam tests):
 
 - **Always free** — services with a free allowance that never expires (e.g. a
   monthly amount of Lambda requests).
 - **12 months free** — free up to a limit for the first year after sign-up.
 - **Trials** — short-term free trials of specific services.
+
+> **Recent change:** since **July 15, 2025**, brand-new accounts instead get a
+> **credit-based free plan** (up to ~$200 in credits, free for about six months or
+> until the credits run out). The classic **12 months free** tier now applies to
+> accounts created before that date; **always free** offers continue.
 
 The Free Tier is how you learn and experiment at no cost — but watch the limits, or
 usage beyond them starts to bill.
@@ -115,8 +120,8 @@ threshold), use the **Cost and Usage Report** for detail, and combine accounts w
   always-on, 1/3-year commitment, lowest steady cost; **Savings Plans** = committed
   spend with flexibility; **Spot** = interruptible, deepest discount; **Dedicated
   Hosts** = dedicated physical hardware for licensing/compliance.
-- **Free Tier** has three types: **always free**, **12 months free**, and
-  **trials**.
+- **Free Tier** classic model = three types: **always free**, **12 months free**,
+  and **trials** (new accounts since Jul 2025 get a credit-based plan instead).
 - **Pricing Calculator** = estimate cost **before** building.
 - **Cost Explorer** = **visualize and forecast** spend; **AWS Budgets** = **alert**
   when spend crosses a threshold. Match "notify me" → Budgets, "analyze/forecast" →
