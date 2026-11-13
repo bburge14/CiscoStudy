@@ -64,7 +64,7 @@ damage. Learn these precisely:
 | Metric | What it measures |
 |--------|------------------|
 | **Mean Time to Detect (MTTD)** | Average time from when an intrusion **begins** to when the SOC **first detects** it |
-| **Time to Respond (MTTR)** | Time from **detection** to the start of **effective response** |
+| **Mean Time to Respond (MTTR)** | Time from **detection** to the start of **effective response** |
 | **Time to Contain** | Time from detection to **stopping the spread** to more systems |
 | **Dwell time** | Total time an attacker stays **undetected**, from initial compromise until detection |
 

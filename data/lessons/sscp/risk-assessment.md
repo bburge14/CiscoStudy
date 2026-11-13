@@ -35,8 +35,8 @@ exam:
 Walk through it:
 
 - **AV** — what the asset is worth (say, $100,000).
-- **EF** — the fraction of value lost in one incident (say, 25% = 0.25).
-- **SLE** — loss per single event = 100,000 x 0.25 = **$50,000**.
+- **EF** — the fraction of value lost in one incident (say, 50% = 0.50).
+- **SLE** — loss per single event = 100,000 x 0.50 = **$50,000**.
 - **ARO** — how many times per year you expect it (say, 2).
 - **ALE** — expected yearly loss = 50,000 x 2 = **$100,000**.
 

@@ -69,8 +69,8 @@ The Base group has two halves — **exploitability** and **impact**:
 | **Confidentiality / Integrity / Availability (C/I/A)** | Impact on each CIA property | None, Low, High |
 
 **Scope** trips people up: it is **Changed** when exploiting the component lets
-the attacker impact a *different* security authority — for example a hypervisor
-bug that reaches the guest VMs beyond it.
+the attacker impact a *different* security authority — for example a VM escape,
+where a guest VM breaks out to affect the host/hypervisor beyond it.
 
 ### Severity bands
 

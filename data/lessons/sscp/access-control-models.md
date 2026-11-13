@@ -94,8 +94,8 @@ they are easy to mix up. One protects **confidentiality**, the other protects
 > (you can't raise the integrity of data by writing above your level). Slogan:
 > **read up, write down.**
 
-Memory anchor: **Bell-LaPadula = Confidentiality** (both start with a hard "C"
-concept — it stops secrets flowing *down* to the unauthorized), and its headline
+Memory anchor: **Bell-LaPadula = Confidentiality** (it stops secrets flowing
+*down* to the unauthorized), and its headline
 rule is **no write down**. **Biba = Integrity**, and its headline rule is **no
 write up** — a low-integrity subject can't corrupt high-integrity data. If a
 question says "no write up," it's **Biba/integrity**; "no write down," it's
