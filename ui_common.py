@@ -871,9 +871,6 @@ def _render_login() -> None:
                         st.session_state["auth_user"] = got
                         st.rerun()
 
-    st.caption("Passwords are salted + hashed and stored locally. Lightweight auth for a "
-               "study tool — use a throwaway password, not a real one.")
-
 
 def ensure_login() -> bool:
     """Login gate for the router. Returns True if signed in, else renders the
