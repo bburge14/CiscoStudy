@@ -1,0 +1,164 @@
+{
+  "exam": "clf",
+  "units": [
+    {
+      "id": "clf-u1",
+      "order": 1,
+      "title": "Cloud Concepts",
+      "summary": "Why organizations move to the cloud: the benefits and economics of the cloud model and the CapEx-to-OpEx shift, the six pillars of the Well-Architected Framework, and how the Cloud Adoption Framework and migration strategies bring workloads to AWS.",
+      "domains": [
+        "cloud_concepts"
+      ],
+      "milestone_size": 22,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "clf-l-cloud-value",
+          "title": "Cloud Value, Benefits & Economics",
+          "markdown_path": "clf/cloud-value.md",
+          "subtopics": [
+            "cloud_benefits",
+            "cloud_economics"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "clf-l-well-architected",
+          "title": "The AWS Well-Architected Framework",
+          "markdown_path": "clf/well-architected.md",
+          "subtopics": [
+            "well_architected"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "clf-l-migration-caf",
+          "title": "Cloud Adoption Framework & Migration Strategies",
+          "markdown_path": "clf/migration-caf.md",
+          "subtopics": [
+            "migration_caf"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "clf-u2",
+      "order": 2,
+      "title": "Security and Compliance",
+      "summary": "How security works on AWS: the Shared Responsibility Model that divides duties between AWS and you, Identity and Access Management, and the compliance, governance, and security services AWS provides.",
+      "domains": [
+        "security_compliance"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "clf-l-shared-responsibility",
+          "title": "The Shared Responsibility Model",
+          "markdown_path": "clf/shared-responsibility.md",
+          "subtopics": [
+            "shared_responsibility"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "clf-l-iam",
+          "title": "Identity and Access Management (IAM)",
+          "markdown_path": "clf/iam.md",
+          "subtopics": [
+            "iam"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "clf-l-compliance-security",
+          "title": "Compliance, Governance & Security Services",
+          "markdown_path": "clf/compliance-security.md",
+          "subtopics": [
+            "compliance_governance",
+            "security_services"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "clf-u3",
+      "order": 3,
+      "title": "Cloud Technology and Services",
+      "summary": "The AWS services you build with: the global infrastructure and the ways you access AWS, the compute and networking services that run and connect workloads, and the storage, database, and data services that keep and process information.",
+      "domains": [
+        "cloud_technology"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "clf-l-infrastructure-access",
+          "title": "Global Infrastructure & Ways to Access AWS",
+          "markdown_path": "clf/infrastructure-access.md",
+          "subtopics": [
+            "global_infrastructure",
+            "deployment_access"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "clf-l-compute-networking",
+          "title": "Compute & Networking Services",
+          "markdown_path": "clf/compute-networking.md",
+          "subtopics": [
+            "compute_services",
+            "networking_services"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "clf-l-storage-database-services",
+          "title": "Storage, Databases & Data Services",
+          "markdown_path": "clf/storage-database-services.md",
+          "subtopics": [
+            "storage_services",
+            "database_services",
+            "other_services"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "clf-u4",
+      "order": 4,
+      "title": "Billing, Pricing, and Support",
+      "summary": "Paying for and getting help with AWS: the pricing models and purchase options that control cost, the tools for monitoring and managing your bill, the AWS Support plans, and the technical resources that back you up.",
+      "domains": [
+        "billing_support"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "clf-l-pricing-billing",
+          "title": "Pricing Models & Cost Management",
+          "markdown_path": "clf/pricing-billing.md",
+          "subtopics": [
+            "pricing_models",
+            "billing_cost_management"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "clf-l-support-resources",
+          "title": "Support Plans & Technical Resources",
+          "markdown_path": "clf/support-resources.md",
+          "subtopics": [
+            "support_plans",
+            "technical_resources"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}

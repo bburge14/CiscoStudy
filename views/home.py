@@ -20,6 +20,7 @@ from ui_common import (
     page_setup,
     render_earned_badges,
     render_level_card,
+    track_mark_img,
 )
 
 exam = page_setup("Home")   # gates on login
@@ -122,10 +123,12 @@ for prov in CERT_CATALOG:
             current = active and cert["key"] == exam
             badge = "✓ Current" if current else ("● Live" if active else "Coming soon")
             color = "#4D8DFF" if current else ("#3DD68C" if active else "#6B7280")
+            mark = track_mark_img(cert["key"], height=28)
             st.markdown(
-                f"<div style='font-weight:700'>{cert['name']}</div>"
+                f"<div style='display:flex;align-items:center;gap:.55rem;min-height:30px'>{mark}"
+                f"<div style='font-weight:700'>{html.escape(cert['name'])}</div></div>"
                 f"<div style='color:{color};font-size:0.74rem;font-weight:700;"
-                f"text-transform:uppercase;letter-spacing:0.05em;margin:0.15rem 0 0.1rem'>{badge}</div>",
+                f"text-transform:uppercase;letter-spacing:0.05em;margin:0.25rem 0 0.1rem'>{badge}</div>",
                 unsafe_allow_html=True)
             if current:
                 st.caption("You're training this now.")

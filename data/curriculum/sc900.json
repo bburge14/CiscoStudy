@@ -1,0 +1,171 @@
+{
+  "exam": "sc900",
+  "units": [
+    {
+      "id": "sc900-u1",
+      "order": 1,
+      "title": "Concepts of Security, Compliance & Identity",
+      "summary": "The vocabulary the whole exam is built on: the shared responsibility model, defense in depth and Zero Trust, encryption and hashing, governance/risk/compliance, and the identity concepts that make identity the new security perimeter.",
+      "domains": [
+        "sc9_concepts"
+      ],
+      "milestone_size": 22,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "sc900-l-security-methodologies",
+          "title": "Security Methodologies: Shared Responsibility, Defense in Depth & Zero Trust",
+          "markdown_path": "sc900/security-methodologies.md",
+          "subtopics": [
+            "sc9_security_methodologies"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sc900-l-encryption-governance",
+          "title": "Encryption, Hashing & Governance",
+          "markdown_path": "sc900/encryption-governance.md",
+          "subtopics": [
+            "sc9_encryption_hashing",
+            "sc9_governance_concepts"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sc900-l-identity-concepts",
+          "title": "Identity Concepts",
+          "markdown_path": "sc900/identity-concepts.md",
+          "subtopics": [
+            "sc9_identity_concepts"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "sc900-u2",
+      "order": 2,
+      "title": "Capabilities of Microsoft Entra",
+      "summary": "The Microsoft Entra identity platform: Entra ID and its identity types, the authentication and access-management capabilities that protect sign-in, and the identity protection and governance tools that keep access right over time.",
+      "domains": [
+        "sc9_entra"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "sc900-l-entra-identity-types",
+          "title": "Microsoft Entra ID & Identity Types",
+          "markdown_path": "sc900/entra-identity-types.md",
+          "subtopics": [
+            "sc9_entra_identity_types"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sc900-l-entra-authentication-access",
+          "title": "Authentication & Access Management",
+          "markdown_path": "sc900/entra-authentication-access.md",
+          "subtopics": [
+            "sc9_entra_authentication",
+            "sc9_entra_access_management"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sc900-l-entra-identity-protection",
+          "title": "Identity Protection & Governance",
+          "markdown_path": "sc900/entra-identity-protection.md",
+          "subtopics": [
+            "sc9_entra_identity_protection"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "sc900-u3",
+      "order": 3,
+      "title": "Capabilities of Microsoft Security Solutions",
+      "summary": "How Microsoft defends the cloud: core Azure infrastructure security services and hardening baselines, Microsoft Defender for Cloud and Microsoft Sentinel for posture and monitoring, and the Microsoft Defender XDR suite for threat protection.",
+      "domains": [
+        "sc9_security"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "sc900-l-azure-security",
+          "title": "Azure Infrastructure Security & Baselines",
+          "markdown_path": "sc900/azure-security.md",
+          "subtopics": [
+            "sc9_azure_security",
+            "sc9_security_baselines"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sc900-l-defender-cloud-sentinel",
+          "title": "Microsoft Defender for Cloud & Microsoft Sentinel",
+          "markdown_path": "sc900/defender-cloud-sentinel.md",
+          "subtopics": [
+            "sc9_defender_for_cloud",
+            "sc9_sentinel"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sc900-l-defender-xdr",
+          "title": "Microsoft Defender XDR",
+          "markdown_path": "sc900/defender-xdr.md",
+          "subtopics": [
+            "sc9_defender_xdr"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "sc900-u4",
+      "order": 4,
+      "title": "Capabilities of Microsoft Compliance Solutions",
+      "summary": "The Microsoft Purview and Priva compliance stack: compliance management and data classification, information protection and data lifecycle, and the insider risk, eDiscovery and privacy solutions that handle investigations and personal data.",
+      "domains": [
+        "sc9_compliance"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "sc900-l-compliance-classification",
+          "title": "Compliance Management & Data Classification",
+          "markdown_path": "sc900/compliance-classification.md",
+          "subtopics": [
+            "sc9_compliance_management",
+            "sc9_purview_governance"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sc900-l-purview-protection",
+          "title": "Information Protection & Data Lifecycle",
+          "markdown_path": "sc900/purview-protection.md",
+          "subtopics": [
+            "sc9_purview_protection"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sc900-l-insider-ediscovery-priva",
+          "title": "Insider Risk, eDiscovery & Privacy",
+          "markdown_path": "sc900/insider-ediscovery-priva.md",
+          "subtopics": [
+            "sc9_insider_ediscovery",
+            "sc9_priva_privacy"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}

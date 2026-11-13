@@ -26,6 +26,8 @@ from studyengine import (
     Feedback,
     get_blueprint,
     grade,
+    compute_xp,
+    level_info,
     load_bank,
     load_curriculum,
     profile_level,
@@ -1034,9 +1036,29 @@ def render_sidebar_chrome() -> None:
         render_level_card(get_profile(st.session_state.get("exam", "ccna")), compact=True)
 
 
-def render_level_card(prof, *, compact: bool = False) -> None:
-    """Show the learner's rank + XP progress. compact=True for the sidebar."""
-    li = profile_level(prof)
+def global_xp() -> int:
+    """Program-wide XP: the sum of every track's XP for the current user, so a
+    learner's rank reflects everything they've studied and every cert they've
+    marked earned — not just the track they're currently on."""
+    slug = current_user()
+    cur = st.session_state.get("exam", "ccna")
+    total = 0
+    for exam in all_track_keys():
+        prof = get_profile(exam) if exam == cur else load_user_profile(slug, exam)
+        total += compute_xp(prof)
+    return total
+
+
+def global_level():
+    """LevelInfo derived from program-wide XP (see global_xp)."""
+    return level_info(global_xp())
+
+
+def render_level_card(prof=None, *, compact: bool = False) -> None:
+    """Show the learner's PROGRAM-WIDE rank + XP progress (summed across every
+    track). compact=True for the sidebar. `prof` is accepted for backward
+    compatibility but no longer scopes the rank to a single track."""
+    li = global_level()
     if li.is_max:
         bar_text = f"Max rank · {li.xp} XP"
     else:
@@ -1061,10 +1083,10 @@ def render_level_card(prof, *, compact: bool = False) -> None:
         with right:
             st.markdown(f"#### {li.title}")
             st.progress(li.pct, text=bar_text)
-    st.caption("XP rewards getting answers **right**, building **streaks**, and **mastering** "
-               "topics — missing costs you (more if you had it down), and the diagnostic doesn't "
-               "count. Your rank reflects how much you've actually learned, not how many "
-               "questions you've clicked.")
+    st.caption("Your rank is **program-wide** — XP adds up across **every track** you study and "
+               "every cert you mark **earned**, not just the one you're on. It rewards getting "
+               "answers **right**, building **streaks**, and **mastering** topics; missing costs "
+               "you (more if you had it down), and the diagnostic doesn't count.")
 
 
 def page_setup(title: str | None = None, icon: str | None = None) -> str:
