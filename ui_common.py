@@ -658,6 +658,110 @@ def save_profile(exam: str) -> None:
         prof.save(_profile_path(exam))
 
 
+# --- certification wallet (self-reported credential status, per track) ------
+# Each track's Profile carries cert_status ("" | "planned" | "studying" |
+# "earned") and cert_date. "earned" grants a one-time XP bonus (see
+# studyengine.leveling.compute_xp), so claiming a cert levels you up through the
+# same derived path as milestones. Status is set on the My Account page.
+CERT_STATUS_LABEL = {
+    "": "Not set", "planned": "Planned", "studying": "Studying", "earned": "Earned",
+}
+
+
+def all_track_keys() -> list[str]:
+    """Every catalog track key, in CERT_CATALOG (provider-grouped) order."""
+    return [c["key"] for prov in CERT_CATALOG for c in prov.get("certs", [])]
+
+
+def get_cert_status(exam: str) -> tuple[str, str]:
+    """(status, ISO-date) of the current user's self-reported cert for a track."""
+    prof = get_profile(exam)
+    return (getattr(prof, "cert_status", "") or "",
+            getattr(prof, "cert_date", "") or "")
+
+
+def set_cert_status(exam: str, status: str, date: str = "") -> None:
+    """Set and persist the current user's cert status for a track. 'date' is an
+    ISO string kept only when status == 'earned'."""
+    if status not in CERT_STATUS_LABEL:
+        status = ""
+    prof = get_profile(exam)
+    prof.cert_status = status
+    prof.cert_date = (date or "") if status == "earned" else ""
+    save_profile(exam)
+
+
+def credential_counts() -> dict[str, int]:
+    """Tally of the current user's cert statuses across all catalog tracks."""
+    counts = {"earned": 0, "studying": 0, "planned": 0}
+    for k in all_track_keys():
+        s, _ = get_cert_status(k)
+        if s in counts:
+            counts[s] += 1
+    return counts
+
+
+def track_name(exam: str) -> str:
+    """Human display name for a track key (blueprint name, else catalog name)."""
+    bp = _BLUEPRINTS.get(exam)
+    if bp is not None:
+        return bp.name
+    for prov in CERT_CATALOG:
+        for c in prov.get("certs", []):
+            if c.get("key") == exam:
+                return c.get("name", exam)
+    return exam
+
+
+def _fmt_cert_date(iso: str) -> str:
+    """'2026-03-14' -> 'Mar 2026'; '' or junk -> '' / the raw string."""
+    if not iso:
+        return ""
+    try:
+        import datetime as _dt
+        return _dt.date.fromisoformat(iso).strftime("%b %Y")
+    except Exception:
+        return iso
+
+
+def earned_tracks() -> list[tuple[str, str]]:
+    """(exam, iso_date) for each EARNED track for the current user, catalog order."""
+    out = []
+    for k in all_track_keys():
+        s, d = get_cert_status(k)
+        if s == "earned":
+            out.append((k, d))
+    return out
+
+
+def render_earned_badges(*, compact: bool = False) -> int:
+    """Render the current user's EARNED certs as badge chips and return how many
+    were shown (0 -> nothing rendered). Reuses the drop-in provider logos with a
+    trophy-glyph fallback, each tinted to its track accent."""
+    earned = earned_tracks()
+    if not earned:
+        return 0
+    h = 20 if compact else 26
+    chips = []
+    for k, d in earned:
+        acc = accent_for(k)
+        mark = track_mark_img(k, height=h) or ui_icons.inline("trophy", h, acc)
+        when = _fmt_cert_date(d)
+        sub = ("" if compact else
+               f"<div style='font-size:.64rem;color:#8A94A6'>Earned"
+               f"{' &middot; ' + when if when else ''}</div>")
+        chips.append(
+            f"<div style='display:inline-flex;align-items:center;gap:.5rem;"
+            f"border:1px solid {acc}55;background:{acc}14;border-radius:10px;"
+            f"padding:.35rem .6rem;margin:0 .45rem .45rem 0'>{mark}"
+            f"<div style='line-height:1.15'><div style='font-weight:700;"
+            f"font-size:{'.8rem' if compact else '.9rem'}'>{html.escape(track_name(k))}</div>"
+            f"{sub}</div>{ui_icons.inline('check', 14, acc)}</div>")
+    st.markdown("<div style='display:flex;flex-wrap:wrap;align-items:center'>"
+                + "".join(chips) + "</div>", unsafe_allow_html=True)
+    return len(earned)
+
+
 def reset_profile(exam: str) -> None:
     st.session_state[_profile_key(exam)] = Profile(exam=exam)
     p = _profile_path(exam)
