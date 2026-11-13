@@ -172,7 +172,9 @@ _PROVIDER_LOGO_SLUG = {
     "AWS": "aws",
     "Microsoft": "microsoft",
 }
-_LOGO_MIME = {".svg": "image/svg+xml", ".png": "image/png", ".webp": "image/webp"}
+_LOGO_MIME = {".svg": "image/svg+xml", ".png": "image/png", ".webp": "image/webp",
+              ".jpg": "image/jpeg", ".jpeg": "image/jpeg"}
+_LOGO_EXTS = (".svg", ".png", ".webp", ".jpg", ".jpeg")
 _provider_logo_cache: dict[str, str] = {}
 
 
@@ -185,7 +187,7 @@ def provider_logo_uri(provider: str) -> str:
     uri = ""
     slug = _PROVIDER_LOGO_SLUG.get(provider)
     if slug:
-        for ext in (".svg", ".png", ".webp"):
+        for ext in _LOGO_EXTS:
             f = ROOT / "assets" / "logos" / f"{slug}{ext}"
             try:
                 if f.exists():
@@ -226,7 +228,7 @@ def cert_badge_uri(exam: str) -> str:
     if ck in _provider_logo_cache:
         return _provider_logo_cache[ck]
     uri = ""
-    for ext in (".svg", ".png", ".webp"):
+    for ext in _LOGO_EXTS:
         f = ROOT / "assets" / "logos" / "certs" / f"{exam}{ext}"
         try:
             if f.exists():
@@ -961,13 +963,21 @@ def _render_track_picker() -> None:
             for c in certs:
                 k = c["key"]
                 name = _BLUEPRINTS[k].name if k in _BLUEPRINTS else c["name"]
-                if k in live:
-                    st.button(("● " if k == cur else "") + name, key=f"trk_{k}", width="stretch",
-                              type="primary" if k == cur else "secondary",
-                              on_click=set_track, args=(k,))
-                else:
-                    st.button(f"{name}  ·  soon", key=f"trk_{k}", width="stretch", disabled=True,
+                if k not in live:
+                    st.button(f"{name}  ·  soon", key=f"trk_{k}", width="stretch",
+                              disabled=True,
                               help="Content for this track is still being built.")
+                    continue
+                # per-cert badge (certs/<key>.*) beside the track button; the slot
+                # stays even when a track has no art, so the buttons stay aligned.
+                badge = track_mark_img(k, height=22, style="max-width:34px;border-radius:4px")
+                bcol, tcol = st.columns([1, 6])
+                bcol.markdown(
+                    "<div style='display:flex;justify-content:center;padding-top:.4rem'>"
+                    f"{badge}</div>", unsafe_allow_html=True)
+                tcol.button(("● " if k == cur else "") + name, key=f"trk_{k}",
+                            width="stretch", type="primary" if k == cur else "secondary",
+                            on_click=set_track, args=(k,))
 
 
 def render_sidebar_chrome() -> None:
