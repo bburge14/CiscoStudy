@@ -71,7 +71,7 @@ Learn these by *what they are for*, not by memorizing their internals.
 | Framework | What it is | Use it when you need… |
 |-----------|-----------|------------------------|
 | **ISO/IEC 27001** | Certifiable standard for an **ISMS** | A formal, auditable management system |
-| **ISO/IEC 27002** | **Code of practice** — catalog of control best practices | A reference list of controls to implement |
+| **ISO/IEC 27002** | Catalog of information security controls — companion to 27001 (its 2022 edition dropped the older "code of practice" title) | A reference list of controls to implement |
 | **NIST CSF** | Outcome-based function model | A flexible, risk-based common language |
 | **COBIT** | Enterprise IT **governance & management** | To tie IT and security to business goals |
 
