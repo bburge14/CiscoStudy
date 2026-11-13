@@ -1,0 +1,203 @@
+{
+  "exam": "isc2cc",
+  "units": [
+    {
+      "id": "isc2cc-u1",
+      "order": 1,
+      "title": "Security Principles",
+      "summary": "The vocabulary the whole field is built on: the CIA triad, the categories and functions of security controls, the language of risk, the (ISC)² Code of Ethics, and the governance documents that turn intent into rules.",
+      "domains": [
+        "cc_security_principles"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "isc2cc-l-cia-controls",
+          "title": "The CIA Triad & Security Controls",
+          "markdown_path": "isc2cc/cia-controls.md",
+          "subtopics": [
+            "cc_cia_triad",
+            "cc_security_controls"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "isc2cc-l-risk",
+          "title": "Risk Management",
+          "markdown_path": "isc2cc/risk-management.md",
+          "subtopics": [
+            "cc_risk_management"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "isc2cc-l-ethics-governance",
+          "title": "The (ISC)² Code of Ethics & Security Governance",
+          "markdown_path": "isc2cc/ethics-governance.md",
+          "subtopics": [
+            "cc_isc2_ethics",
+            "cc_governance_policies"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "isc2cc-u2",
+      "order": 2,
+      "title": "BC, DR & Incident Response Concepts",
+      "summary": "How organizations prepare for and survive disruption: the incident-response lifecycle for handling attacks, and the business continuity and disaster recovery plans that keep essential functions alive and restore systems afterward.",
+      "domains": [
+        "cc_bcdr_ir"
+      ],
+      "milestone_size": 22,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "isc2cc-l-incident-response",
+          "title": "Incident Response",
+          "markdown_path": "isc2cc/incident-response.md",
+          "subtopics": [
+            "cc_incident_response"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "isc2cc-l-bcdr",
+          "title": "Business Continuity & Disaster Recovery",
+          "markdown_path": "isc2cc/bcdr.md",
+          "subtopics": [
+            "cc_business_continuity",
+            "cc_disaster_recovery"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "isc2cc-u3",
+      "order": 3,
+      "title": "Access Controls Concepts",
+      "summary": "Deciding who gets to touch what. The foundations of access control and identity (subjects, objects, AAA, the authentication factors), the physical controls that protect facilities, and the logical models that enforce access on systems.",
+      "domains": [
+        "cc_access_controls"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "isc2cc-l-access-identity",
+          "title": "Access Control Foundations & Identity Management",
+          "markdown_path": "isc2cc/access-identity.md",
+          "subtopics": [
+            "cc_access_control_concepts",
+            "cc_identity_management"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "isc2cc-l-physical-access",
+          "title": "Physical Access Controls",
+          "markdown_path": "isc2cc/physical-access.md",
+          "subtopics": [
+            "cc_physical_access"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "isc2cc-l-logical-access",
+          "title": "Logical Access Controls",
+          "markdown_path": "isc2cc/logical-access.md",
+          "subtopics": [
+            "cc_logical_access"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "isc2cc-u4",
+      "order": 4,
+      "title": "Network Security",
+      "summary": "How networks work and how we defend them: the OSI model, TCP/IP, addressing and well-known ports; the threats and attacks that target networks; and the defenses and secure infrastructure that keep traffic and facilities safe.",
+      "domains": [
+        "cc_network_security"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "isc2cc-l-network-concepts",
+          "title": "Network Concepts: OSI, TCP/IP, Addressing & Ports",
+          "markdown_path": "isc2cc/network-concepts.md",
+          "subtopics": [
+            "cc_network_concepts"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "isc2cc-l-network-threats",
+          "title": "Network Threats & Attacks",
+          "markdown_path": "isc2cc/network-threats.md",
+          "subtopics": [
+            "cc_network_threats_attacks"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "isc2cc-l-network-defense",
+          "title": "Network Defense & Secure Infrastructure",
+          "markdown_path": "isc2cc/network-defense.md",
+          "subtopics": [
+            "cc_network_defense",
+            "cc_secure_infrastructure"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "isc2cc-u5",
+      "order": 5,
+      "title": "Security Operations",
+      "summary": "The daily work of protecting information: securing data through its states and lifecycle, the basics of encryption, hardening systems, the operational policies that keep an organization disciplined, and the security awareness that turns people into a line of defense.",
+      "domains": [
+        "cc_security_operations"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "isc2cc-l-data-encryption",
+          "title": "Data Security & Encryption Basics",
+          "markdown_path": "isc2cc/data-encryption.md",
+          "subtopics": [
+            "cc_data_security",
+            "cc_encryption_basics"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "isc2cc-l-hardening-ops",
+          "title": "System Hardening & Operational Security Policies",
+          "markdown_path": "isc2cc/hardening-ops.md",
+          "subtopics": [
+            "cc_system_hardening",
+            "cc_security_policies_ops"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "isc2cc-l-awareness",
+          "title": "Security Awareness & Training",
+          "markdown_path": "isc2cc/security-awareness.md",
+          "subtopics": [
+            "cc_security_awareness"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}
