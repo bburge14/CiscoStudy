@@ -157,6 +157,58 @@ def logo_img(size: int = 76, *, style: str = "display:block;margin:0 auto") -> s
             f"style='{style}'/>")
 
 
+# --- per-provider issuing-body logos (drop-in) -----------------------------
+# Real issuing-body logos live under assets/logos/<slug>.svg (or .png/.webp).
+# Drop a file in and it shows automatically in the track picker, grouped by
+# issuing agency; if no file is present the picker falls back to the provider
+# name alone, so nothing ever looks broken. Slugs are kept simple so the files
+# are easy to add by hand — see assets/logos/README.md.
+_PROVIDER_LOGO_SLUG = {
+    "Cisco": "cisco",
+    "CompTIA": "comptia",
+    "(ISC)²": "isc2",
+    "ISACA": "isaca",
+    "EC-Council": "ec-council",
+    "AWS": "aws",
+    "Microsoft": "microsoft",
+}
+_LOGO_MIME = {".svg": "image/svg+xml", ".png": "image/png", ".webp": "image/webp"}
+_provider_logo_cache: dict[str, str] = {}
+
+
+def provider_logo_uri(provider: str) -> str:
+    """base64 data-URI for a provider's logo file (assets/logos/<slug>.svg|png|
+    webp), or '' if none is present. Read once per provider per process so a
+    dropped-in file is picked up on the next app start."""
+    if provider in _provider_logo_cache:
+        return _provider_logo_cache[provider]
+    uri = ""
+    slug = _PROVIDER_LOGO_SLUG.get(provider)
+    if slug:
+        for ext in (".svg", ".png", ".webp"):
+            f = ROOT / "assets" / "logos" / f"{slug}{ext}"
+            try:
+                if f.exists():
+                    b64 = base64.b64encode(f.read_bytes()).decode("ascii")
+                    uri = f"data:{_LOGO_MIME[ext]};base64,{b64}"
+                    break
+            except Exception:
+                pass
+    _provider_logo_cache[provider] = uri
+    return uri
+
+
+def provider_logo_img(provider: str, height: int = 16) -> str:
+    """An <img> tag for the provider's logo, or '' when no logo file is present
+    (the caller then falls back to the provider name)."""
+    uri = provider_logo_uri(provider)
+    if not uri:
+        return ""
+    return (f"<img src='{uri}' alt='{html.escape(provider)} logo' "
+            f"style='height:{height}px;width:auto;max-width:96px;"
+            f"vertical-align:middle;display:inline-block'/>")
+
+
 def glyph(key: str, size: int = 18, color: str | None = None) -> str:
     """Inline custom-glyph markup, tinted to the current track accent by default."""
     return ui_icons.inline(key, size=size, color=color or current_accent())
@@ -754,11 +806,14 @@ def _render_track_picker() -> None:
             certs = prov.get("certs", [])
             if not certs:
                 continue
+            logo = provider_logo_img(prov["provider"], height=16)
             st.markdown(
-                "<div style='font-size:.66rem;font-weight:700;letter-spacing:.08em;"
-                "text-transform:uppercase;color:#8A94A6;margin:.55rem 0 .15rem;"
-                "border-top:1px solid rgba(255,255,255,.07);padding-top:.4rem'>"
-                f"{html.escape(prov['provider'])}</div>", unsafe_allow_html=True)
+                "<div style='display:flex;align-items:center;gap:.4rem;min-height:18px;"
+                "font-size:.66rem;font-weight:700;letter-spacing:.08em;"
+                "text-transform:uppercase;color:#8A94A6;margin:.55rem 0 .2rem;"
+                "border-top:1px solid rgba(255,255,255,.07);padding-top:.45rem'>"
+                f"{logo}<span>{html.escape(prov['provider'])}</span></div>",
+                unsafe_allow_html=True)
             for c in certs:
                 k = c["key"]
                 name = _BLUEPRINTS[k].name if k in _BLUEPRINTS else c["name"]
