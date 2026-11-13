@@ -71,6 +71,29 @@ The distinctions are subtle but testable:
 - **Legacy system** is specifically "there is no patch because the thing is too
   old and unsupported."
 
+## Trends tell a story the point-in-time scan can't
+
+A single scan is a snapshot; a *series* of reports reveals whether the program is
+winning or losing. Mature vulnerability reporting adds trend analysis:
+
+- **Recurring findings** — the same vulnerability returning after it was "fixed"
+  points to a systemic gap: a broken patch process, a drifting image, or a
+  developer re-introducing the flaw. Recurrence is a signal to fix the *process*,
+  not just the instance.
+- **Top vulnerabilities** — a ranked list of the most common or most dangerous
+  findings shows leadership where to aim limited resources.
+- **Remediation over time** — are findings closing faster than new ones appear?
+  Trend lines against remediation SLAs make the answer visible.
+
+### Identify who receives the report
+
+Reporting isn't broadcasting the same document to everyone. Identify the
+**stakeholders** and route each the slice they can act on: remediation teams get
+affected hosts and fix steps, asset owners get the risk to *their* systems, and
+leadership gets the roll-up. And remember the hand-off: a remediation that changes
+a production system flows through **change management**, so the report's
+recommendations become tracked, approved, reversible changes — not ad-hoc edits.
+
 ## Reporting a deferred fix responsibly
 
 When leadership decides to **defer** remediating a finding — say, a medium-severity

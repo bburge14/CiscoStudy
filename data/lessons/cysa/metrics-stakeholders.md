@@ -35,6 +35,12 @@ Beyond the clock-based metrics:
 - **False-positive rate** — how many alerts turn out benign. A high rate means
   detections need tuning and analysts are drowning; tracking it drives
   improvement and fights alert fatigue.
+- **Dwell time** — how long an attacker went undetected inside the environment
+  before discovery. It is closely tied to MTTD, and driving it down is a headline
+  goal of any detection program.
+- **Alert volume** — the raw number of alerts over time. Paired with the
+  false-positive rate, it tells you whether analysts are overwhelmed and whether
+  tuning is working.
 
 ### Targets: SLA vs. SLO
 

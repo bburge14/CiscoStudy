@@ -21,6 +21,35 @@ Who you pull in first depends on the incident. For a confirmed breach of custome
 organization's **mandatory notification obligations** — the clock on those is
 often already running.
 
+## Identifying the stakeholders
+
+Before you can notify anyone, you have to know *who* — and a breach touches far
+more people than the SOC. Build the stakeholder list during preparation so you're
+not improvising mid-crisis.
+
+- **Internal stakeholders** — executive leadership (who own the business risk),
+  **legal/privacy counsel** (notification duties and liability), **public
+  relations/communications** (external messaging), **HR** (if an insider or an
+  employee is involved), IT/engineering (the responders), and the **business/system
+  owners** of the affected services.
+- **External stakeholders** — regulators and supervisory authorities, **law
+  enforcement** where a crime is involved, affected **customers and data
+  subjects**, **partners** bound by contract, the **cyber-insurance** carrier, and
+  peer **ISACs** for sector-wide awareness.
+
+> Match the detail to the stakeholder. Executives need business impact and
+> decisions; regulators need the facts the law specifies; customers need plain
+> guidance on what happened and what to do. One incident, many tailored messages.
+
+### Severity drives the response
+
+How loudly you escalate depends on **severity classification** — most plans rank
+incidents on a scale (for example, low/medium/high/critical) weighing data
+sensitivity, scope, and business impact. The severity level determines who gets
+woken up, how fast, and whether the event crosses the threshold that triggers
+*formal declaration* and the external clocks below. Misclassifying a major breach
+as routine is how notification deadlines get blown.
+
 ## Communicating safely during an incident
 
 - **Out-of-band channels.** When corporate email and Active Directory may be

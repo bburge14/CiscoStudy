@@ -85,9 +85,23 @@ Email authentication is a favorite exam target because the mechanisms interlock.
   **From** domain differs from the **Return-Path**, and **Reply-To** points to an
   unrelated address. Legitimate mail rarely scatters its addresses like that.
 
-For web-application attack indicators (SQL injection, XSS, and friends) you will
-go deeper in the Vulnerability Management unit; here, just recognize that
-suspicious input patterns in web logs are host-and-application indicators too.
+### Application-level indicators
+
+Beyond email, applications betray compromise in their own behavior. Watch for:
+
+- **Unexpected new accounts** appearing in an app — especially privileged ones —
+  with no corresponding change request.
+- **Unexpected output or errors** — an app returning database errors, other users'
+  data, or content it never normally emits can signal injection or access-control
+  abuse.
+- **Unexpected outbound communication** from an application server that should only
+  *receive* connections.
+- **Service interruption** — crashes or resource exhaustion that coincide with
+  attack traffic (a memory overflow, for instance) rather than normal load.
+
+Suspicious input patterns in web logs are host-and-application indicators too; you
+will study the underlying web attacks and their fixes in the Vulnerability
+Management unit.
 
 ## Putting an alert together
 

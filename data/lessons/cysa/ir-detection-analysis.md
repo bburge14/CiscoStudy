@@ -79,6 +79,26 @@ volatile and often most valuable evidence.
   the processes that were running, their network connections, and any injected
   code at the moment of capture — turning a raw memory dump into an investigation.
 
+## Live vs. static acquisition — and legal hold
+
+*How* you acquire evidence depends on the state of the system:
+
+- **Live (volatile) acquisition** captures a running system's memory, active
+  network connections, and running processes — evidence that vanishes on
+  shutdown. Required when the machine can't be taken down or holds RAM-only
+  artifacts.
+- **Static (dead) acquisition** images powered-off media through a write blocker.
+  It's the most defensible for disk evidence because the source never changes
+  during collection.
+
+When litigation is possible, a **legal hold** is issued to preserve all
+potentially relevant data and suspend routine deletion — destroying evidence
+under a hold, even by automated retention policy, can be **spoliation**. Beyond
+Prefetch, analysts lean on other Windows artifacts to reconstruct activity:
+**Amcache/Shimcache** for program-execution history, **Shellbags** for which
+folders a user browsed, and the event logs covered in the first lesson. Each adds
+a corroborating data point to the story.
+
 ## Building the timeline
 
 Everything above feeds one deliverable: a defensible timeline of what happened,

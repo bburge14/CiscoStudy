@@ -36,6 +36,14 @@ messages between systems, and **automated alerts** when reconciliations don't
 balance. The theme is constant: prove the data arrived whole, and give failed
 items a safe place to wait for correction.
 
+Interfaces come in different shapes, and the shape affects the controls. **Batch**
+interfaces move data in scheduled bulk transfers (reconciliation and sequence
+checks fit naturally). **Real-time** interfaces (often via **APIs** or
+**middleware/EAI** platforms) pass transactions continuously, so controls lean on
+per-message acknowledgments, timeouts, and retry logic. Whichever the style, the
+auditor's question is the same: can the organization prove every transaction was
+transferred **once, completely, and accurately**?
+
 ## Database fundamentals
 
 A **database management system (DBMS)** stores and controls access to shared data.

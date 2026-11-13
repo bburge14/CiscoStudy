@@ -65,6 +65,28 @@ Recovery is where impatience causes relapses. Three rules:
   the threat returns. Declaring "normal operations" too early, while an attacker
   still has a toehold, restarts the whole incident.
 
+## Returning to operations
+
+Recovery isn't a single switch; it's a controlled return. A few practices
+separate a clean return-to-operations from a premature one:
+
+- **Define exit criteria up front.** Decide *in advance* what "clean" means — no
+  attacker artifacts, root cause patched, credentials rotated — so the decision to
+  reconnect is based on evidence, not optimism.
+- **Reconnect in stages.** Bring systems back gradually rather than all at once, so
+  if something was missed the blast radius stays small.
+- **Harden against the same vector.** Recovery is the natural moment to close the
+  door the attacker used — tighten the exploited configuration, add the detection
+  that would have caught the intrusion sooner, and strengthen monitoring on the
+  rebuilt hosts.
+- **Elevate monitoring.** Keep enhanced logging and alerting on recovered systems
+  for a defined period; an attacker who retained *any* foothold will often try to
+  return, and heightened watch is how you catch the second attempt early.
+
+> The order is deliberate: *restore from clean backups → validate against exit
+> criteria → reconnect in stages → monitor closely*. Rushing any step reopens the
+> incident you just closed.
+
 ## After recovery: learn from it
 
 Containment and recovery close the operational emergency, but the incident isn't
