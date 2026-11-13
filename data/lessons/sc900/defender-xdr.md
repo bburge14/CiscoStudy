@@ -61,8 +61,9 @@ EDR, and automated investigation — protecting laptops, servers and mobile devi
 
 Uses signals from your **on-premises Active Directory** to detect identity-based
 attacks — compromised accounts, lateral movement, and techniques like
-pass-the-hash. It focuses on the on-prem identity layer (complementing Entra ID
-Protection, which watches cloud identities).
+pass-the-hash. Its classic strength is **on-premises Active Directory**, but it now
+also ingests Microsoft Entra ID and other IAM signals — complementing Entra ID
+Protection, which focuses on cloud identities.
 
 ### Microsoft Defender for Cloud Apps
 

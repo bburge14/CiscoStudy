@@ -101,9 +101,11 @@ Because Microsoft 365 Apps update continuously, organizations need a way to cont
 - **Monthly Enterprise Channel** — feature and security updates land on a
   **predictable monthly schedule** (the second Tuesday of the month). Best when IT
   wants consistency and time to validate.
-- **Semi-Annual Enterprise Channel** — the **least frequent** cadence, intended for
-  devices that need **extensive testing** before new features (specialized or
-  tightly controlled systems).
+- **Semi-Annual Enterprise Channel** — **historically** the least frequent cadence
+  (feature updates twice a year), for devices needing extensive testing. **As of
+  mid-2026 Microsoft unified its feature cadence into the Monthly Enterprise
+  Channel**, so it is no longer a distinct slower track — the name persists through
+  the transition, but expect monthly delivery.
 
 > The trade-off is **newest features vs. predictability and testing time.** Pick
 > **Current Channel** for the latest features fastest; move pilot or stable

@@ -73,7 +73,7 @@ help you build well. These are heavily tested, so learn each one's purpose.
 
 | Resource | What it gives you |
 |----------|-------------------|
-| **AWS Trusted Advisor** | **Automated best-practice checks** across five categories: **cost optimization, security, fault tolerance, performance, and service limits (quotas)** |
+| **AWS Trusted Advisor** | **Automated best-practice checks** across six categories: **cost optimization, security, fault tolerance, performance, operational excellence, and service limits (quotas)** |
 | **AWS Health Dashboard** | Alerts about AWS service events — including a **personalized view of events affecting your own account's resources**, with remediation guidance |
 | **AWS re:Post** | A **free, community-driven question-and-answer** service where AWS experts and users respond (the successor to the AWS forums) |
 | **AWS Documentation** | Official technical docs and user guides for every service |
@@ -104,7 +104,7 @@ reviews, fastest response) — with the designated **TAM** and 24/7 access being
 most-tested distinctions, even as AWS reshuffles the plan names in 2025–2027. On
 top of support, free and paid **resources** help you build well: **Trusted
 Advisor** (best-practice checks across cost, security, fault tolerance,
-performance, and service limits), the **Health Dashboard** (personalized service-
+performance, operational excellence, and service limits), the **Health Dashboard** (personalized service-
 event alerts), **re:Post** (community Q&A), plus documentation, whitepapers, the
 **Marketplace**, and the **Partner Network**.
 
@@ -116,7 +116,7 @@ event alerts), **re:Post** (community Q&A), plus documentation, whitepapers, the
   reviews + fastest response.
 - A **designated TAM / proactive personalized guidance** → **Enterprise Support.**
 - **Trusted Advisor** = automated best-practice checks across **cost, security,
-  fault tolerance, performance, and service limits (quotas).**
+  fault tolerance, performance, operational excellence, and service limits (quotas).**
 - **AWS Health Dashboard** = alerts about AWS events, including a **personalized
   view of your own account's** affected resources.
 - **AWS re:Post** = **free community Q&A**; opening a support case needs a paid
