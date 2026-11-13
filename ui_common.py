@@ -1619,6 +1619,20 @@ def _show_perf_result(task, answer: dict, passed_flag: str) -> None:
                 st.markdown(task.explain)
 
 
+def _client_is_touch() -> bool:
+    """Best-effort guess at a touch / mobile client from the request User-Agent.
+
+    Native HTML5 drag-and-drop does not fire from touch events, so on phones and
+    tablets the performance tasks must default to the click-menu (Dropdown) mode.
+    Falls back to False (drag mode) if the header isn't available."""
+    try:
+        ua = (st.context.headers.get("User-Agent") or "").lower()
+    except Exception:
+        return False
+    return any(t in ua for t in
+               ("iphone", "ipad", "ipod", "android", "mobile", "windows phone", "blackberry"))
+
+
 def render_perf_task(task, skey_prefix: str) -> bool:
     """Render a CompTIA performance task and grade it. Defaults to real
     drag-and-drop; a Dropdown-mode toggle gives a click-menu fallback (touch /
@@ -1628,8 +1642,9 @@ def render_perf_task(task, skey_prefix: str) -> bool:
     st.markdown(task.prompt)
 
     dropdown_mode = st.toggle(
-        "Dropdown mode", key=f"{skey_prefix}_mode", value=False,
-        help="Use click-menus instead of dragging — handy on touch screens.")
+        "Dropdown mode", key=f"{skey_prefix}_mode", value=_client_is_touch(),
+        help="Use click-menus instead of dragging — on by default on touch screens, "
+             "where drag-and-drop isn't supported.")
 
     if not dropdown_mode:
         st.caption({"categorize": "Drag each item into the correct category.",
