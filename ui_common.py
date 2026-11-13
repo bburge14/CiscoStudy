@@ -241,12 +241,28 @@ def cert_badge_uri(exam: str) -> str:
     return uri
 
 
-def track_mark_img(exam: str, height: int = 28, *, style: str = "") -> str:
-    """An <img> for a track's branding mark — its per-cert badge if one exists,
-    otherwise its issuing-body logo — or '' when neither file is present."""
-    uri = cert_badge_uri(exam) or provider_logo_uri(_track_provider(exam))
+def track_mark_img(exam: str, height: int = 28, *, style: str = "", chip: bool = True) -> str:
+    """Markup for a track's branding mark — its per-cert badge if one exists,
+    otherwise its issuing-body logo — or '' when neither file is present.
+
+    With chip=True a per-cert badge sits on a light rounded tile so dark badges
+    (e.g. Cisco) stay legible on the dark UI; the issuing-body wordmark fallback
+    is left un-chipped. `style` is applied to the outermost element, so callers
+    can still right-align it (margin-left:auto) or cap its width."""
+    uri = cert_badge_uri(exam)
+    is_cert = bool(uri)
+    if not uri:
+        uri = provider_logo_uri(_track_provider(exam))
     if not uri:
         return ""
+    img = (f"<img src='{uri}' alt='' style='height:{height}px;width:auto;"
+           f"max-width:120px;display:block'/>")
+    if chip and is_cert:
+        pad = max(2, round(height * 0.13))
+        rad = max(4, round(height * 0.22))
+        return (f"<span style='display:inline-flex;align-items:center;justify-content:center;"
+                f"background:#EEF1F7;border-radius:{rad}px;padding:{pad}px;"
+                f"box-shadow:0 1px 2px rgba(0,0,0,.25);{style}'>{img}</span>")
     return (f"<img src='{uri}' alt='' style='height:{height}px;width:auto;"
             f"max-width:120px;display:inline-block;{style}'/>")
 
