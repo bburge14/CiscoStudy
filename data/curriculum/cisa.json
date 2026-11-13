@@ -1,0 +1,216 @@
+{
+  "exam": "cisa",
+  "units": [
+    {
+      "id": "cisa-u1",
+      "order": 1,
+      "title": "Information Systems Auditing Process",
+      "summary": "How an IS auditor plans and runs an engagement: the ISACA standards and independence that give the work authority, risk-based planning and materiality, testing controls and gathering reliable evidence through sampling, and reporting findings with effective follow-up.",
+      "domains": [
+        "cisa_audit_process"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cisa-l-audit-standards-planning",
+          "title": "Audit Standards, Independence & Risk-Based Planning",
+          "markdown_path": "cisa/audit-standards-planning.md",
+          "subtopics": [
+            "cisa_audit_standards",
+            "cisa_risk_based_audit"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cisa-l-audit-evidence",
+          "title": "Fieldwork: Testing Controls, Evidence & Sampling",
+          "markdown_path": "cisa/audit-evidence.md",
+          "subtopics": [
+            "cisa_audit_execution",
+            "cisa_evidence_sampling"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cisa-l-audit-reporting",
+          "title": "Reporting Results & Follow-Up",
+          "markdown_path": "cisa/audit-reporting.md",
+          "subtopics": [
+            "cisa_audit_reporting"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cisa-u2",
+      "order": 2,
+      "title": "Governance and Management of IT",
+      "summary": "How the enterprise directs and controls IT: governance accountability and frameworks like COBIT, strategy committees and the policy hierarchy, organizational structure and segregation of duties, and the IT risk management and business continuity planning that protect value.",
+      "domains": [
+        "cisa_governance"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cisa-l-it-governance",
+          "title": "IT Governance, Strategy & Policy",
+          "markdown_path": "cisa/it-governance.md",
+          "subtopics": [
+            "cisa_it_governance",
+            "cisa_it_strategy_policies"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cisa-l-org-structure",
+          "title": "Organizational Structure, Roles & Segregation of Duties",
+          "markdown_path": "cisa/org-structure.md",
+          "subtopics": [
+            "cisa_org_structure"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cisa-l-risk-bcp",
+          "title": "IT Risk Management & Business Continuity Planning",
+          "markdown_path": "cisa/risk-bcp.md",
+          "subtopics": [
+            "cisa_risk_management",
+            "cisa_bcp"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cisa-u3",
+      "order": 3,
+      "title": "IS Acquisition, Development and Implementation",
+      "summary": "How systems get built and brought into production under control: project management and the business case, the SDLC and the testing that gates each phase, and the data conversion, changeover strategies and post-implementation review that confirm the system delivers.",
+      "domains": [
+        "cisa_acquisition_dev"
+      ],
+      "milestone_size": 22,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cisa-l-project-management",
+          "title": "Project Management & the Business Case",
+          "markdown_path": "cisa/project-management.md",
+          "subtopics": [
+            "cisa_project_management"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cisa-l-sdlc-testing",
+          "title": "The SDLC & Software Testing",
+          "markdown_path": "cisa/sdlc-testing.md",
+          "subtopics": [
+            "cisa_sdlc"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cisa-l-migration-pir",
+          "title": "System Migration & Post-Implementation Review",
+          "markdown_path": "cisa/migration-pir.md",
+          "subtopics": [
+            "cisa_system_migration",
+            "cisa_post_implementation"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cisa-u4",
+      "order": 4,
+      "title": "IS Operations and Business Resilience",
+      "summary": "The day-to-day running and survival of IT: operations and the ITIL service-management processes for incidents and problems, the controls over system interfaces and databases that protect integrity, and the backup, recovery and disaster-recovery capability that restores service after disruption.",
+      "domains": [
+        "cisa_operations_resilience"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cisa-l-it-operations",
+          "title": "IT Operations, Incident & Problem Management",
+          "markdown_path": "cisa/it-operations.md",
+          "subtopics": [
+            "cisa_it_operations",
+            "cisa_incident_problem_mgmt"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cisa-l-interfaces-databases",
+          "title": "System Interfaces & Database Management",
+          "markdown_path": "cisa/interfaces-databases.md",
+          "subtopics": [
+            "cisa_system_interfaces",
+            "cisa_database_mgmt"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cisa-l-backup-dr",
+          "title": "Backup, Recovery & Disaster Recovery",
+          "markdown_path": "cisa/backup-dr.md",
+          "subtopics": [
+            "cisa_data_backup_recovery",
+            "cisa_disaster_recovery"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cisa-u5",
+      "order": 5,
+      "title": "Protection of Information Assets",
+      "summary": "How information is safeguarded end to end: identity and access control with data classification, network security and cryptography/PKI that protect data in transit, and the security monitoring and physical/environmental controls that detect events and protect the facilities that house systems.",
+      "domains": [
+        "cisa_protection_assets"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cisa-l-access-classification",
+          "title": "Identity, Access Control & Data Classification",
+          "markdown_path": "cisa/access-classification.md",
+          "subtopics": [
+            "cisa_access_controls",
+            "cisa_data_classification"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cisa-l-network-crypto",
+          "title": "Network Security & Cryptography/PKI",
+          "markdown_path": "cisa/network-crypto.md",
+          "subtopics": [
+            "cisa_network_security",
+            "cisa_encryption_pki"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cisa-l-monitoring-physical",
+          "title": "Security Monitoring & Physical/Environmental Controls",
+          "markdown_path": "cisa/monitoring-physical.md",
+          "subtopics": [
+            "cisa_security_monitoring",
+            "cisa_physical_environmental"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}

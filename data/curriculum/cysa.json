@@ -1,0 +1,170 @@
+{
+  "exam": "cysa",
+  "units": [
+    {
+      "id": "cysa-u1",
+      "order": 1,
+      "title": "Security Operations",
+      "summary": "The daily work of a SOC analyst: knowing the environment and its log sources, wielding SIEM/SOAR/EDR tooling, reading indicators of malicious activity on the network and host, and turning threat intelligence into proactive threat hunts.",
+      "domains": [
+        "cysa_security_operations"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cysa-l-soc-architecture",
+          "title": "System & Network Architecture, Logging & SOC Tooling",
+          "markdown_path": "cysa/soc-architecture.md",
+          "subtopics": [
+            "so_system_network_analysis",
+            "so_tools_automation"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cysa-l-malicious-activity",
+          "title": "Analyzing Indicators of Malicious Activity",
+          "markdown_path": "cysa/malicious-activity.md",
+          "subtopics": [
+            "so_malicious_activity"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cysa-l-threat-intel-hunting",
+          "title": "Threat Intelligence & Threat Hunting",
+          "markdown_path": "cysa/threat-intel-hunting.md",
+          "subtopics": [
+            "so_threat_intel",
+            "so_threat_hunting"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cysa-u2",
+      "order": 2,
+      "title": "Vulnerability Management",
+      "summary": "Finding, scoring, and fixing weaknesses before attackers reach them: scanning methods and assessment tools, prioritization with CVSS, EPSS, KEV and asset context, and mitigation through patching, compensating controls, and secure coding.",
+      "domains": [
+        "cysa_vuln_management"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cysa-l-vuln-scanning",
+          "title": "Vulnerability Scanning & Assessment Tools",
+          "markdown_path": "cysa/vuln-scanning.md",
+          "subtopics": [
+            "vm_scanning",
+            "vm_assessment_tools"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cysa-l-vuln-prioritization",
+          "title": "Prioritizing Vulnerabilities: CVSS, EPSS & KEV",
+          "markdown_path": "cysa/vuln-prioritization.md",
+          "subtopics": [
+            "vm_prioritization"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cysa-l-vuln-mitigation",
+          "title": "Mitigation, Secure Coding & the SDLC",
+          "markdown_path": "cysa/vuln-mitigation.md",
+          "subtopics": [
+            "vm_mitigation",
+            "vm_secure_coding"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cysa-u3",
+      "order": 3,
+      "title": "Incident Response and Management",
+      "summary": "Responding when prevention fails: the NIST SP 800-61 lifecycle and attack frameworks, detection and analysis with sound digital forensics, and the containment, eradication, and recovery that get the business safely back to normal.",
+      "domains": [
+        "cysa_incident_response"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cysa-l-ir-lifecycle",
+          "title": "The Incident Response Lifecycle & Attack Frameworks",
+          "markdown_path": "cysa/ir-lifecycle.md",
+          "subtopics": [
+            "ir_lifecycle"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cysa-l-ir-detection",
+          "title": "Detection, Analysis & Digital Forensics",
+          "markdown_path": "cysa/ir-detection-analysis.md",
+          "subtopics": [
+            "ir_detection_analysis"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cysa-l-ir-containment",
+          "title": "Containment, Eradication & Recovery",
+          "markdown_path": "cysa/ir-containment-recovery.md",
+          "subtopics": [
+            "ir_containment_recovery"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cysa-u4",
+      "order": 4,
+      "title": "Reporting and Communication",
+      "summary": "Making security findings count: clear vulnerability and incident reports, lawful breach-notification timelines, the metrics and KPIs leadership tracks, and tailoring the message to each stakeholder audience.",
+      "domains": [
+        "cysa_reporting_comm"
+      ],
+      "milestone_size": 22,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cysa-l-vuln-reporting",
+          "title": "Vulnerability Reporting & Remediation Inhibitors",
+          "markdown_path": "cysa/vuln-reporting.md",
+          "subtopics": [
+            "rc_vuln_reporting"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cysa-l-incident-reporting",
+          "title": "Incident Reporting, Declaration & Regulatory Timelines",
+          "markdown_path": "cysa/incident-reporting.md",
+          "subtopics": [
+            "rc_incident_reporting"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cysa-l-metrics-stakeholders",
+          "title": "Security Metrics, KPIs & Stakeholder Communication",
+          "markdown_path": "cysa/metrics-stakeholders.md",
+          "subtopics": [
+            "rc_metrics",
+            "rc_stakeholder_comm"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}
