@@ -69,8 +69,9 @@ A quick decision guide:
 
 - Need **custom logic** over your data? → **Scheduled** rule (the default).
 - Need the **fastest possible** detection and your logic fits the constraints? →
-  **NRT** (runs about every minute; limited to a single table, no joins across the
-  pipeline the way scheduled rules allow).
+  **NRT** (fixed ~1-minute schedule and 1-minute lookback; it *can* query multiple
+  tables and watchlists, but the schedule and alert threshold aren't tunable and it
+  needs low-latency log sources).
 - Want **Defender XDR or Defender for Cloud alerts to become Sentinel incidents**?
   → **Microsoft security** rule.
 - Want Microsoft's ML to **catch multistage attacks** you didn't write a rule for?

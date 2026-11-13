@@ -33,11 +33,14 @@ SecurityEvent
 - `==` exact match; `=~` case-insensitive match.
 - `has` matches a whole **term** and is faster; `contains` matches any substring.
 - `startswith`, `endswith`, `in (...)`, and `matches regex` for patterns.
-- Time filters use `ago()` and `between()`.
+- Time filters use `ago()` and `between()`. (The Defender XDR advanced-hunting
+  `Device*` tables use a **`Timestamp`** column; Sentinel / Log Analytics tables such as
+  `SigninLogs` and `SecurityEvent` use **`TimeGenerated`** — match the column to where
+  the query runs.)
 
 ```kql
 DeviceProcessEvents
-| where TimeGenerated between (ago(7d) .. now())
+| where Timestamp between (ago(7d) .. now())
 | where FileName =~ "powershell.exe"
 | where ProcessCommandLine has_any ("-enc", "FromBase64String", "DownloadString")
 ```
@@ -98,7 +101,7 @@ suspiciousLogons
     DeviceProcessEvents
     | where FileName in~ ("net.exe", "whoami.exe", "nltest.exe")
   ) on DeviceId
-| project TimeGenerated, DeviceId, AccountName, FileName, ProcessCommandLine
+| project Timestamp, DeviceId, AccountName, FileName, ProcessCommandLine
 ```
 
 Know the **join kinds**: `inner` (matches in both), `leftouter` (all left rows,

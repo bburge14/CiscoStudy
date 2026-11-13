@@ -57,7 +57,7 @@ Beyond `rwx`, a **fourth, leading octal digit** holds three special bits:
 |-----|-------|--------|--------|
 | **setuid** | 4 | executable | Runs with the **file owner's** identity, not the caller's |
 | **setgid** | 2 | executable | Runs with the file's **group**; on a *directory*, new files inherit that group |
-| **sticky** | 1 | directory | Only a file's **owner** (or root) may delete it, even in a shared, writable dir |
+| **sticky** | 1 | directory | Only a file's **owner**, the **directory's owner**, or root may delete it, even in a shared, writable dir |
 
 So `chmod 4755 program` sets setuid plus `755`; `chmod 2770 shared` sets setgid
 plus `770`; `chmod 1777 /tmp` sets the sticky bit plus `777`.

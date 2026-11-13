@@ -23,7 +23,7 @@ Protection level is a choice:
 - **Premium** — keys protected by **hardware security modules (HSMs)**, validated
   to **FIPS 140-2 Level 2**.
 - **Azure Managed HSM** — a **single-tenant**, fully managed HSM pool validated to
-  **FIPS 140-2 Level 3**, for strict regulatory or high-assurance needs.
+  **FIPS 140-3 Level 3**, for strict regulatory or high-assurance needs.
 
 Pick Premium or Managed HSM when compliance requires hardware-backed keys.
 
@@ -106,7 +106,7 @@ to **Log Analytics**, watch it with **Defender for Key Vault**, and manage the
 ## Exam focus
 
 - Key Vault stores **keys, secrets, and certificates**. **Premium = HSM-backed
-  (FIPS 140-2 Level 2)**; **Managed HSM = single-tenant, FIPS 140-2 Level 3**.
+  (FIPS 140-2 Level 2)**; **Managed HSM = single-tenant, FIPS 140-3 Level 3**.
 - **Two permission models: Azure RBAC (recommended)** vs **access policies
   (legacy)**. RBAC spans **control + data plane** and is **granular/scoped**;
   access policies are **data-plane, whole-vault** only. RBAC is now the default for

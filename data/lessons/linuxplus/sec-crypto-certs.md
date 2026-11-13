@@ -45,10 +45,12 @@ $ openssl x509 -in server.crt -text -noout                   # inspect a cert
 $ openssl s_client -connect example.com:443                  # check a live service
 ```
 
-Trusted CA certificates are stored system-wide (`/etc/pki/tls/certs` on Red Hat,
-`/etc/ssl/certs` on Debian). To trust a new internal CA, drop its certificate in
-the right directory and run **`update-ca-trust`** (Red Hat) or
-**`update-ca-certificates`** (Debian). For public-facing servers, **Let's
+Trusted CA certificates live in a consolidated system-wide bundle (`/etc/pki/tls/certs`
+on Red Hat, `/etc/ssl/certs` on Debian). To trust a new internal CA, drop its PEM file
+in the distro's *source/anchor* directory — **`/etc/pki/ca-trust/source/anchors/`** (Red
+Hat) or **`/usr/local/share/ca-certificates/`** (Debian) — then run **`update-ca-trust`**
+(Red Hat) or **`update-ca-certificates`** (Debian), which regenerate that bundle.
+Dropping the cert straight into the bundle directory does *not* get it trusted. For public-facing servers, **Let's
 Encrypt** with the `certbot` client automates issuance and renewal for free.
 
 > Watch certificate **expiry**. An expired certificate breaks TLS even though the

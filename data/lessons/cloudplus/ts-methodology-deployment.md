@@ -8,8 +8,10 @@ keep a build from going live.
 
 ## The CompTIA troubleshooting methodology
 
-CompTIA uses one consistent, ordered method. Follow it in sequence; the exam often
-asks "what's the *next* step."
+CompTIA teaches one ordered troubleshooting method; follow it in sequence, because the
+exam often asks "what's the *next* step." CompTIA's officially published list numbers
+it as **six** steps — it folds *establish a plan of action* and *implement the solution*
+into one step — but the ordering below (we split those two for clarity) is identical.
 
 > 1. **Identify the problem.** Gather information, question users, reproduce the
 >    issue, and note recent changes. *Most incidents follow a change* — "what

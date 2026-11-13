@@ -58,7 +58,9 @@ without changing the API calls."
 
 For caching in front of a *relational* database — repeated identical queries for
 popular items — use **Amazon ElastiCache**, which stores query results in memory to
-cut database load and latency. It comes in two engines:
+cut database load and latency. It now runs three engines — **Valkey** (the open-source
+Redis fork AWS now defaults to), **Redis OSS**, and **Memcached**; the exam's key
+contrast is still Redis-style vs Memcached:
 
 | Engine | Choose when you need |
 |--------|----------------------|

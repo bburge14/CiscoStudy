@@ -50,6 +50,14 @@ Once ingested, indicators are stored and queryable in the
 manually, tag, or expire) on Sentinel's **Threat Intelligence** page. A built-in
 **workbook** visualizes your indicators — counts, sources, and types.
 
+> **Currency note.** Microsoft has moved TI storage from the legacy
+> **`ThreatIntelligenceIndicator`** table to the STIX-based **`ThreatIntelIndicators`**
+> (indicators) and **`ThreatIntelObjects`** (actors, attack patterns, relationships)
+> tables; legacy ingestion ended in 2025 and the old table is now read-only historical
+> data. New detections should query the new tables, but many current exam items still
+> name `ThreatIntelligenceIndicator` — recognize both. The classic query below uses the
+> legacy schema.
+
 ## Curating indicators
 
 Ingesting a feed is not the end — raw feeds are noisy, and stale indicators cause
@@ -111,8 +119,10 @@ indicator matching Sentinel does for *detecting*.
 - **STIX = format/language; TAXII = transport protocol.** Don't swap them.
 - Sentinel ingests TI via the **TAXII** connector, the **Upload Indicators API**
   (from a TIP), and **Microsoft Defender Threat Intelligence (MDTI)**. Indicators
-  live in the **`ThreatIntelligenceIndicator`** table and are managed on the
-  **Threat Intelligence** page.
+  live in Sentinel's TI tables — the STIX-based **`ThreatIntelIndicators`** /
+  **`ThreatIntelObjects`** (current), which replaced the legacy
+  **`ThreatIntelligenceIndicator`** table — and are managed on the **Threat
+  Intelligence** page.
 - **Threat intelligence ("TI map") analytics rules** match indicators against your
   logs (IP vs firewall, domain vs DNS, hash vs files) to raise alerts — a KQL
   **join** under the hood.

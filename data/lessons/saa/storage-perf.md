@@ -9,12 +9,12 @@ high-performance file systems.
 
 ## EBS volume types
 
-**Amazon EBS** provides block storage for EC2. There are four types, split into SSD
+**Amazon EBS** provides block storage for EC2. Four current-generation types matter here (AWS offers six in total), split into SSD
 (random IOPS) and HDD (sequential throughput).
 
 | Type | Class | Strength | Typical use |
 |------|-------|----------|-------------|
-| **gp3** | SSD | 3,000 IOPS / 125 MiB/s baseline, scalable to 16,000 IOPS / 1,000 MiB/s | General purpose; default |
+| **gp3** | SSD | 3,000 IOPS / 125 MiB/s baseline, scalable to 80,000 IOPS / 2,000 MiB/s | General purpose; default |
 | **io2 / io2 Block Express** | SSD | Highest, most consistent IOPS; 99.999% durability | Critical, latency-sensitive databases |
 | **st1** | HDD | High sequential throughput | Big data, log processing, data warehouses |
 | **sc1** | HDD | Lowest cost | Cold, rarely accessed data |
@@ -40,7 +40,7 @@ Two EBS features also appear:
 
 ## Instance store: fastest but ephemeral
 
-**EC2 instance store** is local NVMe physically attached to the host. It delivers
+**EC2 instance store** is local disk (NVMe SSD on most current families) physically attached to the host. It delivers
 the **highest possible I/O** for temporary scratch data — a cache or buffer — but it
 is **lost when the instance stops**. Use it only for data you can regenerate.
 
