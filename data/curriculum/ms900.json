@@ -1,0 +1,145 @@
+{
+  "exam": "ms900",
+  "units": [
+    {
+      "id": "ms900-u1",
+      "order": 1,
+      "title": "Cloud Concepts",
+      "summary": "Why organizations move to the cloud: the benefits and trade-offs, the IaaS/PaaS/SaaS service models and public/private/hybrid deployment models, and how Microsoft 365 as a subscription differs from traditional Office.",
+      "domains": [
+        "ms9_cloud_concepts"
+      ],
+      "milestone_size": 22,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "ms900-l-cloud-fundamentals",
+          "title": "Cloud Benefits, Service Models & Adoption",
+          "markdown_path": "ms900/cloud-fundamentals.md",
+          "subtopics": [
+            "ms9_cloud_benefits",
+            "ms9_cloud_adoption"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "ms900-l-m365-vs-office",
+          "title": "Microsoft 365 vs. Office",
+          "markdown_path": "ms900/m365-vs-office.md",
+          "subtopics": [
+            "ms9_m365_vs_office"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "ms900-u2",
+      "order": 2,
+      "title": "Microsoft 365 Apps and Services",
+      "summary": "The heart of the exam: the productivity and collaboration apps (Word, Excel, Outlook, Exchange, SharePoint, OneDrive, Teams), how the apps are deployed and updated, endpoint management with Microsoft Intune, and the analytics and Microsoft 365 Copilot layer built on Microsoft Graph.",
+      "domains": [
+        "ms9_apps_services"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "ms900-l-productivity-apps",
+          "title": "Core Productivity Apps & Deployment",
+          "markdown_path": "ms900/productivity-apps.md",
+          "subtopics": [
+            "ms9_productivity_apps",
+            "ms9_deployment_options"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "ms900-l-teams-endpoint",
+          "title": "Teamwork, Collaboration & Endpoint Management",
+          "markdown_path": "ms900/teams-endpoint.md",
+          "subtopics": [
+            "ms9_teams_collaboration",
+            "ms9_endpoint_intune"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "ms900-l-analytics-copilot",
+          "title": "Analytics, Viva Insights & Microsoft 365 Copilot",
+          "markdown_path": "ms900/analytics-copilot.md",
+          "subtopics": [
+            "ms9_analytics_copilot"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "ms900-u3",
+      "order": 3,
+      "title": "Security, Compliance, Privacy & Trust",
+      "summary": "How Microsoft 365 protects identities and data: Microsoft Entra ID identity and access, Microsoft Defender XDR threat protection, Microsoft Purview compliance and data governance, and the Zero Trust model and privacy principles behind it all.",
+      "domains": [
+        "ms9_security_compliance"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "ms900-l-identity-threat",
+          "title": "Identity with Microsoft Entra ID & Threat Protection",
+          "markdown_path": "ms900/identity-threat.md",
+          "subtopics": [
+            "ms9_identity_entra",
+            "ms9_threat_protection"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "ms900-l-compliance-trust",
+          "title": "Microsoft Purview, Zero Trust & Privacy",
+          "markdown_path": "ms900/compliance-trust.md",
+          "subtopics": [
+            "ms9_compliance_purview",
+            "ms9_zero_trust_privacy"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "ms900-u4",
+      "order": 4,
+      "title": "Pricing, Licensing, and Support",
+      "summary": "The commercial side of Microsoft 365: subscription plans and user licensing, billing and cost management, support options and the service level agreement, and the service lifecycle that governs how features are previewed, released, and communicated.",
+      "domains": [
+        "ms9_pricing_support"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "ms900-l-licensing-billing",
+          "title": "Licensing & Billing",
+          "markdown_path": "ms900/licensing-billing.md",
+          "subtopics": [
+            "ms9_licensing",
+            "ms9_billing_cost"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "ms900-l-support-lifecycle",
+          "title": "Support, SLAs & Service Lifecycle",
+          "markdown_path": "ms900/support-lifecycle.md",
+          "subtopics": [
+            "ms9_support_sla",
+            "ms9_lifecycle"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}

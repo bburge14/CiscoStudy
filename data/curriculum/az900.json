@@ -1,0 +1,126 @@
+{
+  "exam": "az900",
+  "units": [
+    {
+      "id": "az900-u1",
+      "order": 1,
+      "title": "Cloud Concepts",
+      "summary": "What the cloud actually is: the consumption-based model, the public, private and hybrid deployment models, the shared responsibility line, the benefits that justify a move to the cloud, and the IaaS, PaaS and SaaS service types.",
+      "domains": [
+        "az_cloud_concepts"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "az900-l-cloud-models",
+          "title": "Cloud Computing, Deployment Models & Shared Responsibility",
+          "markdown_path": "az900/cloud-models.md",
+          "subtopics": [
+            "az_cloud_models"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "az900-l-cloud-benefits",
+          "title": "The Benefits of Cloud: CapEx vs OpEx, Scale & Reliability",
+          "markdown_path": "az900/cloud-benefits.md",
+          "subtopics": [
+            "az_cloud_benefits"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "az900-l-service-types",
+          "title": "Cloud Service Types: IaaS, PaaS & SaaS",
+          "markdown_path": "az900/service-types.md",
+          "subtopics": [
+            "az_service_types"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "az900-u2",
+      "order": 2,
+      "title": "Azure Architecture and Services",
+      "summary": "How Azure is physically and logically organized, from regions and availability zones down to resource groups, and the core compute, networking, storage and identity services you build on top of that foundation.",
+      "domains": [
+        "az_architecture_services"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "az900-l-core-architecture",
+          "title": "Azure's Core Architecture: Regions, Zones & the Resource Hierarchy",
+          "markdown_path": "az900/core-architecture.md",
+          "subtopics": [
+            "az_core_architecture"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "az900-l-compute-networking",
+          "title": "Azure Compute & Networking",
+          "markdown_path": "az900/compute-networking.md",
+          "subtopics": [
+            "az_compute_networking"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "az900-l-storage-identity",
+          "title": "Azure Storage & Identity",
+          "markdown_path": "az900/storage-identity.md",
+          "subtopics": [
+            "az_storage",
+            "az_identity"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "az900-u3",
+      "order": 3,
+      "title": "Azure Management and Governance",
+      "summary": "Keeping an Azure estate affordable, compliant and healthy: the tools that forecast and control cost, the governance controls that enforce the rules, and the monitoring and management tools that run day to day.",
+      "domains": [
+        "az_management_governance"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "az900-l-cost-management",
+          "title": "Managing Costs in Azure",
+          "markdown_path": "az900/cost-management.md",
+          "subtopics": [
+            "az_cost_management"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "az900-l-governance-compliance",
+          "title": "Governance & Compliance",
+          "markdown_path": "az900/governance-compliance.md",
+          "subtopics": [
+            "az_governance_compliance"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "az900-l-tools-monitoring",
+          "title": "Management Tools & Monitoring",
+          "markdown_path": "az900/tools-monitoring.md",
+          "subtopics": [
+            "az_tools_monitoring"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}
