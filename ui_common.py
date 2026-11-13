@@ -209,6 +209,46 @@ def provider_logo_img(provider: str, height: int = 16) -> str:
             f"vertical-align:middle;display:inline-block'/>")
 
 
+def _track_provider(exam: str) -> str:
+    """Issuing provider name for an exam key, from CERT_CATALOG ('' if unknown)."""
+    for prov in CERT_CATALOG:
+        for c in prov.get("certs", []):
+            if c.get("key") == exam:
+                return prov.get("provider", "")
+    return ""
+
+
+def cert_badge_uri(exam: str) -> str:
+    """base64 data-URI for an OPTIONAL per-cert badge
+    (assets/logos/certs/<exam>.svg|png|webp), or '' if none. Lets a single track
+    show its own badge in place of the issuing-body logo."""
+    ck = f"cert:{exam}"
+    if ck in _provider_logo_cache:
+        return _provider_logo_cache[ck]
+    uri = ""
+    for ext in (".svg", ".png", ".webp"):
+        f = ROOT / "assets" / "logos" / "certs" / f"{exam}{ext}"
+        try:
+            if f.exists():
+                uri = (f"data:{_LOGO_MIME[ext]};base64,"
+                       + base64.b64encode(f.read_bytes()).decode("ascii"))
+                break
+        except Exception:
+            pass
+    _provider_logo_cache[ck] = uri
+    return uri
+
+
+def track_mark_img(exam: str, height: int = 28, *, style: str = "") -> str:
+    """An <img> for a track's branding mark — its per-cert badge if one exists,
+    otherwise its issuing-body logo — or '' when neither file is present."""
+    uri = cert_badge_uri(exam) or provider_logo_uri(_track_provider(exam))
+    if not uri:
+        return ""
+    return (f"<img src='{uri}' alt='' style='height:{height}px;width:auto;"
+            f"max-width:120px;display:inline-block;{style}'/>")
+
+
 def glyph(key: str, size: int = 18, color: str | None = None) -> str:
     """Inline custom-glyph markup, tinted to the current track accent by default."""
     return ui_icons.inline(key, size=size, color=color or current_accent())
@@ -904,8 +944,16 @@ def page_setup(title: str | None = None, icon: str | None = None) -> str:
 
 
 def page_header(icon_key: str, title: str) -> None:
-    """Render a page title with a custom glyph, tinted to the active track accent."""
-    st.html(ui_icons.header_html(icon_key, title, current_accent()))
+    """Render a page title with a custom glyph, tinted to the active track accent.
+    When a logo file exists for the active track (its optional per-cert badge, or
+    its issuing-body logo), it's shown at the right end of the title row; with no
+    file present the header is unchanged."""
+    header = ui_icons.header_html(icon_key, title, current_accent())
+    mark = track_mark_img(st.session_state.get("exam", "ccna"), height=30,
+                          style="margin-left:auto;flex:none;opacity:.95")
+    if mark:
+        header = header.replace("</div>", f"{mark}</div>", 1)
+    st.html(header)
 
 
 def get_scheduler(exam: str) -> DrillScheduler:

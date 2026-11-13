@@ -30,6 +30,20 @@ SVG is preferred; PNG or WebP also work (first match wins per provider):
 - Until a file is present for a provider, the picker just shows the provider
   name - nothing breaks.
 
+## Optional: per-cert badges
+
+To give a single track its own badge (instead of the issuing-body logo),
+drop a file in the `certs/` subfolder named by the track's exam key:
+
+```
+assets/logos/certs/ccna.svg      assets/logos/certs/cissp.svg
+assets/logos/certs/secplus.svg   assets/logos/certs/clf.svg   ...
+```
+
+When present, the badge shows at the right of that track's page header and
+takes precedence over the provider logo. Entirely optional — provider logos
+alone look great.
+
 ## Note
 
 These are third-party trademarks, included here only for a personal, local
