@@ -1,0 +1,185 @@
+{
+  "exam": "cbrops",
+  "units": [
+    {
+      "id": "cbrops-u1",
+      "order": 1,
+      "title": "Security Concepts",
+      "summary": "The vocabulary and mental models a SOC analyst reasons with: the CIA triad and defense in depth, the risk/threat/vulnerability/exploit terms, how access-control models decide who may touch what, how CVSS scores the severity of a flaw, and the tooling (SIEM/SOAR) that runs the modern security operations center.",
+      "domains": [
+        "cbr_security_concepts"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cbrops-l-principles-terms",
+          "title": "Security Principles, Terminology & Risk",
+          "markdown_path": "cbrops/principles-terms.md",
+          "subtopics": [
+            "cbr_cia_defense",
+            "cbr_security_terms",
+            "cbr_risk_terms"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cbrops-l-access-cvss-tools",
+          "title": "Access Control Models, CVSS & SOC Tooling",
+          "markdown_path": "cbrops/access-cvss-tools.md",
+          "subtopics": [
+            "cbr_access_control_models",
+            "cbr_cvss",
+            "cbr_soc_analysis_tools"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cbrops-u2",
+      "order": 2,
+      "title": "Security Monitoring",
+      "summary": "What a SOC watches and why some of it is hard to see. The categories of monitored data (full packet capture, session, transaction, alert, statistical, metadata), the network telemetry that scales (NetFlow, NGFW, content filtering), the attack surface and vectors adversaries probe, signature vs. behavioral detection, the evasion and obfuscation that defeat sensors, and how certificates and encryption change what the analyst can observe.",
+      "domains": [
+        "cbr_security_monitoring"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cbrops-l-data-telemetry",
+          "title": "Monitoring Data Types & Network Telemetry",
+          "markdown_path": "cbrops/data-telemetry.md",
+          "subtopics": [
+            "cbr_data_types",
+            "cbr_network_telemetry"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cbrops-l-attack-surface-detection",
+          "title": "Attack Surface & Detection Methods",
+          "markdown_path": "cbrops/attack-surface-detection.md",
+          "subtopics": [
+            "cbr_attack_surface_vectors",
+            "cbr_detection_methods"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cbrops-l-evasion-crypto",
+          "title": "Evasion, Encryption & Certificate Visibility",
+          "markdown_path": "cbrops/evasion-crypto.md",
+          "subtopics": [
+            "cbr_evasion_obfuscation",
+            "cbr_certificates_crypto"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cbrops-u3",
+      "order": 3,
+      "title": "Host-Based Analysis",
+      "summary": "Investigating the endpoint itself. The endpoint defenses (antivirus, HIDS/HIPS, EDR, application allowlisting, sandboxing), the Windows and Linux internals an analyst must know (processes, the Registry, the file systems, where configuration lives), the host logs and artifacts that record attacker activity (Windows event IDs, Sysmon, Linux /var/log), the basics of malware analysis, and how evidence is classified and attributed.",
+      "domains": [
+        "cbr_host_analysis"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cbrops-l-endpoints-os",
+          "title": "Endpoint Technologies & OS Internals",
+          "markdown_path": "cbrops/endpoints-os.md",
+          "subtopics": [
+            "cbr_endpoint_technologies",
+            "cbr_os_components"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cbrops-l-logs-malware-evidence",
+          "title": "Host Logs, Malware Analysis & Evidence",
+          "markdown_path": "cbrops/logs-malware-evidence.md",
+          "subtopics": [
+            "cbr_logs_artifacts",
+            "cbr_malware_analysis",
+            "cbr_evidence_attribution"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cbrops-u4",
+      "order": 4,
+      "title": "Network Intrusion Analysis",
+      "summary": "Reading the wire. Packet and session analysis and the 5-tuple, the protocol headers (Ethernet, IPv4, TCP, UDP, ICMP) an analyst inspects and the fields attackers abuse, how IDS/IPS events are classified (true/false positive/negative) and mapped back to rules, how firewalls filter traffic, and the intrusion artifacts and indicators pulled from captured traffic and logs.",
+      "domains": [
+        "cbr_network_intrusion"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cbrops-l-packets-protocols",
+          "title": "Packet & Session Analysis and Protocol Headers",
+          "markdown_path": "cbrops/packets-protocols.md",
+          "subtopics": [
+            "cbr_packet_session_analysis",
+            "cbr_protocol_headers"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cbrops-l-ids-firewall-artifacts",
+          "title": "IDS/IPS Events, Firewalls & Intrusion Artifacts",
+          "markdown_path": "cbrops/ids-firewall-artifacts.md",
+          "subtopics": [
+            "cbr_ids_ips_events",
+            "cbr_firewall_filtering",
+            "cbr_intrusion_artifacts"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cbrops-u5",
+      "order": 5,
+      "title": "Security Policies and Procedures",
+      "summary": "How a response is organized and defended legally. The NIST SP 800-61 incident-handling life cycle and the CSIRT that runs it, the analytic frameworks (Cyber Kill Chain, Diamond Model, VERIS) that structure an intrusion, the chain of custody that keeps evidence admissible, the metrics a SOC is measured by, and the runbooks and automation that make response repeatable.",
+      "domains": [
+        "cbr_policies_procedures"
+      ],
+      "milestone_size": 22,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cbrops-l-nist-frameworks",
+          "title": "Incident Handling (NIST) & Attack Frameworks",
+          "markdown_path": "cbrops/nist-frameworks.md",
+          "subtopics": [
+            "cbr_incident_handling_nist",
+            "cbr_attack_frameworks"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cbrops-l-custody-metrics-runbooks",
+          "title": "Chain of Custody, SOC Metrics & Runbooks",
+          "markdown_path": "cbrops/custody-metrics-runbooks.md",
+          "subtopics": [
+            "cbr_chain_of_custody",
+            "cbr_csirt_metrics",
+            "cbr_runbook_automation"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,291 @@
+{
+  "exam": "sscp",
+  "units": [
+    {
+      "id": "sscp-u1",
+      "order": 1,
+      "title": "Security Operations and Administration",
+      "summary": "The practitioner's daily foundation: the CIA triad and the (ISC)² Code of Ethics, the categories and functions of security controls, change and configuration management, how data is classified and handled through its lifecycle, and the security awareness that turns people into a control.",
+      "domains": [
+        "sscp_secops_admin"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "sscp-l-cia-ethics-controls",
+          "title": "CIA, the Code of Ethics & Security Controls",
+          "markdown_path": "sscp/cia-ethics-controls.md",
+          "subtopics": [
+            "sscp_cia_ethics",
+            "sscp_security_controls"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sscp-l-asset-change-mgmt",
+          "title": "Asset, Change & Configuration Management",
+          "markdown_path": "sscp/asset-change-mgmt.md",
+          "subtopics": [
+            "sscp_asset_change_mgmt"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sscp-l-data-handling-awareness",
+          "title": "Data Classification, Handling & Security Awareness",
+          "markdown_path": "sscp/data-handling-awareness.md",
+          "subtopics": [
+            "sscp_data_handling",
+            "sscp_security_awareness"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "sscp-u2",
+      "order": 2,
+      "title": "Access Controls",
+      "summary": "Deciding who may touch what. The authentication factors and methods (including MFA and Kerberos), the classic access control models (DAC, MAC, RBAC, ABAC), the identity lifecycle from provisioning to deprovisioning, and the trust architectures that let separate domains and organizations share identity.",
+      "domains": [
+        "sscp_access_controls"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "sscp-l-authn-methods",
+          "title": "Authentication & the Authentication Factors",
+          "markdown_path": "sscp/authentication-methods.md",
+          "subtopics": [
+            "sscp_authn_methods"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sscp-l-access-control-models",
+          "title": "Access Control Models: DAC, MAC, RBAC & ABAC",
+          "markdown_path": "sscp/access-control-models.md",
+          "subtopics": [
+            "sscp_access_control_models"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sscp-l-identity-trust",
+          "title": "Identity Lifecycle & Trust Architectures",
+          "markdown_path": "sscp/identity-trust.md",
+          "subtopics": [
+            "sscp_identity_lifecycle",
+            "sscp_trust_architectures"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "sscp-u3",
+      "order": 3,
+      "title": "Risk Identification, Monitoring, and Analysis",
+      "summary": "Finding, measuring, and watching risk. The risk management vocabulary and the quantitative math (SLE, ARO, ALE), the assessments that discover weaknesses, the continuous monitoring that detects control failures, and the logging and SIEM that turn raw events into actionable security intelligence.",
+      "domains": [
+        "sscp_risk"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "sscp-l-risk-assessment",
+          "title": "Risk Management & Security Assessment",
+          "markdown_path": "sscp/risk-assessment.md",
+          "subtopics": [
+            "sscp_risk_management",
+            "sscp_security_assessment"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sscp-l-monitoring-analysis",
+          "title": "Security Monitoring & Analysis",
+          "markdown_path": "sscp/monitoring-analysis.md",
+          "subtopics": [
+            "sscp_monitoring_analysis"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sscp-l-siem-logging",
+          "title": "Logging & SIEM",
+          "markdown_path": "sscp/siem-logging.md",
+          "subtopics": [
+            "sscp_siem_logging"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "sscp-u4",
+      "order": 4,
+      "title": "Incident Response and Recovery",
+      "summary": "What to do when prevention fails. The incident response lifecycle from preparation through lessons learned, the digital forensics that preserve evidence (order of volatility, chain of custody), and the business continuity and disaster recovery plans that keep the organization alive and bring it back.",
+      "domains": [
+        "sscp_incident_response"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "sscp-l-incident-handling",
+          "title": "The Incident Response Lifecycle",
+          "markdown_path": "sscp/incident-handling.md",
+          "subtopics": [
+            "sscp_incident_handling"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sscp-l-forensics",
+          "title": "Digital Forensics",
+          "markdown_path": "sscp/forensics.md",
+          "subtopics": [
+            "sscp_forensics"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sscp-l-bcp-dr",
+          "title": "Business Continuity & Disaster Recovery",
+          "markdown_path": "sscp/bcp-dr.md",
+          "subtopics": [
+            "sscp_bcp_dr"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "sscp-u5",
+      "order": 5,
+      "title": "Cryptography",
+      "summary": "Protecting data with math. Symmetric and asymmetric ciphers and hashing and what each one is for, the digital signatures that give integrity and non-repudiation, the public key infrastructure that makes trust scalable, and the key management practices (and hardware) that keep the whole system honest.",
+      "domains": [
+        "sscp_cryptography"
+      ],
+      "milestone_size": 22,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "sscp-l-crypto-concepts",
+          "title": "Cryptographic Concepts: Symmetric, Asymmetric & Hashing",
+          "markdown_path": "sscp/crypto-concepts.md",
+          "subtopics": [
+            "sscp_crypto_concepts"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sscp-l-pki",
+          "title": "Public Key Infrastructure (PKI)",
+          "markdown_path": "sscp/pki.md",
+          "subtopics": [
+            "sscp_pki"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sscp-l-key-management",
+          "title": "Key Management",
+          "markdown_path": "sscp/key-management.md",
+          "subtopics": [
+            "sscp_key_management"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "sscp-u6",
+      "order": 6,
+      "title": "Network and Communications Security",
+      "summary": "How networks work and how we defend them. The OSI and TCP/IP models with their protocols and well-known ports, the attacks that target networks, and the defenses — firewalls, IDS/IPS, segmentation — plus securing wireless and cellular with WPA2, WPA3, and 802.1X.",
+      "domains": [
+        "sscp_network_security"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "sscp-l-network-models",
+          "title": "Network Models, Protocols & Ports",
+          "markdown_path": "sscp/network-models.md",
+          "subtopics": [
+            "sscp_network_models"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sscp-l-network-attacks",
+          "title": "Network Attacks",
+          "markdown_path": "sscp/network-attacks.md",
+          "subtopics": [
+            "sscp_network_attacks"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sscp-l-network-defense-wireless",
+          "title": "Network Defense & Wireless Security",
+          "markdown_path": "sscp/network-defense-wireless.md",
+          "subtopics": [
+            "sscp_network_defense",
+            "sscp_wireless_cellular"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "sscp-u7",
+      "order": 7,
+      "title": "Systems and Application Security",
+      "summary": "Securing the endpoints and platforms that run the business. Malware and endpoint defense, the shared-responsibility and isolation challenges of cloud and virtualization, and the controls for mobile, IoT, and big-data environments.",
+      "domains": [
+        "sscp_systems_app"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "sscp-l-malware-endpoint",
+          "title": "Malware & Endpoint Security",
+          "markdown_path": "sscp/malware-endpoint.md",
+          "subtopics": [
+            "sscp_malware_endpoint"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sscp-l-cloud-virtualization",
+          "title": "Cloud & Virtualization Security",
+          "markdown_path": "sscp/cloud-virtualization.md",
+          "subtopics": [
+            "sscp_cloud_security",
+            "sscp_virtualization_security"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "sscp-l-mobile-iot",
+          "title": "Mobile, IoT & Big Data Security",
+          "markdown_path": "sscp/mobile-iot.md",
+          "subtopics": [
+            "sscp_mobile_iot_security"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}
