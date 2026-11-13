@@ -18,7 +18,8 @@ def test_units_exist_for_each_track():
     expected = {"ccna": 6, "encor": 6, "secplus": 5, "netplus": 5, "aplus1": 5, "aplus2": 4,
                 "isc2cc": 5, "sc900": 4, "az900": 3, "clf": 4, "ms900": 4,
                 "cysa": 4, "cbrops": 5, "sscp": 7, "cisa": 5, "cism": 4,
-                "cissp": 8, "ceh": 6, "pentest": 5, "securityx": 4}
+                "cissp": 8, "ceh": 6, "pentest": 5, "securityx": 4,
+                "saa": 4, "az500": 4, "sc200": 4, "cloudplus": 6, "linuxplus": 4}
     for exam, n in expected.items():
         assert len(CUR.units_for(exam)) == n, exam
 

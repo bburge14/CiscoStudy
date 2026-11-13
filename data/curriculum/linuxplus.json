@@ -1,0 +1,207 @@
+{
+  "exam": "linuxplus",
+  "units": [
+    {
+      "id": "linuxplus-u1",
+      "order": 1,
+      "title": "System Management",
+      "summary": "The daily craft of running a Linux box: the filesystem hierarchy and file handling, creating users and groups, installing software with apt/dnf/rpm/dpkg, the boot sequence and systemd, managing processes and services, and configuring storage with LVM and the network stack.",
+      "domains": [
+        "linuxp_system_mgmt"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "linuxplus-l-filesystem",
+          "title": "The Filesystem Hierarchy, Files & Links",
+          "markdown_path": "linuxplus/sys-filesystem.md",
+          "subtopics": [
+            "linuxp_filesystem"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "linuxplus-l-users-packages",
+          "title": "Users, Groups & Package Management",
+          "markdown_path": "linuxplus/sys-users-packages.md",
+          "subtopics": [
+            "linuxp_users_groups",
+            "linuxp_package_mgmt"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "linuxplus-l-boot-services",
+          "title": "Boot, Kernel Modules, Processes & systemd Services",
+          "markdown_path": "linuxplus/sys-boot-services.md",
+          "subtopics": [
+            "linuxp_boot_kernel",
+            "linuxp_processes_services"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "linuxplus-l-storage-network",
+          "title": "Storage, LVM & Network Configuration",
+          "markdown_path": "linuxplus/sys-storage-network.md",
+          "subtopics": [
+            "linuxp_storage_lvm",
+            "linuxp_networking_config"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "linuxplus-u2",
+      "order": 2,
+      "title": "Security",
+      "summary": "Locking the system down: the permission model including the special bits and ACLs, controlled privilege with sudo and PAM plus mandatory access control via SELinux and AppArmor, host firewalls with firewalld/nftables/iptables, hardening the SSH service, and the certificate, key and GPG tooling that provides encryption and trust.",
+      "domains": [
+        "linuxp_security"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "linuxplus-l-permissions",
+          "title": "Permissions, Special Bits & ACLs",
+          "markdown_path": "linuxplus/sec-permissions.md",
+          "subtopics": [
+            "linuxp_permissions_acl"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "linuxplus-l-access-control",
+          "title": "Access Control: sudo, PAM, SELinux & AppArmor",
+          "markdown_path": "linuxplus/sec-access-control.md",
+          "subtopics": [
+            "linuxp_access_control"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "linuxplus-l-firewall-ssh",
+          "title": "Host Firewalls & SSH Hardening",
+          "markdown_path": "linuxplus/sec-firewall-ssh.md",
+          "subtopics": [
+            "linuxp_firewall",
+            "linuxp_ssh_hardening"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "linuxplus-l-crypto-certs",
+          "title": "Certificates, Keys & GPG",
+          "markdown_path": "linuxplus/sec-crypto-certs.md",
+          "subtopics": [
+            "linuxp_crypto_certs"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "linuxplus-u3",
+      "order": 3,
+      "title": "Scripting, Containers, and Automation",
+      "summary": "Making the machine do the work: Bash scripting constructs for repeatable tasks, version control with Git, running workloads in containers with Podman and Docker, and automating with cron, systemd timers, Infrastructure as Code and Ansible, and CI/CD pipelines.",
+      "domains": [
+        "linuxp_scripting"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "linuxplus-l-bash",
+          "title": "Bash Scripting",
+          "markdown_path": "linuxplus/auto-bash-scripting.md",
+          "subtopics": [
+            "linuxp_bash_scripting"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "linuxplus-l-git",
+          "title": "Version Control with Git",
+          "markdown_path": "linuxplus/auto-git.md",
+          "subtopics": [
+            "linuxp_git_version"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "linuxplus-l-containers",
+          "title": "Containers with Podman & Docker",
+          "markdown_path": "linuxplus/auto-containers.md",
+          "subtopics": [
+            "linuxp_containers"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "linuxplus-l-automation",
+          "title": "Scheduling, IaC & CI/CD Automation",
+          "markdown_path": "linuxplus/auto-automation.md",
+          "subtopics": [
+            "linuxp_automation"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "linuxplus-u4",
+      "order": 4,
+      "title": "Troubleshooting",
+      "summary": "Finding and fixing what breaks: a disciplined troubleshooting methodology and the diagnostic toolbox, CPU and memory performance analysis, storage and network diagnostics, and resolving failed services, boot problems and permission/access failures.",
+      "domains": [
+        "linuxp_troubleshooting"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "linuxplus-l-ts-tools",
+          "title": "Troubleshooting Methodology & Diagnostic Tools",
+          "markdown_path": "linuxplus/ts-methodology-tools.md",
+          "subtopics": [
+            "linuxp_ts_tools"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "linuxplus-l-ts-performance",
+          "title": "CPU, Memory & Performance",
+          "markdown_path": "linuxplus/ts-cpu-memory.md",
+          "subtopics": [
+            "linuxp_ts_cpu_memory"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "linuxplus-l-ts-storage-network",
+          "title": "Storage & Network Diagnostics",
+          "markdown_path": "linuxplus/ts-storage-network.md",
+          "subtopics": [
+            "linuxp_ts_storage",
+            "linuxp_ts_network"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "linuxplus-l-ts-services-access",
+          "title": "Service, Boot & Access Failures",
+          "markdown_path": "linuxplus/ts-services-access.md",
+          "subtopics": [
+            "linuxp_ts_services",
+            "linuxp_ts_users_access"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}
