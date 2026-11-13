@@ -28,7 +28,7 @@ distinction.
 
 > **High availability** means a service is designed to stay up and accessible,
 > minimizing downtime even when individual components fail. **Reliability** is the
-> broader ability of a system to recover from failures and keep functioning.**
+> broader ability of a system to recover from failures and keep functioning.
 
 A system that is spread across multiple datacenters or multiple regions, so that
 the failure of one does not take the whole service down, is demonstrating
