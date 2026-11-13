@@ -18,7 +18,7 @@
     color:#8A94A6; margin-bottom:.1rem; }
   .chip { display:inline-flex; align-items:center; gap:.4rem; padding:.42rem .6rem;
     background:#1b2435; border:1px solid rgba(255,255,255,.14); border-radius:8px;
-    cursor:grab; user-select:none; font-size:.9rem; line-height:1.15; }
+    cursor:grab; user-select:none; font-size:.9rem; line-height:1.15; touch-action:none; }
   .chip:active { cursor:grabbing; }
   .chip.dragging { opacity:.4; }
   .chip .grip { color:#6b7688; font-size:.8rem; }
@@ -38,7 +38,7 @@
   .orderlist { display:flex; flex-direction:column; gap:.4rem; counter-reset:step; }
   .orderitem { display:flex; align-items:center; gap:.6rem; padding:.5rem .6rem;
     background:#1b2435; border:1px solid rgba(255,255,255,.14); border-radius:9px;
-    cursor:grab; user-select:none; }
+    cursor:grab; user-select:none; touch-action:none; }
   .orderitem.dragging { opacity:.4; }
   .orderitem.over { border-color:var(--accent); }
   .orderitem .num { flex:none; width:1.6rem; height:1.6rem; border-radius:50%;
@@ -75,13 +75,51 @@ function chip(text){
   c.querySelector("span:last-child").textContent = text;
   c.addEventListener("dragstart", ()=>{ dragged=c; c.classList.add("dragging"); });
   c.addEventListener("dragend", ()=>{ c.classList.remove("dragging"); emit(); });
+  attachTouch(c, false);
   return c;
 }
 function dropTarget(el, onDrop){
+  el._onDrop = onDrop;                     // so touch handlers can reach it too
   el.addEventListener("dragover", (ev)=>{ ev.preventDefault(); el.classList.add("over"); });
   el.addEventListener("dragleave", ()=> el.classList.remove("over"));
   el.addEventListener("drop", (ev)=>{ ev.preventDefault(); el.classList.remove("over");
     if (dragged) onDrop(dragged); emit(); });
+}
+
+// ---- touch drag-and-drop (native HTML5 DnD does not fire from touch) --------
+function clearOver(){ document.querySelectorAll(".over").forEach(e=> e.classList.remove("over")); }
+function findDropEl(node){ while (node && node !== document.body){ if (node._onDrop) return node; node = node.parentElement; } return null; }
+function attachTouch(el, isOrder, list){
+  el.addEventListener("touchstart", ()=>{ dragged = el; el.classList.add("dragging"); }, {passive:true});
+  el.addEventListener("touchmove", (ev)=>{
+    if (dragged !== el) return;
+    ev.preventDefault();                    // keep the page from scrolling mid-drag
+    const t = ev.touches[0];
+    const under = document.elementFromPoint(t.clientX, t.clientY);
+    if (isOrder){
+      const over = under && under.closest ? under.closest(".orderitem") : null;
+      if (over && over !== el){
+        const r = over.getBoundingClientRect();
+        const before = (t.clientY - r.top) < r.height/2;
+        list.insertBefore(el, before ? over : over.nextSibling);
+      }
+    } else {
+      clearOver();
+      const d = findDropEl(under);
+      if (d) d.classList.add("over");
+    }
+  }, {passive:false});
+  el.addEventListener("touchend", (ev)=>{
+    if (dragged !== el) return;
+    el.classList.remove("dragging"); clearOver();
+    if (isOrder){ renumber(list); }
+    else {
+      const t = ev.changedTouches[0];
+      const d = findDropEl(document.elementFromPoint(t.clientX, t.clientY));
+      if (d && d._onDrop) d._onDrop(el);
+    }
+    emit(); dragged = null;
+  });
 }
 
 // ---- render ---------------------------------------------------------------
@@ -183,6 +221,7 @@ function renderOrder(root){
       const before = (ev.clientY - r.top) < r.height/2;
       list.insertBefore(dragged, before ? it : it.nextSibling);
     });
+    attachTouch(it, true, list);
     list.appendChild(it);
   });
   root.appendChild(list);
