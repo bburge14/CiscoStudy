@@ -1,0 +1,156 @@
+{
+  "exam": "cism",
+  "units": [
+    {
+      "id": "cism-u1",
+      "order": 1,
+      "title": "Information Security Governance",
+      "summary": "Establishing security governance that serves the business: what governance is and the frameworks that structure it, aligning the security strategy to the organization's objectives, the roles and responsibilities from the board down to data owners, and the legal and regulatory obligations the manager must meet.",
+      "domains": [
+        "cism_governance"
+      ],
+      "milestone_size": 22,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cism-l-gov-foundations",
+          "title": "Governance Foundations & Strategic Alignment",
+          "markdown_path": "cism/gov-foundations.md",
+          "subtopics": [
+            "cism_governance_framework",
+            "cism_strategy_alignment"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cism-l-gov-roles-legal",
+          "title": "Roles, Responsibilities & the Legal/Regulatory Landscape",
+          "markdown_path": "cism/gov-roles-legal.md",
+          "subtopics": [
+            "cism_roles_responsibilities",
+            "cism_legal_regulatory"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cism-u2",
+      "order": 2,
+      "title": "Information Security Risk Management",
+      "summary": "Managing information risk end to end from a manager's chair: identifying and valuing assets through classification, assessing and analyzing risk both qualitatively and with quantitative SLE/ALE/ARO math, choosing treatment options and assigning risk ownership and acceptance, and monitoring risk continuously as the threat and business environment change.",
+      "domains": [
+        "cism_risk"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cism-l-risk-assessment",
+          "title": "Risk Identification, Assessment & Asset Classification",
+          "markdown_path": "cism/risk-assessment.md",
+          "subtopics": [
+            "cism_risk_assessment",
+            "cism_asset_classification"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cism-l-risk-response",
+          "title": "Risk Response & Ongoing Risk Monitoring",
+          "markdown_path": "cism/risk-response.md",
+          "subtopics": [
+            "cism_risk_response",
+            "cism_risk_monitoring"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cism-u3",
+      "order": 3,
+      "title": "Information Security Program",
+      "summary": "Turning strategy into an operating program: developing and managing the information security program so resources address the greatest exposures, selecting control frameworks and the controls themselves, managing third-party and supply-chain risk, running role-based awareness and training, and proving value to leadership through meaningful metrics and reporting.",
+      "domains": [
+        "cism_program"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cism-l-program-build",
+          "title": "Building & Managing the Security Program",
+          "markdown_path": "cism/program-build.md",
+          "subtopics": [
+            "cism_program_development",
+            "cism_program_frameworks"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cism-l-program-controls",
+          "title": "Security Controls & Third-Party Risk Management",
+          "markdown_path": "cism/program-controls.md",
+          "subtopics": [
+            "cism_security_controls",
+            "cism_third_party_mgmt"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cism-l-program-awareness",
+          "title": "Awareness, Training, Metrics & Reporting",
+          "markdown_path": "cism/program-awareness.md",
+          "subtopics": [
+            "cism_awareness_training",
+            "cism_metrics_reporting"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cism-u4",
+      "order": 4,
+      "title": "Incident Management",
+      "summary": "Preparing for and managing disruption: building incident-response readiness and documented, tested plans, detecting, triaging, classifying, containing and eradicating incidents, learning from them through post-incident review, and keeping essential functions alive through business continuity and disaster recovery with RTO, RPO and MTD.",
+      "domains": [
+        "cism_incident"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cism-l-incident-planning",
+          "title": "Incident Response Planning & Readiness",
+          "markdown_path": "cism/incident-planning.md",
+          "subtopics": [
+            "cism_incident_readiness",
+            "cism_incident_response_plan"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cism-l-incident-handling",
+          "title": "Containment, Eradication & Post-Incident Review",
+          "markdown_path": "cism/incident-handling.md",
+          "subtopics": [
+            "cism_containment_eradication",
+            "cism_post_incident_review"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cism-l-bcdr",
+          "title": "Business Continuity & Disaster Recovery",
+          "markdown_path": "cism/bcdr.md",
+          "subtopics": [
+            "cism_bcp_dr"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}
