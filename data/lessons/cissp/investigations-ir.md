@@ -63,7 +63,7 @@ An **incident** must first be distinguished from the noise.
 Thousands of events a day are normal; the skill is finding the few that are
 incidents. Incident response then follows a repeatable lifecycle. (ISC)² frames the
 phases roughly as **Detect → Respond → Mitigate → Report → Recover → Remediate →
-Lessons Learned**; NIST SP 800-61 groups them as **Preparation; Detection &
+Lessons Learned**; NIST SP 800-61 Rev. 2 groups them as **Preparation; Detection &
 Analysis; Containment, Eradication & Recovery; Post-Incident Activity**. Either way,
 the logic is the same:
 

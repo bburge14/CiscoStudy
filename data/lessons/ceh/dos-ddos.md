@@ -23,8 +23,8 @@ CEH groups DoS/DDoS techniques by *what resource they exhaust*.
 
 | Class | Exhausts | Examples |
 |-------|----------|----------|
-| **Volumetric** | Bandwidth | UDP flood, ICMP flood, amplification/reflection |
-| **Protocol / state** | Connection tables, device state | SYN flood, Smurf, teardrop, ping of death |
+| **Volumetric** | Bandwidth | UDP flood, ICMP flood, Smurf, amplification/reflection |
+| **Protocol / state** | Connection tables, device state | SYN flood, teardrop, ping of death |
 | **Application (Layer 7)** | Server CPU/threads | HTTP flood, Slowloris |
 
 ### Volumetric attacks
@@ -40,6 +40,10 @@ These simply fill the pipe. The most important concept is **amplification
 The "amplification factor" is why a modest attacker can generate an enormous flood:
 a tiny request triggers a huge answer, all aimed at the spoofed victim.
 
+The classic **Smurf** attack is ICMP amplification: the attacker sends an ICMP
+echo to a network's **broadcast address** with the victim's IP spoofed as the
+source, so every host on the segment replies to the victim at once.
+
 ### Protocol / state-exhaustion attacks
 
 These abuse how protocols keep state. The headline example:
@@ -48,9 +52,9 @@ These abuse how protocols keep state. The headline example:
 > **never completes the handshakes**, exhausting the server's table of half-open
 > connections so it can no longer accept real ones.
 
-Others include the **Smurf** attack (spoofed ICMP echo to a broadcast address, so
-every host replies to the victim) and legacy malformed-packet attacks like
-**teardrop** and **ping of death**.
+Others are legacy malformed-packet attacks like **teardrop** and **ping of
+death**, which crash or hang a target with malformed fragments rather than sheer
+volume.
 
 ### Application-layer attacks
 
@@ -110,10 +114,11 @@ traffic without first knowing what normal looks like.
 - **SYN flood** = spoofed SYNs that never finish the handshake, exhausting the
   **half-open connection table**; the fix is **SYN cookies** (plus rate limiting).
 - **Amplification/reflection** = small spoofed query → large reply aimed at the
-  victim (**DNS, NTP**). The source-side fix is **anti-spoofing / BCP 38**;
+  victim (**DNS, NTP**; **Smurf** = spoofed ICMP to a broadcast). The source-side
+  fix is **anti-spoofing / BCP 38**;
   **scrubbing** absorbs it.
-- Know the three classes: **volumetric** (bandwidth), **protocol/state** (SYN,
-  Smurf), **application/Layer 7** (HTTP flood, **Slowloris** — low bandwidth, hard
+- Know the three classes: **volumetric** (bandwidth; UDP/ICMP flood, **Smurf**),
+  **protocol/state** (SYN flood, teardrop), **application/Layer 7** (HTTP flood, **Slowloris** — low bandwidth, hard
   to spot).
 - Upstream defenses (**scrubbing services, CDNs, anycast, ISP blackholing**) absorb
   large floods; a **WAF** helps with app-layer attacks.

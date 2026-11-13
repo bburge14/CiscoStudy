@@ -49,7 +49,7 @@ since the stable concepts carry across editions.
 | A06 | Insecure Design |
 | A07 | Authentication Failures |
 | A08 | Software or Data Integrity Failures |
-| A09 | Logging & Alerting Failures |
+| A09 | Security Logging & Alerting Failures |
 | A10 | **Mishandling of Exceptional Conditions** *(new)* |
 
 > **Broken Access Control remained #1 in both 2021 and 2025.** The 2025 update

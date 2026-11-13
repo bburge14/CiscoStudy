@@ -26,7 +26,7 @@ both mappings.
 | A06 | Insecure Design | Vulnerable and Outdated Components |
 | A07 | Authentication Failures | Identification and Authentication Failures |
 | A08 | Software or Data Integrity Failures | Software and Data Integrity Failures |
-| A09 | Logging and Alerting Failures | Security Logging and Monitoring Failures |
+| A09 | Security Logging and Alerting Failures | Security Logging and Monitoring Failures |
 | A10 | Mishandling of Exceptional Conditions | Server-Side Request Forgery (SSRF) |
 
 Two notes that are easy exam points: **Broken Access Control is #1 in both

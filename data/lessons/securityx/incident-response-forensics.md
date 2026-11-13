@@ -27,7 +27,7 @@ model defines a four-phase lifecycle you must know in order:
 A currency note: **NIST SP 800-61 Revision 3 (April 2025)** reframes incident
 response around the six **CSF 2.0 Functions** — **Govern, Identify, Protect, Detect,
 Respond, Recover** — integrating IR into broader risk management rather than a
-standalone five-stage cycle. Know the classic four phases for most questions, and
+standalone lifecycle. Know the classic four phases (Rev 2) for most questions, and
 recognize the CSF-2.0 alignment as the current direction.
 
 ### Containment decisions under pressure
