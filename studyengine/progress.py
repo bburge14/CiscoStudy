@@ -64,6 +64,11 @@ class Profile:
     xp: float = 0.0
     answer_streak: int = 0     # current consecutive correct (study only)
     best_streak: int = 0       # longest streak reached
+    # Self-reported certification status for this track (the "credential wallet"):
+    # "" (none), "planned", "studying", or "earned". "earned" grants a one-time
+    # XP bonus via leveling.compute_xp. cert_date is an ISO date string (earned).
+    cert_status: str = ""
+    cert_date: str = ""
 
     # -- recording ---------------------------------------------------------
     def record(self, question: Question, correct: bool) -> QStat:
@@ -237,6 +242,8 @@ class Profile:
             "xp": self.xp,
             "answer_streak": self.answer_streak,
             "best_streak": self.best_streak,
+            "cert_status": self.cert_status,
+            "cert_date": self.cert_date,
             "q": {qid: asdict(st) for qid, st in self.q.items()},
         }
 
@@ -250,6 +257,8 @@ class Profile:
         prof.passed_milestones = set(d.get("passed_milestones", []))
         prof.answer_streak = int(d.get("answer_streak", 0))
         prof.best_streak = int(d.get("best_streak", 0))
+        prof.cert_status = str(d.get("cert_status", "") or "")
+        prof.cert_date = str(d.get("cert_date", "") or "")
         for qid, st in d.get("q", {}).items():
             prof.q[qid] = QStat(**st)
         # Legacy backfill: a profile that took the diagnostic before study/

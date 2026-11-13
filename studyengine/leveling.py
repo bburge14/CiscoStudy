@@ -17,6 +17,8 @@ from .progress import MASTERY_THRESHOLD, Profile
 # derived, idempotent bonus on top.
 XP_PER_MILESTONE = 120         # passing a structured milestone
 XP_PER_LESSON = 25             # passing a lesson quiz
+XP_PER_EARNED_CERT = 600       # one-time bonus for marking THIS track's cert Earned
+                               # (self-reported; bounded so it can't be farmed)
 MASTERY_MIN_ATTEMPTS = 4       # study attempts before a sub-topic counts as mastered
 # Note: the diagnostic benchmark earns NO XP, and a wrong answer COSTS XP.
 # Leveling reflects getting better over time, not raw volume of attempts.
@@ -76,6 +78,8 @@ def compute_xp(profile: Profile) -> int:
     xp = float(getattr(profile, "xp", 0.0))
     xp += len(profile.passed_milestones) * XP_PER_MILESTONE
     xp += len(profile.completed_lessons) * XP_PER_LESSON
+    if getattr(profile, "cert_status", "") == "earned":
+        xp += XP_PER_EARNED_CERT
     return int(xp)
 
 

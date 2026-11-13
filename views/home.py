@@ -10,6 +10,7 @@ from ui_common import (
     CERT_CATALOG,
     EXAMS,
     current_user,
+    earned_tracks,
     get_bank,
     get_blueprint,
     get_profile,
@@ -17,6 +18,7 @@ from ui_common import (
     is_instructor,
     list_users,
     page_setup,
+    render_earned_badges,
     render_level_card,
 )
 
@@ -41,6 +43,14 @@ c1, c2, c3 = st.columns(3)
 c1.metric("Questions answered", seen)
 c2.metric("Lifetime accuracy", f"{round(correct / seen * 100)}%" if seen else "—")
 c3.metric("Diagnostic", f"{prof.baseline['overall']}%" if prof.baseline else "not taken")
+
+# --- earned certifications strip -------------------------------------------
+if earned_tracks():
+    st.markdown(
+        "<div style='font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;"
+        "color:#8A94A6;margin:.6rem 0 .35rem'>Your certifications</div>",
+        unsafe_allow_html=True)
+    render_earned_badges(compact=True)
 
 # --- smart next step --------------------------------------------------------
 st.markdown("### Your next step")
