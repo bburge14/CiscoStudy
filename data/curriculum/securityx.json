@@ -1,0 +1,184 @@
+{
+  "exam": "securityx",
+  "units": [
+    {
+      "id": "securityx-u1",
+      "order": 1,
+      "title": "Governance, Risk, and Compliance",
+      "summary": "Running security as a business discipline: enterprise risk management and quantification, the compliance frameworks and governance structures that direct it, and the third-party/supply-chain and data-governance programs that extend trust beyond the enterprise boundary.",
+      "domains": [
+        "scx_grc"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "securityx-l-risk-management",
+          "title": "Enterprise Risk Management",
+          "markdown_path": "securityx/risk-management.md",
+          "subtopics": [
+            "scx_risk_management"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "securityx-l-compliance-governance",
+          "title": "Compliance Frameworks & Governance Policies",
+          "markdown_path": "securityx/compliance-governance.md",
+          "subtopics": [
+            "scx_compliance_frameworks",
+            "scx_governance_policies"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "securityx-l-thirdparty-data-gov",
+          "title": "Third-Party Risk & Data Governance",
+          "markdown_path": "securityx/thirdparty-data-governance.md",
+          "subtopics": [
+            "scx_third_party_risk",
+            "scx_data_governance"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "securityx-u2",
+      "order": 2,
+      "title": "Security Architecture",
+      "summary": "Designing trust into the enterprise: defense-in-depth and segmentation, a NIST SP 800-207 zero-trust and SASE/SSE access model, secure cloud and hybrid design with resilience and high availability, and data-protection and identity architecture at enterprise scale.",
+      "domains": [
+        "scx_architecture"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "securityx-l-secure-arch-zt",
+          "title": "Secure Enterprise Architecture & Zero Trust",
+          "markdown_path": "securityx/secure-architecture-zero-trust.md",
+          "subtopics": [
+            "scx_secure_architecture",
+            "scx_zero_trust"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "securityx-l-cloud-resilience",
+          "title": "Secure Cloud, Hybrid & Resilient Design",
+          "markdown_path": "securityx/cloud-hybrid-resilience.md",
+          "subtopics": [
+            "scx_cloud_hybrid_arch",
+            "scx_resilience_ha"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "securityx-l-data-iam-arch",
+          "title": "Data Protection & Enterprise IAM Architecture",
+          "markdown_path": "securityx/data-iam-architecture.md",
+          "subtopics": [
+            "scx_data_security_arch",
+            "scx_iam_architecture"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "securityx-u3",
+      "order": 3,
+      "title": "Security Engineering",
+      "summary": "Building and hardening the systems themselves: applied cryptography and PKI including the post-quantum migration to FIPS 203/204/205, secure protocols and system/IoT/OT integration, endpoint and hardware roots of trust, secure coding and security automation, and the security of emerging technology and AI.",
+      "domains": [
+        "scx_engineering"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "securityx-l-crypto-pki",
+          "title": "Applied Cryptography, PKI & Post-Quantum Migration",
+          "markdown_path": "securityx/cryptography-pki.md",
+          "subtopics": [
+            "scx_cryptography",
+            "scx_pki"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "securityx-l-integration-endpoint",
+          "title": "Secure Integration & Endpoint/System Security",
+          "markdown_path": "securityx/secure-integration-endpoint.md",
+          "subtopics": [
+            "scx_secure_integration",
+            "scx_endpoint_security"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "securityx-l-coding-automation",
+          "title": "Secure Coding & Security Automation",
+          "markdown_path": "securityx/secure-coding-automation.md",
+          "subtopics": [
+            "scx_secure_coding",
+            "scx_automation"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "securityx-l-emerging-tech",
+          "title": "Emerging Technology & AI Security",
+          "markdown_path": "securityx/emerging-tech-ai.md",
+          "subtopics": [
+            "scx_emerging_tech"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "securityx-u4",
+      "order": 4,
+      "title": "Security Operations",
+      "summary": "Detecting and responding at scale: hypothesis-driven threat hunting and threat intelligence, detection engineering and monitoring, incident response and digital forensics for the enterprise, and risk-based vulnerability management.",
+      "domains": [
+        "scx_operations"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "securityx-l-hunting-detection",
+          "title": "Threat Hunting, Intelligence & Detection Engineering",
+          "markdown_path": "securityx/threat-hunting-detection.md",
+          "subtopics": [
+            "scx_threat_hunting",
+            "scx_monitoring_detection"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "securityx-l-ir-forensics",
+          "title": "Incident Response & Digital Forensics",
+          "markdown_path": "securityx/incident-response-forensics.md",
+          "subtopics": [
+            "scx_incident_response",
+            "scx_forensics"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "securityx-l-vuln-management",
+          "title": "Enterprise Vulnerability Management",
+          "markdown_path": "securityx/vulnerability-management.md",
+          "subtopics": [
+            "scx_vuln_management"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}

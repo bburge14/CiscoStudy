@@ -1,0 +1,297 @@
+{
+  "exam": "cissp",
+  "units": [
+    {
+      "id": "cissp-u1",
+      "order": 1,
+      "title": "Security and Risk Management",
+      "summary": "The managerial core of the CBK: aligning security with the business through governance, the CIA triad and professional ethics, quantifying and treating risk, meeting legal and regulatory obligations, and planning to survive disruption.",
+      "domains": [
+        "cissp_srm"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cissp-l-governance-ethics",
+          "title": "Security Governance, the CIA Triad & Professional Ethics",
+          "markdown_path": "cissp/governance-ethics.md",
+          "subtopics": [
+            "cissp_cia_governance",
+            "cissp_ethics_personnel"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cissp-l-risk-compliance",
+          "title": "Risk Management, Legal & Compliance",
+          "markdown_path": "cissp/risk-compliance.md",
+          "subtopics": [
+            "cissp_risk_management",
+            "cissp_compliance_legal"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cissp-l-policies-bcp",
+          "title": "Security Policies, Agreements & Business Continuity",
+          "markdown_path": "cissp/policies-bcp.md",
+          "subtopics": [
+            "cissp_security_policies",
+            "cissp_bcp_dr"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cissp-u2",
+      "order": 2,
+      "title": "Asset Security",
+      "summary": "Protecting information as an asset across its whole life: classifying and labeling data, assigning ownership and custody roles, and applying the right handling, retention and sanitization controls in every data state.",
+      "domains": [
+        "cissp_asset"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cissp-l-classification-roles",
+          "title": "Data Classification & Ownership Roles",
+          "markdown_path": "cissp/classification-roles.md",
+          "subtopics": [
+            "cissp_data_classification",
+            "cissp_data_roles"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cissp-l-data-lifecycle",
+          "title": "Data Lifecycle, States & Protection Methods",
+          "markdown_path": "cissp/data-lifecycle.md",
+          "subtopics": [
+            "cissp_data_lifecycle",
+            "cissp_data_protection_methods"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cissp-u3",
+      "order": 3,
+      "title": "Security Architecture and Engineering",
+      "summary": "The engineering heart of security: formal security models, cryptography and PKI, trusted-system capabilities, the weaknesses of modern architectures, and the physical controls that protect facilities.",
+      "domains": [
+        "cissp_arch_eng"
+      ],
+      "milestone_size": 27,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cissp-l-security-models",
+          "title": "Security Models & Trusted System Capabilities",
+          "markdown_path": "cissp/security-models.md",
+          "subtopics": [
+            "cissp_security_models",
+            "cissp_security_capabilities"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cissp-l-cryptography",
+          "title": "Cryptography & Public Key Infrastructure",
+          "markdown_path": "cissp/cryptography.md",
+          "subtopics": [
+            "cissp_crypto"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cissp-l-arch-vulns-physical",
+          "title": "Architecture Vulnerabilities & Physical Security",
+          "markdown_path": "cissp/arch-vulns-physical.md",
+          "subtopics": [
+            "cissp_vuln_architectures",
+            "cissp_physical_security"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cissp-u4",
+      "order": 4,
+      "title": "Communication and Network Security",
+      "summary": "How networks are designed, defended and attacked: layered models and secure design, network components, the protocols that build secure channels such as TLS and IPsec, and the attacks you must anticipate.",
+      "domains": [
+        "cissp_comm_net"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cissp-l-network-design",
+          "title": "Secure Network Design & Components",
+          "markdown_path": "cissp/network-design.md",
+          "subtopics": [
+            "cissp_secure_network_design",
+            "cissp_network_components"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cissp-l-secure-channels",
+          "title": "Secure Channels & Network Attacks",
+          "markdown_path": "cissp/secure-channels.md",
+          "subtopics": [
+            "cissp_secure_channels",
+            "cissp_network_attacks"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cissp-u5",
+      "order": 5,
+      "title": "Identity and Access Management (IAM)",
+      "summary": "Deciding and proving who may touch what: the identity lifecycle, authentication factors and protocols, the classic access-control models, and federated single sign-on across organizations.",
+      "domains": [
+        "cissp_iam"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cissp-l-identity-authn",
+          "title": "Identity Lifecycle & Authentication",
+          "markdown_path": "cissp/identity-authn.md",
+          "subtopics": [
+            "cissp_identity_lifecycle",
+            "cissp_authentication_methods"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cissp-l-access-federation",
+          "title": "Access Control Models & Federated Identity",
+          "markdown_path": "cissp/access-federation.md",
+          "subtopics": [
+            "cissp_access_control_models",
+            "cissp_federated_identity"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cissp-u6",
+      "order": 6,
+      "title": "Security Assessment and Testing",
+      "summary": "Knowing whether controls actually work: choosing assessment strategies, running the right security tests, reviewing audit logs and third-party audit reports, and turning results into prioritized action.",
+      "domains": [
+        "cissp_assess_test"
+      ],
+      "milestone_size": 25,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cissp-l-assessment-testing",
+          "title": "Assessment Strategies & Security Testing",
+          "markdown_path": "cissp/assessment-testing.md",
+          "subtopics": [
+            "cissp_assessment_strategies",
+            "cissp_security_testing"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cissp-l-audit-outputs",
+          "title": "Audits, Log Reviews & Reporting Results",
+          "markdown_path": "cissp/audit-outputs.md",
+          "subtopics": [
+            "cissp_audit_logging",
+            "cissp_test_outputs"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cissp-u7",
+      "order": 7,
+      "title": "Security Operations",
+      "summary": "The daily discipline of running security: investigations and forensics, logging and monitoring, incident response, change and configuration management, and recovering from disaster.",
+      "domains": [
+        "cissp_sec_ops"
+      ],
+      "milestone_size": 27,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cissp-l-investigations-ir",
+          "title": "Investigations, Forensics & Incident Management",
+          "markdown_path": "cissp/investigations-ir.md",
+          "subtopics": [
+            "cissp_investigations",
+            "cissp_incident_management"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cissp-l-logging-change",
+          "title": "Logging, Monitoring & Change Management",
+          "markdown_path": "cissp/logging-change.md",
+          "subtopics": [
+            "cissp_logging_monitoring",
+            "cissp_change_config_mgmt"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cissp-l-disaster-recovery",
+          "title": "Disaster Recovery & Operational Resilience",
+          "markdown_path": "cissp/disaster-recovery.md",
+          "subtopics": [
+            "cissp_dr_recovery"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "cissp-u8",
+      "order": 8,
+      "title": "Software Development Security",
+      "summary": "Building security into software: the secure SDLC and DevSecOps, secure coding against the OWASP Top 10, and recognizing the vulnerability classes that plague modern applications.",
+      "domains": [
+        "cissp_software_dev"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "cissp-l-secure-sdlc",
+          "title": "Secure SDLC & DevSecOps",
+          "markdown_path": "cissp/secure-sdlc.md",
+          "subtopics": [
+            "cissp_sdlc_security",
+            "cissp_devsecops"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "cissp-l-secure-coding",
+          "title": "Secure Coding & Software Vulnerabilities",
+          "markdown_path": "cissp/secure-coding.md",
+          "subtopics": [
+            "cissp_secure_coding",
+            "cissp_software_vulns"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}

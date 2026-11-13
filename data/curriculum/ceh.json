@@ -1,0 +1,231 @@
+{
+  "exam": "ceh",
+  "units": [
+    {
+      "id": "ceh-u1",
+      "order": 1,
+      "title": "Overview, Reconnaissance and Scanning",
+      "summary": "What ethical hacking is and the rules that make it legal, then the first active phases of an authorized assessment: footprinting a target from public sources, scanning networks for live hosts and open ports, enumerating services for detail, and analysing the vulnerabilities you find.",
+      "domains": [
+        "ceh_intro_recon"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "ceh-l-overview-footprinting",
+          "title": "Ethical Hacking Overview & Footprinting",
+          "markdown_path": "ceh/overview-footprinting.md",
+          "subtopics": [
+            "ceh_ethics_overview",
+            "ceh_footprinting"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "ceh-l-scanning-enumeration",
+          "title": "Scanning Networks & Enumeration",
+          "markdown_path": "ceh/scanning-enumeration.md",
+          "subtopics": [
+            "ceh_scanning",
+            "ceh_enumeration"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "ceh-l-vuln-analysis",
+          "title": "Vulnerability Analysis",
+          "markdown_path": "ceh/vuln-analysis.md",
+          "subtopics": [
+            "ceh_vuln_analysis"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "ceh-u2",
+      "order": 2,
+      "title": "System Hacking and Malware",
+      "summary": "How attackers turn access into control and keep it: the system-hacking cycle of gaining access, escalating privilege, maintaining access and clearing tracks, plus the malware families and analysis concepts behind the tools they deploy. Taught conceptually, with the defenses for each.",
+      "domains": [
+        "ceh_system_malware"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "ceh-l-system-hacking",
+          "title": "System Hacking Concepts",
+          "markdown_path": "ceh/system-hacking.md",
+          "subtopics": [
+            "ceh_system_hacking"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "ceh-l-malware-threats",
+          "title": "Malware Threats",
+          "markdown_path": "ceh/malware-threats.md",
+          "subtopics": [
+            "ceh_malware_threats"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "ceh-u3",
+      "order": 3,
+      "title": "Network and Perimeter Hacking",
+      "summary": "The attack classes that target the network and its perimeter: sniffing traffic and hijacking sessions, manipulating people through social engineering, overwhelming availability with denial-of-service, and evading the IDS, firewalls and honeypots meant to stop all of it. Each paired with its defense.",
+      "domains": [
+        "ceh_network_perimeter"
+      ],
+      "milestone_size": 28,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "ceh-l-sniffing-hijacking",
+          "title": "Sniffing & Session Hijacking",
+          "markdown_path": "ceh/sniffing-hijacking.md",
+          "subtopics": [
+            "ceh_sniffing",
+            "ceh_session_hijacking"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "ceh-l-social-engineering",
+          "title": "Social Engineering",
+          "markdown_path": "ceh/social-engineering.md",
+          "subtopics": [
+            "ceh_social_engineering"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "ceh-l-dos-ddos",
+          "title": "Denial-of-Service",
+          "markdown_path": "ceh/dos-ddos.md",
+          "subtopics": [
+            "ceh_dos_ddos"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "ceh-l-evading-ids-firewalls",
+          "title": "Evading IDS, Firewalls & Honeypots",
+          "markdown_path": "ceh/evading-ids-firewalls.md",
+          "subtopics": [
+            "ceh_evading_ids_fw"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "ceh-u4",
+      "order": 4,
+      "title": "Web Application Hacking",
+      "summary": "The web tier, from the server out to the application: how web servers are misconfigured and hardened, the OWASP Top 10 classes of application flaw and their fixes, and a focused look at SQL injection. Vulnerabilities are taught by definition and defense, never as working exploits.",
+      "domains": [
+        "ceh_web_hacking"
+      ],
+      "milestone_size": 26,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "ceh-l-web-servers",
+          "title": "Hacking Web Servers",
+          "markdown_path": "ceh/web-servers.md",
+          "subtopics": [
+            "ceh_web_servers"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "ceh-l-web-apps",
+          "title": "Hacking Web Applications & the OWASP Top 10",
+          "markdown_path": "ceh/web-apps.md",
+          "subtopics": [
+            "ceh_web_apps"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "ceh-l-sql-injection",
+          "title": "SQL Injection",
+          "markdown_path": "ceh/sql-injection.md",
+          "subtopics": [
+            "ceh_sql_injection"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "ceh-u5",
+      "order": 5,
+      "title": "Wireless, Mobile, IoT and OT Hacking",
+      "summary": "Security beyond the wired LAN: the wireless encryption standards and the attacks against them, the mobile platform security models and their threats, and the IoT and OT ecosystems whose weak defaults and long lifecycles make them a growing target. Framed conceptually with defenses throughout.",
+      "domains": [
+        "ceh_wireless_mobile"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "ceh-l-wireless",
+          "title": "Wireless Network Hacking",
+          "markdown_path": "ceh/wireless.md",
+          "subtopics": [
+            "ceh_wireless"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "ceh-l-mobile-iot-ot",
+          "title": "Mobile, IoT & OT Hacking",
+          "markdown_path": "ceh/mobile-iot-ot.md",
+          "subtopics": [
+            "ceh_mobile_platforms",
+            "ceh_iot_ot"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    },
+    {
+      "id": "ceh-u6",
+      "order": 6,
+      "title": "Cloud Computing and Cryptography",
+      "summary": "Two foundations of modern systems: cloud computing, with its service models, shared responsibility and the misconfigurations that dominate cloud breaches, and cryptography, with the symmetric, asymmetric and hashing building blocks, PKI, and the attack classes that target weak crypto. Concept and defense, not exploitation.",
+      "domains": [
+        "ceh_cloud_crypto"
+      ],
+      "milestone_size": 24,
+      "pbq_id": null,
+      "lessons": [
+        {
+          "id": "ceh-l-cloud-computing",
+          "title": "Cloud Computing Security",
+          "markdown_path": "ceh/cloud-computing.md",
+          "subtopics": [
+            "ceh_cloud_computing"
+          ],
+          "quiz_size": 8
+        },
+        {
+          "id": "ceh-l-cryptography",
+          "title": "Cryptography",
+          "markdown_path": "ceh/cryptography.md",
+          "subtopics": [
+            "ceh_cryptography"
+          ],
+          "quiz_size": 8
+        }
+      ]
+    }
+  ]
+}
